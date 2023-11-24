@@ -1,0 +1,15 @@
+@import '../../style/_import.mixin.scss';
+
+.page-footer {
+  font-size: 13px;
+  color: #222;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid rgba($color: $mainColor, $alpha: .5);
+  margin-top: 10px;
+
+  a{
+    text-decoration: underline;
+    color: $mainColor;
+  }
+}

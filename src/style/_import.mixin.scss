@@ -1,0 +1,11 @@
+$vm_base: 750;
+$vh_base: 1125;
+$mainColor: #75a06d;
+$primaryColor: #4797b1;
+$dialogMainColor: #878ecd;
+$firstColor: #f8b500;
+$secColor: #3a6198;
+$thirdColor: #a57527;
+@function vw($px) {
+  @return ($px / $vm_base) * 100vw;
+}

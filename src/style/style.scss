@@ -1,0 +1,91 @@
+@import "./_import.reset.scss";
+@import "./_import.mixin.scss";
+@import "./_import.mod-nav.scss";
+@import "./_import.mod-btn.scss";
+
+body {
+  line-height: 1.5;
+  font-size: 16px;
+  color: #333;
+  background: #f1f1f1 url(../img/ui/bg.png);
+}
+
+input[type=text],
+input[type=password],
+textarea {
+  background-color: rgba(#fff, .5);
+  border: 1px solid rgba(#000, .2);
+  border-radius: 4px;
+}
+
+.ipt {
+  height: 36px;
+  box-sizing: border-box;
+  padding: 0 5px;
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  transform: translateZ(0);
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+h2 {
+  font-size: 24px;
+  padding-left: 16px;
+  position: relative;
+  color: $mainColor;
+  margin-left: 5px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 6px;
+    background: $mainColor
+  }
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.page {
+  &-item {
+    display: none;
+
+    &.cur {
+      display: block;
+    }
+  }
+
+  &-title {
+    position: relative;
+
+    h2 {
+      line-height: 36px;
+    }
+
+    &__extra {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
+
+      .mc-time {
+        white-space: nowrap;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.mod-tips {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 3px;
+}

@@ -1,0 +1,85 @@
+@import "./_import.mixin.scss";
+
+.nav {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  z-index: 49;
+  left: 0;
+  bottom: -2px;
+  background: $primaryColor;
+  text-align: center;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  user-select: none;
+
+  ul {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  li {
+    width: 50%;
+    height: 38px;
+    font-size: 18px;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+
+    &:hover,
+    &:active {
+      color: #f1f1f1
+    }
+
+    &.cur {
+      color: #f7f3ce
+    }
+
+    &:not(:last-child):after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      top: 5px;
+      bottom: 5px;
+      right: -0.5px;
+      background: rgba($color: #fff, $alpha: .2);
+      z-index: 2;
+    }
+  }
+
+  &__sub {
+    opacity: .6;
+    font-size: 11px;
+  }
+}
+
+.main {
+  padding-bottom: 38px;
+}
+
+@media screen and (max-width: 660px) {
+  $navItemHeight: 32px;
+
+  .main {
+    padding-bottom: $navItemHeight * 2;
+  }
+
+  .nav {
+    height: $navItemHeight * 2;
+    line-height: $navItemHeight;
+
+    ul {
+      flex-flow: row wrap;
+    }
+
+    li {
+      width: percentage($number: 1 / 3);
+      font-size: 13px;
+      height: $navItemHeight;
+      overflow: hidden;
+    }
+  }
+}

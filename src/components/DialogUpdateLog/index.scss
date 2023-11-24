@@ -1,0 +1,51 @@
+@import '../../style/_import.mixin.scss';
+.dialog-update{
+  font-size: 14px;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  em {
+      font-style: italic;
+    }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  ul,
+  ol {
+    margin-left: 1em;
+  }
+
+  ul {
+    li {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: #4b4b4b;
+        left: -10px;
+        top: 6px;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+    margin-left: 2em;
+  }
+
+  a {
+    color: #bc4693;
+  }
+}

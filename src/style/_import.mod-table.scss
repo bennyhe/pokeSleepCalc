@@ -1,0 +1,73 @@
+@import "./_import.mixin.scss";
+
+.mod-tb {
+  line-height: 1.1;
+
+  table {
+    width: 100%;
+  }
+
+  th {
+    padding: 5px 0;
+  }
+  td {
+    padding: 3px 0;
+  }
+
+  thead th {
+    color: $mainColor;
+    border-bottom: 1px dashed rgba($color: $mainColor, $alpha: .7);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  tbody {
+    font-size: 13px;
+
+    td {
+      border-bottom: 1px solid #e7e7e7;
+      vertical-align: middle;
+    }
+
+    tr {
+      background-color: rgba($color: #fff, $alpha: .3);
+
+      &.empty {
+        color: #817c7c;
+        line-height: 36px;
+      }
+
+      &:nth-child(2n) {
+        background-color: rgba($color: $primaryColor, $alpha: .1)
+      }
+
+      &:hover,
+      &:active {
+        background-color: rgba($color: $mainColor, $alpha: .1);
+      }
+    }
+  }
+
+  &__row {
+    &--1 {
+      color: $firstColor;
+    }
+    &--2 {
+      color: $secColor;
+    }
+    &--3 {
+      color: $thirdColor;
+    }
+  }
+
+  &--txt-center {
+    text-align: center;
+  }
+  
+  .anipic {
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+  }
+
+}
