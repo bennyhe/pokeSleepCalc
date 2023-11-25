@@ -13,64 +13,64 @@ const gameMap = [
       energy: 0
     }, {
       name: '普通2',
-      energy: 0
+      energy: 3118
     }, {
       name: '普通3',
-      energy: 0
+      energy: 7171
     }, {
       name: '普通4',
-      energy: 0
+      energy: 11693
     }, {
       name: '普通5',
-      energy: 0
+      energy: 17149
     }, {
       name: '超级1',
-      energy: 0
+      energy: 23385
     }, {
       name: '超级2',
-      energy: 0
+      energy: 31492
     }, {
       name: '超级3',
-      energy: 0
+      energy: 41314
     }, {
       name: '超级4',
-      energy: 0
+      energy: 53006
     }, {
       name: '超级5',
-      energy: 0
+      energy: 65634
     }, {
       name: '高级1',
-      energy: 0
+      energy: 79197
     }, {
       name: '高级2',
-      energy: 0
+      energy: 93540
     }, {
       name: '高级3',
-      energy: 0
+      energy: 109130
     }, {
       name: '高级4',
-      energy: 0
+      energy: 125032
     }, {
       name: '高级5',
-      energy: 0
+      energy: 156121
     }, {
       name: '大师1',
-      energy: 0
+      energy: 187832
     }, {
       name: '大师2',
-      energy: 0
+      energy: 220177
     }, {
       name: '大师3',
-      energy: 0
+      energy: 253169
     }, {
       name: '大师4',
-      energy: 0
+      energy: 286821
     }, {
       name: '大师5',
-      energy: 0
+      energy: 321146
     }, {
       name: '大师6以上',
-      energy: 0
+      energy: 356158
     }]
   },
   {
@@ -87,64 +87,64 @@ const gameMap = [
       energy: 0
     }, {
       name: '普通2',
-      energy: 0
+      energy: 4822
     }, {
       name: '普通3',
-      energy: 0
+      energy: 11090
     }, {
       name: '普通4',
-      energy: 0
+      energy: 18082
     }, {
       name: '普通5',
-      energy: 0
+      energy: 26520
     }, {
       name: '超级1',
-      energy: 0
+      energy: 36164
     }, {
       name: '超级2',
-      energy: 0
+      energy: 48700
     }, {
       name: '超级3',
-      energy: 0
+      energy: 63889
     }, {
       name: '超级4',
-      energy: 0
+      energy: 81971
     }, {
       name: '超级5',
-      energy: 0
+      energy: 101499
     }, {
       name: '高级1',
-      energy: 0
+      energy: 122474
     }, {
       name: '高级2',
-      energy: 0
+      energy: 144654
     }, {
       name: '高级3',
-      energy: 0
+      energy: 168763
     }, {
       name: '高级4',
-      energy: 0
+      energy: 195283
     }, {
       name: '高级5',
-      energy: 0
+      energy: 224455
     }, {
       name: '大师1',
-      energy: 0
+      energy: 256544
     }, {
       name: '大师2',
-      energy: 0
+      energy: 291842
     }, {
       name: '大师3',
-      energy: 0
+      energy: 330670
     }, {
       name: '大师4',
-      energy: 0
+      energy: 373381
     }, {
       name: '大师5',
-      energy: 0
+      energy: 420363
     }, {
       name: '大师6以上',
-      energy: 0
+      energy: 472043
     }]
   },
   {
@@ -161,64 +161,64 @@ const gameMap = [
       energy: 0
     }, {
       name: '普通2',
-      energy: 0
+      energy: 6885
     }, {
       name: '普通3',
-      energy: 0
+      energy: 15835
     }, {
       name: '普通4',
-      energy: 0
+      energy: 25817
     }, {
       name: '普通5',
-      energy: 0
+      energy: 37865
     }, {
       name: '超级1',
-      energy: 0
+      energy: 51635
     }, {
       name: '超级2',
-      energy: 0
+      energy: 69534
     }, {
       name: '超级3',
-      energy: 0
+      energy: 91221
     }, {
       name: '超级4',
-      energy: 0
+      energy: 117038
     }, {
       name: '超级5',
-      energy: 0
+      energy: 144921
     }, {
       name: '高级1',
-      energy: 0
+      energy: 174869
     }, {
       name: '高级2',
-      energy: 0
+      energy: 206538
     }, {
       name: '高级3',
-      energy: 0
+      energy: 240961
     }, {
       name: '高级4',
-      energy: 0
+      energy: 278826
     }, {
       name: '高级5',
-      energy: 0
+      energy: 320478
     }, {
       name: '大师1',
-      energy: 0
+      energy: 366295
     }, {
       name: '大师2',
-      energy: 0
+      energy: 416694
     }, {
       name: '大师3',
-      energy: 0
+      energy: 472133
     }, {
       name: '大师4',
-      energy: 0
+      energy: 533116
     }, {
       name: '大师5',
-      energy: 0
+      energy: 600197
     }, {
       name: '大师6以上',
-      energy: 0
+      energy: 673986
     }]
   },
   {
@@ -235,64 +235,64 @@ const gameMap = [
       energy: 0
     }, {
       name: '普通2',
-      energy: 0
+      energy: 10486
     }, {
       name: '普通3',
-      energy: 0
+      energy: 24118
     }, {
       name: '普通4',
-      energy: 0
+      energy: 39323
     }, {
       name: '普通5',
-      energy: 0
+      energy: 57673
     }, {
       name: '超级1',
-      energy: 0
+      energy: 78645
     }, {
       name: '超级2',
-      energy: 0
+      energy: 105909
     }, {
       name: '超级3',
-      energy: 0
+      energy: 138940
     }, {
       name: '超级4',
-      energy: 0
+      energy: 178262
     }, {
       name: '超级5',
-      energy: 0
+      energy: 220730
     }, {
       name: '高级1',
-      energy: 0
+      energy: 266344
     }, {
       name: '高级2',
-      energy: 0
+      energy: 314580
     }, {
       name: '高级3',
-      energy: 0
+      energy: 367010
     }, {
       name: '高级4',
-      energy: 0
+      energy: 424683
     }, {
       name: '高级5',
-      energy: 0
+      energy: 488123
     }, {
       name: '大师1',
-      energy: 0
+      energy: 557907
     }, {
       name: '大师2',
-      energy: 0
+      energy: 634669
     }, {
       name: '大师3',
-      energy: 0
+      energy: 719107
     }, {
       name: '大师4',
-      energy: 0
+      energy: 811989
     }, {
       name: '大师5',
-      energy: 0
+      energy: 914159
     }, {
       name: '大师6以上',
-      energy: 0
+      energy: 1026546
     }]
   }
 ]

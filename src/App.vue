@@ -2,18 +2,31 @@
 import { ref } from 'vue'
 import PageFooter from './components/PageFooter/index.vue'
 import gameMap from './config/game.js'
-import {toHM,getNum} from './utils/index.js'
+import { toHM, getNum } from './utils/index.js'
 
 const userData = ref({
-  CurEnergy: 564000,
+  CurEnergy: 0,
   curStageIndex: 0,
   maxNumScore: 19564316,
-  curMap: 0,
-  isSplitSleep: 1
+  curMap: 0
 })
 
 const handleClickChangeMap = id => {
   userData.value.curMap = id
+  // 8只起步随着切岛记录
+  userData.value.maxNumScore = gameMap[userData.value.curMap].scoreList[
+    gameMap[userData.value.curMap].scoreList.length - 1
+  ].startscore
+  userData.value.CurEnergy =
+    gameMap[userData.value.curMap].levelList[
+      userData.value.curStageIndex
+    ].energy
+}
+const handleClickChangeStage = stageItem => {
+  userData.value.CurEnergy =
+    gameMap[userData.value.curMap].levelList[
+      userData.value.curStageIndex
+    ].energy
 }
 </script>
 
@@ -44,6 +57,7 @@ const handleClickChangeMap = id => {
                 clearable
                 filterable
                 class="m-2"
+                @change="handleClickChangeStage()"
               >
                 <el-option
                   v-for="(stageItem, stageIndex) in gameMap[userData.curMap]
@@ -61,37 +75,56 @@ const handleClickChangeMap = id => {
                 class="m-2"
             /></el-col>
           </el-form-item>
-          <!-- <el-form-item label="是否拆分睡眠">
-            <el-radio-group v-model="userData.isSplitSleep" class="ml-4">
-              <el-radio label="1">拆分2觉</el-radio>
-              <el-radio label="0">不拆</el-radio>
-            </el-radio-group>
-          </el-form-item> -->
-          <el-form-item label="第1觉">
-            达到8只所需睡眠{{
-             toHM( ((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100)
-            }}，可获得{{ getNum(userData.maxNumScore) }}睡眠之力
+          <el-form-item label="不拆分">
+            满睡眠8小时30分钟，可获得至少{{
+              getNum(userData.CurEnergy * 100)
+            }}睡眠之力
           </el-form-item>
-          <el-form-item label="第2觉">
+          <el-form-item
+            label="第1觉"
+            v-if="userData.CurEnergy * 100 > userData.maxNumScore"
+          >
+            达到8只所需睡眠{{
+              toHM(((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100)
+            }}，可获得至少{{ getNum(userData.maxNumScore) }}睡眠之力
+          </el-form-item>
+          <el-form-item
+            label="第2觉"
+            v-if="userData.CurEnergy * 100 > userData.maxNumScore"
+          >
             <p>
               剩余睡眠{{
-               toHM(8.5 - ((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100)
-              }}即可达到当日评分满分，可获得{{getNum(
-                userData.CurEnergy *
-                (100 - userData.maxNumScore / userData.CurEnergy))
+                toHM(
+                  8.5 -
+                    ((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100
+                )
+              }}即可达到当日评分满分，可获得至少{{
+                getNum(
+                  userData.CurEnergy *
+                    (100 - userData.maxNumScore / userData.CurEnergy)
+                )
               }}睡眠之力
             </p>
           </el-form-item>
+          <el-form-item label="">
+            <div class="mod-tips">
+              <p>* 开帐篷可额外加1只，熏香可额外加1只</p>
+              <p>* 开帐篷以及特殊日子的睡眠之力不再计算范围内</p>
+            </div>
+          </el-form-item>
         </el-form>
-
         <h2>{{ gameMap[userData.curMap].name }}-睡眠之力参考</h2>
-        <ul>
+        <ul class="score-list">
           <li
-            v-for="catchItem in gameMap[userData.curMap].scoreList"
+            v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
             v-bind:key="catchItem.catchNum"
           >
-            {{ catchItem.catchNum }} 只: {{getNum(catchItem.startscore)}} -
-            {{getNum(catchItem.endScore)}}
+            {{ catchItem.catchNum }} 只: {{ getNum(catchItem.startscore) }}
+            <template
+              v-if="catchKey !== gameMap[userData.curMap].scoreList.length - 1"
+              >- {{ getNum(catchItem.endScore) }}</template
+            >
+            <template v-else>以上</template>
           </li>
         </ul>
       </div>

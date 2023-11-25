@@ -26,11 +26,11 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3228,
+    port: 3229,
     cros: true,
     open: true
   },
-  base: 'pokeSleepCalc/',
+  base: 'pokesleepcalc/',
   resolve: {
     alias: [{
       find: '@',
