@@ -10,20 +10,6 @@ body {
   background: #f1f1f1 url(../img/ui/bg.png);
 }
 
-input[type=text],
-input[type=password],
-textarea {
-  background-color: rgba(#fff, .5);
-  border: 1px solid rgba(#000, .2);
-  border-radius: 4px;
-}
-
-.ipt {
-  height: 36px;
-  box-sizing: border-box;
-  padding: 0 5px;
-}
-
 .main {
   max-width: 1280px;
   margin: 0 auto;
@@ -88,4 +74,35 @@ h3 {
   font-size: 12px;
   color: #bbb;
   margin-top: 3px;
+}
+
+.mod-select-list {
+  font-size: 14px;
+  line-height: 1;
+
+  &__item {
+    display: inline-block;
+    border: 1px solid #333;
+    border-radius: 30px;
+    padding: 5px 0;
+    width: 68px;
+    margin: 3px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba($color: #000000, $alpha: .1);
+    opacity: .6;
+
+    &:hover,
+    &:active {
+      color: $mainColor;
+    }
+
+    &.cur {
+      border-color: $mainColor;
+      font-weight: bold;
+      color: $mainColor;
+      background: none;
+      opacity: 1;
+    }
+  }
 }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.6",
+    "element-plus": "^2.4.2",
     "md-js": "^1.0.5",
     "sass": "^1.32.13",
     "vue": "^3.2.25"

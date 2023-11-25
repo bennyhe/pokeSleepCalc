@@ -15,6 +15,7 @@ module.exports = {
     'vue'
   ],
   rules: {
+    // 'vue/multi-word-component-names': 'off',
     'vue/html-closing-bracket-newline': 'off', // 不强制换行
     'vue/singleline-html-element-content-newline': 'off', // 不强制换行
     'vue/max-attributes-per-line': ['error', {
