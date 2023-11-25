@@ -7,7 +7,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: #333;
-  background: #f1f1f1 url(../../img/ui/bg.png);
+  background: #f1f1f1 url(../img/ui/bg.png);
 }
 
 .main {
@@ -16,6 +16,21 @@ body {
   transform: translateZ(0);
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
+}
+
+.i {
+  display: inline-block;
+  vertical-align: middle;
+
+  &-close {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url(../img/ui/close.png) center center no-repeat;
+    background-size: 80% 80%;
+    border-radius: 100%;
+    background-color: #fff;
+  }
 }
 
 h2 {
@@ -110,4 +125,17 @@ h3 {
 .score-list {
   padding: 5px 10px;
   font-size: 15px;
+}
+
+// 移动端适配
+@media screen and (max-width: 660px) {
+  .m-dialog {
+    &__bd {
+      width: vw(676);
+    }
+
+    &__close {
+      margin-left: vw(676 - 62);
+    }
+  }
 }
