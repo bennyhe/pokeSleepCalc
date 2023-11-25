@@ -2,6 +2,11 @@
   <div class="page-footer">
     <p>仅供编程学习开发交流，不做商业用途，如有侵犯，请联系删除</p>
     <p>
+      <a href="https://github.com/bennyhe/pokeSleepCalc" target="_blank"
+        >Github
+      </a>
+    </p>
+    <p>
       <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志</a>
     </p>
     <CptDialogUpdateLog v-bind:key="dialogId" :isShow="isShowDialog" />
