@@ -7,16 +7,18 @@ import { toHM, getNum } from './utils/index.js'
 const userData = ref({
   CurEnergy: 0,
   curStageIndex: 0,
-  maxNumScore: 19564316,
-  curMap: 0
+  mapMaxScore: 19564316,
+  curMap: 0,
+  times: '1'
 })
 
 const handleClickChangeMap = id => {
   userData.value.curMap = id
   // 8只起步随着切岛记录
-  userData.value.maxNumScore = gameMap[userData.value.curMap].scoreList[
-    gameMap[userData.value.curMap].scoreList.length - 1
-  ].startscore
+  userData.value.mapMaxScore =
+    gameMap[userData.value.curMap].scoreList[
+      gameMap[userData.value.curMap].scoreList.length - 1
+    ].startscore
   userData.value.CurEnergy =
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
@@ -27,6 +29,15 @@ const handleClickChangeStage = stageItem => {
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
+}
+const firstSleepTime = () => {
+  return (
+    ((userData.value.mapMaxScore /
+      userData.value.CurEnergy /
+      userData.value.times) *
+      8.5) /
+    100
+  )
 }
 </script>
 
@@ -75,41 +86,45 @@ const handleClickChangeStage = stageItem => {
                 class="m-2"
             /></el-col>
           </el-form-item>
+          <el-form-item label="特殊加成">
+            <el-radio-group v-model="userData.times" class="ml-4">
+              <el-radio label="1">平时</el-radio>
+              <el-radio label="1.5">好眠日1.5倍</el-radio>
+              <el-radio label="4">满月日4倍</el-radio>
+            </el-radio-group>
+          </el-form-item>
           <el-form-item label="不拆分">
-            满睡眠8小时30分钟，可获得至少{{
-              getNum(userData.CurEnergy * 100)
-            }}睡眠之力
+            满睡眠<span class="sptime">8小时30分钟</span>，可获得至少<span class="spscore">{{
+              getNum(userData.CurEnergy * 100 * parseFloat(userData.times))
+            }}</span>睡眠之力
           </el-form-item>
           <el-form-item
             label="第1觉"
-            v-if="userData.CurEnergy * 100 > userData.maxNumScore"
+            v-if="userData.CurEnergy * 100 > userData.mapMaxScore"
           >
-            达到8只所需睡眠{{
-              toHM(((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100)
-            }}，可获得至少{{ getNum(userData.maxNumScore) }}睡眠之力
+            达到<span class="sptime">8只</span>所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span>，可获得至少<span class="spscore">{{
+              getNum(userData.mapMaxScore)
+            }}</span>睡眠之力
           </el-form-item>
           <el-form-item
             label="第2觉"
-            v-if="userData.CurEnergy * 100 > userData.maxNumScore"
+            v-if="userData.CurEnergy * 100 > userData.mapMaxScore"
           >
             <p>
-              剩余睡眠{{
-                toHM(
-                  8.5 -
-                    ((userData.maxNumScore / userData.CurEnergy) * 8.5) / 100
-                )
-              }}即可达到当日评分满分，可获得至少{{
+              剩余睡眠<span class="sptime">{{
+                toHM(8.5 - firstSleepTime())
+              }}</span>，可获得至少<span class="spscore">{{
                 getNum(
                   userData.CurEnergy *
-                    (100 - userData.maxNumScore / userData.CurEnergy)
+                    (100 - userData.mapMaxScore / userData.CurEnergy) * parseFloat(userData.times)
                 )
-              }}睡眠之力
+              }}</span>睡眠之力
             </p>
           </el-form-item>
           <el-form-item label="">
             <div class="mod-tips">
               <p>* 开帐篷可额外加1只，熏香可额外加1只</p>
-              <p>* 开帐篷以及特殊日子的睡眠之力不再计算范围内</p>
+              <p>* 开帐篷不再计算范围内</p>
             </div>
           </el-form-item>
         </el-form>

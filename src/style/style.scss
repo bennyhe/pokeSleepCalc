@@ -127,6 +127,16 @@ h3 {
   font-size: 15px;
 }
 
+.sptime {
+  color: $primaryColor;
+  font-size: 16px;
+}
+
+.spscore {
+  color: $dialogMainColor;
+  font-size: 18px;
+}
+
 // 移动端适配
 @media screen and (max-width: 660px) {
   .m-dialog {
