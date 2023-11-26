@@ -16,3 +16,16 @@ export function getNum(num) {
   }
   return num
 }
+
+export function getNumberInMap(nowScore, scoreList) {
+  console.log(scoreList, nowScore)
+  for (let i = 0; i < scoreList.length; i++) {
+    const el = scoreList[i]
+    if (i + 1 === scoreList.length && nowScore >= el.startscore) {
+      return el.catchNum
+    } else if (nowScore >= el.startscore && nowScore <= el.endScore) {
+      return el.catchNum
+    }
+  }
+  return 3
+}

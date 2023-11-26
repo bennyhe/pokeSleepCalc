@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import PageFooter from './components/PageFooter/index.vue'
 import gameMap from './config/game.js'
-import { toHM, getNum } from './utils/index.js'
+import { toHM, getNum, getNumberInMap } from './utils/index.js'
 
 const userData = ref({
   CurEnergy: 0,
@@ -30,6 +30,9 @@ const handleClickChangeStage = stageItem => {
       userData.value.curStageIndex
     ].energy
 }
+const getAllScore = () => {
+  return userData.value.CurEnergy * 100 * parseFloat(userData.value.times)
+}
 const firstSleepTime = () => {
   return (
     ((userData.value.mapMaxScore /
@@ -38,6 +41,13 @@ const firstSleepTime = () => {
       8.5) /
     100
   )
+}
+const secSleepScore = () => {
+  const res =
+    userData.value.CurEnergy *
+    (100 - userData.value.mapMaxScore / userData.value.CurEnergy) *
+    parseFloat(userData.value.times)
+  return res <= 0 ? 0 : res
 }
 </script>
 
@@ -94,31 +104,50 @@ const firstSleepTime = () => {
             </el-radio-group>
           </el-form-item>
           <el-form-item label="不拆分">
-            满睡眠<span class="sptime">8小时30分钟</span>，可获得至少<span class="spscore">{{
-              getNum(userData.CurEnergy * 100 * parseFloat(userData.times))
-            }}</span>睡眠之力
+            满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
+              class="sptime"
+              >{{
+                getNumberInMap(
+                  getAllScore(),
+                  gameMap[userData.curMap].scoreList
+                )
+              }}只</span
+            >，可获得至少<span class="spscore">{{ getNum(getAllScore()) }}</span
+            >睡眠之力
           </el-form-item>
           <el-form-item
             label="第1觉"
-            v-if="userData.CurEnergy * 100 > userData.mapMaxScore"
+            v-if="
+              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
+            "
           >
-            达到<span class="sptime">8只</span>所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span>，可获得至少<span class="spscore">{{
-              getNum(userData.mapMaxScore)
-            }}</span>睡眠之力
+            所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
+            >，可捕捉<span class="sptime">8只</span>，可获得至少<span
+              class="spscore"
+              >{{ getNum(userData.mapMaxScore) }}</span
+            >睡眠之力
           </el-form-item>
           <el-form-item
             label="第2觉"
-            v-if="userData.CurEnergy * 100 > userData.mapMaxScore"
+            v-if="
+              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
+            "
           >
             <p>
               剩余睡眠<span class="sptime">{{
                 toHM(8.5 - firstSleepTime())
-              }}</span>，可获得至少<span class="spscore">{{
-                getNum(
-                  userData.CurEnergy *
-                    (100 - userData.mapMaxScore / userData.CurEnergy) * parseFloat(userData.times)
-                )
-              }}</span>睡眠之力
+              }}</span
+              >，可捕捉<span class="sptime"
+                >{{
+                  getNumberInMap(
+                    secSleepScore(),
+                    gameMap[userData.curMap].scoreList
+                  )
+                }}只</span
+              >，可获得至少<span class="spscore">{{
+                getNum(secSleepScore())
+              }}</span
+              >睡眠之力
             </p>
           </el-form-item>
           <el-form-item label="">
