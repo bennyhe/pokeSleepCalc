@@ -30,8 +30,9 @@ const handleClickChangeStage = stageItem => {
       userData.value.curStageIndex
     ].energy
 }
-const getAllScore = () => {
-  return userData.value.CurEnergy * 100 * parseFloat(userData.value.times)
+const getScore = point => {
+  return userData.value.CurEnergy * point * parseFloat(userData.value.times)
+  return res <= 0 ? 0 : res
 }
 const firstSleepTime = () => {
   return (
@@ -42,12 +43,6 @@ const firstSleepTime = () => {
     100
   )
 }
-const secSleepScore = () => {
-  const res =
-    userData.value.CurEnergy *
-    (100 - userData.value.mapMaxScore / userData.value.CurEnergy) *
-    parseFloat(userData.value.times)
-  return res <= 0 ? 0 : res
 }
 </script>
 
@@ -108,11 +103,13 @@ const secSleepScore = () => {
               class="sptime"
               >{{
                 getNumberInMap(
-                  getAllScore(),
+                  getScore(100),
                   gameMap[userData.curMap].scoreList
                 )
               }}只</span
-            >，可获得至少<span class="spscore">{{ getNum(getAllScore()) }}</span
+            >，<span class="spscore">100分</span>，可获得至少<span
+              class="spscore"
+              >{{ getNum(getScore(100)) }}</span
             >睡眠之力
           </el-form-item>
           <el-form-item
@@ -122,9 +119,11 @@ const secSleepScore = () => {
             "
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
-            >，可捕捉<span class="sptime">8只</span>，可获得至少<span
-              class="spscore"
-              >{{ getNum(userData.mapMaxScore) }}</span
+            >，可捕捉<span class="sptime">8只</span>，<span class="spscore"
+              >{{ getFirstSleepScore() }}分</span
+            >，可获得至少<span class="spscore">{{
+              getNum(userData.mapMaxScore)
+            }}</span
             >睡眠之力
           </el-form-item>
           <el-form-item
@@ -140,12 +139,13 @@ const secSleepScore = () => {
               >，可捕捉<span class="sptime"
                 >{{
                   getNumberInMap(
-                    secSleepScore(),
+                    getScore(100 - getFirstSleepScore()),
                     gameMap[userData.curMap].scoreList
                   )
                 }}只</span
+              >，<span class="spscore">{{ 100 - getFirstSleepScore() }}分</span
               >，可获得至少<span class="spscore">{{
-                getNum(secSleepScore())
+                getNum(getScore(100 - getFirstSleepScore()))
               }}</span
               >睡眠之力
             </p>
