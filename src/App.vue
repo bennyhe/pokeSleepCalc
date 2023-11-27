@@ -34,15 +34,13 @@ const getScore = point => {
   return userData.value.CurEnergy * point * parseFloat(userData.value.times)
   return res <= 0 ? 0 : res
 }
-const firstSleepTime = () => {
-  return (
-    ((userData.value.mapMaxScore /
-      userData.value.CurEnergy /
-      userData.value.times) *
-      8.5) /
-    100
+const getFirstSleepScore = () => {
+  return parseInt(
+    userData.value.mapMaxScore / userData.value.CurEnergy / userData.value.times
   )
 }
+const firstSleepTime = () => {
+  return (getFirstSleepScore() * 8.5) / 100
 }
 </script>
 
@@ -152,8 +150,8 @@ const firstSleepTime = () => {
           </el-form-item>
           <el-form-item label="">
             <div class="mod-tips">
-              <p>* 开帐篷可额外加1只，熏香可额外加1只</p>
-              <p>* 开帐篷不再计算范围内</p>
+              <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
+              <p>* 开帐篷不在计算范围内。</p>
             </div>
           </el-form-item>
         </el-form>
