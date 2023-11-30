@@ -10,7 +10,7 @@ const userData = ref({
   mapMaxScore: 19564316,
   curMap: 0,
   times: '1',
-  cutNum: 8
+  cutNum: 4
 })
 
 const handleClickChangeMap = id => {
@@ -31,10 +31,13 @@ const handleClickChangeStage = stageItem => {
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
+  userData.value.cutNum = 4
+}
+const handleClickChangeTimes = () =>{
+  userData.value.cutNum = 4
 }
 const getScore = point => {
   return userData.value.CurEnergy * point * parseFloat(userData.value.times)
-  return res <= 0 ? 0 : res
 }
 const getFirstSleepScore = () => {
   return parseInt(
@@ -94,7 +97,7 @@ const firstSleepTime = () => {
             /></el-col>
           </el-form-item>
           <el-form-item label="特殊加成">
-            <el-radio-group v-model="userData.times" class="ml-4">
+            <el-radio-group v-model="userData.times" class="ml-4" @change="handleClickChangeTimes()">
               <el-radio label="1">平时</el-radio>
               <el-radio label="1.5">好眠日1.5倍</el-radio>
               <el-radio label="4">满月日4倍</el-radio>
