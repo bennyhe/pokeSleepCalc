@@ -18,7 +18,7 @@ export function getNum(num) {
 }
 
 export function getNumberInMap(nowScore, scoreList) {
-  console.log(scoreList, nowScore)
+  // console.log(scoreList, nowScore)
   for (let i = 0; i < scoreList.length; i++) {
     const el = scoreList[i]
     if (i + 1 === scoreList.length && nowScore >= el.startscore) {

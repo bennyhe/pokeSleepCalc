@@ -9,7 +9,8 @@ const userData = ref({
   curStageIndex: 0,
   mapMaxScore: 19564316,
   curMap: 0,
-  times: '1'
+  times: '1',
+  cutNum: 8
 })
 
 const handleClickChangeMap = id => {
@@ -17,7 +18,8 @@ const handleClickChangeMap = id => {
   // 8只起步随着切岛记录
   userData.value.mapMaxScore =
     gameMap[userData.value.curMap].scoreList[
-      gameMap[userData.value.curMap].scoreList.length - 1
+      getNumberInMap(getScore(100), gameMap[userData.value.curMap].scoreList) -
+        3
     ].startscore
   userData.value.CurEnergy =
     gameMap[userData.value.curMap].levelList[
@@ -36,7 +38,10 @@ const getScore = point => {
 }
 const getFirstSleepScore = () => {
   return parseInt(
-    userData.value.mapMaxScore / userData.value.CurEnergy / userData.value.times
+    gameMap[userData.value.curMap].scoreList[userData.value.cutNum - 3]
+      .startscore /
+      userData.value.CurEnergy /
+      userData.value.times
   )
 }
 const firstSleepTime = () => {
@@ -68,8 +73,6 @@ const firstSleepTime = () => {
               <el-select
                 v-model="userData.curStageIndex"
                 placeholder="请选择卡比兽级别"
-                clearable
-                filterable
                 class="m-2"
                 @change="handleClickChangeStage()"
               >
@@ -83,6 +86,7 @@ const firstSleepTime = () => {
             ></el-col>
             <el-col :span="11">
               <el-input
+                type="tel"
                 v-model="userData.CurEnergy"
                 placeholder="请输入当前能量"
                 clearable
@@ -111,23 +115,62 @@ const firstSleepTime = () => {
             >睡眠之力
           </el-form-item>
           <el-form-item
+            v-if="
+              getNumberInMap(
+                getScore(100),
+                gameMap[userData.curMap].scoreList
+              ) > 3
+            "
+          >
+            按<el-input-number
+              v-model="userData.cutNum"
+              :min="4"
+              :max="
+                getNumberInMap(
+                  getScore(100),
+                  gameMap[userData.curMap].scoreList
+                )
+              "
+              :step="1"
+            />只拆分睡眠
+          </el-form-item>
+          <el-form-item
             label="第1觉"
             v-if="
-              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
+              userData.CurEnergy * 100 * userData.times >
+              gameMap[userData.curMap].scoreList[
+                getNumberInMap(
+                  getScore(100),
+                  gameMap[userData.curMap].scoreList
+                ) - 3
+              ].startscore
             "
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
-            >，可捕捉<span class="sptime">8只</span>，<span class="spscore"
-              >{{ getFirstSleepScore() }}分</span
+            >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
+            >，约<span class="spscore">{{ getFirstSleepScore() }}分</span
             >，可获得至少<span class="spscore">{{
-              getNum(userData.mapMaxScore)
+              getNum(
+                gameMap[userData.curMap].scoreList[
+                  getNumberInMap(
+                    getScore(getFirstSleepScore()),
+                    gameMap[userData.curMap].scoreList
+                  ) - 2
+                ].startscore
+              )
             }}</span
             >睡眠之力
           </el-form-item>
           <el-form-item
             label="第2觉"
             v-if="
-              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
+              userData.CurEnergy * 100 * userData.times >
+              gameMap[userData.curMap].scoreList[
+                getNumberInMap(
+                  getScore(100),
+                  gameMap[userData.curMap].scoreList
+                ) - 3
+              ].startscore
             "
           >
             <p>
@@ -141,7 +184,8 @@ const firstSleepTime = () => {
                     gameMap[userData.curMap].scoreList
                   )
                 }}只</span
-              >，<span class="spscore">{{ 100 - getFirstSleepScore() }}分</span
+              >，约<span class="spscore"
+                >{{ 100 - getFirstSleepScore() }}分</span
               >，可获得至少<span class="spscore">{{
                 getNum(getScore(100 - getFirstSleepScore()))
               }}</span
