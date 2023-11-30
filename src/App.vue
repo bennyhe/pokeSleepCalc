@@ -25,6 +25,7 @@ const handleClickChangeMap = id => {
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
+  userData.value.cutNum = 4
 }
 const handleClickChangeStage = stageItem => {
   userData.value.CurEnergy =
