@@ -9,8 +9,7 @@ const userData = ref({
   curStageIndex: 0,
   mapMaxScore: 19564316,
   curMap: 0,
-  times: '1',
-  cutNum: 4
+  times: '1'
 })
 
 const handleClickChangeMap = id => {
@@ -18,34 +17,25 @@ const handleClickChangeMap = id => {
   // 8只起步随着切岛记录
   userData.value.mapMaxScore =
     gameMap[userData.value.curMap].scoreList[
-      getNumberInMap(getScore(100), gameMap[userData.value.curMap].scoreList) -
-        3
+      gameMap[userData.value.curMap].scoreList.length - 1
     ].startscore
   userData.value.CurEnergy =
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
-  userData.value.cutNum = 4
 }
 const handleClickChangeStage = stageItem => {
   userData.value.CurEnergy =
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
-  userData.value.cutNum = 4
-}
-const handleClickChangeTimes = () =>{
-  userData.value.cutNum = 4
 }
 const getScore = point => {
   return userData.value.CurEnergy * point * parseFloat(userData.value.times)
 }
 const getFirstSleepScore = () => {
   return parseInt(
-    gameMap[userData.value.curMap].scoreList[userData.value.cutNum - 3]
-      .startscore /
-      userData.value.CurEnergy /
-      userData.value.times
+    userData.value.mapMaxScore / userData.value.CurEnergy / userData.value.times
   )
 }
 const firstSleepTime = () => {
@@ -98,7 +88,7 @@ const firstSleepTime = () => {
             /></el-col>
           </el-form-item>
           <el-form-item label="特殊加成">
-            <el-radio-group v-model="userData.times" class="ml-4" @change="handleClickChangeTimes()">
+            <el-radio-group v-model="userData.times" class="ml-4">
               <el-radio label="1">平时</el-radio>
               <el-radio label="1.5">好眠日1.5倍</el-radio>
               <el-radio label="4">满月日4倍</el-radio>
@@ -119,62 +109,23 @@ const firstSleepTime = () => {
             >睡眠之力
           </el-form-item>
           <el-form-item
-            v-if="
-              getNumberInMap(
-                getScore(100),
-                gameMap[userData.curMap].scoreList
-              ) > 3
-            "
-          >
-            按<el-input-number
-              v-model="userData.cutNum"
-              :min="4"
-              :max="
-                getNumberInMap(
-                  getScore(100),
-                  gameMap[userData.curMap].scoreList
-                )
-              "
-              :step="1"
-            />只拆分睡眠
-          </el-form-item>
-          <el-form-item
             label="第1觉"
             v-if="
-              userData.CurEnergy * 100 * userData.times >
-              gameMap[userData.curMap].scoreList[
-                getNumberInMap(
-                  getScore(100),
-                  gameMap[userData.curMap].scoreList
-                ) - 3
-              ].startscore
+              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
             "
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
-            >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
-            >，约<span class="spscore">{{ getFirstSleepScore() }}分</span
+            >，可捕捉<span class="sptime">8只</span>，<span class="spscore"
+              >{{ getFirstSleepScore() }}分</span
             >，可获得至少<span class="spscore">{{
-              getNum(
-                gameMap[userData.curMap].scoreList[
-                  getNumberInMap(
-                    getScore(getFirstSleepScore()),
-                    gameMap[userData.curMap].scoreList
-                  ) - 2
-                ].startscore
-              )
+              getNum(userData.mapMaxScore)
             }}</span
             >睡眠之力
           </el-form-item>
           <el-form-item
             label="第2觉"
             v-if="
-              userData.CurEnergy * 100 * userData.times >
-              gameMap[userData.curMap].scoreList[
-                getNumberInMap(
-                  getScore(100),
-                  gameMap[userData.curMap].scoreList
-                ) - 3
-              ].startscore
+              userData.CurEnergy * 100 * userData.times > userData.mapMaxScore
             "
           >
             <p>
