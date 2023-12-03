@@ -23,7 +23,7 @@ export function getNumberInMap(nowScore, scoreList) {
     const el = scoreList[i]
     if (i + 1 === scoreList.length && nowScore >= el.startscore) {
       return el.catchNum
-    } else if (nowScore >= el.startscore && nowScore <= el.endScore) {
+    } else if (nowScore >= el.startscore && nowScore <= el.endscore) {
       return el.catchNum
     }
   }

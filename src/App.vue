@@ -171,7 +171,7 @@ const firstSleepTime = () => {
             {{ catchItem.catchNum }} 只: {{ getNum(catchItem.startscore) }}
             <template
               v-if="catchKey !== gameMap[userData.curMap].scoreList.length - 1"
-              >- {{ getNum(catchItem.endScore) }}</template
+              >- {{ getNum(catchItem.endscore) }}</template
             >
             <template v-else>以上</template>
           </li>
