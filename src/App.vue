@@ -113,7 +113,7 @@ const firstSleepTime = () => {
             >，<span class="spscore">100分</span>，可获得至少<span
               class="spscore"
               >{{ getNum(getScore(100)) }}</span
-            >睡眠之力
+            >睡意之力
           </el-form-item>
           <el-form-item
             label="第1觉"
@@ -128,7 +128,7 @@ const firstSleepTime = () => {
               >{{ getNum(getScore(getFirstSleepScore())) }}({{
                 getNum(userData.mapMaxScore)
               }})</span
-            >睡眠之力
+            >睡意之力
           </el-form-item>
           <el-form-item
             label="第2觉"
@@ -152,7 +152,7 @@ const firstSleepTime = () => {
               >，可获得至少<span class="spscore">{{
                 getNum(getScore(100 - getFirstSleepScore()))
               }}</span
-              >睡眠之力
+              >睡意之力
             </p>
           </el-form-item>
           <el-form-item label="">
@@ -162,7 +162,7 @@ const firstSleepTime = () => {
             </div>
           </el-form-item>
         </el-form>
-        <h2>{{ gameMap[userData.curMap].name }}-睡眠之力参考</h2>
+        <h2>{{ gameMap[userData.curMap].name }}-睡意之力参考</h2>
         <ul class="score-list">
           <li
             v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
