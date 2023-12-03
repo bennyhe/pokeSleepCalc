@@ -48,6 +48,16 @@ const getFirstSleepScore = () => {
 const firstSleepTime = () => {
   return (getFirstSleepScore() * 8.5) / 100
 }
+const getStageLevelPic = stageName => {
+  if (stageName.indexOf('超级') > -1) {
+    return 2
+  } else if (stageName.indexOf('高级') > -1) {
+    return 3
+  } else if (stageName.indexOf('大师') > -1) {
+    return 4
+  }
+  return 1
+}
 </script>
 
 <template>
@@ -56,6 +66,7 @@ const firstSleepTime = () => {
       <div class="page cur">
         <h2>拆分睡眠计算</h2>
         <el-form label-width="120px">
+          <!-- S 当前岛屿 -->
           <el-form-item label="当前岛屿">
             <ul class="mod-select-list">
               <li
@@ -65,10 +76,12 @@ const firstSleepTime = () => {
                 :class="{ cur: userData.curMap === mapIndex }"
                 @click="handleClickChangeMap(mapIndex)"
               >
-                {{ mapItem.name }}
+                <span class="mod-select-list__name">{{ mapItem.name }}</span>
+                <img v-lazy="`./img/ui/${mapItem.pic}.png`" />
               </li>
             </ul>
           </el-form-item>
+          <!-- E 当前岛屿 -->
           <el-form-item label="卡比兽级别/能量">
             <el-col :span="11">
               <el-select
@@ -83,8 +96,15 @@ const firstSleepTime = () => {
                   :key="stageIndex"
                   :label="stageItem.name"
                   :value="stageIndex"
-                /> </el-select
-            ></el-col>
+                >
+                  <img
+                    class="icon"
+                    v-lazy="`./img/ui/${getStageLevelPic(stageItem.name)}.png`"
+                  />
+                  {{ stageItem.name }}
+                </el-option>
+              </el-select></el-col
+            >
             <el-col :span="11">
               <el-input
                 type="tel"
@@ -92,7 +112,11 @@ const firstSleepTime = () => {
                 placeholder="请输入当前能量"
                 clearable
                 class="m-2"
-            /></el-col>
+              >
+                <template #prefix>
+                  <img class="icon" v-lazy="`./img/ui/energy.png`" />
+                </template> </el-input
+            ></el-col>
           </el-form-item>
           <el-form-item label="特殊加成">
             <el-radio-group v-model="userData.times" class="ml-4">

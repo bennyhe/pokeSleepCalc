@@ -33,6 +33,12 @@ body {
   }
 }
 
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
 h2 {
   font-size: 24px;
   padding-left: 16px;
@@ -97,15 +103,16 @@ h3 {
 
   &__item {
     display: inline-block;
-    border: 1px solid #333;
+    border: 1px solid #666;
     border-radius: 30px;
-    padding: 5px 0;
-    width: 68px;
+    width: 80px;
     margin: 3px;
     cursor: pointer;
     text-align: center;
-    background-color: rgba($color: #000000, $alpha: .1);
-    opacity: .6;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    color: #666;
 
     &:hover,
     &:active {
@@ -116,9 +123,30 @@ h3 {
       border-color: $mainColor;
       font-weight: bold;
       color: $mainColor;
-      background: none;
-      opacity: 1;
+
+      .mod-select-list__name {
+        opacity: 1;
+        background-color: rgba($color: #fff, $alpha: .2);
+      }
     }
+  }
+
+  &__name {
+    position: relative;
+    z-index: 5;
+    background-color: rgba($color: #000000, $alpha: .1);
+    display: block;
+    padding: 5px 0;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    opacity: .5;
   }
 }
 
