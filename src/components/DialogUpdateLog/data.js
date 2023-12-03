@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 23-12-03
 1. fix 计算睡眠分错误
+2. update 最新的只数数据表
 
 ## 23-11-30
 2. update 调整部分文案描述
