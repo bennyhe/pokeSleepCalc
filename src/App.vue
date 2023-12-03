@@ -34,9 +34,16 @@ const getScore = point => {
   return userData.value.CurEnergy * point * parseFloat(userData.value.times)
 }
 const getFirstSleepScore = () => {
-  return parseInt(
-    userData.value.mapMaxScore / userData.value.CurEnergy / userData.value.times
-  )
+  let res =
+    userData.value.mapMaxScore /
+    userData.value.CurEnergy /
+    userData.value.times
+  // 有小数位就进1
+  const max = parseInt(res) + 1
+  if (max < 100 && max - res < 1) {
+    res++
+  }
+  return parseInt(res)
 }
 const firstSleepTime = () => {
   return (getFirstSleepScore() * 8.5) / 100
@@ -115,11 +122,12 @@ const firstSleepTime = () => {
             "
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
-            >，可捕捉<span class="sptime">8只</span>，<span class="spscore"
+            >，可捕捉<span class="sptime">8只</span>，约<span class="spscore"
               >{{ getFirstSleepScore() }}分</span
-            >，可获得至少<span class="spscore">{{
-              getNum(userData.mapMaxScore)
-            }}</span
+            >，可获得至少<span class="spscore"
+              >{{ getNum(getScore(getFirstSleepScore())) }}({{
+                getNum(userData.mapMaxScore)
+              }})</span
             >睡眠之力
           </el-form-item>
           <el-form-item
