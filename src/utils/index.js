@@ -29,3 +29,14 @@ export function getNumberInMap(nowScore, scoreList) {
   }
   return 3
 }
+
+export function getStageLevelPicId(stageName) {
+  if (stageName.indexOf('超级') > -1) {
+    return 2
+  } else if (stageName.indexOf('高级') > -1) {
+    return 3
+  } else if (stageName.indexOf('大师') > -1) {
+    return 4
+  }
+  return 1
+}
