@@ -180,8 +180,9 @@ setDefaultCutNumber()
           <el-form-item
             label="第1觉"
             v-if="
+              userData.cutNum > 3 &&
               userData.CurEnergy * 100 * userData.times >
-              getTargetStartScore(100)
+                getTargetStartScore(100)
             "
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
@@ -196,6 +197,7 @@ setDefaultCutNumber()
           <el-form-item
             label="第2觉"
             v-if="
+              userData.cutNum > 3 &&
               userData.CurEnergy * 100 * userData.times >
               getTargetStartScore(100)
             "
