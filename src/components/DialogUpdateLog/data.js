@@ -3,6 +3,8 @@ const markdownText = `
 
 ## 23-12-05
 1. fix 百花雪原的拆分只数计算错误问题
+2. fix 某些时候会显示60分钟的bug
+3. update 视觉样式
 
 ## 23-12-04
 1. update 按只数拆分功能重新上线

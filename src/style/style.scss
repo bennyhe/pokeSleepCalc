@@ -120,13 +120,17 @@ h3 {
     }
 
     &.cur {
-      border-color: $mainColor;
+      border-color: #f1f1f1;
       font-weight: bold;
       color: $mainColor;
 
       .mod-select-list__name {
         opacity: 1;
-        background-color: rgba($color: #fff, $alpha: .2);
+        color: #fff;
+      }
+
+      img {
+        opacity: 1;
       }
     }
   }
@@ -145,7 +149,7 @@ h3 {
     height: auto;
     z-index: 2;
     left: 0;
-    top: 0;
+    bottom: -10px;
     opacity: .5;
   }
 }
