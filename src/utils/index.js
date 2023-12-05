@@ -5,8 +5,12 @@ function thousands(num) {
 }
 
 export function toHM(decimalHours) {
-  const hours = Math.floor(decimalHours) // 获取小时部分
-  const minutes = Math.round((decimalHours - hours) * 60) // 获取分钟部分
+  let hours = Math.floor(decimalHours) // 获取小时部分
+  let minutes = Math.round((decimalHours - hours) * 60) // 获取分钟部分
+  if (minutes === 60) {
+    minutes = 0
+    hours++
+  }
   return hours + '小时' + minutes + '分钟'
 }
 
