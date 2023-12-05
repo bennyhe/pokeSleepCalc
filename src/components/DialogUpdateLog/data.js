@@ -2,7 +2,7 @@ const markdownText = `
 # 更新日志
 
 ## 23-12-05
-1. fix 百花雪原的拆分只数计算错误问题
+1. fix 百花雪原的拆分只数计算错误bug
 2. fix 某些时候会显示60分钟的bug
 3. fix 某些时候会按3只拆分的bug
 4. update 视觉样式
