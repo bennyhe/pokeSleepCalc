@@ -229,10 +229,10 @@ const gameMap = [
     id: 'snow',
     pic: 'map4',
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 2808025 },
-      { catchNum: 4, startscore: 2834850, endscore: -7147410 },
+      { catchNum: 4, startscore: 2834850, endscore: 7147410 },
       { catchNum: 5, startscore: 7169800, endscore: 15415155 },
       { catchNum: 6, startscore: 15471600, endscore: 28537400 },
-      { catchNum: 7, startscore: 28775360, endscore: -65166800 },
+      { catchNum: 7, startscore: 28775360, endscore: 65166800 },
       { catchNum: 8, startscore: 65712275 }],
     levelList: [{
       name: '普通1',
