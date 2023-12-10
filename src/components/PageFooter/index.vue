@@ -1,6 +1,6 @@
 <template>
   <div class="page-footer">
-    <p>仅供编程学习开发交流，不做商业用途，如有侵犯，请联系删除</p>
+    <p>同好Sleep交流QQ群：894464120（非本人创建）</p>
     <p>
       <a href="https://github.com/bennyhe/pokeSleepCalc" target="_blank"
         >Github
