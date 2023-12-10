@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import PageFooter from './components/PageFooter/index.vue'
+import CptProcss from './components/Process/ItemIndex.vue'
 import gameMap from './config/game.js'
 import {
   toHM,
@@ -152,9 +153,9 @@ setDefaultCutNumber()
                   gameMap[userData.curMap].scoreList
                 )
               }}只</span
-            >，<span class="spscore">100分</span>，可获得至少<span
-              class="spscore"
-              >{{ getNum(getScore(100)) }}</span
+            >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
+              getNum(getScore(100))
+            }}</span
             >睡意之力
           </el-form-item>
           <el-form-item
@@ -187,11 +188,12 @@ setDefaultCutNumber()
           >
             所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
             >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
-            >，约<span class="spscore">{{ getFirstSleepScore() }}分</span
-            >，可获得至少<span class="spscore"
-              >{{ getNum(getScore(getFirstSleepScore())) }}({{
-                getNum(getTargetStartScore(getFirstSleepScore()))
-              }})</span
+            >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
+              class="spscore"
+              >{{ getNum(getScore(getFirstSleepScore()))
+              }}<span class="spscore__extra"
+                >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
+              ></span
             >睡意之力
           </el-form-item>
           <el-form-item
@@ -199,7 +201,7 @@ setDefaultCutNumber()
             v-if="
               userData.cutNum > 3 &&
               userData.CurEnergy * 100 * userData.times >
-              getTargetStartScore(100)
+                getTargetStartScore(100)
             "
           >
             <p>
@@ -213,9 +215,9 @@ setDefaultCutNumber()
                     gameMap[userData.curMap].scoreList
                   )
                 }}只</span
-              >，约<span class="spscore"
-                >{{ 100 - getFirstSleepScore() }}分</span
-              >，可获得至少<span class="spscore">{{
+              >，约<CptProcss
+                :score="100 - getFirstSleepScore()"
+              />分，可获得至少<span class="spscore">{{
                 getNum(getScore(100 - getFirstSleepScore()))
               }}</span
               >睡意之力

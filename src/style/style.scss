@@ -167,6 +167,39 @@ h3 {
 .spscore {
   color: $dialogMainColor;
   font-size: 18px;
+
+  &__extra {
+    font-size: 12px;
+  }
+}
+
+.mod-process {
+  display: inline-block;
+  vertical-align: middle;
+  border: 4px solid #d1d1d1;
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 28px;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: rgba($color: #fff, $alpha: .8);
+
+  &__info {
+    position: relative;
+    z-index: 4;
+  }
+
+  &__val {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: rgba($color: #9df8ff, $alpha: .9);
+    transform: translateY(100%);
+    transition: all 0.5s linear;
+  }
 }
 
 // 移动端适配

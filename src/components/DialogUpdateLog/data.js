@@ -1,6 +1,11 @@
 const markdownText = `
 # 更新日志
 
+## 23-12-10
+1. add 让睡眠得分更好看
+2. update 视觉样式
+3. update 页尾信息
+
 ## 23-12-05
 1. fix 百花雪原的拆分只数计算错误bug
 2. fix 某些时候会显示60分钟的bug
