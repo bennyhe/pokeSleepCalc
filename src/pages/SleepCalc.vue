@@ -53,7 +53,7 @@ const getFirstSleepScore = () => {
     gameMap[userData.value.curMap].scoreList[userData.value.cutNum - 3]
       .startscore /
     userData.value.CurEnergy /
-    userData.value.times
+    parseFloat(userData.value.times)
   // 有小数位就进1
   const max = parseInt(res) + 1
   if (max < 100 && max - res < 1) {
@@ -70,6 +70,25 @@ const getTargetStartScore = score => {
     getNumberInMap(getScore(score), gameMap[userData.value.curMap].scoreList) -
       3
   ].startscore
+}
+
+const getFullSleepCatchNum = () => {
+  return getNumberInMap(
+    getScore(100),
+    gameMap[userData.value.curMap].scoreList
+  )
+}
+
+const getNextScoreDiff = () => {
+  return (
+    parseInt(
+      (gameMap[userData.value.curMap].scoreList[getFullSleepCatchNum() - 2]
+        .startscore -
+        getScore(100)) /
+        100 /
+        parseFloat(userData.value.times)
+    ) + 1
+  )
 }
 
 // 初始化默认
@@ -142,25 +161,27 @@ setDefaultCutNumber()
       <el-form-item label="不拆分">
         满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
           class="sptime"
-          >{{
-            getNumberInMap(getScore(100), gameMap[userData.curMap].scoreList)
-          }}只</span
+          >{{ getFullSleepCatchNum() }}只</span
         >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
           getNum(getScore(100))
         }}</span
         >睡意之力
       </el-form-item>
-      <el-form-item
-        v-if="
-          getNumberInMap(getScore(100), gameMap[userData.curMap].scoreList) > 3
-        "
-      >
+      <el-form-item v-if="getFullSleepCatchNum() < 8 && getNextScoreDiff() > 0">
+        <p>
+          距离抓<span class="sptime">{{ getFullSleepCatchNum() + 1 }}只</span
+          >还需<span class="sptime"
+            ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+              getNextScoreDiff()
+            }}</span
+          >能量
+        </p>
+      </el-form-item>
+      <el-form-item v-if="getFullSleepCatchNum() > 3">
         按<el-input-number
           v-model="userData.cutNum"
           :min="4"
-          :max="
-            getNumberInMap(getScore(100), gameMap[userData.curMap].scoreList)
-          "
+          :max="getFullSleepCatchNum()"
           :step="1"
         />只拆分睡眠
       </el-form-item>
