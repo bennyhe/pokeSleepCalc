@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 23-12-12
+1. add 网站图标&SEO优化
+
 ## 23-12-10
 1. add 让睡眠得分更好看
 2. update 视觉样式
