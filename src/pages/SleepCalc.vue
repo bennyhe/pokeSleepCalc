@@ -2,11 +2,13 @@
 import { ref } from 'vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import gameMap from '../config/game.js'
+import { pokedex, updatePoke } from '../config/pokedex.js'
 import {
   toHM,
   getNum,
   getNumberInMap,
-  getStageLevelPicId
+  getStageLevelPicId,
+  formatTime
 } from '../utils/index.js'
 
 const userData = ref({
@@ -239,12 +241,30 @@ setDefaultCutNumber()
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
         v-bind:key="catchItem.catchNum"
       >
-        {{ catchItem.catchNum }} 只: {{ getNum(catchItem.startscore) }}
+        <span class="sptime">{{ catchItem.catchNum }}只</span>：{{
+          getNum(catchItem.startscore)
+        }}
         <template
           v-if="catchKey !== gameMap[userData.curMap].scoreList.length - 1"
           >- {{ getNum(catchItem.endscore) }}</template
         >
         <template v-else>以上</template>
+      </li>
+    </ul>
+    <h2>最新宝可梦</h2>
+    <ul class="score-list">
+      <li
+        v-for="updateItem in updatePoke.reverse()"
+        v-bind:key="updateItem.time"
+      >
+        {{ formatTime(updateItem.time, "YY年MM月") }}
+        (<span class="sptime">{{ updateItem.pokemons.length }}只</span>)：
+        <span
+          class="pokemon"
+          v-for="pokemonsItem in updateItem.pokemons"
+          v-bind:key="pokemonsItem"
+          >{{ pokemonsItem }}
+        </span>
       </li>
     </ul>
   </div>
