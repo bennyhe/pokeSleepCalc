@@ -100,7 +100,7 @@ setDefaultCutNumber()
 <template>
   <div class="page cur">
     <h2>拆分睡眠计算</h2>
-    <el-form label-width="120px">
+    <el-form label-width="90px">
       <!-- S 当前岛屿 -->
       <el-form-item label="当前岛屿">
         <ul class="mod-select-list">
@@ -117,7 +117,7 @@ setDefaultCutNumber()
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->
-      <el-form-item label="卡比兽级别/能量">
+      <el-form-item label="级别/能量">
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"

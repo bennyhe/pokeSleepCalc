@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 23-12-20
+1. update 视觉样式
+
 ## 23-12-19
 1. update 最新宝可梦对应图片显示
 

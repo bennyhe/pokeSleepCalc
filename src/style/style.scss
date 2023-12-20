@@ -234,7 +234,9 @@ h3 {
     transition: all 0.5s linear;
   }
 }
-
+.el-form-item__content {
+  line-height: 1.5;
+}
 // 移动端适配
 @media screen and (max-width: 660px) {
   .m-dialog {
@@ -246,4 +248,8 @@ h3 {
       margin-left: vw(676 - 62);
     }
   }
+
+    .el-form-item {
+      margin-bottom: 8px;
+    }
 }
