@@ -259,12 +259,16 @@ setDefaultCutNumber()
       >
         {{ formatTime(updateItem.time, "YY年MM月") }}
         (<span class="sptime">{{ updateItem.pokemons.length }}只</span>)：
-        <span
-          class="pokemon"
+        <div
+          class="mod-pokemon"
           v-for="pokemonsItem in updateItem.pokemons"
           v-bind:key="pokemonsItem"
-          >{{ pokemonsItem }}
-        </span>
+        >
+          <div class="mod-pokemon__pic">
+            <img v-lazy="`./img/pokedex/${pokemonsItem}.png`" />
+          </div>
+          <p class="mod-pokemon__name">{{ pokedex[pokemonsItem].name }}</p>
+        </div>
       </li>
     </ul>
   </div>
