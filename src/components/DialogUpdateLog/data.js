@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 23-12-25
 1. add 满月日2.5倍
+2. fix 部分情况下最新宝可梦显示正序
 
 ## 23-12-20
 1. update 视觉样式

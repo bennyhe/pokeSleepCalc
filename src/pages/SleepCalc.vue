@@ -11,6 +11,8 @@ import {
   formatTime
 } from '../utils/index.js'
 
+const newUpdatePoke = updatePoke.reverse()
+
 const userData = ref({
   CurEnergy: 0,
   curStageIndex: 0,
@@ -255,7 +257,7 @@ setDefaultCutNumber()
     <h2>最新宝可梦</h2>
     <ul class="score-list">
       <li
-        v-for="updateItem in updatePoke.reverse()"
+        v-for="updateItem in newUpdatePoke"
         v-bind:key="updateItem.time"
       >
         {{ formatTime(updateItem.time, "YY年MM月") }}
