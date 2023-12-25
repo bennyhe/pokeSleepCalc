@@ -157,6 +157,7 @@ setDefaultCutNumber()
         <el-radio-group v-model="userData.times" class="ml-4">
           <el-radio label="1">平时</el-radio>
           <el-radio label="1.5">好眠日1.5倍</el-radio>
+          <el-radio label="2.5">满月日2.5倍</el-radio>
           <el-radio label="4">满月日4倍</el-radio>
         </el-radio-group>
       </el-form-item>

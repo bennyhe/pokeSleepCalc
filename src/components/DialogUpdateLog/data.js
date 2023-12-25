@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 23-12-25
+1. add 满月日2.5倍
+
 ## 23-12-20
 1. update 视觉样式
 
