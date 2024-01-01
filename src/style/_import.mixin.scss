@@ -3,9 +3,7 @@ $vh_base: 1125;
 $mainColor: #6d8aa0;
 $primaryColor: #d1813a;
 $dialogMainColor: #878ecd;
-$firstColor: #f8b500;
-$secColor: #3a6198;
-$thirdColor: #a57527;
+$navColor: #3a6198;
 @function vw($px) {
   @return ($px / $vm_base) * 100vw;
 }

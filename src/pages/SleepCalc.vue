@@ -2,16 +2,12 @@
 import { ref } from 'vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import gameMap from '../config/game.js'
-import { pokedex, updatePoke } from '../config/pokedex.js'
 import {
   toHM,
   getNum,
   getNumberInMap,
-  getStageLevelPicId,
-  formatTime
+  getStageLevelPicId
 } from '../utils/index.js'
-
-const newUpdatePoke = updatePoke.reverse()
 
 const userData = ref({
   CurEnergy: 0,
@@ -100,7 +96,7 @@ setDefaultCutNumber()
 </script>
 
 <template>
-  <div class="page cur">
+  <div>
     <h2>拆分睡眠计算</h2>
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->
@@ -254,26 +250,6 @@ setDefaultCutNumber()
           >- {{ getNum(catchItem.endscore) }}</template
         >
         <template v-else>以上</template>
-      </li>
-    </ul>
-    <h2>最新宝可梦</h2>
-    <ul class="score-list">
-      <li
-        v-for="updateItem in newUpdatePoke"
-        v-bind:key="updateItem.time"
-      >
-        {{ formatTime(updateItem.time, "YY年MM月") }}
-        (<span class="sptime">{{ updateItem.pokemons.length }}只</span>)：
-        <div
-          class="mod-pokemon"
-          v-for="pokemonsItem in updateItem.pokemons"
-          v-bind:key="pokemonsItem"
-        >
-          <div class="mod-pokemon__pic">
-            <img v-lazy="`./img/pokedex/${pokemonsItem}.png`" />
-          </div>
-          <p class="mod-pokemon__name">{{ pokedex[pokemonsItem].name }}</p>
-        </div>
       </li>
     </ul>
   </div>
