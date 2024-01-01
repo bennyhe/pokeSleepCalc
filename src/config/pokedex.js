@@ -1,30 +1,39 @@
-const pokedex = {
+export const pokedex = {
   1: {
-    name: '妙蛙種子'
+    name: '妙蛙種子',
+    pokeType: 2
   },
   2: {
-    name: '妙蛙草'
+    name: '妙蛙草',
+    pokeType: 2
   },
   3: {
-    name: '妙蛙花'
+    name: '妙蛙花',
+    pokeType: 2
   },
   4: {
-    name: '小火龍'
+    name: '小火龍',
+    pokeType: 2
   },
   5: {
-    name: '火恐龍'
+    name: '火恐龍',
+    pokeType: 2
   },
   6: {
-    name: '噴火龍'
+    name: '噴火龍',
+    pokeType: 2
   },
   7: {
-    name: '傑尼龜'
+    name: '傑尼龜',
+    pokeType: 2
   },
   8: {
-    name: '卡咪龜'
+    name: '卡咪龜',
+    pokeType: 2
   },
   9: {
-    name: '水箭龜'
+    name: '水箭龜',
+    pokeType: 2
   },
   10: {
     name: '綠毛蟲'
@@ -66,10 +75,12 @@ const pokedex = {
     name: '胖可丁'
   },
   50: {
-    name: '地鼠'
+    name: '地鼠',
+    pokeType: 2
   },
   51: {
-    name: '三地鼠'
+    name: '三地鼠',
+    pokeType: 2
   },
   52: {
     name: '喵喵'
@@ -96,22 +107,28 @@ const pokedex = {
     name: '風速狗'
   },
   69: {
-    name: '喇叭芽'
+    name: '喇叭芽',
+    pokeType: 2
   },
   70: {
-    name: '口呆花'
+    name: '口呆花',
+    pokeType: 2
   },
   71: {
-    name: '大食花'
+    name: '大食花',
+    pokeType: 2
   },
   74: {
-    name: '小拳石'
+    name: '小拳石',
+    pokeType: 2
   },
   75: {
-    name: '隆隆石'
+    name: '隆隆石',
+    pokeType: 2
   },
   76: {
-    name: '隆隆岩'
+    name: '隆隆岩',
+    pokeType: 2
   },
   79: {
     name: '呆呆獸'
@@ -132,13 +149,16 @@ const pokedex = {
     name: '嘟嘟利'
   },
   92: {
-    name: '鬼斯'
+    name: '鬼斯',
+    pokeType: 2
   },
   93: {
-    name: '鬼斯通'
+    name: '鬼斯通',
+    pokeType: 2
   },
   94: {
-    name: '耿鬼'
+    name: '耿鬼',
+    pokeType: 2
   },
   95: {
     name: '大岩蛇'
@@ -150,16 +170,20 @@ const pokedex = {
     name: '嘎啦嘎啦'
   },
   115: {
-    name: '袋獸'
+    name: '袋獸',
+    pokeType: 2
   },
   122: {
-    name: '魔牆人偶'
+    name: '魔牆人偶',
+    pokeType: 2
   },
   127: {
-    name: '凱羅斯'
+    name: '凱羅斯',
+    pokeType: 2
   },
   132: {
-    name: '百變怪'
+    name: '百變怪',
+    pokeType: 2
   },
   133: {
     name: '伊布'
@@ -255,7 +279,8 @@ const pokedex = {
     name: '赫拉克羅斯'
   },
   225: {
-    name: '信使鳥'
+    name: '信使鳥',
+    pokeType: 2
   },
   228: {
     name: '戴魯比'
@@ -264,13 +289,16 @@ const pokedex = {
     name: '黑魯加'
   },
   246: {
-    name: '幼基拉斯'
+    name: '幼基拉斯',
+    pokeType: 2
   },
   247: {
-    name: '沙基拉斯'
+    name: '沙基拉斯',
+    pokeType: 2
   },
   248: {
-    name: '班基拉斯'
+    name: '班基拉斯',
+    pokeType: 2
   },
   287: {
     name: '懶人獺'
@@ -303,7 +331,8 @@ const pokedex = {
     name: '詛咒娃娃'
   },
   359: {
-    name: '阿勃梭魯'
+    name: '阿勃梭魯',
+    pokeType: 2
   },
   360: {
     name: '小果然'
@@ -321,7 +350,8 @@ const pokedex = {
     name: '盆才怪'
   },
   439: {
-    name: '魔尼尼'
+    name: '魔尼尼',
+    pokeType: 2
   },
   447: {
     name: '利歐路'
@@ -330,16 +360,20 @@ const pokedex = {
     name: '路卡利歐'
   },
   453: {
-    name: '不良蛙'
+    name: '不良蛙',
+    pokeType: 2
   },
   454: {
-    name: '毒骷蛙'
+    name: '毒骷蛙',
+    pokeType: 2
   },
   459: {
-    name: '雪笠怪'
+    name: '雪笠怪',
+    pokeType: 2
   },
   460: {
-    name: '暴雪王'
+    name: '暴雪王',
+    pokeType: 2
   },
   462: {
     name: '自爆磁怪'
@@ -363,7 +397,7 @@ const pokedex = {
     name: '皮卡丘（佳節）'
   }
 }
-const updatePoke = [{
+export const updatePoke = [{
   time: '2023/8/1',
   pokemons: [439, 122]
 }, {
@@ -379,7 +413,3 @@ const updatePoke = [{
   time: '2023/12/1',
   pokemons: [225, 459, 460, 9002]
 }]
-export {
-  pokedex,
-  updatePoke
-}
