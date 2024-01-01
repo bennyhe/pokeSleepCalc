@@ -94,3 +94,38 @@ export function formatTime(datetime, formatStr) {
   // 替换 a/A 为 am, pm
   return formatStr.replace(/a/ig, hours > 11 ? 'pm' : 'am')
 }
+
+/**
+ * 从URL获取对应key的参数
+ * @param {*} paramName 
+ * @param {*} url 
+ * @returns 
+ */
+export function getUrlQuery(paramName, url) {
+  let seachUrl = window.location.search.replace('?', '')
+  if (url != null) {
+    const index = url.indexOf('?')
+    url = url.substr(index + 1)
+    seachUrl = url
+  }
+  const ss = seachUrl.split('&')
+  let paramNameStr = ''
+  let paramNameIndex = -1
+  const result = paramName ? '' : {}
+  for (let i = 0; i < ss.length; i++) {
+    paramNameIndex = ss[i].indexOf('=')
+    paramNameStr = ss[i].substring(0, paramNameIndex)
+    if (!paramName) {
+      const returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
+      result[paramNameStr] = returnValue
+    } else if (paramNameStr === paramName) {
+      let returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
+      if (typeof returnValue === 'undefined') {
+        returnValue = ''
+      }
+      returnValue = returnValue.replace(/\?.*/, '')
+      return returnValue.replace(/(#(.*))$/, '')
+    }
+  }
+  return result
+}
