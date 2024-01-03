@@ -1,5 +1,6 @@
 export const foodRecommend = {
-  updateTime: 1704265513672,
+  creatTime: 1704265513672,
+  updateTime: 1704292252578,
   list: [
     {
       evoLine: [1, 2, 3],
@@ -53,8 +54,8 @@ export const foodRecommend = {
     },
     {
       evoLine: [127],
-      needFood: [[9], [9], [9, 5]],
-      desc: '对应沙拉周，蜜建议抓种子，苹果建议抓灾兽、信使鸟'
+      needFood: [[9], [9, 5], [9, 5]],
+      desc: '对应饮料周，蜜建议抓种子，苹果建议抓灾兽、信使鸟'
     },
     {
       evoLine: [132],
@@ -74,7 +75,7 @@ export const foodRecommend = {
     {
       evoLine: [359],
       needFood: [[13], [5], [13, 5]],
-      desc: '对应沙拉周苹果'
+      desc: '对应饮料周苹果'
     },
     {
       evoLine: [453, 454],
