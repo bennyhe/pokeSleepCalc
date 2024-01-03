@@ -12,7 +12,7 @@ const nav = [
     name: 'SLEEP CALC'
   },
   {
-    name: 'POKEDEX'
+    name: 'FOOD POKEDEX'
   },
   {
     name: 'NEW'
@@ -38,21 +38,19 @@ onMounted(()=>{
     <div class="page-item" :class="{ cur: showPageIndex === 2 }">
       <PageNew />
     </div>
-    <teleport to="body">
-      <PageFooter />
-      <nav class="nav">
-        <ul>
-          <li
-            v-for="(navItem, key) in nav"
-            v-bind:key="navItem.name"
-            :class="{ cur: showPageIndex === key }"
-            @click="showPageIndex = key"
-          >
-            {{ navItem.name }}
-          </li>
-        </ul>
-      </nav>
-    </teleport>
+    <PageFooter />
+    <nav class="nav">
+      <ul>
+        <li
+          v-for="(navItem, key) in nav"
+          v-bind:key="navItem.name"
+          :class="{ cur: showPageIndex === key }"
+          @click="showPageIndex = key"
+        >
+          {{ navItem.name }}
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 

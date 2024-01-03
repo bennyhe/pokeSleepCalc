@@ -237,7 +237,7 @@ setDefaultCutNumber()
       </el-form-item>
     </el-form>
     <h2>{{ gameMap[userData.curMap].name }}-睡意之力参考</h2>
-    <ul class="score-list">
+    <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
         v-bind:key="catchItem.catchNum"

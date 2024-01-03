@@ -1,9 +1,9 @@
-const pokeTypes = {
+export const pokeTypes = {
   1: '树果',
   2: '食材',
   3: '技能'
 }
-const foodTypes = {
+export const foodTypes = {
   1: '粗枝大蔥',
   2: '品鮮蘑菇',
   3: '特選蛋',
@@ -19,8 +19,4 @@ const foodTypes = {
   13: '放鬆可可',
   14: '美味尾巴',
   15: '萌綠大豆'
-}
-export {
-  pokeTypes,
-  foodTypes
 }

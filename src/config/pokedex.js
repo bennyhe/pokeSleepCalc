@@ -1,39 +1,90 @@
 export const pokedex = {
   1: {
     name: '妙蛙種子',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4400,
+    foodPer: 25.63,
+    food: {
+      9: {
+        num: [2, 5, 7]
+      },
+      12: {
+        num: [0, 4, 7]
+      },
+      4: {
+        num: [0, 0, 6]
+      }
+    }
   },
   2: {
     name: '妙蛙草',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3300,
+    foodPer: 25.44
   },
   3: {
     name: '妙蛙花',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 26.55
   },
   4: {
     name: '小火龍',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3500,
+    foodPer: 20.04,
+    food: {
+      7: {
+        num: [2, 5, 7]
+      },
+      11: {
+        num: [0, 4, 7]
+      },
+      6: {
+        num: [0, 0, 6]
+      }
+    }
   },
   5: {
     name: '火恐龍',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3000,
+    foodPer: 22.67
   },
   6: {
     name: '噴火龍',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2400,
+    foodPer: 22.34
   },
   7: {
     name: '傑尼龜',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4500,
+    foodPer: 27.02,
+    food: {
+      8: {
+        num: [2, 5, 7]
+      },
+      13: {
+        num: [0, 3, 5]
+      },
+      7: {
+        num: [0, 0, 7]
+      }
+    }
   },
   8: {
     name: '卡咪龜',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3400,
+    foodPer: 27.04
   },
   9: {
     name: '水箭龜',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 27.42
   },
   10: {
     name: '綠毛蟲'
@@ -76,11 +127,26 @@ export const pokedex = {
   },
   50: {
     name: '地鼠',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4300,
+    foodPer: 19.16,
+    food: {
+      12: {
+        num: [2, 5, 7]
+      },
+      1: {
+        num: [0, 3, 4]
+      },
+      15: {
+        num: [0, 0, 8]
+      }
+    }
   },
   51: {
     name: '三地鼠',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 18.95
   },
   52: {
     name: '喵喵'
@@ -108,33 +174,84 @@ export const pokedex = {
   },
   69: {
     name: '喇叭芽',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 5200,
+    foodPer: 23.19,
+    food: {
+      12: {
+        num: [2, 5, 7]
+      },
+      4: {
+        num: [0, 4, 6]
+      },
+      1: {
+        num: [0, 0, 4]
+      }
+    }
   },
   70: {
     name: '口呆花',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3800,
+    foodPer: 23.47
   },
   71: {
     name: '大食花',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 23.28
   },
   74: {
     name: '小拳石',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3800,
+    foodPer: 28.05,
+    food: {
+      15: {
+        num: [2, 5, 7]
+      },
+      4: {
+        num: [0, 4, 6]
+      },
+      2: {
+        num: [0, 0, 4]
+      }
+    }
   },
   75: {
     name: '隆隆石',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4000,
+    foodPer: 27.11
   },
   76: {
     name: '隆隆岩',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3100,
+    foodPer: 27.98
   },
   79: {
-    name: '呆呆獸'
+    name: '呆呆獸',
+    pokeType: 3,
+    helpSpeed: 5700,
+    foodPer: 15.04,
+    food: {
+      13: {
+        num: [1, 2, 4]
+      },
+      14: {
+        num: [0, 1, 2]
+      },
+      12: {
+        num: [0, 0, 5]
+      }
+    }
   },
   80: {
-    name: '呆殼獸'
+    name: '呆殼獸',
+    pokeType: 3,
+    helpSpeed: 3800,
+    foodPer: 15.06
   },
   81: {
     name: '小磁怪'
@@ -150,7 +267,18 @@ export const pokedex = {
   },
   92: {
     name: '鬼斯',
-    pokeType: 2
+    pokeType: 2,
+    food: {
+      6: {
+        num: [2, 5, 7]
+      },
+      2: {
+        num: [0, 4, 6]
+      },
+      10: {
+        num: [0, 0, 8]
+      }
+    }
   },
   93: {
     name: '鬼斯通',
@@ -171,19 +299,60 @@ export const pokedex = {
   },
   115: {
     name: '袋獸',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 22.15,
+    food: {
+      11: {
+        num: [2, 5, 7]
+      },
+      4: {
+        num: [0, 4, 6]
+      },
+      15: {
+        num: [0, 0, 8]
+      }
+    }
   },
   122: {
     name: '魔牆人偶',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2800,
+    foodPer: 21.58
   },
   127: {
     name: '凱羅斯',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2400,
+    foodPer: 20.55,
+    food: {
+      9: {
+        num: [2, 5, 7]
+      },
+      5: {
+        num: [0, 5, 8]
+      },
+      7: {
+        num: [0, 0, 7]
+      }
+    }
   },
   132: {
     name: '百變怪',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3500,
+    foodPer: 20.06,
+    food: {
+      10: {
+        num: [2, 5, 7]
+      },
+      1: {
+        num: [0, 3, 5]
+      },
+      14: {
+        num: [0, 0, 3]
+      }
+    }
   },
   133: {
     name: '伊布'
@@ -267,7 +436,10 @@ export const pokedex = {
     name: '月亮伊布'
   },
   199: {
-    name: '呆呆王'
+    name: '呆呆王',
+    pokeType: 3,
+    helpSpeed: 3400,
+    foodPer: 15.04
   },
   202: {
     name: '果然翁'
@@ -280,7 +452,20 @@ export const pokedex = {
   },
   225: {
     name: '信使鳥',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2500,
+    foodPer: 18.80,
+    food: {
+      3: {
+        num: [2, 5, 7]
+      },
+      5: {
+        num: [0, 6, 9]
+      },
+      13: {
+        num: [0, 0, 5]
+      }
+    }
   },
   228: {
     name: '戴魯比'
@@ -290,15 +475,32 @@ export const pokedex = {
   },
   246: {
     name: '幼基拉斯',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4800,
+    foodPer: 23.73,
+    food: {
+      11: {
+        num: [2, 5, 7]
+      },
+      15: {
+        num: [0, 5, 8]
+      },
+      7: {
+        num: [0, 0, 8]
+      }
+    }
   },
   247: {
     name: '沙基拉斯',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3600,
+    foodPer: 24.7
   },
   248: {
     name: '班基拉斯',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2700,
+    foodPer: 26.57
   },
   287: {
     name: '懶人獺'
@@ -332,7 +534,20 @@ export const pokedex = {
   },
   359: {
     name: '阿勃梭魯',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3100,
+    foodPer: 17.76,
+    food: {
+      13: {
+        num: [2, 5, 7]
+      },
+      5: {
+        num: [0, 8, 12]
+      },
+      2: {
+        num: [0, 0, 7]
+      }
+    }
   },
   360: {
     name: '小果然'
@@ -351,7 +566,20 @@ export const pokedex = {
   },
   439: {
     name: '魔尼尼',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 4300,
+    foodPer: 20.05,
+    food: {
+      12: {
+        num: [2, 5, 7]
+      },
+      4: {
+        num: [0, 4, 6]
+      },
+      1: {
+        num: [0, 0, 4]
+      }
+    }
   },
   447: {
     name: '利歐路'
@@ -361,19 +589,46 @@ export const pokedex = {
   },
   453: {
     name: '不良蛙',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 5600,
+    foodPer: 22.73,
+    food: {
+      10: {
+        num: [2, 5, 7]
+      },
+      7: {
+        num: [0, 5, 8]
+      }
+    }
   },
   454: {
     name: '毒骷蛙',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3400,
+    foodPer: 22.86
   },
   459: {
     name: '雪笠怪',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 5600,
+    foodPer: 25.04,
+    food: {
+      12:{
+        num: [2, 5, 7]
+      },
+      3:{
+        num: [0, 4, 7]
+      },
+      2:{
+        num: [0, 0, 5]
+      }
+    }
   },
   460: {
     name: '暴雪王',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3000,
+    foodPer: 25
   },
   462: {
     name: '自爆磁怪'

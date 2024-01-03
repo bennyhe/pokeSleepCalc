@@ -10,10 +10,12 @@ const props = defineProps({
 
 
 <template>
-  <div class="mod-pokemon">
-    <div class="mod-pokemon__pic">
-      <img v-lazy="`./img/pokedex/${pokeId}.png`" />
+  <div class="cpt-pokemon">
+    <div class="cpt-pokemon__pic">
+      <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name"/>
     </div>
-    <p class="mod-pokemon__name">{{ pokedex[pokeId].name }}</p>
+    <p class="cpt-pokemon__name">{{ pokedex[pokeId].name }}</p>
+    <p v-if="pokedex[pokeId].helpSpeed">{{ pokedex[pokeId].helpSpeed }}s</p>
+    <p v-if="pokedex[pokeId].foodPer">食{{ pokedex[pokeId].foodPer }}%</p>
   </div>
 </template>

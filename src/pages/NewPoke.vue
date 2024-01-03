@@ -7,7 +7,7 @@ const newUpdatePoke = updatePoke.reverse()
 </script>
 <template>
   <h2>最新宝可梦</h2>
-  <ul class="score-list">
+  <ul class="cpt-list">
     <li v-for="updateItem in newUpdatePoke" v-bind:key="updateItem.time">
       {{ formatTime(updateItem.time, "YY年MM月") }}
       (<span class="sptime">{{ updateItem.pokemons.length }}只</span>)：
