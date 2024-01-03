@@ -268,6 +268,8 @@ export const pokedex = {
   92: {
     name: '鬼斯',
     pokeType: 2,
+    helpSpeed: 3800,
+    foodPer: 14.4,
     food: {
       6: {
         num: [2, 5, 7]
@@ -282,11 +284,15 @@ export const pokedex = {
   },
   93: {
     name: '鬼斯通',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 3000,
+    foodPer: 15.69
   },
   94: {
     name: '耿鬼',
-    pokeType: 2
+    pokeType: 2,
+    helpSpeed: 2200,
+    foodPer: 16.1
   },
   95: {
     name: '大岩蛇'

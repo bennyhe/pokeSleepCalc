@@ -17,31 +17,33 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
   </div>
   <ul class="cpt-list food-list">
     <li v-for="(pokeItem, pokeKey) in foodRecommend.list" v-bind:key="pokeKey">
-      {{ pokeTypes[pokedex[pokeItem.evoLine[0]].pokeType] }}型
+      <p class="mod-tips">{{ pokeTypes[pokedex[pokeItem.evoLine[0]].pokeType] }}型</p>
       <CptPoke
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
         v-bind:key="pokemonsItem"
       />
-      <span
-        class="cpt-food"
-        v-for="(foodItem,foodKey) in pokeItem.needFood"
-        v-bind:key="foodItem"
-      >
-        <template
-          v-for="(subFoodItem, subKey) in foodItem"
-          v-bind:key="subFoodItem"
+      <div>
+        <span
+          class="cpt-food"
+          v-for="(foodItem,foodKey) in pokeItem.needFood"
+          v-bind:key="foodItem"
         >
-          <div class="cpt-food__item">
-            <img
-              v-lazy="`./img/food/${subFoodItem}.png`"
-              :alt="foodTypes[subFoodItem]"
-            />
-            <p v-if="pokedex[pokeItem.evoLine[0]].food">X {{ pokedex[pokeItem.evoLine[0]].food[subFoodItem].num[foodKey] }}</p>
-          </div>
-          <template v-if="subKey !== foodItem.length - 1">/</template>
-        </template>
-      </span>
+          <template
+            v-for="(subFoodItem, subKey) in foodItem"
+            v-bind:key="subFoodItem"
+          >
+            <div class="cpt-food__item">
+              <img
+                v-lazy="`./img/food/${subFoodItem}.png`"
+                :alt="foodTypes[subFoodItem]"
+              />
+              <p v-if="pokedex[pokeItem.evoLine[0]].food">X {{ pokedex[pokeItem.evoLine[0]].food[subFoodItem].num[foodKey] }}</p>
+            </div>
+            <template v-if="subKey !== foodItem.length - 1">/</template>
+          </template>
+        </span>
+      </div>
       <p class="desc" v-html="pokeItem.desc"></p>
     </li>
   </ul>
