@@ -1,11 +1,11 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1704292252578,
+  updateTime: 1705064857777,
   list: [
     {
       evoLine: [1, 2, 3],
       needFood: [[9], [9], [9, 4]],
-      desc: '对应饮料周所需的蜜'
+      desc: '对应饮料甜品周所需的蜜'
     },
     {
       evoLine: [4, 5, 6],
@@ -15,7 +15,7 @@ export const foodRecommend = {
     {
       evoLine: [7, 8, 9],
       needFood: [[8], [13], [13, 8]],
-      desc: '对应饮料周所需的可可，如有伊布家族不考虑60奶'
+      desc: '对应饮料甜品周所需的可可，如有伊布家族不考虑60奶'
     },
     {
       evoLine: [50, 51],
@@ -40,7 +40,7 @@ export const foodRecommend = {
     {
       evoLine: [92, 93, 94],
       needFood: [[6], [2], [2,10]],
-      desc: '尽量择优，食材率有限，大部分时候会下树果'
+      desc: '无加成得食材率有限，大部分时候会下树果'
     },
     {
       evoLine: [115],
@@ -55,7 +55,7 @@ export const foodRecommend = {
     {
       evoLine: [127],
       needFood: [[9], [9, 5], [9, 5]],
-      desc: '对应饮料周，蜜建议抓种子，苹果建议抓灾兽、信使鸟'
+      desc: '对应饮料甜品周，蜜建议抓种子，苹果建议抓灾兽、信使鸟'
     },
     {
       evoLine: [132],
@@ -65,7 +65,7 @@ export const foodRecommend = {
     {
       evoLine: [225],
       needFood: [[3], [3, 5], [3, 5]],
-      desc: '有别的产苹果就选lv30蛋'
+      desc: '有别的产苹果就选lv30蛋，建议抓加食材概率的。'
     },
     {
       evoLine: [246, 247, 248],
@@ -75,7 +75,7 @@ export const foodRecommend = {
     {
       evoLine: [359],
       needFood: [[13], [5], [13, 5]],
-      desc: '对应饮料周苹果'
+      desc: '对应饮料甜品周苹果'
     },
     {
       evoLine: [453, 454],
@@ -85,7 +85,7 @@ export const foodRecommend = {
     {
       evoLine: [459, 460],
       needFood: [[12], [3], [3, 2]],
-      desc: '少数产蛋的食材型'
+      desc: '少数产蛋的食材型，建议抓加帮忙速度的。'
     }
   ]
 }

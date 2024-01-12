@@ -274,6 +274,14 @@ h3 {
   li:nth-child(2n) {
     background-color: rgba($color: $mainColor, $alpha: .1);
   }
+
+  .cpt-food__item {
+    opacity: .3;
+
+    &.cur {
+      opacity: 1;
+    }
+  }
 }
 // 移动端适配
 @media screen and (max-width: 660px) {

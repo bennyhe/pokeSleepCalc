@@ -18,7 +18,9 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
   </div>
   <ul class="cpt-list food-list">
     <li v-for="(pokeItem, pokeKey) in foodRecommend.list" v-bind:key="pokeKey">
-      <p class="mod-tips">{{ pokeTypes[pokedex[pokeItem.evoLine[0]].pokeType] }}型</p>
+      <p class="mod-tips">
+        {{ pokeTypes[pokedex[pokeItem.evoLine[0]].pokeType] }}型
+      </p>
       <CptPoke
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
@@ -27,21 +29,33 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
       <div>
         <span
           class="cpt-food"
-          v-for="(foodItem,foodKey) in pokeItem.needFood"
-          v-bind:key="foodItem"
+          v-for="(foodItem, foodKey) in pokeItem.needFood"
+          v-bind:key="foodKey"
         >
           <template
-            v-for="(subFoodItem, subKey) in foodItem"
-            v-bind:key="subFoodItem"
+            v-for="(allFoodItem, allKey) in pokedex[pokeItem.evoLine[0]].food
+              .type"
+            v-bind:key="allKey"
           >
-            <div class="cpt-food__item">
-              <img
-                v-lazy="`./img/food/${subFoodItem}.png`"
-                :alt="foodTypes[subFoodItem]"
-              />
-              <p v-if="pokedex[pokeItem.evoLine[0]].food">X {{ pokedex[pokeItem.evoLine[0]].food[subFoodItem].num[foodKey] }}</p>
+            <div
+              class="cpt-food__item"
+              v-if="
+                pokedex[pokeItem.evoLine[0]].food.count[allFoodItem].num[
+                  foodKey
+                ] > 0
+              "
+              :class="{ cur: foodItem.includes(allFoodItem) }"
+            >
+              <img v-lazy="`./img/food/${allFoodItem}.png`" />
+              <p v-if="pokedex[pokeItem.evoLine[0]].food">
+                X
+                {{
+                  pokedex[pokeItem.evoLine[0]].food.count[allFoodItem].num[
+                    foodKey
+                  ]
+                }}
+              </p>
             </div>
-            <template v-if="subKey !== foodItem.length - 1">/</template>
           </template>
         </span>
       </div>

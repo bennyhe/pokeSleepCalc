@@ -5,14 +5,17 @@ export const pokedex = {
     helpSpeed: 4400,
     foodPer: 25.63,
     food: {
-      9: {
-        num: [2, 5, 7]
-      },
-      12: {
-        num: [0, 4, 7]
-      },
-      4: {
-        num: [0, 0, 6]
+      type: [9, 12, 4],
+      count: {
+        9: {
+          num: [2, 5, 7]
+        },
+        12: {
+          num: [0, 4, 7]
+        },
+        4: {
+          num: [0, 0, 6]
+        }
       }
     }
   },
@@ -34,14 +37,17 @@ export const pokedex = {
     helpSpeed: 3500,
     foodPer: 20.04,
     food: {
-      7: {
-        num: [2, 5, 7]
-      },
-      11: {
-        num: [0, 4, 7]
-      },
-      6: {
-        num: [0, 0, 6]
+      type: [7, 11, 6],
+      count: {
+        7: {
+          num: [2, 5, 7]
+        },
+        11: {
+          num: [0, 4, 7]
+        },
+        6: {
+          num: [0, 0, 6]
+        }
       }
     }
   },
@@ -63,14 +69,17 @@ export const pokedex = {
     helpSpeed: 4500,
     foodPer: 27.02,
     food: {
-      8: {
-        num: [2, 5, 7]
-      },
-      13: {
-        num: [0, 3, 5]
-      },
-      7: {
-        num: [0, 0, 7]
+      type: [8, 13, 7],
+      count: {
+        8: {
+          num: [2, 5, 7]
+        },
+        13: {
+          num: [0, 3, 5]
+        },
+        7: {
+          num: [0, 0, 7]
+        }
       }
     }
   },
@@ -131,14 +140,17 @@ export const pokedex = {
     helpSpeed: 4300,
     foodPer: 19.16,
     food: {
-      12: {
-        num: [2, 5, 7]
-      },
-      1: {
-        num: [0, 3, 4]
-      },
-      15: {
-        num: [0, 0, 8]
+      type: [12, 1, 15],
+      count: {
+        12: {
+          num: [2, 5, 7]
+        },
+        1: {
+          num: [0, 3, 4]
+        },
+        15: {
+          num: [0, 0, 8]
+        }
       }
     }
   },
@@ -178,14 +190,17 @@ export const pokedex = {
     helpSpeed: 5200,
     foodPer: 23.19,
     food: {
-      12: {
-        num: [2, 5, 7]
-      },
-      4: {
-        num: [0, 4, 6]
-      },
-      1: {
-        num: [0, 0, 4]
+      type: [12, 4, 1],
+      count: {
+        12: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 4, 6]
+        },
+        1: {
+          num: [0, 0, 4]
+        }
       }
     }
   },
@@ -207,14 +222,17 @@ export const pokedex = {
     helpSpeed: 3800,
     foodPer: 28.05,
     food: {
-      15: {
-        num: [2, 5, 7]
-      },
-      4: {
-        num: [0, 4, 6]
-      },
-      2: {
-        num: [0, 0, 4]
+      type: [15, 4, 2],
+      count: {
+        15: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 4, 6]
+        },
+        2: {
+          num: [0, 0, 4]
+        }
       }
     }
   },
@@ -236,14 +254,17 @@ export const pokedex = {
     helpSpeed: 5700,
     foodPer: 15.04,
     food: {
-      13: {
-        num: [1, 2, 4]
-      },
-      14: {
-        num: [0, 1, 2]
-      },
-      12: {
-        num: [0, 0, 5]
+      type: [13, 14, 12],
+      count: {
+        13: {
+          num: [1, 2, 4]
+        },
+        14: {
+          num: [0, 1, 2]
+        },
+        12: {
+          num: [0, 0, 5]
+        }
       }
     }
   },
@@ -271,14 +292,17 @@ export const pokedex = {
     helpSpeed: 3800,
     foodPer: 14.4,
     food: {
-      6: {
-        num: [2, 5, 7]
-      },
-      2: {
-        num: [0, 4, 6]
-      },
-      10: {
-        num: [0, 0, 8]
+      type: [6, 2, 10],
+      count: {
+        6: {
+          num: [2, 5, 7]
+        },
+        2: {
+          num: [0, 4, 6]
+        },
+        10: {
+          num: [0, 0, 8]
+        }
       }
     }
   },
@@ -309,14 +333,17 @@ export const pokedex = {
     helpSpeed: 2800,
     foodPer: 22.15,
     food: {
-      11: {
-        num: [2, 5, 7]
-      },
-      4: {
-        num: [0, 4, 6]
-      },
-      15: {
-        num: [0, 0, 8]
+      type: [11, 4, 15],
+      count: {
+        11: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 4, 6]
+        },
+        15: {
+          num: [0, 0, 8]
+        }
       }
     }
   },
@@ -332,14 +359,17 @@ export const pokedex = {
     helpSpeed: 2400,
     foodPer: 20.55,
     food: {
-      9: {
-        num: [2, 5, 7]
-      },
-      5: {
-        num: [0, 5, 8]
-      },
-      7: {
-        num: [0, 0, 7]
+      type: [9, 5, 7],
+      count: {
+        9: {
+          num: [2, 5, 7]
+        },
+        5: {
+          num: [0, 5, 8]
+        },
+        7: {
+          num: [0, 0, 7]
+        }
       }
     }
   },
@@ -349,14 +379,17 @@ export const pokedex = {
     helpSpeed: 3500,
     foodPer: 20.06,
     food: {
-      10: {
-        num: [2, 5, 7]
-      },
-      1: {
-        num: [0, 3, 5]
-      },
-      14: {
-        num: [0, 0, 3]
+      type: [10, 1, 14],
+      count: {
+        10: {
+          num: [2, 5, 7]
+        },
+        1: {
+          num: [0, 3, 5]
+        },
+        14: {
+          num: [0, 0, 3]
+        }
       }
     }
   },
@@ -462,14 +495,17 @@ export const pokedex = {
     helpSpeed: 2500,
     foodPer: 18.80,
     food: {
-      3: {
-        num: [2, 5, 7]
-      },
-      5: {
-        num: [0, 6, 9]
-      },
-      13: {
-        num: [0, 0, 5]
+      type: [3, 5, 13],
+      count: {
+        3: {
+          num: [2, 5, 7]
+        },
+        5: {
+          num: [0, 6, 9]
+        },
+        13: {
+          num: [0, 0, 5]
+        }
       }
     }
   },
@@ -485,14 +521,17 @@ export const pokedex = {
     helpSpeed: 4800,
     foodPer: 23.73,
     food: {
-      11: {
-        num: [2, 5, 7]
-      },
-      15: {
-        num: [0, 5, 8]
-      },
-      7: {
-        num: [0, 0, 8]
+      type: [11, 15, 7],
+      count: {
+        11: {
+          num: [2, 5, 7]
+        },
+        15: {
+          num: [0, 5, 8]
+        },
+        7: {
+          num: [0, 0, 8]
+        }
       }
     }
   },
@@ -544,14 +583,17 @@ export const pokedex = {
     helpSpeed: 3100,
     foodPer: 17.76,
     food: {
-      13: {
-        num: [2, 5, 7]
-      },
-      5: {
-        num: [0, 8, 12]
-      },
-      2: {
-        num: [0, 0, 7]
+      type: [13, 5, 2],
+      count: {
+        13: {
+          num: [2, 5, 7]
+        },
+        5: {
+          num: [0, 8, 12]
+        },
+        2: {
+          num: [0, 0, 7]
+        }
       }
     }
   },
@@ -576,14 +618,17 @@ export const pokedex = {
     helpSpeed: 4300,
     foodPer: 20.05,
     food: {
-      12: {
-        num: [2, 5, 7]
-      },
-      4: {
-        num: [0, 4, 6]
-      },
-      1: {
-        num: [0, 0, 4]
+      type: [12, 4, 1],
+      count: {
+        12: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 4, 6]
+        },
+        1: {
+          num: [0, 0, 4]
+        }
       }
     }
   },
@@ -599,11 +644,14 @@ export const pokedex = {
     helpSpeed: 5600,
     foodPer: 22.73,
     food: {
-      10: {
-        num: [2, 5, 7]
-      },
-      7: {
-        num: [0, 5, 8]
+      type: [10, 7],
+      count: {
+        10: {
+          num: [2, 5, 7]
+        },
+        7: {
+          num: [0, 5, 8]
+        }
       }
     }
   },
@@ -619,14 +667,17 @@ export const pokedex = {
     helpSpeed: 5600,
     foodPer: 25.04,
     food: {
-      12:{
-        num: [2, 5, 7]
-      },
-      3:{
-        num: [0, 4, 7]
-      },
-      2:{
-        num: [0, 0, 5]
+      type: [12, 3, 2],
+      count: {
+        12:{
+          num: [2, 5, 7]
+        },
+        3:{
+          num: [0, 4, 7]
+        },
+        2:{
+          num: [0, 0, 5]
+        }
       }
     }
   },
