@@ -25,6 +25,7 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
         v-bind:key="pokemonsItem"
+        :showKey="['helpSpeed', 'foodPer']"
       />
       <div>
         <span

@@ -15,6 +15,7 @@ const newUpdatePoke = updatePoke.reverse()
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in updateItem.pokemons"
         v-bind:key="pokemonsItem"
+        :showKey="['pokeType']"
       />
     </li>
   </ul>

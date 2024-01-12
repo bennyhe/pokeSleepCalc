@@ -96,43 +96,56 @@ export const pokedex = {
     foodPer: 27.42
   },
   10: {
-    name: '綠毛蟲'
+    name: '綠毛蟲',
+    pokeType: 1
   },
   11: {
-    name: '鐵甲蛹'
+    name: '鐵甲蛹',
+    pokeType: 1
   },
   12: {
-    name: '巴大蝶'
+    name: '巴大蝶',
+    pokeType: 1
   },
   19: {
-    name: '小拉達'
+    name: '小拉達',
+    pokeType: 1
   },
   20: {
-    name: '拉達'
+    name: '拉達',
+    pokeType: 1
   },
   23: {
-    name: '阿柏蛇'
+    name: '阿柏蛇',
+    pokeType: 1
   },
   24: {
-    name: '阿柏怪'
+    name: '阿柏怪',
+    pokeType: 1
   },
   25: {
-    name: '皮卡丘'
+    name: '皮卡丘',
+    pokeType: 1
   },
   26: {
-    name: '雷丘'
+    name: '雷丘',
+    pokeType: 1
   },
   35: {
-    name: '皮皮'
+    name: '皮皮',
+    pokeType: 1
   },
   36: {
-    name: '皮可西'
+    name: '皮可西',
+    pokeType: 1
   },
   39: {
-    name: '胖丁'
+    name: '胖丁',
+    pokeType: 3
   },
   40: {
-    name: '胖可丁'
+    name: '胖可丁',
+    pokeType: 3
   },
   50: {
     name: '地鼠',
@@ -161,28 +174,36 @@ export const pokedex = {
     foodPer: 18.95
   },
   52: {
-    name: '喵喵'
+    name: '喵喵',
+    pokeType: 3
   },
   53: {
-    name: '貓老大'
+    name: '貓老大',
+    pokeType: 3
   },
   54: {
-    name: '可達鴨'
+    name: '可達鴨',
+    pokeType: 3
   },
   55: {
-    name: '哥達鴨'
+    name: '哥達鴨',
+    pokeType: 3
   },
   56: {
-    name: '猴怪'
+    name: '猴怪',
+    pokeType: 1
   },
   57: {
-    name: '火爆猴'
+    name: '火爆猴',
+    pokeType: 1
   },
   58: {
-    name: '卡蒂狗'
+    name: '卡蒂狗',
+    pokeType: 3
   },
   59: {
-    name: '風速狗'
+    name: '風速狗',
+    pokeType: 3
   },
   69: {
     name: '喇叭芽',
@@ -275,16 +296,20 @@ export const pokedex = {
     foodPer: 15.06
   },
   81: {
-    name: '小磁怪'
+    name: '小磁怪',
+    pokeType: 3
   },
   82: {
-    name: '三合一磁怪'
+    name: '三合一磁怪',
+    pokeType: 3
   },
   84: {
-    name: '嘟嘟'
+    name: '嘟嘟',
+    pokeType: 1
   },
   85: {
-    name: '嘟嘟利'
+    name: '嘟嘟利',
+    pokeType: 1
   },
   92: {
     name: '鬼斯',
@@ -319,13 +344,16 @@ export const pokedex = {
     foodPer: 16.1
   },
   95: {
-    name: '大岩蛇'
+    name: '大岩蛇',
+    pokeType: 1
   },
   104: {
-    name: '卡拉卡拉'
+    name: '卡拉卡拉',
+    pokeType: 1
   },
   105: {
-    name: '嘎啦嘎啦'
+    name: '嘎啦嘎啦',
+    pokeType: 1
   },
   115: {
     name: '袋獸',
@@ -394,85 +422,109 @@ export const pokedex = {
     }
   },
   133: {
-    name: '伊布'
+    name: '伊布',
+    pokeType: 3
   },
   134: {
-    name: '水伊布'
+    name: '水伊布',
+    pokeType: 3
   },
   135: {
-    name: '雷伊布'
+    name: '雷伊布',
+    pokeType: 3
   },
   136: {
-    name: '火伊布'
+    name: '火伊布',
+    pokeType: 3
   },
-  147: {
-    name: '迷你龍'
-  },
-  148: {
-    name: '哈克龍'
-  },
-  149: {
-    name: '快龍'
-  },
+  // 147: {
+  //   name: '迷你龍',
+  // },
+  // 148: {
+  //   name: '哈克龍',
+  // },
+  // 149: {
+  //   name: '快龍',
+  // },
   152: {
-    name: '菊草葉'
+    name: '菊草葉',
+    pokeType: 1
   },
   153: {
-    name: '月桂葉'
+    name: '月桂葉',
+    pokeType: 1
   },
   154: {
-    name: '大竺葵'
+    name: '大竺葵',
+    pokeType: 1
   },
   155: {
-    name: '火球鼠'
+    name: '火球鼠',
+    pokeType: 1
   },
   156: {
-    name: '火岩鼠'
+    name: '火岩鼠',
+    pokeType: 1
   },
   157: {
-    name: '火爆獸'
+    name: '火爆獸',
+    pokeType: 1
   },
   158: {
-    name: '小鋸鱷'
+    name: '小鋸鱷',
+    pokeType: 1
   },
   159: {
-    name: '藍鱷'
+    name: '藍鱷',
+    pokeType: 1
   },
   160: {
-    name: '大力鱷'
+    name: '大力鱷',
+    pokeType: 1
   },
   172: {
-    name: '皮丘'
+    name: '皮丘',
+    pokeType: 1
   },
   173: {
-    name: '皮寶寶'
+    name: '皮寶寶',
+    pokeType: 1
   },
   174: {
-    name: '寶寶丁'
+    name: '寶寶丁',
+    pokeType: 3
   },
   175: {
-    name: '波克比'
+    name: '波克比',
+    pokeType: 3
   },
   176: {
-    name: '波克基古'
+    name: '波克基古',
+    pokeType: 3
   },
   179: {
-    name: '咩利羊'
+    name: '咩利羊',
+    pokeType: 3
   },
   180: {
-    name: '茸茸羊'
+    name: '茸茸羊',
+    pokeType: 3
   },
   181: {
-    name: '電龍'
+    name: '電龍',
+    pokeType: 3
   },
   185: {
-    name: '樹才怪'
+    name: '樹才怪',
+    pokeType: 3
   },
   196: {
-    name: '太陽伊布'
+    name: '太陽伊布',
+    pokeType: 3
   },
   197: {
-    name: '月亮伊布'
+    name: '月亮伊布',
+    pokeType: 3
   },
   199: {
     name: '呆呆王',
@@ -481,13 +533,16 @@ export const pokedex = {
     foodPer: 15.04
   },
   202: {
-    name: '果然翁'
+    name: '果然翁',
+    pokeType: 3
   },
   208: {
-    name: '大鋼蛇'
+    name: '大鋼蛇',
+    pokeType: 1
   },
   214: {
-    name: '赫拉克羅斯'
+    name: '赫拉克羅斯',
+    pokeType: 3
   },
   225: {
     name: '信使鳥',
@@ -510,10 +565,12 @@ export const pokedex = {
     }
   },
   228: {
-    name: '戴魯比'
+    name: '戴魯比',
+    pokeType: 1
   },
   229: {
-    name: '黑魯加'
+    name: '黑魯加',
+    pokeType: 1
   },
   246: {
     name: '幼基拉斯',
@@ -548,34 +605,44 @@ export const pokedex = {
     foodPer: 26.57
   },
   287: {
-    name: '懶人獺'
+    name: '懶人獺',
+    pokeType: 1
   },
   288: {
-    name: '過動猿'
+    name: '過動猿',
+    pokeType: 1
   },
   289: {
-    name: '請假王'
+    name: '請假王',
+    pokeType: 1
   },
   302: {
-    name: '勾魂眼'
+    name: '勾魂眼',
+    pokeType: 3
   },
   316: {
-    name: '溶食獸'
+    name: '溶食獸',
+    pokeType: 3
   },
   317: {
-    name: '吞食獸'
+    name: '吞食獸',
+    pokeType: 3
   },
   333: {
-    name: '青綿鳥'
+    name: '青綿鳥',
+    pokeType: 1
   },
   334: {
-    name: '七夕青鳥'
+    name: '七夕青鳥',
+    pokeType: 1
   },
   353: {
-    name: '怨影娃娃'
+    name: '怨影娃娃',
+    pokeType: 1
   },
   354: {
-    name: '詛咒娃娃'
+    name: '詛咒娃娃',
+    pokeType: 1
   },
   359: {
     name: '阿勃梭魯',
@@ -598,19 +665,24 @@ export const pokedex = {
     }
   },
   360: {
-    name: '小果然'
+    name: '小果然',
+    pokeType: 3
   },
   363: {
-    name: '海豹球'
+    name: '海豹球',
+    pokeType: 1
   },
   364: {
-    name: '海魔獅'
+    name: '海魔獅',
+    pokeType: 1
   },
   365: {
-    name: '帝牙海獅'
+    name: '帝牙海獅',
+    pokeType: 1
   },
   438: {
-    name: '盆才怪'
+    name: '盆才怪',
+    pokeType: 3
   },
   439: {
     name: '魔尼尼',
@@ -633,10 +705,12 @@ export const pokedex = {
     }
   },
   447: {
-    name: '利歐路'
+    name: '利歐路',
+    pokeType: 3
   },
   448: {
-    name: '路卡利歐'
+    name: '路卡利歐',
+    pokeType: 3
   },
   453: {
     name: '不良蛙',
@@ -688,25 +762,32 @@ export const pokedex = {
     foodPer: 25
   },
   462: {
-    name: '自爆磁怪'
+    name: '自爆磁怪',
+    pokeType: 3
   },
   468: {
-    name: '波克基斯'
+    name: '波克基斯',
+    pokeType: 3
   },
   470: {
-    name: '葉伊布'
+    name: '葉伊布',
+    pokeType: 3
   },
   471: {
-    name: '冰伊布'
+    name: '冰伊布',
+    pokeType: 3
   },
   700: {
-    name: '仙子伊布'
+    name: '仙子伊布',
+    pokeType: 3
   },
   9001: {
-    name: '皮卡丘（萬聖節）'
+    name: '皮卡丘（萬聖節）',
+    pokeType: 1
   },
   9002: {
-    name: '皮卡丘（佳節）'
+    name: '皮卡丘（佳節）',
+    pokeType: 3
   }
 }
 export const updatePoke = [{
