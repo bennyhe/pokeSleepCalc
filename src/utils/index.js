@@ -14,6 +14,27 @@ export function toHM(decimalHours) {
   return hours + '小时' + minutes + '分钟'
 }
 
+/**
+ * 用来判断数据串是否存在
+ * @param {*} path 
+ * @param {*} parent 
+ * @param {*} num 
+ * @returns 
+ */
+export function get(path, parent, num) {
+  if (typeof parent !== 'object') {
+    parent = this
+  }
+  const pathArr = path.replace(/\[/g, '.')
+    .replace(/\]/g, '')
+    .split('.')
+  const res = pathArr.reduce((o, k) => (o || {})[k], parent)
+  if ((Array.isArray(res) && num)) {
+    return res.length >= num ? res.slice(0, num) : undefined
+  }
+  return res
+}
+
 export function getNum(num) {
   if (num) {
     return thousands(parseFloat(((Math.floor(num * 100) / 100).toFixed(2))))

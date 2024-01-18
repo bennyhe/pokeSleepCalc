@@ -1,4 +1,21 @@
-export const pokedex = {
+const evoLine = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [50, 51],
+  [69, 70, 71],
+  [74, 75, 76],
+  [79, 80, 199],
+  [92, 93, 94],
+  [439, 122],
+  [246, 247, 248],
+  [453, 454],
+  [459, 460],
+  [95, 208],
+  [173, 35, 36],
+  [353, 354]
+]
+const pokedex = {
   1: {
     name: '妙蛙種子',
     pokeType: 2,
@@ -133,11 +150,15 @@ export const pokedex = {
   },
   35: {
     name: '皮皮',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 4000,
+    berryType: 12
   },
   36: {
     name: '皮可西',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 2800,
+    berryType: 12
   },
   39: {
     name: '胖丁',
@@ -345,7 +366,9 @@ export const pokedex = {
   },
   95: {
     name: '大岩蛇',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 3100,
+    berryType: 14
   },
   104: {
     name: '卡拉卡拉',
@@ -488,7 +511,9 @@ export const pokedex = {
   },
   173: {
     name: '皮寶寶',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 5600,
+    berryType: 12
   },
   174: {
     name: '寶寶丁',
@@ -538,7 +563,9 @@ export const pokedex = {
   },
   208: {
     name: '大鋼蛇',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 3000,
+    berryType: 2
   },
   214: {
     name: '赫拉克羅斯',
@@ -638,11 +665,15 @@ export const pokedex = {
   },
   353: {
     name: '怨影娃娃',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 3900,
+    berryType: 8
   },
   354: {
     name: '詛咒娃娃',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 2600,
+    berryType: 8
   },
   359: {
     name: '阿勃梭魯',
@@ -743,13 +774,13 @@ export const pokedex = {
     food: {
       type: [12, 3, 2],
       count: {
-        12:{
+        12: {
           num: [2, 5, 7]
         },
-        3:{
+        3: {
           num: [0, 4, 7]
         },
-        2:{
+        2: {
           num: [0, 0, 5]
         }
       }
@@ -783,14 +814,23 @@ export const pokedex = {
   },
   9001: {
     name: '皮卡丘（萬聖節）',
-    pokeType: 1
+    pokeType: 1,
+    helpSpeed: 2600,
+    berryType: 13
   },
   9002: {
     name: '皮卡丘（佳節）',
     pokeType: 3
   }
 }
-export const updatePoke = [{
+evoLine.forEach(evoItem => {
+  evoItem.forEach((pm, pmKey) => {
+    if (pmKey > 0) {
+      pokedex[pm].food = pokedex[evoItem[0]].food
+    }
+  })
+})
+const updatePoke = [{
   time: '2023/8/1',
   pokemons: [439, 122]
 }, {
@@ -806,3 +846,8 @@ export const updatePoke = [{
   time: '2023/12/1',
   pokemons: [225, 459, 460, 9002]
 }]
+console.log(pokedex)
+export {
+  pokedex,
+  updatePoke
+}
