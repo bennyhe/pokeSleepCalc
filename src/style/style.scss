@@ -97,9 +97,9 @@ h3 {
 
   &__item {
     display: inline-block;
-    border: 1px solid #666;
+    border: 1px solid #c3c3c3;
     border-radius: 30px;
-    width: 80px;
+    width: 110px;
     margin: 3px;
     cursor: pointer;
     text-align: center;
@@ -121,6 +121,7 @@ h3 {
       .mod-select-list__name {
         opacity: 1;
         color: #fff;
+        text-shadow: 1px 1px #333;
       }
 
       img {
