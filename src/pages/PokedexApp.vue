@@ -3,7 +3,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { formatTime } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend.js'
-import { pokeTypes, foodTypes } from '../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
 </script>
 <template>
   <h2>食材宝可梦推荐</h2>
@@ -19,7 +19,7 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
   <ul class="cpt-list food-list">
     <li v-for="(pokeItem, pokeKey) in foodRecommend.list" v-bind:key="pokeKey">
       <p class="mod-tips">
-        {{ pokeTypes[pokedex[pokeItem.evoLine[0]].pokeType] }}型
+        {{ POKE_TYPES[pokedex[pokeItem.evoLine[0]].pokeType] }}型
       </p>
       <CptPoke
         :pokeId="pokemonsItem"
@@ -28,7 +28,7 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
         :showKey="['helpSpeed', 'foodPer']"
       />
       <div>
-        <span
+        <div
           class="cpt-food"
           v-for="(foodItem, foodKey) in pokeItem.needFood"
           v-bind:key="foodKey"
@@ -47,7 +47,7 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
               "
               :class="{ cur: foodItem.includes(allFoodItem) }"
             >
-              <img v-lazy="`./img/food/${allFoodItem}.png`" />
+              <img v-lazy="`./img/food/${allFoodItem}.png`" :alt="FOOD_TYPES[allFoodItem]"/>
               <p v-if="pokedex[pokeItem.evoLine[0]].food">
                 X
                 {{
@@ -58,7 +58,7 @@ import { pokeTypes, foodTypes } from '../config/valKey.js'
               </p>
             </div>
           </template>
-        </span>
+        </div>
       </div>
       <p class="desc" v-html="pokeItem.desc"></p>
     </li>

@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
-import { pokeTypes } from '../../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES } from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
     type: Number
