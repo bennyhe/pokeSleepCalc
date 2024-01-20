@@ -29,7 +29,7 @@ import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
       />
       <div>
         <div
-          class="cpt-food"
+          class="cpt-food all-food"
           v-for="(foodItem, foodKey) in pokeItem.needFood"
           v-bind:key="foodKey"
         >

@@ -19,6 +19,7 @@ const pokedex = {
   1: {
     name: '妙蛙種子',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 4400,
     foodPer: 25.63,
     food: {
@@ -39,12 +40,14 @@ const pokedex = {
   2: {
     name: '妙蛙草',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 3300,
     foodPer: 25.44
   },
   3: {
     name: '妙蛙花',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 2800,
     foodPer: 26.55
   },
@@ -229,6 +232,7 @@ const pokedex = {
   69: {
     name: '喇叭芽',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 5200,
     foodPer: 23.19,
     food: {
@@ -249,12 +253,14 @@ const pokedex = {
   70: {
     name: '口呆花',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 3800,
     foodPer: 23.47
   },
   71: {
     name: '大食花',
     pokeType: 2,
+    berryType: 4,
     helpSpeed: 2800,
     foodPer: 23.28
   },
@@ -471,15 +477,18 @@ const pokedex = {
   // },
   152: {
     name: '菊草葉',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 4
   },
   153: {
     name: '月桂葉',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 4
   },
   154: {
     name: '大竺葵',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 4
   },
   155: {
     name: '火球鼠',
@@ -802,7 +811,8 @@ const pokedex = {
   },
   470: {
     name: '葉伊布',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 4
   },
   471: {
     name: '冰伊布',

@@ -29,13 +29,13 @@ onMounted(()=>{
 
 <template>
   <div class="main">
-    <div class="page-item" :class="{ cur: showPageIndex === 0 }">
+    <div class="page-item" :class="{ cur: showPageIndex === 0 }" v-if="showPageIndex === 0">
       <PageSleepCalc />
     </div>
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">
       <PagePokedex />
     </div>
-    <div class="page-item" :class="{ cur: showPageIndex === 2 }">
+    <div class="page-item" :class="{ cur: showPageIndex === 2 }" v-if="showPageIndex === 2">
       <PageNew />
     </div>
     <PageFooter />

@@ -24,11 +24,11 @@ const getShowKeyVal = pokemonsItem => {
   <h2>最新宝可梦</h2>
   <ul class="cpt-list">
     <li v-for="updateItem in newUpdatePoke" v-bind:key="updateItem.time">
-      <p>
+      <h3>
         {{ formatTime(updateItem.time, "YY年MM月") }}(<span class="sptime"
           >{{ updateItem.pokemons.length }}只</span
         >)：
-      </p>
+      </h3>
       <CptPoke
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in updateItem.pokemons"

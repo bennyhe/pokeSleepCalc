@@ -309,13 +309,14 @@ h3 {
   li:nth-child(2n) {
     background-color: rgba($color: $mainColor, $alpha: .1);
   }
+  .all-food {
+    .cpt-food__item {
+        opacity: .3;
 
-  .cpt-food__item {
-    opacity: .3;
-
-    &.cur {
-      opacity: 1;
-    }
+        &.cur {
+          opacity: 1;
+        }
+      }
   }
 }
 
