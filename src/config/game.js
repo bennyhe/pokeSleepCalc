@@ -3,12 +3,12 @@ const gameMap = [
     name: '萌绿之岛',
     id: 'green',
     pic: 'map1',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 963844 },
-      { catchNum: 4, startscore: 967824, endscore: 2073360 },
-      { catchNum: 5, startscore: 2076360, endscore: 4625346 },
-      { catchNum: 6, startscore: 4626768, endscore: 8331004 },
-      { catchNum: 7, startscore: 8332110, endscore: 19563356 },
-      { catchNum: 8, startscore: 19563768 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 965230 },
+      { catchNum: 4, startscore: 965232, endscore: 2073694 },
+      { catchNum: 5, startscore: 2073695, endscore: 4626378 },
+      { catchNum: 6, startscore: 4626380, endscore: 8331414 },
+      { catchNum: 7, startscore: 8331417, endscore: 19563552 },
+      { catchNum: 8, startscore: 19563553 }],
     levelList: [{
       name: '普通1',
       energy: 0
@@ -78,12 +78,12 @@ const gameMap = [
     name: '天青沙滩',
     id: 'beach',
     pic: 'map2',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1574240 },
-      { catchNum: 4, startscore: 1580337, endscore: 3511048 },
-      { catchNum: 5, startscore: 3512920, endscore: 7156032 },
-      { catchNum: 6, startscore: 7167360, endscore: 13488132 },
-      { catchNum: 7, startscore: 13491088, endscore: 30473422 },
-      { catchNum: 8, startscore: 30502920 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1574329 },
+      { catchNum: 4, startscore: 1574330, endscore: 3511233 },
+      { catchNum: 5, startscore: 3511234, endscore: 7162380 },
+      { catchNum: 6, startscore: 7162381, endscore: 13488262 },
+      { catchNum: 7, startscore: 13488264, endscore: 30491709 },
+      { catchNum: 8, startscore: 30491710 }],
     levelList: [{
       name: '普通1',
       energy: 0
@@ -153,12 +153,12 @@ const gameMap = [
     name: '灰褐洞窟',
     id: 'hole',
     pic: 'map3',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1790097 },
-      { catchNum: 4, startscore: 1838628, endscore: 4623489 },
-      { catchNum: 5, startscore: 4627194, endscore: 9925344 },
-      { catchNum: 6, startscore: 9936924, endscore: 19563328 },
-      { catchNum: 7, startscore: 19563600, endscore: 43695336 },
-      { catchNum: 8, startscore: 43762600 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1829445 },
+      { catchNum: 4, startscore: 1829448, endscore: 4626378 },
+      { catchNum: 5, startscore: 4626380, endscore: 9935822 },
+      { catchNum: 6, startscore: 9935824, endscore: 19563552 },
+      { catchNum: 7, startscore: 19563553, endscore: 43705016 },
+      { catchNum: 8, startscore: 43716240 }],
     levelList: [{
       name: '普通1',
       energy: 0
@@ -228,12 +228,12 @@ const gameMap = [
     name: '百花雪原',
     id: 'snow',
     pic: 'map4',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2808025 },
-      { catchNum: 4, startscore: 2834850, endscore: 7147410 },
-      { catchNum: 5, startscore: 7169800, endscore: 15415155 },
-      { catchNum: 6, startscore: 15471600, endscore: 28537400 },
-      { catchNum: 7, startscore: 28775360, endscore: 65166800 },
-      { catchNum: 8, startscore: 65712275 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2819808 },
+      { catchNum: 4, startscore: 2825955, endscore: 7162380 },
+      { catchNum: 5, startscore: 7164480, endscore: 15469000 },
+      { catchNum: 6, startscore: 15469388, endscore: 28772748 },
+      { catchNum: 7, startscore: 28772770, endscore: 65691968 },
+      { catchNum: 8, startscore: 65701088 }],
     levelList: [{
       name: '普通1',
       energy: 0
@@ -297,6 +297,81 @@ const gameMap = [
     }, {
       name: '大师6以上',
       energy: 1026546
+    }]
+  },
+  {
+    name: '宝蓝湖畔',
+    id: 'lake',
+    pic: 'map5',
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2898000 },
+      { catchNum: 4, startscore: 3280084, endscore: 7715100 },
+      { catchNum: 5, startscore: 7837917, endscore: 16647494 },
+      { catchNum: 6, startscore: 17310150, endscore: 30470600 },
+      { catchNum: 7, startscore: 31160300, endscore: 64031220 },
+      { catchNum: 8, startscore: 74209944 }],
+    levelList: [{
+      name: '普通1',
+      energy: 0
+    }, {
+      name: '普通2',
+      energy: 12938
+    }, {
+      name: '普通3',
+      energy: 29756
+    }, {
+      name: '普通4',
+      energy: 48515
+    }, {
+      name: '普通5',
+      energy: 71156
+    }, {
+      name: '超级1',
+      energy: 97031
+    }, {
+      name: '超级2',
+      energy: 130668
+    }, {
+      name: '超级3',
+      energy: 171420
+    }, {
+      name: '超级4',
+      energy: 219936
+    }, {
+      name: '超级5',
+      energy: 272333
+    }, {
+      name: '高级1',
+      energy: 328610
+    }, {
+      name: '高级2',
+      energy: 388122
+    }, {
+      name: '高级3',
+      energy: 452809
+    }, {
+      name: '高级4',
+      energy: 522025
+    }, {
+      name: '高级5',
+      energy: 596086
+    }, {
+      name: '大师1',
+      energy: 675330
+    }, {
+      name: '大师2',
+      energy: 760123
+    }, {
+      name: '大师3',
+      energy: 850851
+    }, {
+      name: '大师4',
+      energy: 958702
+    }, {
+      name: '大师5',
+      energy: 1075709
+    }, {
+      name: '大师6以上',
+      energy: 1202596
     }]
   }
 ]

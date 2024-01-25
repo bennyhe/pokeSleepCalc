@@ -236,7 +236,7 @@ setDefaultCutNumber()
         </div>
       </el-form-item>
     </el-form>
-    <h2>{{ gameMap[userData.curMap].name }}-睡意之力参考</h2>
+    <h2>{{ gameMap[userData.curMap].name }}-数据区间参考<span class="mod-tips extra">(v2.1.1)</span></h2>
     <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"

@@ -1,6 +1,10 @@
 const markdownText = `
 # 更新日志
 
+## 24-01-26
+1. add 5岛计算
+2. update 更新1-4岛的只数区间分数线
+
 ## 24-01-20
 1. update 优化性能
 
