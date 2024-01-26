@@ -3,8 +3,9 @@ const markdownText = `
 
 ## 24-01-26
 1. add 5岛计算
-2. add 更新1月最新宝可梦
-3. update 更新1-4岛的只数区间分数线
+2. add 1月最新宝可梦
+3. update 1-4岛的只数区间分数线
+4. update 最新食材推荐
 
 ## 24-01-20
 1. update 优化性能

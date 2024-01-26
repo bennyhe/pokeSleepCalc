@@ -473,7 +473,7 @@ const pokedex = {
     name: '迷你龍',
     pokeType: 2,
     berryType: 3,
-    helpSpeed: 2500,
+    helpSpeed: 5000,
     food: {
       type: [6, 16, 10],
       count: {
@@ -492,12 +492,14 @@ const pokedex = {
   148: {
     name: '哈克龍',
     pokeType: 2,
-    berryType: 3
+    berryType: 3,
+    helpSpeed: 3800
   },
   149: {
     name: '快龍',
     pokeType: 2,
-    berryType: 3
+    berryType: 3,
+    helpSpeed: 2600
   },
   152: {
     name: '菊草葉',
@@ -866,6 +868,7 @@ const pokedex = {
     name: '童偶熊',
     pokeType: 2,
     helpSpeed: 4100,
+    berryType: 18,
     // foodPer: 22.47,
     food: {
       type: [16, 7, 3],
@@ -885,7 +888,8 @@ const pokedex = {
   760: {
     name: '穿著熊',
     pokeType: 2,
-    helpSpeed: 2800
+    helpSpeed: 2800,
+    berryType: 18
     // foodPer: 22.93
   },
   9001: {

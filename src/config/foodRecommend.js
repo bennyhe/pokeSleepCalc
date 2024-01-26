@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1705064857777,
-  appVer: '1.0.16',
+  updateTime: 1706276295424,
+  appVer: '1.1.0',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -10,8 +10,8 @@ export const foodRecommend = {
     },
     {
       evoLine: [4, 5, 6],
-      needFood: [[7], [11], [6]],
-      desc: '目前没对应的高级料理'
+      needFood: [[7], [7, 11], [6, 11]],
+      desc: '对应含玉米高级料理需要肠、姜'
     },
     {
       evoLine: [7, 8, 9],
@@ -40,13 +40,13 @@ export const foodRecommend = {
     },
     {
       evoLine: [92, 93, 94],
-      needFood: [[6], [2], [2,10]],
+      needFood: [[6], [2, 6], [2,10]],
       desc: '无加成得食材率有限，大部分时候会下树果'
     },
     {
       evoLine: [115],
-      needFood: [[11], [4], [4,15]],
-      desc: '如果是姜姜不如小班'
+      needFood: [[11], [4, 11], [4, 11]],
+      desc: '针对玉米料理所需的姜'
     },
     {
       evoLine: [439, 122],
@@ -87,6 +87,16 @@ export const foodRecommend = {
       evoLine: [459, 460],
       needFood: [[12], [3], [3, 2]],
       desc: '少数产蛋的食材型，建议抓加帮忙速度的。'
+    },
+    {
+      evoLine: [147, 148, 149],
+      needFood: [[6], [16], [16, 10]],
+      desc: '同小班全家一样的1.5倍育成经验。双辣草找耿鬼。'
+    },
+    {
+      evoLine: [759, 760],
+      needFood: [[16], [16], [3]],
+      desc: '玉米最重要的来源之一'
     }
   ]
 }
