@@ -153,7 +153,7 @@ const gameMap = [
     name: '灰褐洞窟',
     id: 'hole',
     pic: 'map3',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1829445 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 1829446 },
       { catchNum: 4, startscore: 1829448, endscore: 4626378 },
       { catchNum: 5, startscore: 4626380, endscore: 9935822 },
       { catchNum: 6, startscore: 9935824, endscore: 19563552 },
@@ -225,7 +225,7 @@ const gameMap = [
     }]
   },
   {
-    name: '百花雪原',
+    name: '白花雪原',
     id: 'snow',
     pic: 'map4',
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 2819808 },
@@ -303,10 +303,10 @@ const gameMap = [
     name: '宝蓝湖畔',
     id: 'lake',
     pic: 'map5',
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2898000 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2992875 },
       { catchNum: 4, startscore: 3280084, endscore: 7715100 },
       { catchNum: 5, startscore: 7837917, endscore: 16647494 },
-      { catchNum: 6, startscore: 17310150, endscore: 30470600 },
+      { catchNum: 6, startscore: 16987776, endscore: 30470600 },
       { catchNum: 7, startscore: 31160300, endscore: 64031220 },
       { catchNum: 8, startscore: 74209944 }],
     levelList: [{
