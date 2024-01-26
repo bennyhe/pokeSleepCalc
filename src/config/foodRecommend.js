@@ -1,6 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
   updateTime: 1705064857777,
+  appVer: '1.0.16',
   list: [
     {
       evoLine: [1, 2, 3],

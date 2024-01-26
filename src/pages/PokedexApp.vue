@@ -10,7 +10,7 @@ import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
   <div class="mod-tips">
     <p>创建时间：{{ formatTime(foodRecommend.creatTime) }}</p>
     <p>最后更新：{{ formatTime(foodRecommend.updateTime) }}</p>
-    <p>本文基于app ver 1.0.16</p>
+    <p>本文基于app v{{ foodRecommend.appVer }}</p>
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
     <p>
       新人优先树果队，不要玩食材队，食材队收益较低，千算万算不如人家树果队稳定，千算万算不如人家料理暴击一顿。需要扩食材包，需要解锁高级食材，需要严选宝可梦，需要扩锅手，组队难度大，培养成本高，做饭不暴击失落感强，容易弃坑。
