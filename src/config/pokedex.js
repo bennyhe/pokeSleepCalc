@@ -13,7 +13,10 @@ const evoLine = [
   [459, 460],
   [95, 208],
   [173, 35, 36],
-  [353, 354]
+  [353, 354],
+  [147, 148, 149],
+  [280, 281, 282, 475],
+  [759, 760]
 ]
 const pokedex = {
   1: {
@@ -466,15 +469,36 @@ const pokedex = {
     name: '火伊布',
     pokeType: 3
   },
-  // 147: {
-  //   name: '迷你龍',
-  // },
-  // 148: {
-  //   name: '哈克龍',
-  // },
-  // 149: {
-  //   name: '快龍',
-  // },
+  147: {
+    name: '迷你龍',
+    pokeType: 2,
+    berryType: 3,
+    helpSpeed: 2500,
+    food: {
+      type: [6, 16, 10],
+      count: {
+        6: {
+          num: [2, 5, 7]
+        },
+        16: {
+          num: [0, 4, 7]
+        },
+        10: {
+          num: [0, 0, 8]
+        }
+      }
+    }
+  },
+  148: {
+    name: '哈克龍',
+    pokeType: 2,
+    berryType: 3
+  },
+  149: {
+    name: '快龍',
+    pokeType: 2,
+    berryType: 3
+  },
   152: {
     name: '菊草葉',
     pokeType: 1,
@@ -639,6 +663,18 @@ const pokedex = {
     pokeType: 2,
     helpSpeed: 2700,
     foodPer: 26.57
+  },
+  280: {
+    name: '拉魯拉絲',
+    pokeType: 3
+  },
+  281: {
+    name: '奇魯莉安',
+    pokeType: 3
+  },
+  282: {
+    name: '沙奈朵',
+    pokeType: 3
   },
   287: {
     name: '懶人獺',
@@ -818,9 +854,39 @@ const pokedex = {
     name: '冰伊布',
     pokeType: 3
   },
+  475: {
+    name: '艾路雷朵',
+    pokeType: 3
+  },
   700: {
     name: '仙子伊布',
     pokeType: 3
+  },
+  759: {
+    name: '童偶熊',
+    pokeType: 2,
+    helpSpeed: 4100,
+    // foodPer: 22.47,
+    food: {
+      type: [16, 7, 3],
+      count: {
+        16: {
+          num: [2, 5, 7]
+        },
+        7: {
+          num: [0, 6, 10]
+        },
+        3: {
+          num: [0, 0, 9]
+        }
+      }
+    }
+  },
+  760: {
+    name: '穿著熊',
+    pokeType: 2,
+    helpSpeed: 2800
+    // foodPer: 22.93
   },
   9001: {
     name: '皮卡丘（萬聖節）',
@@ -855,6 +921,9 @@ const updatePoke = [{
 }, {
   time: '2023/12/1',
   pokemons: [225, 459, 460, 9002]
+}, {
+  time: '2024/01/1',
+  pokemons: [147, 148, 149, 280, 281, 282, 475, 759, 760]
 }]
 console.log(pokedex)
 export {

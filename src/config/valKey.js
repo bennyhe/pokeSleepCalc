@@ -18,7 +18,8 @@ export const FOOD_TYPES = {
   12: '好眠番茄',
   13: '放鬆可可',
   14: '美味尾巴',
-  15: '萌綠大豆'
+  15: '萌綠大豆',
+  16: '萌綠玉米'
 }
 export const BERRY_TYPES = {
   1: '橙橙果',
