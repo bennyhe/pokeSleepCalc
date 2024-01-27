@@ -220,7 +220,7 @@ h3 {
     color: #333;
   }
 
-  &__pokeType {
+  &__poketype {
     &1 {
       color: #41ae3c
     }
@@ -334,6 +334,86 @@ h3 {
       &.cur {
         opacity: 1;
       }
+    }
+  }
+}
+
+.cpt-foodmenu {
+  width: 110px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  padding: 3px 0 0 3px;
+  box-sizing: border-box;
+
+  &-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .cpt-foodmenu {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:not(:last-child) {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  &__name {
+    font-size: 12px;
+    white-space: normal;
+    line-height: 1.1;
+    min-height: 28px;
+  }
+
+  &__bs {
+    font-size: 12px;
+    color: #444;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 80px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: .3;
+  }
+
+  .cpt-food {
+    border: none;
+    transform: scale(.7);
+    margin: -12px 0 -8px -8px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--1 {
+    background-color: rgba($color: #41ae3c, $alpha: .2);
+
+    .cpt-foodmenu__name {
+      color: darken($color: #41ae3c, $amount: 25%)
+    }
+  }
+
+  &--2 {
+    background-color: rgba($color: #fcc307, $alpha: .2);
+
+    .cpt-foodmenu__name {
+      color: darken($color: #fcc307, $amount: 25%)
+    }
+  }
+
+  &--3 {
+    background-color: rgba($color: #5cb3cc, $alpha: .2);
+
+    .cpt-foodmenu__name {
+      color: darken($color: #5cb3cc, $amount: 25%)
     }
   }
 }

@@ -1,9 +1,28 @@
 <script setup>
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
-import { formatTime } from '../utils/index.js'
+import { formatTime, sortInObjectOptions } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
+import { COOKMENU } from '../config/cookmenu.js'
 import { foodRecommend } from '../config/foodRecommend.js'
-import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES, MENU_TYPES } from '../config/valKey.js'
+
+console.log(COOKMENU)
+const findMenuWithFood = pokemonFoodKey => {
+  // console.log('pokemon:', pokemonFoodKey)
+  const res = []
+  for (const menuItem in COOKMENU) {
+    if (Object.hasOwnProperty.call(COOKMENU, menuItem)) {
+      const element = COOKMENU[menuItem]
+      for (let i = 0; i < element.from.length; i++) {
+        if (pokemonFoodKey.includes(element.from[i].id)) {
+          res.push(COOKMENU[menuItem])
+          break
+        }
+      }
+    }
+  }
+  return sortInObjectOptions(res, ['baseEnergy'], 'down')
+}
 </script>
 <template>
   <h2>食材宝可梦推荐</h2>
@@ -47,7 +66,10 @@ import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
               "
               :class="{ cur: foodItem.includes(allFoodItem) }"
             >
-              <img v-lazy="`./img/food/${allFoodItem}.png`" :alt="FOOD_TYPES[allFoodItem]"/>
+              <img
+                v-lazy="`./img/food/${allFoodItem}.png`"
+                :alt="FOOD_TYPES[allFoodItem]"
+              />
               <p v-if="pokedex[pokeItem.evoLine[0]].food">
                 X
                 {{
@@ -61,6 +83,47 @@ import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
         </div>
       </div>
       <p class="desc" v-html="pokeItem.desc"></p>
+      <div class="cpt-foodmenu-list">
+        <h3>
+          关联菜谱({{
+            findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type).length
+          }})
+        </h3>
+        <div class="cpt-foodmenu-scroll">
+          <div
+            class="cpt-foodmenu"
+            :class="`cpt-foodmenu--${menuItem.type}`"
+            v-for="menuItem in findMenuWithFood(
+              pokedex[pokeItem.evoLine[0]].food.type
+            )"
+            v-bind:key="menuItem.id"
+          >
+            <p class="cpt-foodmenu__name">{{ MENU_TYPES[menuItem.id] }}</p>
+            <div class="cpt-food all-food">
+              <div
+                class="cpt-food__item cur"
+                v-for="allFoodItem in menuItem.from"
+                v-bind:key="allFoodItem.id"
+              >
+                <img
+                  v-lazy="`./img/food/${allFoodItem.id}.png`"
+                  :alt="FOOD_TYPES[allFoodItem.id]"
+                />
+                <p>X{{ allFoodItem.num }}</p>
+              </div>
+            </div>
+            <p class="cpt-foodmenu__bs">
+              <img class="icon" v-lazy="`../img/ui/energy.png`" />Lv1:
+              {{ menuItem.baseEnergy }}
+            </p>
+            <img
+              class="cpt-foodmenu__bg"
+              v-lazy="`./img/food/${menuItem.id}.png`"
+              :alt="MENU_TYPES[menuItem.id]"
+            />
+          </div>
+        </div>
+      </div>
     </li>
   </ul>
 </template>

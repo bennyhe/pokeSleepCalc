@@ -5,8 +5,8 @@ export const foodRecommend = {
   list: [
     {
       evoLine: [1, 2, 3],
-      needFood: [[9], [9], [9, 4]],
-      desc: '对应饮料甜品周所需的蜜'
+      needFood: [[9], [9, 12], [9, 4]],
+      desc: '对应饮料甜品周所需的蜜，玉米高级料理的番茄'
     },
     {
       evoLine: [4, 5, 6],

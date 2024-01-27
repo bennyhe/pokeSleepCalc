@@ -150,3 +150,26 @@ export function getUrlQuery(paramName, url) {
   }
   return result
 }
+
+export function sortInObjectOptions(arr, options, updown) {
+  updown = updown || 'down'
+  if (options && options.length > 0) {
+    return arr.sort((a, b) => {
+      const aa = updown === 'up' ? a : b
+      const bb = updown === 'up' ? b : a
+      let sort = aa[options[0]] - bb[options[0]]
+      for (let i = 0; i < options.length; i++) {
+        const item = options[i]
+        if (item === 'name') {
+          sort = sort || bb[item].localeCompare(aa[item])
+        } else if (item === 'time') {
+          sort = sort || Date.parse(bb[item]) - Date.parse(aa[item])
+        } else {
+          sort = sort || aa[item] - bb[item]
+        }
+      }
+      return sort
+    })
+  }
+  return arr
+}
