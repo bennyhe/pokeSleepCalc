@@ -113,7 +113,7 @@ const findMenuWithFood = pokemonFoodKey => {
               </div>
             </div>
             <p class="cpt-foodmenu__bs">
-              <img class="icon" v-lazy="`../img/ui/energy.png`" />Lv1:
+              <img class="icon" v-lazy="`./img/ui/energy.png`" />Lv1:
               {{ menuItem.baseEnergy }}
             </p>
             <img
