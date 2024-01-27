@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-01-27
 1. update 数据区间参考
+2. fix 部分情况下最新宝可梦显示正序
 
 ## 24-01-26
 1. add 5岛计算

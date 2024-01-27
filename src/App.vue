@@ -5,7 +5,9 @@ import PageFooter from './components/PageFooter/index.vue'
 import PageSleepCalc from './pages/SleepCalc.vue'
 import PagePokedex from './pages/PokedexApp.vue'
 import PageNew from './pages/NewPoke.vue'
+import { updatePoke } from './config/pokedex.js'
 
+const newUpdatePoke = [...updatePoke.reverse()]
 const showPageIndex = ref(0)
 const nav = [
   {
@@ -19,7 +21,7 @@ const nav = [
   }
 ]
 
-onMounted(()=>{
+onMounted(() => {
   console.log('组件已经挂载')
   if (+getUrlQuery('p') >= 0) {
     showPageIndex.value = +getUrlQuery('p')
@@ -29,14 +31,22 @@ onMounted(()=>{
 
 <template>
   <div class="main">
-    <div class="page-item" :class="{ cur: showPageIndex === 0 }" v-if="showPageIndex === 0">
+    <div
+      class="page-item"
+      :class="{ cur: showPageIndex === 0 }"
+      v-if="showPageIndex === 0"
+    >
       <PageSleepCalc />
     </div>
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">
       <PagePokedex />
     </div>
-    <div class="page-item" :class="{ cur: showPageIndex === 2 }" v-if="showPageIndex === 2">
-      <PageNew />
+    <div
+      class="page-item"
+      :class="{ cur: showPageIndex === 2 }"
+      v-if="showPageIndex === 2"
+    >
+      <PageNew :newUpdatePoke="newUpdatePoke" />
     </div>
     <PageFooter />
     <nav class="nav">
