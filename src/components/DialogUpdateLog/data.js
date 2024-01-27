@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-01-27
+1. update 数据区间参考
+
 ## 24-01-26
 1. add 5岛计算
 2. add 1月最新宝可梦

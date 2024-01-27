@@ -305,10 +305,10 @@ const gameMap = [
     pic: 'map5',
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 2992875 },
       { catchNum: 4, startscore: 3280084, endscore: 7715100 },
-      { catchNum: 5, startscore: 7837917, endscore: 16647494 },
-      { catchNum: 6, startscore: 16987776, endscore: 30470600 },
-      { catchNum: 7, startscore: 31160300, endscore: 64031220 },
-      { catchNum: 8, startscore: 74209944 }],
+      { catchNum: 5, startscore: 7752456, endscore: 16647494 },
+      { catchNum: 6, startscore: 16710948, endscore: 30470600 },
+      { catchNum: 7, startscore: 30514962, endscore: 64031220 },
+      { catchNum: 8, startscore: 70414648 }],
     levelList: [{
       name: '普通1',
       energy: 0
