@@ -89,6 +89,7 @@ const pokedex = {
   7: {
     name: '傑尼龜',
     pokeType: 2,
+    berryType: 1,
     helpSpeed: 4500,
     foodPer: 27.02,
     food: {
@@ -109,26 +110,31 @@ const pokedex = {
   8: {
     name: '卡咪龜',
     pokeType: 2,
+    berryType: 1,
     helpSpeed: 3400,
     foodPer: 27.04
   },
   9: {
     name: '水箭龜',
     pokeType: 2,
+    berryType: 1,
     helpSpeed: 2800,
     foodPer: 27.42
   },
   10: {
     name: '綠毛蟲',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 9
   },
   11: {
     name: '鐵甲蛹',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 9
   },
   12: {
     name: '巴大蝶',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 9
   },
   19: {
     name: '小拉達',
@@ -140,11 +146,13 @@ const pokedex = {
   },
   23: {
     name: '阿柏蛇',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 5
   },
   24: {
     name: '阿柏怪',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 5
   },
   25: {
     name: '皮卡丘',
@@ -210,11 +218,13 @@ const pokedex = {
   },
   54: {
     name: '可達鴨',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 1
   },
   55: {
     name: '哥達鴨',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 1
   },
   56: {
     name: '猴怪',
@@ -302,6 +312,7 @@ const pokedex = {
   79: {
     name: '呆呆獸',
     pokeType: 3,
+    berryType: 1,
     helpSpeed: 5700,
     foodPer: 15.04,
     food: {
@@ -322,16 +333,19 @@ const pokedex = {
   80: {
     name: '呆殼獸',
     pokeType: 3,
+    berryType: 1,
     helpSpeed: 3800,
     foodPer: 15.06
   },
   81: {
     name: '小磁怪',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 2
   },
   82: {
     name: '三合一磁怪',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 2
   },
   84: {
     name: '嘟嘟',
@@ -344,6 +358,7 @@ const pokedex = {
   92: {
     name: '鬼斯',
     pokeType: 2,
+    berryType: 8,
     helpSpeed: 3800,
     foodPer: 14.4,
     food: {
@@ -364,12 +379,14 @@ const pokedex = {
   93: {
     name: '鬼斯通',
     pokeType: 2,
+    berryType: 8,
     helpSpeed: 3000,
     foodPer: 15.69
   },
   94: {
     name: '耿鬼',
     pokeType: 2,
+    berryType: 8,
     helpSpeed: 2200,
     foodPer: 16.1
   },
@@ -410,12 +427,14 @@ const pokedex = {
   122: {
     name: '魔牆人偶',
     pokeType: 2,
+    berryType: 6,
     helpSpeed: 2800,
     foodPer: 21.58
   },
   127: {
     name: '凱羅斯',
     pokeType: 2,
+    berryType: 9,
     helpSpeed: 2400,
     foodPer: 20.55,
     food: {
@@ -459,7 +478,8 @@ const pokedex = {
   },
   134: {
     name: '水伊布',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 1
   },
   135: {
     name: '雷伊布',
@@ -530,15 +550,18 @@ const pokedex = {
   },
   158: {
     name: '小鋸鱷',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 1
   },
   159: {
     name: '藍鱷',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 1
   },
   160: {
     name: '大力鱷',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 1
   },
   172: {
     name: '皮丘',
@@ -580,6 +603,7 @@ const pokedex = {
   },
   196: {
     name: '太陽伊布',
+    berryType: 6,
     pokeType: 3
   },
   197: {
@@ -589,22 +613,25 @@ const pokedex = {
   199: {
     name: '呆呆王',
     pokeType: 3,
+    berryType: 1,
     helpSpeed: 3400,
     foodPer: 15.04
   },
   202: {
     name: '果然翁',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 6
   },
   208: {
     name: '大鋼蛇',
     pokeType: 1,
-    helpSpeed: 3000,
-    berryType: 2
+    berryType: 2,
+    helpSpeed: 3000
   },
   214: {
     name: '赫拉克羅斯',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 9
   },
   225: {
     name: '信使鳥',
@@ -668,15 +695,18 @@ const pokedex = {
   },
   280: {
     name: '拉魯拉絲',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 6
   },
   281: {
     name: '奇魯莉安',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 6
   },
   282: {
     name: '沙奈朵',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 6
   },
   287: {
     name: '懶人獺',
@@ -696,11 +726,13 @@ const pokedex = {
   },
   316: {
     name: '溶食獸',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 5
   },
   317: {
     name: '吞食獸',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 5
   },
   333: {
     name: '青綿鳥',
@@ -708,17 +740,20 @@ const pokedex = {
   },
   334: {
     name: '七夕青鳥',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 3
   },
   353: {
     name: '怨影娃娃',
     pokeType: 1,
+    berryType: 8,
     helpSpeed: 3900,
     berryType: 8
   },
   354: {
     name: '詛咒娃娃',
     pokeType: 1,
+    berryType: 8,
     helpSpeed: 2600,
     berryType: 8
   },
@@ -744,19 +779,23 @@ const pokedex = {
   },
   360: {
     name: '小果然',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 6
   },
   363: {
     name: '海豹球',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 7
   },
   364: {
     name: '海魔獅',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 7
   },
   365: {
     name: '帝牙海獅',
-    pokeType: 1
+    pokeType: 1,
+    berryType: 7
   },
   438: {
     name: '盆才怪',
@@ -765,6 +804,7 @@ const pokedex = {
   439: {
     name: '魔尼尼',
     pokeType: 2,
+    berryType: 6,
     helpSpeed: 4300,
     foodPer: 20.05,
     food: {
@@ -793,6 +833,7 @@ const pokedex = {
   453: {
     name: '不良蛙',
     pokeType: 2,
+    berryType: 5,
     helpSpeed: 5600,
     foodPer: 22.73,
     food: {
@@ -810,12 +851,14 @@ const pokedex = {
   454: {
     name: '毒骷蛙',
     pokeType: 2,
+    berryType: 5,
     helpSpeed: 3400,
     foodPer: 22.86
   },
   459: {
     name: '雪笠怪',
     pokeType: 2,
+    berryType: 7,
     helpSpeed: 5600,
     foodPer: 25.04,
     food: {
@@ -836,12 +879,14 @@ const pokedex = {
   460: {
     name: '暴雪王',
     pokeType: 2,
+    berryType: 7,
     helpSpeed: 3000,
     foodPer: 25
   },
   462: {
     name: '自爆磁怪',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 2
   },
   468: {
     name: '波克基斯',
@@ -854,7 +899,8 @@ const pokedex = {
   },
   471: {
     name: '冰伊布',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 7
   },
   475: {
     name: '艾路雷朵',
