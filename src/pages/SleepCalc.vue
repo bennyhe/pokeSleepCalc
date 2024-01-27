@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
-import {gameMap, mapSplitVer} from '../config/game.js'
+import { gameMap, mapSplitVer } from '../config/game.js'
+import { BERRY_TYPES } from '../config/valKey.js'
 import {
   toHM,
   getNum,
@@ -101,16 +102,34 @@ setDefaultCutNumber()
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->
       <el-form-item label="当前岛屿">
-        <ul class="mod-select-list">
+        <ul class="cpt-select-list">
           <li
-            class="mod-select-list__item"
+            class="cpt-select-list__item"
             v-for="(mapItem, mapIndex) in gameMap"
             v-bind:key="mapItem.id"
             :class="{ cur: userData.curMap === mapIndex }"
             @click="handleClickChangeMap(mapIndex)"
           >
-            <span class="mod-select-list__name">{{ mapItem.name }}</span>
-            <img v-lazy="`./img/ui/${mapItem.pic}.png`" />
+            <div class="cpt-select-list__name">
+              {{ mapItem.name }}
+              <div>
+                <div
+                  class="cpt-food cpt-food--s berry"
+                  v-for="(berryItem, berryKey) in mapItem.berry"
+                  v-bind:key="berryKey"
+                >
+                  <div class="cpt-food__item">
+                    <img
+                      v-if="berryItem !== '?'"
+                      v-lazy="`./img/berry/${berryItem}.png`"
+                      :alt="BERRY_TYPES[berryItem]"
+                    />
+                    <template v-else>?</template>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img class="cpt-select-list__bg" v-lazy="`./img/ui/${mapItem.pic}.png`" />
           </li>
         </ul>
       </el-form-item>
@@ -236,7 +255,12 @@ setDefaultCutNumber()
         </div>
       </el-form-item>
     </el-form>
-    <h2>{{ gameMap[userData.curMap].name }}-数据区间参考<span class="mod-tips extra">(v{{mapSplitVer}})</span></h2>
+    <h2>
+      {{ gameMap[userData.curMap].name }}-数据区间参考<span
+        class="mod-tips extra"
+        >(v{{ mapSplitVer }})</span
+      >
+    </h2>
     <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"

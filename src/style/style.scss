@@ -96,7 +96,7 @@ h3 {
   margin-top: 3px;
 }
 
-.mod-select-list {
+.cpt-select-list {
   font-size: 14px;
   line-height: 1;
 
@@ -123,7 +123,7 @@ h3 {
       font-weight: bold;
       color: $mainColor;
 
-      .mod-select-list__name {
+      .cpt-select-list__name {
         opacity: 1;
         color: #fff;
         text-shadow: 1px 1px #333;
@@ -140,10 +140,10 @@ h3 {
     z-index: 5;
     background-color: rgba($color: #000000, $alpha: .1);
     display: block;
-    padding: 5px 0;
+    padding: 4px 0 2px;
   }
 
-  img {
+  &__bg {
     position: absolute;
     width: 100%;
     height: auto;
@@ -151,6 +151,12 @@ h3 {
     left: 0;
     bottom: -10px;
     opacity: .5;
+  }
+
+  .berry {
+    border: none;
+    min-height: 20px;
+    line-height: 20px;
   }
 }
 
