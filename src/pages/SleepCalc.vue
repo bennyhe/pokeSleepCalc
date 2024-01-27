@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
-import gameMap from '../config/game.js'
+import {gameMap, mapSplitVer} from '../config/game.js'
 import {
   toHM,
   getNum,
@@ -236,7 +236,7 @@ setDefaultCutNumber()
         </div>
       </el-form-item>
     </el-form>
-    <h2>{{ gameMap[userData.curMap].name }}-数据区间参考<span class="mod-tips extra">(v2.2.0)</span></h2>
+    <h2>{{ gameMap[userData.curMap].name }}-数据区间参考<span class="mod-tips extra">(v{{mapSplitVer}})</span></h2>
     <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"

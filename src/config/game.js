@@ -1,3 +1,4 @@
+const mapSplitVer = '2.2.1'
 const gameMap = [
   {
     name: '萌绿之岛',
@@ -6,7 +7,7 @@ const gameMap = [
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 965230 },
       { catchNum: 4, startscore: 965232, endscore: 2073694 },
       { catchNum: 5, startscore: 2073695, endscore: 4626378 },
-      { catchNum: 6, startscore: 4626380, endscore: 8331414 },
+      { catchNum: 6, startscore: 4626380, endscore: 8331415 },
       { catchNum: 7, startscore: 8331417, endscore: 19563552 },
       { catchNum: 8, startscore: 19563553 }],
     levelList: [{
@@ -307,8 +308,8 @@ const gameMap = [
       { catchNum: 4, startscore: 3280084, endscore: 7715100 },
       { catchNum: 5, startscore: 7752456, endscore: 16647494 },
       { catchNum: 6, startscore: 16710948, endscore: 30470600 },
-      { catchNum: 7, startscore: 30514962, endscore: 64031220 },
-      { catchNum: 8, startscore: 70414648 }],
+      { catchNum: 7, startscore: 30514962, endscore: 65099800 },
+      { catchNum: 8, startscore: 70034888 }],
     levelList: [{
       name: '普通1',
       energy: 0
@@ -375,4 +376,7 @@ const gameMap = [
     }]
   }
 ]
-export default gameMap
+export {
+  mapSplitVer,
+  gameMap
+}
