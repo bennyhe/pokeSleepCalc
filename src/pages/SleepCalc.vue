@@ -9,7 +9,8 @@ import {
   toHM,
   getNum,
   getNumberInMap,
-  getStageLevelPicId
+  getStageLevelPicId,
+  sortInObjectOptions
 } from '../utils/index.js'
 
 const userData = ref({
@@ -94,11 +95,11 @@ const getNextScoreDiff = () => {
   )
 }
 
-const getBerryPokemon = berryId => {
+const getBerryPokemon = berryArr => {
   const res = []
   for (const pokeKey in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
-      if (pokedex[pokeKey].berryType === berryId) {
+      if (berryArr.includes(pokedex[pokeKey].berryType)) {
         res.push({
           id: pokeKey,
           ...pokedex[pokeKey]
@@ -106,8 +107,8 @@ const getBerryPokemon = berryId => {
       }
     }
   }
-  console.log(res, berryId)
-  return res
+  // console.log(res, berryId)
+  return sortInObjectOptions(res, ['pokeType'], 'up')
 }
 // 初始化默认
 setDefaultCutNumber()
@@ -298,17 +299,12 @@ setDefaultCutNumber()
     </ul>
     <template v-if="gameMap[userData.curMap].berry[0] !== '?'">
       <h2>对应树果宝可梦</h2>
-      <template
-        v-for="berryItem in gameMap[userData.curMap].berry"
-        v-bind:key="`${ userData.curMap }${ berryItem }`"
-      >
-        <CptPoke
-          :pokeId="pokemonsItem.id"
-          v-for="pokemonsItem in getBerryPokemon(berryItem)"
-          v-bind:key="pokemonsItem.id"
-          :showKey="['helpSpeed', 'berry', 'pokeType']"
-        />
-      </template>
+      <CptPoke
+        :pokeId="pokemonsItem.id"
+        v-for="pokemonsItem in getBerryPokemon(gameMap[userData.curMap].berry)"
+        v-bind:key="pokemonsItem.id"
+        :showKey="['helpSpeed', 'berry', 'pokeType']"
+      />
     </template>
   </div>
 </template>
