@@ -4,7 +4,7 @@ import { pokedex } from '../../config/pokedex.js'
 import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES } from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
-    type: Number
+    type: [Number, String]
   },
   showKey: {
     type: Array
@@ -24,7 +24,7 @@ const props = defineProps({
         props.showKey &&
         props.showKey.includes('pokeType')
       "
-      :class="`cpt-pokemon__pokeType${pokedex[pokeId].pokeType}`"
+      :class="`cpt-pokemon__poketype${pokedex[pokeId].pokeType}`"
     >
       {{ POKE_TYPES[pokedex[pokeId].pokeType] }}型
     </p>

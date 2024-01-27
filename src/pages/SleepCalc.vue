@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { BERRY_TYPES } from '../config/valKey.js'
+import { pokedex } from '../config/pokedex.js'
 import {
   toHM,
   getNum,
@@ -92,6 +94,21 @@ const getNextScoreDiff = () => {
   )
 }
 
+const getBerryPokemon = berryId => {
+  const res = []
+  for (const pokeKey in pokedex) {
+    if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
+      if (pokedex[pokeKey].berryType === berryId) {
+        res.push({
+          id: pokeKey,
+          ...pokedex[pokeKey]
+        })
+      }
+    }
+  }
+  console.log(res, berryId)
+  return res
+}
 // 初始化默认
 setDefaultCutNumber()
 </script>
@@ -129,7 +146,10 @@ setDefaultCutNumber()
                 </div>
               </div>
             </div>
-            <img class="cpt-select-list__bg" v-lazy="`./img/ui/${mapItem.pic}.png`" />
+            <img
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+            />
           </li>
         </ul>
       </el-form-item>
@@ -276,6 +296,20 @@ setDefaultCutNumber()
         <template v-else>以上</template>
       </li>
     </ul>
+    <template v-if="gameMap[userData.curMap].berry[0] !== '?'">
+      <h2>对应树果宝可梦</h2>
+      <template
+        v-for="berryItem in gameMap[userData.curMap].berry"
+        v-bind:key="`${ userData.curMap }${ berryItem }`"
+      >
+        <CptPoke
+          :pokeId="pokemonsItem.id"
+          v-for="pokemonsItem in getBerryPokemon(berryItem)"
+          v-bind:key="pokemonsItem.id"
+          :showKey="['helpSpeed', 'berry', 'pokeType']"
+        />
+      </template>
+    </template>
   </div>
 </template>
 

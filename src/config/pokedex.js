@@ -512,7 +512,8 @@ const pokedex = {
   },
   135: {
     name: '雷伊布',
-    pokeType: 3
+    pokeType: 3,
+    berryType: 13
   },
   136: {
     name: '火伊布',

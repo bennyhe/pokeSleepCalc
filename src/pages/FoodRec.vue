@@ -103,7 +103,11 @@ const fnAccumulation = (arr, key) => {
             )"
             v-bind:key="menuItem.id"
           >
-            <p class="cpt-foodmenu__name">{{ MENU_TYPES[menuItem.id] }}({{ fnAccumulation(menuItem.from, 'num') }})</p>
+            <p class="cpt-foodmenu__name">
+              {{ MENU_TYPES[menuItem.id] }}({{
+                fnAccumulation(menuItem.from, "num")
+              }})
+            </p>
             <div class="cpt-food all-food">
               <div
                 class="cpt-food__item cur"

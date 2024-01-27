@@ -23,10 +23,10 @@ const getShowKeyVal = pokemonsItem => {
 </script>
 <template>
   <h2>全图鉴速查</h2>
-      <CptPoke
-        :pokeId="+pokemonKey"
-        v-for="(pokemonsItem, pokemonKey) in pokedex"
-        v-bind:key="pokemonsItem.name"
-        :showKey="getShowKeyVal(pokemonKey)"
-      />
+  <CptPoke
+    :pokeId="+pokemonKey"
+    v-for="(pokemonsItem, pokemonKey) in pokedex"
+    v-bind:key="pokemonsItem.name"
+    :showKey="getShowKeyVal(pokemonKey)"
+  />
 </template>
