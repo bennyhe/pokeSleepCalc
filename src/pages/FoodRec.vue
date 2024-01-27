@@ -23,6 +23,11 @@ const findMenuWithFood = pokemonFoodKey => {
   }
   return sortInObjectOptions(res, ['baseEnergy'], 'down')
 }
+
+const fnAccumulation = (arr, key) => {
+  const res = arr.reduce((acc, item) => acc + item[key], 0)
+  return res
+}
 </script>
 <template>
   <h2>食材宝可梦推荐</h2>
@@ -98,7 +103,7 @@ const findMenuWithFood = pokemonFoodKey => {
             )"
             v-bind:key="menuItem.id"
           >
-            <p class="cpt-foodmenu__name">{{ MENU_TYPES[menuItem.id] }}</p>
+            <p class="cpt-foodmenu__name">{{ MENU_TYPES[menuItem.id] }}({{ fnAccumulation(menuItem.from, 'num') }})</p>
             <div class="cpt-food all-food">
               <div
                 class="cpt-food__item cur"
@@ -113,7 +118,7 @@ const findMenuWithFood = pokemonFoodKey => {
               </div>
             </div>
             <p class="cpt-foodmenu__bs">
-              <img class="icon" v-lazy="`./img/ui/energy.png`" />Lv1:
+              <img class="icon" v-lazy="`./img/ui/energy.png`" />
               {{ menuItem.baseEnergy }}
             </p>
             <img
