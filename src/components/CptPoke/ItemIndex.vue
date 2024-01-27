@@ -28,6 +28,22 @@ const props = defineProps({
     >
       {{ POKE_TYPES[pokedex[pokeId].pokeType] }}型
     </p>
+    <div
+      class="cpt-food cpt-food--s berry"
+      v-if="
+        pokedex[pokeId].berryType &&
+        props.showKey &&
+        props.showKey.includes('berry')
+      "
+    >
+      <div class="cpt-food__item">
+        <img
+          v-lazy="`./img/berry/${pokedex[pokeId].berryType}.png`"
+          :alt="BERRY_TYPES[pokedex[pokeId].berryType]"
+        />
+      </div>
+      <p>{{ BERRY_TYPES[pokedex[pokeId].berryType] }}</p>
+    </div>
     <p
       v-if="
         pokedex[pokeId].helpSpeed &&
@@ -67,22 +83,6 @@ const props = defineProps({
           />
         </div>
       </template>
-    </div>
-    <div
-      class="cpt-food cpt-food--s"
-      v-if="
-        pokedex[pokeId].berryType &&
-        props.showKey &&
-        props.showKey.includes('berry')
-      "
-    >
-      <div class="cpt-food__item">
-        <img
-          v-lazy="`./img/berry/${pokedex[pokeId].berryType}.png`"
-          :alt="BERRY_TYPES[pokedex[pokeId].berryType]"
-        />
-      </div>
-      <p>{{ BERRY_TYPES[pokedex[pokeId].berryType] }}</p>
     </div>
   </div>
 </template>

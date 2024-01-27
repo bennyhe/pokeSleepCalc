@@ -62,13 +62,14 @@
 
 @media screen and (max-width: 660px) {
   $navItemHeight: 32px;
+  $row: 2;
 
   .main {
-    padding-bottom: $navItemHeight * 1;
+    padding-bottom: $navItemHeight * $row;
   }
 
   .nav {
-    height: $navItemHeight * 1;
+    height: $navItemHeight * $row;
     line-height: $navItemHeight;
 
     ul {
@@ -76,7 +77,7 @@
     }
 
     li {
-      width: percentage($number: 1 / 3);
+      width: percentage($number: 1 / 2);
       font-size: 13px;
       height: $navItemHeight;
       overflow: hidden;

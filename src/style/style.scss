@@ -228,6 +228,10 @@ h3 {
     }
   }
 
+  .berry {
+    margin-right: 0;
+  }
+
   &--l {
     width: 62px;
 
@@ -270,10 +274,6 @@ h3 {
   border: 1px solid #b4b4b4;
   border-radius: 5px;
 
-  &:not(:last-child) {
-    margin-right: 5px;
-  }
-
   &,
   &__item {
     display: inline-block;
@@ -314,14 +314,19 @@ h3 {
   li:nth-child(2n) {
     background-color: rgba($color: $mainColor, $alpha: .1);
   }
+
+  .cpt-food+.cpt-food {
+    margin-left: 5px;
+  }
+
   .all-food {
     .cpt-food__item {
-        opacity: .3;
+      opacity: .3;
 
-        &.cur {
-          opacity: 1;
-        }
+      &.cur {
+        opacity: 1;
       }
+    }
   }
 }
 

@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { getUrlQuery } from './utils/index.js'
 import PageFooter from './components/PageFooter/index.vue'
 import PageSleepCalc from './pages/SleepCalc.vue'
-// import PagePokedex from './pages/PokedexApp.vue'
+import PagePokedex from './pages/PokedexApp.vue'
 import PageFoodRec from './pages/FoodRec.vue'
 import PageNew from './pages/NewPoke.vue'
 import { updatePoke } from './config/pokedex.js'
@@ -15,10 +15,10 @@ const nav = [
     name: 'SLEEP CALC'
   },
   {
-    name: 'POKEDEX'
+    name: 'FOOD RECOMMEND'
   },
   {
-    name: 'FOOD RECOMMEND'
+    name: 'POKEDEX'
   },
   {
     name: 'NEW'
@@ -43,10 +43,10 @@ onMounted(() => {
       <PageSleepCalc />
     </div>
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">
-      <!-- <PagePokedex /> -->
+      <PageFoodRec />
     </div>
     <div class="page-item" :class="{ cur: showPageIndex === 2 }">
-      <PageFoodRec />
+      <PagePokedex />
     </div>
     <div
       class="page-item"
