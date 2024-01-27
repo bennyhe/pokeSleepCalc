@@ -1,12 +1,12 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1706323014581,
+  updateTime: 1706355415939,
   appVer: '1.1.0',
   list: [
     {
       evoLine: [1, 2, 3],
-      needFood: [[9], [9, 12], [9, 4]],
-      desc: '对应饮料甜品周所需的蜜，玉米高级料理的番茄'
+      needFood: [[9], [9, 12], [9, 4, 12]],
+      desc: '对应饮料周所需的蜜，高级料理的番茄'
     },
     {
       evoLine: [4, 5, 6],
@@ -16,7 +16,7 @@ export const foodRecommend = {
     {
       evoLine: [7, 8, 9],
       needFood: [[8], [13], [13, 8]],
-      desc: '对应饮料甜品周所需的可可，如有伊布家族不考虑60奶'
+      desc: '对应大部分牛奶料理以及55料理所需的可可，如有伊布家族不考虑60奶'
     },
     {
       evoLine: [50, 51],
@@ -31,12 +31,12 @@ export const foodRecommend = {
     {
       evoLine: [74, 75, 76],
       needFood: [[15], [4], [4]],
-      desc: '土豆适配咖喱周'
+      desc: '对应高级料理的土豆'
     },
     {
       evoLine: [79, 80, 199],
       needFood: [[13], [14], [14]],
-      desc: '它不是食材型是技能型！选个up exp的性格养，30唯一有尾巴，解锁完尾巴扔！'
+      desc: '它不是食材型是技能型！选个up exp的性格养，30唯一有尾巴，解锁完尾巴就行！目前活力机制下呆呆王技能可用。'
     },
     {
       evoLine: [92, 93, 94],
@@ -46,7 +46,7 @@ export const foodRecommend = {
     {
       evoLine: [115],
       needFood: [[11], [4, 11], [4, 11]],
-      desc: '针对玉米料理所需的姜'
+      desc: '针对玉米料理所需的姜，30土豆有其它可养成'
     },
     {
       evoLine: [439, 122],
@@ -70,8 +70,8 @@ export const foodRecommend = {
     },
     {
       evoLine: [246, 247, 248],
-      needFood: [[11], [15], [15, 11]],
-      desc: '对应沙拉周最高级料理，不推荐新人抓&养，成本巨大，41级才3进'
+      needFood: [[11], [11, 15], [15, 11]],
+      desc: '对应高级料理，不推荐新人抓&养，成本巨大，41级才3进'
     },
     {
       evoLine: [359],
@@ -90,8 +90,8 @@ export const foodRecommend = {
     },
     {
       evoLine: [147, 148, 149],
-      needFood: [[6], [16], [16, 10]],
-      desc: '同小班全家一样的1.5倍育成经验。双辣草找耿鬼。'
+      needFood: [[6], [6], [6, 16, 10]],
+      desc: '同小班全家一样的1.5倍育成经验。要玉米找穿着熊。'
     },
     {
       evoLine: [759, 760],
