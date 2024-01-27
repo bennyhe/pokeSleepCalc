@@ -4,12 +4,15 @@ function thousands(num) {
   return str.replace(reg, '$1,')
 }
 
-export function toHM(decimalHours) {
+export function toHM(decimalHours, type) {
   let hours = Math.floor(decimalHours) // 获取小时部分
   let minutes = Math.round((decimalHours - hours) * 60) // 获取分钟部分
   if (minutes === 60) {
     minutes = 0
     hours++
+  }
+  if (type === 'mm') {
+    return hours * 60 + minutes
   }
   return hours + '小时' + minutes + '分钟'
 }

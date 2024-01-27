@@ -110,6 +110,18 @@ const getBerryPokemon = berryArr => {
   // console.log(res, berryId)
   return sortInObjectOptions(res, ['pokeType'], 'up')
 }
+
+const getLostVigour = mins => {
+  // 每10分钟掉1点
+  let res = mins / 10
+  // 有小数位就进1
+  const max = parseInt(res) + 1
+  if (max < 100 && max - res < 1) {
+    res++
+  }
+  // console.log(mins / 10, parseInt(res))
+  return parseInt(res)
+}
 // 初始化默认
 setDefaultCutNumber()
 </script>
@@ -208,7 +220,10 @@ setDefaultCutNumber()
         >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
           getNum(getScore(100))
         }}</span
-        >睡意之力
+        >睡意之力，预计掉<span class="vigour">{{
+          getLostVigour(8 * 60 + 30)
+        }}</span
+        >点活力
       </el-form-item>
       <el-form-item v-if="getFullSleepCatchNum() < 8 && getNextScoreDiff() > 0">
         <p>
@@ -243,7 +258,10 @@ setDefaultCutNumber()
           }}<span class="spscore__extra"
             >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
           ></span
-        >睡意之力
+        >睡意之力，预计掉<span class="vigour">{{
+          getLostVigour(toHM(firstSleepTime(), "mm"))
+        }}</span
+        >点活力
       </el-form-item>
       <el-form-item
         label="第2觉"
@@ -266,7 +284,10 @@ setDefaultCutNumber()
           />分，可获得至少<span class="spscore">{{
             getNum(getScore(100 - getFirstSleepScore()))
           }}</span
-          >睡意之力
+          >睡意之力，预计掉<span class="vigour">{{
+            getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+          }}</span
+          >点活力
         </p>
       </el-form-item>
       <el-form-item label="">
