@@ -90,7 +90,7 @@ const fnAccumulation = (arr, key) => {
       <p class="desc" v-html="pokeItem.desc"></p>
       <div class="cpt-foodmenu-list">
         <h3>
-          关联菜谱({{
+          关联食谱({{
             findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type).length
           }})
         </h3>
