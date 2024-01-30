@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-01-30
 1. add 全图鉴树果分类查询
 2. update 视觉样式
+3. update 数据区间参考
 
 ## 24-01-29
 1. add 全图鉴帮忙速度分类查询
