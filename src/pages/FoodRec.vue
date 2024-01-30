@@ -6,7 +6,7 @@ import { COOKMENU } from '../config/cookmenu.js'
 import { foodRecommend } from '../config/foodRecommend.js'
 import { POKE_TYPES, FOOD_TYPES, MENU_TYPES } from '../config/valKey.js'
 
-console.log(COOKMENU)
+// console.log(COOKMENU)
 const findMenuWithFood = pokemonFoodKey => {
   // console.log('pokemon:', pokemonFoodKey)
   const res = []
@@ -31,7 +31,7 @@ const fnAccumulation = (arr, key) => {
 </script>
 <template>
   <h2>食材宝可梦推荐</h2>
-  <div class="mod-tips">
+  <div class="page-inner mod-tips">
     <p>创建时间：{{ formatTime(foodRecommend.creatTime) }}</p>
     <p>最后更新：{{ formatTime(foodRecommend.updateTime) }}</p>
     <p>本文基于app v{{ foodRecommend.appVer }}</p>
