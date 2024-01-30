@@ -66,7 +66,11 @@ const initFilterGroup = () => {
   byHelpSpeedRes.value = byHelpSpeedResIn
 
   byBerryTypeResIn.forEach(item => {
-    item.list = sortInObjectOptions([...item.list], ['berryType', 'pokeType'], 'up')
+    item.list = sortInObjectOptions(
+      [...item.list],
+      ['berryType', 'pokeType'],
+      'up'
+    )
   })
   byBerryTypeResIn = sortInObjectOptions(byBerryTypeResIn, ['berryType'], 'up')
   console.log(byBerryTypeResIn)
@@ -111,14 +115,13 @@ initFilterGroup() // 初始化索引
     <span class="btn btn-m" @click="fnGetBy('helpSpeed')">帮忙速度↓</span>
     <span class="btn btn-m" @click="fnGetBy('berryType')">树果类型↓</span>
   </div>
-  <div>
+  <div class="page-inner pokedex-list">
     <template v-if="isShowAll === false">
-      <div
-        class="page-inner"
-        v-for="resItem in showRes"
-        v-bind:key="resItem.id"
-      >
-        <h3>{{ resItem.title }} ({{ resItem.list.length }})</h3>
+      <div v-for="resItem in showRes" v-bind:key="resItem.id">
+        <h3>
+          {{ resItem.title }}
+          <span class="extra">({{ resItem.list.length }}只)</span>
+        </h3>
         <div>
           <CptPoke
             :pokeId="pokemonsItem.id"

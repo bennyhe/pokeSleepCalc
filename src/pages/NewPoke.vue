@@ -31,9 +31,9 @@ const getShowKeyVal = pokemonsItem => {
   <ul class="cpt-list">
     <li v-for="updateItem in props.newUpdatePoke" v-bind:key="updateItem.time">
       <h3>
-        {{ formatTime(updateItem.time, "YY年MM月") }}(<span class="sptime"
-          >{{ updateItem.pokemons.length }}只</span
-        >)：
+        {{ formatTime(updateItem.time, "YY年MM月") }}<span class="extra"
+          >({{ updateItem.pokemons.length }}只)</span
+        >
       </h3>
       <CptPoke
         :pokeId="pokemonsItem"
