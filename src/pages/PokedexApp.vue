@@ -3,39 +3,74 @@ import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { get, sortInObjectOptions } from '../utils/index.js'
-import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES } from '../config/valKey.js'
 
 const isShowAll = ref(true)
 const showRes = ref([])
 const byHelpSpeedRes = ref([])
+const byBerryTypeRes = ref([])
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
-  const byHelpSpeedBaseList = []
+  const byHelpSpeedOrgList = []
+
+  let byBerryTypeResIn = []
+  const byBerryTypeOrgList = []
+
   for (const pokeKey in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
       const pokedexItem = pokedex[pokeKey]
+
+      // 帮忙速度分类
       if (
         pokedexItem.helpSpeed &&
-        !byHelpSpeedBaseList.includes(pokedexItem.helpSpeed)
+        !byHelpSpeedOrgList.includes(pokedexItem.helpSpeed)
       ) {
         byHelpSpeedResIn.push({
-          id: pokedexItem.helpSpee,
+          id: pokedexItem.helpSpeed,
           helpSpeed: pokedexItem.helpSpeed,
+          title: `${pokedexItem.helpSpeed}s`,
           list: []
         })
-        byHelpSpeedBaseList.push(pokedexItem.helpSpeed)
+        byHelpSpeedOrgList.push(pokedexItem.helpSpeed)
       }
       byHelpSpeedResIn
         .find(item => item.helpSpeed === pokedexItem.helpSpeed)
         .list.push(pokedexItem)
+
+      // 树果类型
+      if (
+        pokedexItem.berryType &&
+        !byBerryTypeOrgList.includes(pokedexItem.berryType)
+      ) {
+        byBerryTypeResIn.push({
+          id: pokedexItem.berryType,
+          berryType: pokedexItem.berryType,
+          title: `${BERRY_TYPES[pokedexItem.berryType]}`,
+          list: []
+        })
+        byBerryTypeOrgList.push(pokedexItem.berryType)
+      }
+      byBerryTypeResIn
+        .find(item => item.berryType === pokedexItem.berryType)
+        .list.push(pokedexItem)
     }
   }
   byHelpSpeedResIn.forEach(item => {
-    item.list = sortInObjectOptions([...item.list], ['pokeType', 'berryType', 'id'], 'up')
+    item.list = sortInObjectOptions(
+      [...item.list],
+      ['pokeType', 'berryType', 'id'],
+      'up'
+    )
   })
   byHelpSpeedResIn = sortInObjectOptions(byHelpSpeedResIn, ['helpSpeed'], 'up')
-
   byHelpSpeedRes.value = byHelpSpeedResIn
+
+  byBerryTypeResIn.forEach(item => {
+    item.list = sortInObjectOptions([...item.list], ['berryType', 'pokeType'], 'up')
+  })
+  byBerryTypeResIn = sortInObjectOptions(byBerryTypeResIn, ['berryType'], 'up')
+  console.log(byBerryTypeResIn)
+  byBerryTypeRes.value = byBerryTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
   const showKey = ['helpSpeed', 'berry', 'pokeType']
@@ -57,11 +92,13 @@ const getShowKeyVal = pokemonsItem => {
 const fnGetBy = filterType => {
   if (filterType === 'all') {
     isShowAll.value = true
-  } else{
+  } else {
     isShowAll.value = false
   }
   if (filterType === 'helpSpeed') {
     showRes.value = byHelpSpeedRes.value
+  } else if (filterType === 'berryType') {
+    showRes.value = byBerryTypeRes.value
   }
 }
 
@@ -72,28 +109,35 @@ initFilterGroup() // 初始化索引
   <div class="btn-wrap">
     <span class="btn btn-m" @click="fnGetBy('all')">ALL</span>
     <span class="btn btn-m" @click="fnGetBy('helpSpeed')">帮忙速度↓</span>
+    <span class="btn btn-m" @click="fnGetBy('berryType')">树果类型↓</span>
   </div>
-  <div v-if="isShowAll === false">
-    <div v-for="resItem in showRes" v-bind:key="resItem.id">
-      <h3>{{ resItem.helpSpeed }}s</h3>
-      <div>
-        <CptPoke
-          :pokeId="pokemonsItem.id"
-          v-for="(pokemonsItem, pokemonKey) in resItem.list"
-          v-bind:key="pokemonsItem.name"
-          :showKey="getShowKeyVal(pokemonKey)"
-        />
+  <div>
+    <template v-if="isShowAll === false">
+      <div
+        class="page-inner"
+        v-for="resItem in showRes"
+        v-bind:key="resItem.id"
+      >
+        <h3>{{ resItem.title }} ({{ resItem.list.length }})</h3>
+        <div>
+          <CptPoke
+            :pokeId="pokemonsItem.id"
+            v-for="(pokemonsItem, pokemonKey) in resItem.list"
+            v-bind:key="pokemonsItem.name"
+            :showKey="getShowKeyVal(pokemonKey)"
+          />
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- S 全图鉴 -->
-  <div v-else>
-    <CptPoke
-      :pokeId="+pokemonKey"
-      v-for="(pokemonsItem, pokemonKey) in pokedex"
-      v-bind:key="pokemonsItem.name"
-      :showKey="getShowKeyVal(pokemonKey)"
-    />
-    <!-- E 全图鉴 -->
+    </template>
+    <!-- S 全图鉴 -->
+    <template v-else>
+      <CptPoke
+        :pokeId="+pokemonKey"
+        v-for="(pokemonsItem, pokemonKey) in pokedex"
+        v-bind:key="pokemonsItem.name"
+        :showKey="getShowKeyVal(pokemonKey)"
+      />
+      <!-- E 全图鉴 -->
+    </template>
   </div>
 </template>
