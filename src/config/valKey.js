@@ -106,3 +106,57 @@ export const BERRY_TYPES = {
   17: '異奇果',
   18: '櫻子果'
 }
+export const SKILL_TYPES = {
+  1: {
+    id: 1,
+    name: '能量填充S'
+  },
+  2: {
+    id: 2,
+    name: '能量填充M'
+  },
+  3: {
+    id: 3,
+    name: '夢之碎片獲取S'
+  },
+  4: {
+    id: 4,
+    name: '活力療癒S'
+  },
+  5: {
+    id: 5,
+    name: '能量填充S'
+  },
+  6: {
+    id: 6,
+    name: '夢之碎片獲取S'
+  },
+  7: {
+    id: 7,
+    name: '活力填充S'
+  },
+  8: {
+    id: 8,
+    name: '活力全體療癒S'
+  },
+  9: {
+    id: 9,
+    name: '幫手支援S'
+  },
+  10: {
+    id: 10,
+    name: '食材獲取S'
+  },
+  11: {
+    id: 11,
+    name: '料理強化S'
+  },
+  12: {
+    id: 12,
+    name: '屬性加速S'
+  },
+  13: {
+    id: 13,
+    name: '揮指'
+  }
+}

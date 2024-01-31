@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
-import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES } from '../../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
     type: [Number, String]
@@ -52,6 +52,15 @@ const props = defineProps({
       "
     >
       {{ pokedex[pokeId].helpSpeed }}s
+    </p>
+    <p class="cpt-pokemon__skill"
+      v-if="
+        pokedex[pokeId].skillType &&
+        props.showKey &&
+        props.showKey.includes('skillType')
+      "
+    >
+      {{ SKILL_TYPES[pokedex[pokeId].skillType].name }}
     </p>
     <p
       v-if="

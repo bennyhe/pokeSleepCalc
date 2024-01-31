@@ -77,7 +77,7 @@ const initFilterGroup = () => {
   byBerryTypeRes.value = byBerryTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['helpSpeed', 'berry', 'pokeType']
+  const showKey = ['helpSpeed', 'berry', 'pokeType', 'skillType']
   if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
     const res = pokedex[pokemonsItem]
     // console.log(res)
