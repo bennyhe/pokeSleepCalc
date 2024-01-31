@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-01-31
+1. add 捐赠弹窗
+
 ## 24-01-30
 1. add 全图鉴树果分类查询
 2. update 视觉样式

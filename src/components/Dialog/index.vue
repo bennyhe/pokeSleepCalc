@@ -3,7 +3,10 @@
     <div
       class="m-dialog m-dialog--show"
       v-if="isShow && showDialog"
-      :class="{ 'm-dialog--fullscreen': isFullScreen, 'm-dialog--alert': isAlert }"
+      :class="{
+        'm-dialog--fullscreen': isFullScreen,
+        'm-dialog--alert': isAlert,
+      }"
     >
       <i class="i i-close m-dialog__close" @click="handleClickClose()"></i>
       <div class="m-dialog__inner">
@@ -12,7 +15,7 @@
             <slot />
           </div>
           <div class="btn-wrap">
-            <span class="btn btn-m" @click="handleClickClose()">确定</span>
+            <span class="btn btn-m" @click="handleClickClose()">关闭</span>
           </div>
         </div>
       </div>
