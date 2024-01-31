@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getUrlQuery } from './utils/index.js'
-import PageFooter from './components/PageFooter/index.vue'
+import PageFooter from './components/PageFooter/PFooter.vue'
 import PageSleepCalc from './pages/SleepCalc.vue'
 import PagePokedex from './pages/PokedexApp.vue'
 import PageFoodRec from './pages/FoodRec.vue'
