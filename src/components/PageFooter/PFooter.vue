@@ -1,3 +1,14 @@
+<script setup>
+import { ref } from 'vue'
+import CptDialogUpdateLog from '../DialogUpdateLog/index.vue'
+
+const isShowDialog = ref(false)
+const dialogId = ref(false)
+function handleClickShowUpdateLog() {
+  dialogId.value = `updateLogDialog${Math.random()}`
+  isShowDialog.value = true
+}
+</script>
 <template>
   <div class="page-footer">
     <p>同好Sleep交流QQ群：894464120（非本人创建）</p>
@@ -13,33 +24,6 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
-import CptDialogUpdateLog from '../DialogUpdateLog/index.vue'
-
-export default defineComponent({
-  name: 'PageFooter',
-  props: [],
-  components: {
-    CptDialogUpdateLog
-  },
-  setup(props, context) {
-    const isShowDialog = ref(false)
-    const dialogId = ref(false)
-    function handleClickShowUpdateLog() {
-      dialogId.value = `updateLogDialog${Math.random()}`
-      isShowDialog.value = true
-    }
-    return {
-      handleClickShowUpdateLog,
-      isShowDialog,
-      dialogId
-    }
-  }
-})
-</script>
-
 <style lang="scss">
 @import "./index.scss";
 </style>
- No newline at end of file
