@@ -3,18 +3,27 @@ import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { get, sortInObjectOptions } from '../utils/index.js'
-import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES } from '../config/valKey.js'
+import {
+  POKE_TYPES,
+  FOOD_TYPES,
+  BERRY_TYPES,
+  SKILL_TYPES
+} from '../config/valKey.js'
 
 const isShowAll = ref(true)
 const showRes = ref([])
 const byHelpSpeedRes = ref([])
 const byBerryTypeRes = ref([])
+const bySkillTypeRes = ref([])
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
   const byHelpSpeedOrgList = []
 
   let byBerryTypeResIn = []
   const byBerryTypeOrgList = []
+
+  let bySkillTypeResIn = []
+  const bySkillTypeOrgList = []
 
   for (const pokeKey in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
@@ -53,9 +62,27 @@ const initFilterGroup = () => {
       byBerryTypeResIn
         .find(item => item.berryType === pokedexItem.berryType)
         .list.push(pokedexItem)
+
+      // 技能类型
+      if (
+        pokedexItem.skillType &&
+        !bySkillTypeOrgList.includes(pokedexItem.skillType)
+      ) {
+        bySkillTypeResIn.push({
+          id: pokedexItem.skillType,
+          skillType: pokedexItem.skillType,
+          title: `${SKILL_TYPES[pokedexItem.skillType].name}`,
+          list: []
+        })
+        bySkillTypeOrgList.push(pokedexItem.skillType)
+      }
+      bySkillTypeResIn
+        .find(item => item.skillType === pokedexItem.skillType)
+        .list.push(pokedexItem)
     }
   }
   byHelpSpeedResIn.forEach(item => {
+    item.count = item.list.length
     item.list = sortInObjectOptions(
       [...item.list],
       ['pokeType', 'berryType', 'id'],
@@ -66,15 +93,30 @@ const initFilterGroup = () => {
   byHelpSpeedRes.value = byHelpSpeedResIn
 
   byBerryTypeResIn.forEach(item => {
+    item.count = item.list.length
     item.list = sortInObjectOptions(
       [...item.list],
       ['berryType', 'pokeType'],
       'up'
     )
   })
-  byBerryTypeResIn = sortInObjectOptions(byBerryTypeResIn, ['berryType'], 'up')
-  console.log(byBerryTypeResIn)
+  byBerryTypeResIn = sortInObjectOptions(
+    byBerryTypeResIn,
+    ['count', 'skillType'],
+    'down'
+  )
   byBerryTypeRes.value = byBerryTypeResIn
+
+  bySkillTypeResIn.forEach(item => {
+    item.count = item.list.length
+    item.list = sortInObjectOptions([...item.list], ['pokeType'], 'down')
+  })
+  bySkillTypeResIn = sortInObjectOptions(
+    bySkillTypeResIn,
+    ['count', 'SkillType'],
+    'down'
+  )
+  bySkillTypeRes.value = bySkillTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
   const showKey = ['helpSpeed', 'berry', 'pokeType', 'skillType']
@@ -103,6 +145,8 @@ const fnGetBy = filterType => {
     showRes.value = byHelpSpeedRes.value
   } else if (filterType === 'berryType') {
     showRes.value = byBerryTypeRes.value
+  } else if (filterType === 'skillType') {
+    showRes.value = bySkillTypeRes.value
   }
 }
 
@@ -114,6 +158,7 @@ initFilterGroup() // 初始化索引
     <span class="btn btn-m" @click="fnGetBy('all')">ALL</span>
     <span class="btn btn-m" @click="fnGetBy('helpSpeed')">帮忙速度↓</span>
     <span class="btn btn-m" @click="fnGetBy('berryType')">树果类型↓</span>
+    <span class="btn btn-m" @click="fnGetBy('skillType')">技能类型↓</span>
   </div>
   <div class="page-inner pokedex-list">
     <template v-if="isShowAll === false">
