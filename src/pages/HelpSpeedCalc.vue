@@ -164,7 +164,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
         </li>
       </ul>
     </el-form-item>
-    <el-form-item label="参考">
+    <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>
         <template v-for="olItem in otherLevelShow" v-bind:key="olItem">
           <li
@@ -173,7 +173,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
               helpSpeedCalcForm.level < olItem
             "
           >
-            30级
+            {{olItem}}级
             <span class="sptime"
               >{{
                 getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, olItem)
