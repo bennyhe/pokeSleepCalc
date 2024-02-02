@@ -67,9 +67,9 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
   if (helpSpeedCalcForm.value.character === 'down') {
     mainMuti = -0.1
   }
-  if (isGoldHelp) {
-    mainMuti += 0.05
-  }
+  // if (isGoldHelp) {
+  //   mainMuti += 0.05
+  // }
   // console.log(`${basicTime} * (1 - ${levelUp}) * (1 - ${mainMuti}) * (1 - ${basichelp})`)
   const res = basicTime * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
@@ -108,7 +108,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
       <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
         <el-checkbox label="s">帮忙速度S(7%)</el-checkbox>
         <el-checkbox label="m">帮忙速度M(14%)</el-checkbox>
-        <el-checkbox label="gold">帮手奖励(5%)</el-checkbox>
+        <!-- <el-checkbox label="gold">帮手奖励(5%)</el-checkbox> -->
       </el-checkbox-group>
     </el-form-item>
     <el-form-item label="性格">
@@ -140,7 +140,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
               )
             )
           }}
-          <template v-if="helpSpeedCalcForm.skill.includes('gold')">
+          <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
             (帮手奖励:<span class="sptime"
               >{{
                 getNewHelpSpeed(
@@ -159,7 +159,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
                 )
               )
             }})
-          </template>
+          </template> -->
         </li>
       </ul>
     </el-form-item>
