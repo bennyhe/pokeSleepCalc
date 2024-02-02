@@ -19,6 +19,9 @@ const nav = [
     name: 'FOOD RECOMMEND'
   },
   {
+    name: 'HELP SPEED CALC'
+  },
+  {
     name: 'POKEDEX'
   },
   {
@@ -46,20 +49,22 @@ onMounted(() => {
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">
       <PageFoodRec />
     </div>
-    <div class="page-item" :class="{ cur: showPageIndex === 2 }">
+    <div class="page-item" :class="{ cur: showPageIndex === 3 }">
       <PagePokedex />
     </div>
     <div
       class="page-item"
-      :class="{ cur: showPageIndex === 3 }"
-      v-if="showPageIndex === 3"
+      :class="{ cur: showPageIndex === 2 }"
+      v-if="showPageIndex === 2"
     >
-      <PageNew :newUpdatePoke="newUpdatePoke" />
+      <PageHelpSpeedCalc />
     </div>
     <div
       class="page-item"
+      :class="{ cur: showPageIndex === 4 }"
+      v-if="showPageIndex === 4"
     >
-      <PageHelpSpeedCalc />
+      <PageNew :newUpdatePoke="newUpdatePoke" />
     </div>
     <PageFooter />
     <nav class="nav">
