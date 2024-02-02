@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-02-02
 1. add 帮忙速度计算器
+2. update 导航视觉样式
 
 ## 24-01-31
 1. add 捐赠弹窗
