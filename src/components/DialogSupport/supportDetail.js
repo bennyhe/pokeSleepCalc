@@ -10,6 +10,6 @@ const markdownText = `
 2. *仅支持微信捐赠（不可退款）。*
 
 #近期更新计划
-1. 帮忙速度计算器
+1. 地图对应等级会显示大概出什么宝可梦
 `
 export default markdownText

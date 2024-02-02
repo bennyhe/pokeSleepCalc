@@ -17,6 +17,18 @@ export function toHM(decimalHours, type) {
   return hours + '小时' + minutes + '分钟'
 }
 
+export function convertSecondsToHMS(seconds) {
+  const hours = Math.floor(seconds / 3600)
+  const minutes = parseInt((seconds % 3600) / 60)
+  const remainingSeconds = seconds % 60
+
+  let res = minutes + '分' + remainingSeconds + '秒'
+  if (hours!==0){
+    res = hours + '小时' + res
+  }
+  return res
+}
+
 /**
  * 用来判断数据串是否存在
  * @param {*} path 

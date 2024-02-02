@@ -6,6 +6,7 @@ import PageSleepCalc from './pages/SleepCalc.vue'
 import PagePokedex from './pages/PokedexApp.vue'
 import PageFoodRec from './pages/FoodRec.vue'
 import PageNew from './pages/NewPoke.vue'
+import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
 import { updatePoke } from './config/pokedex.js'
 
 const newUpdatePoke = [...updatePoke.reverse()]
@@ -54,6 +55,11 @@ onMounted(() => {
       v-if="showPageIndex === 3"
     >
       <PageNew :newUpdatePoke="newUpdatePoke" />
+    </div>
+    <div
+      class="page-item"
+    >
+      <PageHelpSpeedCalc />
     </div>
     <PageFooter />
     <nav class="nav">
