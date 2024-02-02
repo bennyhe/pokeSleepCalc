@@ -4,6 +4,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
 
+const otherLevelShow = [25, 30, 50, 60, 100]
 const helpSpeedCalcForm = ref({
   baseHelpSpeed: 2200,
   level: 50,
@@ -76,7 +77,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
 }
 </script>
 <template>
-  <h2>帮忙速度计算器</h2>
+  <h2>帮忙速度计算</h2>
   <el-form label-width="110px">
     <el-form-item label="基础帮忙速度">
       <el-select
@@ -165,60 +166,26 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
     </el-form-item>
     <el-form-item label="参考">
       <ul>
-        <li
-          v-if="helpSpeedCalcForm.level !== 30 && helpSpeedCalcForm.level < 30"
-        >
-          30级
-          <span class="sptime"
-            >{{ getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 30) }}s</span
+        <template v-for="olItem in otherLevelShow" v-bind:key="olItem">
+          <li
+            v-if="
+              helpSpeedCalcForm.level !== olItem &&
+              helpSpeedCalcForm.level < olItem
+            "
           >
-          {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 30)
-            )
-          }}
-        </li>
-        <li
-          v-if="helpSpeedCalcForm.level !== 50 && helpSpeedCalcForm.level < 50"
-        >
-          50级
-          <span class="sptime"
-            >{{ getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 50) }}s</span
-          >
-          {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 50)
-            )
-          }}
-        </li>
-        <li
-          v-if="helpSpeedCalcForm.level !== 60 && helpSpeedCalcForm.level < 60"
-        >
-          60级
-          <span class="sptime"
-            >{{ getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 60) }}s</span
-          >
-          {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 60)
-            )
-          }}
-        </li>
-        <li
-          v-if="
-            helpSpeedCalcForm.level !== 100 && helpSpeedCalcForm.level < 100
-          "
-        >
-          100级
-          <span class="sptime"
-            >{{ getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 100) }}s</span
-          >
-          {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, 100)
-            )
-          }}
-        </li>
+            30级
+            <span class="sptime"
+              >{{
+                getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, olItem)
+              }}s</span
+            >
+            {{
+              convertSecondsToHMS(
+                getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, olItem)
+              )
+            }}
+          </li>
+        </template>
       </ul>
       <!-- ( 约{{
         (getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed) /
