@@ -36,7 +36,8 @@
     }
 
     &.cur {
-      color: #f7f3ce
+      color: #f7f3ce;
+      text-shadow: 0 1px darken($color: $navColor, $amount: 30%);
     }
 
     &:not(:last-child):after {
