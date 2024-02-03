@@ -13,6 +13,7 @@ const helpSpeedCalcForm = ref({
 })
 
 const byHelpSpeedRes = ref([])
+// 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
   const byHelpSpeedOrgList = []
@@ -51,28 +52,34 @@ const initFilterGroup = () => {
 }
 initFilterGroup()
 
-const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
+// 获取计算结果
+const getNewHelpSpeed = (formData, level, isGoldHelp) => {
+  console.log(formData, level, isGoldHelp)
+  // formData: {
+  //   baseHelpSpeed, // Number
+  //   skill, // Array: ['none', 's', 'm']
+  //   character // String: none, up, down
+  // }
   // 每级多0.2%
   const levelUp = (level - 1) * 0.002
   let basichelp = 0
   let mainMuti = 0
-  if (helpSpeedCalcForm.value.skill.includes('s')) {
+  if (formData.skill.includes('s')) {
     basichelp += 0.07
   }
-  if (helpSpeedCalcForm.value.skill.includes('m')) {
+  if (formData.skill.includes('m')) {
     basichelp += 0.14
   }
-  if (helpSpeedCalcForm.value.character === 'up') {
+  if (formData.character === 'up') {
     mainMuti = 0.1
   }
-  if (helpSpeedCalcForm.value.character === 'down') {
+  if (formData.character === 'down') {
     mainMuti = -0.1
   }
   // if (isGoldHelp) {
   //   mainMuti += 0.05
   // }
-  // console.log(`${basicTime} * (1 - ${levelUp}) * (1 - ${mainMuti}) * (1 - ${basichelp})`)
-  const res = basicTime * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
+  const res = formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
 }
 </script>
@@ -128,7 +135,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
           <span class="sptime"
             >{{
               getNewHelpSpeed(
-                helpSpeedCalcForm.baseHelpSpeed,
+                helpSpeedCalcForm,
                 helpSpeedCalcForm.level
               )
             }}s</span
@@ -136,7 +143,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
           {{
             convertSecondsToHMS(
               getNewHelpSpeed(
-                helpSpeedCalcForm.baseHelpSpeed,
+                helpSpeedCalcForm,
                 helpSpeedCalcForm.level
               )
             )
@@ -145,7 +152,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
             (帮手奖励:<span class="sptime"
               >{{
                 getNewHelpSpeed(
-                  helpSpeedCalcForm.baseHelpSpeed,
+                  helpSpeedCalcForm,
                   helpSpeedCalcForm.level,
                   helpSpeedCalcForm.skill.includes("gold")
                 )
@@ -154,7 +161,7 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
             {{
               convertSecondsToHMS(
                 getNewHelpSpeed(
-                  helpSpeedCalcForm.baseHelpSpeed,
+                  helpSpeedCalcForm,
                   helpSpeedCalcForm.level,
                   helpSpeedCalcForm.skill.includes("gold")
                 )
@@ -173,25 +180,32 @@ const getNewHelpSpeed = (basicTime, level, isGoldHelp) => {
               helpSpeedCalcForm.level < olItem
             "
           >
-            {{olItem}}级
+            {{ olItem }}级
             <span class="sptime"
               >{{
-                getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, olItem)
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  olItem,
+                )
               }}s</span
             >
             {{
               convertSecondsToHMS(
-                getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed, olItem)
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  olItem,
+                )
               )
             }}
           </li>
         </template>
       </ul>
-      <!-- ( 约{{
-        (getNewHelpSpeed(helpSpeedCalcForm.baseHelpSpeed) /
-          helpSpeedCalcForm.baseHelpSpeed) *
-        100
-      }}% ) -->
+    </el-form-item>
+    <el-form-item label="">
+      <div class="mod-tips">
+        <p>* 游戏内不会显示帮手奖励后的时间。</p>
+        <p>* 暂不支持帮手奖励相关计算。</p>
+      </div>
     </el-form-item>
   </el-form>
 </template>
