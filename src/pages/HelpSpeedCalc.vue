@@ -129,47 +129,43 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="计算结果">
-      <ul>
-        <li>
-          {{ helpSpeedCalcForm.level }}级
-          <span class="sptime"
-            >{{
-              getNewHelpSpeed(
-                helpSpeedCalcForm,
-                helpSpeedCalcForm.level
-              )
-            }}s</span
-          >
-          {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(
-                helpSpeedCalcForm,
-                helpSpeedCalcForm.level
-              )
+      {{ helpSpeedCalcForm.level }}级
+      <span class="sptime"
+        >{{
+          getNewHelpSpeed(
+            helpSpeedCalcForm,
+            helpSpeedCalcForm.level
+          )
+        }}s</span
+      >
+      {{
+        convertSecondsToHMS(
+          getNewHelpSpeed(
+            helpSpeedCalcForm,
+            helpSpeedCalcForm.level
+          )
+        )
+      }}
+      <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
+        (帮手奖励:<span class="sptime"
+          >{{
+            getNewHelpSpeed(
+              helpSpeedCalcForm,
+              helpSpeedCalcForm.level,
+              helpSpeedCalcForm.skill.includes("gold")
             )
-          }}
-          <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
-            (帮手奖励:<span class="sptime"
-              >{{
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("gold")
-                )
-              }}s</span
-            >
-            {{
-              convertSecondsToHMS(
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("gold")
-                )
-              )
-            }})
-          </template> -->
-        </li>
-      </ul>
+          }}s</span
+        >
+        {{
+          convertSecondsToHMS(
+            getNewHelpSpeed(
+              helpSpeedCalcForm,
+              helpSpeedCalcForm.level,
+              helpSpeedCalcForm.skill.includes("gold")
+            )
+          )
+        }})
+      </template> -->
     </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>
