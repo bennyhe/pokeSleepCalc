@@ -79,7 +79,8 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
   // if (isGoldHelp) {
   //   mainMuti += 0.05
   // }
-  const res = formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
+  const res =
+    formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
 }
 </script>
@@ -129,43 +130,41 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="计算结果">
-      {{ helpSpeedCalcForm.level }}级
-      <span class="sptime"
-        >{{
-          getNewHelpSpeed(
-            helpSpeedCalcForm,
-            helpSpeedCalcForm.level
-          )
-        }}s</span
-      >
-      {{
-        convertSecondsToHMS(
-          getNewHelpSpeed(
-            helpSpeedCalcForm,
-            helpSpeedCalcForm.level
-          )
-        )
-      }}
-      <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
-        (帮手奖励:<span class="sptime"
-          >{{
-            getNewHelpSpeed(
-              helpSpeedCalcForm,
-              helpSpeedCalcForm.level,
-              helpSpeedCalcForm.skill.includes("gold")
+      <ul>
+        <li>
+          {{ helpSpeedCalcForm.level }}级
+          <span class="sptime"
+            >{{
+              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
+            }}s</span
+          >
+          {{
+            convertSecondsToHMS(
+              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
             )
-          }}s</span
-        >
-        {{
-          convertSecondsToHMS(
-            getNewHelpSpeed(
-              helpSpeedCalcForm,
-              helpSpeedCalcForm.level,
-              helpSpeedCalcForm.skill.includes("gold")
-            )
-          )
-        }})
-      </template> -->
+          }}
+          <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
+            (帮手奖励:<span class="sptime"
+              >{{
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  helpSpeedCalcForm.level,
+                  helpSpeedCalcForm.skill.includes("gold")
+                )
+              }}s</span
+            >
+            {{
+              convertSecondsToHMS(
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  helpSpeedCalcForm.level,
+                  helpSpeedCalcForm.skill.includes("gold")
+                )
+              )
+            }})
+          </template> -->
+        </li>
+      </ul>
     </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>
@@ -178,20 +177,10 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
           >
             {{ olItem }}级
             <span class="sptime"
-              >{{
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  olItem,
-                )
-              }}s</span
+              >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
             {{
-              convertSecondsToHMS(
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  olItem,
-                )
-              )
+              convertSecondsToHMS(getNewHelpSpeed(helpSpeedCalcForm, olItem))
             }}
           </li>
         </template>
