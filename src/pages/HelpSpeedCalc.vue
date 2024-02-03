@@ -6,11 +6,73 @@ import { pokedex } from '../config/pokedex.js'
 
 const otherLevelShow = [25, 30, 50, 60, 100]
 const helpSpeedCalcForm = ref({
-  baseHelpSpeed: 2200,
-  level: 50,
-  skill: ['none'],
-  character: 'none'
+  baseHelpSpeed: 2200, // Number
+  level: 50, // Number
+  skill: ['none'], // Array: ['none', 's', 'm']
+  character: 'none' // String: none, up, down
 })
+const allHelpType = [
+  {
+    title: '无技能\n性格:帮忙↓',
+    skill: ['none'],
+    character: 'down'
+  },
+  {
+    title: '帮忙s\n性格:帮忙↓',
+    skill: ['s'],
+    character: 'down'
+  },
+  {
+    title: '无技能\n性格:无',
+    skill: ['none'],
+    character: 'none'
+  },
+  {
+    title: '帮忙m\n性格:帮忙↓',
+    skill: ['m'],
+    character: 'down'
+  },
+  {
+    title: '帮忙s\n性格:无',
+    skill: ['s'],
+    character: 'none'
+  },
+  {
+    title: '帮忙m\n性格:无',
+    skill: ['m'],
+    character: 'none'
+  },
+  {
+    title: '无技能\n性格:帮忙↑',
+    skill: ['none'],
+    character: 'up'
+  },
+  {
+    title: '帮忙s&m\n性格:帮忙↓',
+    skill: ['s', 'm'],
+    character: 'down'
+  },
+  {
+    title: '帮忙s\n性格:帮忙↑',
+    skill: ['s'],
+    character: 'up'
+  },
+  {
+    title: '帮忙s&m\n性格:无',
+    skill: ['s', 'm'],
+    character: 'none'
+  },
+  {
+    title: '帮忙m\n性格:帮忙↑',
+    skill: ['m'],
+    character: 'up'
+  },
+  {
+    title: '帮忙s&m\n性格:帮忙↑',
+    skill: ['s', 'm'],
+    character: 'up'
+  }
+]
 
 const byHelpSpeedRes = ref([])
 // 获取选择帮忙速度的宝可梦分组
@@ -86,8 +148,8 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
 </script>
 <template>
   <h2>帮忙速度计算</h2>
-  <el-form label-width="110px">
-    <el-form-item label="基础帮忙速度">
+  <el-form label-width="100px">
+    <el-form-item label="原帮忙速度">
       <el-select
         v-model="helpSpeedCalcForm.baseHelpSpeed"
         placeholder="请选择卡比兽级别"
@@ -120,7 +182,7 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
         <!-- <el-checkbox label="gold">帮手奖励(5%)</el-checkbox> -->
       </el-checkbox-group>
     </el-form-item>
-    <el-form-item label="性格">
+    <el-form-item label="性格:">
       <el-radio-group v-model="helpSpeedCalcForm.character" class="ml-4">
         <el-radio label="none">无加成</el-radio>
         <el-radio label="up">帮忙速度↑(+10%)</el-radio>
@@ -165,6 +227,107 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
           </template> -->
         </li>
       </ul>
+      <div class="helpprocess">
+        <i class="helpprocess__inner"
+          ><i
+            :style="`width: ${
+              ((getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level) -
+                getNewHelpSpeed(
+                  {
+                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                    skill: ['none'],
+                    character: 'down',
+                  },
+                  helpSpeedCalcForm.level
+                )) /
+                (getNewHelpSpeed(
+                  {
+                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                    skill: ['none'],
+                    character: 'down',
+                  },
+                  helpSpeedCalcForm.level
+                ) -
+                  getNewHelpSpeed(
+                    {
+                      baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                      skill: ['s', 'm'],
+                      character: 'up',
+                    },
+                    helpSpeedCalcForm.level
+                  ))) *
+              -100
+            }%`"
+          ></i
+        ></i>
+        <div
+          v-for="(processItem, processKey) in allHelpType"
+          v-bind:key="processItem.title"
+          :style="`left: ${
+            ((getNewHelpSpeed(
+              {
+                baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                ...processItem,
+              },
+              helpSpeedCalcForm.level
+            ) -
+              getNewHelpSpeed(
+                {
+                  baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                  skill: ['none'],
+                  character: 'down',
+                },
+                helpSpeedCalcForm.level
+              )) /
+              (getNewHelpSpeed(
+                {
+                  baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                  skill: ['none'],
+                  character: 'down',
+                },
+                helpSpeedCalcForm.level
+              ) -
+                getNewHelpSpeed(
+                  {
+                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                    skill: ['s', 'm'],
+                    character: 'up',
+                  },
+                  helpSpeedCalcForm.level
+                ))) *
+            -100
+          }%`"
+          class="helpprocess__tag"
+          :class="[
+            processItem.character === 'down' ? 'down' : '',
+            processItem.character === 'up' ? 'up' : '',
+            `helpprocess__tag--${processKey + 1}`,
+            getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level) ===
+            getNewHelpSpeed(
+              {
+                baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                ...processItem,
+              },
+              helpSpeedCalcForm.level
+            )
+              ? 'cur'
+              : '',
+          ]"
+        >
+          <pre class="helpprocess__title" v-html="processItem.title"></pre>
+          <p class="helpprocess__value">
+            {{
+              getNewHelpSpeed(
+                {
+                  baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
+                  ...processItem,
+                },
+                helpSpeedCalcForm.level
+              )
+            }}s
+          </p>
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>

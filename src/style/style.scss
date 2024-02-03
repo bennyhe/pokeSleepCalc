@@ -444,6 +444,98 @@ h3 {
   }
 }
 
+.helpprocess {
+  width: 90%;
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px * 2;
+
+  &__title {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $primaryColor;
+    border-radius: 3px;
+    color: #fff;
+    padding: 2px;
+    transform: scale(0.8);
+    width: auto;
+    margin-left: -10px;
+    margin-top: -3px;
+    font-size: 10px;
+  }
+
+  &__tag {
+    position: absolute;
+    width: 60px;
+    // margin-left: -16px;
+    line-height: 1.1;
+    border-left: 1px solid $primaryColor;
+    font-size: 11px;
+    bottom: 40px;
+
+    &.up {
+      top: auto;
+      bottom: 0;
+
+      .helpprocess__title {
+        background-color: #349963;
+      }
+    }
+
+    &.down {
+      bottom: auto;
+      top: 0;
+
+      .helpprocess__title {
+        background-color: #ed556a;
+      }
+    }
+
+    &:nth-child(4) {
+      border-left-color: $mainColor;
+      top: auto;
+      bottom: 40px;
+
+      .helpprocess__title {
+        background-color: $mainColor;
+      }
+
+      .helpprocess__value {
+        color: $mainColor;
+      }
+    }
+
+    &.cur {
+      border-left-color: #fcc307;
+
+      .helpprocess__title {
+        background-color: #fcc307;
+      }
+
+      .helpprocess__value {
+        color: #fcc307;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__inner {
+    border: 1px solid lighten(#fcc307, 20%);
+    display: block;
+    height: 12px;
+    border-radius: 12px;
+
+    i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #fefcea 0%, #fcc307 100%);
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
 // 移动端适配
 @media screen and (max-width: 660px) {
   .m-dialog {
