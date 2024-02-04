@@ -18,7 +18,7 @@ const allHelpType = [
     character: 'down'
   },
   {
-    title: '帮忙s\n性格:帮忙↓',
+    title: '帮忙S\n性格:帮忙↓',
     skill: ['s'],
     character: 'down'
   },
@@ -28,17 +28,17 @@ const allHelpType = [
     character: 'none'
   },
   {
-    title: '帮忙m\n性格:帮忙↓',
+    title: '帮忙M\n性格:帮忙↓',
     skill: ['m'],
     character: 'down'
   },
   {
-    title: '帮忙s\n性格:无',
+    title: '帮忙S\n性格:无',
     skill: ['s'],
     character: 'none'
   },
   {
-    title: '帮忙m\n性格:无',
+    title: '帮忙M\n性格:无',
     skill: ['m'],
     character: 'none'
   },
@@ -48,27 +48,27 @@ const allHelpType = [
     character: 'up'
   },
   {
-    title: '帮忙s&m\n性格:帮忙↓',
+    title: '帮忙S,M\n性格:帮忙↓',
     skill: ['s', 'm'],
     character: 'down'
   },
   {
-    title: '帮忙s\n性格:帮忙↑',
+    title: '帮忙S\n性格:帮忙↑',
     skill: ['s'],
     character: 'up'
   },
   {
-    title: '帮忙s&m\n性格:无',
+    title: '帮忙S,M\n性格:无',
     skill: ['s', 'm'],
     character: 'none'
   },
   {
-    title: '帮忙m\n性格:帮忙↑',
+    title: '帮忙M\n性格:帮忙↑',
     skill: ['m'],
     character: 'up'
   },
   {
-    title: '帮忙s&m\n性格:帮忙↑',
+    title: '帮忙S,M\n性格:帮忙↑',
     skill: ['s', 'm'],
     character: 'up'
   }
