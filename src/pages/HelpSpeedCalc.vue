@@ -148,7 +148,7 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
 </script>
 <template>
   <h2>帮忙速度计算</h2>
-  <el-form label-width="100px">
+  <el-form label-width="90px">
     <el-form-item label="原帮忙速度">
       <el-select
         v-model="helpSpeedCalcForm.baseHelpSpeed"
@@ -194,12 +194,13 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
     <el-form-item label="计算结果">
       <ul>
         <li>
-          {{ helpSpeedCalcForm.level }}级
+          {{ helpSpeedCalcForm.level }}级：
           <span class="sptime"
             >{{
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
             }}s</span
           >
+          /
           {{
             convertSecondsToHMS(
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
@@ -315,7 +316,7 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
           ]"
         >
           <pre class="helpprocess__title" v-html="processItem.title"></pre>
-          <p class="helpprocess__value">
+          <div class="helpprocess__value">
             {{
               getNewHelpSpeed(
                 {
@@ -325,7 +326,7 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
                 helpSpeedCalcForm.level
               )
             }}s
-          </p>
+          </div>
         </div>
       </div>
     </el-form-item>
@@ -338,10 +339,11 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
               helpSpeedCalcForm.level < olItem
             "
           >
-            {{ olItem }}级
+            {{ olItem }}级：
             <span class="sptime"
               >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
+            /
             {{
               convertSecondsToHMS(getNewHelpSpeed(helpSpeedCalcForm, olItem))
             }}
@@ -349,7 +351,7 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
         </template>
       </ul>
     </el-form-item>
-    <el-form-item label="">
+    <el-form-item>
       <div class="mod-tips">
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
         <p>* 暂不支持帮手奖励相关计算。</p>

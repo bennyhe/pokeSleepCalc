@@ -290,7 +290,7 @@ setDefaultCutNumber()
           >点活力
         </p>
       </el-form-item>
-      <el-form-item label="">
+      <el-form-item>
         <div class="mod-tips">
           <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
           <p>* 开帐篷不在计算范围内。</p>
