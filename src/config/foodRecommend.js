@@ -1,12 +1,12 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1706355415939,
+  updateTime: 1707022194264,
   appVer: '1.1.0',
   list: [
     {
       evoLine: [1, 2, 3],
-      needFood: [[9], [9, 12], [9, 4, 12]],
-      desc: '对应饮料周所需的蜜，高级料理的番茄'
+      needFood: [[9], [9, 12], [9, 4]],
+      desc: '对应饮料周所需的蜜，高级料理的番茄，一般来说不缺番茄，如果真要番茄还是喇叭芽好点。'
     },
     {
       evoLine: [4, 5, 6],
@@ -25,7 +25,7 @@ export const foodRecommend = {
     },
     {
       evoLine: [69, 70, 71],
-      needFood: [[12], [4], [4, 1]],
+      needFood: [[12], [4, 12], [4, 1]],
       desc: '番茄土豆适配咖喱周'
     },
     {
@@ -96,7 +96,7 @@ export const foodRecommend = {
     {
       evoLine: [759, 760],
       needFood: [[16], [16], [3, 16]],
-      desc: '玉米最重要的来源之一。双肠找喷火龙。'
+      desc: '玉米最重要的来源之一。可以考虑3玉米，双肠找喷火龙。'
     }
   ]
 }
