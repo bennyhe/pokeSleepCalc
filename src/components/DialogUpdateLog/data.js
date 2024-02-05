@@ -3,6 +3,8 @@ const markdownText = `
 
 ## 24-02-05
 1. update 岛屿数据区间参考
+2. update 补充全图鉴数据
+3. update 食材宝可梦推荐页面视觉样式
 
 ## 24-02-04
 1. add 帮忙速度计算的对比进度条

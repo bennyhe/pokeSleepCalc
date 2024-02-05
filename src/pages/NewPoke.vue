@@ -19,7 +19,7 @@ const getShowKeyVal = pokemonsItem => {
       showKey.push('helpSpeed', 'berry')
     } else if (res.pokeType === 2) {
       // 食材型
-      showKey.push('food', 'foodPer')
+      showKey.push('food')
     } else if (res.pokeType === 3) {
       // 技能型
       showKey.push('skillType')
