@@ -69,16 +69,6 @@ const props = defineProps({
     >
       {{ SKILL_TYPES[pokedex[pokeId].skillType].name }}
     </p>
-    <p
-      v-if="
-        pokedex[pokeId].foodPer &&
-        props.showKey &&
-        props.showKey.includes('foodPer')
-      "
-    >
-      食{{ pokedex[pokeId].foodPer }}%
-    </p>
-    <p class="cpt-pokemon__name">{{ pokedex[pokeId].name }}</p>
     <div
       class="cpt-food cpt-food--s"
       v-if="
@@ -132,5 +122,15 @@ const props = defineProps({
         </template>
       </div>
     </div>
+    <p
+      v-if="
+        pokedex[pokeId].foodPer &&
+        props.showKey &&
+        props.showKey.includes('foodPer')
+      "
+    >
+      食{{ pokedex[pokeId].foodPer }}%
+    </p>
+    <p class="cpt-pokemon__name">{{ pokedex[pokeId].name }}</p>
   </div>
 </template>
