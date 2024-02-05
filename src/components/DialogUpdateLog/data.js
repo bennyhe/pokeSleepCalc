@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-02-05
+1. update 岛屿数据区间参考
+
 ## 24-02-04
 1. add 帮忙速度计算的对比进度条
 2. update 食材宝可梦推荐攻略
@@ -17,11 +20,11 @@ const markdownText = `
 ## 24-01-30
 1. add 全图鉴树果分类查询
 2. update 视觉样式
-3. update 数据区间参考
+3. update 岛屿数据区间参考
 
 ## 24-01-29
 1. add 全图鉴帮忙速度分类查询
-2. update 数据区间参考
+2. update 岛屿数据区间参考
 3. update 全图鉴帮忙速度
 
 ## 24-01-27
@@ -30,13 +33,13 @@ const markdownText = `
 3. add 显示掉活力
 4. add 全图鉴页(数据待完善)
 5. add 食材宝可梦推荐关联食谱
-6. update 数据区间参考
+6. update 岛屿数据区间参考
 7. fix 部分情况下最新宝可梦显示正序
 
 ## 24-01-26
 1. add 5岛计算
 2. add 1月最新宝可梦
-3. update 数据区间参考
+3. update 岛屿数据区间参考
 4. update 最新食材推荐
 
 ## 24-01-20
