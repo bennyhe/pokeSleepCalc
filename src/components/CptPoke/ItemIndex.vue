@@ -1,7 +1,12 @@
 <script setup>
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
-import { POKE_TYPES, FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } from '../../config/valKey.js'
+import {
+  POKE_TYPES,
+  FOOD_TYPES,
+  BERRY_TYPES,
+  SKILL_TYPES
+} from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
     type: [Number, String]
@@ -15,6 +20,7 @@ const props = defineProps({
 
 <template>
   <div class="cpt-pokemon cpt-pokemon--l">
+    #{{ pokeId }}
     <div class="cpt-pokemon__pic">
       <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name" />
     </div>
@@ -53,7 +59,8 @@ const props = defineProps({
     >
       {{ pokedex[pokeId].helpSpeed }}s
     </p>
-    <p class="cpt-pokemon__skill"
+    <p
+      class="cpt-pokemon__skill"
       v-if="
         pokedex[pokeId].skillType &&
         props.showKey &&
@@ -92,6 +99,38 @@ const props = defineProps({
           />
         </div>
       </template>
+    </div>
+    <div
+      class="cpt-food cpt-food--s"
+      v-if="
+        pokedex[pokeId].food &&
+        pokedex[pokeId].food.type &&
+        props.showKey &&
+        props.showKey.includes('fullFood')
+      "
+    >
+      <div v-for="(subFoodItem, subKey) in 3" v-bind:key="subKey">
+        <template
+          v-for="(allFoodItem, allKey) in pokedex[pokeId].food.type"
+          v-bind:key="allKey"
+        >
+          <div
+            class="cpt-food__item"
+            v-if="pokedex[pokeId].food.count[allFoodItem].num[subKey] > 0"
+          >
+            <img
+              v-lazy="`./img/food/${allFoodItem}.png`"
+              :alt="FOOD_TYPES[allFoodItem]"
+            />
+            <div
+              class="cpt-food__count"
+              v-if="pokedex[pokeId].food.count[allFoodItem].num[subKey] > 0"
+            >
+              {{ pokedex[pokeId].food.count[allFoodItem].num[subKey] }}
+            </div>
+          </div>
+        </template>
+      </div>
     </div>
   </div>
 </template>

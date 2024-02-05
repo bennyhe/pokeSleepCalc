@@ -119,18 +119,18 @@ const initFilterGroup = () => {
   bySkillTypeRes.value = bySkillTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['helpSpeed', 'berry', 'pokeType', 'skillType']
-  if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
-    const res = pokedex[pokemonsItem]
-    // console.log(res)
-    if (res.pokeType === 1) {
-      // 树果型
-      // showKey.push('helpSpeed', 'berry')
-    } else if (res.pokeType === 2) {
-      // 食材型
-      showKey.push('food', 'foodPer')
-    }
-  }
+  const showKey = ['helpSpeed', 'berry', 'pokeType', 'skillType', 'foodPer', 'fullFood']
+  // if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
+  //   const res = pokedex[pokemonsItem]
+  //   // console.log(res)
+  //   if (res.pokeType === 1) {
+  //     // 树果型
+  //     // showKey.push('helpSpeed', 'berry')
+  //   } else if (res.pokeType === 2) {
+  //     // 食材型
+  //     // showKey.push('foodPer')
+  //   }
+  // }
   // console.log(showKey)
   return showKey
 }
