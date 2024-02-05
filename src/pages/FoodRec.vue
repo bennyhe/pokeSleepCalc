@@ -75,8 +75,7 @@ const fnAccumulation = (arr, key) => {
                 v-lazy="`./img/food/${allFoodItem}.png`"
                 :alt="FOOD_TYPES[allFoodItem]"
               />
-              <p v-if="pokedex[pokeItem.evoLine[0]].food">
-                X
+              <p class="cpt-food__count" v-if="pokedex[pokeItem.evoLine[0]].food">
                 {{
                   pokedex[pokeItem.evoLine[0]].food.count[allFoodItem].num[
                     foodKey
