@@ -20,7 +20,7 @@ const props = defineProps({
 
 <template>
   <div class="cpt-pokemon cpt-pokemon--l">
-    #{{ pokeId }}
+    <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name" />
     </div>
