@@ -7,6 +7,7 @@ import PagePokedex from './pages/PokedexApp.vue'
 import PageFoodRec from './pages/FoodRec.vue'
 import PageNew from './pages/NewPoke.vue'
 import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
+import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import { updatePoke } from './config/pokedex.js'
 
 const newUpdatePoke = [...updatePoke.reverse()]
@@ -23,6 +24,9 @@ const nav = [
   },
   {
     name: 'POKEDEX'
+  },
+  {
+    name: 'ONE DAY ENERGY'
   },
   {
     name: 'NEW'
@@ -63,6 +67,13 @@ onMounted(() => {
       class="page-item"
       :class="{ cur: showPageIndex === 4 }"
       v-if="showPageIndex === 4"
+    >
+      <PageOneDayEnergy />
+    </div>
+    <div
+      class="page-item"
+      :class="{ cur: showPageIndex === 5 }"
+      v-if="showPageIndex === 5"
     >
       <PageNew :newUpdatePoke="newUpdatePoke" />
     </div>
