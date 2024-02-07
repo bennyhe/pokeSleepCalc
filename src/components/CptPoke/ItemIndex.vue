@@ -13,6 +13,9 @@ const props = defineProps({
   },
   showKey: {
     type: Array
+  },
+  isHightLightBerry: {
+    type: Boolean
   }
 })
 </script>
@@ -36,6 +39,7 @@ const props = defineProps({
     </p>
     <div
       class="cpt-food cpt-food--s berry"
+      :class="{ 'berry--hl': isHightLightBerry }"
       v-if="
         pokedex[pokeId].berryType &&
         props.showKey &&

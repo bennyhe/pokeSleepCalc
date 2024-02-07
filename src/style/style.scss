@@ -136,6 +136,7 @@ h3 {
         opacity: 1;
         color: #fff;
         text-shadow: 1px 1px #333;
+        background-color: rgba($color: #000000, $alpha: .1);
       }
 
       img {
@@ -147,9 +148,10 @@ h3 {
   &__name {
     position: relative;
     z-index: 5;
-    background-color: rgba($color: #000000, $alpha: .1);
+    background-color: rgba($color: #000000, $alpha: .2);
     display: block;
     padding: 4px 0 2px;
+    transition: 0.3s linear all;
   }
 
   &__bg {
@@ -258,6 +260,10 @@ h3 {
     margin-bottom: 2px;
     border-color: #e6e6e6;
     padding: 0 2px;
+
+    &--hl {
+      color: orange
+    }
   }
 
   &--l {

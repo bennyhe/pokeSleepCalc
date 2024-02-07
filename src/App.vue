@@ -46,7 +46,6 @@ onMounted(() => {
     <div
       class="page-item"
       :class="{ cur: showPageIndex === 0 }"
-      v-if="showPageIndex === 0"
     >
       <PageSleepCalc />
     </div>
@@ -66,7 +65,6 @@ onMounted(() => {
     <div
       class="page-item"
       :class="{ cur: showPageIndex === 4 }"
-      v-if="showPageIndex === 4"
     >
       <PageOneDayEnergy />
     </div>
