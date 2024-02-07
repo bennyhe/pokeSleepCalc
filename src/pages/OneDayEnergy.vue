@@ -7,11 +7,17 @@ import { pokedex } from '../config/pokedex.js'
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { BERRY_TYPES } from '../config/valKey.js'
 
+const newGameMap = [...gameMap]
 const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
   resRankArr: [],
   lv: 50
+})
+newGameMap.push({
+  name: '未适正树果',
+  id: 'none',
+  berry: [8, 9, 2, 13, 3, 5]
 })
 // for (const key in BERRY_ENERGY) {
 //   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
@@ -72,7 +78,7 @@ const getChangeOptionsAfterData = () => {
       pokeItem.oneDayBerryEnergy = getOneDayBerryEnergy(
         pokeItem,
         pokeItem.nameExtra === '树果S',
-        gameMap[pageData.value.curMap].berry.includes(pokeItem.berryType)
+        newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType)
       )
       newRes.push(pokeItem)
     })
@@ -89,7 +95,7 @@ const handleClickChangeMap = id => {
 </script>
 
 <template>
-  <h2>{{ pageData.lv }}级一天能量排行</h2>
+  <h2>{{ pageData.lv }}级一天纯树果能量排行</h2>
 
   <el-form label-width="90px">
     <!-- S 当前岛屿 -->
@@ -97,7 +103,7 @@ const handleClickChangeMap = id => {
       <ul class="cpt-select-list">
         <li
           class="cpt-select-list__item"
-          v-for="(mapItem, mapIndex) in gameMap"
+          v-for="(mapItem, mapIndex) in newGameMap"
           v-bind:key="mapItem.id"
           :class="{ cur: pageData.curMap === mapIndex }"
           @click="handleClickChangeMap(mapIndex)"
@@ -154,7 +160,7 @@ const handleClickChangeMap = id => {
         :pokeId="pokeItem.id"
         :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
         :isHightLightBerry="
-          gameMap[pageData.curMap].berry.includes(pokeItem.berryType)
+         newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
       />
       <div class="poke-tb__energy">
