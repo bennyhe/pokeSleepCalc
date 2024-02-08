@@ -33,6 +33,11 @@ const nav = [
   }
 ]
 
+const handleClickNav = key => {
+  showPageIndex.value = key
+  window.scrollTo(0, 0)
+}
+
 onMounted(() => {
   console.log('组件已经挂载')
   if (+getUrlQuery('p') >= 0) {
@@ -82,7 +87,7 @@ onMounted(() => {
           v-for="(navItem, key) in nav"
           v-bind:key="navItem.name"
           :class="{ cur: showPageIndex === key }"
-          @click="showPageIndex = key"
+          @click="handleClickNav(key)"
         >
           {{ navItem.name }}
         </li>
