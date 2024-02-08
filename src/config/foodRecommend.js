@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1707022194264,
-  appVer: '1.1.0',
+  updateTime: 1707394141275,
+  appVer: '1.2.0',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -16,7 +16,7 @@ export const foodRecommend = {
     {
       evoLine: [7, 8, 9],
       needFood: [[8], [13], [13, 8]],
-      desc: '对应大部分牛奶料理以及55料理所需的可可，如有伊布家族不考虑60奶'
+      desc: '对应大部分牛奶料理以及料理所需的可可，如有伊布家族不考虑60奶'
     },
     {
       evoLine: [50, 51],

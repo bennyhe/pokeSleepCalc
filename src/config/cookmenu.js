@@ -961,5 +961,35 @@ export const COOKMENU = {
       }
     ],
     'baseEnergy': 10925
+  },
+  '3019': {
+    'id': 3019,
+    'type': 3,
+    'from': [{
+      'id': 13,
+      'num': 11
+    }, {
+      'id': 5,
+      'num': 11
+    }],
+    'baseEnergy': 3314
+  },
+  '3020': {
+    'id': 3020,
+    'type': 3,
+    'from': [{
+      'id': 13,
+      'num': 25
+    }, {
+      'id': 3,
+      'num': 25
+    }, {
+      'id': 9,
+      'num': 17
+    }, {
+      'id': 8,
+      'num': 10
+    }],
+    'baseEnergy': 13834
   }
 }
