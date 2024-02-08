@@ -226,7 +226,7 @@ const handleClickChangeMap = id => {
     <div
       class="poke-tb__item"
       v-for="(pokeItem, pokeKey) in pageData.resRankArr"
-      v-bind:key="`${pageData.curMap}_${pokeItem.id}`"
+      v-bind:key="`area${pageData.curMap}_${pokeItem.id}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
     >
       <p>
         <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
