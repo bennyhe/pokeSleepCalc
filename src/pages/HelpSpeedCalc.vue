@@ -116,7 +116,7 @@ initFilterGroup()
 
 // 获取计算结果
 const getNewHelpSpeed = (formData, level, isGoldHelp) => {
-  console.log(formData, level, isGoldHelp)
+  // console.log(formData, level, isGoldHelp)
   // formData: {
   //   baseHelpSpeed, // Number
   //   skill, // Array: ['none', 's', 'm']
