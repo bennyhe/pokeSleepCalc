@@ -205,6 +205,7 @@ const handleClickChangeMap = id => {
             </div>
           </div>
           <img
+            v-if="mapItem.pic"
             class="cpt-select-list__bg"
             v-lazy="`./img/ui/${mapItem.pic}.png`"
           />
