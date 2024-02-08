@@ -605,9 +605,21 @@ h3 {
   }
 
   &__energy {
-    font-size: 13px;
     color: orange;
-    height: 45px;
+    height: 78px;
+
+    .xs {
+      font-size: 11px;
+    }
+
+    .res {
+      font-size: 14px;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
   }
 }
 
