@@ -34,16 +34,21 @@ const getShowKeyVal = pokemonsItem => {
   <ul class="cpt-list">
     <li v-for="updateItem in props.newUpdatePoke" v-bind:key="updateItem.time">
       <h3>
-        {{ formatTime(updateItem.time, "YY年MM月") }}<span class="extra"
-          >({{ updateItem.pokemons.length }}只)</span
-        >
+        {{ formatTime(updateItem.time, "YY年MM月")
+        }}<span class="extra">({{ updateItem.pokemons.length }}只)</span>
       </h3>
-      <CptPoke
-        :pokeId="pokemonsItem"
-        v-for="pokemonsItem in updateItem.pokemons"
-        v-bind:key="pokemonsItem"
-        :showKey="getShowKeyVal(pokemonsItem)"
-      />
+      <div class="poke-tb">
+        <div
+          class="poke-tb__item"
+          v-for="pokemonsItem in updateItem.pokemons"
+          v-bind:key="pokemonsItem"
+        >
+          <CptPoke
+            :pokeId="pokemonsItem"
+            :showKey="getShowKeyVal(pokemonsItem)"
+          />
+        </div>
+      </div>
     </li>
   </ul>
 </template>

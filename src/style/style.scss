@@ -597,7 +597,8 @@ h3 {
   &__item {
     display: inline-block;
     vertical-align: top;
-    border: 1px solid #d1d1d1;
+    border: 1px solid #ededed;
+    box-shadow: 1px 1px 1px #d1d1d1;
     border-radius: 6px;
     padding: 1px;
     margin: 2px;

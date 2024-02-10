@@ -1,6 +1,10 @@
 const markdownText = `
 # 更新日志
 
+## 24-02-10
+1. update 视觉样式
+2. update 优化性能
+
 ## 24-02-08
 1. add v1.2新增的2个菜谱
 2. add 点击导航时默认到页面顶部

@@ -119,7 +119,14 @@ const initFilterGroup = () => {
   bySkillTypeRes.value = bySkillTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['helpSpeed', 'berry', 'pokeType', 'skillType', 'foodPer', 'fullFood']
+  const showKey = [
+    'helpSpeed',
+    'berry',
+    'pokeType',
+    'skillType',
+    'foodPer',
+    'fullFood'
+  ]
   // if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
   //   const res = pokedex[pokemonsItem]
   //   // console.log(res)
@@ -167,25 +174,30 @@ initFilterGroup() // 初始化索引
           {{ resItem.title }}
           <span class="extra">({{ resItem.list.length }}只)</span>
         </h3>
-        <div>
-          <CptPoke
-            :pokeId="pokemonsItem.id"
+        <div class="poke-tb">
+          <div
+            class="poke-tb__item"
             v-for="(pokemonsItem, pokemonKey) in resItem.list"
             v-bind:key="pokemonsItem.name"
-            :showKey="getShowKeyVal(pokemonKey)"
-          />
+          >
+            <CptPoke
+              :pokeId="pokemonsItem.id"
+              :showKey="getShowKeyVal(pokemonKey)"
+            />
+          </div>
         </div>
       </div>
     </template>
     <!-- S 全图鉴 -->
-    <template v-else>
-      <CptPoke
-        :pokeId="+pokemonKey"
+    <div class="poke-tb" v-else>
+      <div
+        class="poke-tb__item"
         v-for="(pokemonsItem, pokemonKey) in pokedex"
         v-bind:key="pokemonsItem.name"
-        :showKey="getShowKeyVal(pokemonKey)"
-      />
+      >
+        <CptPoke :pokeId="+pokemonKey" :showKey="getShowKeyVal(pokemonKey)" />
+      </div>
       <!-- E 全图鉴 -->
-    </template>
+    </div>
   </div>
 </template>

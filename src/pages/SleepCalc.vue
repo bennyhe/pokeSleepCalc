@@ -322,12 +322,20 @@ setDefaultCutNumber()
     </ul>
     <template v-if="gameMap[userData.curMap].berry[0] !== '?'">
       <h2>对应树果宝可梦</h2>
-      <CptPoke
-        :pokeId="pokemonsItem.id"
-        v-for="pokemonsItem in getBerryPokemon(gameMap[userData.curMap].berry)"
-        v-bind:key="pokemonsItem.id"
-        :showKey="['helpSpeed', 'berry', 'pokeType']"
-      />
+      <div class="poke-tb">
+        <div
+          class="poke-tb__item"
+          v-for="pokemonsItem in getBerryPokemon(
+            gameMap[userData.curMap].berry
+          )"
+          v-bind:key="pokemonsItem.id"
+        >
+          <CptPoke
+            :pokeId="pokemonsItem.id"
+            :showKey="['helpSpeed', 'berry', 'pokeType']"
+          />
+        </div>
+      </div>
     </template>
   </div>
 </template>
