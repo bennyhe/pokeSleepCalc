@@ -75,14 +75,10 @@ const getOneDayEnergy = (pokeItem, useFoods, isDoubleBerry, isRightBerry) => {
 for (const key in pokedex) {
   if (Object.hasOwnProperty.call(pokedex, key)) {
     const pokeItem = pokedex[key]
-
-    // oneDayHelpCount: {
-    //   sum, // 一天总帮忙次数
-    //   berry, // 其中树果的帮忙次数
-    //   food // 其中食材的帮忙次数
-    // }
     pokeItem.oneDayHelpCount = {
-      sum: Math.floor(86400 / (pokeItem.helpSpeed / 2.2))
+      sum: Math.floor(86400 / (pokeItem.helpSpeed / 2.2)), // 一天总帮忙次数
+      food: 0, // 其中树果的帮忙次数
+      berry: 0 // 其中食材的帮忙次数
     }
     pokeItem.oneDayHelpCount.berry = Math.floor(
       pokeItem.oneDayHelpCount.sum * (1 - pokeItem.foodPer / 100)
@@ -90,50 +86,27 @@ for (const key in pokedex) {
     pokeItem.oneDayHelpCount.food =
       pokeItem.oneDayHelpCount.sum - pokeItem.oneDayHelpCount.berry
 
-    pageData.value.resRankArr.push(
-      {
+    const tempFoodType = [
+      [0, 0],
+      [0, 0],
+      [0, 1],
+      [0, 1]
+    ]
+
+    tempFoodType.forEach((arrFTItem, arrFTKey) => {
+      const is2n = (arrFTKey + 1) % 2 === 0
+      pageData.value.resRankArr.push({
         ...pokeItem,
         id: pokeItem.id,
+        nameExtra: is2n ? '树果S' : '',
         ...getOneDayEnergy(
           pokeItem,
-          [pokeItem.food.type[0], pokeItem.food.type[0]],
-          false,
+          [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+          is2n ? true : false,
           false
         )
-      },
-      {
-        ...pokeItem,
-        id: pokeItem.id,
-        nameExtra: '树果S',
-        ...getOneDayEnergy(
-          pokeItem,
-          [pokeItem.food.type[0], pokeItem.food.type[0]],
-          true,
-          false
-        )
-      },
-      {
-        ...pokeItem,
-        id: pokeItem.id,
-        ...getOneDayEnergy(
-          pokeItem,
-          [pokeItem.food.type[0], pokeItem.food.type[1]],
-          false,
-          false
-        )
-      },
-      {
-        ...pokeItem,
-        id: pokeItem.id,
-        nameExtra: '树果S',
-        ...getOneDayEnergy(
-          pokeItem,
-          [pokeItem.food.type[0], pokeItem.food.type[1]],
-          true,
-          false
-        )
-      }
-    )
+      })
+    })
   }
 }
 pageData.value.orgResRankArr = sortInObjectOptions(pageData.value.resRankArr, [
@@ -208,6 +181,7 @@ const handleClickChangeMap = id => {
             v-if="mapItem.pic"
             class="cpt-select-list__bg"
             v-lazy="`./img/ui/${mapItem.pic}.png`"
+            :alt="mapItem.name"
           />
         </li>
       </ul>
@@ -226,7 +200,9 @@ const handleClickChangeMap = id => {
     <div
       class="poke-tb__item"
       v-for="(pokeItem, pokeKey) in pageData.resRankArr"
-      v-bind:key="`area${pageData.curMap}_${pokeItem.id}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
+      v-bind:key="`area${pageData.curMap}_${
+        pokeItem.id
+      }_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
     >
       <p>
         <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
