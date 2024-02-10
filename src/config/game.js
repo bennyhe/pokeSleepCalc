@@ -72,8 +72,17 @@ const gameMap = [
       name: '大师5',
       energy: 321146
     }, {
-      name: '大师6以上',
+      name: '大师6',
       energy: 356158
+    }, {
+      name: '大师7',
+      energy: 391870
+    }, {
+      name: '大师8',
+      energy: 428296
+    }, {
+      name: '大师9以上',
+      energy: 465451
     }]
   },
   {
@@ -148,8 +157,17 @@ const gameMap = [
       name: '大师5',
       energy: 420363
     }, {
-      name: '大师6以上',
+      name: '大师6',
       energy: 472043
+    }, {
+      name: '大师7',
+      energy: 528891
+    }, {
+      name: '大师8',
+      energy: 591424
+    }, {
+      name: '大师9以上',
+      energy: 660210
     }]
   },
   {
@@ -224,8 +242,17 @@ const gameMap = [
       name: '大师5',
       energy: 600197
     }, {
-      name: '大师6以上',
+      name: '大师6',
       energy: 673986
+    }, {
+      name: '大师7',
+      energy: 755154
+    }, {
+      name: '大师8',
+      energy: 844439
+    }, {
+      name: '大师9以上',
+      energy: 942653
     }]
   },
   {
@@ -300,8 +327,17 @@ const gameMap = [
       name: '大师5',
       energy: 914159
     }, {
-      name: '大师6以上',
+      name: '大师6',
       energy: 1026546
+    }, {
+      name: '大师7',
+      energy: 1150172
+    }, {
+      name: '大师8',
+      energy: 1286161
+    }, {
+      name: '大师9以上',
+      energy: 1435749
     }]
   },
   {
@@ -376,8 +412,17 @@ const gameMap = [
       name: '大师5',
       energy: 1075709
     }, {
-      name: '大师6以上',
+      name: '大师6',
       energy: 1202596
+    }, {
+      name: '大师7',
+      energy: 1340143
+    }, {
+      name: '大师8',
+      energy: 1489190
+    }, {
+      name: '大师9以上',
+      energy: 1650645
     }]
   }
 ]

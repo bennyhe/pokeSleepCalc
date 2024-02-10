@@ -2,8 +2,9 @@ const markdownText = `
 # 更新日志
 
 ## 24-02-10
-1. update 视觉样式
-2. update 优化性能
+1. add 各个岛屿大师7-大师9分数线
+2. update 视觉样式
+3. update 优化性能
 
 ## 24-02-08
 1. add v1.2新增的2个菜谱
