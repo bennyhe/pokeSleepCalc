@@ -163,6 +163,7 @@ setDefaultCutNumber()
               v-if="mapItem.pic"
               class="cpt-select-list__bg"
               v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
             />
           </li>
         </ul>
