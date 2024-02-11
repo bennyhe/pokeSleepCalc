@@ -43,6 +43,7 @@ const getOneDayBerryEnergy = (pokeItem, isDoubleBerry, isRightBerry) => {
 const getOneDayFoodEnergy = (pokeItem, useFoods) => {
   // console.log(pokeItem.oneDayHelpCount.food, useFoods)
   const helpFoodEnergy = {
+    useFoods: [...useFoods],
     count: [],
     energy: [],
     allEnergy: 0
@@ -54,6 +55,14 @@ const getOneDayFoodEnergy = (pokeItem, useFoods) => {
     helpFoodEnergy.energy[i] =
       helpFoodEnergy.count[i] * FOOD_ENERGY[useFoods[i]]
     helpFoodEnergy.allEnergy += helpFoodEnergy.energy[i]
+  }
+  // console.log(helpFoodEnergy)
+  if (useFoods[0] === useFoods[1]) {
+    // aa食材则合并
+    helpFoodEnergy.count = [helpFoodEnergy.count[0] + helpFoodEnergy.count[1]]
+
+    helpFoodEnergy.energy.splice(0, 1)
+    helpFoodEnergy.useFoods.splice(0, 1)
   }
   // console.log(helpFoodEnergy)
   return helpFoodEnergy
@@ -193,6 +202,7 @@ const handleClickChangeMap = id => {
   </el-form>
   <div class="page-inner">
     <div class="mod-tips">
+      <p>* 数值均为程序预估结果，与实际有误差。</p>
       <p>* 非满包没开露营券，不含技能率。</p>
     </div>
   </div>
@@ -238,6 +248,23 @@ const handleClickChangeMap = id => {
         <p class="cpt-pokemon__poketype1 xs">
           果{{ pokeItem.oneDayBerryEnergy }}
         </p>
+        <div>
+          <div class="cpt-food cpt-food--s all-food">
+            <div
+              class="cpt-food__item cur"
+              v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy.useFoods"
+              v-bind:key="foodKey"
+            >
+              <img
+                v-lazy="`./img/food/${foodItem}.png`"
+                :alt="FOOD_TYPES[foodItem]"
+              />
+              <p class="cpt-food__count">
+                {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
+              </p>
+            </div>
+          </div>
+        </div>
         <p class="cpt-pokemon__poketype2 xs">
           食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
         </p>
