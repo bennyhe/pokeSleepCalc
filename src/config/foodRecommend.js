@@ -1,6 +1,6 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1707394141275,
+  updateTime: 1707743356812,
   appVer: '1.2.0',
   list: [
     {
@@ -95,8 +95,8 @@ export const foodRecommend = {
     },
     {
       evoLine: [759, 760],
-      needFood: [[16], [16], [3, 16]],
-      desc: '玉米最重要的来源之一。可以考虑3玉米，双肠找喷火龙。'
+      needFood: [[16], [16], [16, 7]],
+      desc: '玉米最重要的来源之一。可以考虑3玉米，双肠找喷火龙（60肠可以直接淘汰肠龙）。'
     }
   ]
 }
