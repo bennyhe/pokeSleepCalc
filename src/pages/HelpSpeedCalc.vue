@@ -162,7 +162,7 @@ const getTargetPokemonEnergy = pokeId => {
     resRankArr.push({
       ...tempPokeItem,
       id: tempPokeItem.id,
-      nameExtra: is2n ? '无加成树果S' : '无加成',
+      nameExtra: is2n ? '白板树果S' : '白板',
       ...getOneDayEnergy(
         tempPokeItem,
         helpSpeedCalcForm.value.level,
@@ -395,7 +395,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       <div class="poke-tb">
         <div
           class="poke-tb__item"
-          :class="{'default': pokeItem.nameExtra.indexOf('无')>-1}"
+          :class="{'default': pokeItem.nameExtra.indexOf('白')>-1}"
           v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
             helpSpeedCalcForm.pokemonId
           )"
