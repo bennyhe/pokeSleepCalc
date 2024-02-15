@@ -238,7 +238,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       />
     </el-form-item>
     <el-form-item label="等级">
-      <el-slider v-model="helpSpeedCalcForm.level" show-input :max="50"/>
+      <el-slider v-model="helpSpeedCalcForm.level" show-input :min="30" :max="50"/>
     </el-form-item>
     <el-form-item label="技能">
       <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
