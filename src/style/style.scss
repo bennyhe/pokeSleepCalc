@@ -600,6 +600,11 @@ h3 {
 .poke-tb {
   line-height: 1.5;
 
+  &--xscorll {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
   &__item {
     display: inline-block;
     vertical-align: top;

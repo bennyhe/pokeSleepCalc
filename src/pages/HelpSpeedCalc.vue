@@ -120,7 +120,10 @@ const getTargetPokemonEnergy = pokeId => {
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
 
-  pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
+  pokeItem.oneDayHelpCount = getOneDayHelpCount(
+    pokeItem.helpSpeed,
+    pokeItem.foodPer
+  )
   // console.log(pokeItem)
 
   const resRankArr = []
@@ -156,7 +159,10 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem.oneDayHelpCount = getOneDayHelpCount(tempPokeItem.helpSpeed, tempPokeItem.foodPer)
+  tempPokeItem.oneDayHelpCount = getOneDayHelpCount(
+    tempPokeItem.helpSpeed,
+    tempPokeItem.foodPer
+  )
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     const is2n = (arrFTKey + 1) % 2 === 0
     resRankArr.push({
@@ -166,7 +172,10 @@ const getTargetPokemonEnergy = pokeId => {
       ...getOneDayEnergy(
         tempPokeItem,
         helpSpeedCalcForm.value.level,
-        [tempPokeItem.food.type[arrFTItem[0]], tempPokeItem.food.type[arrFTItem[1]]],
+        [
+          tempPokeItem.food.type[arrFTItem[0]],
+          tempPokeItem.food.type[arrFTItem[1]]
+        ],
         is2n ? true : false,
         false
       )
@@ -391,88 +400,6 @@ targetInList.value = byHelpSpeedRes.value.find(
         </div>
       </div>
     </el-form-item>
-    <el-form-item>
-      <div class="poke-tb">
-        <div
-          class="poke-tb__item"
-          :class="{'default': pokeItem.nameExtra.indexOf('白')>-1}"
-          v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
-            helpSpeedCalcForm.pokemonId
-          )"
-          v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
-            pokeItem.nameExtra || ''
-          }`"
-        >
-          <p>
-            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
-              pokeKey + 1
-            }}</i>
-          </p>
-          <CptPoke
-            :pokeId="pokeItem.id"
-            :helpSpeed="pokeItem.helpSpeed"
-            :foodPer="pokeItem.foodPer"
-            :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
-          />
-          <div>
-            <div class="cpt-food all-food">
-              <div
-                class="cpt-food__item cur"
-                v-for="(foodItem, foodKey) in pokeItem.useFoods"
-                v-bind:key="foodKey"
-              >
-                <img
-                  v-lazy="`./img/food/${foodItem}.png`"
-                  :alt="FOOD_TYPES[foodItem]"
-                />
-                <p class="cpt-food__count">
-                  {{ pokeItem.food.count[foodItem].num[foodKey] }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="poke-tb__energy">
-            <p class="sptime">{{ pokeItem.nameExtra }}</p>
-            <p class="cpt-pokemon__poketype1 xs">
-              果{{ pokeItem.oneDayBerryEnergy }}
-            </p>
-            <div>
-              <div class="cpt-food cpt-food--s all-food">
-                <div
-                  class="cpt-food__item cur"
-                  v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy
-                    .useFoods"
-                  v-bind:key="foodKey"
-                >
-                  <img
-                    v-lazy="`./img/food/${foodItem}.png`"
-                    :alt="FOOD_TYPES[foodItem]"
-                  />
-                  <p class="cpt-food__count">
-                    {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p class="cpt-pokemon__poketype2 xs">
-              食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
-            </p>
-            <p class="res">
-              <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-                pokeItem.oneDayEnergy
-              }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </el-form-item>
-    <el-form-item>
-      <div class="mod-tips">
-        <p>* 数值均为程序预估结果，与实际有误差。</p>
-        <p>* 结果为对应等级一天能量产出。</p>
-        <p>* 非满包没开露营券，不含技能率，不含适应岛。</p>
-      </div>
-    </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>
         <template v-for="olItem in otherLevelShow" v-bind:key="olItem">
@@ -494,8 +421,88 @@ targetInList.value = byHelpSpeedRes.value.find(
         </template>
       </ul>
     </el-form-item>
+  </el-form>
+  <div class="page-inner">
+    <div class="poke-tb poke-tb--xscorll">
+      <div
+        class="poke-tb__item"
+        :class="{ default: pokeItem.nameExtra.indexOf('白') > -1 }"
+        v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
+          helpSpeedCalcForm.pokemonId
+        )"
+        v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
+          pokeItem.nameExtra || ''
+        }`"
+      >
+        <p>
+          <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+            pokeKey + 1
+          }}</i>
+        </p>
+        <CptPoke
+          :pokeId="pokeItem.id"
+          :helpSpeed="pokeItem.helpSpeed"
+          :foodPer="pokeItem.foodPer"
+          :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
+        />
+        <div>
+          <div class="cpt-food all-food">
+            <div
+              class="cpt-food__item cur"
+              v-for="(foodItem, foodKey) in pokeItem.useFoods"
+              v-bind:key="foodKey"
+            >
+              <img
+                v-lazy="`./img/food/${foodItem}.png`"
+                :alt="FOOD_TYPES[foodItem]"
+              />
+              <p class="cpt-food__count">
+                {{ pokeItem.food.count[foodItem].num[foodKey] }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="poke-tb__energy">
+          <p class="sptime">{{ pokeItem.nameExtra }}</p>
+          <p class="cpt-pokemon__poketype1 xs">
+            果{{ pokeItem.oneDayBerryEnergy }}
+          </p>
+          <div>
+            <div class="cpt-food cpt-food--s all-food">
+              <div
+                class="cpt-food__item cur"
+                v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy
+                  .useFoods"
+                v-bind:key="foodKey"
+              >
+                <img
+                  v-lazy="`./img/food/${foodItem}.png`"
+                  :alt="FOOD_TYPES[foodItem]"
+                />
+                <p class="cpt-food__count">
+                  {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="cpt-pokemon__poketype2 xs">
+            食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
+          </p>
+          <p class="res">
+            <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+              pokeItem.oneDayEnergy
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <el-form label-width="90px">
     <el-form-item>
       <div class="mod-tips">
+        <p>* 数值均为程序预估结果，与实际有误差。</p>
+        <p>* 结果为对应等级一天能量产出。</p>
+        <p>* 非满包没开露营券，不含技能率，不含适应岛。</p>
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
         <p>* 暂不支持帮手奖励相关计算。</p>
       </div>
