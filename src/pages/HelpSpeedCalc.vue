@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
-import { getOneDayEnergy } from '../utils/energy.js'
+import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { FOOD_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
 import {
@@ -119,16 +119,8 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value.level
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
-  pokeItem.oneDayHelpCount = {
-    sum: Math.floor(86400 / (pokeItem.helpSpeed / 2.2)), // 一天总帮忙次数
-    food: 0, // 其中树果的帮忙次数
-    berry: 0 // 其中食材的帮忙次数
-  }
-  pokeItem.oneDayHelpCount.berry = Math.floor(
-    pokeItem.oneDayHelpCount.sum * (1 - pokeItem.foodPer / 100)
-  )
-  pokeItem.oneDayHelpCount.food =
-    pokeItem.oneDayHelpCount.sum - pokeItem.oneDayHelpCount.berry
+  
+  pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
 
   const resRankArr = []
   const tempFoodType = [
