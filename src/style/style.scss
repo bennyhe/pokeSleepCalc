@@ -606,6 +606,16 @@ h3 {
     padding: 1px;
     margin: 2px;
     text-align: center;
+
+    &.default {
+      background-color: rgba($color: orange, $alpha: .1);
+
+      .poke-tb__energy .sptime {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+      }
+    }
   }
 
   &__energy {

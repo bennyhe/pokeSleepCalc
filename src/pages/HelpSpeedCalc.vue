@@ -119,8 +119,9 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value.level
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
-  
+
   pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
+  // console.log(pokeItem)
 
   const resRankArr = []
   const tempFoodType = [
@@ -129,8 +130,6 @@ const getTargetPokemonEnergy = pokeId => {
     [0, 1],
     [0, 1]
   ]
-
-  console.log(pokeItem)
 
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     const is2n = (arrFTKey + 1) % 2 === 0
@@ -142,6 +141,32 @@ const getTargetPokemonEnergy = pokeId => {
         pokeItem,
         helpSpeedCalcForm.value.level,
         [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+        is2n ? true : false,
+        false
+      )
+    })
+  })
+
+  const tempPokeItem = { ...pokedex[pokeId] }
+  tempPokeItem.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem.helpSpeed,
+      skill: ['none'], // Array: ['none', 's', 'm']
+      character: 'none' // String: none, up, down
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem.oneDayHelpCount = getOneDayHelpCount(tempPokeItem.helpSpeed, tempPokeItem.foodPer)
+  tempFoodType.forEach((arrFTItem, arrFTKey) => {
+    const is2n = (arrFTKey + 1) % 2 === 0
+    resRankArr.push({
+      ...tempPokeItem,
+      id: tempPokeItem.id,
+      nameExtra: is2n ? '无加成树果S' : '无加成',
+      ...getOneDayEnergy(
+        tempPokeItem,
+        helpSpeedCalcForm.value.level,
+        [tempPokeItem.food.type[arrFTItem[0]], tempPokeItem.food.type[arrFTItem[1]]],
         is2n ? true : false,
         false
       )
@@ -370,6 +395,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       <div class="poke-tb">
         <div
           class="poke-tb__item"
+          :class="{'default': pokeItem.nameExtra.indexOf('无')>-1}"
           v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
             helpSpeedCalcForm.pokemonId
           )"
