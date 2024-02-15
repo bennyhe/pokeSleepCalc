@@ -237,8 +237,8 @@ targetInList.value = byHelpSpeedRes.value.find(
         v-bind:key="pokeItem.id"
       />
     </el-form-item>
-    <el-form-item label="宝可梦等级">
-      <el-slider v-model="helpSpeedCalcForm.level" show-input />
+    <el-form-item label="等级">
+      <el-slider v-model="helpSpeedCalcForm.level" show-input :max="50"/>
     </el-form-item>
     <el-form-item label="技能">
       <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
