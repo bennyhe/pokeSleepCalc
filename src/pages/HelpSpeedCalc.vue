@@ -1,80 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import { allHelpType } from '../config/game.js'
 import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
 
+const byHelpSpeedRes = ref([])
+const targetInList = ref([])
 const otherLevelShow = [25, 30, 50, 60, 100]
 const helpSpeedCalcForm = ref({
+  pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
   skill: ['none'], // Array: ['none', 's', 'm']
   character: 'none' // String: none, up, down
 })
-const allHelpType = [
-  {
-    title: '无技能\n性格:帮忙↓',
-    skill: ['none'],
-    character: 'down'
-  },
-  {
-    title: '帮忙S\n性格:帮忙↓',
-    skill: ['s'],
-    character: 'down'
-  },
-  {
-    title: '无技能\n性格:无',
-    skill: ['none'],
-    character: 'none'
-  },
-  {
-    title: '帮忙M\n性格:帮忙↓',
-    skill: ['m'],
-    character: 'down'
-  },
-  {
-    title: '帮忙S\n性格:无',
-    skill: ['s'],
-    character: 'none'
-  },
-  {
-    title: '帮忙M\n性格:无',
-    skill: ['m'],
-    character: 'none'
-  },
-  {
-    title: '无技能\n性格:帮忙↑',
-    skill: ['none'],
-    character: 'up'
-  },
-  {
-    title: '帮忙S,M\n性格:帮忙↓',
-    skill: ['s', 'm'],
-    character: 'down'
-  },
-  {
-    title: '帮忙S\n性格:帮忙↑',
-    skill: ['s'],
-    character: 'up'
-  },
-  {
-    title: '帮忙S,M\n性格:无',
-    skill: ['s', 'm'],
-    character: 'none'
-  },
-  {
-    title: '帮忙M\n性格:帮忙↑',
-    skill: ['m'],
-    character: 'up'
-  },
-  {
-    title: '帮忙S,M\n性格:帮忙↑',
-    skill: ['s', 'm'],
-    character: 'up'
-  }
-]
-
-const byHelpSpeedRes = ref([])
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
@@ -110,9 +50,11 @@ const initFilterGroup = () => {
     )
   })
   byHelpSpeedResIn = sortInObjectOptions(byHelpSpeedResIn, ['helpSpeed'], 'up')
-  byHelpSpeedRes.value = byHelpSpeedResIn
+  byHelpSpeedResIn.forEach((item, key) => {
+    item.sortIndex = key + 1
+  })
+  return byHelpSpeedResIn
 }
-initFilterGroup()
 
 // 获取计算结果
 const getNewHelpSpeed = (formData, level, isGoldHelp) => {
@@ -145,32 +87,62 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
 }
+
+const handleChangePokemon = () => {
+  helpSpeedCalcForm.value.baseHelpSpeed =
+    pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
+  targetInList.value = byHelpSpeedRes.value.find(
+    item => item.helpSpeed === helpSpeedCalcForm.value.baseHelpSpeed
+  )
+}
+
+byHelpSpeedRes.value = initFilterGroup()
+targetInList.value = byHelpSpeedRes.value.find(
+  item => item.helpSpeed === helpSpeedCalcForm.value.baseHelpSpeed
+)
 </script>
 <template>
   <h2>帮忙速度计算</h2>
   <el-form label-width="90px">
-    <el-form-item label="原帮忙速度">
+    <el-form-item label="宝可梦">
       <el-select
-        v-model="helpSpeedCalcForm.baseHelpSpeed"
-        placeholder="请选择卡比兽级别"
-        class="m-2"
+        v-model="helpSpeedCalcForm.pokemonId"
+        placeholder="请选择宝可梦"
+        filterable
+        @change="handleChangePokemon()"
       >
         <el-option
-          v-for="helpItem in byHelpSpeedRes"
-          :key="helpItem.id"
-          :label="`${helpItem.helpSpeed}s`"
-          :value="helpItem.id"
+          v-for="pokeItem in pokedex"
+          :key="pokeItem.id"
+          :label="`${pokeItem.name}-${pokeItem.helpSpeed}s`"
+          :value="pokeItem.id"
         >
-          {{ helpItem.helpSpeed }}s
           <img
             class="icon"
             v-lazy="`./img/pokedex/${pokeItem.id}.png`"
             :alt="pokeItem.name"
-            v-for="pokeItem in helpItem.list"
             v-bind:key="pokeItem.id"
           />
+          {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
         </el-option>
       </el-select>
+    </el-form-item>
+    <el-form-item>
+      <!-- <CptPoke
+        :pokeId="helpSpeedCalcForm.pokemonId"
+        :showKey="['helpSpeed', 'foodPer', 'berry']"
+      /> -->
+      <i class="i i-rank" :class="`i-rank--${targetInList.sortIndex}`">{{
+        targetInList.sortIndex
+      }}</i>
+      {{ helpSpeedCalcForm.baseHelpSpeed }}s
+      <img
+        class="icon"
+        v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+        :alt="pokeItem.name"
+        v-for="pokeItem in targetInList.list"
+        v-bind:key="pokeItem.id"
+      />
     </el-form-item>
     <el-form-item label="宝可梦等级">
       <el-slider v-model="helpSpeedCalcForm.level" show-input />
