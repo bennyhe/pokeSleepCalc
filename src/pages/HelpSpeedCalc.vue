@@ -225,7 +225,7 @@ const getTargetPokemonEnergy = pokeId => {
       skill: ['fs', 'fm'], // Array: ['none', 's', 'm']
       character: 'hup' // String: none, up, down
     },
-    pokeItem.foodPer
+    tempPokeItem2.foodPer
   )
   tempPokeItem2.oneDayHelpCount = getOneDayHelpCount(
     tempPokeItem2.helpSpeed,
@@ -249,7 +249,7 @@ const getTargetPokemonEnergy = pokeId => {
       skill: ['hs', 'hm'], // Array: ['none', 's', 'm']
       character: 'hupfdown' // String: none, up, down
     },
-    pokeItem.foodPer
+    tempPokeItem3.foodPer
   )
   tempPokeItem3.oneDayHelpCount = getOneDayHelpCount(
     tempPokeItem3.helpSpeed,
