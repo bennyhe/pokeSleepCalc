@@ -244,6 +244,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
+  tempPokeItem3.foodPer = getNewFoodPer(
+    {
+      skill: ['hs', 'hm'], // Array: ['none', 's', 'm']
+      character: 'hupfdown' // String: none, up, down
+    },
+    pokeItem.foodPer
+  )
   tempPokeItem3.oneDayHelpCount = getOneDayHelpCount(
     tempPokeItem3.helpSpeed,
     tempPokeItem3.foodPer
