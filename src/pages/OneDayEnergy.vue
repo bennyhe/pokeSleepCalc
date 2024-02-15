@@ -25,14 +25,14 @@ newGameMap.push({
 //     console.log(BERRY_TYPES[key], `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
 //   }
 // }
-const getOneDayBerryEnergy = (pokeItem, isDoubleBerry, isRightBerry) => {
+const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) => {
   let pokeType = pokeItem.pokeType === 1 ? 2 : 1
   if (isDoubleBerry) {
     pokeType = pokeItem.pokeType === 1 ? 3 : 2
   }
   let res = Math.floor(
     pokeItem.oneDayHelpCount.berry *
-      (BERRY_ENERGY[pokeItem.berryType].energy[pageData.value.lv - 1].energy *
+      (BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy *
         pokeType)
   )
   if (isRightBerry) {
@@ -70,6 +70,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods) => {
 const getOneDayEnergy = (pokeItem, useFoods, isDoubleBerry, isRightBerry) => {
   const oneDayBerryEnergy = getOneDayBerryEnergy(
     pokeItem,
+    pageData.value.lv,
     isDoubleBerry,
     isRightBerry
   )
