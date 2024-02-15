@@ -103,6 +103,7 @@ h3 {
   font-size: 12px;
   color: #9d9d9d;
   margin-top: 3px;
+  line-height: 1.5;
 }
 
 .cpt-select-list {
@@ -594,6 +595,8 @@ h3 {
 }
 
 .poke-tb {
+  line-height: 1.5;
+
   &__item {
     display: inline-block;
     vertical-align: top;

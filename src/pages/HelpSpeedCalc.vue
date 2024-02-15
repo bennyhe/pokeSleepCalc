@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
+import { getOneDayEnergy } from '../utils/energy.js'
+import { FOOD_TYPES } from '../config/valKey.js'
+import { pokedex } from '../config/pokedex.js'
 import {
   allHelpType,
   skillOptions,
   characterOptions
 } from '../config/helpSpeed.js'
-import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
-import { pokedex } from '../config/pokedex.js'
 
 const byHelpSpeedRes = ref([])
 const targetInList = ref([])
@@ -72,16 +74,16 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
   const levelUp = (level - 1) * 0.002
   let basichelp = 0
   let mainMuti = 0
-  if (formData.skill.includes('s')) {
+  if (formData.skill.includes('hs')) {
     basichelp += 0.07
   }
-  if (formData.skill.includes('m')) {
+  if (formData.skill.includes('hm')) {
     basichelp += 0.14
   }
-  if (formData.character === 'up') {
+  if (formData.character.indexOf('hup') > -1) {
     mainMuti = 0.1
   }
-  if (formData.character === 'down') {
+  if (formData.character.indexOf('hdown') > -1) {
     mainMuti = -0.1
   }
   // if (isGoldHelp) {
@@ -90,6 +92,71 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
   const res =
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
+}
+
+const getNewFoodPer = (formData, foodPer) => {
+  let basicfood = 0
+  let mainMuti = 0
+  if (formData.skill.includes('fs')) {
+    basicfood += 0.18
+  }
+  if (formData.skill.includes('fm')) {
+    basicfood += 0.36
+  }
+  if (formData.character.indexOf('fup') > -1) {
+    mainMuti = 0.2
+  }
+  if (formData.character.indexOf('fdown') > -1) {
+    mainMuti = -0.2
+  }
+  return parseFloat(foodPer * ((1 + basicfood) * (1 + mainMuti))).toFixed(2)
+}
+
+const getTargetPokemonEnergy = pokeId => {
+  const pokeItem = { ...pokedex[pokeId] }
+  pokeItem.helpSpeed = getNewHelpSpeed(
+    helpSpeedCalcForm.value,
+    helpSpeedCalcForm.value.level
+  )
+  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+  pokeItem.oneDayHelpCount = {
+    sum: Math.floor(86400 / (pokeItem.helpSpeed / 2.2)), // 一天总帮忙次数
+    food: 0, // 其中树果的帮忙次数
+    berry: 0 // 其中食材的帮忙次数
+  }
+  pokeItem.oneDayHelpCount.berry = Math.floor(
+    pokeItem.oneDayHelpCount.sum * (1 - pokeItem.foodPer / 100)
+  )
+  pokeItem.oneDayHelpCount.food =
+    pokeItem.oneDayHelpCount.sum - pokeItem.oneDayHelpCount.berry
+
+  const resRankArr = []
+  const tempFoodType = [
+    [0, 0],
+    [0, 0],
+    [0, 1],
+    [0, 1]
+  ]
+
+  console.log(pokeItem)
+
+  tempFoodType.forEach((arrFTItem, arrFTKey) => {
+    const is2n = (arrFTKey + 1) % 2 === 0
+    resRankArr.push({
+      ...pokeItem,
+      id: pokeItem.id,
+      nameExtra: is2n ? '树果S' : '',
+      ...getOneDayEnergy(
+        pokeItem,
+        helpSpeedCalcForm.value.level,
+        [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+        is2n ? true : false,
+        false
+      )
+    })
+  })
+
+  return sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
 }
 
 const handleChangePokemon = () => {
@@ -132,10 +199,6 @@ targetInList.value = byHelpSpeedRes.value.find(
       </el-select>
     </el-form-item>
     <el-form-item>
-      <!-- <CptPoke
-        :pokeId="helpSpeedCalcForm.pokemonId"
-        :showKey="['helpSpeed', 'foodPer', 'berry']"
-      /> -->
       <i class="i i-rank" :class="`i-rank--${targetInList.sortIndex}`">{{
         targetInList.sortIndex
       }}</i>
@@ -167,7 +230,7 @@ targetInList.value = byHelpSpeedRes.value.find(
           :label="cItem.label"
           v-for="cItem in characterOptions"
           v-bind:key="cItem.label"
-          :class="{ vigour: cItem.txt.indexOf('↓') > -1 }"
+          :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
           >{{ cItem.txt }}</el-radio
         >
       </el-radio-group>
@@ -187,13 +250,13 @@ targetInList.value = byHelpSpeedRes.value.find(
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
             )
           }}
-          <!-- <template v-if="helpSpeedCalcForm.skill.includes('gold')">
+          <!-- <template v-if="helpSpeedCalcForm.skill.includes('hgold')">
             (帮手奖励:<span class="sptime"
               >{{
                 getNewHelpSpeed(
                   helpSpeedCalcForm,
                   helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("gold")
+                  helpSpeedCalcForm.skill.includes("hgold")
                 )
               }}s</span
             >
@@ -202,7 +265,7 @@ targetInList.value = byHelpSpeedRes.value.find(
                 getNewHelpSpeed(
                   helpSpeedCalcForm,
                   helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("gold")
+                  helpSpeedCalcForm.skill.includes("hgold")
                 )
               )
             }})
@@ -218,7 +281,7 @@ targetInList.value = byHelpSpeedRes.value.find(
                   {
                     baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                     skill: ['none'],
-                    character: 'down',
+                    character: 'hdown',
                   },
                   helpSpeedCalcForm.level
                 )) /
@@ -226,15 +289,15 @@ targetInList.value = byHelpSpeedRes.value.find(
                   {
                     baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                     skill: ['none'],
-                    character: 'down',
+                    character: 'hdown',
                   },
                   helpSpeedCalcForm.level
                 ) -
                   getNewHelpSpeed(
                     {
                       baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                      skill: ['s', 'm'],
-                      character: 'up',
+                      skill: ['hs', 'hm'],
+                      character: 'hup',
                     },
                     helpSpeedCalcForm.level
                   ))) *
@@ -257,7 +320,7 @@ targetInList.value = byHelpSpeedRes.value.find(
                 {
                   baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                   skill: ['none'],
-                  character: 'down',
+                  character: 'hdown',
                 },
                 helpSpeedCalcForm.level
               )) /
@@ -265,15 +328,15 @@ targetInList.value = byHelpSpeedRes.value.find(
                 {
                   baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                   skill: ['none'],
-                  character: 'down',
+                  character: 'hdown',
                 },
                 helpSpeedCalcForm.level
               ) -
                 getNewHelpSpeed(
                   {
                     baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                    skill: ['s', 'm'],
-                    character: 'up',
+                    skill: ['hs', 'hm'],
+                    character: 'hup',
                   },
                   helpSpeedCalcForm.level
                 ))) *
@@ -281,8 +344,8 @@ targetInList.value = byHelpSpeedRes.value.find(
           }%`"
           class="helpprocess__tag"
           :class="[
-            processItem.character === 'down' ? 'down' : '',
-            processItem.character === 'up' ? 'up' : '',
+            processItem.character.indexOf('hdown') > -1 ? 'down' : '',
+            processItem.character.indexOf('hup') > -1 ? 'up' : '',
             `helpprocess__tag--${processKey + 1}`,
             getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level) ===
             getNewHelpSpeed(
@@ -309,6 +372,87 @@ targetInList.value = byHelpSpeedRes.value.find(
             }}s
           </div>
         </div>
+      </div>
+    </el-form-item>
+    <el-form-item>
+      <div class="poke-tb">
+        <div
+          class="poke-tb__item"
+          v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
+            helpSpeedCalcForm.pokemonId
+          )"
+          v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
+            pokeItem.nameExtra || ''
+          }`"
+        >
+          <p>
+            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+              pokeKey + 1
+            }}</i>
+          </p>
+          <CptPoke
+            :pokeId="pokeItem.id"
+            :helpSpeed="pokeItem.helpSpeed"
+            :foodPer="pokeItem.foodPer"
+            :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
+          />
+          <div>
+            <div class="cpt-food all-food">
+              <div
+                class="cpt-food__item cur"
+                v-for="(foodItem, foodKey) in pokeItem.useFoods"
+                v-bind:key="foodKey"
+              >
+                <img
+                  v-lazy="`./img/food/${foodItem}.png`"
+                  :alt="FOOD_TYPES[foodItem]"
+                />
+                <p class="cpt-food__count">
+                  {{ pokeItem.food.count[foodItem].num[foodKey] }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="poke-tb__energy">
+            <p class="sptime">{{ pokeItem.nameExtra }}</p>
+            <p class="cpt-pokemon__poketype1 xs">
+              果{{ pokeItem.oneDayBerryEnergy }}
+            </p>
+            <div>
+              <div class="cpt-food cpt-food--s all-food">
+                <div
+                  class="cpt-food__item cur"
+                  v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy
+                    .useFoods"
+                  v-bind:key="foodKey"
+                >
+                  <img
+                    v-lazy="`./img/food/${foodItem}.png`"
+                    :alt="FOOD_TYPES[foodItem]"
+                  />
+                  <p class="cpt-food__count">
+                    {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p class="cpt-pokemon__poketype2 xs">
+              食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
+            </p>
+            <p class="res">
+              <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                pokeItem.oneDayEnergy
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </el-form-item>
+    <el-form-item>
+      <div class="mod-tips">
+        <p>* 数值均为程序预估结果，与实际有误差。</p>
+        <p>* 结果为对应等级一天能量产出。</p>
+        <p>* 非满包没开露营券，不含技能率，不含适应岛。</p>
       </div>
     </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
