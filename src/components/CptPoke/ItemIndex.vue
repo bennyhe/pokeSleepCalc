@@ -11,6 +11,12 @@ const props = defineProps({
   pokeId: {
     type: [Number, String]
   },
+  helpSpeed: {
+    type: [Number, String]
+  },
+  foodPer: {
+    type: [Number, String]
+  },
   showKey: {
     type: Array
   },
@@ -61,7 +67,7 @@ const props = defineProps({
         props.showKey.includes('helpSpeed')
       "
     >
-      {{ pokedex[pokeId].helpSpeed }}s
+      {{ props.helpSpeed || pokedex[pokeId].helpSpeed }}s
     </p>
     <p
       class="cpt-pokemon__skill"
@@ -133,7 +139,7 @@ const props = defineProps({
         props.showKey.includes('foodPer')
       "
     >
-      食{{ pokedex[pokeId].foodPer }}%
+      食{{ props.foodPer || pokedex[pokeId].foodPer }}%
     </p>
     <p class="cpt-pokemon__name">{{ pokedex[pokeId].name }}</p>
   </div>
