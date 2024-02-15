@@ -112,6 +112,33 @@ const getNewFoodPer = (formData, foodPer) => {
   return parseFloat(foodPer * ((1 + basicfood) * (1 + mainMuti))).toFixed(2)
 }
 
+const addArrInOptions = (extraDesc, pokeItem) => {
+  const resRankArr = []
+  const tempFoodType = [
+    [0, 0],
+    [0, 0],
+    [0, 1],
+    [0, 1]
+  ]
+  tempFoodType.forEach((arrFTItem, arrFTKey) => {
+    const is2n = (arrFTKey + 1) % 2 === 0
+    resRankArr.push({
+      ...pokeItem,
+      id: pokeItem.id,
+      nameExtra: is2n ? '树果S' : '',
+      extraDesc: extraDesc,
+      ...getOneDayEnergy(
+        pokeItem,
+        helpSpeedCalcForm.value.level,
+        [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+        is2n ? true : false,
+        false
+      )
+    })
+  })
+  return resRankArr
+}
+
 const getTargetPokemonEnergy = pokeId => {
   const pokeItem = { ...pokedex[pokeId] }
   pokeItem.helpSpeed = getNewHelpSpeed(
@@ -126,7 +153,7 @@ const getTargetPokemonEnergy = pokeId => {
   )
   // console.log(pokeItem)
 
-  const resRankArr = []
+  let resRankArr = []
   const tempFoodType = [
     [0, 0],
     [0, 0],
@@ -134,21 +161,7 @@ const getTargetPokemonEnergy = pokeId => {
     [0, 1]
   ]
 
-  tempFoodType.forEach((arrFTItem, arrFTKey) => {
-    const is2n = (arrFTKey + 1) % 2 === 0
-    resRankArr.push({
-      ...pokeItem,
-      id: pokeItem.id,
-      nameExtra: is2n ? '树果S' : '',
-      ...getOneDayEnergy(
-        pokeItem,
-        helpSpeedCalcForm.value.level,
-        [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
-        is2n ? true : false,
-        false
-      )
-    })
-  })
+  resRankArr = resRankArr.concat(addArrInOptions('玩家', pokeItem))
 
   const tempPokeItem = { ...pokedex[pokeId] }
   tempPokeItem.helpSpeed = getNewHelpSpeed(
@@ -163,25 +176,38 @@ const getTargetPokemonEnergy = pokeId => {
     tempPokeItem.helpSpeed,
     tempPokeItem.foodPer
   )
-  tempFoodType.forEach((arrFTItem, arrFTKey) => {
-    const is2n = (arrFTKey + 1) % 2 === 0
-    resRankArr.push({
-      ...tempPokeItem,
-      id: tempPokeItem.id,
-      nameExtra: is2n ? '白板树果S' : '白板',
-      ...getOneDayEnergy(
-        tempPokeItem,
-        helpSpeedCalcForm.value.level,
-        [
-          tempPokeItem.food.type[arrFTItem[0]],
-          tempPokeItem.food.type[arrFTItem[1]]
-        ],
-        is2n ? true : false,
-        false
-      )
-    })
-  })
+  resRankArr = resRankArr.concat(addArrInOptions('白板', tempPokeItem))
 
+  const tempPokeItem2 = { ...pokedex[pokeId] }
+  tempPokeItem2.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem2.helpSpeed,
+      skill: ['fs', 'fm'], // Array: ['none', 's', 'm']
+      character: 'hup' // String: none, up, down
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem2.oneDayHelpCount = getOneDayHelpCount(
+    tempPokeItem2.helpSpeed,
+    tempPokeItem2.foodPer
+  )
+  resRankArr = resRankArr.concat(addArrInOptions('食材S,M\n性格:帮忙↑', tempPokeItem2))
+  
+  const tempPokeItem3 = { ...pokedex[pokeId] }
+  tempPokeItem3.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem3.helpSpeed,
+      skill: ['hs', 'hm'], // Array: ['none', 's', 'm']
+      character: 'hupfdown' // String: none, up, down
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem3.oneDayHelpCount = getOneDayHelpCount(
+    tempPokeItem3.helpSpeed,
+    tempPokeItem3.foodPer
+  )
+  resRankArr = resRankArr.concat(addArrInOptions('帮忙S,M\n性格:固执', tempPokeItem3))
+  
   return sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
 }
 
@@ -238,7 +264,12 @@ targetInList.value = byHelpSpeedRes.value.find(
       />
     </el-form-item>
     <el-form-item label="等级">
-      <el-slider v-model="helpSpeedCalcForm.level" show-input :min="30" :max="50"/>
+      <el-slider
+        v-model="helpSpeedCalcForm.level"
+        show-input
+        :min="30"
+        :max="50"
+      />
     </el-form-item>
     <el-form-item label="技能">
       <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
@@ -426,7 +457,7 @@ targetInList.value = byHelpSpeedRes.value.find(
     <div class="poke-tb poke-tb--xscorll">
       <div
         class="poke-tb__item"
-        :class="{ default: pokeItem.nameExtra.indexOf('白') > -1 }"
+        :class="{ cur: pokeItem.extraDesc.indexOf('玩家') > -1, default: pokeItem.extraDesc.indexOf('白') > -1 }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
           helpSpeedCalcForm.pokemonId
         )"
@@ -494,6 +525,11 @@ targetInList.value = byHelpSpeedRes.value.find(
             }}
           </p>
         </div>
+        <pre
+          v-if="pokeItem.extraDesc"
+          class="sptime extra-desc"
+          v-html="pokeItem.extraDesc"
+        ></pre>
       </div>
     </div>
   </div>

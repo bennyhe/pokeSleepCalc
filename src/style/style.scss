@@ -605,6 +605,12 @@ h3 {
     overflow-x: auto;
   }
 
+  .extra-desc {
+    font-size: 12px;
+    border-top: 1px solid #ededed;
+    padding-top: 5px;
+  }
+
   &__item {
     display: inline-block;
     vertical-align: top;
@@ -616,13 +622,11 @@ h3 {
     text-align: center;
 
     &.default {
-      background-color: rgba($color: orange, $alpha: .1);
+      background-color: rgba($color: #c3c3c3, $alpha: .25);
+    }
 
-      .poke-tb__energy .sptime {
-        font-size: 12px;
-        height: 24px;
-        line-height: 24px;
-      }
+    &.cur {
+      background-color: rgba($color: orange, $alpha: .1);
     }
   }
 
