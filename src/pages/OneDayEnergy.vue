@@ -2,10 +2,10 @@
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { sortInObjectOptions } from '../utils/index.js'
+import { getOneDayEnergy } from '../utils/energy.js'
 import { gameMap } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
-import { BERRY_ENERGY } from '../config/berryEnergy.js'
-import { BERRY_TYPES, FOOD_ENERGY, FOOD_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
 const newGameMap = [...gameMap]
 const pageData = ref({
@@ -25,63 +25,6 @@ newGameMap.push({
 //     console.log(BERRY_TYPES[key], `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
 //   }
 // }
-const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) => {
-  let pokeType = pokeItem.pokeType === 1 ? 2 : 1
-  if (isDoubleBerry) {
-    pokeType = pokeItem.pokeType === 1 ? 3 : 2
-  }
-  let res = Math.floor(
-    pokeItem.oneDayHelpCount.berry *
-      (BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy *
-        pokeType)
-  )
-  if (isRightBerry) {
-    res = res * 2
-  }
-  return res
-}
-const getOneDayFoodEnergy = (pokeItem, useFoods) => {
-  // console.log(pokeItem.oneDayHelpCount.food, useFoods)
-  const helpFoodEnergy = {
-    useFoods: [...useFoods],
-    count: [],
-    energy: [],
-    allEnergy: 0
-  }
-  for (let i = 0; i < useFoods.length; i++) {
-    helpFoodEnergy.count[i] =
-      Math.floor(pokeItem.oneDayHelpCount.food / useFoods.length) *
-      pokeItem.food.count[useFoods[i]].num[i]
-    helpFoodEnergy.energy[i] =
-      helpFoodEnergy.count[i] * FOOD_ENERGY[useFoods[i]]
-    helpFoodEnergy.allEnergy += helpFoodEnergy.energy[i]
-  }
-  // console.log(helpFoodEnergy)
-  if (useFoods[0] === useFoods[1]) {
-    // aa食材则合并
-    helpFoodEnergy.count = [helpFoodEnergy.count[0] + helpFoodEnergy.count[1]]
-
-    helpFoodEnergy.energy.splice(0, 1)
-    helpFoodEnergy.useFoods.splice(0, 1)
-  }
-  // console.log(helpFoodEnergy)
-  return helpFoodEnergy
-}
-const getOneDayEnergy = (pokeItem, useFoods, isDoubleBerry, isRightBerry) => {
-  const oneDayBerryEnergy = getOneDayBerryEnergy(
-    pokeItem,
-    pageData.value.lv,
-    isDoubleBerry,
-    isRightBerry
-  )
-  const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods)
-  return {
-    useFoods,
-    oneDayBerryEnergy,
-    oneDayFoodEnergy,
-    oneDayEnergy: oneDayBerryEnergy + oneDayFoodEnergy.allEnergy
-  }
-}
 for (const key in pokedex) {
   if (Object.hasOwnProperty.call(pokedex, key)) {
     const pokeItem = pokedex[key]
@@ -111,6 +54,7 @@ for (const key in pokedex) {
         nameExtra: is2n ? '树果S' : '',
         ...getOneDayEnergy(
           pokeItem,
+          pageData.value.lv,
           [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
           is2n ? true : false,
           false
@@ -138,6 +82,7 @@ const getChangeOptionsAfterData = () => {
         ...pokeItem,
         ...getOneDayEnergy(
           pokeItem,
+          pageData.value.lv,
           pokeItem.useFoods,
           pokeItem.nameExtra === '树果S',
           newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType)
