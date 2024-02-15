@@ -1,7 +1,11 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
-import { allHelpType } from '../config/game.js'
+import {
+  allHelpType,
+  skillOptions,
+  characterOptions
+} from '../config/helpSpeed.js'
 import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
 
@@ -149,17 +153,22 @@ targetInList.value = byHelpSpeedRes.value.find(
     </el-form-item>
     <el-form-item label="技能">
       <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
-        <el-checkbox label="s">帮忙速度S(7%)</el-checkbox>
-        <el-checkbox label="m">帮忙速度M(14%)</el-checkbox>
-        <!-- <el-checkbox label="gold">帮手奖励(5%)</el-checkbox> -->
+        <el-checkbox
+          :label="skillItem.label"
+          v-for="skillItem in skillOptions"
+          v-bind:key="skillItem.label"
+          >{{ skillItem.txt }}</el-checkbox
+        >
       </el-checkbox-group>
     </el-form-item>
-    <el-form-item label="性格:">
+    <el-form-item label="性格">
       <el-radio-group v-model="helpSpeedCalcForm.character" class="ml-4">
-        <el-radio label="none">无加成</el-radio>
-        <el-radio label="up">帮忙速度↑(+10%)</el-radio>
-        <el-radio label="down"
-          ><span class="vigour">帮忙速度↓(-10%)</span></el-radio
+        <el-radio
+          :label="cItem.label"
+          v-for="cItem in characterOptions"
+          v-bind:key="cItem.label"
+          :class="{ vigour: cItem.txt.indexOf('↓') > -1 }"
+          >{{ cItem.txt }}</el-radio
         >
       </el-radio-group>
     </el-form-item>
