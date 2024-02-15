@@ -194,8 +194,11 @@ h3 {
 }
 
 .vigour {
-  color: #ed556a;
-  font-size: 18px;
+  &,
+  .el-radio__label {
+    color: #ed556a;
+    font-size: 18px;
+  }
 }
 
 .spscore {
