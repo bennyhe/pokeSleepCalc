@@ -18,8 +18,8 @@ const helpSpeedCalcForm = ref({
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
-  skill: ['none'], // Array: ['none', 's', 'm']
-  character: 'none' // String: none, up, down
+  skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+  character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
 })
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
@@ -67,8 +67,8 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
   // console.log(formData, level, isGoldHelp)
   // formData: {
   //   baseHelpSpeed, // Number
-  //   skill, // Array: ['none', 's', 'm']
-  //   character // String: none, up, down
+  //   skill, // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+  //   character // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   // }
   // 每级多0.2%
   const levelUp = (level - 1) * 0.002
@@ -113,6 +113,7 @@ const getNewFoodPer = (formData, foodPer) => {
 }
 
 const addArrInOptions = (extraDesc, pokeItem) => {
+  const newPokeItem = {...pokeItem}
   const resRankArr = []
   const tempFoodType = [
     [0, 0],
@@ -120,17 +121,21 @@ const addArrInOptions = (extraDesc, pokeItem) => {
     [0, 1],
     [0, 1]
   ]
+  newPokeItem.oneDayHelpCount = getOneDayHelpCount(
+    newPokeItem.helpSpeed,
+    newPokeItem.foodPer
+  )
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     const is2n = (arrFTKey + 1) % 2 === 0
     resRankArr.push({
-      ...pokeItem,
-      id: pokeItem.id,
+      ...newPokeItem,
+      id: newPokeItem.id,
       nameExtra: is2n ? '树果S' : '',
       extraDesc: extraDesc,
       ...getOneDayEnergy(
-        pokeItem,
+        newPokeItem,
         helpSpeedCalcForm.value.level,
-        [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+        [newPokeItem.food.type[arrFTItem[0]], newPokeItem.food.type[arrFTItem[1]]],
         is2n ? true : false,
         false
       )
@@ -147,10 +152,6 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value.level
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
-  pokeItem.oneDayHelpCount = getOneDayHelpCount(
-    pokeItem.helpSpeed,
-    pokeItem.foodPer
-  )
   let extraDesc = '玩家'
   if (
     helpSpeedCalcForm.value.skill.includes('hs') ||
@@ -200,35 +201,29 @@ const getTargetPokemonEnergy = pokeId => {
   tempPokeItem.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem.helpSpeed,
-      skill: ['none'], // Array: ['none', 's', 'm']
-      character: 'none' // String: none, up, down
+      skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+      character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
     },
     helpSpeedCalcForm.value.level
-  )
-  tempPokeItem.oneDayHelpCount = getOneDayHelpCount(
-    tempPokeItem.helpSpeed,
-    tempPokeItem.foodPer
   )
   resRankArr = resRankArr.concat(addArrInOptions('白板', tempPokeItem))
 
   const tempPokeItem2 = { ...pokedex[pokeId] }
+  const tempSCOptions2 = {
+    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    character: 'hup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
   tempPokeItem2.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem2.helpSpeed,
-      skill: ['fs', 'fm'], // Array: ['none', 's', 'm']
-      character: 'hup' // String: none, up, down
+      ...tempSCOptions2
     },
     helpSpeedCalcForm.value.level
   )
   tempPokeItem2.foodPer = getNewFoodPer(
     {
-      skill: ['fs', 'fm'], // Array: ['none', 's', 'm']
-      character: 'hup' // String: none, up, down
+      ...tempSCOptions2
     },
-    tempPokeItem2.foodPer
-  )
-  tempPokeItem2.oneDayHelpCount = getOneDayHelpCount(
-    tempPokeItem2.helpSpeed,
     tempPokeItem2.foodPer
   )
   resRankArr = resRankArr.concat(
@@ -236,23 +231,21 @@ const getTargetPokemonEnergy = pokeId => {
   )
 
   const tempPokeItem3 = { ...pokedex[pokeId] }
+  const tempSCOptions3 = {
+    skill: ['hs', 'hm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    character: 'hupfdown' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
   tempPokeItem3.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem3.helpSpeed,
-      skill: ['hs', 'hm'], // Array: ['none', 's', 'm']
-      character: 'hupfdown' // String: none, up, down
+      ...tempSCOptions3
     },
     helpSpeedCalcForm.value.level
   )
   tempPokeItem3.foodPer = getNewFoodPer(
     {
-      skill: ['hs', 'hm'], // Array: ['none', 's', 'm']
-      character: 'hupfdown' // String: none, up, down
+      ...tempSCOptions3
     },
-    tempPokeItem3.foodPer
-  )
-  tempPokeItem3.oneDayHelpCount = getOneDayHelpCount(
-    tempPokeItem3.helpSpeed,
     tempPokeItem3.foodPer
   )
   resRankArr = resRankArr.concat(
