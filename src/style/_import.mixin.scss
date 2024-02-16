@@ -4,6 +4,11 @@ $mainColor: #6d8aa0;
 $primaryColor: #d1813a;
 $dialogMainColor: #878ecd;
 $navColor: #3a6198;
+
+$ptBerry: #41ae3c;
+$ptFood: #fcc307;
+$ptSkill: #5cb3cc;
+
 @function vw($px) {
   @return ($px / $vm_base) * 100vw;
 }

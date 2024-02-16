@@ -138,6 +138,7 @@ const props = defineProps({
         props.showKey &&
         props.showKey.includes('foodPer')
       "
+      class="cpt-pokemon__foodper"
     >
       食{{ props.foodPer || pokedex[pokeId].foodPer }}%
     </p>

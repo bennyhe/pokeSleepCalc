@@ -244,20 +244,24 @@ h3 {
   &__skill {
     height: 24px;
     line-height: 12px;
-    color: #349963
+    color: darken($ptSkill, 20%);
+  }
+
+  &__foodper {
+    color: darken($ptFood, 20%);
   }
 
   &__poketype {
     &1 {
-      color: #41ae3c
+      color: $ptBerry
     }
 
     &2 {
-      color: #fcc307
+      color: $ptFood
     }
 
     &3 {
-      color: #5cb3cc
+      color: $ptSkill
     }
   }
 
@@ -446,26 +450,26 @@ h3 {
   }
 
   &--1 {
-    background-color: rgba($color: #41ae3c, $alpha: .2);
+    background-color: rgba($color: $ptBerry, $alpha: .2);
 
     .cpt-foodmenu__name {
-      color: darken($color: #41ae3c, $amount: 25%)
+      color: darken($color: $ptBerry, $amount: 25%)
     }
   }
 
   &--2 {
-    background-color: rgba($color: #fcc307, $alpha: .2);
+    background-color: rgba($color: $ptFood, $alpha: .2);
 
     .cpt-foodmenu__name {
-      color: darken($color: #fcc307, $amount: 25%)
+      color: darken($color: $ptFood, $amount: 25%)
     }
   }
 
   &--3 {
-    background-color: rgba($color: #5cb3cc, $alpha: .2);
+    background-color: rgba($color: $ptSkill, $alpha: .2);
 
     .cpt-foodmenu__name {
-      color: darken($color: #5cb3cc, $amount: 25%)
+      color: darken($color: $ptSkill, $amount: 25%)
     }
   }
 }
@@ -539,21 +543,21 @@ h3 {
     }
 
     &.cur {
-      border-left-color: #fcc307;
+      border-left-color: $ptFood;
 
       .helpprocess__title {
-        background-color: #fcc307;
+        background-color: $ptFood;
       }
 
       .helpprocess__value {
-        color: #fcc307;
+        color: $ptFood;
         font-weight: bold;
       }
     }
   }
 
   &__inner {
-    border: 1px solid lighten(#fcc307, 20%);
+    border: 1px solid lighten($ptFood, 20%);
     display: block;
     height: 12px;
     border-radius: 12px;
@@ -562,7 +566,7 @@ h3 {
       display: block;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right, #fefcea 0%, #fcc307 100%);
+      background: linear-gradient(to right, #fefcea 0%, $ptFood 100%);
       border-radius: 12px;
       transition: all 0.3s ease-in-out;
     }
