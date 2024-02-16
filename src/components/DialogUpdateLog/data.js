@@ -7,6 +7,7 @@ const markdownText = `
 3. add 食材推荐显示技能
 4. update 视觉样式
 5. update 优化性能
+6. update 岛屿数据区间参考
 
 ## 24-02-15
 1. add 帮速计算从选择帮速改成选择宝可梦
