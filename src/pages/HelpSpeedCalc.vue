@@ -252,6 +252,28 @@ const getTargetPokemonEnergy = pokeId => {
     addArrInOptions('帮忙S,M\n性格:固执', tempPokeItem3)
   )
 
+  const tempPokeItem4 = { ...pokedex[pokeId] }
+  const tempSCOptions4 = {
+    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    character: 'fup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
+  tempPokeItem4.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem4.helpSpeed,
+      ...tempSCOptions4
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem4.foodPer = getNewFoodPer(
+    {
+      ...tempSCOptions4
+    },
+    tempPokeItem4.foodPer
+  )
+  resRankArr = resRankArr.concat(
+    addArrInOptions('食材S,M\n性格:食材↑', tempPokeItem4)
+  )
+
   return sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
 }
 
