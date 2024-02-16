@@ -39,7 +39,7 @@ const props = defineProps({
         <div
           class="cpt-food__item cur"
           v-for="(foodItem, foodKey) in props.pokeItem.useFoods"
-          v-bind:key="foodKey"
+          v-bind:key="`${foodKey}_${foodItem}`"
         >
           <img
             v-lazy="`./img/food/${foodItem}.png`"

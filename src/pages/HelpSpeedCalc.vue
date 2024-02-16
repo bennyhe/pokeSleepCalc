@@ -136,34 +136,35 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   const resRankArr = []
   let tempFoodType = [
     [0, 0],
-    [0, 0],
-    [0, 1],
     [0, 1]
   ]
   if (helpSpeedCalcForm.value.level < 30) {
-    tempFoodType = [[0], [0]]
-  }
-  // else if (helpSpeedCalcForm.value.level >= 60) {
-  //   tempFoodType = [
-  //     [0, 0, 0],
-  //     [0, 0, 0],
-  //     [0, 1, 0],
-  //     [0, 1, 0],
-  //     [0, 0, 1],
-  //     [0, 0, 1],
-  //     [0, 1, 1],
-  //     [0, 1, 1]
-  //   ]
-  // }
-
-  if (isPlayer) {
-    tempFoodType = [
-      [0, 0],
-      [0, 1]
-    ]
-    if (helpSpeedCalcForm.value.level < 30) {
-      tempFoodType = [[0]]
+    tempFoodType = [[0]]
+  } else if (helpSpeedCalcForm.value.level >= 60) {
+    if(pokeItem.food.type.length === 3) {
+      tempFoodType = [
+        [0, 0, 0],
+        [0, 0, 1],
+        [0, 1, 0],
+        [0, 1, 1],
+        [0, 1, 2]
+      ]
+    } else {
+      tempFoodType = [
+        [0, 0, 0],
+        [0, 0, 1],
+        [0, 1, 0],
+        [0, 1, 1]
+      ]
     }
+  }
+
+  if (!isPlayer) {
+    const nArr = []
+    for (let i = 0; i < tempFoodType.length; i++) {
+      nArr.push(tempFoodType[i],tempFoodType[i])
+    }
+    tempFoodType = nArr
   }
 
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
@@ -177,10 +178,9 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     ]
     if (helpSpeedCalcForm.value.level < 30) {
       arrFood.splice(1, arrFood.length)
+    } else if (helpSpeedCalcForm.value.level >= 60) {
+      arrFood.push(newPokeItem.food.type[arrFTItem[2]])
     }
-    // else if (helpSpeedCalcForm.value.level >= 60) {
-    //   arrFood.push(newPokeItem.food.type[arrFTItem[2]])
-    // }
     resRankArr.push({
       ...newPokeItem,
       id: newPokeItem.id,
@@ -198,14 +198,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   return resRankArr
 }
 
-const getTargetPokemonEnergy = pokeId => {
-  let resRankArr = []
-  const pokeItem = { ...pokedex[pokeId] }
-  pokeItem.helpSpeed = getNewHelpSpeed(
-    helpSpeedCalcForm.value,
-    helpSpeedCalcForm.value.level
-  )
-  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+const getPlayerExtraDesc = () => {
   let extraDesc = '玩家'
   if (
     helpSpeedCalcForm.value.skill.includes('hs') ||
@@ -257,8 +250,21 @@ const getTargetPokemonEnergy = pokeId => {
       item => item.label === helpSpeedCalcForm.value.character
     ).txt
   }`
+  return extraDesc
+}
 
-  resRankArr = resRankArr.concat(addArrInOptions(extraDesc, pokeItem, true)) // 玩家自选
+const getTargetPokemonEnergy = pokeId => {
+  let resRankArr = []
+  const pokeItem = { ...pokedex[pokeId] }
+  pokeItem.helpSpeed = getNewHelpSpeed(
+    helpSpeedCalcForm.value,
+    helpSpeedCalcForm.value.level
+  )
+  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+
+  resRankArr = resRankArr.concat(
+    addArrInOptions(getPlayerExtraDesc(), pokeItem, true)
+  ) // 玩家自选
 
   const tempPokeItem = { ...pokedex[pokeId] }
   tempPokeItem.helpSpeed = getNewHelpSpeed(
@@ -432,12 +438,12 @@ targetInList.value = byHelpSpeedRes.value.find(
         v-bind:key="pokeItem.id"
       />
     </el-form-item>
-    <el-form-item label="等级(10-59)">
+    <el-form-item label="等级(10-60)">
       <el-slider
         v-model="helpSpeedCalcForm.level"
         show-input
         :min="10"
-        :max="59"
+        :max="60"
       />
     </el-form-item>
     <el-form-item label="技能">

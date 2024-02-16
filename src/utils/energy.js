@@ -32,14 +32,28 @@ const getOneDayFoodEnergy = (pokeItem, useFoods) => {
       helpFoodEnergy.count[i] * FOOD_ENERGY[useFoods[i]]
     helpFoodEnergy.allEnergy += helpFoodEnergy.energy[i]
   }
-  // console.log(helpFoodEnergy)
-  if (useFoods[0] === useFoods[1]) {
-    // aa食材则合并
-    helpFoodEnergy.count = [helpFoodEnergy.count[0] + helpFoodEnergy.count[1]]
+  // console.log(JSON.parse(JSON.stringify(helpFoodEnergy)))
+  for (let y = 0; y < useFoods.length; y++) {
+    for (let j = 0; j < helpFoodEnergy.useFoods.length; j++) {
+      for (let k = j + 1; k < helpFoodEnergy.useFoods.length; k++) {
+        if (helpFoodEnergy.useFoods[j] === helpFoodEnergy.useFoods[k]) {
+          helpFoodEnergy.count[j] = helpFoodEnergy.count[j] + helpFoodEnergy.count[k]
 
-    helpFoodEnergy.energy.splice(0, 1)
-    helpFoodEnergy.useFoods.splice(0, 1)
+          helpFoodEnergy.useFoods.splice(k, 1)
+          helpFoodEnergy.count.splice(k, 1)
+          break
+        }
+      }
+    }
   }
+  // console.log(helpFoodEnergy)
+  // if (useFoods[0] === useFoods[1]) {
+  //   // aa食材则合并
+  //   helpFoodEnergy.count = [helpFoodEnergy.count[0] + helpFoodEnergy.count[1]]
+
+  //   helpFoodEnergy.energy.splice(0, 1)
+  //   helpFoodEnergy.useFoods.splice(0, 1)
+  // }
   // console.log(helpFoodEnergy)
   return helpFoodEnergy
 }
