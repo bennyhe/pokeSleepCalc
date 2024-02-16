@@ -49,7 +49,7 @@ const fnAccumulation = (arr, key) => {
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
         v-bind:key="pokemonsItem"
-        :showKey="['helpSpeed', 'foodPer', 'berry']"
+        :showKey="['helpSpeed', 'foodPer', 'berry', 'skillType']"
       />
       <div>
         <div
