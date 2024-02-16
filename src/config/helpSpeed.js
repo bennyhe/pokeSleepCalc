@@ -61,6 +61,10 @@ export const allHelpType = [
     character: 'hup'
   }
 ]
+export const skillOptionsExtra2 = [{
+  label: 'berrys',
+  txt: '树果S'
+}]
 export const skillOptions = [{
   label: 'hs',
   txt: '帮忙速度S(7%)'

@@ -8,7 +8,8 @@ import {
   allHelpType,
   skillOptions,
   characterOptions,
-  skillOptionsExtra
+  skillOptionsExtra,
+  skillOptionsExtra2
 } from '../config/helpSpeed.js'
 
 const byHelpSpeedRes = ref([])
@@ -124,8 +125,13 @@ const getNewFoodPer = (formData, foodPer) => {
   return parseFloat(foodPer * ((1 + basicfood) * (1 + mainMuti))).toFixed(2)
 }
 
-const addArrInOptions = (extraDesc, pokeItem) => {
+const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   const newPokeItem = { ...pokeItem }
+  newPokeItem.oneDayHelpCount = getOneDayHelpCount(
+    newPokeItem.helpSpeed,
+    newPokeItem.foodPer
+  )
+  
   const resRankArr = []
   let tempFoodType = [
     [0, 0],
@@ -148,12 +154,22 @@ const addArrInOptions = (extraDesc, pokeItem) => {
   //     [0, 1, 1]
   //   ]
   // }
-  newPokeItem.oneDayHelpCount = getOneDayHelpCount(
-    newPokeItem.helpSpeed,
-    newPokeItem.foodPer
-  )
+
+  if(isPlayer) {
+    tempFoodType = [
+      [0, 0],
+      [0, 1]
+    ]
+    if (helpSpeedCalcForm.value.level < 30) {
+      tempFoodType = [[0]]
+    }
+  }
+
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
-    const is2n = (arrFTKey + 1) % 2 === 0
+    let is2n = (arrFTKey + 1) % 2 === 0
+    if(isPlayer) {
+      is2n = helpSpeedCalcForm.value.skill.includes('berrys')
+    }
     const arrFood = [
       newPokeItem.food.type[arrFTItem[0]],
       newPokeItem.food.type[arrFTItem[1]]
@@ -241,7 +257,7 @@ const getTargetPokemonEnergy = pokeId => {
     ).txt
   }`
 
-  resRankArr = resRankArr.concat(addArrInOptions(extraDesc, pokeItem))
+  resRankArr = resRankArr.concat(addArrInOptions(extraDesc, pokeItem, true)) // 玩家自选
 
   const tempPokeItem = { ...pokedex[pokeId] }
   tempPokeItem.helpSpeed = getNewHelpSpeed(
@@ -428,7 +444,22 @@ targetInList.value = byHelpSpeedRes.value.find(
         v-model="helpSpeedCalcForm.skill"
         class="ml-4"
         :min="0"
-        :max="4"
+        :max="5"
+      >
+        <el-checkbox
+          :label="skillItem.label"
+          v-for="skillItem in skillOptionsExtra2"
+          v-bind:key="skillItem.label"
+          >{{ skillItem.txt }}</el-checkbox
+        >
+      </el-checkbox-group>
+    </el-form-item>
+    <el-form-item>
+      <el-checkbox-group
+        v-model="helpSpeedCalcForm.skill"
+        class="ml-4"
+        :min="0"
+        :max="5"
       >
         <el-checkbox
           :label="skillItem.label"
@@ -437,11 +468,13 @@ targetInList.value = byHelpSpeedRes.value.find(
           >{{ skillItem.txt }}</el-checkbox
         >
       </el-checkbox-group>
+    </el-form-item>
+    <el-form-item>
       <el-checkbox-group
         v-model="helpSpeedCalcForm.skill"
         class="ml-4"
         :min="0"
-        :max="4"
+        :max="5"
       >
         <el-checkbox
           :label="skillItem.label"
@@ -582,10 +615,9 @@ targetInList.value = byHelpSpeedRes.value.find(
     <el-form-item>
       <div class="mod-tips">
         <p>* 数值均为程序预估结果，与实际有误差。</p>
-        <p>* 结果为对应等级一天能量产出。</p>
+        <p>* 结果为对应等级一天产出。</p>
         <p>* 非满包没开露营券，不含技能率，不含适应岛。</p>
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
-        <p>* 暂不支持帮手奖励相关计算。</p>
       </div>
     </el-form-item>
   </el-form>
