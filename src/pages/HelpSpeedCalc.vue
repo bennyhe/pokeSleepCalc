@@ -9,7 +9,8 @@ import {
   skillOptions,
   characterOptions,
   skillOptionsExtra,
-  skillOptionsExtra2
+  skillOptionsExtra2,
+  levelOptions
 } from '../config/helpSpeed.js'
 
 const byHelpSpeedRes = ref([])
@@ -141,7 +142,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   if (helpSpeedCalcForm.value.level < 30) {
     tempFoodType = [[0]]
   } else if (helpSpeedCalcForm.value.level >= 60) {
-    if(pokeItem.food.type.length === 3) {
+    if (pokeItem.food.type.length === 3) {
       tempFoodType = [
         [0, 0, 0],
         [0, 0, 1],
@@ -163,7 +164,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   if (!isPlayer) {
     const nArr = []
     for (let i = 0; i < tempFoodType.length; i++) {
-      nArr.push(tempFoodType[i],tempFoodType[i])
+      nArr.push(tempFoodType[i], tempFoodType[i])
     }
     tempFoodType = nArr
   }
@@ -448,11 +449,13 @@ targetInList.value = byHelpSpeedRes.value.find(
       />
     </el-form-item>
     <el-form-item>
-      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4">
-        <el-radio-button :label="25">25级(1食材)</el-radio-button>
-        <el-radio-button :label="30">30级(2食材)</el-radio-button>
-        <el-radio-button :label="50">50级(游戏上限)</el-radio-button>
-        <el-radio-button :label="60">60级(3食材)</el-radio-button>
+      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4" size="small">
+        <el-radio-button
+          :label="cItem.label"
+          v-for="cItem in levelOptions"
+          v-bind:key="cItem.label"
+          >{{ cItem.txt }}</el-radio-button
+        >
       </el-radio-group>
     </el-form-item>
     <el-form-item label="技能">
@@ -614,11 +617,13 @@ targetInList.value = byHelpSpeedRes.value.find(
       </el-radio-group>
     </el-form-item>
     <el-form-item label="快速等级">
-      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4">
-        <el-radio-button :label="25">25级(1食材)</el-radio-button>
-        <el-radio-button :label="30">30级(2食材)</el-radio-button>
-        <el-radio-button :label="50">50级(游戏上限)</el-radio-button>
-        <el-radio-button :label="60">60级(3食材)</el-radio-button>
+      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4" size="small">
+        <el-radio-button
+          :label="cItem.label"
+          v-for="cItem in levelOptions"
+          v-bind:key="cItem.label"
+          >{{ cItem.txt }}</el-radio-button
+        >
       </el-radio-group>
     </el-form-item>
   </el-form>
