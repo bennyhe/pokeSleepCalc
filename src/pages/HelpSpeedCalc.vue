@@ -19,6 +19,7 @@ const helpSpeedCalcForm = ref({
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
+  isRightBerry: false, // Boolean: true/false
   skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
   character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
 })
@@ -131,7 +132,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     newPokeItem.helpSpeed,
     newPokeItem.foodPer
   )
-  
+
   const resRankArr = []
   let tempFoodType = [
     [0, 0],
@@ -155,7 +156,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   //   ]
   // }
 
-  if(isPlayer) {
+  if (isPlayer) {
     tempFoodType = [
       [0, 0],
       [0, 1]
@@ -167,7 +168,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
 
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     let is2n = (arrFTKey + 1) % 2 === 0
-    if(isPlayer) {
+    if (isPlayer) {
       is2n = helpSpeedCalcForm.value.skill.includes('berrys')
     }
     const arrFood = [
@@ -190,7 +191,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
         helpSpeedCalcForm.value.level,
         arrFood,
         is2n ? true : false,
-        false
+        helpSpeedCalcForm.value.isRightBerry
       )
     })
   })
@@ -591,6 +592,12 @@ targetInList.value = byHelpSpeedRes.value.find(
         </template>
       </ul>
     </el-form-item>
+    <el-form-item label="适正岛屿">
+      <el-radio-group v-model="helpSpeedCalcForm.isRightBerry" class="ml-4">
+        <el-radio :label="true">是（双倍树果）</el-radio>
+        <el-radio :label="false">否</el-radio>
+      </el-radio-group>
+    </el-form-item>
   </el-form>
   <div class="page-inner">
     <div class="poke-tb poke-tb--xscorll">
@@ -608,6 +615,7 @@ targetInList.value = byHelpSpeedRes.value.find(
         v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
+        :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       />
     </div>
   </div>
@@ -616,7 +624,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       <div class="mod-tips">
         <p>* 数值均为程序预估结果，与实际有误差。</p>
         <p>* 结果为对应等级一天产出。</p>
-        <p>* 非满包没开露营券，不含技能率，不含适应岛。</p>
+        <p>* 非满包没开露营券，不含技能率。</p>
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
       </div>
     </el-form-item>
