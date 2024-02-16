@@ -87,19 +87,19 @@ const getNewHelpSpeed = (formData, level) => {
     mainMuti = -0.1
   }
   if (formData.skill.includes('hg1')) {
-    mainMuti += 0.05
+    basichelp += 0.05
   }
   if (formData.skill.includes('hg2')) {
-    mainMuti += 0.05 * 2
+    basichelp += 0.05 * 2
   }
   if (formData.skill.includes('hg3')) {
-    mainMuti += 0.05 * 3
+    basichelp += 0.05 * 3
   }
   if (formData.skill.includes('hg4')) {
-    mainMuti += 0.05 * 4
+    basichelp += 0.05 * 4
   }
   if (formData.skill.includes('hg5')) {
-    mainMuti += 0.05 * 5
+    basichelp += 0.05 * 5
   }
   const res =
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
