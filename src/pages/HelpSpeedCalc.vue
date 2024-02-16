@@ -594,8 +594,8 @@ targetInList.value = byHelpSpeedRes.value.find(
     </el-form-item>
     <el-form-item label="适正岛屿">
       <el-radio-group v-model="helpSpeedCalcForm.isRightBerry" class="ml-4">
-        <el-radio :label="true">是（双倍树果）</el-radio>
-        <el-radio :label="false">否</el-radio>
+        <el-radio-button :label="true">是（双倍树果）</el-radio-button>
+        <el-radio-button :label="false">否</el-radio-button>
       </el-radio-group>
     </el-form-item>
   </el-form>
