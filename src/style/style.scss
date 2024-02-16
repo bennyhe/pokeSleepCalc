@@ -271,7 +271,7 @@ h3 {
     padding: 0 2px;
 
     &--hl {
-      color: orange
+      color: $primaryColor
     }
   }
 
@@ -614,6 +614,7 @@ h3 {
     border-top: 1px solid #ededed;
     padding-top: 5px;
     max-width: 66px;
+    min-height: 36px;
   }
 
   &__item {
@@ -636,8 +637,11 @@ h3 {
   }
 
   &__energy {
-    color: orange;
-    height: 104px;
+    color: $primaryColor;
+
+    .sptime {
+      min-height: 24px;
+    }
 
     .xs {
       font-size: 11px;

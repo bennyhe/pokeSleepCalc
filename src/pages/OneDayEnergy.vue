@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap } from '../config/game.js'
@@ -145,73 +146,17 @@ const handleClickChangeMap = id => {
     </div>
   </div>
   <div class="poke-tb">
-    <div
-      class="poke-tb__item"
+      <CptEnergyItem
+        :pokeItem="pokeItem"
+        :pokeKey="pokeKey"
+        :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer', 'skillType']"
       v-for="(pokeItem, pokeKey) in pageData.resRankArr"
       v-bind:key="`area${pageData.curMap}_${
         pokeItem.id
       }_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
-    >
-      <p>
-        <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
-          pokeKey + 1
-        }}</i>
-      </p>
-      <CptPoke
-        :pokeId="pokeItem.id"
-        :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer', 'skillType']"
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
       />
-      <div>
-        <div class="cpt-food all-food">
-          <div
-            class="cpt-food__item cur"
-            v-for="(foodItem, foodKey) in pokeItem.useFoods"
-            v-bind:key="foodKey"
-          >
-            <img
-              v-lazy="`./img/food/${foodItem}.png`"
-              :alt="FOOD_TYPES[foodItem]"
-            />
-            <p class="cpt-food__count">
-              {{ pokeItem.food.count[foodItem].num[foodKey] }}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="poke-tb__energy">
-        <p class="sptime">{{ pokeItem.nameExtra }}</p>
-        <p class="cpt-pokemon__poketype1 xs">
-          果{{ pokeItem.oneDayBerryEnergy }}
-        </p>
-        <div>
-          <div class="cpt-food cpt-food--s all-food">
-            <div
-              class="cpt-food__item cur"
-              v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy.useFoods"
-              v-bind:key="foodKey"
-            >
-              <img
-                v-lazy="`./img/food/${foodItem}.png`"
-                :alt="FOOD_TYPES[foodItem]"
-              />
-              <p class="cpt-food__count">
-                {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <p class="cpt-pokemon__poketype2 xs">
-          食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
-        </p>
-        <p class="res">
-          <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-            pokeItem.oneDayEnergy
-          }}
-        </p>
-      </div>
-    </div>
   </div>
 </template>

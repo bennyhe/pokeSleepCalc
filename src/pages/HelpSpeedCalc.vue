@@ -1,9 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
-import { FOOD_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
 import {
   allHelpType,
@@ -113,7 +112,7 @@ const getNewFoodPer = (formData, foodPer) => {
 }
 
 const addArrInOptions = (extraDesc, pokeItem) => {
-  const newPokeItem = {...pokeItem}
+  const newPokeItem = { ...pokeItem }
   const resRankArr = []
   const tempFoodType = [
     [0, 0],
@@ -135,7 +134,10 @@ const addArrInOptions = (extraDesc, pokeItem) => {
       ...getOneDayEnergy(
         newPokeItem,
         helpSpeedCalcForm.value.level,
-        [newPokeItem.food.type[arrFTItem[0]], newPokeItem.food.type[arrFTItem[1]]],
+        [
+          newPokeItem.food.type[arrFTItem[0]],
+          newPokeItem.food.type[arrFTItem[1]]
+        ],
         is2n ? true : false,
         false
       )
@@ -521,85 +523,19 @@ targetInList.value = byHelpSpeedRes.value.find(
   </el-form>
   <div class="page-inner">
     <div class="poke-tb poke-tb--xscorll">
-      <div
-        class="poke-tb__item"
+      <CptEnergyItem
+        :pokeItem="pokeItem"
+        :pokeKey="pokeKey"
+        :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
         :class="{
           cur: pokeItem.extraDesc.indexOf('玩家') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
         }"
-        v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
-          helpSpeedCalcForm.pokemonId
-        )"
+        v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(helpSpeedCalcForm.pokemonId)"
         v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
-      >
-        <p>
-          <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
-            pokeKey + 1
-          }}</i>
-        </p>
-        <CptPoke
-          :pokeId="pokeItem.id"
-          :helpSpeed="pokeItem.helpSpeed"
-          :foodPer="pokeItem.foodPer"
-          :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
-        />
-        <div>
-          <div class="cpt-food all-food">
-            <div
-              class="cpt-food__item cur"
-              v-for="(foodItem, foodKey) in pokeItem.useFoods"
-              v-bind:key="foodKey"
-            >
-              <img
-                v-lazy="`./img/food/${foodItem}.png`"
-                :alt="FOOD_TYPES[foodItem]"
-              />
-              <p class="cpt-food__count">
-                {{ pokeItem.food.count[foodItem].num[foodKey] }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="poke-tb__energy">
-          <p class="sptime">{{ pokeItem.nameExtra }}</p>
-          <p class="cpt-pokemon__poketype1 xs">
-            果{{ pokeItem.oneDayBerryEnergy }}
-          </p>
-          <div>
-            <div class="cpt-food cpt-food--s all-food">
-              <div
-                class="cpt-food__item cur"
-                v-for="(foodItem, foodKey) in pokeItem.oneDayFoodEnergy
-                  .useFoods"
-                v-bind:key="foodKey"
-              >
-                <img
-                  v-lazy="`./img/food/${foodItem}.png`"
-                  :alt="FOOD_TYPES[foodItem]"
-                />
-                <p class="cpt-food__count">
-                  {{ pokeItem.oneDayFoodEnergy.count[foodKey] }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <p class="cpt-pokemon__poketype2 xs">
-            食{{ pokeItem.oneDayFoodEnergy.allEnergy }}
-          </p>
-          <p class="res">
-            <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-              pokeItem.oneDayEnergy
-            }}
-          </p>
-        </div>
-        <pre
-          v-if="pokeItem.extraDesc"
-          class="sptime extra-desc"
-          v-html="pokeItem.extraDesc"
-        ></pre>
-      </div>
+      />
     </div>
   </div>
   <el-form label-width="90px">
