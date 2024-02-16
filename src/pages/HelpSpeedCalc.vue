@@ -200,7 +200,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
 }
 
 const getPlayerExtraDesc = () => {
-  let extraDesc = '玩家'
+  let extraDesc = '自选'
   if (
     helpSpeedCalcForm.value.skill.includes('hs') ||
     helpSpeedCalcForm.value.skill.includes('hm')
@@ -447,6 +447,14 @@ targetInList.value = byHelpSpeedRes.value.find(
         :max="60"
       />
     </el-form-item>
+    <el-form-item>
+      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4">
+        <el-radio-button :label="25">25级(1食材)</el-radio-button>
+        <el-radio-button :label="30">30级(2食材)</el-radio-button>
+        <el-radio-button :label="50">50级(游戏上限)</el-radio-button>
+        <el-radio-button :label="60">60级(3食材)</el-radio-button>
+      </el-radio-group>
+    </el-form-item>
     <el-form-item label="技能">
       <el-checkbox-group
         v-model="helpSpeedCalcForm.skill"
@@ -605,6 +613,14 @@ targetInList.value = byHelpSpeedRes.value.find(
         <el-radio-button :label="false">否</el-radio-button>
       </el-radio-group>
     </el-form-item>
+    <el-form-item label="快速等级">
+      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4">
+        <el-radio-button :label="25">25级(1食材)</el-radio-button>
+        <el-radio-button :label="30">30级(2食材)</el-radio-button>
+        <el-radio-button :label="50">50级(游戏上限)</el-radio-button>
+        <el-radio-button :label="60">60级(3食材)</el-radio-button>
+      </el-radio-group>
+    </el-form-item>
   </el-form>
   <div class="page-inner">
     <div class="poke-tb poke-tb--xscorll">
@@ -613,7 +629,7 @@ targetInList.value = byHelpSpeedRes.value.find(
         :pokeKey="pokeKey"
         :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
         :class="{
-          cur: pokeItem.extraDesc.indexOf('玩家') > -1,
+          cur: pokeItem.extraDesc.indexOf('自选') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
         }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
