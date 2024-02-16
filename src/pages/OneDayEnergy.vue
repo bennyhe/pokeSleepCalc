@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions } from '../utils/index.js'
@@ -20,49 +20,55 @@ newGameMap.push({
   id: 'none',
   berry: [8, 9, 2, 13, 3, 5]
 })
-// for (const key in BERRY_ENERGY) {
-//   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
-//     const element = BERRY_ENERGY[key]
-//     console.log(BERRY_TYPES[key], `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
-//   }
-// }
-for (const key in pokedex) {
-  if (Object.hasOwnProperty.call(pokedex, key)) {
-    const pokeItem = pokedex[key]
+
+// console.log('created')
+onMounted(()=>{
+  // console.log('onMounted')
+  // for (const key in BERRY_ENERGY) {
+  //   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
+  //     const element = BERRY_ENERGY[key]
+  //     console.log(BERRY_TYPES[key], `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
+  //   }
+  // }
+  for (const key in pokedex) {
+    if (Object.hasOwnProperty.call(pokedex, key)) {
+      const pokeItem = pokedex[key]
     
-    pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
+      pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
 
-    const tempFoodType = [
-      [0, 0],
-      [0, 0],
-      [0, 1],
-      [0, 1]
-    ]
+      const tempFoodType = [
+        [0, 0],
+        [0, 0],
+        [0, 1],
+        [0, 1]
+      ]
 
-    tempFoodType.forEach((arrFTItem, arrFTKey) => {
-      const is2n = (arrFTKey + 1) % 2 === 0
-      pageData.value.resRankArr.push({
-        ...pokeItem,
-        id: pokeItem.id,
-        nameExtra: is2n ? '树果S' : '',
-        ...getOneDayEnergy(
-          pokeItem,
-          pageData.value.lv,
-          [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
-          is2n ? true : false,
-          false
-        )
+      tempFoodType.forEach((arrFTItem, arrFTKey) => {
+        const is2n = (arrFTKey + 1) % 2 === 0
+        pageData.value.resRankArr.push({
+          ...pokeItem,
+          id: pokeItem.id,
+          nameExtra: is2n ? '树果S' : '',
+          ...getOneDayEnergy(
+            pokeItem,
+            pageData.value.lv,
+            [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+            is2n ? true : false,
+            false
+          )
+        })
       })
-    })
+    }
   }
-}
-pageData.value.orgResRankArr = sortInObjectOptions(pageData.value.resRankArr, [
-  'oneDayEnergy'
-])
-// console.log(pageData.value.orgResRankArr)
-pageData.value.resRankArr = JSON.parse(
-  JSON.stringify(pageData.value.orgResRankArr)
-)
+  pageData.value.orgResRankArr = sortInObjectOptions(pageData.value.resRankArr, [
+    'oneDayEnergy'
+  ])
+  // console.log(pageData.value.orgResRankArr)
+  pageData.value.resRankArr = JSON.parse(
+    JSON.stringify(pageData.value.orgResRankArr)
+  )
+})
+
 const getChangeOptionsAfterData = () => {
   if (pageData.value.curMap === 0) {
     pageData.value.resRankArr = JSON.parse(
