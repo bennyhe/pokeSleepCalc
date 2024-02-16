@@ -74,6 +74,22 @@ export const skillOptions = [{
   label: 'fm',
   txt: '食材几率M(36%)'
 }]
+export const skillOptionsExtra = [{
+  label: 'hg1',
+  txt: '帮手奖励1个(5%)'
+}, {
+  label: 'hg2',
+  txt: '帮手奖励2个(10%)'
+}, {
+  label: 'hg3',
+  txt: '帮手奖励3个(15%)'
+}, {
+  label: 'hg4',
+  txt: '帮手奖励4个(20%)'
+}, {
+  label: 'hg5',
+  txt: '帮手奖励5个(25%)'
+}]
 export const characterOptions = [{
   label: 'none',
   txt: '无加成' // (害羞、勤奮、坦率、浮躁、認真)

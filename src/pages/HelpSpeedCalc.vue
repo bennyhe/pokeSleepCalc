@@ -7,7 +7,8 @@ import { pokedex } from '../config/pokedex.js'
 import {
   allHelpType,
   skillOptions,
-  characterOptions
+  characterOptions,
+  skillOptionsExtra
 } from '../config/helpSpeed.js'
 
 const byHelpSpeedRes = ref([])
@@ -17,7 +18,7 @@ const helpSpeedCalcForm = ref({
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
-  skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+  skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
   character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
 })
 // 获取选择帮忙速度的宝可梦分组
@@ -62,11 +63,11 @@ const initFilterGroup = () => {
 }
 
 // 获取计算结果
-const getNewHelpSpeed = (formData, level, isGoldHelp) => {
-  // console.log(formData, level, isGoldHelp)
+const getNewHelpSpeed = (formData, level) => {
+  // console.log(formData, level)
   // formData: {
   //   baseHelpSpeed, // Number
-  //   skill, // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+  //   skill, // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
   //   character // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   // }
   // 每级多0.2%
@@ -85,9 +86,21 @@ const getNewHelpSpeed = (formData, level, isGoldHelp) => {
   if (formData.character.indexOf('hdown') > -1) {
     mainMuti = -0.1
   }
-  // if (isGoldHelp) {
-  //   mainMuti += 0.05
-  // }
+  if (formData.skill.includes('hg1')) {
+    mainMuti += 0.05
+  }
+  if (formData.skill.includes('hg2')) {
+    mainMuti += 0.05 * 2
+  }
+  if (formData.skill.includes('hg3')) {
+    mainMuti += 0.05 * 3
+  }
+  if (formData.skill.includes('hg4')) {
+    mainMuti += 0.05 * 4
+  }
+  if (formData.skill.includes('hg5')) {
+    mainMuti += 0.05 * 5
+  }
   const res =
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   return Math.floor(res)
@@ -174,6 +187,15 @@ const getTargetPokemonEnergy = pokeId => {
     extraDesc += '帮忙M'
   }
   if (
+    helpSpeedCalcForm.value.skill.includes('hg1') ||
+    helpSpeedCalcForm.value.skill.includes('hg2') ||
+    helpSpeedCalcForm.value.skill.includes('hg3') ||
+    helpSpeedCalcForm.value.skill.includes('hg4') ||
+    helpSpeedCalcForm.value.skill.includes('hg5')
+  ) {
+    extraDesc += '\n帮手奖励'
+  }
+  if (
     helpSpeedCalcForm.value.skill.includes('fs') ||
     helpSpeedCalcForm.value.skill.includes('fm')
   ) {
@@ -203,7 +225,7 @@ const getTargetPokemonEnergy = pokeId => {
   tempPokeItem.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem.helpSpeed,
-      skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+      skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
       character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
     },
     helpSpeedCalcForm.value.level
@@ -212,7 +234,7 @@ const getTargetPokemonEnergy = pokeId => {
 
   const tempPokeItem2 = { ...pokedex[pokeId] }
   const tempSCOptions2 = {
-    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'hup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
   tempPokeItem2.helpSpeed = getNewHelpSpeed(
@@ -234,7 +256,7 @@ const getTargetPokemonEnergy = pokeId => {
 
   const tempPokeItem3 = { ...pokedex[pokeId] }
   const tempSCOptions3 = {
-    skill: ['hs', 'hm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    skill: ['hs', 'hm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'hupfdown' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
   tempPokeItem3.helpSpeed = getNewHelpSpeed(
@@ -256,7 +278,7 @@ const getTargetPokemonEnergy = pokeId => {
 
   const tempPokeItem4 = { ...pokedex[pokeId] }
   const tempSCOptions4 = {
-    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm']
+    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'fup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
   tempPokeItem4.helpSpeed = getNewHelpSpeed(
@@ -277,6 +299,46 @@ const getTargetPokemonEnergy = pokeId => {
   )
 
   return sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+}
+
+const getProcessMuti = formData => {
+  return (
+    getNewHelpSpeed(
+      {
+        baseHelpSpeed: formData.baseHelpSpeed,
+        skill: ['none'],
+        character: 'hdown'
+      },
+      formData.level
+    ) -
+    getNewHelpSpeed(
+      {
+        baseHelpSpeed: formData.baseHelpSpeed,
+        skill: ['hs', 'hm'],
+        character: 'hup'
+      },
+      formData.level
+    )
+  )
+}
+const getProcessWidth = formData => {
+  let res =
+    ((getNewHelpSpeed(formData, formData.level) -
+      getNewHelpSpeed(
+        {
+          baseHelpSpeed: formData.baseHelpSpeed,
+          skill: ['none'],
+          character: 'hdown'
+        },
+        formData.level
+      )) /
+      getProcessMuti(formData)) *
+    -100
+
+  if (res > 100) {
+    res = 100
+  }
+  return res
 }
 
 const handleChangePokemon = () => {
@@ -340,10 +402,28 @@ targetInList.value = byHelpSpeedRes.value.find(
       />
     </el-form-item>
     <el-form-item label="技能">
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" class="ml-4">
+      <el-checkbox-group
+        v-model="helpSpeedCalcForm.skill"
+        class="ml-4"
+        :min="0"
+        :max="4"
+      >
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptions"
+          v-bind:key="skillItem.label"
+          >{{ skillItem.txt }}</el-checkbox
+        >
+      </el-checkbox-group>
+      <el-checkbox-group
+        v-model="helpSpeedCalcForm.skill"
+        class="ml-4"
+        :min="0"
+        :max="4"
+      >
+        <el-checkbox
+          :label="skillItem.label"
+          v-for="skillItem in skillOptionsExtra"
           v-bind:key="skillItem.label"
           >{{ skillItem.txt }}</el-checkbox
         >
@@ -399,36 +479,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       </ul>
       <div class="helpprocess">
         <i class="helpprocess__inner"
-          ><i
-            :style="`width: ${
-              ((getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level) -
-                getNewHelpSpeed(
-                  {
-                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                    skill: ['none'],
-                    character: 'hdown',
-                  },
-                  helpSpeedCalcForm.level
-                )) /
-                (getNewHelpSpeed(
-                  {
-                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                    skill: ['none'],
-                    character: 'hdown',
-                  },
-                  helpSpeedCalcForm.level
-                ) -
-                  getNewHelpSpeed(
-                    {
-                      baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                      skill: ['hs', 'hm'],
-                      character: 'hup',
-                    },
-                    helpSpeedCalcForm.level
-                  ))) *
-              -100
-            }%`"
-          ></i
+          ><i :style="`width: ${getProcessWidth(helpSpeedCalcForm)}%`"></i
         ></i>
         <div
           v-for="(processItem, processKey) in allHelpType"
@@ -449,22 +500,7 @@ targetInList.value = byHelpSpeedRes.value.find(
                 },
                 helpSpeedCalcForm.level
               )) /
-              (getNewHelpSpeed(
-                {
-                  baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                  skill: ['none'],
-                  character: 'hdown',
-                },
-                helpSpeedCalcForm.level
-              ) -
-                getNewHelpSpeed(
-                  {
-                    baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
-                    skill: ['hs', 'hm'],
-                    character: 'hup',
-                  },
-                  helpSpeedCalcForm.level
-                ))) *
+              getProcessMuti(helpSpeedCalcForm)) *
             -100
           }%`"
           class="helpprocess__tag"
@@ -531,7 +567,9 @@ targetInList.value = byHelpSpeedRes.value.find(
           cur: pokeItem.extraDesc.indexOf('玩家') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
         }"
-        v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(helpSpeedCalcForm.pokemonId)"
+        v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
+          helpSpeedCalcForm.pokemonId
+        )"
         v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"

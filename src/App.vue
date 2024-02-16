@@ -39,7 +39,7 @@ const handleClickNav = key => {
 }
 
 onMounted(() => {
-  console.log('组件已经挂载')
+  // console.log('组件已经挂载')
   if (+getUrlQuery('p') >= 0) {
     showPageIndex.value = +getUrlQuery('p')
   }
