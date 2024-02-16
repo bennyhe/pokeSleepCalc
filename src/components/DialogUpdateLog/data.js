@@ -8,6 +8,7 @@ const markdownText = `
 4. update 视觉样式
 5. update 优化性能
 6. update 岛屿数据区间参考
+7. update 帮速计算等级从30-50级改为10-59级
 
 ## 24-02-15
 1. add 帮速计算从选择帮速改成选择宝可梦

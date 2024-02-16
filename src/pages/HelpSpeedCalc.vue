@@ -127,18 +127,43 @@ const getNewFoodPer = (formData, foodPer) => {
 const addArrInOptions = (extraDesc, pokeItem) => {
   const newPokeItem = { ...pokeItem }
   const resRankArr = []
-  const tempFoodType = [
+  let tempFoodType = [
     [0, 0],
     [0, 0],
     [0, 1],
     [0, 1]
   ]
+  if (helpSpeedCalcForm.value.level < 30) {
+    tempFoodType = [[0], [0]]
+  }
+  // else if (helpSpeedCalcForm.value.level >= 60) {
+  //   tempFoodType = [
+  //     [0, 0, 0],
+  //     [0, 0, 0],
+  //     [0, 1, 0],
+  //     [0, 1, 0],
+  //     [0, 0, 1],
+  //     [0, 0, 1],
+  //     [0, 1, 1],
+  //     [0, 1, 1]
+  //   ]
+  // }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
     newPokeItem.foodPer
   )
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     const is2n = (arrFTKey + 1) % 2 === 0
+    const arrFood = [
+      newPokeItem.food.type[arrFTItem[0]],
+      newPokeItem.food.type[arrFTItem[1]]
+    ]
+    if (helpSpeedCalcForm.value.level < 30) {
+      arrFood.splice(1, arrFood.length)
+    }
+    // else if (helpSpeedCalcForm.value.level >= 60) {
+    //   arrFood.push(newPokeItem.food.type[arrFTItem[2]])
+    // }
     resRankArr.push({
       ...newPokeItem,
       id: newPokeItem.id,
@@ -147,10 +172,7 @@ const addArrInOptions = (extraDesc, pokeItem) => {
       ...getOneDayEnergy(
         newPokeItem,
         helpSpeedCalcForm.value.level,
-        [
-          newPokeItem.food.type[arrFTItem[0]],
-          newPokeItem.food.type[arrFTItem[1]]
-        ],
+        arrFood,
         is2n ? true : false,
         false
       )
@@ -393,12 +415,12 @@ targetInList.value = byHelpSpeedRes.value.find(
         v-bind:key="pokeItem.id"
       />
     </el-form-item>
-    <el-form-item label="等级">
+    <el-form-item label="等级(10-59)">
       <el-slider
         v-model="helpSpeedCalcForm.level"
         show-input
-        :min="30"
-        :max="50"
+        :min="10"
+        :max="59"
       />
     </el-form-item>
     <el-form-item label="技能">
@@ -455,26 +477,6 @@ targetInList.value = byHelpSpeedRes.value.find(
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
             )
           }}
-          <!-- <template v-if="helpSpeedCalcForm.skill.includes('hgold')">
-            (帮手奖励:<span class="sptime"
-              >{{
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("hgold")
-                )
-              }}s</span
-            >
-            {{
-              convertSecondsToHMS(
-                getNewHelpSpeed(
-                  helpSpeedCalcForm,
-                  helpSpeedCalcForm.level,
-                  helpSpeedCalcForm.skill.includes("hgold")
-                )
-              )
-            }})
-          </template> -->
         </li>
       </ul>
       <div class="helpprocess">
