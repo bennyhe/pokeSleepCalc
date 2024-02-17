@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions, toHM } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
@@ -388,18 +388,27 @@ const getProcessWidth = formData => {
   return res
 }
 
-const handleChangePokemon = () => {
-  helpSpeedCalcForm.value.baseHelpSpeed =
-    pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
+const setTargetListByHelp = () => {
   targetInList.value = byHelpSpeedRes.value.find(
     item => item.helpSpeed === helpSpeedCalcForm.value.baseHelpSpeed
   )
 }
 
-byHelpSpeedRes.value = initFilterGroup()
-targetInList.value = byHelpSpeedRes.value.find(
-  item => item.helpSpeed === helpSpeedCalcForm.value.baseHelpSpeed
-)
+const handleChangePokemon = () => {
+  helpSpeedCalcForm.value.baseHelpSpeed =
+    pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
+  setTargetListByHelp()
+}
+
+onMounted(() => {
+  byHelpSpeedRes.value = initFilterGroup()
+  setTargetListByHelp()
+})
+watch(helpSpeedCalcForm.value, val => {
+  if (!val.level) {
+    helpSpeedCalcForm.value.level = 10
+  }
+})
 </script>
 <template>
   <h2>帮忙速度计算</h2>

@@ -72,9 +72,10 @@ export const getOneDayHelpCount = (helpSpeed, foodPer) => {
   return oneDayHelpCount
 }
 export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry) => {
+  const level = pokeLevel || 50
   const oneDayBerryEnergy = getOneDayBerryEnergy(
     pokeItem,
-    pokeLevel,
+    level,
     isDoubleBerry,
     isRightBerry
   )
