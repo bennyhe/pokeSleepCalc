@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
-import { sortInObjectOptions, convertSecondsToHMS } from '../utils/index.js'
+import { sortInObjectOptions, toHM } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
 import {
@@ -449,7 +449,11 @@ targetInList.value = byHelpSpeedRes.value.find(
       />
     </el-form-item>
     <el-form-item>
-      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4" size="small">
+      <el-radio-group
+        v-model="helpSpeedCalcForm.level"
+        class="ml-4"
+        size="small"
+      >
         <el-radio-button
           :label="cItem.label"
           v-for="cItem in levelOptions"
@@ -525,8 +529,9 @@ targetInList.value = byHelpSpeedRes.value.find(
           >
           /
           {{
-            convertSecondsToHMS(
-              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
+            toHM(
+              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level),
+              "sec"
             )
           }}
         </li>
@@ -603,9 +608,7 @@ targetInList.value = byHelpSpeedRes.value.find(
               >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
             /
-            {{
-              convertSecondsToHMS(getNewHelpSpeed(helpSpeedCalcForm, olItem))
-            }}
+            {{ toHM(getNewHelpSpeed(helpSpeedCalcForm, olItem), "sec") }}
           </li>
         </template>
       </ul>
@@ -617,7 +620,11 @@ targetInList.value = byHelpSpeedRes.value.find(
       </el-radio-group>
     </el-form-item>
     <el-form-item label="快速等级">
-      <el-radio-group v-model="helpSpeedCalcForm.level" class="ml-4" size="small">
+      <el-radio-group
+        v-model="helpSpeedCalcForm.level"
+        class="ml-4"
+        size="small"
+      >
         <el-radio-button
           :label="cItem.label"
           v-for="cItem in levelOptions"

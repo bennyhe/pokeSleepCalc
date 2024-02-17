@@ -4,29 +4,32 @@ function thousands(num) {
   return str.replace(reg, '$1,')
 }
 
-export function toHM(decimalHours, type) {
-  let hours = Math.floor(decimalHours) // 获取小时部分
-  let minutes = Math.round((decimalHours - hours) * 60) // 获取分钟部分
+export function toHM(time, type) {
+  if (type === 'sec') { // time传入为x秒
+    const _hours = Math.floor(time / 3600)
+    const _minutes = parseInt((time % 3600) / 60)
+    const _remainingSeconds = time % 60
+
+    let res = _minutes + '分' + _remainingSeconds + '秒'
+    if (_hours !== 0) {
+      res = _hours + '小时' + res
+    }
+    // 转换成x小时x分x秒
+    return res
+  }
+  // time传入为x.x小时
+  let hours = Math.floor(time) // 获取小时部分
+  let minutes = Math.round((time - hours) * 60) // 获取分钟部分
   if (minutes === 60) {
     minutes = 0
     hours++
   }
   if (type === 'mm') {
+    // 转换成x分钟
     return hours * 60 + minutes
   }
+  // 转换成x小时x分钟
   return hours + '小时' + minutes + '分钟'
-}
-
-export function convertSecondsToHMS(seconds) {
-  const hours = Math.floor(seconds / 3600)
-  const minutes = parseInt((seconds % 3600) / 60)
-  const remainingSeconds = seconds % 60
-
-  let res = minutes + '分' + remainingSeconds + '秒'
-  if (hours!==0){
-    res = hours + '小时' + res
-  }
-  return res
 }
 
 /**

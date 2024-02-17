@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
-import { convertSecondsToHMS } from '../../utils/index.js'
+import { toHM } from '../../utils/index.js'
 import {
   POKE_TYPES,
   FOOD_TYPES,
@@ -77,7 +77,7 @@ const props = defineProps({
         props.showKey.includes('helpSpeedHM')
       "
     >
-      {{ convertSecondsToHMS(props.helpSpeed || pokedex[pokeId].helpSpeed) }}
+      {{ toHM(props.helpSpeed || pokedex[pokeId].helpSpeed, 'sec') }}
     </p>
     <p
       class="cpt-pokemon__skill"
