@@ -529,16 +529,16 @@ watch(helpSpeedCalcForm.value, val => {
         :min="10"
         :max="60"
       />
-    </el-form-item>
-    <el-form-item>
-      <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
-        <el-radio-button
-          :label="cItem.label"
-          v-for="cItem in levelOptions"
-          v-bind:key="cItem.label"
-          >{{ cItem.txt }}</el-radio-button
-        >
-      </el-radio-group>
+      <div style="width: 100%">
+        <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
+          <el-radio-button
+            :label="cItem.label"
+            v-for="cItem in levelOptions"
+            v-bind:key="cItem.label"
+            >{{ cItem.txt }}</el-radio-button
+          >
+        </el-radio-group>
+      </div>
     </el-form-item>
     <el-form-item label="技能">
       <div style="width: 100%">
