@@ -20,6 +20,7 @@ const helpSpeedCalcForm = ref({
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
+  isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
   skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
   character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
@@ -104,8 +105,11 @@ const getNewHelpSpeed = (formData, level) => {
   if (formData.skill.includes('hg5')) {
     basichelp += 0.05 * 5
   }
-  const res =
+  let res =
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
+  if (helpSpeedCalcForm.value.isUseTicket) {
+    res = res / 1.2
+  }
   return Math.floor(res)
 }
 
@@ -458,11 +462,7 @@ watch(helpSpeedCalcForm.value, val => {
       />
     </el-form-item>
     <el-form-item>
-      <el-radio-group
-        v-model="helpSpeedCalcForm.level"
-        class="ml-4"
-        size="small"
-      >
+      <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
           :label="cItem.label"
           v-for="cItem in levelOptions"
@@ -472,12 +472,7 @@ watch(helpSpeedCalcForm.value, val => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="技能">
-      <el-checkbox-group
-        v-model="helpSpeedCalcForm.skill"
-        class="ml-4"
-        :min="0"
-        :max="5"
-      >
+      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptionsExtra2"
@@ -487,12 +482,7 @@ watch(helpSpeedCalcForm.value, val => {
       </el-checkbox-group>
     </el-form-item>
     <el-form-item>
-      <el-checkbox-group
-        v-model="helpSpeedCalcForm.skill"
-        class="ml-4"
-        :min="0"
-        :max="5"
-      >
+      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptions"
@@ -502,12 +492,7 @@ watch(helpSpeedCalcForm.value, val => {
       </el-checkbox-group>
     </el-form-item>
     <el-form-item>
-      <el-checkbox-group
-        v-model="helpSpeedCalcForm.skill"
-        class="ml-4"
-        :min="0"
-        :max="5"
-      >
+      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptionsExtra"
@@ -517,7 +502,7 @@ watch(helpSpeedCalcForm.value, val => {
       </el-checkbox-group>
     </el-form-item>
     <el-form-item label="性格">
-      <el-radio-group v-model="helpSpeedCalcForm.character" class="ml-4">
+      <el-radio-group v-model="helpSpeedCalcForm.character">
         <el-radio
           :label="cItem.label"
           v-for="cItem in characterOptions"
@@ -623,17 +608,25 @@ watch(helpSpeedCalcForm.value, val => {
       </ul>
     </el-form-item>
     <el-form-item label="适正岛屿">
-      <el-radio-group v-model="helpSpeedCalcForm.isRightBerry" class="ml-4">
-        <el-radio-button :label="true">是（双倍树果）</el-radio-button>
-        <el-radio-button :label="false">否</el-radio-button>
-      </el-radio-group>
+      <el-switch
+        v-model="helpSpeedCalcForm.isRightBerry"
+        inline-prompt
+        active-text="是（双倍树果）"
+        inactive-text="否"
+        style="--el-switch-on-color: #ffaf00"
+      />
+    </el-form-item>
+    <el-form-item label="露营券">
+      <el-switch
+        v-model="helpSpeedCalcForm.isUseTicket"
+        inline-prompt
+        active-text="使用（帮忙1.2倍）"
+        inactive-text="不使用"
+        style="--el-switch-on-color: #ffaf00"
+      />
     </el-form-item>
     <el-form-item label="快速等级">
-      <el-radio-group
-        v-model="helpSpeedCalcForm.level"
-        class="ml-4"
-        size="small"
-      >
+      <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
           :label="cItem.label"
           v-for="cItem in levelOptions"
@@ -672,7 +665,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div class="mod-tips">
         <p>* 数值均为程序预估结果，与实际有误差。</p>
         <p>* 结果为对应等级一天产出。</p>
-        <p>* 非满包满活力没开露营券，不含技能率。</p>
+        <p>* 非满包满活力，不含技能率。</p>
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
       </div>
     </el-form-item>
