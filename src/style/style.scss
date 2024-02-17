@@ -325,6 +325,10 @@ h3 {
     border: 0;
     border-radius: 0;
 
+    .el-radio-button--small .el-radio-button__inner {
+      padding: 2px 3px;
+    }
+
     & + .cpt-food--noborder {
       margin-left: 6px;
     }

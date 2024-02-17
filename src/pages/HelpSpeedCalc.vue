@@ -541,34 +541,36 @@ watch(helpSpeedCalcForm.value, val => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="技能">
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-        <el-checkbox
-          :label="skillItem.label"
-          v-for="skillItem in skillOptionsExtra2"
-          v-bind:key="skillItem.label"
-          >{{ skillItem.txt }}</el-checkbox
-        >
-      </el-checkbox-group>
-    </el-form-item>
-    <el-form-item>
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-        <el-checkbox
-          :label="skillItem.label"
-          v-for="skillItem in skillOptions"
-          v-bind:key="skillItem.label"
-          >{{ skillItem.txt }}</el-checkbox
-        >
-      </el-checkbox-group>
-    </el-form-item>
-    <el-form-item>
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-        <el-checkbox
-          :label="skillItem.label"
-          v-for="skillItem in skillOptionsExtra"
-          v-bind:key="skillItem.label"
-          >{{ skillItem.txt }}</el-checkbox
-        >
-      </el-checkbox-group>
+      <div style="width: 100%">
+        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
+          <el-checkbox
+            :label="skillItem.label"
+            v-for="skillItem in skillOptionsExtra2"
+            v-bind:key="skillItem.label"
+            >{{ skillItem.txt }}</el-checkbox
+          >
+        </el-checkbox-group>
+      </div>
+      <div style="width: 100%">
+        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
+          <el-checkbox
+            :label="skillItem.label"
+            v-for="skillItem in skillOptions"
+            v-bind:key="skillItem.label"
+            >{{ skillItem.txt }}</el-checkbox
+          >
+        </el-checkbox-group>
+      </div>
+      <div style="width: 100%">
+        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
+          <el-checkbox
+            :label="skillItem.label"
+            v-for="skillItem in skillOptionsExtra"
+            v-bind:key="skillItem.label"
+            >{{ skillItem.txt }}</el-checkbox
+          >
+        </el-checkbox-group>
+      </div>
     </el-form-item>
     <el-form-item label="性格">
       <el-radio-group v-model="helpSpeedCalcForm.character">
@@ -705,7 +707,10 @@ watch(helpSpeedCalcForm.value, val => {
       </el-radio-group>
       <div style="width: 100%">
         当前等级：<span class="sptime">{{ helpSpeedCalcForm.level }}</span
-        >级， 当前能量排位：第
+        >级
+      </div>
+      <div style="width: 100%">
+        当前能量排位：第
         <i
           class="i i-rank"
           :class="`i-rank--${helpSpeedCalcForm.rankIndex + 1}`"
