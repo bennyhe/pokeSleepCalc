@@ -4,6 +4,7 @@ import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions, toHM } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
+import { FOOD_TYPES } from '../config/valKey.js'
 import {
   allHelpType,
   skillOptions,
@@ -23,7 +24,8 @@ const helpSpeedCalcForm = ref({
   isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
   skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-  character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  character: 'none', // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  useFoods: [0, 0, 0]
 })
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
@@ -165,7 +167,18 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     }
   }
 
-  if (!isPlayer) {
+  if (isPlayer) {
+    tempFoodType = [[...helpSpeedCalcForm.value.useFoods]]
+    if (
+      helpSpeedCalcForm.value.level >= 30 &&
+      helpSpeedCalcForm.value.level < 60
+    ) {
+      tempFoodType[0].splice(2, 1)
+    } else if (helpSpeedCalcForm.value.level < 30) {
+      tempFoodType[0].splice(0, 2)
+    }
+    // console.log(helpSpeedCalcForm.value.useFoods, tempFoodType)
+  } else {
     const nArr = []
     for (let i = 0; i < tempFoodType.length; i++) {
       nArr.push(tempFoodType[i], tempFoodType[i])
@@ -401,6 +414,7 @@ const setTargetListByHelp = () => {
 const handleChangePokemon = () => {
   helpSpeedCalcForm.value.baseHelpSpeed =
     pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
+  helpSpeedCalcForm.value.useFoods = [0, 0, 0]
   setTargetListByHelp()
 }
 
@@ -452,6 +466,52 @@ watch(helpSpeedCalcForm.value, val => {
         v-for="pokeItem in targetInList.list"
         v-bind:key="pokeItem.id"
       />
+    </el-form-item>
+    <el-form-item label="食材">
+      <div
+        class="cpt-food cpt-food--noborder"
+        v-for="(subFoodItem, subKey) in 3"
+        v-bind:key="subKey"
+      >
+        <el-radio-group
+          size="small"
+          v-model="helpSpeedCalcForm.useFoods[subKey]"
+        >
+          <template
+            v-for="(allFoodItem, allKey) in pokedex[helpSpeedCalcForm.pokemonId]
+              .food.type"
+            v-bind:key="allKey"
+          >
+            <el-radio-button
+              :label="allKey"
+              v-if="
+                pokedex[helpSpeedCalcForm.pokemonId].food.count[allFoodItem]
+                  .num[subKey] > 0
+              "
+              style="--el-radio-button-checked-bg-color: #c2e4ff"
+            >
+              <div class="cpt-food__item">
+                <img
+                  v-lazy="`./img/food/${allFoodItem}.png`"
+                  :alt="FOOD_TYPES[allFoodItem]"
+                />
+                <div
+                  class="cpt-food__count"
+                  v-if="
+                    pokedex[helpSpeedCalcForm.pokemonId].food.count[allFoodItem]
+                      .num[subKey] > 0
+                  "
+                >
+                  {{
+                    pokedex[helpSpeedCalcForm.pokemonId].food.count[allFoodItem]
+                      .num[subKey]
+                  }}
+                </div>
+              </div>
+            </el-radio-button>
+          </template>
+        </el-radio-group>
+      </div>
     </el-form-item>
     <el-form-item label="等级(10-60)">
       <el-slider

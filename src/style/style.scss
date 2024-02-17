@@ -321,6 +321,15 @@ h3 {
   border: 1px solid #b4b4b4;
   border-radius: 5px;
 
+  &--noborder {
+    border: 0;
+    border-radius: 0;
+
+    & + .cpt-food--noborder {
+      margin-left: 6px;
+    }
+  }
+
   &,
   &__item {
     display: inline-block;
@@ -346,13 +355,14 @@ h3 {
     background-color: rgba($color: #fff, $alpha: .8);
     border: 1px solid #ccc;
     color: #349963;
-    width: 10px;
-    height: 10px;
-    line-height: 10px;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
     border-radius: 100%;
     text-align: center;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
+    transform: scale(.9);
   }
 
   &--s {
