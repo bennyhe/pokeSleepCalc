@@ -10,13 +10,13 @@ const props = defineProps({
   }
 })
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['pokeType']
+  const showKey = ['pokeType', 'helpSpeed']
   if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
     const res = pokedex[pokemonsItem]
     // console.log(res)
     if (res.pokeType === 1) {
       // 树果型
-      showKey.push('helpSpeed', 'berry')
+      showKey.push('berry')
     } else if (res.pokeType === 2) {
       // 食材型
       showKey.push('food')
