@@ -177,7 +177,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     ) {
       tempFoodType[0].splice(2, 1)
     } else if (helpSpeedCalcForm.value.level < 30) {
-      tempFoodType[0].splice(0, 2)
+      tempFoodType = [[0]]
     }
     // console.log(helpSpeedCalcForm.value.useFoods, tempFoodType)
   } else {
