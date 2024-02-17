@@ -117,15 +117,15 @@ export const characterOptions = [{
   txt: '溫和、胆小、大膽(帮↓-10%)'
 }]
 export const levelOptions = [{
-  label: '25',
+  label: 25,
   txt: '25级'
 }, {
-  label: '30',
+  label: 30,
   txt: '30级(2食)'
 }, {
-  label: '50',
+  label: 50,
   txt: '50级(上限)'
 }, {
-  label: '60',
+  label: 60,
   txt: '60级(3食)'
 }]
