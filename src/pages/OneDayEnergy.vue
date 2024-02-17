@@ -148,7 +148,7 @@ const handleClickChangeMap = id => {
   <div class="page-inner">
     <div class="mod-tips">
       <p>* 数值均为程序预估结果，与实际有误差。</p>
-      <p>* 非满包没开露营券，不含技能率。</p>
+      <p>* 非满包满活力没开露营券，不含技能率。</p>
     </div>
   </div>
   <div class="poke-tb">

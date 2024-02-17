@@ -672,7 +672,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div class="mod-tips">
         <p>* 数值均为程序预估结果，与实际有误差。</p>
         <p>* 结果为对应等级一天产出。</p>
-        <p>* 非满包没开露营券，不含技能率。</p>
+        <p>* 非满包满活力没开露营券，不含技能率。</p>
         <p>* 游戏内不会显示帮手奖励后的时间。</p>
       </div>
     </el-form-item>
