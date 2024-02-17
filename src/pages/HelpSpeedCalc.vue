@@ -25,7 +25,9 @@ const helpSpeedCalcForm = ref({
   isRightBerry: false, // Boolean: true/false
   skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
   character: 'none', // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  useFoods: [0, 0, 0]
+  useFoods: [0, 0, 0],
+  rankIndex: 1,
+  resLength: 0
 })
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
@@ -362,7 +364,14 @@ const getTargetPokemonEnergy = pokeId => {
     addArrInOptions('食材S,M\n性格:食材↑', tempPokeItem4)
   )
 
-  return sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+  const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+
+  helpSpeedCalcForm.value.rankIndex = res.findIndex(
+    item => item.extraDesc.indexOf('自选') > -1
+  )
+  helpSpeedCalcForm.value.resLength = res.length
+
+  return res
 }
 
 const getProcessMuti = formData => {
@@ -695,8 +704,14 @@ watch(helpSpeedCalcForm.value, val => {
         >
       </el-radio-group>
       <div style="width: 100%">
-        当前等级: <span class="sptime">{{ helpSpeedCalcForm.level }}</span
-        >级
+        当前等级：<span class="sptime">{{ helpSpeedCalcForm.level }}</span
+        >级， 当前能量排位：第
+        <i
+          class="i i-rank"
+          :class="`i-rank--${helpSpeedCalcForm.rankIndex + 1}`"
+          >{{ helpSpeedCalcForm.rankIndex + 1 }}</i
+        >
+        / {{ helpSpeedCalcForm.resLength }} 位
       </div>
     </el-form-item>
   </el-form>
