@@ -1,20 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { get, sortInObjectOptions } from '../utils/index.js'
 import {
-  POKE_TYPES,
   FOOD_TYPES,
   BERRY_TYPES,
   SKILL_TYPES
 } from '../config/valKey.js'
 
-const isShowAll = ref(true)
 const showRes = ref([])
+const curFilter = ref('all')
 const byHelpSpeedRes = ref([])
 const byBerryTypeRes = ref([])
 const bySkillTypeRes = ref([])
+const byFoodTypeRes = ref([])
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
   const byHelpSpeedOrgList = []
@@ -25,60 +25,83 @@ const initFilterGroup = () => {
   let bySkillTypeResIn = []
   const bySkillTypeOrgList = []
 
+  let byFoodTypeResIn = []
+
+  // 食材类型
+  for (const key in FOOD_TYPES) {
+    if (Object.hasOwnProperty.call(FOOD_TYPES, key)) {
+      byFoodTypeResIn.push({
+        id: +key,
+        foodType: FOOD_TYPES[key],
+        title: `${FOOD_TYPES[key]}`,
+        list: []
+      })
+    }
+  }
+
   for (const pokeKey in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
-      const pokedexItem = pokedex[pokeKey]
+      const pokeItem = pokedex[pokeKey]
 
       // 帮忙速度分类
       if (
-        pokedexItem.helpSpeed &&
-        !byHelpSpeedOrgList.includes(pokedexItem.helpSpeed)
+        pokeItem.helpSpeed &&
+        !byHelpSpeedOrgList.includes(pokeItem.helpSpeed)
       ) {
         byHelpSpeedResIn.push({
-          id: pokedexItem.helpSpeed,
-          helpSpeed: pokedexItem.helpSpeed,
-          title: `${pokedexItem.helpSpeed}s`,
+          id: pokeItem.helpSpeed,
+          helpSpeed: pokeItem.helpSpeed,
+          title: `${pokeItem.helpSpeed}s`,
           list: []
         })
-        byHelpSpeedOrgList.push(pokedexItem.helpSpeed)
+        byHelpSpeedOrgList.push(pokeItem.helpSpeed)
       }
       byHelpSpeedResIn
-        .find(item => item.helpSpeed === pokedexItem.helpSpeed)
-        .list.push(pokedexItem)
+        .find(item => item.helpSpeed === pokeItem.helpSpeed)
+        .list.push(pokeItem)
 
       // 树果类型
       if (
-        pokedexItem.berryType &&
-        !byBerryTypeOrgList.includes(pokedexItem.berryType)
+        pokeItem.berryType &&
+        !byBerryTypeOrgList.includes(pokeItem.berryType)
       ) {
         byBerryTypeResIn.push({
-          id: pokedexItem.berryType,
-          berryType: pokedexItem.berryType,
-          title: `${BERRY_TYPES[pokedexItem.berryType]}`,
+          id: pokeItem.berryType,
+          berryType: pokeItem.berryType,
+          title: `${BERRY_TYPES[pokeItem.berryType]}`,
           list: []
         })
-        byBerryTypeOrgList.push(pokedexItem.berryType)
+        byBerryTypeOrgList.push(pokeItem.berryType)
       }
       byBerryTypeResIn
-        .find(item => item.berryType === pokedexItem.berryType)
-        .list.push(pokedexItem)
+        .find(item => item.berryType === pokeItem.berryType)
+        .list.push(pokeItem)
 
       // 技能类型
       if (
-        pokedexItem.skillType &&
-        !bySkillTypeOrgList.includes(pokedexItem.skillType)
+        pokeItem.skillType &&
+        !bySkillTypeOrgList.includes(pokeItem.skillType)
       ) {
         bySkillTypeResIn.push({
-          id: pokedexItem.skillType,
-          skillType: pokedexItem.skillType,
-          title: `${SKILL_TYPES[pokedexItem.skillType].name}`,
+          id: pokeItem.skillType,
+          skillType: pokeItem.skillType,
+          title: `${SKILL_TYPES[pokeItem.skillType].name}`,
           list: []
         })
-        bySkillTypeOrgList.push(pokedexItem.skillType)
+        bySkillTypeOrgList.push(pokeItem.skillType)
       }
       bySkillTypeResIn
-        .find(item => item.skillType === pokedexItem.skillType)
-        .list.push(pokedexItem)
+        .find(item => item.skillType === pokeItem.skillType)
+        .list.push(pokeItem)
+
+      // 食材类型
+      if (get('food.type', pokeItem, 1)) {
+        byFoodTypeResIn.forEach(item => {
+          if (pokeItem.food.type.includes(item.id)) {
+            item.list.push(pokeItem)
+          }
+        })
+      }
     }
   }
   byHelpSpeedResIn.forEach(item => {
@@ -117,6 +140,12 @@ const initFilterGroup = () => {
     'down'
   )
   bySkillTypeRes.value = bySkillTypeResIn
+
+  byFoodTypeResIn.forEach(item => {
+    item.count = item.list.length
+  })
+  byFoodTypeResIn = sortInObjectOptions(byFoodTypeResIn, ['count'], 'down')
+  byFoodTypeRes.value = byFoodTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
   const showKey = [
@@ -143,47 +172,101 @@ const getShowKeyVal = pokemonsItem => {
 }
 
 const fnGetBy = filterType => {
-  if (filterType === 'all') {
-    isShowAll.value = true
-  } else {
-    isShowAll.value = false
-  }
   if (filterType === 'helpSpeed') {
     showRes.value = byHelpSpeedRes.value
   } else if (filterType === 'berryType') {
     showRes.value = byBerryTypeRes.value
   } else if (filterType === 'skillType') {
     showRes.value = bySkillTypeRes.value
+  } else if (filterType === 'foodType') {
+    showRes.value = byFoodTypeRes.value
   }
 }
 
-initFilterGroup() // 初始化索引
+onMounted(() => {
+  initFilterGroup() // 初始化索引
+})
 </script>
 <template>
   <h2>全图鉴速查</h2>
-  <div class="btn-wrap">
-    <span class="btn btn-m" @click="fnGetBy('all')">ALL</span>
-    <span class="btn btn-m" @click="fnGetBy('helpSpeed')">帮忙速度↓</span>
-    <span class="btn btn-m" @click="fnGetBy('berryType')">树果类型↓</span>
-    <span class="btn btn-m" @click="fnGetBy('skillType')">技能类型↓</span>
-  </div>
-  <div class="page-inner pokedex-list">
-    <template v-if="isShowAll === false">
+  <el-form>
+    <el-form-item label-width="10px">
+      <el-radio-group v-model="curFilter">
+        <el-radio-button label="all" @click="fnGetBy('all')"
+          >ALL</el-radio-button
+        >
+        <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
+          >帮忙速度↓</el-radio-button
+        >
+        <el-radio-button label="berryType" @click="fnGetBy('berryType')"
+          >树果类型↓</el-radio-button
+        >
+        <el-radio-button label="foodType" @click="fnGetBy('foodType')"
+          >食材类型↓</el-radio-button
+        >
+        <el-radio-button label="skillType" @click="fnGetBy('skillType')"
+          >技能类型↓</el-radio-button
+        >
+      </el-radio-group>
+    </el-form-item>
+  </el-form>
+  <div class="pokedex-list">
+    <template v-if="curFilter !== 'all'">
       <div v-for="resItem in showRes" v-bind:key="resItem.id">
         <h3>
           {{ resItem.title }}
           <span class="extra">({{ resItem.list.length }}只)</span>
         </h3>
         <div class="poke-tb">
-          <div
-            class="poke-tb__item"
-            v-for="(pokemonsItem, pokemonKey) in resItem.list"
-            v-bind:key="pokemonsItem.name"
-          >
-            <CptPoke
-              :pokeId="pokemonsItem.id"
-              :showKey="getShowKeyVal(pokemonKey)"
-            />
+          <template v-if="curFilter === 'foodType'">
+            <div
+              class="poke-tb__col"
+              v-for="(levelItem, levelKey) in [0, 30, 60]"
+              v-bind:key="`${resItem.id}_${levelItem}`"
+            >
+              <h4>
+                {{ levelItem }}级
+                <span class="extra">({{ resItem.list.filter(
+                    (pitem) => pitem.food.type[levelKey] === resItem.id
+                  ).length }}只)</span>
+              </h4>
+              <div
+                class="mod-tips"
+                v-if="
+                  resItem.list.filter(
+                    (pitem) => pitem.food.type[levelKey] === resItem.id
+                  ).length === 0
+                "
+              >
+                无
+              </div>
+              <div class="poke-tb__sublist" v-else>
+                <div
+                  class="poke-tb__item"
+                  v-for="(pokemonsItem, pokemonKey) in resItem.list.filter(
+                    (pitem) => pitem.food.type[levelKey] === resItem.id
+                  )"
+                  v-bind:key="pokemonsItem.name"
+                >
+                  <CptPoke
+                    :pokeId="pokemonsItem.id"
+                    :showKey="getShowKeyVal(pokemonKey)"
+                  />
+                </div>
+              </div>
+            </div>
+          </template>
+          <div class="poke-tb__sublist" v-else>
+            <div
+              class="poke-tb__item"
+              v-for="(pokemonsItem, pokemonKey) in resItem.list"
+              v-bind:key="pokemonsItem.name"
+            >
+              <CptPoke
+                :pokeId="pokemonsItem.id"
+                :showKey="getShowKeyVal(pokemonKey)"
+              />
+            </div>
           </div>
         </div>
       </div>

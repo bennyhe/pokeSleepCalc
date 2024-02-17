@@ -65,13 +65,19 @@ h2 {
   }
 }
 
-h3 {
-  font-size: 16px;
-
+h3,h4 {
   .extra {
     color: $primaryColor;
     font-size: 14px;
   }
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
 }
 
 .page {
@@ -239,6 +245,7 @@ h3 {
     height: 24px;
     line-height: 12px;
     color: #333;
+    white-space: normal;
   }
 
   &__skill {
@@ -490,7 +497,10 @@ h3 {
 
 .pokedex-list {
   h3 {
-    padding: 2px 0;
+    padding: 2px 8px;
+  }
+  h4 {
+    padding: 0 8px;
   }
 }
 
@@ -623,6 +633,12 @@ h3 {
     overflow-x: auto;
   }
 
+  &__col {
+    width: percentage($number: 1 / 3);
+    display: inline-block;
+    vertical-align: top;
+  }
+
   .extra-desc {
     font-size: 12px;
     border-top: 1px solid #ededed;
@@ -687,5 +703,16 @@ h3 {
 
   .el-form-item {
     margin-bottom: 8px;
+  }
+
+  .pokedex-list {
+    .poke-tb__col {
+      width: 100%;
+    }
+
+    .poke-tb__sublist {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
   }
 }

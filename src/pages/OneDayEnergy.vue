@@ -100,7 +100,6 @@ const handleClickChangeMap = id => {
 
 <template>
   <h2>{{ pageData.lv }}级一天能量排行</h2>
-
   <el-form label-width="90px">
     <!-- S 当前岛屿 -->
     <el-form-item label="当前岛屿">
