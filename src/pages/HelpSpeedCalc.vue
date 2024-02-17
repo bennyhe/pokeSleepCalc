@@ -611,7 +611,7 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
-        active-text="是（双倍树果）"
+        active-text="是（2倍树果能量）"
         inactive-text="否"
         style="--el-switch-on-color: #ffaf00"
       />
