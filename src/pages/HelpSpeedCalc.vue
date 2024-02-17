@@ -641,6 +641,10 @@ watch(helpSpeedCalcForm.value, val => {
           >{{ cItem.txt }}</el-radio-button
         >
       </el-radio-group>
+      <div style="width: 100%">
+        当前等级: <span class="sptime">{{ helpSpeedCalcForm.level }}</span
+        >级
+      </div>
     </el-form-item>
   </el-form>
   <div class="page-inner">
