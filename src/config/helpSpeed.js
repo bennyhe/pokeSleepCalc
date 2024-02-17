@@ -99,7 +99,7 @@ export const characterOptions = [{
   txt: '无加成' // (害羞、勤奮、坦率、浮躁、認真)
 }, {
   label: 'fdown',
-  txt: '慎重、爽朗、淘氣(食↓+20%)'
+  txt: '慎重、爽朗、淘氣(食↓-20%)'
 }, {
   label: 'fup',
   txt: '慢吞吞、馬虎、冷靜(食↑+20%)'
