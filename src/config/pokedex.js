@@ -1614,7 +1614,7 @@ const pokedex = {
     berryType: 7,
     foodPer: 22.33,
     food: {
-      type: [10, 7, 9],
+      type: [10, 7, 11],
       count: {
         10: {
           num: [1, 2, 4]
@@ -1622,7 +1622,7 @@ const pokedex = {
         7: {
           num: [0, 3, 4]
         },
-        9: {
+        11: {
           num: [0, 0, 4]
         }
       }
