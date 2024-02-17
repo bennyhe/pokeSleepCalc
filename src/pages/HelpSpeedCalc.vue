@@ -632,7 +632,7 @@ targetInList.value = byHelpSpeedRes.value.find(
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
-        :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer']"
+        :showKey="['helpSpeed', 'helpSpeedHM', 'berry', 'pokeType', 'foodPer']"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
