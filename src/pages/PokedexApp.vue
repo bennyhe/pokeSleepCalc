@@ -188,7 +188,7 @@ const getShowKeyVal = pokemonsItem => {
 }
 
 const fnGetBy = filterType => {
-  curFilter.value = 'filterType'
+  curFilter.value = filterType
 }
 
 onMounted(() => {
