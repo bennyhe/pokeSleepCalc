@@ -202,12 +202,12 @@ onMounted(() => {
 })
 </script>
 <template>
-  <h2>全图鉴速查</h2>
+  <h2>全图鉴速查<span class="extra">({{ pokedexLength }}只)</span></h2>
   <el-form>
     <el-form-item label-width="10px">
       <el-radio-group v-model="curFilter">
         <el-radio-button label="all" @click="fnGetBy('all')"
-          >ALL({{ pokedexLength }}只)</el-radio-button
+          >ALL</el-radio-button
         >
         <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
           >帮忙速度↓</el-radio-button
