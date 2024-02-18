@@ -2,13 +2,10 @@
 import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
-import { get, sortInObjectOptions } from '../utils/index.js'
-import {
-  FOOD_TYPES,
-  BERRY_TYPES,
-  SKILL_TYPES
-} from '../config/valKey.js'
+import { get, sortInObjectOptions, getPercent } from '../utils/index.js'
+import { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } from '../config/valKey.js'
 
+const pokedexLength = ref(0)
 const showRes = ref([])
 const curFilter = ref('all')
 const byHelpSpeedRes = ref([])
@@ -39,8 +36,11 @@ const initFilterGroup = () => {
     }
   }
 
+  let plistLength = 0
   for (const pokeKey in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
+      plistLength++
+
       const pokeItem = pokedex[pokeKey]
 
       // 帮忙速度分类
@@ -104,6 +104,8 @@ const initFilterGroup = () => {
       }
     }
   }
+  pokedexLength.value = plistLength
+
   byHelpSpeedResIn.forEach(item => {
     item.count = item.list.length
     item.list = sortInObjectOptions(
@@ -141,8 +143,20 @@ const initFilterGroup = () => {
   )
   bySkillTypeRes.value = bySkillTypeResIn
 
-  byFoodTypeResIn.forEach(item => {
-    item.count = item.list.length
+  const levelArr = [0, 30, 60]
+  byFoodTypeResIn.forEach(resItem => {
+    resItem.count = resItem.list.length
+
+    levelArr.forEach((levelItem, levelKey) => {
+      const res = resItem.list.filter(
+        pitem => pitem.food.type[levelKey] === resItem.id
+      )
+      resItem[`level${levelKey}List`] = {
+        subTitle: levelItem,
+        subCount: res.length,
+        subList: res
+      }
+    })
   })
   byFoodTypeResIn = sortInObjectOptions(byFoodTypeResIn, ['count'], 'down')
   byFoodTypeRes.value = byFoodTypeResIn
@@ -193,7 +207,7 @@ onMounted(() => {
     <el-form-item label-width="10px">
       <el-radio-group v-model="curFilter">
         <el-radio-button label="all" @click="fnGetBy('all')"
-          >ALL</el-radio-button
+          >ALL({{ pokedexLength }}只)</el-radio-button
         >
         <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
           >帮忙速度↓</el-radio-button
@@ -215,37 +229,47 @@ onMounted(() => {
       <div v-for="resItem in showRes" v-bind:key="resItem.id">
         <h3>
           {{ resItem.title }}
-          <span class="extra">({{ resItem.list.length }}只)</span>
+          <span class="extra"
+            >({{ resItem.list.length }}只 /
+            {{ getPercent(resItem.list.length, pokedexLength, 2) }}%)</span
+          >
         </h3>
         <div class="poke-tb">
           <template v-if="curFilter === 'foodType'">
             <div
               class="poke-tb__col"
-              v-for="(levelItem, levelKey) in [0, 30, 60]"
-              v-bind:key="`${resItem.id}_${levelItem}`"
+              v-for="(levelItem, levelKey) in 3"
+              v-bind:key="`${resItem.id}_${levelKey}`"
             >
               <h4>
-                {{ levelItem }}级
-                <span class="extra">({{ resItem.list.filter(
-                    (pitem) => pitem.food.type[levelKey] === resItem.id
-                  ).length }}只)</span>
+                {{ resItem[`level${levelKey}List`].subTitle }}级
+                <span class="extra"
+                  >({{ resItem[`level${levelKey}List`].subList.length }}只
+                  <template
+                    v-if="resItem[`level${levelKey}List`].subList.length > 0"
+                  >
+                    /
+                    {{
+                      getPercent(
+                        resItem[`level${levelKey}List`].subList.length,
+                        pokedexLength,
+                        2
+                      )
+                    }}%</template>)
+                </span>
               </h4>
               <div
                 class="mod-tips"
-                v-if="
-                  resItem.list.filter(
-                    (pitem) => pitem.food.type[levelKey] === resItem.id
-                  ).length === 0
-                "
+                v-if="resItem[`level${levelKey}List`].subList.length === 0"
               >
                 无
               </div>
               <div class="poke-tb__sublist" v-else>
                 <div
                   class="poke-tb__item"
-                  v-for="(pokemonsItem, pokemonKey) in resItem.list.filter(
-                    (pitem) => pitem.food.type[levelKey] === resItem.id
-                  )"
+                  v-for="(pokemonsItem, pokemonKey) in resItem[
+                    `level${levelKey}List`
+                  ].subList"
                   v-bind:key="pokemonsItem.name"
                 >
                   <CptPoke

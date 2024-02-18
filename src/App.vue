@@ -57,7 +57,7 @@ onMounted(() => {
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">
       <PageFoodRec />
     </div>
-    <div class="page-item" :class="{ cur: showPageIndex === 3 }">
+    <div class="page-item page-pokedex" :class="{ cur: showPageIndex === 3 }">
       <PagePokedex />
     </div>
     <div

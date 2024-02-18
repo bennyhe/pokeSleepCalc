@@ -191,3 +191,18 @@ export function sortInObjectOptions(arr, options, updown) {
   }
   return arr
 }
+
+export function getPercent(count, sum, decimalPoint) {
+  decimalPoint = decimalPoint || 2
+  return getDecimalNumber((count / sum) * 100, decimalPoint)
+}
+/**
+ * 获取带指定位数小数点的数字
+ * @param {*} number 
+ * @param {*} decimalPoint 
+ * @returns 
+ */
+export function getDecimalNumber(number, decimalPoint) {
+  decimalPoint = decimalPoint || 2
+  return parseFloat(number.toFixed(decimalPoint))
+}
