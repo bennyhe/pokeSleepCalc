@@ -6,12 +6,14 @@ import { get, sortInObjectOptions, getPercent } from '../utils/index.js'
 import { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } from '../config/valKey.js'
 
 const pokedexLength = ref(0)
-const showRes = ref([])
 const curFilter = ref('all')
-const byHelpSpeedRes = ref([])
-const byBerryTypeRes = ref([])
-const bySkillTypeRes = ref([])
-const byFoodTypeRes = ref([])
+const filterResGroup = ref({
+  helpSpeed: {},
+  berryType: {},
+  skillType: {},
+  foodType: {}
+})
+
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
   const byHelpSpeedOrgList = []
@@ -115,7 +117,7 @@ const initFilterGroup = () => {
     )
   })
   byHelpSpeedResIn = sortInObjectOptions(byHelpSpeedResIn, ['helpSpeed'], 'up')
-  byHelpSpeedRes.value = byHelpSpeedResIn
+  filterResGroup.value.helpSpeed = byHelpSpeedResIn
 
   byBerryTypeResIn.forEach(item => {
     item.count = item.list.length
@@ -130,7 +132,7 @@ const initFilterGroup = () => {
     ['count', 'skillType'],
     'down'
   )
-  byBerryTypeRes.value = byBerryTypeResIn
+  filterResGroup.value.berryType = byBerryTypeResIn
 
   bySkillTypeResIn.forEach(item => {
     item.count = item.list.length
@@ -141,7 +143,7 @@ const initFilterGroup = () => {
     ['count', 'SkillType'],
     'down'
   )
-  bySkillTypeRes.value = bySkillTypeResIn
+  filterResGroup.value.skillType = bySkillTypeResIn
 
   const levelArr = [0, 30, 60]
   byFoodTypeResIn.forEach(resItem => {
@@ -159,7 +161,7 @@ const initFilterGroup = () => {
     })
   })
   byFoodTypeResIn = sortInObjectOptions(byFoodTypeResIn, ['count'], 'down')
-  byFoodTypeRes.value = byFoodTypeResIn
+  filterResGroup.value.foodType = byFoodTypeResIn
 }
 const getShowKeyVal = pokemonsItem => {
   const showKey = [
@@ -186,15 +188,7 @@ const getShowKeyVal = pokemonsItem => {
 }
 
 const fnGetBy = filterType => {
-  if (filterType === 'helpSpeed') {
-    showRes.value = byHelpSpeedRes.value
-  } else if (filterType === 'berryType') {
-    showRes.value = byBerryTypeRes.value
-  } else if (filterType === 'skillType') {
-    showRes.value = bySkillTypeRes.value
-  } else if (filterType === 'foodType') {
-    showRes.value = byFoodTypeRes.value
-  }
+  curFilter.value = 'filterType'
 }
 
 onMounted(() => {
@@ -226,7 +220,7 @@ onMounted(() => {
     <template v-if="curFilter !== 'all'">
       <div
         class="pokedex-list__item"
-        v-for="resItem in showRes"
+        v-for="resItem in filterResGroup[curFilter]"
         v-bind:key="resItem.id"
       >
         <h3>
