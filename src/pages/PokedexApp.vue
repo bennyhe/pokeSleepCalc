@@ -202,31 +202,33 @@ onMounted(() => {
 })
 </script>
 <template>
-  <h2>全图鉴速查<span class="extra">({{ pokedexLength }}只)</span></h2>
-  <el-form>
-    <el-form-item label-width="10px">
-      <el-radio-group v-model="curFilter">
-        <el-radio-button label="all" @click="fnGetBy('all')"
-          >ALL</el-radio-button
-        >
-        <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
-          >帮忙速度↓</el-radio-button
-        >
-        <el-radio-button label="berryType" @click="fnGetBy('berryType')"
-          >树果类型↓</el-radio-button
-        >
-        <el-radio-button label="foodType" @click="fnGetBy('foodType')"
-          >食材类型↓</el-radio-button
-        >
-        <el-radio-button label="skillType" @click="fnGetBy('skillType')"
-          >技能类型↓</el-radio-button
-        >
-      </el-radio-group>
-    </el-form-item>
-  </el-form>
+  <h2>
+    全图鉴速查<span class="extra">({{ pokedexLength }}只)</span>
+  </h2>
+  <div class="page-inner">
+    <el-radio-group v-model="curFilter">
+      <el-radio-button label="all" @click="fnGetBy('all')">ALL</el-radio-button>
+      <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
+        >帮忙速度↓</el-radio-button
+      >
+      <el-radio-button label="berryType" @click="fnGetBy('berryType')"
+        >树果类型↓</el-radio-button
+      >
+      <el-radio-button label="foodType" @click="fnGetBy('foodType')"
+        >食材类型↓</el-radio-button
+      >
+      <el-radio-button label="skillType" @click="fnGetBy('skillType')"
+        >技能类型↓</el-radio-button
+      >
+    </el-radio-group>
+  </div>
   <div class="pokedex-list">
     <template v-if="curFilter !== 'all'">
-      <div v-for="resItem in showRes" v-bind:key="resItem.id">
+      <div
+        class="pokedex-list__item"
+        v-for="resItem in showRes"
+        v-bind:key="resItem.id"
+      >
         <h3>
           {{ resItem.title }}
           <span class="extra"
@@ -255,7 +257,8 @@ onMounted(() => {
                         pokedexLength,
                         2
                       )
-                    }}%</template>)
+                    }}%</template
+                  >)
                 </span>
               </h4>
               <div

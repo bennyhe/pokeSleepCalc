@@ -501,6 +501,18 @@ h4 {
   h4 {
     padding: 0 8px;
   }
+
+  &__item {
+    padding: 5px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
+
+    &:nth-child(2n) {
+      background-color: rgba($color: $mainColor, $alpha: .1);
+    }
+  }
 }
 
 .helpprocess {
