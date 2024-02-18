@@ -206,3 +206,26 @@ export function getDecimalNumber(number, decimalPoint) {
   decimalPoint = decimalPoint || 2
   return parseFloat(number.toFixed(decimalPoint))
 }
+
+export function fnAccumulation (arr, key) {
+  const res = arr.reduce((acc, item) => acc + item[key], 0)
+  return res
+}
+
+import { COOKMENU } from '../config/cookmenu.js'
+export function findMenuWithFood(pokemonFoodKey) {
+  // console.log('pokemon:', pokemonFoodKey)
+  const res = []
+  for (const menuItem in COOKMENU) {
+    if (Object.hasOwnProperty.call(COOKMENU, menuItem)) {
+      const element = COOKMENU[menuItem]
+      for (let i = 0; i < element.from.length; i++) {
+        if (pokemonFoodKey.includes(element.from[i].id)) {
+          res.push(COOKMENU[menuItem])
+          break
+        }
+      }
+    }
+  }
+  return sortInObjectOptions(res, ['baseEnergy'], 'down')
+}

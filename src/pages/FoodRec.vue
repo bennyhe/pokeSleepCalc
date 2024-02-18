@@ -1,33 +1,14 @@
 <script setup>
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
-import { formatTime, sortInObjectOptions } from '../utils/index.js'
+import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
+import {
+  formatTime,
+  findMenuWithFood
+} from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
-import { COOKMENU } from '../config/cookmenu.js'
 import { foodRecommend } from '../config/foodRecommend.js'
-import { POKE_TYPES, FOOD_TYPES, MENU_TYPES } from '../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
-// console.log(COOKMENU)
-const findMenuWithFood = pokemonFoodKey => {
-  // console.log('pokemon:', pokemonFoodKey)
-  const res = []
-  for (const menuItem in COOKMENU) {
-    if (Object.hasOwnProperty.call(COOKMENU, menuItem)) {
-      const element = COOKMENU[menuItem]
-      for (let i = 0; i < element.from.length; i++) {
-        if (pokemonFoodKey.includes(element.from[i].id)) {
-          res.push(COOKMENU[menuItem])
-          break
-        }
-      }
-    }
-  }
-  return sortInObjectOptions(res, ['baseEnergy'], 'down')
-}
-
-const fnAccumulation = (arr, key) => {
-  const res = arr.reduce((acc, item) => acc + item[key], 0)
-  return res
-}
 </script>
 <template>
   <h2>食材宝可梦推荐</h2>
@@ -75,7 +56,10 @@ const fnAccumulation = (arr, key) => {
                 v-lazy="`./img/food/${allFoodItem}.png`"
                 :alt="FOOD_TYPES[allFoodItem]"
               />
-              <p class="cpt-food__count" v-if="pokedex[pokeItem.evoLine[0]].food">
+              <p
+                class="cpt-food__count"
+                v-if="pokedex[pokeItem.evoLine[0]].food"
+              >
                 {{
                   pokedex[pokeItem.evoLine[0]].food.count[allFoodItem].num[
                     foodKey
@@ -89,47 +73,20 @@ const fnAccumulation = (arr, key) => {
       <p class="desc" v-html="pokeItem.desc"></p>
       <div class="cpt-foodmenu-list">
         <h3>
-          关联食谱({{
-            findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type).length
-          }})
+          关联食谱<span class="extra"
+            >({{
+              findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type).length
+            }}个)</span
+          >
         </h3>
         <div class="cpt-foodmenu-scroll">
-          <div
-            class="cpt-foodmenu"
-            :class="`cpt-foodmenu--${menuItem.type}`"
+          <CptFoodmenu
             v-for="menuItem in findMenuWithFood(
               pokedex[pokeItem.evoLine[0]].food.type
             )"
             v-bind:key="menuItem.id"
-          >
-            <p class="cpt-foodmenu__name">
-              {{ MENU_TYPES[menuItem.id] }}({{
-                fnAccumulation(menuItem.from, "num")
-              }})
-            </p>
-            <div class="cpt-food all-food">
-              <div
-                class="cpt-food__item cur"
-                v-for="allFoodItem in menuItem.from"
-                v-bind:key="allFoodItem.id"
-              >
-                <img
-                  v-lazy="`./img/food/${allFoodItem.id}.png`"
-                  :alt="FOOD_TYPES[allFoodItem.id]"
-                />
-                <p>X{{ allFoodItem.num }}</p>
-              </div>
-            </div>
-            <p class="cpt-foodmenu__bs">
-              <img class="icon" v-lazy="`./img/ui/energy.png`" />
-              {{ menuItem.baseEnergy }}
-            </p>
-            <img
-              class="cpt-foodmenu__bg"
-              v-lazy="`./img/food/${menuItem.id}.png`"
-              :alt="MENU_TYPES[menuItem.id]"
-            />
-          </div>
+            :menuItem="menuItem"
+          />
         </div>
       </div>
     </li>

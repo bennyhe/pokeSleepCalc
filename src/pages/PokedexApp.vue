@@ -1,9 +1,19 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
-import { get, sortInObjectOptions, getPercent } from '../utils/index.js'
-import { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } from '../config/valKey.js'
+import {
+  FOOD_TYPES,
+  BERRY_TYPES,
+  SKILL_TYPES
+} from '../config/valKey.js'
+import {
+  get,
+  sortInObjectOptions,
+  getPercent,
+  findMenuWithFood
+} from '../utils/index.js'
 
 const pokedexLength = ref(0)
 const curFilter = ref('all')
@@ -148,6 +158,7 @@ const initFilterGroup = () => {
   const levelArr = [0, 30, 60]
   byFoodTypeResIn.forEach(resItem => {
     resItem.count = resItem.list.length
+    resItem.menuList = findMenuWithFood([resItem.id])
 
     levelArr.forEach((levelItem, levelKey) => {
       const res = resItem.list.filter(
@@ -232,6 +243,20 @@ onMounted(() => {
         </h3>
         <div class="poke-tb">
           <template v-if="curFilter === 'foodType'">
+            <div class="cpt-foodmenu-list">
+              <h3>
+                关联食谱<span class="extra"
+                  >({{ resItem.menuList.length }}个)</span
+                >
+              </h3>
+              <div class="cpt-foodmenu-scroll">
+                <CptFoodmenu
+                  v-for="menuItem in resItem.menuList"
+                  v-bind:key="menuItem.id"
+                  :menuItem="menuItem"
+                />
+              </div>
+            </div>
             <div
               class="poke-tb__col"
               v-for="(levelItem, levelKey) in 3"
