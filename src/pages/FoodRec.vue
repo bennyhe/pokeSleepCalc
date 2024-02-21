@@ -3,7 +3,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { formatTime, findMenuWithFood } from '../utils/index.js'
 import { pokedex } from '../config/pokedex.js'
-import { foodRecommend } from '../config/foodRecommend.js'
+import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
 import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
 const nFoodRecommend = { ...foodRecommend }
