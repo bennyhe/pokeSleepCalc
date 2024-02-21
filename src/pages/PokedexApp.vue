@@ -107,7 +107,7 @@ const initFilterGroup = () => {
         bySkillTypeResIn,
         bySkillTypeOrgList,
         'skillType',
-        `${SKILL_TYPES[pokeItem.skillType].name}`
+        `${SKILL_TYPES[pokeItem.skillType]}`
       )
 
       // 食材类型

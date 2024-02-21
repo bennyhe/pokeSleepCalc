@@ -99,7 +99,7 @@ const props = defineProps({
         props.showKey.includes('skillType')
       "
     >
-      {{ SKILL_TYPES[pokedex[pokeId].skillType].name }}
+      {{ SKILL_TYPES[pokedex[pokeId].skillType] }}
     </p>
     <div
       class="cpt-food cpt-food--s"
