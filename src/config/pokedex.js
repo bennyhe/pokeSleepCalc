@@ -48,6 +48,7 @@ const pokedex = {
   1: {
     id: 1,
     name: '妙蛙種子',
+    sleepType: 1,
     skillType: 10,
     pokeType: 2,
     berryType: 4,
@@ -71,6 +72,7 @@ const pokedex = {
   2: {
     id: 2,
     name: '妙蛙草',
+    sleepType: 1,
     skillType: 10,
     pokeType: 2,
     berryType: 4,
@@ -80,6 +82,7 @@ const pokedex = {
   3: {
     id: 3,
     name: '妙蛙花',
+    sleepType: 1,
     skillType: 10,
     pokeType: 2,
     berryType: 4,
@@ -89,6 +92,7 @@ const pokedex = {
   4: {
     id: 4,
     name: '小火龍',
+    sleepType: 2,
     skillType: 10,
     pokeType: 2,
     berryType: 10,
@@ -112,6 +116,7 @@ const pokedex = {
   5: {
     id: 5,
     name: '火恐龍',
+    sleepType: 2,
     skillType: 10,
     pokeType: 2,
     berryType: 10,
@@ -121,6 +126,7 @@ const pokedex = {
   6: {
     id: 6,
     name: '噴火龍',
+    sleepType: 2,
     skillType: 10,
     pokeType: 2,
     berryType: 10,
@@ -130,6 +136,7 @@ const pokedex = {
   7: {
     id: 7,
     name: '傑尼龜',
+    sleepType: 3,
     skillType: 10,
     pokeType: 2,
     berryType: 1,
@@ -153,6 +160,7 @@ const pokedex = {
   8: {
     id: 8,
     name: '卡咪龜',
+    sleepType: 3,
     skillType: 10,
     pokeType: 2,
     berryType: 1,
@@ -162,6 +170,7 @@ const pokedex = {
   9: {
     id: 9,
     name: '水箭龜',
+    sleepType: 3,
     skillType: 10,
     pokeType: 2,
     berryType: 1,
@@ -171,6 +180,7 @@ const pokedex = {
   10: {
     id: 10,
     name: '綠毛蟲',
+    sleepType: 1,
     skillType: 10,
     pokeType: 1,
     berryType: 9,
@@ -194,6 +204,7 @@ const pokedex = {
   11: {
     id: 11,
     name: '鐵甲蛹',
+    sleepType: 1,
     skillType: 10,
     pokeType: 1,
     berryType: 9,
@@ -203,6 +214,7 @@ const pokedex = {
   12: {
     id: 12,
     name: '巴大蝶',
+    sleepType: 1,
     skillType: 10,
     pokeType: 1,
     berryType: 9,
@@ -212,6 +224,7 @@ const pokedex = {
   19: {
     id: 19,
     name: '小拉達',
+    sleepType: 2,
     skillType: 7,
     pokeType: 1,
     berryType: 11,
@@ -235,6 +248,7 @@ const pokedex = {
   20: {
     id: 20,
     name: '拉達',
+    sleepType: 2,
     skillType: 7,
     pokeType: 1,
     berryType: 11,
@@ -244,6 +258,7 @@ const pokedex = {
   23: {
     id: 23,
     name: '阿柏蛇',
+    sleepType: 1,
     skillType: 7,
     pokeType: 1,
     berryType: 5,
@@ -267,6 +282,7 @@ const pokedex = {
   24: {
     id: 24,
     name: '阿柏怪',
+    sleepType: 1,
     skillType: 7,
     pokeType: 1,
     berryType: 5,
@@ -276,6 +292,7 @@ const pokedex = {
   25: {
     id: 25,
     name: '皮卡丘',
+    sleepType: 2,
     skillType: 1,
     pokeType: 1,
     berryType: 13,
@@ -285,6 +302,7 @@ const pokedex = {
   26: {
     id: 26,
     name: '雷丘',
+    sleepType: 2,
     skillType: 1,
     pokeType: 1,
     berryType: 13,
@@ -294,6 +312,7 @@ const pokedex = {
   35: {
     id: 35,
     name: '皮皮',
+    sleepType: 2,
     skillType: 13,
     pokeType: 1,
     berryType: 12,
@@ -304,6 +323,7 @@ const pokedex = {
   36: {
     id: 36,
     name: '皮可西',
+    sleepType: 2,
     skillType: 13,
     pokeType: 1,
     berryType: 12,
@@ -314,6 +334,7 @@ const pokedex = {
   39: {
     id: 39,
     name: '胖丁',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 12,
@@ -323,6 +344,7 @@ const pokedex = {
   40: {
     id: 40,
     name: '胖可丁',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 12,
@@ -332,6 +354,7 @@ const pokedex = {
   50: {
     id: 50,
     name: '地鼠',
+    sleepType: 2,
     skillType: 1,
     pokeType: 2,
     berryType: 15,
@@ -355,6 +378,7 @@ const pokedex = {
   51: {
     id: 51,
     name: '三地鼠',
+    sleepType: 2,
     skillType: 1,
     pokeType: 2,
     berryType: 15,
@@ -364,6 +388,7 @@ const pokedex = {
   52: {
     id: 52,
     name: '喵喵',
+    sleepType: 2,
     skillType: 3,
     pokeType: 3,
     berryType: 11,
@@ -384,6 +409,7 @@ const pokedex = {
   53: {
     id: 53,
     name: '貓老大',
+    sleepType: 2,
     skillType: 3,
     pokeType: 3,
     berryType: 11,
@@ -393,6 +419,7 @@ const pokedex = {
   54: {
     id: 54,
     name: '可達鴨',
+    sleepType: 1,
     skillType: 5,
     pokeType: 3,
     berryType: 1,
@@ -416,6 +443,7 @@ const pokedex = {
   55: {
     id: 55,
     name: '哥達鴨',
+    sleepType: 3,
     skillType: 5,
     pokeType: 3,
     berryType: 1,
@@ -425,6 +453,7 @@ const pokedex = {
   56: {
     id: 56,
     name: '猴怪',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 18,
@@ -448,6 +477,7 @@ const pokedex = {
   57: {
     id: 57,
     name: '火爆猴',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 18,
@@ -457,6 +487,7 @@ const pokedex = {
   58: {
     id: 58,
     name: '卡蒂狗',
+    sleepType: 2,
     skillType: 9,
     pokeType: 3,
     berryType: 10,
@@ -480,6 +511,7 @@ const pokedex = {
   59: {
     id: 59,
     name: '風速狗',
+    sleepType: 2,
     skillType: 9,
     pokeType: 3,
     berryType: 10,
@@ -489,6 +521,7 @@ const pokedex = {
   69: {
     id: 69,
     name: '喇叭芽',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 4,
@@ -512,6 +545,7 @@ const pokedex = {
   70: {
     id: 70,
     name: '口呆花',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 4,
@@ -521,6 +555,7 @@ const pokedex = {
   71: {
     id: 71,
     name: '大食花',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 4,
@@ -530,6 +565,7 @@ const pokedex = {
   74: {
     id: 74,
     name: '小拳石',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     berryType: 14,
@@ -553,6 +589,7 @@ const pokedex = {
   75: {
     id: 75,
     name: '隆隆石',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     berryType: 14,
@@ -562,6 +599,7 @@ const pokedex = {
   76: {
     id: 76,
     name: '隆隆岩',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     berryType: 14,
@@ -571,6 +609,7 @@ const pokedex = {
   79: {
     id: 79,
     name: '呆呆獸',
+    sleepType: 2,
     skillType: 4,
     pokeType: 3,
     berryType: 1,
@@ -594,6 +633,7 @@ const pokedex = {
   80: {
     id: 80,
     name: '呆殼獸',
+    sleepType: 2,
     skillType: 4,
     pokeType: 3,
     berryType: 1,
@@ -603,6 +643,7 @@ const pokedex = {
   81: {
     id: 81,
     name: '小磁怪',
+    sleepType: 3,
     skillType: 11,
     pokeType: 3,
     berryType: 2,
@@ -623,6 +664,7 @@ const pokedex = {
   82: {
     id: 82,
     name: '三合一磁怪',
+    sleepType: 3,
     skillType: 11,
     pokeType: 3,
     berryType: 2,
@@ -632,6 +674,7 @@ const pokedex = {
   84: {
     id: 84,
     name: '嘟嘟',
+    sleepType: 3,
     skillType: 7,
     pokeType: 1,
     berryType: 16,
@@ -655,6 +698,7 @@ const pokedex = {
   85: {
     id: 85,
     name: '嘟嘟利',
+    sleepType: 3,
     skillType: 7,
     pokeType: 1,
     berryType: 16,
@@ -664,6 +708,7 @@ const pokedex = {
   92: {
     id: 92,
     name: '鬼斯',
+    sleepType: 1,
     skillType: 5,
     pokeType: 2,
     berryType: 8,
@@ -687,6 +732,7 @@ const pokedex = {
   93: {
     id: 93,
     name: '鬼斯通',
+    sleepType: 1,
     skillType: 5,
     pokeType: 2,
     berryType: 8,
@@ -696,6 +742,7 @@ const pokedex = {
   94: {
     id: 94,
     name: '耿鬼',
+    sleepType: 1,
     skillType: 5,
     pokeType: 2,
     berryType: 8,
@@ -705,6 +752,7 @@ const pokedex = {
   95: {
     id: 95,
     name: '大岩蛇',
+    sleepType: 3,
     skillType: 10,
     pokeType: 1,
     helpSpeed: 3100,
@@ -728,6 +776,7 @@ const pokedex = {
   104: {
     id: 104,
     name: '卡拉卡拉',
+    sleepType: 3,
     skillType: 7,
     pokeType: 1,
     berryType: 15,
@@ -748,6 +797,7 @@ const pokedex = {
   105: {
     id: 105,
     name: '嘎啦嘎啦',
+    sleepType: 3,
     skillType: 7,
     pokeType: 1,
     berryType: 15,
@@ -757,6 +807,7 @@ const pokedex = {
   115: {
     id: 115,
     name: '袋獸',
+    sleepType: 2,
     skillType: 10,
     pokeType: 2,
     berryType: 11,
@@ -780,6 +831,7 @@ const pokedex = {
   122: {
     id: 122,
     name: '魔牆人偶',
+    sleepType: 2,
     skillType: 1,
     pokeType: 2,
     berryType: 6,
@@ -789,6 +841,7 @@ const pokedex = {
   127: {
     id: 127,
     name: '凱羅斯',
+    sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 9,
@@ -812,6 +865,7 @@ const pokedex = {
   132: {
     id: 132,
     name: '百變怪',
+    sleepType: 2,
     skillType: 5,
     pokeType: 2,
     berryType: 11,
@@ -835,6 +889,7 @@ const pokedex = {
   133: {
     id: 133,
     name: '伊布',
+    sleepType: 2,
     skillType: 10,
     pokeType: 3,
     berryType: 11,
@@ -858,6 +913,7 @@ const pokedex = {
   134: {
     id: 134,
     name: '水伊布',
+    sleepType: 3,
     skillType: 10,
     pokeType: 3,
     berryType: 1,
@@ -867,6 +923,7 @@ const pokedex = {
   135: {
     id: 135,
     name: '雷伊布',
+    sleepType: 2,
     skillType: 9,
     pokeType: 3,
     berryType: 13,
@@ -876,6 +933,7 @@ const pokedex = {
   136: {
     id: 136,
     name: '火伊布',
+    sleepType: 2,
     skillType: 11,
     pokeType: 3,
     berryType: 10,
@@ -885,6 +943,7 @@ const pokedex = {
   147: {
     id: 147,
     name: '迷你龍',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 3,
@@ -908,6 +967,7 @@ const pokedex = {
   148: {
     id: 148,
     name: '哈克龍',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 3,
@@ -917,6 +977,7 @@ const pokedex = {
   149: {
     id: 149,
     name: '快龍',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 3,
@@ -926,6 +987,7 @@ const pokedex = {
   152: {
     id: 152,
     name: '菊草葉',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 4,
@@ -949,6 +1011,7 @@ const pokedex = {
   153: {
     id: 153,
     name: '月桂葉',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 4,
@@ -958,6 +1021,7 @@ const pokedex = {
   154: {
     id: 154,
     name: '大竺葵',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 4,
@@ -967,6 +1031,7 @@ const pokedex = {
   155: {
     id: 155,
     name: '火球鼠',
+    sleepType: 2,
     skillType: 5,
     pokeType: 1,
     berryType: 10,
@@ -990,6 +1055,7 @@ const pokedex = {
   156: {
     id: 156,
     name: '火岩鼠',
+    sleepType: 2,
     skillType: 5,
     pokeType: 1,
     berryType: 10,
@@ -999,6 +1065,7 @@ const pokedex = {
   157: {
     id: 157,
     name: '火爆獸',
+    sleepType: 2,
     skillType: 5,
     pokeType: 1,
     berryType: 10,
@@ -1008,6 +1075,7 @@ const pokedex = {
   158: {
     id: 158,
     name: '小鋸鱷',
+    sleepType: 3,
     skillType: 5,
     pokeType: 1,
     berryType: 1,
@@ -1028,6 +1096,7 @@ const pokedex = {
   159: {
     id: 159,
     name: '藍鱷',
+    sleepType: 3,
     skillType: 5,
     pokeType: 1,
     berryType: 1,
@@ -1037,6 +1106,7 @@ const pokedex = {
   160: {
     id: 160,
     name: '大力鱷',
+    sleepType: 3,
     skillType: 5,
     pokeType: 1,
     berryType: 1,
@@ -1046,6 +1116,7 @@ const pokedex = {
   172: {
     id: 172,
     name: '皮丘',
+    sleepType: 3,
     skillType: 1,
     pokeType: 1,
     berryType: 13,
@@ -1069,6 +1140,7 @@ const pokedex = {
   173: {
     id: 173,
     name: '皮寶寶',
+    sleepType: 3,
     skillType: 13,
     pokeType: 1,
     berryType: 12,
@@ -1093,6 +1165,7 @@ const pokedex = {
   174: {
     id: 174,
     name: '寶寶丁',
+    sleepType: 3,
     skillType: 8,
     pokeType: 3,
     berryType: 12,
@@ -1116,6 +1189,7 @@ const pokedex = {
   175: {
     id: 175,
     name: '波克比',
+    sleepType: 3,
     skillType: 13,
     pokeType: 3,
     berryType: 12,
@@ -1139,6 +1213,7 @@ const pokedex = {
   176: {
     id: 176,
     name: '波克基古',
+    sleepType: 2,
     skillType: 13,
     pokeType: 3,
     berryType: 12,
@@ -1148,6 +1223,7 @@ const pokedex = {
   179: {
     id: 179,
     name: '咩利羊',
+    sleepType: 2,
     skillType: 2,
     pokeType: 3,
     berryType: 13,
@@ -1168,6 +1244,7 @@ const pokedex = {
   180: {
     id: 180,
     name: '茸茸羊',
+    sleepType: 2,
     skillType: 2,
     pokeType: 3,
     berryType: 13,
@@ -1177,6 +1254,7 @@ const pokedex = {
   181: {
     id: 181,
     name: '電龍',
+    sleepType: 2,
     skillType: 2,
     pokeType: 3,
     berryType: 13,
@@ -1186,6 +1264,7 @@ const pokedex = {
   185: {
     id: 185,
     name: '樹才怪',
+    sleepType: 3,
     skillType: 2,
     pokeType: 3,
     berryType: 14,
@@ -1195,6 +1274,7 @@ const pokedex = {
   196: {
     id: 196,
     name: '太陽伊布',
+    sleepType: 2,
     skillType: 2,
     berryType: 6,
     pokeType: 3,
@@ -1204,6 +1284,7 @@ const pokedex = {
   197: {
     id: 197,
     name: '月亮伊布',
+    sleepType: 1,
     skillType: 7,
     pokeType: 3,
     berryType: 17,
@@ -1213,6 +1294,7 @@ const pokedex = {
   199: {
     id: 199,
     name: '呆呆王',
+    sleepType: 2,
     skillType: 4,
     pokeType: 3,
     berryType: 1,
@@ -1222,6 +1304,7 @@ const pokedex = {
   202: {
     id: 202,
     name: '果然翁',
+    sleepType: 2,
     skillType: 4,
     pokeType: 3,
     berryType: 6,
@@ -1231,6 +1314,7 @@ const pokedex = {
   208: {
     id: 208,
     name: '大鋼蛇',
+    sleepType: 3,
     skillType: 10,
     pokeType: 1,
     berryType: 2,
@@ -1240,6 +1324,7 @@ const pokedex = {
   214: {
     id: 214,
     name: '赫拉克羅斯',
+    sleepType: 1,
     skillType: 10,
     pokeType: 3,
     berryType: 9,
@@ -1263,6 +1348,7 @@ const pokedex = {
   225: {
     id: 225,
     name: '信使鳥',
+    sleepType: 1,
     skillType: 10,
     pokeType: 2,
     berryType: 16,
@@ -1286,6 +1372,7 @@ const pokedex = {
   228: {
     id: 228,
     name: '戴魯比',
+    sleepType: 1,
     skillType: 1,
     pokeType: 1,
     berryType: 17,
@@ -1309,6 +1396,7 @@ const pokedex = {
   229: {
     id: 229,
     name: '黑魯加',
+    sleepType: 1,
     skillType: 1,
     pokeType: 1,
     berryType: 17,
@@ -1318,6 +1406,7 @@ const pokedex = {
   246: {
     id: 246,
     name: '幼基拉斯',
+    sleepType: 3,
     skillType: 7,
     pokeType: 2,
     berryType: 14,
@@ -1341,6 +1430,7 @@ const pokedex = {
   247: {
     id: 247,
     name: '沙基拉斯',
+    sleepType: 3,
     skillType: 7,
     pokeType: 2,
     berryType: 14,
@@ -1350,6 +1440,7 @@ const pokedex = {
   248: {
     id: 248,
     name: '班基拉斯',
+    sleepType: 1,
     skillType: 7,
     pokeType: 2,
     berryType: 17,
@@ -1359,6 +1450,7 @@ const pokedex = {
   280: {
     id: 280,
     name: '拉魯拉絲',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 6,
@@ -1382,6 +1474,7 @@ const pokedex = {
   281: {
     id: 281,
     name: '奇魯莉安',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 6,
@@ -1391,6 +1484,7 @@ const pokedex = {
   282: {
     id: 282,
     name: '沙奈朵',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 6,
@@ -1400,6 +1494,7 @@ const pokedex = {
   287: {
     id: 287,
     name: '懶人獺',
+    sleepType: 2,
     skillType: 10,
     pokeType: 1,
     berryType: 11,
@@ -1423,6 +1518,7 @@ const pokedex = {
   288: {
     id: 288,
     name: '過動猿',
+    sleepType: 1,
     skillType: 10,
     pokeType: 1,
     berryType: 11,
@@ -1432,6 +1528,7 @@ const pokedex = {
   289: {
     id: 289,
     name: '請假王',
+    sleepType: 2,
     skillType: 10,
     pokeType: 1,
     berryType: 11,
@@ -1441,6 +1538,7 @@ const pokedex = {
   302: {
     id: 302,
     name: '勾魂眼',
+    sleepType: 1,
     skillType: 6,
     pokeType: 3,
     berryType: 17,
@@ -1464,6 +1562,7 @@ const pokedex = {
   316: {
     id: 316,
     name: '溶食獸',
+    sleepType: 1,
     skillType: 6,
     pokeType: 3,
     berryType: 5,
@@ -1487,6 +1586,7 @@ const pokedex = {
   317: {
     id: 317,
     name: '吞食獸',
+    sleepType: 1,
     skillType: 6,
     pokeType: 3,
     berryType: 5,
@@ -1496,6 +1596,7 @@ const pokedex = {
   333: {
     id: 333,
     name: '青綿鳥',
+    sleepType: 3,
     skillType: 7,
     pokeType: 1,
     berryType: 16,
@@ -1519,6 +1620,7 @@ const pokedex = {
   334: {
     id: 334,
     name: '七夕青鳥',
+    sleepType: 1,
     skillType: 7,
     pokeType: 1,
     berryType: 3,
@@ -1528,6 +1630,7 @@ const pokedex = {
   353: {
     id: 353,
     name: '怨影娃娃',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 8,
@@ -1552,6 +1655,7 @@ const pokedex = {
   354: {
     id: 354,
     name: '詛咒娃娃',
+    sleepType: 1,
     skillType: 5,
     pokeType: 1,
     berryType: 8,
@@ -1562,6 +1666,7 @@ const pokedex = {
   359: {
     id: 359,
     name: '阿勃梭魯',
+    sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 17,
@@ -1585,6 +1690,7 @@ const pokedex = {
   360: {
     id: 360,
     name: '小果然',
+    sleepType: 3,
     skillType: 4,
     pokeType: 3,
     helpSpeed: 5800,
@@ -1608,6 +1714,7 @@ const pokedex = {
   363: {
     id: 363,
     name: '海豹球',
+    sleepType: 3,
     skillType: 10,
     pokeType: 1,
     helpSpeed: 5600,
@@ -1631,6 +1738,7 @@ const pokedex = {
   364: {
     id: 364,
     name: '海魔獅',
+    sleepType: 3,
     skillType: 10,
     pokeType: 1,
     helpSpeed: 4000,
@@ -1640,6 +1748,7 @@ const pokedex = {
   365: {
     id: 365,
     name: '帝牙海獅',
+    sleepType: 3,
     skillType: 10,
     pokeType: 1,
     helpSpeed: 3000,
@@ -1649,6 +1758,7 @@ const pokedex = {
   438: {
     id: 438,
     name: '盆才怪',
+    sleepType: 3,
     skillType: 2,
     pokeType: 3,
     helpSpeed: 6300,
@@ -1672,6 +1782,7 @@ const pokedex = {
   439: {
     id: 439,
     name: '魔尼尼',
+    sleepType: 3,
     skillType: 1,
     pokeType: 2,
     berryType: 6,
@@ -1695,6 +1806,7 @@ const pokedex = {
   447: {
     id: 447,
     name: '利歐路',
+    sleepType: 3,
     skillType: 3,
     pokeType: 3,
     helpSpeed: 4200,
@@ -1718,6 +1830,7 @@ const pokedex = {
   448: {
     id: 448,
     name: '路卡利歐',
+    sleepType: 3,
     skillType: 3,
     pokeType: 3,
     helpSpeed: 2700,
@@ -1727,6 +1840,7 @@ const pokedex = {
   453: {
     id: 453,
     name: '不良蛙',
+    sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 5,
@@ -1747,6 +1861,7 @@ const pokedex = {
   454: {
     id: 454,
     name: '毒骷蛙',
+    sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 5,
@@ -1756,6 +1871,7 @@ const pokedex = {
   459: {
     id: 459,
     name: '雪笠怪',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     berryType: 7,
@@ -1779,6 +1895,7 @@ const pokedex = {
   460: {
     id: 460,
     name: '暴雪王',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     berryType: 7,
@@ -1788,6 +1905,7 @@ const pokedex = {
   462: {
     id: 462,
     name: '自爆磁怪',
+    sleepType: 3,
     skillType: 11,
     pokeType: 3,
     berryType: 2,
@@ -1797,6 +1915,7 @@ const pokedex = {
   468: {
     id: 468,
     name: '波克基斯',
+    sleepType: 2,
     skillType: 13,
     pokeType: 3,
     berryType: 12,
@@ -1806,6 +1925,7 @@ const pokedex = {
   470: {
     id: 470,
     name: '葉伊布',
+    sleepType: 1,
     skillType: 4,
     pokeType: 3,
     berryType: 4,
@@ -1815,6 +1935,7 @@ const pokedex = {
   471: {
     id: 471,
     name: '冰伊布',
+    sleepType: 3,
     skillType: 11,
     pokeType: 3,
     berryType: 7,
@@ -1824,6 +1945,7 @@ const pokedex = {
   475: {
     id: 475,
     name: '艾路雷朵',
+    sleepType: 3,
     skillType: 9,
     pokeType: 3,
     berryType: 18,
@@ -1833,6 +1955,7 @@ const pokedex = {
   700: {
     id: 700,
     name: '仙子伊布',
+    sleepType: 2,
     skillType: 8,
     pokeType: 3,
     berryType: 12,
@@ -1842,6 +1965,7 @@ const pokedex = {
   759: {
     id: 759,
     name: '童偶熊',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     helpSpeed: 4100,
@@ -1865,6 +1989,7 @@ const pokedex = {
   760: {
     id: 760,
     name: '穿著熊',
+    sleepType: 3,
     skillType: 5,
     pokeType: 2,
     helpSpeed: 2800,
@@ -1874,6 +1999,7 @@ const pokedex = {
   9001: {
     id: 9001,
     name: '皮卡丘（萬聖節）',
+    sleepType: 2,
     skillType: 5,
     pokeType: 1,
     berryType: 13,
@@ -1884,6 +2010,7 @@ const pokedex = {
   9002: {
     id: 9002,
     name: '皮卡丘（佳節）',
+    sleepType: 2,
     skillType: 3,
     pokeType: 3,
     berryType: 13,

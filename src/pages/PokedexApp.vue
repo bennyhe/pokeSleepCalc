@@ -6,7 +6,8 @@ import { pokedex } from '../config/pokedex.js'
 import {
   FOOD_TYPES,
   BERRY_TYPES,
-  SKILL_TYPES
+  SKILL_TYPES,
+  SLEEP_TYPES
 } from '../config/valKey.js'
 import {
   get,
@@ -21,8 +22,23 @@ const filterResGroup = ref({
   helpSpeed: {},
   berryType: {},
   skillType: {},
-  foodType: {}
+  foodType: {},
+  sleepType: {}
 })
+
+const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
+  if (pokeItem[keyVel] && !orgList.includes(pokeItem[keyVel])) {
+    const resItem = {
+      id: pokeItem[keyVel],
+      title: title,
+      list: []
+    }
+    resItem[keyVel] = pokeItem[keyVel]
+    resList.push(resItem)
+    orgList.push(pokeItem[keyVel])
+  }
+  resList.find(item => item[keyVel] === pokeItem[keyVel]).list.push(pokeItem)
+}
 
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
@@ -33,6 +49,9 @@ const initFilterGroup = () => {
 
   let bySkillTypeResIn = []
   const bySkillTypeOrgList = []
+
+  let bySleepTypeResIn = []
+  const bySleepTypeOrgList = []
 
   let byFoodTypeResIn = []
 
@@ -56,55 +75,40 @@ const initFilterGroup = () => {
       const pokeItem = pokedex[pokeKey]
 
       // 帮忙速度分类
-      if (
-        pokeItem.helpSpeed &&
-        !byHelpSpeedOrgList.includes(pokeItem.helpSpeed)
-      ) {
-        byHelpSpeedResIn.push({
-          id: pokeItem.helpSpeed,
-          helpSpeed: pokeItem.helpSpeed,
-          title: `${pokeItem.helpSpeed}s`,
-          list: []
-        })
-        byHelpSpeedOrgList.push(pokeItem.helpSpeed)
-      }
-      byHelpSpeedResIn
-        .find(item => item.helpSpeed === pokeItem.helpSpeed)
-        .list.push(pokeItem)
+      filterItemInFor(
+        pokeItem,
+        byHelpSpeedResIn,
+        byHelpSpeedOrgList,
+        'helpSpeed',
+        `${pokeItem.helpSpeed}s`
+      )
+
+      // 睡眠类型分类
+      filterItemInFor(
+        pokeItem,
+        bySleepTypeResIn,
+        bySleepTypeOrgList,
+        'sleepType',
+        SLEEP_TYPES[pokeItem.sleepType]
+      )
 
       // 树果类型
-      if (
-        pokeItem.berryType &&
-        !byBerryTypeOrgList.includes(pokeItem.berryType)
-      ) {
-        byBerryTypeResIn.push({
-          id: pokeItem.berryType,
-          berryType: pokeItem.berryType,
-          title: `${BERRY_TYPES[pokeItem.berryType]}`,
-          list: []
-        })
-        byBerryTypeOrgList.push(pokeItem.berryType)
-      }
-      byBerryTypeResIn
-        .find(item => item.berryType === pokeItem.berryType)
-        .list.push(pokeItem)
+      filterItemInFor(
+        pokeItem,
+        byBerryTypeResIn,
+        byBerryTypeOrgList,
+        'berryType',
+        `${BERRY_TYPES[pokeItem.berryType]}`
+      )
 
       // 技能类型
-      if (
-        pokeItem.skillType &&
-        !bySkillTypeOrgList.includes(pokeItem.skillType)
-      ) {
-        bySkillTypeResIn.push({
-          id: pokeItem.skillType,
-          skillType: pokeItem.skillType,
-          title: `${SKILL_TYPES[pokeItem.skillType].name}`,
-          list: []
-        })
-        bySkillTypeOrgList.push(pokeItem.skillType)
-      }
-      bySkillTypeResIn
-        .find(item => item.skillType === pokeItem.skillType)
-        .list.push(pokeItem)
+      filterItemInFor(
+        pokeItem,
+        bySkillTypeResIn,
+        bySkillTypeOrgList,
+        'skillType',
+        `${SKILL_TYPES[pokeItem.skillType].name}`
+      )
 
       // 食材类型
       if (get('food.type', pokeItem, 1)) {
@@ -128,6 +132,12 @@ const initFilterGroup = () => {
   })
   byHelpSpeedResIn = sortInObjectOptions(byHelpSpeedResIn, ['helpSpeed'], 'up')
   filterResGroup.value.helpSpeed = byHelpSpeedResIn
+
+  bySleepTypeResIn.forEach(item => {
+    item.count = item.list.length
+  })
+  bySleepTypeResIn = sortInObjectOptions(bySleepTypeResIn, ['count'], 'down')
+  filterResGroup.value.sleepType = bySleepTypeResIn
 
   byBerryTypeResIn.forEach(item => {
     item.count = item.list.length
@@ -181,7 +191,8 @@ const getShowKeyVal = pokemonsItem => {
     'pokeType',
     'skillType',
     'foodPer',
-    'fullFood'
+    'fullFood',
+    'sleepType'
   ]
   // if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
   //   const res = pokedex[pokemonsItem]
@@ -224,6 +235,9 @@ onMounted(() => {
       >
       <el-radio-button label="skillType" @click="fnGetBy('skillType')"
         >技能类型↓</el-radio-button
+      >
+      <el-radio-button label="sleepType" @click="fnGetBy('sleepType')"
+        >睡眠类型↓</el-radio-button
       >
     </el-radio-group>
   </div>

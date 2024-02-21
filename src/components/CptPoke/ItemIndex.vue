@@ -6,7 +6,8 @@ import {
   POKE_TYPES,
   FOOD_TYPES,
   BERRY_TYPES,
-  SKILL_TYPES
+  SKILL_TYPES,
+  SLEEP_TYPES
 } from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
@@ -33,6 +34,17 @@ const props = defineProps({
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name" />
+    </div>
+    <div
+      class="i i-sleeptype"
+      :class="`i i-sleeptype--${pokedex[pokeId].sleepType}`"
+      v-if="
+        pokedex[pokeId].sleepType &&
+        props.showKey &&
+        props.showKey.includes('sleepType')
+      "
+    >
+      {{ SLEEP_TYPES[pokedex[pokeId].sleepType] }}
     </div>
     <p
       v-if="
@@ -77,7 +89,7 @@ const props = defineProps({
         props.showKey.includes('helpSpeedHM')
       "
     >
-      {{ toHM(props.helpSpeed || pokedex[pokeId].helpSpeed, 'sec') }}
+      {{ toHM(props.helpSpeed || pokedex[pokeId].helpSpeed, "sec") }}
     </p>
     <p
       class="cpt-pokemon__skill"

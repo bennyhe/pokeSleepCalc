@@ -34,6 +34,26 @@ body {
     border-radius: 100%;
     background-color: #fff;
   }
+
+  &-sleeptype {
+    border-radius: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 6px;
+
+    &--1 {
+      background-color: lighten(#ffec6f, 12%);
+      color: lighten(#795516, 12%);
+    }
+    &--2 {
+      background-color: lighten(#4488fb, 12%);
+      color: #fff;
+    }
+    &--3 {
+      background-color: lighten(#85fbff, 12%);
+      color: lighten(#166a7c, 12%);
+    }
+  }
 }
 
 .icon {
@@ -292,6 +312,10 @@ h4 {
   }
 
   .cpt-food {
+    margin-bottom: 3px;
+  }
+
+  .i-sleeptype {
     margin-bottom: 3px;
   }
 }
