@@ -109,6 +109,10 @@ const getNewHelpSpeed = (formData, level) => {
   if (formData.skill.includes('hg5')) {
     basichelp += 0.05 * 5
   }
+  if (basichelp >= 0.35) {
+    // 所有帮忙技能加起来不能大于35%
+    basichelp = 0.35
+  }
   let res =
     formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
   if (helpSpeedCalcForm.value.isUseTicket) {
@@ -571,6 +575,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
         </el-checkbox-group>
       </div>
+      <div class="mod-tips">注：所有帮忙技能加成累积不能超过35%。</div>
     </el-form-item>
     <el-form-item label="性格">
       <el-radio-group v-model="helpSpeedCalcForm.character">
