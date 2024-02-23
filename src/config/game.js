@@ -457,7 +457,7 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师17',
+        'name': '大师17以上',
         'energy': 1795052,
         'sleepStyles': [
           '462-id-3'
@@ -833,7 +833,7 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师17',
+        'name': '大师17以上',
         'energy': 2064310,
         'sleepStyles': []
       }
@@ -1212,7 +1212,7 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师17',
+        'name': '大师17以上',
         'energy': 2333568,
         'sleepStyles': []
       }
@@ -1229,103 +1229,370 @@ const gameMap = [
       { catchNum: 6, startscore: 15469235, endscore: 28772748 },
       { catchNum: 7, startscore: 28772766, endscore: 65691968 },
       { catchNum: 8, startscore: 65701088 }],
-    levelList: [{
-      name: '普通1',
-      energy: 0,
-      sleepStyles: []
-    }, {
-      name: '普通2',
-      energy: 10486,
-      sleepStyles: []
-    }, {
-      name: '普通3',
-      energy: 24118,
-      sleepStyles: []
-    }, {
-      name: '普通4',
-      energy: 39323,
-      sleepStyles: []
-    }, {
-      name: '普通5',
-      energy: 57673,
-      sleepStyles: []
-    }, {
-      name: '超级1',
-      energy: 78645,
-      sleepStyles: []
-    }, {
-      name: '超级2',
-      energy: 105909,
-      sleepStyles: []
-    }, {
-      name: '超级3',
-      energy: 138940,
-      sleepStyles: []
-    }, {
-      name: '超级4',
-      energy: 178262,
-      sleepStyles: []
-    }, {
-      name: '超级5',
-      energy: 220730,
-      sleepStyles: []
-    }, {
-      name: '高级1',
-      energy: 266344,
-      sleepStyles: []
-    }, {
-      name: '高级2',
-      energy: 314580,
-      sleepStyles: []
-    }, {
-      name: '高级3',
-      energy: 367010,
-      sleepStyles: []
-    }, {
-      name: '高级4',
-      energy: 424683,
-      sleepStyles: []
-    }, {
-      name: '高级5',
-      energy: 488123,
-      sleepStyles: []
-    }, {
-      name: '大师1',
-      energy: 557907,
-      sleepStyles: []
-    }, {
-      name: '大师2',
-      energy: 634669,
-      sleepStyles: []
-    }, {
-      name: '大师3',
-      energy: 719107,
-      sleepStyles: []
-    }, {
-      name: '大师4',
-      energy: 811989,
-      sleepStyles: []
-    }, {
-      name: '大师5',
-      energy: 914159,
-      sleepStyles: []
-    }, {
-      name: '大师6',
-      energy: 1026546,
-      sleepStyles: []
-    }, {
-      name: '大师7',
-      energy: 1150172,
-      sleepStyles: []
-    }, {
-      name: '大师8',
-      energy: 1286161,
-      sleepStyles: []
-    }, {
-      name: '大师9以上',
-      energy: 1435749,
-      sleepStyles: []
-    }]
+    levelList: [
+      {
+        'name': '普通1',
+        'energy': 0,
+        'sleepStyles': [
+          '133-id-1',
+          '19-id-1',
+          '19-id-2',
+          '39-id-1',
+          '79-id-1',
+          '79-id-2',
+          '175-id-1',
+          '175-id-2',
+          '74-id-1',
+          '74-id-2',
+          '104-id-1',
+          '104-id-2',
+          '56-id-1',
+          '56-id-2',
+          '69-id-1',
+          '69-id-2',
+          '179-id-1',
+          '179-id-2',
+          '54-id-1',
+          '54-id-2',
+          '92-id-1',
+          '92-id-2',
+          '202-id-1',
+          '316-id-1',
+          '316-id-2',
+          '333-id-1',
+          '333-id-2',
+          '360-id-1',
+          '360-id-2',
+          '453-id-1',
+          '453-id-2',
+          '287-id-1',
+          '287-id-2',
+          '447-id-1',
+          '363-id-1',
+          '363-id-2',
+          '173-id-1',
+          '173-id-2',
+          '35-id-1',
+          '459-id-1',
+          '459-id-2'
+        ]
+      },
+      {
+        'name': '普通2',
+        'energy': 10486,
+        'sleepStyles': [
+          '105-id-1',
+          '180-id-1',
+          '317-id-1',
+          '454-id-1',
+          '447-id-2',
+          '364-id-1'
+        ]
+      },
+      {
+        'name': '普通3',
+        'energy': 24118,
+        'sleepStyles': [
+          '133-id-2',
+          '39-id-2',
+          '202-id-2',
+          '288-id-1',
+          '35-id-2'
+        ]
+      },
+      {
+        'name': '普通4',
+        'energy': 39323,
+        'sleepStyles': [
+          '20-id-1',
+          '93-id-1',
+          '57-id-1',
+          '176-id-1'
+        ]
+      },
+      {
+        'name': '普通5',
+        'energy': 57673,
+        'sleepStyles': [
+          '132-id-1'
+        ]
+      },
+      {
+        'name': '超级1',
+        'energy': 78645,
+        'sleepStyles': [
+          '133-id-4',
+          '19-id-3',
+          '19-id-4',
+          '39-id-4',
+          '175-id-3',
+          '175-id-4',
+          '74-id-3',
+          '74-id-4',
+          '104-id-3',
+          '104-id-4',
+          '56-id-3',
+          '56-id-4',
+          '69-id-3',
+          '69-id-4',
+          '179-id-3',
+          '179-id-4',
+          '54-id-4',
+          '80-id-1',
+          '92-id-3',
+          '105-id-2',
+          '180-id-2',
+          '316-id-4',
+          '317-id-2',
+          '333-id-3',
+          '333-id-4',
+          '360-id-3',
+          '360-id-4',
+          '453-id-3',
+          '453-id-4',
+          '454-id-2',
+          '447-id-4',
+          '363-id-3',
+          '363-id-4',
+          '364-id-2'
+        ]
+      },
+      {
+        'name': '超级2',
+        'energy': 105909,
+        'sleepStyles': [
+          '79-id-3',
+          '54-id-3',
+          '105-id-4',
+          '180-id-4',
+          '316-id-3',
+          '454-id-4',
+          '359-id-1',
+          '287-id-3',
+          '288-id-2',
+          '334-id-1',
+          '173-id-3',
+          '459-id-3'
+        ]
+      },
+      {
+        'name': '超级3',
+        'energy': 138940,
+        'sleepStyles': [
+          '20-id-2',
+          '93-id-2',
+          '57-id-2',
+          '176-id-2',
+          '447-id-3',
+          '225-id-1'
+        ]
+      },
+      {
+        'name': '超级4',
+        'energy': 178262,
+        'sleepStyles': [
+          '133-id-3',
+          '39-id-3',
+          '20-id-4',
+          '202-id-3',
+          '132-id-2',
+          '176-id-4',
+          '35-id-3'
+        ]
+      },
+      {
+        'name': '超级5',
+        'energy': 220730,
+        'sleepStyles': [
+          '80-id-2',
+          '132-id-8',
+          '132-id-4'
+        ]
+      },
+      {
+        'name': '高级1',
+        'energy': 266344,
+        'sleepStyles': [
+          '79-id-4',
+          '80-id-4',
+          '202-id-4',
+          '317-id-4',
+          '57-id-4',
+          '359-id-2',
+          '287-id-4',
+          '288-id-4',
+          '334-id-2',
+          '364-id-4',
+          '173-id-4',
+          '35-id-4',
+          '459-id-4'
+        ]
+      },
+      {
+        'name': '高级2',
+        'energy': 314580,
+        'sleepStyles': [
+          '105-id-3',
+          '180-id-3',
+          '317-id-3',
+          '454-id-3',
+          '181-id-1',
+          '359-id-4',
+          '334-id-4',
+          '448-id-1',
+          '364-id-3',
+          '365-id-1',
+          '225-id-2',
+          '460-id-1'
+        ]
+      },
+      {
+        'name': '高级3',
+        'energy': 367010,
+        'sleepStyles': [
+          '288-id-3',
+          '36-id-1',
+          '225-id-4'
+        ]
+      },
+      {
+        'name': '高级4',
+        'energy': 424683,
+        'sleepStyles': [
+          '20-id-3',
+          '93-id-3',
+          '57-id-3',
+          '176-id-3'
+        ]
+      },
+      {
+        'name': '高级5',
+        'energy': 488123,
+        'sleepStyles': [
+          '471-id-1'
+        ]
+      },
+      {
+        'name': '大师1',
+        'energy': 557907,
+        'sleepStyles': [
+          '80-id-3',
+          '181-id-2',
+          '448-id-2',
+          '365-id-2',
+          '460-id-2'
+        ]
+      },
+      {
+        'name': '大师2',
+        'energy': 634669,
+        'sleepStyles': [
+          '181-id-4',
+          '359-id-3',
+          '289-id-1',
+          '334-id-3',
+          '448-id-4',
+          '365-id-4',
+          '36-id-2'
+        ]
+      },
+      {
+        'name': '大师3',
+        'energy': 719107,
+        'sleepStyles': [
+          '225-id-3'
+        ]
+      },
+      {
+        'name': '大师4',
+        'energy': 811989,
+        'sleepStyles': [
+          '471-id-2'
+        ]
+      },
+      {
+        'name': '大师5',
+        'energy': 914159,
+        'sleepStyles': [
+          '471-id-4'
+        ]
+      },
+      {
+        'name': '大师6',
+        'energy': 1026546,
+        'sleepStyles': [
+          '289-id-2',
+          '36-id-4'
+        ]
+      },
+      {
+        'name': '大师7',
+        'energy': 1150172,
+        'sleepStyles': [
+          '181-id-3',
+          '289-id-4',
+          '448-id-3',
+          '365-id-3',
+          '460-id-3'
+        ]
+      },
+      {
+        'name': '大师8',
+        'energy': 1286161,
+        'sleepStyles': [
+          '36-id-3'
+        ]
+      },
+      {
+        'name': '大师9',
+        'energy': 1435749,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师10',
+        'energy': 1600296,
+        'sleepStyles': [
+          '471-id-3'
+        ]
+      },
+      {
+        'name': '大师11',
+        'energy': 1781298,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师12',
+        'energy': 1980400,
+        'sleepStyles': [
+          '289-id-3'
+        ]
+      },
+      {
+        'name': '大师13',
+        'energy': 2199412,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师14',
+        'energy': 2440325,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师15',
+        'energy': 2705329,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师16',
+        'energy': 2996833,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师17以上',
+        'energy': 3317487,
+        'sleepStyles': []
+      }
+    ]
   },
   {
     name: '宝蓝湖畔',
@@ -1338,103 +1605,396 @@ const gameMap = [
       { catchNum: 6, startscore: 16691772, endscore: 30483200 },
       { catchNum: 7, startscore: 30514962, endscore: 68272900 },
       { catchNum: 8, startscore: 68689152 }],
-    levelList: [{
-      name: '普通1',
-      energy: 0,
-      sleepStyles: []
-    }, {
-      name: '普通2',
-      energy: 12938,
-      sleepStyles: []
-    }, {
-      name: '普通3',
-      energy: 29756,
-      sleepStyles: []
-    }, {
-      name: '普通4',
-      energy: 48515,
-      sleepStyles: []
-    }, {
-      name: '普通5',
-      energy: 71156,
-      sleepStyles: []
-    }, {
-      name: '超级1',
-      energy: 97031,
-      sleepStyles: []
-    }, {
-      name: '超级2',
-      energy: 130668,
-      sleepStyles: []
-    }, {
-      name: '超级3',
-      energy: 171420,
-      sleepStyles: []
-    }, {
-      name: '超级4',
-      energy: 219936,
-      sleepStyles: []
-    }, {
-      name: '超级5',
-      energy: 272333,
-      sleepStyles: []
-    }, {
-      name: '高级1',
-      energy: 328610,
-      sleepStyles: []
-    }, {
-      name: '高级2',
-      energy: 388122,
-      sleepStyles: []
-    }, {
-      name: '高级3',
-      energy: 452809,
-      sleepStyles: []
-    }, {
-      name: '高级4',
-      energy: 522025,
-      sleepStyles: []
-    }, {
-      name: '高级5',
-      energy: 596086,
-      sleepStyles: []
-    }, {
-      name: '大师1',
-      energy: 675330,
-      sleepStyles: []
-    }, {
-      name: '大师2',
-      energy: 760123,
-      sleepStyles: []
-    }, {
-      name: '大师3',
-      energy: 850851,
-      sleepStyles: []
-    }, {
-      name: '大师4',
-      energy: 958702,
-      sleepStyles: []
-    }, {
-      name: '大师5',
-      energy: 1075709,
-      sleepStyles: []
-    }, {
-      name: '大师6',
-      energy: 1202596,
-      sleepStyles: []
-    }, {
-      name: '大师7',
-      energy: 1340143,
-      sleepStyles: []
-    }, {
-      name: '大师8',
-      energy: 1489190,
-      sleepStyles: []
-    }, {
-      name: '大师9以上',
-      energy: 1650645,
-      sleepStyles: []
-    }]
+    levelList: [
+      {
+        'name': '普通1',
+        'energy': 0,
+        'sleepStyles': [
+          '25-id-1',
+          '25-id-2',
+          '133-id-1',
+          '52-id-1',
+          '52-id-2',
+          '172-id-1',
+          '172-id-2',
+          '1-id-1',
+          '1-id-2',
+          '39-id-1',
+          '7-id-1',
+          '7-id-2',
+          '79-id-1',
+          '79-id-2',
+          '175-id-1',
+          '175-id-2',
+          '23-id-1',
+          '23-id-2',
+          '56-id-1',
+          '56-id-2',
+          '69-id-1',
+          '69-id-2',
+          '70-id-1',
+          '174-id-1',
+          '174-id-2',
+          '185-id-1',
+          '185-id-2',
+          '54-id-1',
+          '54-id-2',
+          '84-id-1',
+          '84-id-2',
+          '152-id-1',
+          '152-id-2',
+          '202-id-1',
+          '333-id-1',
+          '333-id-2',
+          '360-id-1',
+          '360-id-2',
+          '447-id-1',
+          '447-id-2',
+          '173-id-1',
+          '173-id-2',
+          '35-id-1',
+          '147-id-1',
+          '280-id-1',
+          '759-id-1'
+        ]
+      },
+      {
+        'name': '普通2',
+        'energy': 12938,
+        'sleepStyles': [
+          '133-id-2',
+          '39-id-2',
+          '202-id-2',
+          '35-id-2',
+          '280-id-2'
+        ]
+      },
+      {
+        'name': '普通3',
+        'energy': 29756,
+        'sleepStyles': [
+          '2-id-1',
+          '8-id-1',
+          '153-id-1',
+          '57-id-1',
+          '176-id-1',
+          '147-id-2'
+        ]
+      },
+      {
+        'name': '普通4',
+        'energy': 48515,
+        'sleepStyles': [
+          '85-id-1',
+          '132-id-1'
+        ]
+      },
+      {
+        'name': '普通5',
+        'energy': 71156,
+        'sleepStyles': [
+          '172-id-3',
+          '175-id-3',
+          '23-id-3',
+          '56-id-3',
+          '69-id-3',
+          '70-id-2',
+          '174-id-3',
+          '80-id-1',
+          '84-id-3',
+          '333-id-3',
+          '360-id-3',
+          '53-id-1',
+          '281-id-1',
+          '759-id-2'
+        ]
+      },
+      {
+        'name': '超级1',
+        'energy': 97031,
+        'sleepStyles': [
+          '25-id-4',
+          '133-id-4',
+          '52-id-3',
+          '52-id-4',
+          '172-id-4',
+          '1-id-3',
+          '1-id-4',
+          '39-id-4',
+          '7-id-3',
+          '7-id-4',
+          '79-id-3',
+          '175-id-4',
+          '23-id-4',
+          '56-id-4',
+          '69-id-4',
+          '70-id-4',
+          '174-id-4',
+          '54-id-3',
+          '54-id-4',
+          '84-id-4',
+          '152-id-3',
+          '152-id-4',
+          '333-id-4',
+          '360-id-4',
+          '334-id-1',
+          '447-id-4',
+          '173-id-3',
+          '148-id-1',
+          '280-id-4'
+        ]
+      },
+      {
+        'name': '超级2',
+        'energy': 130668,
+        'sleepStyles': [
+          '25-id-3',
+          '2-id-2',
+          '8-id-2',
+          '185-id-3',
+          '153-id-2',
+          '57-id-2',
+          '176-id-2',
+          '447-id-3'
+        ]
+      },
+      {
+        'name': '超级3',
+        'energy': 171420,
+        'sleepStyles': [
+          '133-id-3',
+          '39-id-3',
+          '8-id-4',
+          '153-id-4',
+          '202-id-3',
+          '85-id-2',
+          '132-id-2',
+          '176-id-4',
+          '35-id-3',
+          '280-id-3'
+        ]
+      },
+      {
+        'name': '超级4',
+        'energy': 219936,
+        'sleepStyles': [
+          '80-id-2',
+          '53-id-2',
+          '85-id-4',
+          '132-id-10',
+          '132-id-4',
+          '147-id-3',
+          '281-id-2'
+        ]
+      },
+      {
+        'name': '超级5',
+        'energy': 272333,
+        'sleepStyles': [
+          '334-id-2',
+          '148-id-2',
+          '760-id-1'
+        ]
+      },
+      {
+        'name': '高级1',
+        'energy': 328610,
+        'sleepStyles': [
+          '2-id-4',
+          '79-id-4',
+          '70-id-3',
+          '185-id-4',
+          '80-id-4',
+          '202-id-4',
+          '53-id-4',
+          '57-id-4',
+          '71-id-1',
+          '334-id-4',
+          '173-id-4',
+          '35-id-4',
+          '147-id-4',
+          '281-id-4',
+          '759-id-3',
+          '759-id-4'
+        ]
+      },
+      {
+        'name': '高级2',
+        'energy': 388122,
+        'sleepStyles': [
+          '36-id-1'
+        ]
+      },
+      {
+        'name': '高级3',
+        'energy': 452809,
+        'sleepStyles': [
+          '2-id-3',
+          '8-id-3',
+          '153-id-3',
+          '57-id-3',
+          '176-id-3'
+        ]
+      },
+      {
+        'name': '高级4',
+        'energy': 522025,
+        'sleepStyles': [
+          '3-id-1',
+          '9-id-1',
+          '85-id-3',
+          '132-id-3',
+          '154-id-1',
+          '196-id-1',
+          '470-id-1',
+          '760-id-2'
+        ]
+      },
+      {
+        'name': '高级5',
+        'energy': 596086,
+        'sleepStyles': [
+          '80-id-3',
+          '53-id-3',
+          '71-id-2',
+          '281-id-3'
+        ]
+      },
+      {
+        'name': '大师1',
+        'energy': 675330,
+        'sleepStyles': [
+          '71-id-4',
+          '334-id-3',
+          '36-id-2',
+          '148-id-3',
+          '148-id-4',
+          '282-id-1'
+        ]
+      },
+      {
+        'name': '大师2',
+        'energy': 760123,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师3',
+        'energy': 850851,
+        'sleepStyles': [
+          '3-id-2',
+          '9-id-2',
+          '154-id-2',
+          '196-id-2',
+          '470-id-2',
+          '475-id-1'
+        ]
+      },
+      {
+        'name': '大师4',
+        'energy': 958702,
+        'sleepStyles': [
+          '3-id-4',
+          '9-id-4',
+          '154-id-4',
+          '196-id-4',
+          '470-id-4'
+        ]
+      },
+      {
+        'name': '大师5',
+        'energy': 1075709,
+        'sleepStyles': [
+          '282-id-2',
+          '760-id-3'
+        ]
+      },
+      {
+        'name': '大师6',
+        'energy': 1202596,
+        'sleepStyles': [
+          '71-id-3',
+          '36-id-4',
+          '149-id-1',
+          '282-id-4',
+          '760-id-4'
+        ]
+      },
+      {
+        'name': '大师7',
+        'energy': 1340143,
+        'sleepStyles': [
+          '36-id-3',
+          '475-id-2'
+        ]
+      },
+      {
+        'name': '大师8',
+        'energy': 1489190,
+        'sleepStyles': [
+          '475-id-4'
+        ]
+      },
+      {
+        'name': '大师9',
+        'energy': 1650645,
+        'sleepStyles': [
+          '3-id-3',
+          '9-id-3',
+          '154-id-3',
+          '196-id-3',
+          '470-id-3'
+        ]
+      },
+      {
+        'name': '大师10',
+        'energy': 1825483,
+        'sleepStyles': [
+          '149-id-2'
+        ]
+      },
+      {
+        'name': '大师11',
+        'energy': 2014758,
+        'sleepStyles': [
+          '149-id-4',
+          '282-id-3'
+        ]
+      },
+      {
+        'name': '大师12',
+        'energy': 2219603,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师13',
+        'energy': 2441243,
+        'sleepStyles': [
+          '475-id-3'
+        ]
+      },
+      {
+        'name': '大师14',
+        'energy': 2680993,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师15',
+        'energy': 2925574,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师16',
+        'energy': 3188730,
+        'sleepStyles': [
+          '149-id-3'
+        ]
+      },
+      {
+        'name': '大师17以上',
+        'energy': 3454577,
+        'sleepStyles': []
+      }
+    ]
   }
 ]
 export {
