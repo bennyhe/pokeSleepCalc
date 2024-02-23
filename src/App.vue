@@ -48,10 +48,7 @@ onMounted(() => {
 
 <template>
   <div class="main">
-    <div
-      class="page-item"
-      :class="{ cur: showPageIndex === 0 }"
-    >
+    <div class="page-item" :class="{ cur: showPageIndex === 0 }">
       <PageSleepCalc />
     </div>
     <div class="page-item" :class="{ cur: showPageIndex === 1 }">

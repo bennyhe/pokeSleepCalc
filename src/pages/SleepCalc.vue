@@ -296,7 +296,6 @@ setDefaultCutNumber()
       </el-form-item>
     </el-form>
     <div
-      class="poke-tb"
       v-bind:key="
         gameMap[userData.curMap].levelList[userData.curStageIndex].energy
       "
@@ -324,47 +323,49 @@ setDefaultCutNumber()
           }}种)</span
         >
       </h4>
-      <template
-        v-for="sleepItem in gameMap[userData.curMap].levelList[
-          userData.curStageIndex
-        ].sleepStyles"
-      >
-        <div
-          class="poke-tb__item"
-          v-if="SLEEP_STYLE[sleepItem]"
-          v-bind:key="sleepItem"
+      <div class="poke-tb poke-tb--xscorll">
+        <template
+          v-for="sleepItem in gameMap[userData.curMap].levelList[
+            userData.curStageIndex
+          ].sleepStyles"
         >
-          <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
-          <div class="extra-desc">
-            <p>
-              <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
-            </p>
-            <p>
-              <span class="sptime">{{
-                SLEEP_STYLE[sleepItem].id.replace(
-                  `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
-                  ""
-                )
-              }}</span
-              >号睡姿
-            </p>
-            <p>
-              <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
-              >经验
-            </p>
-            <p>
-              <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
-              >梦碎
-            </p>
-            <p>
-              可获得<span class="sptime">{{
-                SLEEP_STYLE[sleepItem].candys
-              }}</span
-              >糖
-            </p>
+          <div
+            class="poke-tb__item"
+            v-if="SLEEP_STYLE[sleepItem]"
+            v-bind:key="sleepItem"
+          >
+            <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
+            <div class="extra-desc">
+              <p>
+                <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+              </p>
+              <p>
+                <span class="sptime">{{
+                  SLEEP_STYLE[sleepItem].id.replace(
+                    `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
+                    ""
+                  )
+                }}</span
+                >号睡姿
+              </p>
+              <p>
+                <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
+                >经验
+              </p>
+              <p>
+                <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
+                >梦碎
+              </p>
+              <p>
+                可获得<span class="sptime">{{
+                  SLEEP_STYLE[sleepItem].candys
+                }}</span
+                >糖
+              </p>
+            </div>
           </div>
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
     <div v-if="userData.curStageIndex > 0">
       <h4>
