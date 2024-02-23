@@ -729,6 +729,27 @@ h4 {
   }
 }
 
+.sleeplist {
+  .cpt-pokemon {
+    min-height: auto;
+  }
+  .cpt-pokemon__pic {
+    height: 42px;
+    width: 42px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .extra-desc {
+    .sptime {
+      font-size: 14px;
+    }
+  }
+  .star {
+    font-size: 18px;
+    color: $navColor
+  }
+}
+
 // 移动端适配
 @media screen and (max-width: 660px) {
   .m-dialog {

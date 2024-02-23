@@ -296,6 +296,7 @@ setDefaultCutNumber()
       </el-form-item>
     </el-form>
     <div
+      class="sleeplist"
       v-bind:key="
         gameMap[userData.curMap].levelList[userData.curStageIndex].energy
       "
@@ -337,7 +338,7 @@ setDefaultCutNumber()
             <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
             <div class="extra-desc">
               <p>
-                <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+                <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
               </p>
               <p>
                 <span class="sptime">{{
@@ -367,7 +368,7 @@ setDefaultCutNumber()
         </template>
       </div>
     </div>
-    <div v-if="userData.curStageIndex > 0">
+    <div class="sleeplist" v-if="userData.curStageIndex > 0">
       <h4>
         之前等级已解锁的睡姿
         <span class="extra"
@@ -402,7 +403,7 @@ setDefaultCutNumber()
               <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
               <div class="extra-desc">
                 <p>
-                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+                  <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
                 </p>
                 <p>
                   <span class="sptime">{{
