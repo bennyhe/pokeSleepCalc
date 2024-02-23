@@ -476,7 +476,7 @@ const gameMap = [
       { catchNum: 6, startscore: 7162381, endscore: 13488262 },
       { catchNum: 7, startscore: 13488264, endscore: 30491709 },
       { catchNum: 8, startscore: 30491710 }],
-    levelList: [[
+    levelList: [
       {
         'name': '普通1',
         'energy': 0,
@@ -837,7 +837,7 @@ const gameMap = [
         'energy': 2064310,
         'sleepStyles': []
       }
-    ]]
+    ]
   },
   {
     name: '灰褐洞窟',
