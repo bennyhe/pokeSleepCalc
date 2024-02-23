@@ -207,8 +207,13 @@ export function getDecimalNumber(number, decimalPoint) {
   return parseFloat(number.toFixed(decimalPoint))
 }
 
-export function fnAccumulation (arr, key) {
-  const res = arr.reduce((acc, item) => acc + item[key], 0)
+export function fnAccumulation (arr, key, isList) {
+  const res = arr.reduce((acc, item) => {
+    if(isList) {
+      return acc + item[key].length
+    }
+    return acc + item[key]
+  }, 0)
   return res
 }
 

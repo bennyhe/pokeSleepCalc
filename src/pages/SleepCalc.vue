@@ -5,12 +5,14 @@ import CptProcss from '../components/Process/ItemIndex.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { BERRY_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
+import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import {
   toHM,
   getNum,
   getNumberInMap,
   getStageLevelPicId,
-  sortInObjectOptions
+  sortInObjectOptions,
+  fnAccumulation
 } from '../utils/index.js'
 
 const userData = ref({
@@ -292,13 +294,148 @@ setDefaultCutNumber()
           >点活力
         </p>
       </el-form-item>
-      <el-form-item>
-        <div class="mod-tips">
-          <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
-          <p>* 开帐篷不在计算范围内。</p>
-        </div>
-      </el-form-item>
     </el-form>
+    <div
+      class="poke-tb"
+      v-bind:key="
+        gameMap[userData.curMap].levelList[userData.curStageIndex].energy
+      "
+      v-if="
+        gameMap[userData.curMap].levelList[userData.curStageIndex].sleepStyles
+          .length > 0
+      "
+    >
+      <h4>
+        <img
+          class="icon"
+          v-lazy="
+            `./img/ui/${getStageLevelPicId(
+              gameMap[userData.curMap].levelList[userData.curStageIndex].name
+            )}.png`
+          "
+        />
+        当前等级({{
+          gameMap[userData.curMap].levelList[userData.curStageIndex].name
+        }})解锁的睡姿
+        <span class="extra"
+          >(+{{
+            gameMap[userData.curMap].levelList[userData.curStageIndex]
+              .sleepStyles.length
+          }}种)</span
+        >
+      </h4>
+      <template
+        v-for="sleepItem in gameMap[userData.curMap].levelList[
+          userData.curStageIndex
+        ].sleepStyles"
+      >
+        <div
+          class="poke-tb__item"
+          v-if="SLEEP_STYLE[sleepItem]"
+          v-bind:key="sleepItem"
+        >
+          <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
+          <div class="extra-desc">
+            <p>
+              <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+            </p>
+            <p>
+              <span class="sptime">{{
+                SLEEP_STYLE[sleepItem].id.replace(
+                  `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
+                  ""
+                )
+              }}</span
+              >号睡姿
+            </p>
+            <p>
+              <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
+              >经验
+            </p>
+            <p>
+              <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
+              >梦碎
+            </p>
+            <p>
+              可获得<span class="sptime">{{
+                SLEEP_STYLE[sleepItem].candys
+              }}</span
+              >糖
+            </p>
+          </div>
+        </div>
+      </template>
+    </div>
+    <div v-if="userData.curStageIndex > 0">
+      <h4>
+        之前等级已解锁的睡姿
+        <span class="extra"
+          >({{
+            fnAccumulation(
+              gameMap[userData.curMap].levelList.slice(
+                0,
+                userData.curStageIndex
+              ),
+              "sleepStyles",
+              true
+            )
+          }}种)</span
+        >
+      </h4>
+      <div
+        class="poke-tb poke-tb--xscorll"
+        v-bind:key="gameMap[userData.curMap]"
+      >
+        <template
+          v-for="levelItem in gameMap[userData.curMap].levelList.slice(
+            0,
+            userData.curStageIndex
+          )"
+        >
+          <template v-for="sleepItem in levelItem.sleepStyles">
+            <div
+              class="poke-tb__item"
+              v-if="SLEEP_STYLE[sleepItem]"
+              v-bind:key="sleepItem"
+            >
+              <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
+              <div class="extra-desc">
+                <p>
+                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+                </p>
+                <p>
+                  <span class="sptime">{{
+                    SLEEP_STYLE[sleepItem].id.replace(
+                      `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
+                      ""
+                    )
+                  }}</span
+                  >号睡姿
+                </p>
+                <p>
+                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
+                  >经验
+                </p>
+                <p>
+                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
+                  >梦碎
+                </p>
+                <p>
+                  可获得<span class="sptime">{{
+                    SLEEP_STYLE[sleepItem].candys
+                  }}</span
+                  >糖
+                </p>
+              </div>
+            </div>
+          </template>
+        </template>
+      </div>
+    </div>
+    <div class="mod-tips">
+      <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
+      <p>* 开帐篷不在计算范围内。</p>
+    </div>
     <h2>
       {{ gameMap[userData.curMap].name }}-数据区间参考<span
         class="mod-tips extra"
