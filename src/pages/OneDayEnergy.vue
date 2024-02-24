@@ -176,7 +176,7 @@ const handleClickChangeMap = id => {
         :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer', 'skillType']"
         v-if="
           pokeKey >= (pageData.curPageIndex - 1) * pageData.pageSize &&
-          pokeKey <=
+          pokeKey <
             (pageData.curPageIndex - 1) * pageData.pageSize + pageData.pageSize
         "
         v-bind:key="`area${pageData.curMap}_${
