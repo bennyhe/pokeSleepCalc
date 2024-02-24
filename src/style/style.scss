@@ -45,10 +45,12 @@ body {
       background-color: lighten(#ffec6f, 12%);
       color: lighten(#795516, 12%);
     }
+
     &--2 {
       background-color: lighten(#4488fb, 12%);
       color: #fff;
     }
+
     &--3 {
       background-color: lighten(#85fbff, 12%);
       color: lighten(#166a7c, 12%);
@@ -85,7 +87,8 @@ h2 {
   }
 }
 
-h3,h4 {
+h3,
+h4 {
   .extra {
     color: $primaryColor;
     font-size: 14px;
@@ -220,6 +223,7 @@ h4 {
 }
 
 .vigour {
+
   &,
   .el-radio__label {
     color: #ed556a;
@@ -320,6 +324,17 @@ h4 {
   }
 }
 
+.cpt-pagination {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .el-pagination {
+    --el-pagination-bg-color: rgba(255, 255, 255, .5);
+  }
+}
+
 .mod-process {
   display: inline-block;
   vertical-align: middle;
@@ -361,7 +376,7 @@ h4 {
       padding: 2px 3px;
     }
 
-    & + .cpt-food--noborder {
+    &+.cpt-food--noborder {
       margin-left: 6px;
     }
   }
@@ -519,10 +534,12 @@ h4 {
     }
   }
 }
+
 .pokedex-list {
   h3 {
     padding: 2px 8px;
   }
+
   h4 {
     padding: 0 8px;
   }
@@ -733,17 +750,20 @@ h4 {
   .cpt-pokemon {
     min-height: auto;
   }
+
   .cpt-pokemon__pic {
     height: 42px;
     width: 42px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .extra-desc {
     .sptime {
       font-size: 14px;
     }
   }
+
   .star {
     font-size: 18px;
     color: $navColor

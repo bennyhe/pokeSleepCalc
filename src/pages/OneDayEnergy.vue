@@ -13,7 +13,9 @@ const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
   resRankArr: [],
-  lv: 50
+  lv: 50,
+  curPageIndex: 1,
+  pageSize: 50
 })
 newGameMap.push({
   name: '未适正树果',
@@ -22,7 +24,7 @@ newGameMap.push({
 })
 
 // console.log('created')
-onMounted(()=>{
+onMounted(() => {
   // console.log('onMounted')
   // for (const key in BERRY_ENERGY) {
   //   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
@@ -33,8 +35,11 @@ onMounted(()=>{
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = pokedex[key]
-    
-      pokeItem.oneDayHelpCount = getOneDayHelpCount(pokeItem.helpSpeed, pokeItem.foodPer)
+
+      pokeItem.oneDayHelpCount = getOneDayHelpCount(
+        pokeItem.helpSpeed,
+        pokeItem.foodPer
+      )
 
       const tempFoodType = [
         [0, 0],
@@ -52,7 +57,10 @@ onMounted(()=>{
           ...getOneDayEnergy(
             pokeItem,
             pageData.value.lv,
-            [pokeItem.food.type[arrFTItem[0]], pokeItem.food.type[arrFTItem[1]]],
+            [
+              pokeItem.food.type[arrFTItem[0]],
+              pokeItem.food.type[arrFTItem[1]]
+            ],
             is2n ? true : false,
             false
           )
@@ -60,9 +68,10 @@ onMounted(()=>{
       })
     }
   }
-  pageData.value.orgResRankArr = sortInObjectOptions(pageData.value.resRankArr, [
-    'oneDayEnergy'
-  ])
+  pageData.value.orgResRankArr = sortInObjectOptions(
+    pageData.value.resRankArr,
+    ['oneDayEnergy']
+  )
   // console.log(pageData.value.orgResRankArr)
   pageData.value.resRankArr = JSON.parse(
     JSON.stringify(pageData.value.orgResRankArr)
@@ -93,6 +102,7 @@ const getChangeOptionsAfterData = () => {
 }
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
+  pageData.value.curPageIndex = 1
 
   getChangeOptionsAfterData()
 }
@@ -150,18 +160,40 @@ const handleClickChangeMap = id => {
       <p>* 非满包满活力没开露营券，不含技能率。</p>
     </div>
   </div>
+  <div class="cpt-pagination">
+    <el-pagination
+      layout="prev, pager, next"
+      :total="pageData.resRankArr.length"
+      :page-size="pageData.pageSize"
+      v-model:current-page="pageData.curPageIndex"
+    />
+  </div>
   <div class="poke-tb">
+    <template v-for="(pokeItem, pokeKey) in pageData.resRankArr">
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
         :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer', 'skillType']"
-      v-for="(pokeItem, pokeKey) in pageData.resRankArr"
-      v-bind:key="`area${pageData.curMap}_${
-        pokeItem.id
-      }_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
+        v-if="
+          pokeKey >= (pageData.curPageIndex - 1) * pageData.pageSize &&
+          pokeKey <=
+            (pageData.curPageIndex - 1) * pageData.pageSize + pageData.pageSize
+        "
+        v-bind:key="`area${pageData.curMap}_${
+          pokeItem.id
+        }_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
       />
+    </template>
+  </div>
+  <div class="cpt-pagination">
+    <el-pagination
+      layout="prev, pager, next"
+      :total="pageData.resRankArr.length"
+      :page-size="pageData.pageSize"
+      v-model:current-page="pageData.curPageIndex"
+    />
   </div>
 </template>
