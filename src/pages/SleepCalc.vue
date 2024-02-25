@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
-import { BERRY_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES, SLEEP_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import {
@@ -21,6 +21,7 @@ const userData = ref({
   curMap: 0,
   times: '1',
   cutNum: 4,
+  curUnLockSleepType: 999,
   curUnlockSleeps: [],
   unLockSleeps: []
 })
@@ -177,6 +178,14 @@ const getLostVigour = mins => {
   }
   // console.log(mins / 10, parseInt(res))
   return parseInt(res)
+}
+
+const getFilterInTypes = (arr, sleepType) => {
+  const curUnLockSleepType = sleepType || userData.value.curUnLockSleepType
+  if (arr.length > 0 && +curUnLockSleepType !== 999) {
+    return arr.filter(item => item.sleepType === +curUnLockSleepType)
+  }
+  return arr
 }
 // 初始化默认
 setDefaultCutNumber()
@@ -350,15 +359,28 @@ getUnLockSleeps()
         </p>
       </el-form-item>
     </el-form>
+    <div class="page-inner">
+      <el-radio-group v-model="userData.curUnLockSleepType" size="small">
+        <el-radio-button
+          :label="cKey"
+          v-for="(cItem, cKey) in SLEEP_TYPES"
+          v-bind:key="cItem"
+          >{{ cItem
+          }}<span class="extra"
+            >({{
+              getFilterInTypes(userData.curUnlockSleeps, cKey).length +
+              getFilterInTypes(userData.unLockSleeps, cKey).length
+            }})</span
+          ></el-radio-button
+        >
+      </el-radio-group>
+    </div>
     <div
       class="sleeplist"
       v-bind:key="
         gameMap[userData.curMap].levelList[userData.curStageIndex].energy
       "
-      v-if="
-        gameMap[userData.curMap].levelList[userData.curStageIndex].sleepStyles
-          .length > 0
-      "
+      v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0"
     >
       <h4>
         <img
@@ -372,10 +394,14 @@ getUnLockSleeps()
         当前等级({{
           gameMap[userData.curMap].levelList[userData.curStageIndex].name
         }})解锁的睡姿
-        <span class="extra">(+{{ userData.curUnlockSleeps.length }}种)</span>
+        <span class="extra"
+          >(+{{ getFilterInTypes(userData.curUnlockSleeps).length }}种)</span
+        >
       </h4>
       <div class="poke-tb poke-tb--xscorll">
-        <template v-for="sleepItem in userData.curUnlockSleeps">
+        <template
+          v-for="sleepItem in getFilterInTypes(userData.curUnlockSleeps)"
+        >
           <div
             class="poke-tb__item"
             v-if="sleepItem.id"
@@ -412,13 +438,15 @@ getUnLockSleeps()
     <div class="sleeplist" v-if="userData.curStageIndex > 0">
       <h4>
         之前等级已解锁的睡姿
-        <span class="extra">({{ userData.unLockSleeps.length }}种)</span>
+        <span class="extra"
+          >({{ getFilterInTypes(userData.unLockSleeps).length }}种)</span
+        >
       </h4>
       <div
         class="poke-tb poke-tb--xscorll"
         v-bind:key="gameMap[userData.curMap]"
       >
-        <template v-for="sleepItem in userData.unLockSleeps">
+        <template v-for="sleepItem in getFilterInTypes(userData.unLockSleeps)">
           <div
             class="poke-tb__item"
             v-if="sleepItem.id"

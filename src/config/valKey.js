@@ -4,10 +4,10 @@ export const POKE_TYPES = {
   3: '技能'
 }
 export const SLEEP_TYPES = {
+  999: '沒有特徵',
   1: '淺淺入夢',
   2: '安然入睡',
-  3: '深深入眠',
-  999 : '沒有特徵'
+  3: '深深入眠'
 }
 export const COOK_TYPES = {
   1: '咖哩、濃湯',

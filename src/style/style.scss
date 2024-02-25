@@ -747,6 +747,11 @@ h4 {
 }
 
 .sleeplist {
+  h4 {
+    padding-left: 6px;
+    padding-top: 4px;
+  }
+
   .cpt-pokemon {
     min-height: auto;
   }
@@ -784,6 +789,11 @@ h4 {
 
   .el-form-item {
     margin-bottom: 8px;
+  }
+
+  .el-radio-button--small .el-radio-button__inner {
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .page-pokedex {
