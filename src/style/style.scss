@@ -769,6 +769,12 @@ h4 {
     }
   }
 
+  .poke-tb__item {
+    &:nth-child(2n) {
+      background-color: rgba($color: $mainColor, $alpha: .1);
+    }
+  }
+
   .star {
     font-size: 18px;
     color: $navColor
