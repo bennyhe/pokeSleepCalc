@@ -335,7 +335,7 @@ setDefaultCutNumber()
             v-if="SLEEP_STYLE[sleepItem]"
             v-bind:key="sleepItem"
           >
-            <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
+            <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" :showKey="['sleepType']"/>
             <div class="extra-desc">
               <p>
                 <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
@@ -400,7 +400,7 @@ setDefaultCutNumber()
               v-if="SLEEP_STYLE[sleepItem]"
               v-bind:key="sleepItem"
             >
-              <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" />
+              <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" :showKey="['sleepType']"/>
               <div class="extra-desc">
                 <p>
                   <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
