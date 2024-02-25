@@ -1405,7 +1405,7 @@ const gameMap = [
         'energy': 220730,
         'sleepStyles': [
           '80-id-2',
-          '132-id-8',
+          // '132-id-8',
           '132-id-4'
         ]
       },

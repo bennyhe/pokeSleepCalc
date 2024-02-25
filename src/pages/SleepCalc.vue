@@ -11,8 +11,7 @@ import {
   getNum,
   getNumberInMap,
   getStageLevelPicId,
-  sortInObjectOptions,
-  fnAccumulation
+  sortInObjectOptions
 } from '../utils/index.js'
 
 const userData = ref({
@@ -21,7 +20,9 @@ const userData = ref({
   mapMaxScore: 19564316,
   curMap: 0,
   times: '1',
-  cutNum: 4
+  cutNum: 4,
+  curUnlockSleeps: [],
+  unLockSleeps: []
 })
 const setDefaultCutNumber = () => {
   userData.value.cutNum = getNumberInMap(
@@ -36,6 +37,59 @@ const resetTool = () => {
       userData.value.curStageIndex
     ].energy
   setDefaultCutNumber()
+  getUnLockSleeps()
+}
+
+const getUnLockSleeps = () => {
+  if (userData.value.curStageIndex > 0) {
+    const aResLast = []
+    gameMap[userData.value.curMap].levelList
+      .slice(0, userData.value.curStageIndex)
+      .forEach(levelItem => {
+        if (levelItem.sleepStyles.length > 0) {
+          levelItem.sleepStyles.forEach(sItem => {
+            if (SLEEP_STYLE[sItem]) {
+              aResLast.push({
+                ...SLEEP_STYLE[sItem],
+                sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType
+              })
+            }
+            // else {
+            //   console.log(sItem)
+            // }
+          })
+        }
+      })
+    userData.value.unLockSleeps = sortInObjectOptions(
+      aResLast,
+      ['sleepType', 'pokeId', 'star'],
+      'up'
+    )
+  }
+  if (
+    gameMap[userData.value.curMap].levelList[userData.value.curStageIndex]
+      .sleepStyles.length > 0
+  ) {
+    const aRes = []
+    gameMap[userData.value.curMap].levelList[
+      userData.value.curStageIndex
+    ].sleepStyles.forEach(sItem => {
+      if (SLEEP_STYLE[sItem]) {
+        aRes.push({
+          ...SLEEP_STYLE[sItem],
+          sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType
+        })
+      }
+      // else {
+      //   console.log(sItem)
+      // }
+    })
+    userData.value.curUnlockSleeps = sortInObjectOptions(
+      aRes,
+      ['sleepType', 'pokeId', 'star'],
+      'up'
+    )
+  }
 }
 
 const handleClickChangeMap = id => {
@@ -126,6 +180,7 @@ const getLostVigour = mins => {
 }
 // 初始化默认
 setDefaultCutNumber()
+getUnLockSleeps()
 </script>
 
 <template>
@@ -317,50 +372,36 @@ setDefaultCutNumber()
         当前等级({{
           gameMap[userData.curMap].levelList[userData.curStageIndex].name
         }})解锁的睡姿
-        <span class="extra"
-          >(+{{
-            gameMap[userData.curMap].levelList[userData.curStageIndex]
-              .sleepStyles.length
-          }}种)</span
-        >
+        <span class="extra">(+{{ userData.curUnlockSleeps.length }}种)</span>
       </h4>
       <div class="poke-tb poke-tb--xscorll">
-        <template
-          v-for="sleepItem in gameMap[userData.curMap].levelList[
-            userData.curStageIndex
-          ].sleepStyles"
-        >
+        <template v-for="sleepItem in userData.curUnlockSleeps">
           <div
             class="poke-tb__item"
-            v-if="SLEEP_STYLE[sleepItem]"
-            v-bind:key="sleepItem"
+            v-if="sleepItem.id"
+            v-bind:key="sleepItem.id"
           >
-            <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" :showKey="['sleepType']"/>
+            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
             <div class="extra-desc">
               <p>
-                <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
+                <span class="star">{{ sleepItem.star }}✩</span>
               </p>
               <p>
                 <span class="sptime">{{
-                  SLEEP_STYLE[sleepItem].id.replace(
-                    `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
-                    ""
-                  )
+                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
                 }}</span
                 >号睡姿
               </p>
               <p>
-                <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
+                <span class="sptime">{{ sleepItem.exp }}</span
                 >经验
               </p>
               <p>
-                <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
+                <span class="sptime">{{ sleepItem.shards }}</span
                 >梦碎
               </p>
               <p>
-                可获得<span class="sptime">{{
-                  SLEEP_STYLE[sleepItem].candys
-                }}</span
+                可获得<span class="sptime">{{ sleepItem.candys }}</span
                 >糖
               </p>
             </div>
@@ -371,66 +412,43 @@ setDefaultCutNumber()
     <div class="sleeplist" v-if="userData.curStageIndex > 0">
       <h4>
         之前等级已解锁的睡姿
-        <span class="extra"
-          >({{
-            fnAccumulation(
-              gameMap[userData.curMap].levelList.slice(
-                0,
-                userData.curStageIndex
-              ),
-              "sleepStyles",
-              true
-            )
-          }}种)</span
-        >
+        <span class="extra">({{ userData.unLockSleeps.length }}种)</span>
       </h4>
       <div
         class="poke-tb poke-tb--xscorll"
         v-bind:key="gameMap[userData.curMap]"
       >
-        <template
-          v-for="levelItem in gameMap[userData.curMap].levelList.slice(
-            0,
-            userData.curStageIndex
-          )"
-        >
-          <template v-for="sleepItem in levelItem.sleepStyles">
-            <div
-              class="poke-tb__item"
-              v-if="SLEEP_STYLE[sleepItem]"
-              v-bind:key="sleepItem"
-            >
-              <CptPoke :pokeId="SLEEP_STYLE[sleepItem].pokeId" :showKey="['sleepType']"/>
-              <div class="extra-desc">
-                <p>
-                  <span class="star">{{ SLEEP_STYLE[sleepItem].star }}✩</span>
-                </p>
-                <p>
-                  <span class="sptime">{{
-                    SLEEP_STYLE[sleepItem].id.replace(
-                      `${SLEEP_STYLE[sleepItem].pokeId}-id-`,
-                      ""
-                    )
-                  }}</span
-                  >号睡姿
-                </p>
-                <p>
-                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].exp }}</span
-                  >经验
-                </p>
-                <p>
-                  <span class="sptime">{{ SLEEP_STYLE[sleepItem].shards }}</span
-                  >梦碎
-                </p>
-                <p>
-                  可获得<span class="sptime">{{
-                    SLEEP_STYLE[sleepItem].candys
-                  }}</span
-                  >糖
-                </p>
-              </div>
+        <template v-for="sleepItem in userData.unLockSleeps">
+          <div
+            class="poke-tb__item"
+            v-if="sleepItem.id"
+            v-bind:key="sleepItem.id"
+          >
+            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
+            <div class="extra-desc">
+              <p>
+                <span class="star">{{ sleepItem.star }}✩</span>
+              </p>
+              <p>
+                <span class="sptime">{{
+                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
+                }}</span
+                >号睡姿
+              </p>
+              <p>
+                <span class="sptime">{{ sleepItem.exp }}</span
+                >经验
+              </p>
+              <p>
+                <span class="sptime">{{ sleepItem.shards }}</span
+                >梦碎
+              </p>
+              <p>
+                可获得<span class="sptime">{{ sleepItem.candys }}</span
+                >糖
+              </p>
             </div>
-          </template>
+          </div>
         </template>
       </div>
     </div>
@@ -478,6 +496,3 @@ setDefaultCutNumber()
     </template>
   </div>
 </template>
-
-<style lang="scss">
-</style>
