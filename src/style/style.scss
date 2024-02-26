@@ -456,6 +456,8 @@ h4 {
 }
 
 .cpt-foodmenu {
+  display: inline-block;
+  vertical-align: middle;
   width: 110px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -465,16 +467,9 @@ h4 {
   box-sizing: border-box;
 
   &-scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-
     .cpt-foodmenu {
-      display: inline-block;
-      vertical-align: middle;
-
-      &:not(:last-child) {
-        margin-right: 6px;
-      }
+      margin-right: 3px;
+      margin-bottom: 3px;
     }
   }
 
@@ -783,6 +778,15 @@ h4 {
 
 // 移动端适配
 @media screen and (max-width: 660px) {
+  .cpt-foodmenu-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .cpt-foodmenu {
+      margin-bottom: 0;
+    }
+  }
+
   .m-dialog {
     &__bd {
       width: vw(676);
