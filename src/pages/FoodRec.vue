@@ -1,17 +1,63 @@
 <script setup>
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
-import { formatTime, findMenuWithFood } from '../utils/index.js'
+import {
+  formatTime,
+  findMenuWithFood,
+  sortInObjectOptions
+} from '../utils/index.js'
+import { COOKMENU } from '../config/cookmenu.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
-import { POKE_TYPES, FOOD_TYPES } from '../config/valKey.js'
+import {
+  POKE_TYPES,
+  FOOD_TYPES,
+  COOK_TYPES,
+  MENU_TYPES
+} from '../config/valKey.js'
 
 const nFoodRecommend = { ...foodRecommend }
 nFoodRecommend.list.forEach(pokeItem => {
   pokeItem.menuList = findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type)
 })
+
+const cookMenuRes = []
+for (const cookTypeKey in COOK_TYPES) {
+  if (Object.hasOwnProperty.call(COOK_TYPES, cookTypeKey)) {
+    const res = []
+    for (const menuKey in MENU_TYPES) {
+      if (Object.hasOwnProperty.call(MENU_TYPES, menuKey)) {
+        if (+COOKMENU[menuKey].type === +cookTypeKey) {
+          res.push(COOKMENU[menuKey])
+        }
+      }
+    }
+    cookMenuRes.push({
+      id: cookTypeKey,
+      name: COOK_TYPES[cookTypeKey],
+      list: sortInObjectOptions(res, ['baseEnergy'], 'down')
+    })
+  }
+}
 </script>
 <template>
+  <h2>食谱</h2>
+  <div class="page-inner">
+    <template v-for="cookTypeItem in cookMenuRes" v-bind:key="cookTypeItem.id">
+      <h3>
+        {{ cookTypeItem.name
+        }}<span class="extra">({{ cookTypeItem.list.length }}个)</span>
+      </h3>
+      <div class="cpt-foodmenu-scroll">
+        <template
+          v-for="menuItem in cookTypeItem.list"
+          v-bind:key="menuItem.id"
+        >
+          <CptFoodmenu :menuItem="menuItem" />
+        </template>
+      </div>
+    </template>
+  </div>
   <h2>食材宝可梦推荐</h2>
   <div class="page-inner mod-tips">
     <p>创建时间：{{ formatTime(nFoodRecommend.creatTime) }}</p>
