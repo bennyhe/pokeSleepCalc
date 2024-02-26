@@ -15,7 +15,7 @@ const pageData = ref({
   resRankArr: [],
   lv: 50,
   curPageIndex: 1,
-  pageSize: 99
+  pageSize: 100
 })
 newGameMap.push({
   name: '未适正树果',
