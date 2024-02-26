@@ -19,7 +19,7 @@ const userData = ref({
   curStageIndex: 0,
   mapMaxScore: 19564316,
   curMap: 0,
-  times: '1',
+  times: 1,
   cutNum: 4,
   curUnLockSleepType: 999,
   curUnlockSleeps: [],
@@ -107,14 +107,14 @@ const handleClickChangeStage = stageItem => {
   resetTool()
 }
 const getScore = point => {
-  return userData.value.CurEnergy * point * parseFloat(userData.value.times)
+  return userData.value.CurEnergy * point * userData.value.times
 }
 const getFirstSleepScore = () => {
   let res =
     gameMap[userData.value.curMap].scoreList[userData.value.cutNum - 3]
       .startscore /
     userData.value.CurEnergy /
-    parseFloat(userData.value.times)
+    userData.value.times
   // 有小数位就进1
   const max = parseInt(res) + 1
   if (max < 100 && max - res < 1) {
@@ -147,7 +147,7 @@ const getNextScoreDiff = () => {
         .startscore -
         getScore(100)) /
         100 /
-        parseFloat(userData.value.times)
+        userData.value.times
     ) + 1
   )
 }
@@ -186,6 +186,10 @@ const getFilterInTypes = (arr, sleepType) => {
     return arr.filter(item => item.sleepType === +curUnLockSleepType)
   }
   return arr
+}
+
+const handleClickTimes = () => {
+  setDefaultCutNumber()
 }
 // 初始化默认
 setDefaultCutNumber()
@@ -272,13 +276,13 @@ getUnLockSleeps()
         ></el-col>
       </el-form-item>
       <el-form-item label="特殊加成">
-        <el-radio-group v-model="userData.times">
-          <el-radio label="1">平时</el-radio>
-          <el-radio label="1.5">好眠日1.5倍</el-radio>
-          <el-radio label="2">满月日2倍</el-radio>
-          <el-radio label="2.5">满月日2.5倍(周三)</el-radio>
-          <el-radio label="3">满月日3倍(周二)</el-radio>
-          <el-radio label="4">满月日4倍(周一)</el-radio>
+        <el-radio-group v-model="userData.times" @change="handleClickTimes()">
+          <el-radio :label="1">平时</el-radio>
+          <el-radio :label="1.5">好眠日1.5倍</el-radio>
+          <el-radio :label="2">满月日2倍</el-radio>
+          <el-radio :label="2.5">满月日2.5倍(周三)</el-radio>
+          <el-radio :label="3">满月日3倍(周二)</el-radio>
+          <el-radio :label="4">满月日4倍(周一)</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="不拆分">
