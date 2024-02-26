@@ -193,7 +193,7 @@ getUnLockSleeps()
 </script>
 
 <template>
-  <div>
+  <div class="page-sleepcalc">
     <h2>拆分睡眠计算</h2>
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->

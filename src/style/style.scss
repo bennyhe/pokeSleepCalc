@@ -797,9 +797,11 @@ h4 {
     margin-bottom: 8px;
   }
 
-  .el-radio-button--small .el-radio-button__inner {
-    padding-left: 6px;
-    padding-right: 6px;
+  .page-sleepcalc {
+    .el-radio-button--small .el-radio-button__inner {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
   }
 
   .page-pokedex {
