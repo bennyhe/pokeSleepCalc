@@ -36,6 +36,9 @@ onMounted(() => {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = pokedex[key]
 
+      pokeItem.helpSpeed = Math.floor(
+        pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
+      )
       pokeItem.oneDayHelpCount = getOneDayHelpCount(
         pokeItem.helpSpeed,
         pokeItem.foodPer
@@ -106,6 +109,10 @@ const handleClickChangeMap = id => {
 
   getChangeOptionsAfterData()
 }
+
+// const handleClickSlider = () => {
+//   getChangeOptionsAfterData()
+// }
 </script>
 
 <template>
@@ -151,7 +158,13 @@ const handleClickChangeMap = id => {
     </el-form-item>
     <!-- E 当前岛屿 -->
     <!-- <el-form-item label="宝可梦等级">
-      <el-slider v-model="pageData.lv" show-input :min="1" :max="50" @change="getChangeOptionsAfterData()"/>
+      <el-slider
+        v-model="pageData.lv"
+        show-input
+        :min="50"
+        :max="55"
+        @change="handleClickSlider()"
+      />
     </el-form-item> -->
   </el-form>
   <div class="page-inner">
