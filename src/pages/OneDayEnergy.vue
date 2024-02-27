@@ -34,7 +34,7 @@ onMounted(() => {
   // }
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
-      const pokeItem = pokedex[key]
+      const pokeItem = {...pokedex[key]}
 
       pokeItem.helpSpeed = Math.floor(
         pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
