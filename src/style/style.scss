@@ -307,6 +307,17 @@ h4 {
     }
   }
 
+  &__hshm {
+    white-space: nowrap;
+    width: 80px;
+    text-align: center;
+    margin-left: -5px;
+    transform: scale(0.88);
+    transform-origin: 0 center;
+    color: $primaryColor;
+    opacity: .8;
+  }
+
   &--l {
     width: 62px;
 

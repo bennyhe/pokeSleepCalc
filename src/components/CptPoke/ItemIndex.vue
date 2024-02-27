@@ -83,6 +83,7 @@ const props = defineProps({
       {{ props.helpSpeed || pokedex[pokeId].helpSpeed }}s
     </p>
     <p
+      class="cpt-pokemon__hshm"
       v-if="
         pokedex[pokeId].helpSpeed &&
         props.showKey &&
