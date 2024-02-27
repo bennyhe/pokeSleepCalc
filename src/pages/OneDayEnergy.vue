@@ -186,7 +186,14 @@ const handleClickChangeMap = id => {
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
-        :showKey="['helpSpeed', 'berry', 'pokeType', 'foodPer', 'skillType']"
+        :showKey="[
+          'helpSpeed',
+          'helpSpeedHM',
+          'berry',
+          'pokeType',
+          'foodPer',
+          'skillType',
+        ]"
         v-if="
           pokeKey >= (pageData.curPageIndex - 1) * pageData.pageSize &&
           pokeKey <
