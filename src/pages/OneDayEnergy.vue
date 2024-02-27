@@ -13,7 +13,7 @@ const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
   resRankArr: [],
-  lv: 50,
+  lv: 55,
   curPageIndex: 1,
   pageSize: 100
 })
