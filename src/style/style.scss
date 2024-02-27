@@ -47,13 +47,13 @@ body {
     }
 
     &--2 {
-      background-color: lighten(#4488fb, 12%);
-      color: #fff;
+      background-color: lighten(#85fbff, 12%);
+      color: lighten(#166a7c, 12%);
     }
 
     &--3 {
-      background-color: lighten(#85fbff, 12%);
-      color: lighten(#166a7c, 12%);
+      background-color: lighten(#4488fb, 12%);
+      color: #fff;
     }
   }
 }
