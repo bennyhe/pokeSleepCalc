@@ -52,7 +52,12 @@ const props = defineProps({
       </div>
     </div>
     <div class="poke-tb__energy">
-      <p class="sptime">{{ props.pokeItem.nameExtra }}</p>
+      <p
+        class="sptime"
+        :class="{ berrys: props.pokeItem.nameExtra.indexOf('树果') > -1 }"
+      >
+        {{ props.pokeItem.nameExtra }}
+      </p>
       <p class="cpt-pokemon__poketype1 xs">
         果{{ props.pokeItem.oneDayBerryEnergy }}
       </p>
@@ -63,7 +68,8 @@ const props = defineProps({
         <div class="cpt-food cpt-food--s all-food">
           <div
             class="cpt-food__item cur"
-            v-for="(foodItem, foodKey) in props.pokeItem.oneDayFoodEnergy.useFoods"
+            v-for="(foodItem, foodKey) in props.pokeItem.oneDayFoodEnergy
+              .useFoods"
             v-bind:key="foodKey"
           >
             <img
