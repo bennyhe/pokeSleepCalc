@@ -27,7 +27,8 @@ const helpSpeedCalcForm = ref({
   character: 'none', // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   useFoods: [0, 0, 0],
   rankIndex: 1,
-  resLength: 0
+  resLength: 0,
+  contrastPoke: null
 })
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
@@ -291,12 +292,31 @@ const getTargetPokemonEnergy = pokeId => {
     addArrInOptions(getPlayerExtraDesc(), pokeItem, true)
   ) // 玩家自选
 
+  const hsDefaultOptions = {
+    skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
+    character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
+
+  if (
+    helpSpeedCalcForm.value.contrastPoke !== null &&
+    helpSpeedCalcForm.value.contrastPoke !== undefined
+  ) {
+    const tempPokeItem = { ...pokedex[helpSpeedCalcForm.value.contrastPoke] }
+    tempPokeItem.helpSpeed = getNewHelpSpeed(
+      {
+        baseHelpSpeed: tempPokeItem.helpSpeed,
+        ...hsDefaultOptions
+      },
+      helpSpeedCalcForm.value.level
+    )
+    resRankArr = resRankArr.concat(addArrInOptions('对比白板', tempPokeItem))
+  }
+
   const tempPokeItem = { ...pokedex[pokeId] }
   tempPokeItem.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem.helpSpeed,
-      skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-      character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+      ...hsDefaultOptions
     },
     helpSpeedCalcForm.value.level
   )
@@ -723,6 +743,27 @@ watch(helpSpeedCalcForm.value, val => {
         >
         / {{ helpSpeedCalcForm.resLength }} 位
       </div>
+      <el-select
+        v-model="helpSpeedCalcForm.contrastPoke"
+        placeholder="请选择要对比的宝可梦"
+        filterable
+        clearable
+      >
+        <el-option
+          v-for="pokeItem in pokedex"
+          :key="pokeItem.id"
+          :label="`对比${pokeItem.name}-${pokeItem.helpSpeed}s`"
+          :value="pokeItem.id"
+        >
+          <img
+            class="icon"
+            v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+            :alt="pokeItem.name"
+            v-bind:key="pokeItem.id"
+          />
+          {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
+        </el-option>
+      </el-select>
     </el-form-item>
   </el-form>
   <div class="page-inner">
@@ -734,6 +775,7 @@ watch(helpSpeedCalcForm.value, val => {
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
+          contrast: pokeItem.extraDesc.indexOf('对比') > -1,
         }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
           helpSpeedCalcForm.pokemonId
