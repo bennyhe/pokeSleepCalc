@@ -297,10 +297,7 @@ const getTargetPokemonEnergy = pokeId => {
     character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
 
-  if (
-    helpSpeedCalcForm.value.contrastPoke !== null &&
-    helpSpeedCalcForm.value.contrastPoke !== undefined
-  ) {
+  if (helpSpeedCalcForm.value.contrastPoke) {
     const tempPokeItem = { ...pokedex[helpSpeedCalcForm.value.contrastPoke] }
     tempPokeItem.helpSpeed = getNewHelpSpeed(
       {
