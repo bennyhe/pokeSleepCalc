@@ -32,16 +32,24 @@ const setDefaultCutNumber = () => {
   )
 }
 
+const setUnlockSleeps = () => {
+  const resSleeps = getUnLockSleeps()
+  userData.value.curUnlockSleeps = resSleeps.curUnlockSleeps
+  userData.value.unLockSleeps = resSleeps.unLockSleeps
+}
+
 const resetTool = () => {
   userData.value.CurEnergy =
     gameMap[userData.value.curMap].levelList[
       userData.value.curStageIndex
     ].energy
   setDefaultCutNumber()
-  getUnLockSleeps()
+  setUnlockSleeps()
 }
 
 const getUnLockSleeps = () => {
+  let unLockSleeps = []
+  let curUnlockSleeps = []
   if (userData.value.curStageIndex > 0) {
     const aResLast = []
     gameMap[userData.value.curMap].levelList
@@ -61,7 +69,7 @@ const getUnLockSleeps = () => {
           })
         }
       })
-    userData.value.unLockSleeps = sortInObjectOptions(
+    unLockSleeps = sortInObjectOptions(
       aResLast,
       ['sleepType', 'pokeId', 'star'],
       'up'
@@ -85,11 +93,15 @@ const getUnLockSleeps = () => {
       //   console.log(sItem)
       // }
     })
-    userData.value.curUnlockSleeps = sortInObjectOptions(
+    curUnlockSleeps = sortInObjectOptions(
       aRes,
       ['sleepType', 'pokeId', 'star'],
       'up'
     )
+  }
+  return {
+    unLockSleeps,
+    curUnlockSleeps
   }
 }
 
@@ -193,7 +205,7 @@ const handleClickTimes = () => {
 }
 // 初始化默认
 setDefaultCutNumber()
-getUnLockSleeps()
+setUnlockSleeps()
 </script>
 
 <template>
