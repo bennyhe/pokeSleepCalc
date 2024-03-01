@@ -114,12 +114,16 @@ const getNewHelpSpeed = (formData, level) => {
     // 所有帮忙技能加起来不能大于35%
     basichelp = 0.35
   }
-  let res =
-    formData.baseHelpSpeed * (1 - levelUp) * (1 - mainMuti) * (1 - basichelp)
+  let res = Math.floor(formData.baseHelpSpeed * (1 - mainMuti))
+  // console.log('---after mainMuti->',res)
+  res = res * (1 - levelUp)
+  // console.log('---after levelUp->',res)
+  res = Math.floor(res * (1 - basichelp))
+  // console.log('---after basichelp->',res)
   if (helpSpeedCalcForm.value.isUseTicket) {
-    res = res / 1.2
+    res = Math.floor(res / 1.2)
   }
-  return Math.floor(res)
+  return res
 }
 
 const getNewFoodPer = (formData, foodPer) => {
