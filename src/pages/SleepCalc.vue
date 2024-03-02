@@ -245,7 +245,10 @@ const getRandomSleepStyle = (score, curStageIndex) => {
   let isSleepOnStomach = false
 
   while (cathPokeCount > 1) {
-    let sleepList = orgSleepList.filter(item => item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true))
+    let sleepList = orgSleepList.filter(
+      item =>
+        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+    )
     sleepList = getRandomArr(sleepList, sleepList.length * 10)
     //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
     if (curSpo < 2) {
@@ -614,7 +617,19 @@ getRandomSleepStyle(
       </div>
     </div>
     <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
-      <h2>抽取({{ SLEEP_TYPES[userData.curUnLockSleepType] }})睡姿</h2>
+      <h2>
+        抽取
+        <img
+          class="icon"
+          v-lazy="
+            `./img/ui/${getStageLevelPicId(
+              gameMap[userData.curMap].levelList[userData.curStageIndex].name
+            )}.png`
+          "
+        />{{
+          gameMap[userData.curMap].levelList[userData.curStageIndex].name
+        }}({{ SLEEP_TYPES[userData.curUnLockSleepType] }})睡姿
+      </h2>
       <el-form-item label="睡眠分数(1-100)">
         <div style="width: 300px">
           <el-slider
