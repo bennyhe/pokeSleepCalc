@@ -280,10 +280,10 @@ const getRandomSleepStyle = (score, curStageIndex) => {
   if (curSpo < 2) {
     res.push(spoZeroPoke)
   } else {
-    let lastList = orgSleepList.filter(item => item.spo <= curSpo)
+    let lastList = orgSleepList.filter(item => item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true))
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')
     const lastMostSpo = lastList[0].spo
-    lastList = lastList.filter(item => (item.spo = lastMostSpo))
+    lastList = lastList.filter(item => (item.spo === lastMostSpo))
     if (lastList.length > 0) {
       lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
     }
