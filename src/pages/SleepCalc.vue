@@ -223,7 +223,7 @@ const getRandomSleepStyle = (score, curStageIndex) => {
   let curSpo = Math.floor(score / 38000)
   let orgSleepList = getUnLockSleeps(curStageIndex).allUnlockSleepsList
   // 睡眠类型图鉴筛选
-  if (userData.value.curUnLockSleepType !== 999) {
+  if (+userData.value.curUnLockSleepType !== 999) {
     orgSleepList = orgSleepList.filter(
       item => item.sleepType === +userData.value.curUnLockSleepType
     )
