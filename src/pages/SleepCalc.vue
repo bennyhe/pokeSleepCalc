@@ -261,7 +261,7 @@ const getRandomSleepStyle = (score, curStageIndex) => {
       )
       const rdmRes = sleepList[rdmIndex]
       // 大肚子睡只能1次
-      if(rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
+      if (rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
         isSleepOnStomach = true
       }
       // console.log(sleepList[rdmIndex])
