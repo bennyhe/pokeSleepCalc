@@ -114,12 +114,11 @@ const getNewHelpSpeed = (formData, level) => {
     // 所有帮忙技能加起来不能大于35%
     basichelp = 0.35
   }
-  let res = Math.floor(formData.baseHelpSpeed * (1 - mainMuti))
-  // console.log('---after mainMuti->',res)
-  res = res * (1 - levelUp)
-  // console.log('---after levelUp->',res)
-  res = Math.floor(res * (1 - basichelp))
-  // console.log('---after basichelp->',res)
+  let res = Math.floor(
+    (Math.floor((1 - mainMuti) * (1 - basichelp) * (1 - levelUp) * 10000) /
+      10000) *
+      formData.baseHelpSpeed
+  )
   if (helpSpeedCalcForm.value.isUseTicket) {
     res = Math.floor(res / 1.2)
   }
@@ -455,6 +454,31 @@ const handleChangePokemon = () => {
 onMounted(() => {
   byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
+
+  // debug
+  // const tempPokeItem2 = { ...pokedex[282] }
+  // const res1 = getNewHelpSpeed(
+  //   {
+  //     baseHelpSpeed: tempPokeItem2.helpSpeed,
+  //     ...{
+  //       skill: ['hs'],
+  //       character: ''
+  //     }
+  //   },
+  //   35
+  // )
+  // const res2 = getNewHelpSpeed(
+  //   {
+  //     baseHelpSpeed: tempPokeItem2.helpSpeed,
+  //     ...{
+  //       skill: ['hs', 'hg2'],
+  //       character: ''
+  //     }
+  //   },
+  //   35
+  // )
+  // console.log(res1, toHM(res1, 'sec'))
+  // console.log(res2, toHM(res2, 'sec'))
 })
 watch(helpSpeedCalcForm.value, val => {
   if (!val.level) {
@@ -794,7 +818,6 @@ watch(helpSpeedCalcForm.value, val => {
         <p>* 数值均为程序预估结果，与实际有误差。</p>
         <p>* 结果为对应等级一天产出。</p>
         <p>* 非满包满活力，不含技能率。</p>
-        <p>* 游戏内不会显示帮手奖励后的时间。</p>
       </div>
     </el-form-item>
   </el-form>
