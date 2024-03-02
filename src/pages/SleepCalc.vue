@@ -261,7 +261,7 @@ const getRandomSleepStyle = (score, curStageIndex) => {
       )
       const rdmRes = sleepList[rdmIndex]
       // 大肚子睡只能1次
-      if(rdmRes.sleepNameId === 4) {
+      if(rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
         isSleepOnStomach = true
       }
       // console.log(sleepList[rdmIndex])
@@ -281,7 +281,7 @@ const getRandomSleepStyle = (score, curStageIndex) => {
     res.push(spoZeroPoke)
   } else {
     let lastList = orgSleepList.filter(item => item.spo <= curSpo)
-    lastList = sortInObjectOptions(lastList, ['spo', 'down'])
+    lastList = sortInObjectOptions(lastList, ['spo'], 'down')
     const lastMostSpo = lastList[0].spo
     lastList = lastList.filter(item => (item.spo = lastMostSpo))
     if (lastList.length > 0) {
