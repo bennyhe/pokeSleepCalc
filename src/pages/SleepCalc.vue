@@ -3,7 +3,8 @@ import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
-import { BERRY_TYPES, SLEEP_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES, SLEEP_TYPES, SLEEP_NAMES } from '../config/valKey.js'
+import { SPO_DATA } from '../config/spo.js'
 import { pokedex } from '../config/pokedex.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import {
@@ -11,7 +12,8 @@ import {
   getNum,
   getNumberInMap,
   getStageLevelPicId,
-  sortInObjectOptions
+  sortInObjectOptions,
+  getRandomArr
 } from '../utils/index.js'
 
 const userData = ref({
@@ -24,6 +26,10 @@ const userData = ref({
   curUnLockSleepType: 999,
   curUnlockSleeps: [],
   unLockSleeps: []
+})
+const randomSleepStyle = ref({
+  resList: [],
+  sleepPoint: 100
 })
 const setDefaultCutNumber = () => {
   userData.value.cutNum = getNumberInMap(
@@ -47,20 +53,24 @@ const resetTool = () => {
   setUnlockSleeps()
 }
 
-const getUnLockSleeps = () => {
+const getUnLockSleeps = stageIndex => {
+  const curStageIndex = stageIndex || userData.value.curStageIndex
   let unLockSleeps = []
   let curUnlockSleeps = []
-  if (userData.value.curStageIndex > 0) {
+  if (curStageIndex > 0) {
     const aResLast = []
     gameMap[userData.value.curMap].levelList
-      .slice(0, userData.value.curStageIndex)
-      .forEach(levelItem => {
+      .slice(0, curStageIndex)
+      .forEach((levelItem, levelKey) => {
         if (levelItem.sleepStyles.length > 0) {
           levelItem.sleepStyles.forEach(sItem => {
             if (SLEEP_STYLE[sItem]) {
               aResLast.push({
                 ...SLEEP_STYLE[sItem],
-                sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType
+                sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
+                spo: SPO_DATA[gameMap[userData.value.curMap].id][sItem].spo,
+                spoId: SPO_DATA[gameMap[userData.value.curMap].id][sItem].id,
+                unLockLevel: levelKey
               })
             }
             // else {
@@ -76,23 +86,26 @@ const getUnLockSleeps = () => {
     )
   }
   if (
-    gameMap[userData.value.curMap].levelList[userData.value.curStageIndex]
-      .sleepStyles.length > 0
+    gameMap[userData.value.curMap].levelList[curStageIndex].sleepStyles.length >
+    0
   ) {
     const aRes = []
-    gameMap[userData.value.curMap].levelList[
-      userData.value.curStageIndex
-    ].sleepStyles.forEach(sItem => {
-      if (SLEEP_STYLE[sItem]) {
-        aRes.push({
-          ...SLEEP_STYLE[sItem],
-          sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType
-        })
+    gameMap[userData.value.curMap].levelList[curStageIndex].sleepStyles.forEach(
+      sItem => {
+        if (SLEEP_STYLE[sItem]) {
+          aRes.push({
+            ...SLEEP_STYLE[sItem],
+            sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
+            spo: SPO_DATA[gameMap[userData.value.curMap].id][sItem].spo,
+            spoId: SPO_DATA[gameMap[userData.value.curMap].id][sItem].id,
+            unLockLevel: curStageIndex
+          })
+        }
+        // else {
+        //   console.log(sItem)
+        // }
       }
-      // else {
-      //   console.log(sItem)
-      // }
-    })
+    )
     curUnlockSleeps = sortInObjectOptions(
       aRes,
       ['sleepType', 'pokeId', 'star'],
@@ -101,7 +114,8 @@ const getUnLockSleeps = () => {
   }
   return {
     unLockSleeps,
-    curUnlockSleeps
+    curUnlockSleeps,
+    allUnlockSleepsList: [...unLockSleeps, ...curUnlockSleeps]
   }
 }
 
@@ -200,12 +214,105 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+const getRandomSleepStyle = (score, curStageIndex) => {
+  const res = []
+  let cathPokeCount = getNumberInMap(
+    score,
+    gameMap[userData.value.curMap].scoreList
+  )
+  let curSpo = Math.floor(score / 38000)
+  let orgSleepList = getUnLockSleeps(curStageIndex).allUnlockSleepsList
+  // 睡眠类型图鉴筛选
+  if (userData.value.curUnLockSleepType !== 999) {
+    orgSleepList = orgSleepList.filter(
+      item => item.sleepType === +userData.value.curUnLockSleepType
+    )
+  }
+  // 随机洗牌，如果10倍长度少于1000，则默认1000次
+  orgSleepList = getRandomArr(
+    orgSleepList,
+    orgSleepList.length * 10 < 1000 ? 1000 : orgSleepList.length * 10
+  )
+
+  // SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+  const spoZeroPoke = sortInObjectOptions(
+    orgSleepList,
+    ['spo', 'unLockLevel', 'spoId'],
+    'up'
+  )[0]
+  // console.log(`等级解锁睡姿——${orgSleepList.length}个`, orgSleepList)
+
+  let isSleepOnStomach = false
+
+  while (cathPokeCount > 1) {
+    let sleepList = orgSleepList.filter(item => item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true))
+    sleepList = getRandomArr(sleepList, sleepList.length * 10)
+    //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+    if (curSpo < 2) {
+      res.push({
+        ...spoZeroPoke
+        // extra: 'SPO<2' //debug
+      })
+      curSpo = 1
+    } else {
+      const rdmIndex = parseInt(
+        Math.floor(Math.random() * sleepList.length),
+        10
+      )
+      const rdmRes = sleepList[rdmIndex]
+      // 大肚子睡只能1次
+      if(rdmRes.sleepNameId === 4) {
+        isSleepOnStomach = true
+      }
+      // console.log(sleepList[rdmIndex])
+      res.push({
+        ...rdmRes
+      })
+      curSpo -= sleepList[rdmIndex].spo
+      if (curSpo < 2) {
+        curSpo = 1
+      }
+    }
+    // console.log(curSpo)
+    cathPokeCount--
+  }
+  //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+  if (curSpo < 2) {
+    res.push(spoZeroPoke)
+  } else {
+    let lastList = orgSleepList.filter(item => item.spo <= curSpo)
+    lastList = sortInObjectOptions(lastList, ['spo', 'down'])
+    const lastMostSpo = lastList[0].spo
+    lastList = lastList.filter(item => (item.spo = lastMostSpo))
+    if (lastList.length > 0) {
+      lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
+    }
+    res.push(lastList[0])
+  }
+
+  randomSleepStyle.value.resList = res
+  console.log(
+    gameMap[userData.value.curMap].name,
+    gameMap[userData.value.curMap].levelList[curStageIndex].name,
+    3000000,
+    `剩余SPO:${curSpo}`,
+    SLEEP_TYPES[userData.value.curUnLockSleepType],
+    `${getNumberInMap(score, gameMap[userData.value.curMap].scoreList)}只`
+  )
+  // console.log('res', res)
+}
+
 const handleClickTimes = () => {
   setDefaultCutNumber()
 }
 // 初始化默认
 setDefaultCutNumber()
 setUnlockSleeps()
+getRandomSleepStyle(
+  getScore(randomSleepStyle.value.sleepPoint),
+  userData.value.curStageIndex
+)
+// getRandomSleepStyle(3000000, userData.value.curStageIndex) // debug
 </script>
 
 <template>
@@ -426,7 +533,12 @@ setUnlockSleeps()
             <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
             <div class="extra-desc">
               <p>
-                <span class="star">{{ sleepItem.star }}✩</span>
+                <span class="star"
+                  ><template v-if="sleepItem.sleepNameId === 4">{{
+                    SLEEP_NAMES[sleepItem.sleepNameId]
+                  }}</template
+                  ><template v-else>{{ sleepItem.star }}✩</template></span
+                >
               </p>
               <p>
                 <span class="sptime">{{
@@ -471,7 +583,12 @@ setUnlockSleeps()
             <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
             <div class="extra-desc">
               <p>
-                <span class="star">{{ sleepItem.star }}✩</span>
+                <span class="star"
+                  ><template v-if="sleepItem.sleepNameId === 4">{{
+                    SLEEP_NAMES[sleepItem.sleepNameId]
+                  }}</template
+                  ><template v-else>{{ sleepItem.star }}✩</template></span
+                >
               </p>
               <p>
                 <span class="sptime">{{
@@ -496,9 +613,105 @@ setUnlockSleeps()
         </template>
       </div>
     </div>
+    <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
+      <h2>抽取({{ SLEEP_TYPES[userData.curUnLockSleepType] }})睡姿</h2>
+      <el-form-item label="睡眠分数(1-100)">
+        <div style="width: 300px">
+          <el-slider
+            v-model="randomSleepStyle.sleepPoint"
+            show-input
+            :min="1"
+            :max="100"
+          />
+        </div>
+      </el-form-item>
+      <el-form-item>
+        <el-radio-group v-model="userData.curUnLockSleepType" size="small">
+          <el-radio-button
+            :label="cKey"
+            v-for="(cItem, cKey) in SLEEP_TYPES"
+            v-bind:key="cItem"
+            >{{ cItem
+            }}<span class="extra"
+              >({{
+                getFilterInTypes(userData.curUnlockSleeps, cKey).length +
+                getFilterInTypes(userData.unLockSleeps, cKey).length
+              }})</span
+            ></el-radio-button
+          >
+        </el-radio-group>
+      </el-form-item>
+      <el-button
+        type="success"
+        plain
+        @click="
+          getRandomSleepStyle(
+            getScore(randomSleepStyle.sleepPoint),
+            userData.curStageIndex
+          )
+        "
+        >抽取总分{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}({{
+          getNumberInMap(
+            getScore(randomSleepStyle.sleepPoint),
+            gameMap[userData.curMap].scoreList
+          )
+        }}种睡姿)</el-button
+      >
+      <h4>
+        抽取睡姿结果
+        <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
+      </h4>
+      <div class="poke-tb poke-tb--xscorll">
+        <template v-for="(sleepItem, sleepKey) in randomSleepStyle.resList">
+          <div
+            class="poke-tb__item"
+            v-if="sleepItem.id"
+            v-bind:key="sleepItem.id"
+          >
+            <p>
+              <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
+                sleepKey + 1
+              }}</i>
+            </p>
+            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
+            <div class="extra-desc">
+              <p>
+                <span class="star"
+                  ><template v-if="sleepItem.sleepNameId === 4">{{
+                    SLEEP_NAMES[sleepItem.sleepNameId]
+                  }}</template
+                  ><template v-else>{{ sleepItem.star }}✩</template></span
+                >
+              </p>
+              <p>
+                <span class="sptime">{{
+                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
+                }}</span
+                >号睡姿
+              </p>
+              <p>
+                <span class="sptime">{{ sleepItem.exp }}</span
+                >经验
+              </p>
+              <p>
+                <span class="sptime">{{ sleepItem.shards }}</span
+                >梦碎
+              </p>
+              <p>
+                可获得<span class="sptime">{{ sleepItem.candys }}</span
+                >糖
+              </p>
+              <p v-if="sleepItem.extra">
+                {{ sleepItem.extra }}
+              </p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
     <div class="mod-tips">
       <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
-      <p>* 开帐篷不在计算范围内。</p>
+      <p>* 开帐篷&熏香不在计算范围内。</p>
     </div>
     <h2>
       {{ gameMap[userData.curMap].name }}-数据区间参考<span
@@ -539,4 +752,4 @@ setUnlockSleeps()
       </div>
     </template>
   </div>
-</template>
+</template> 

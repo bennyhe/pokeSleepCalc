@@ -207,9 +207,9 @@ export function getDecimalNumber(number, decimalPoint) {
   return parseFloat(number.toFixed(decimalPoint))
 }
 
-export function fnAccumulation (arr, key, isList) {
+export function fnAccumulation(arr, key, isList) {
   const res = arr.reduce((acc, item) => {
-    if(isList) {
+    if (isList) {
       return acc + item[key].length
     }
     return acc + item[key]
@@ -233,4 +233,20 @@ export function findMenuWithFood(pokemonFoodKey) {
     }
   }
   return sortInObjectOptions(res, ['baseEnergy'], 'down')
+}
+
+//洗牌算法
+export function getRandomArr(data, eachNum) {
+  let num = eachNum || 100 //默认交换100次位置
+  const _arr = [...data]
+  let n = _arr.length
+  const result = []
+
+  // 先打乱数组
+  while (n-- && num--) {
+    const index = Math.floor(Math.random() * n); // 随机位置
+    [_arr[index], _arr[n]] = [_arr[n], _arr[index]] // 交换数据
+    result.push(_arr[n]) // 取出当前最后的值，即刚才交换过来的值
+  }
+  return result
 }
