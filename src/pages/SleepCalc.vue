@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
+import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { BERRY_TYPES, SLEEP_TYPES, SLEEP_NAMES } from '../config/valKey.js'
 import { SPO_DATA } from '../config/spo.js'
@@ -283,10 +284,13 @@ const getRandomSleepStyle = (score, curStageIndex) => {
   if (curSpo < 2) {
     res.push(spoZeroPoke)
   } else {
-    let lastList = orgSleepList.filter(item => item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true))
+    let lastList = orgSleepList.filter(
+      item =>
+        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+    )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')
     const lastMostSpo = lastList[0].spo
-    lastList = lastList.filter(item => (item.spo === lastMostSpo))
+    lastList = lastList.filter(item => item.spo === lastMostSpo)
     if (lastList.length > 0) {
       lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
     }
@@ -501,117 +505,55 @@ getRandomSleepStyle(
         >
       </el-radio-group>
     </div>
-    <div
-      class="sleeplist"
-      v-bind:key="
-        gameMap[userData.curMap].levelList[userData.curStageIndex].energy
-      "
-      v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0"
-    >
+    <div class="sleeplist">
       <h4>
-        <img
-          class="icon"
-          v-lazy="
-            `./img/ui/${getStageLevelPicId(
-              gameMap[userData.curMap].levelList[userData.curStageIndex].name
-            )}.png`
-          "
-        />
-        当前等级({{
-          gameMap[userData.curMap].levelList[userData.curStageIndex].name
-        }})解锁的睡姿
+        已解锁的睡姿
         <span class="extra"
-          >(+{{ getFilterInTypes(userData.curUnlockSleeps).length }}种)</span
-        >
-      </h4>
-      <div class="poke-tb poke-tb--xscorll">
-        <template
-          v-for="sleepItem in getFilterInTypes(userData.curUnlockSleeps)"
-        >
-          <div
-            class="poke-tb__item"
-            v-if="sleepItem.id"
-            v-bind:key="sleepItem.id"
-          >
-            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-            <div class="extra-desc">
-              <p>
-                <span class="star"
-                  ><template v-if="sleepItem.sleepNameId === 4">{{
-                    SLEEP_NAMES[sleepItem.sleepNameId]
-                  }}</template
-                  ><template v-else>{{ sleepItem.star }}✩</template></span
-                >
-              </p>
-              <p>
-                <span class="sptime">{{
-                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
-                }}</span
-                >号睡姿
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.exp }}</span
-                >经验
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.shards }}</span
-                >梦碎
-              </p>
-              <p>
-                可获得<span class="sptime">{{ sleepItem.candys }}</span
-                >糖
-              </p>
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-    <div class="sleeplist" v-if="userData.curStageIndex > 0">
-      <h4>
-        之前等级已解锁的睡姿
-        <span class="extra"
-          >({{ getFilterInTypes(userData.unLockSleeps).length }}种)</span
+          >(<template v-if="getFilterInTypes(userData.unLockSleeps).length > 0"
+            >{{ getFilterInTypes(userData.unLockSleeps).length }}种</template
+          ><template
+            v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0"
+            >+{{
+              getFilterInTypes(userData.curUnlockSleeps).length
+            }}种</template
+          >)</span
         >
       </h4>
       <div
         class="poke-tb poke-tb--xscorll"
         v-bind:key="gameMap[userData.curMap]"
       >
+        <template v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0">
+          <template
+            v-for="sleepItem in getFilterInTypes(userData.curUnlockSleeps)"
+          >
+            <div
+              class="poke-tb__item"
+              :class="{ cur: userData.curStageIndex > 0 }"
+              v-if="sleepItem.id"
+              v-bind:key="sleepItem.id"
+            >
+              <CptSleepStyle
+                :showMapLevel="true"
+                :sleepItem="sleepItem"
+                :showKey="['sleepType']"
+                :userData="userData"
+              />
+            </div>
+          </template>
+        </template>
         <template v-for="sleepItem in getFilterInTypes(userData.unLockSleeps)">
           <div
             class="poke-tb__item"
             v-if="sleepItem.id"
             v-bind:key="sleepItem.id"
           >
-            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-            <div class="extra-desc">
-              <p>
-                <span class="star"
-                  ><template v-if="sleepItem.sleepNameId === 4">{{
-                    SLEEP_NAMES[sleepItem.sleepNameId]
-                  }}</template
-                  ><template v-else>{{ sleepItem.star }}✩</template></span
-                >
-              </p>
-              <p>
-                <span class="sptime">{{
-                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
-                }}</span
-                >号睡姿
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.exp }}</span
-                >经验
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.shards }}</span
-                >梦碎
-              </p>
-              <p>
-                可获得<span class="sptime">{{ sleepItem.candys }}</span
-                >糖
-              </p>
-            </div>
+            <CptSleepStyle
+              :showMapLevel="true"
+              :sleepItem="sleepItem"
+              :showKey="['sleepType']"
+              :userData="userData"
+            />
           </div>
         </template>
       </div>
@@ -688,38 +630,11 @@ getRandomSleepStyle(
                 sleepKey + 1
               }}</i>
             </p>
-            <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-            <div class="extra-desc">
-              <p>
-                <span class="star"
-                  ><template v-if="sleepItem.sleepNameId === 4">{{
-                    SLEEP_NAMES[sleepItem.sleepNameId]
-                  }}</template
-                  ><template v-else>{{ sleepItem.star }}✩</template></span
-                >
-              </p>
-              <p>
-                <span class="sptime">{{
-                  sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
-                }}</span
-                >号睡姿
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.exp }}</span
-                >经验
-              </p>
-              <p>
-                <span class="sptime">{{ sleepItem.shards }}</span
-                >梦碎
-              </p>
-              <p>
-                可获得<span class="sptime">{{ sleepItem.candys }}</span
-                >糖
-              </p>
-              <p v-if="sleepItem.extra">
-                {{ sleepItem.extra }}
-              </p>
-            </div>
+            <CptSleepStyle
+              :sleepItem="sleepItem"
+              :showKey="['sleepType']"
+              :userData="userData"
+            />
           </div>
         </template>
       </div>

@@ -798,6 +798,12 @@ h4 {
     &:nth-child(2n) {
       background-color: rgba($color: $mainColor, $alpha: .1);
     }
+
+    &.cur {
+      &:nth-child(2n) {
+        background-color: rgba($color: orange, $alpha: .1);
+      }
+    }
   }
 
   .star {
