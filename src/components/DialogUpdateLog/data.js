@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-03-03
 1. update 当前等级解锁睡姿和已解锁睡姿合并成一行
+2. update 岛屿数据区间参考
 
 ## 24-03-02
 1. add 抽取睡姿

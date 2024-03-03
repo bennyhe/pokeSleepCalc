@@ -1,4 +1,4 @@
-const mapSplitVer = '2.3.8'
+const mapSplitVer = '2.4.1'
 const gameMap = [
   {
     name: '萌绿之岛',
@@ -849,7 +849,7 @@ const gameMap = [
       { catchNum: 5, startscore: 4626380, endscore: 9935822 },
       { catchNum: 6, startscore: 9935824, endscore: 19563552 },
       { catchNum: 7, startscore: 19563553, endscore: 43706480 },
-      { catchNum: 8, startscore: 43706520 }],
+      { catchNum: 8, startscore: 43706488 }],
     levelList: [
       {
         'name': '普通1',
@@ -1223,12 +1223,12 @@ const gameMap = [
     id: 'snow',
     pic: 'map4',
     berry: [11, 7, 17],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821335 },
-      { catchNum: 4, startscore: 2821916, endscore: 7162380 },
-      { catchNum: 5, startscore: 7162464, endscore: 15469173 },
-      { catchNum: 6, startscore: 15469235, endscore: 28772748 },
-      { catchNum: 7, startscore: 28772766, endscore: 65691968 },
-      { catchNum: 8, startscore: 65701088 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821374 },
+      { catchNum: 4, startscore: 2821385, endscore: 7162380 },
+      { catchNum: 5, startscore: 7162381, endscore: 15469180 },
+      { catchNum: 6, startscore: 15469188, endscore: 28772754 },
+      { catchNum: 7, startscore: 28772756, endscore: 65691968 },
+      { catchNum: 8, startscore: 65696600 }],
     levelList: [
       {
         'name': '普通1',
@@ -1599,12 +1599,12 @@ const gameMap = [
     id: 'lake',
     pic: 'map5',
     berry: [4, 18, 6],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3121400 },
-      { catchNum: 4, startscore: 3156000, endscore: 7716262 },
-      { catchNum: 5, startscore: 7734330, endscore: 16647494 },
-      { catchNum: 6, startscore: 16691772, endscore: 30483200 },
-      { catchNum: 7, startscore: 30514962, endscore: 68615304 },
-      { catchNum: 8, startscore: 68689152 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3147400 },
+      { catchNum: 4, startscore: 3154032, endscore: 7729830 },
+      { catchNum: 5, startscore: 7733187, endscore: 16656367 },
+      { catchNum: 6, startscore: 16661154, endscore: 30483200 },
+      { catchNum: 7, startscore: 30491808, endscore: 68656800 },
+      { catchNum: 8, startscore: 68670648 }],
     levelList: [
       {
         'name': '普通1',
