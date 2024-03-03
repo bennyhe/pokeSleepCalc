@@ -129,6 +129,10 @@ const handleClickChangeMap = id => {
         3
     ].startscore
   resetTool()
+  setAndGetRandomSleepStyle(
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex
+  )
 }
 const handleClickChangeStage = stageItem => {
   resetTool()
@@ -297,16 +301,69 @@ const getRandomSleepStyle = (score, curStageIndex) => {
     res.push(lastList[0])
   }
 
-  randomSleepStyle.value.resList = res
-  console.log(
-    gameMap[userData.value.curMap].name,
-    gameMap[userData.value.curMap].levelList[curStageIndex].name,
-    3000000,
-    `剩余SPO:${curSpo}`,
-    SLEEP_TYPES[userData.value.curUnLockSleepType],
-    `${getNumberInMap(score, gameMap[userData.value.curMap].scoreList)}只`
-  )
+  return res
+  // console.log(
+  //   gameMap[userData.value.curMap].name,
+  //   gameMap[userData.value.curMap].levelList[curStageIndex].name,
+  //   3000000,
+  //   `剩余SPO:${curSpo}`,
+  //   SLEEP_TYPES[userData.value.curUnLockSleepType],
+  //   `${getNumberInMap(score, gameMap[userData.value.curMap].scoreList)}只`
+  // )
   // console.log('res', res)
+}
+
+const setAndGetRandomSleepStyle = (score, curStageIndex) => {
+  randomSleepStyle.value.resList = getRandomSleepStyle(score, curStageIndex)
+}
+
+const getTimes = 3000
+const hopList = ref([])
+const getRandomHope = (score, curStageIndex) => {
+  let orgList = []
+  for (let i = 0; i < getTimes; i++) {
+    orgList = orgList.concat(getRandomSleepStyle(score, curStageIndex))
+  }
+  const mergeRes = []
+  orgList.forEach(item => {
+    const findTargetResItem = mergeRes.find(
+      resItem => resItem.id === item.id
+    )
+    if (!findTargetResItem) {
+      mergeRes.push({
+        ...item,
+        count: 1
+      })
+    } else {
+      findTargetResItem.count++
+    }
+  })
+  let res = []
+  mergeRes.forEach(item => {
+    const findTargetResItem = res.find(
+      resItem => resItem.pokeId === item.pokeId
+    )
+    if (!findTargetResItem) {
+      res.push({
+        pokeId: item.pokeId,
+        list: [item],
+        count: item.count
+      })
+    } else {
+      findTargetResItem.list.push(item)
+      findTargetResItem.count += item.count
+    }
+  })
+  res.forEach(item => {
+    item.list = sortInObjectOptions(item.list, ['count'], 'down')
+  })
+  res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
+  hopList.value = res
+  // console.log({
+  //   res,
+  //   orgList,
+  //   getTimes
+  // })
 }
 
 const handleClickTimes = () => {
@@ -315,11 +372,11 @@ const handleClickTimes = () => {
 // 初始化默认
 setDefaultCutNumber()
 setUnlockSleeps()
-getRandomSleepStyle(
+setAndGetRandomSleepStyle(
   getScore(randomSleepStyle.value.sleepPoint),
   userData.value.curStageIndex
 )
-// getRandomSleepStyle(3000000, userData.value.curStageIndex) // debug
+// setAndGetRandomSleepStyle(3000000, userData.value.curStageIndex) // debug
 </script>
 
 <template>
@@ -549,7 +606,6 @@ getRandomSleepStyle(
             v-bind:key="sleepItem.id"
           >
             <CptSleepStyle
-              :showMapLevel="true"
               :sleepItem="sleepItem"
               :showKey="['sleepType']"
               :userData="userData"
@@ -598,22 +654,34 @@ getRandomSleepStyle(
           >
         </el-radio-group>
       </el-form-item>
-      <el-button
+     <div class="page-inner">
+       <el-button
         type="success"
         plain
         @click="
-          getRandomSleepStyle(
+          setAndGetRandomSleepStyle(
             getScore(randomSleepStyle.sleepPoint),
             userData.curStageIndex
           )
         "
-        >抽取总分{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}({{
+        >点击抽取总分{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}({{
           getNumberInMap(
             getScore(randomSleepStyle.sleepPoint),
             gameMap[userData.curMap].scoreList
           )
         }}种睡姿)</el-button
       >
+      <p><el-button
+        v-if="userData.curStageIndex > 0"
+        @click="
+          getRandomHope(
+            getScore(randomSleepStyle.sleepPoint),
+            userData.curStageIndex
+          )
+        "
+        >点击计算期望(睡{{ getTimes }}次)</el-button
+      ></p>
+     </div>
       <h4>
         抽取睡姿结果
         <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
@@ -637,6 +705,40 @@ getRandomSleepStyle(
             />
           </div>
         </template>
+      </div>
+      <div v-if="userData.curStageIndex > 0">
+        <h4>
+          期望宝可梦睡姿列表
+          <span class="extra">({{ hopList.length }}种)</span>
+        </h4>
+        <div class="poke-tb poke-tb--xscorll">
+          <template v-for="(hopeItem, hopeKey) in hopList">
+            <div
+              class="poke-tb__item"
+              v-if="hopeItem.pokeId"
+              v-bind:key="hopeItem.pokeId"
+            >
+              <p>
+                <i class="i i-rank" :class="`i-rank--${hopeKey + 1}`">{{
+                  hopeKey + 1
+                }}</i>
+              </p>
+              <div>
+                获得<span class="sptime">{{ hopeItem.count }}</span
+                >次
+              </div>
+              <CptPoke :pokeId="hopeItem.pokeId" :showKey="['sleepStyle']" />
+              <CptSleepStyle
+                class="sleeplist__sub-item"
+                v-for="sleepItem in hopeItem.list"
+                v-bind:key="sleepItem.id"
+                :sleepItem="sleepItem"
+                :userData="userData"
+                :showCptPoke="false"
+              />
+            </div>
+          </template>
+        </div>
       </div>
     </div>
     <div class="mod-tips">

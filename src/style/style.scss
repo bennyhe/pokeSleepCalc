@@ -810,6 +810,12 @@ h4 {
     font-size: 16px;
     color: $navColor
   }
+
+  &__sub-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 66px;
+  }
 }
 
 // 移动端适配
