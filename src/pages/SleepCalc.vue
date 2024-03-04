@@ -318,8 +318,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 }
 
 const getTimes = 3000
-const hopList = ref([])
+const hopeList = ref([])
+const hopeLoading = ref(false)
 const getRandomHope = (score, curStageIndex) => {
+  hopeLoading.value = true
   let orgList = []
   for (let i = 0; i < getTimes; i++) {
     orgList = orgList.concat(getRandomSleepStyle(score, curStageIndex))
@@ -358,7 +360,10 @@ const getRandomHope = (score, curStageIndex) => {
     item.list = sortInObjectOptions(item.list, ['count'], 'down')
   })
   res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
-  hopList.value = res
+
+  setAndGetRandomSleepStyle(score, curStageIndex)
+  hopeList.value = res
+  hopeLoading.value = false
   // console.log({
   //   res,
   //   orgList,
@@ -628,60 +633,101 @@ setAndGetRandomSleepStyle(
           gameMap[userData.curMap].levelList[userData.curStageIndex].name
         }}({{ SLEEP_TYPES[userData.curUnLockSleepType] }})睡姿
       </h2>
-      <el-form-item label="睡眠分数(1-100)">
-        <div style="width: 300px">
-          <el-slider
-            v-model="randomSleepStyle.sleepPoint"
-            show-input
-            :min="1"
-            :max="100"
-          />
-        </div>
-      </el-form-item>
-      <el-form-item>
-        <el-radio-group v-model="userData.curUnLockSleepType" size="small">
-          <el-radio-button
-            :label="cKey"
-            v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="cItem"
-            >{{ cItem
-            }}<span class="extra"
-              >({{
-                getFilterInTypes(userData.curUnlockSleeps, cKey).length +
-                getFilterInTypes(userData.unLockSleeps, cKey).length
-              }})</span
-            ></el-radio-button
+      <el-form label-width="90px">
+        <el-form-item label="级别/能量">
+          <el-col :span="11">
+            <el-select
+              v-model="userData.curStageIndex"
+              placeholder="请选择卡比兽级别"
+              class="m-2"
+              @change="handleClickChangeStage()"
+            >
+              <el-option
+                v-for="(stageItem, stageIndex) in gameMap[userData.curMap]
+                  .levelList"
+                :key="stageIndex"
+                :label="stageItem.name"
+                :value="stageIndex"
+              >
+                <img
+                  class="icon"
+                  v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+                />
+                {{ stageItem.name }}
+              </el-option>
+            </el-select></el-col
           >
-        </el-radio-group>
-      </el-form-item>
-     <div class="page-inner">
-       <el-button
-        type="success"
-        plain
-        @click="
-          setAndGetRandomSleepStyle(
-            getScore(randomSleepStyle.sleepPoint),
-            userData.curStageIndex
-          )
-        "
-        >点击抽取总分{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}({{
-          getNumberInMap(
-            getScore(randomSleepStyle.sleepPoint),
-            gameMap[userData.curMap].scoreList
-          )
-        }}种睡姿)</el-button
-      >
-      <p><el-button
-        v-if="userData.curStageIndex > 0"
-        @click="
-          getRandomHope(
-            getScore(randomSleepStyle.sleepPoint),
-            userData.curStageIndex
-          )
-        "
-        >点击计算期望(睡{{ getTimes }}次)</el-button
-      ></p>
-     </div>
+          <el-col :span="11">
+            <el-input
+              type="tel"
+              v-model="userData.CurEnergy"
+              placeholder="请输入当前能量"
+              clearable
+              class="m-2"
+            >
+              <template #prefix>
+                <img class="icon" v-lazy="`./img/ui/energy.png`" />
+              </template> </el-input
+          ></el-col>
+        </el-form-item>
+        <el-form-item label="睡眠分数">
+          <div style="width: 300px">
+            <el-slider
+              v-model="randomSleepStyle.sleepPoint"
+              show-input
+              :min="1"
+              :max="100"
+            />
+          </div>
+        </el-form-item>
+        <el-form-item>
+          <el-radio-group v-model="userData.curUnLockSleepType" size="small">
+            <el-radio-button
+              :label="cKey"
+              v-for="(cItem, cKey) in SLEEP_TYPES"
+              v-bind:key="cItem"
+              >{{ cItem
+              }}<span class="extra"
+                >({{
+                  getFilterInTypes(userData.curUnlockSleeps, cKey).length +
+                  getFilterInTypes(userData.unLockSleeps, cKey).length
+                }})</span
+              ></el-radio-button
+            >
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item>
+          <el-button
+            type="success"
+            plain
+            @click="
+              setAndGetRandomSleepStyle(
+                getScore(randomSleepStyle.sleepPoint),
+                userData.curStageIndex
+              )
+            "
+            >点击抽取{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}分({{
+              getNumberInMap(
+                getScore(randomSleepStyle.sleepPoint),
+                gameMap[userData.curMap].scoreList
+              )
+            }}种睡姿)</el-button
+          >
+        </el-form-item>
+        <el-form-item>
+          <el-button
+            :loading="hopeLoading"
+            v-if="userData.curStageIndex > 0"
+            @click="
+              getRandomHope(
+                getScore(randomSleepStyle.sleepPoint),
+                userData.curStageIndex
+              )
+            "
+            >点击计算期望(睡{{ getTimes }}次)</el-button
+          >
+        </el-form-item>
+      </el-form>
       <h4>
         抽取睡姿结果
         <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
@@ -706,13 +752,13 @@ setAndGetRandomSleepStyle(
           </div>
         </template>
       </div>
-      <div v-if="userData.curStageIndex > 0">
+      <div v-if="userData.curStageIndex > 0 && hopeList.length > 0">
         <h4>
           期望宝可梦睡姿列表
-          <span class="extra">({{ hopList.length }}种)</span>
+          <span class="extra">({{ hopeList.length }}只)</span>
         </h4>
-        <div class="poke-tb poke-tb--xscorll">
-          <template v-for="(hopeItem, hopeKey) in hopList">
+        <div class="poke-tb poke-tb--xscorll" v-loading="hopeLoading">
+          <template v-for="(hopeItem, hopeKey) in hopeList">
             <div
               class="poke-tb__item"
               v-if="hopeItem.pokeId"
