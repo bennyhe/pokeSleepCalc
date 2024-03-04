@@ -680,7 +680,9 @@ setAndGetRandomSleepStyle(
             />
           </div>
         </el-form-item>
-        <el-form-item>
+      </el-form>
+      <div class="page-inner mb3">
+        <div class="mb3">
           <el-radio-group v-model="userData.curUnLockSleepType" size="small">
             <el-radio-button
               :label="cKey"
@@ -695,8 +697,8 @@ setAndGetRandomSleepStyle(
               ></el-radio-button
             >
           </el-radio-group>
-        </el-form-item>
-        <el-form-item>
+        </div>
+        <p class="mb3">
           <el-button
             type="success"
             plain
@@ -713,8 +715,8 @@ setAndGetRandomSleepStyle(
               )
             }}种睡姿)</el-button
           >
-        </el-form-item>
-        <el-form-item>
+        </p>
+        <p>
           <el-button
             :loading="hopeLoading"
             v-if="userData.curStageIndex > 0"
@@ -726,8 +728,8 @@ setAndGetRandomSleepStyle(
             "
             >点击计算期望(睡{{ getTimes }}次)</el-button
           >
-        </el-form-item>
-      </el-form>
+        </p>
+      </div>
       <h4>
         抽取睡姿结果
         <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
@@ -830,4 +832,4 @@ setAndGetRandomSleepStyle(
       </div>
     </template>
   </div>
-</template> 
+</template>
