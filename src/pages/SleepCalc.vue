@@ -317,7 +317,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   randomSleepStyle.value.resList = getRandomSleepStyle(score, curStageIndex)
 }
 
-const getTimes = 3000
+const getTimes = 4000
 const hopeList = ref([])
 const hopeLoading = ref(false)
 const getRandomHope = (score, curStageIndex) => {
