@@ -688,6 +688,12 @@ setAndGetRandomSleepStyle(
           <span class="sptime">{{
             toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
           }}</span>
+          <div style="width: 100%">
+            <span class="sptime">{{
+              getNum(getScore(randomSleepStyle.sleepPoint))
+            }}</span
+            >分
+          </div>
         </el-form-item>
       </el-form>
       <div class="page-inner mb3">
@@ -717,12 +723,12 @@ setAndGetRandomSleepStyle(
                 userData.curStageIndex
               )
             "
-            >点击抽取{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}分({{
+            >点击抽取({{
               getNumberInMap(
                 getScore(randomSleepStyle.sleepPoint),
                 gameMap[userData.curMap].scoreList
               )
-            }}种睡姿)</el-button
+            }}种)睡姿</el-button
           >
         </p>
         <p>
@@ -769,19 +775,19 @@ setAndGetRandomSleepStyle(
           期望宝可梦睡姿列表
           <span class="extra">({{ hopeList.length }}只)</span>
         </h4>
-        <div class="page-inner">
-          <span
-            class="cpt-avatar"
-            v-for="hopeItem in hopeList"
-            v-bind:key="hopeItem.pokeId"
-          >
-            <img
-              v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-              :alt="pokedex[hopeItem.pokeId].name"
-            />
-          </span>
-        </div>
         <div class="poke-tb poke-tb--xscorll" v-loading="hopeLoading">
+          <div class="page-inner">
+            <span
+              class="cpt-avatar"
+              v-for="hopeItem in hopeList"
+              v-bind:key="hopeItem.pokeId"
+            >
+              <img
+                v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
+                :alt="pokedex[hopeItem.pokeId].name"
+              />
+            </span>
+          </div>
           <template v-for="(hopeItem, hopeKey) in hopeList">
             <div
               class="poke-tb__item"

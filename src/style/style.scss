@@ -147,10 +147,7 @@ h4 {
   border: 1px solid lighten($color: $mainColor, $amount: 20%);
   border-radius: 100%;
   overflow: hidden;
-
-  &:not(:first-child) {
-    margin-left: 3px;
-  }
+  margin: 0 1.5px;
 
   img {
     width: 100%;
