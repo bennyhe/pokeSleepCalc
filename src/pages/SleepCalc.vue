@@ -14,7 +14,8 @@ import {
   getNumberInMap,
   getStageLevelPicId,
   sortInObjectOptions,
-  getRandomArr
+  getRandomArr,
+  getDecimalNumber
 } from '../utils/index.js'
 
 const userData = ref({
@@ -790,7 +791,7 @@ setAndGetRandomSleepStyle(
         </h4>
         <div class="poke-tb poke-tb--xscorll" v-loading="hopeLoading">
           <div class="page-inner">
-            <span
+            <div
               class="cpt-avatar"
               v-for="hopeItem in hopeList"
               v-bind:key="hopeItem.pokeId"
@@ -799,7 +800,8 @@ setAndGetRandomSleepStyle(
                 v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
                 :alt="pokedex[hopeItem.pokeId].name"
               />
-            </span>
+              <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+            </div>
           </div>
           <template v-for="(hopeItem, hopeKey) in hopeList">
             <div
