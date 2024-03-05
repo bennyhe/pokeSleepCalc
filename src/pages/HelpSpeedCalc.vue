@@ -517,13 +517,13 @@ watch(helpSpeedCalcForm.value, val => {
         targetInList.sortIndex
       }}</i>
       {{ helpSpeedCalcForm.baseHelpSpeed }}s
-      <img
-        class="icon"
-        v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-        :alt="pokeItem.name"
+      <span
+        class="cpt-avatar"
         v-for="pokeItem in targetInList.list"
         v-bind:key="pokeItem.id"
-      />
+      >
+        <img v-lazy="`./img/pokedex/${pokeItem.id}.png`" :alt="pokeItem.name" />
+      </span>
     </el-form-item>
     <el-form-item label="食材">
       <div

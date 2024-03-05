@@ -764,6 +764,14 @@ setAndGetRandomSleepStyle(
           期望宝可梦睡姿列表
           <span class="extra">({{ hopeList.length }}只)</span>
         </h4>
+        <div class="page-inner">
+          <span class="cpt-avatar" v-for="hopeItem in hopeList" v-bind:key="hopeItem.pokeId">
+            <img
+              v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
+              :alt="pokedex[hopeItem.pokeId].name"
+            />
+          </span>
+        </div>
         <div class="poke-tb poke-tb--xscorll" v-loading="hopeLoading">
           <template v-for="(hopeItem, hopeKey) in hopeList">
             <div
