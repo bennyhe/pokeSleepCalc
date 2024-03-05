@@ -551,6 +551,10 @@ setAndGetRandomSleepStyle(
         </p>
       </el-form-item>
     </el-form>
+    <div class="mod-tips">
+      <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
+      <p>* 开帐篷&熏香不在计算范围内。</p>
+    </div>
     <div class="page-inner">
       <el-radio-group v-model="userData.curUnLockSleepType" size="small">
         <el-radio-button
@@ -718,8 +722,9 @@ setAndGetRandomSleepStyle(
         </p>
         <p>
           <el-button
+            type="primary"
+            plain
             :loading="hopeLoading"
-            v-if="userData.curStageIndex > 0"
             @click="
               getRandomHope(
                 getScore(randomSleepStyle.sleepPoint),
@@ -754,7 +759,7 @@ setAndGetRandomSleepStyle(
           </div>
         </template>
       </div>
-      <div v-if="userData.curStageIndex > 0 && hopeList.length > 0">
+      <div v-if="hopeList.length > 0">
         <h4>
           期望宝可梦睡姿列表
           <span class="extra">({{ hopeList.length }}只)</span>
@@ -775,7 +780,7 @@ setAndGetRandomSleepStyle(
                 获得<span class="sptime">{{ hopeItem.count }}</span
                 >次
               </div>
-              <CptPoke :pokeId="hopeItem.pokeId" :showKey="['sleepStyle']" />
+              <CptPoke :pokeId="hopeItem.pokeId" :showKey="['sleepType']" />
               <CptSleepStyle
                 class="sleeplist__sub-item"
                 v-for="sleepItem in hopeItem.list"
@@ -788,10 +793,6 @@ setAndGetRandomSleepStyle(
           </template>
         </div>
       </div>
-    </div>
-    <div class="mod-tips">
-      <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
-      <p>* 开帐篷&熏香不在计算范围内。</p>
     </div>
     <h2>
       {{ gameMap[userData.curMap].name }}-数据区间参考<span
