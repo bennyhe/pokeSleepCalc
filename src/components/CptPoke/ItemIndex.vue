@@ -24,13 +24,21 @@ const props = defineProps({
   },
   isHightLightBerry: {
     type: Boolean
+  },
+  isShiny: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
 
 
 <template>
-  <div class="cpt-pokemon cpt-pokemon--l" v-if="pokeId">
+  <div
+    class="cpt-pokemon cpt-pokemon--l"
+    v-if="pokeId"
+    :class="{ shiny: isShiny }"
+  >
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name" />
@@ -165,6 +173,9 @@ const props = defineProps({
     >
       食{{ props.foodPer || pokedex[pokeId].foodPer }}%
     </p>
-    <p class="cpt-pokemon__name">{{ pokedex[pokeId].name }}</p>
+    <p class="cpt-pokemon__name">
+      <span v-if="isShiny" class="sptime">闪光</span>
+      {{ pokedex[pokeId].name }}
+    </p>
   </div>
 </template>

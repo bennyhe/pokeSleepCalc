@@ -219,6 +219,10 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+const getShinyPoke = () => {
+  return parseInt(Math.floor(Math.random() * 128), 10) === 44
+}
+
 const getRandomSleepStyle = (score, curStageIndex) => {
   const res = []
   let cathPokeCount = getNumberInMap(
@@ -258,7 +262,8 @@ const getRandomSleepStyle = (score, curStageIndex) => {
     //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
     if (curSpo < 2) {
       res.push({
-        ...spoZeroPoke
+        ...spoZeroPoke,
+        isShiny: getShinyPoke()
         // extra: 'SPO<2' //debug
       })
       curSpo = 1
@@ -274,7 +279,8 @@ const getRandomSleepStyle = (score, curStageIndex) => {
       }
       // console.log(sleepList[rdmIndex])
       res.push({
-        ...rdmRes
+        ...rdmRes,
+        isShiny: getShinyPoke()
       })
       curSpo -= sleepList[rdmIndex].spo
       if (curSpo < 2) {
@@ -286,7 +292,10 @@ const getRandomSleepStyle = (score, curStageIndex) => {
   }
   //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
   if (curSpo < 2) {
-    res.push(spoZeroPoke)
+    res.push({
+      ...spoZeroPoke,
+      isShiny: getShinyPoke()
+    })
   } else {
     let lastList = orgSleepList.filter(
       item =>
@@ -298,7 +307,10 @@ const getRandomSleepStyle = (score, curStageIndex) => {
     if (lastList.length > 0) {
       lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
     }
-    res.push(lastList[0])
+    res.push({
+      ...lastList[0],
+      isShiny: getShinyPoke()
+    })
   }
 
   return res
@@ -756,6 +768,7 @@ setAndGetRandomSleepStyle(
             class="poke-tb__item"
             v-if="sleepItem.id"
             v-bind:key="sleepItem.id"
+            :class="{ shiny: sleepItem.isShiny }"
           >
             <p>
               <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{

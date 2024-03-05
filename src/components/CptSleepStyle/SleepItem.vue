@@ -28,7 +28,12 @@ const props = defineProps({
 
 <template>
   <div>
-    <CptPoke v-if="showCptPoke" :pokeId="sleepItem.pokeId" :showKey="showKey" />
+    <CptPoke
+      v-if="showCptPoke"
+      :pokeId="sleepItem.pokeId"
+      :showKey="showKey"
+      :isShiny="sleepItem.isShiny"
+    />
     <div class="extra-desc">
       <p>
         <span class="star"

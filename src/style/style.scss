@@ -304,6 +304,17 @@ h4 {
     line-height: 12px;
     color: #333;
     white-space: normal;
+
+    .sptime {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  &.shiny {
+    .cpt-pokemon__name {
+      color: $dialogMainColor
+    }
   }
 
   &__skill {
@@ -765,6 +776,10 @@ h4 {
 
     &.cur {
       background-color: rgba($color: orange, $alpha: .1);
+    }
+
+    &.shiny {
+      background: linear-gradient(45deg, rgba(#fceabb, 50%) 0%, rgba(#fccd4d, 50%) 50%, rgba(#f8b500, 50%) 51%, rgba(#fbdf93, 50%) 100%);
     }
   }
 
