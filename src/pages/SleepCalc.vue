@@ -674,7 +674,7 @@ setAndGetRandomSleepStyle(
               </template> </el-input
           ></el-col>
         </el-form-item>
-        <el-form-item label="睡眠分数">
+        <el-form-item label="需睡眠分数">
           <div style="width: 300px">
             <el-slider
               v-model="randomSleepStyle.sleepPoint"
@@ -683,6 +683,11 @@ setAndGetRandomSleepStyle(
               :max="100"
             />
           </div>
+        </el-form-item>
+        <el-form-item label="需睡眠时长">
+          <span class="sptime">{{
+            toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
+          }}</span>
         </el-form-item>
       </el-form>
       <div class="page-inner mb3">
@@ -765,7 +770,11 @@ setAndGetRandomSleepStyle(
           <span class="extra">({{ hopeList.length }}只)</span>
         </h4>
         <div class="page-inner">
-          <span class="cpt-avatar" v-for="hopeItem in hopeList" v-bind:key="hopeItem.pokeId">
+          <span
+            class="cpt-avatar"
+            v-for="hopeItem in hopeList"
+            v-bind:key="hopeItem.pokeId"
+          >
             <img
               v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
               :alt="pokedex[hopeItem.pokeId].name"
