@@ -1,4 +1,4 @@
-const mapSplitVer = '2.4.1'
+const mapSplitVer = '2.4.3'
 const gameMap = [
   {
     name: '萌绿之岛',
@@ -1223,8 +1223,8 @@ const gameMap = [
     id: 'snow',
     pic: 'map4',
     berry: [11, 7, 17],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821374 },
-      { catchNum: 4, startscore: 2821385, endscore: 7162380 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821377 },
+      { catchNum: 4, startscore: 2821380, endscore: 7162380 },
       { catchNum: 5, startscore: 7162381, endscore: 15469180 },
       { catchNum: 6, startscore: 15469188, endscore: 28772754 },
       { catchNum: 7, startscore: 28772756, endscore: 65691968 },
@@ -1599,12 +1599,12 @@ const gameMap = [
     id: 'lake',
     pic: 'map5',
     berry: [4, 18, 6],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3147400 },
-      { catchNum: 4, startscore: 3154032, endscore: 7729830 },
-      { catchNum: 5, startscore: 7733187, endscore: 16656367 },
-      { catchNum: 6, startscore: 16661154, endscore: 30483200 },
-      { catchNum: 7, startscore: 30491808, endscore: 68656800 },
-      { catchNum: 8, startscore: 68670648 }],
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3152550 },
+      { catchNum: 4, startscore: 3153605, endscore: 7729830 },
+      { catchNum: 5, startscore: 7731504, endscore: 16656367 },
+      { catchNum: 6, startscore: 16659966, endscore: 30491662 },
+      { catchNum: 7, startscore: 30491808, endscore: 68663700 },
+      { catchNum: 8, startscore: 68666000 }],
     levelList: [
       {
         'name': '普通1',
