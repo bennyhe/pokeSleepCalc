@@ -879,6 +879,13 @@ h4 {
     margin-bottom: 8px;
   }
 
+  .poke-tb--lottery {
+    .poke-tb__item {
+      transform: scale(0.8);
+      margin: -21px -5px;
+    }
+  }
+
   .page-sleepcalc {
     .el-radio-button--small .el-radio-button__inner {
       padding-left: 6px;

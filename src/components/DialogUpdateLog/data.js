@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-03-06
 1. update 岛屿数据区间参考
+2. update 优化睡眠计算交互
 
 ## 24-03-05
 1. add 抽取睡姿-闪光宝可梦
