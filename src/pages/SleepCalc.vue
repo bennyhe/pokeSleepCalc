@@ -681,21 +681,7 @@ setAndGetRandomSleepStyle(
             <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
           </h3>
         </div>
-        <div class="page-inner mb3">
-          <el-button
-            type="primary"
-            plain
-            :loading="hopeLoading"
-            @click="
-              getRandomHope(
-                getScore(randomSleepStyle.sleepPoint),
-                userData.curStageIndex
-              )
-            "
-            >点击计算期望(睡{{ getTimes }}次)</el-button
-          >
-        </div>
-        <div class="poke-tb poke-tb--xscorll poke-tb--lottery">
+        <div class="poke-tb poke-tb--xscorll poke-tb--lottery mb3">
           <template v-for="(sleepItem, sleepKey) in randomSleepStyle.resList">
             <div
               class="poke-tb__item"
@@ -715,6 +701,20 @@ setAndGetRandomSleepStyle(
               />
             </div>
           </template>
+        </div>
+        <div class="page-inner mb3">
+          <el-button
+            type="primary"
+            plain
+            :loading="hopeLoading"
+            @click="
+              getRandomHope(
+                getScore(randomSleepStyle.sleepPoint),
+                userData.curStageIndex
+              )
+            "
+            >点击计算期望(睡{{ getTimes }}次)</el-button
+          >
         </div>
         <div v-if="hopeList.length > 0">
           <div class="page-inner">

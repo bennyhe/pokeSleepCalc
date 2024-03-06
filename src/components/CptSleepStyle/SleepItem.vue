@@ -50,12 +50,14 @@ const props = defineProps({
         >号睡姿
       </p>
       <p>
+        <img class="icon" v-lazy="`./img/ui/exp.png`" />
         <span class="sptime">{{ sleepItem.exp }}</span
-        >经验
+        >
       </p>
       <p>
+        <img class="icon" v-lazy="`./img/ui/shards.png`" />
         <span class="sptime">{{ sleepItem.shards }}</span
-        >梦碎
+        >
       </p>
       <p>
         可获得<span class="sptime">{{ sleepItem.candys }}</span
