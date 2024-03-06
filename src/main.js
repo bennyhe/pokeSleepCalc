@@ -6,5 +6,6 @@ import App from './App.vue'
 
 createApp(App).use(VueLazyload, {
   preLoad: 1.3,
+  error: 'img/null.png',
   attempt: 1
 }).use(ElementPlus).mount('#app')
