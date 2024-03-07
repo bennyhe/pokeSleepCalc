@@ -66,7 +66,7 @@ export function getNumberInMap(nowScore, scoreList) {
     const el = scoreList[i]
     if (i + 1 === scoreList.length && nowScore >= el.startscore) {
       return el.catchNum
-    } else if (nowScore >= el.startscore && nowScore <= el.endscore) {
+    } else if (nowScore >= el.startscore && nowScore < scoreList[i + 1].startscore) {
       return el.catchNum
     }
   }
