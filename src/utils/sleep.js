@@ -2,7 +2,9 @@ import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SPO_DATA } from '../config/spo.js'
 import { pokedex } from '../config/pokedex.js'
 import {
-  sortInObjectOptions
+  sortInObjectOptions,
+  getRandomArr,
+  getNumberInMap
 } from '../utils/index.js'
 export function getUnLockSleeps(mapData, curStageIndex) {
   let unLockSleeps = []
@@ -67,4 +69,172 @@ export function getUnLockSleeps(mapData, curStageIndex) {
     curUnlockSleeps,
     allUnlockSleepsList: [...unLockSleeps, ...curUnlockSleeps]
   }
+}
+
+
+const getShinyPoke = () => {
+  return parseInt(Math.floor(Math.random() * 128), 10) === 44
+}
+export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex) {
+  const res = []
+  let cathPokeCount = getNumberInMap(
+    score,
+    mapData.scoreList
+  )
+  let curSpo = Math.floor(score / 38000)
+  let orgSleepList = getUnLockSleeps(
+    mapData,
+    curStageIndex
+  ).allUnlockSleepsList
+  // 睡眠类型图鉴筛选
+  if (+curUnLockSleepType !== 999) {
+    orgSleepList = orgSleepList.filter(
+      item => item.sleepType === +curUnLockSleepType
+    )
+  }
+  // 随机洗牌，如果10倍长度少于1000，则默认1000次
+  orgSleepList = getRandomArr(
+    orgSleepList,
+    orgSleepList.length * 10 < 1000 ? 1000 : orgSleepList.length * 10
+  )
+
+  // SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+  const spoZeroPoke = sortInObjectOptions(
+    orgSleepList,
+    ['spo', 'unLockLevel', 'spoId'],
+    'up'
+  )[0]
+  // console.log(`等级解锁睡姿——${orgSleepList.length}个`, orgSleepList)
+
+  let isSleepOnStomach = false
+
+  while (cathPokeCount > 1) {
+    let sleepList = orgSleepList.filter(
+      item =>
+        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+    )
+    sleepList = getRandomArr(sleepList, sleepList.length * 10)
+    //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+    if (curSpo < 2) {
+      res.push({
+        ...spoZeroPoke,
+        isShiny: getShinyPoke()
+        // extra: 'SPO<2' //debug
+      })
+      curSpo = 1
+    } else {
+      const rdmIndex = parseInt(
+        Math.floor(Math.random() * sleepList.length),
+        10
+      )
+      const rdmRes = sleepList[rdmIndex]
+      // 大肚子睡只能1次
+      if (rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
+        isSleepOnStomach = true
+      }
+      // console.log(sleepList[rdmIndex])
+      res.push({
+        ...rdmRes,
+        isShiny: getShinyPoke()
+      })
+      curSpo -= sleepList[rdmIndex].spo
+      if (curSpo < 2) {
+        curSpo = 1
+      }
+    }
+    // console.log(curSpo)
+    cathPokeCount--
+  }
+  //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+  if (curSpo < 2) {
+    res.push({
+      ...spoZeroPoke,
+      isShiny: getShinyPoke()
+    })
+  } else {
+    let lastList = orgSleepList.filter(
+      item =>
+        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+    )
+    lastList = sortInObjectOptions(lastList, ['spo'], 'down')
+    const lastMostSpo = lastList[0].spo
+    lastList = lastList.filter(item => item.spo === lastMostSpo)
+    if (lastList.length > 0) {
+      lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
+    }
+    res.push({
+      ...lastList[0],
+      isShiny: getShinyPoke()
+    })
+  }
+
+  return res
+  // console.log(
+  //   mapData.name,
+  //   mapData.levelList[curStageIndex].name,
+  //   3000000,
+  //   `剩余SPO:${curSpo}`,
+  //   SLEEP_TYPES[curUnLockSleepType],
+  //   `${getNumberInMap(score, mapData.scoreList)}只`
+  // )
+  // console.log('res', res)
+}
+export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, callback) {
+  getTimes = getTimes || 4000
+  let orgList = []
+  for (let i = 0; i < getTimes; i++) {
+    orgList = orgList.concat(
+      getRandomSleepStyle(
+        mapData,
+        curUnLockSleepType,
+        score,
+        curStageIndex
+      )
+    )
+  }
+  const mergeRes = []
+  orgList.forEach(item => {
+    const findTargetResItem = mergeRes.find(
+      resItem => resItem.id === item.id
+    )
+    if (!findTargetResItem) {
+      mergeRes.push({
+        ...item,
+        count: 1
+      })
+    } else {
+      findTargetResItem.count++
+    }
+  })
+  let res = []
+  mergeRes.forEach(item => {
+    const findTargetResItem = res.find(
+      resItem => resItem.pokeId === item.pokeId
+    )
+    if (!findTargetResItem) {
+      res.push({
+        pokeId: item.pokeId,
+        list: [item],
+        count: item.count
+      })
+    } else {
+      findTargetResItem.list.push(item)
+      findTargetResItem.count += item.count
+    }
+  })
+  res.forEach(item => {
+    item.list = sortInObjectOptions(item.list, ['count'], 'down')
+  })
+  res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
+
+  if (callback) {
+    callback(res)
+  }
+
+  return res
+  // console.log({
+  //   res,
+  //   orgList,
+  //   getTimes
+  // })
 }

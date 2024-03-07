@@ -6,14 +6,17 @@ import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { BERRY_TYPES, SLEEP_TYPES, SLEEP_NAMES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
-import { getUnLockSleeps } from '../utils/sleep.js'
+import {
+  getUnLockSleeps,
+  getRandomSleepStyle,
+  getRandomHope
+} from '../utils/sleep.js'
 import {
   toHM,
   getNum,
   getNumberInMap,
   getStageLevelPicId,
   sortInObjectOptions,
-  getRandomArr,
   getDecimalNumber
 } from '../utils/index.js'
 
@@ -170,171 +173,23 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
-const getShinyPoke = () => {
-  return parseInt(Math.floor(Math.random() * 128), 10) === 44
-}
-
-const getRandomSleepStyle = (score, curStageIndex) => {
-  const res = []
-  let cathPokeCount = getNumberInMap(
-    score,
-    gameMap[userData.value.curMap].scoreList
-  )
-  let curSpo = Math.floor(score / 38000)
-  let orgSleepList = getUnLockSleeps(
-    gameMap[userData.value.curMap],
-    curStageIndex
-  ).allUnlockSleepsList
-  // 睡眠类型图鉴筛选
-  if (+userData.value.curUnLockSleepType !== 999) {
-    orgSleepList = orgSleepList.filter(
-      item => item.sleepType === +userData.value.curUnLockSleepType
-    )
-  }
-  // 随机洗牌，如果10倍长度少于1000，则默认1000次
-  orgSleepList = getRandomArr(
-    orgSleepList,
-    orgSleepList.length * 10 < 1000 ? 1000 : orgSleepList.length * 10
-  )
-
-  // SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-  const spoZeroPoke = sortInObjectOptions(
-    orgSleepList,
-    ['spo', 'unLockLevel', 'spoId'],
-    'up'
-  )[0]
-  // console.log(`等级解锁睡姿——${orgSleepList.length}个`, orgSleepList)
-
-  let isSleepOnStomach = false
-
-  while (cathPokeCount > 1) {
-    let sleepList = orgSleepList.filter(
-      item =>
-        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
-    )
-    sleepList = getRandomArr(sleepList, sleepList.length * 10)
-    //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-    if (curSpo < 2) {
-      res.push({
-        ...spoZeroPoke,
-        isShiny: getShinyPoke()
-        // extra: 'SPO<2' //debug
-      })
-      curSpo = 1
-    } else {
-      const rdmIndex = parseInt(
-        Math.floor(Math.random() * sleepList.length),
-        10
-      )
-      const rdmRes = sleepList[rdmIndex]
-      // 大肚子睡只能1次
-      if (rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
-        isSleepOnStomach = true
-      }
-      // console.log(sleepList[rdmIndex])
-      res.push({
-        ...rdmRes,
-        isShiny: getShinyPoke()
-      })
-      curSpo -= sleepList[rdmIndex].spo
-      if (curSpo < 2) {
-        curSpo = 1
-      }
-    }
-    // console.log(curSpo)
-    cathPokeCount--
-  }
-  //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-  if (curSpo < 2) {
-    res.push({
-      ...spoZeroPoke,
-      isShiny: getShinyPoke()
-    })
-  } else {
-    let lastList = orgSleepList.filter(
-      item =>
-        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
-    )
-    lastList = sortInObjectOptions(lastList, ['spo'], 'down')
-    const lastMostSpo = lastList[0].spo
-    lastList = lastList.filter(item => item.spo === lastMostSpo)
-    if (lastList.length > 0) {
-      lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
-    }
-    res.push({
-      ...lastList[0],
-      isShiny: getShinyPoke()
-    })
-  }
-
-  return res
-  // console.log(
-  //   gameMap[userData.value.curMap].name,
-  //   gameMap[userData.value.curMap].levelList[curStageIndex].name,
-  //   3000000,
-  //   `剩余SPO:${curSpo}`,
-  //   SLEEP_TYPES[userData.value.curUnLockSleepType],
-  //   `${getNumberInMap(score, gameMap[userData.value.curMap].scoreList)}只`
-  // )
-  // console.log('res', res)
-}
-
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
-  randomSleepStyle.value.resList = getRandomSleepStyle(score, curStageIndex)
+  randomSleepStyle.value.resList = getRandomSleepStyle(
+    gameMap[userData.value.curMap],
+    userData.value.curUnLockSleepType,
+    score,
+    curStageIndex
+  )
 }
 
 const getTimes = 4000
 const hopeList = ref([])
-const hopeLoading = ref(false)
-const getRandomHope = (score, curStageIndex) => {
-  hopeLoading.value = true
-  let orgList = []
-  for (let i = 0; i < getTimes; i++) {
-    orgList = orgList.concat(getRandomSleepStyle(score, curStageIndex))
-  }
-  const mergeRes = []
-  orgList.forEach(item => {
-    const findTargetResItem = mergeRes.find(
-      resItem => resItem.id === item.id
-    )
-    if (!findTargetResItem) {
-      mergeRes.push({
-        ...item,
-        count: 1
-      })
-    } else {
-      findTargetResItem.count++
-    }
-  })
-  let res = []
-  mergeRes.forEach(item => {
-    const findTargetResItem = res.find(
-      resItem => resItem.pokeId === item.pokeId
-    )
-    if (!findTargetResItem) {
-      res.push({
-        pokeId: item.pokeId,
-        list: [item],
-        count: item.count
-      })
-    } else {
-      findTargetResItem.list.push(item)
-      findTargetResItem.count += item.count
-    }
-  })
-  res.forEach(item => {
-    item.list = sortInObjectOptions(item.list, ['count'], 'down')
-  })
-  res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
-
-  setAndGetRandomSleepStyle(score, curStageIndex)
+const getRandomHopeCb = res => {
+  setAndGetRandomSleepStyle(
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex
+  )
   hopeList.value = res
-  hopeLoading.value = false
-  // console.log({
-  //   res,
-  //   orgList,
-  //   getTimes
-  // })
 }
 
 const handleClickTimes = () => {
@@ -645,11 +500,14 @@ setAndGetRandomSleepStyle(
           <el-button
             type="primary"
             plain
-            :loading="hopeLoading"
             @click="
               getRandomHope(
+                gameMap[userData.curMap],
+                userData.curUnLockSleepType,
                 getScore(randomSleepStyle.sleepPoint),
-                userData.curStageIndex
+                userData.curStageIndex,
+                getTimes,
+                getRandomHopeCb
               )
             "
             >点击计算期望(睡{{ getTimes }}次)</el-button
@@ -662,7 +520,7 @@ setAndGetRandomSleepStyle(
               <span class="extra">({{ hopeList.length }}只)</span>
             </h3>
           </div>
-          <div class="poke-tb poke-tb--xscorll" v-loading="hopeLoading">
+          <div class="poke-tb poke-tb--xscorll">
             <div class="page-inner">
               <div
                 class="cpt-avatar"
