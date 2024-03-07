@@ -1,4 +1,4 @@
-const mapSplitVer = '2.4.3'
+const mapSplitVer = '2.4.4'
 const gameMap = [
   {
     name: '萌绿之岛',
@@ -1602,8 +1602,8 @@ const gameMap = [
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 3152550 },
       { catchNum: 4, startscore: 3153605, endscore: 7729830 },
       { catchNum: 5, startscore: 7731504, endscore: 16656367 },
-      { catchNum: 6, startscore: 16659966, endscore: 30491662 },
-      { catchNum: 7, startscore: 30491808, endscore: 68663700 },
+      { catchNum: 6, startscore: 16659966, endscore: 30491709 },
+      { catchNum: 7, startscore: 30491710, endscore: 68663700 },
       { catchNum: 8, startscore: 68666000 }],
     levelList: [
       {
