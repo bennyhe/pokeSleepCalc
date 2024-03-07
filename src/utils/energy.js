@@ -4,7 +4,7 @@ import { FOOD_ENERGY } from '../config/valKey.js'
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) => {
   let pokeType = pokeItem.pokeType === 1 ? 2 : 1
   if (isDoubleBerry) {
-    pokeType = pokeItem.pokeType === 1 ? 3 : 2
+    pokeType++
   }
   let res = Math.floor(
     pokeItem.oneDayHelpCount.berry *

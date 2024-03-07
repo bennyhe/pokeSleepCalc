@@ -5,9 +5,8 @@ import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { BERRY_TYPES, SLEEP_TYPES, SLEEP_NAMES } from '../config/valKey.js'
-import { SPO_DATA } from '../config/spo.js'
 import { pokedex } from '../config/pokedex.js'
-import { SLEEP_STYLE } from '../config/sleepStyle.js'
+import { getUnLockSleeps } from '../utils/sleep.js'
 import {
   toHM,
   getNum,
@@ -54,7 +53,10 @@ const setDefaultCutNumber = () => {
 }
 
 const setUnlockSleeps = () => {
-  const resSleeps = getUnLockSleeps()
+  const resSleeps = getUnLockSleeps(
+    gameMap[userData.value.curMap],
+    userData.value.curStageIndex
+  )
   userData.value.curUnlockSleeps = resSleeps.curUnlockSleeps
   userData.value.unLockSleeps = resSleeps.unLockSleeps
 }
@@ -66,72 +68,6 @@ const resetTool = () => {
     ].energy
   setDefaultCutNumber()
   setUnlockSleeps()
-}
-
-const getUnLockSleeps = stageIndex => {
-  const curStageIndex = stageIndex || userData.value.curStageIndex
-  let unLockSleeps = []
-  let curUnlockSleeps = []
-  if (curStageIndex > 0) {
-    const aResLast = []
-    gameMap[userData.value.curMap].levelList
-      .slice(0, curStageIndex)
-      .forEach((levelItem, levelKey) => {
-        if (levelItem.sleepStyles.length > 0) {
-          levelItem.sleepStyles.forEach(sItem => {
-            if (SLEEP_STYLE[sItem]) {
-              aResLast.push({
-                ...SLEEP_STYLE[sItem],
-                sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-                spo: SPO_DATA[gameMap[userData.value.curMap].id][sItem].spo,
-                spoId: SPO_DATA[gameMap[userData.value.curMap].id][sItem].id,
-                unLockLevel: levelKey
-              })
-            }
-            // else {
-            //   console.log(sItem)
-            // }
-          })
-        }
-      })
-    unLockSleeps = sortInObjectOptions(
-      aResLast,
-      ['sleepType', 'pokeId', 'star'],
-      'up'
-    )
-  }
-  if (
-    gameMap[userData.value.curMap].levelList[curStageIndex].sleepStyles.length >
-    0
-  ) {
-    const aRes = []
-    gameMap[userData.value.curMap].levelList[curStageIndex].sleepStyles.forEach(
-      sItem => {
-        if (SLEEP_STYLE[sItem]) {
-          aRes.push({
-            ...SLEEP_STYLE[sItem],
-            sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: SPO_DATA[gameMap[userData.value.curMap].id][sItem].spo,
-            spoId: SPO_DATA[gameMap[userData.value.curMap].id][sItem].id,
-            unLockLevel: curStageIndex
-          })
-        }
-        // else {
-        //   console.log(sItem)
-        // }
-      }
-    )
-    curUnlockSleeps = sortInObjectOptions(
-      aRes,
-      ['sleepType', 'pokeId', 'star'],
-      'up'
-    )
-  }
-  return {
-    unLockSleeps,
-    curUnlockSleeps,
-    allUnlockSleepsList: [...unLockSleeps, ...curUnlockSleeps]
-  }
 }
 
 const handleClickChangeMap = id => {
@@ -245,7 +181,10 @@ const getRandomSleepStyle = (score, curStageIndex) => {
     gameMap[userData.value.curMap].scoreList
   )
   let curSpo = Math.floor(score / 38000)
-  let orgSleepList = getUnLockSleeps(curStageIndex).allUnlockSleepsList
+  let orgSleepList = getUnLockSleeps(
+    gameMap[userData.value.curMap],
+    curStageIndex
+  ).allUnlockSleepsList
   // 睡眠类型图鉴筛选
   if (+userData.value.curUnLockSleepType !== 999) {
     orgSleepList = orgSleepList.filter(
