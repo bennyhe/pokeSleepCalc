@@ -1403,6 +1403,16 @@ const pokedex = {
     helpSpeed: 3300,
     foodPer: 20.21
   },
+  // 243: {
+  //   id: 243,
+  //   name: '雷公',
+  //   sleepType: 2,
+  //   skillType: 15,
+  //   // pokeType: 3,
+  //   berryType: 13,
+  //   helpSpeed: 2600
+  //   // foodPer: 20.21
+  // },
   246: {
     id: 246,
     name: '幼基拉斯',
@@ -1962,6 +1972,16 @@ const pokedex = {
     helpSpeed: 2600,
     foodPer: 17.79
   },
+  // 702: {
+  //   id: 702,
+  //   name: '咚咚鼠',
+  //   sleepType: 2,
+  //   skillType: 14,
+  //   pokeType: 3,
+  //   berryType: 13,
+  //   helpSpeed: 2500
+  //   // foodPer: 17.79
+  // },
   759: {
     id: 759,
     name: '童偶熊',
