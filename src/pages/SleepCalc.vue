@@ -217,10 +217,8 @@ const handleBlurEnergy = () => {
       userData.value.curStageIndex = gKey
     }
   }
-  setAndGetRandomSleepStyle(
-    getScore(randomSleepStyle.value.sleepPoint),
-    userData.value.curStageIndex
-  )
+  setDefaultCutNumber()
+  setUnlockSleeps()
 }
 // 初始化默认
 setDefaultCutNumber()
