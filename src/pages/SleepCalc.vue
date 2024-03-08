@@ -9,7 +9,8 @@ import { pokedex } from '../config/pokedex.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
-  getRandomHope
+  getRandomHope,
+  getLevelIndexByEnergy
 } from '../utils/sleep.js'
 import {
   toHM,
@@ -206,21 +207,10 @@ const handleBlurEnergy = () => {
     userData.value.CurEnergy = 0
     userData.value.curStageIndex = 0
   } else {
-    const curMapLevelList = gameMap[userData.value.curMap].levelList
-    for (let gKey = 0; gKey < curMapLevelList.length; gKey++) {
-      const gItem = curMapLevelList[gKey]
-      if (gKey < curMapLevelList.length - 1) {
-        if (
-          userData.value.CurEnergy >= gItem.energy &&
-          userData.value.CurEnergy < curMapLevelList[gKey + 1].energy
-        ) {
-          userData.value.curStageIndex = gKey
-          break
-        }
-      } else {
-        userData.value.curStageIndex = gKey
-      }
-    }
+    userData.value.curStageIndex = getLevelIndexByEnergy(
+      gameMap[userData.value.curMap],
+      userData.value.CurEnergy
+    )
   }
   setDefaultCutNumber()
   setUnlockSleeps()

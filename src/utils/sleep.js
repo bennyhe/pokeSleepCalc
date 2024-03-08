@@ -238,3 +238,23 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
   //   getTimes
   // })
 }
+
+export function getLevelIndexByEnergy(mapData, CurEnergy) {
+  let curStageIndex = 0
+  const curMapLevelList = mapData.levelList
+  for (let gKey = 0; gKey < curMapLevelList.length; gKey++) {
+    const gItem = curMapLevelList[gKey]
+    if (gKey < curMapLevelList.length - 1) {
+      if (
+        CurEnergy >= gItem.energy &&
+        CurEnergy < curMapLevelList[gKey + 1].energy
+      ) {
+        curStageIndex = gKey
+        break
+      }
+    } else {
+      curStageIndex = gKey
+    }
+  }
+  return curStageIndex
+}
