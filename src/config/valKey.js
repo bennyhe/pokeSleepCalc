@@ -146,7 +146,8 @@ export const SKILL_TYPES = {
   11: '料理強化S',
   12: '屬性加速S',
   13: '揮指',
-  14: '料理成功S'
+  14: '料理成功S',
+  15: '幫手加速（電）'
 }
 export const SLEEP_NAMES = {
   1: '光合作用睡',
