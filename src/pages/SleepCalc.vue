@@ -205,7 +205,7 @@ const handleBlurEnergy = () => {
   const curMapLevelList = gameMap[userData.value.curMap].levelList
   for (let gKey = 0; gKey < curMapLevelList.length; gKey++) {
     const gItem = curMapLevelList[gKey]
-    if (gKey + 1 !== curMapLevelList.length) {
+    if (gKey < curMapLevelList.length - 1) {
       if (
         userData.value.CurEnergy >= gItem.energy &&
         userData.value.CurEnergy < curMapLevelList[gKey + 1].energy
@@ -213,8 +213,15 @@ const handleBlurEnergy = () => {
         userData.value.curStageIndex = gKey
         break
       }
+    } else {
+      userData.value.curStageIndex = gKey
     }
   }
+  resetTool()
+  setAndGetRandomSleepStyle(
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex
+  )
 }
 // 初始化默认
 setDefaultCutNumber()
