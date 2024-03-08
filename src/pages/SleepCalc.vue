@@ -217,7 +217,6 @@ const handleBlurEnergy = () => {
       userData.value.curStageIndex = gKey
     }
   }
-  resetTool()
   setAndGetRandomSleepStyle(
     getScore(randomSleepStyle.value.sleepPoint),
     userData.value.curStageIndex
