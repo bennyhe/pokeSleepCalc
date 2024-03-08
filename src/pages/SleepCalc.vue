@@ -90,6 +90,11 @@ const handleClickChangeMap = id => {
 const handleClickChangeStage = stageItem => {
   resetTool()
 }
+
+/**
+ * 获取带倍数加成后的睡意之力
+ * 当前能量*睡眠点数*节日倍数
+ */
 const getScore = point => {
   return userData.value.CurEnergy * point * userData.value.times
 }
@@ -195,6 +200,22 @@ const getRandomHopeCb = res => {
 const handleClickTimes = () => {
   setDefaultCutNumber()
 }
+
+const handleBlurEnergy = () => {
+  const curMapLevelList = gameMap[userData.value.curMap].levelList
+  for (let gKey = 0; gKey < curMapLevelList.length; gKey++) {
+    const gItem = curMapLevelList[gKey]
+    if (gKey + 1 !== curMapLevelList.length) {
+      if (
+        userData.value.CurEnergy >= gItem.energy &&
+        userData.value.CurEnergy < curMapLevelList[gKey + 1].energy
+      ) {
+        userData.value.curStageIndex = gKey
+        break
+      }
+    }
+  }
+}
 // 初始化默认
 setDefaultCutNumber()
 setUnlockSleeps()
@@ -288,6 +309,7 @@ setAndGetRandomSleepStyle(
             placeholder="请输入当前能量"
             clearable
             class="m-2"
+            @blur="handleBlurEnergy"
           >
             <template #prefix>
               <img class="icon" v-lazy="`./img/ui/energy.png`" />
@@ -388,7 +410,7 @@ setAndGetRandomSleepStyle(
     </el-form>
     <div class="page-inner" v-if="+navData.navIndex === 0">
       <div class="mod-tips">
-        <p>* 开帐篷可额外加1只，熏香可额外加1只。</p>
+        <p>* 开帐篷（每天第一觉）可额外加1只，熏香可额外加1只。</p>
         <p>* 开帐篷&熏香不在计算范围内。</p>
       </div>
     </div>
