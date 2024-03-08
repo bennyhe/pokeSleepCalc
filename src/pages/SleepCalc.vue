@@ -40,7 +40,7 @@ const userData = ref({
   curMap: 0,
   times: 1,
   cutNum: 4,
-  curUnLockSleepType: 999,
+  curUnLockSleepType: '999',
   curUnlockSleeps: [],
   unLockSleeps: []
 })
