@@ -244,18 +244,22 @@ h4 {
   font-size: 16px;
 }
 
-.berrys {
+.cpt-skill {
   display: inline-block;
-  color: #6a3600;
-  background: linear-gradient(to bottom, #fedf85 0%, #fbe764 100%);
-  box-shadow: 0 2px #fff5e6 inset, 0 1px #e9f1f4;
-  border: 1px solid #ca9c85;
+  vertical-align: top;
   border-radius: 3px;
   font-size: 14px;
   line-height: 24px;
   box-sizing: border-box;
   height: 24px;
   padding: 0 5px;
+  
+  &--gold {
+    color: #6a3600;
+    background: linear-gradient(to bottom, #fedf85 0%, #fbe764 100%);
+    box-shadow: 0 1px #fff5e6 inset, 0 1px #e9f1f4;
+    border: 1px solid #ca9c85;
+  }
 }
 
 .vigour {
@@ -790,6 +794,9 @@ h4 {
 
     .sptime {
       min-height: 24px;
+    }
+
+    .cpt-skill {
       margin-top: 2px;
     }
 

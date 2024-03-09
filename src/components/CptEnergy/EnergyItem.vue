@@ -53,8 +53,10 @@ const props = defineProps({
     </div>
     <div class="poke-tb__energy">
       <p
-        class="sptime"
-        :class="{ berrys: props.pokeItem.nameExtra.indexOf('树果') > -1 }"
+        class="cpt-skill"
+        :class="{
+          'cpt-skill--gold': props.pokeItem.nameExtra.indexOf('树果') > -1,
+        }"
       >
         {{ props.pokeItem.nameExtra }}
       </p>
