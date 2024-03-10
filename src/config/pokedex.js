@@ -1972,16 +1972,16 @@ const pokedex = {
     helpSpeed: 2600,
     foodPer: 17.79
   },
-  // 702: {
-  //   id: 702,
-  //   name: '咚咚鼠',
-  //   sleepType: 2,
-  //   skillType: 14,
-  //   pokeType: 3,
-  //   berryType: 13,
-  //   helpSpeed: 2500
-  //   // foodPer: 17.79
-  // },
+  702: {
+    id: 702,
+    name: '咚咚鼠',
+    sleepType: 2,
+    skillType: 14,
+    pokeType: 3,
+    berryType: 13,
+    helpSpeed: 2500
+    // foodPer: 17.79
+  },
   759: {
     id: 759,
     name: '童偶熊',

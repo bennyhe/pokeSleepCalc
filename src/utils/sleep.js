@@ -212,6 +212,7 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
       resItem => resItem.pokeId === item.pokeId
     )
     if (!findTargetResItem) {
+      delete item.isShiny
       res.push({
         pokeId: item.pokeId,
         list: [item],

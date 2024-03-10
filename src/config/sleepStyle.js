@@ -473,5 +473,9 @@ export const SLEEP_STYLE = {
   '760-id-1': { pokeId: 760, id: '760-id-1', star: 1, sleepNameId: 13, exp: 300, shards: 324, candys: 5 },
   '760-id-2': { pokeId: 760, id: '760-id-2', star: 2, sleepNameId: 18, exp: 1096, shards: 1184, candys: 7 },
   '760-id-3': { pokeId: 760, id: '760-id-3', star: 3, sleepNameId: 'まるただき寝', exp: 2957, shards: 3193, candys: 9 },
-  '760-id-4': { pokeId: 760, id: '760-id-4', star: 4, sleepNameId: 4, exp: 3946, shards: 4261, candys: 10 }
+  '760-id-4': { pokeId: 760, id: '760-id-4', star: 4, sleepNameId: 4, exp: 3946, shards: 4261, candys: 10 },
+  '702-id-1': { pokeId: 702, id: '702-id-1', star: 1, sleepNameId: 'じたばた寝', exp: 286, shards: 515, candys: 6 },
+  '702-id-2': { pokeId: 702, id: '702-id-2', star: 2, sleepNameId: 2, exp: 1145, shards: 2061, candys: 8 },
+  '702-id-3': { pokeId: 702, id: '702-id-3', star: 3, sleepNameId: 'まるただき寝', exp: 2845, shards: 5121, candys: 10 },
+  '702-id-4': { pokeId: 702, id: '702-id-4', star: 4, sleepNameId: 4, exp: 3901, shards: 7022, candys: 11 }
 }

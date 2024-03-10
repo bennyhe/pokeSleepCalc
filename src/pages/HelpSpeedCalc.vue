@@ -496,20 +496,21 @@ watch(helpSpeedCalcForm.value, val => {
         filterable
         @change="handleChangePokemon()"
       >
-        <el-option
-          v-for="pokeItem in pokedex"
-          :key="pokeItem.id"
-          :label="`${pokeItem.name}-${pokeItem.helpSpeed}s`"
-          :value="pokeItem.id"
-        >
-          <img
-            class="icon"
-            v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-            :alt="pokeItem.name"
-            v-bind:key="pokeItem.id"
-          />
-          {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
-        </el-option>
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            v-if="pokeItem.food"
+            :label="`${pokeItem.name}-${pokeItem.helpSpeed}s`"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="pokeItem.name"
+              v-bind:key="pokeItem.id"
+            />
+            {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
+          </el-option>
+        </template>
       </el-select>
     </el-form-item>
     <el-form-item>
@@ -774,20 +775,21 @@ watch(helpSpeedCalcForm.value, val => {
         filterable
         clearable
       >
-        <el-option
-          v-for="pokeItem in pokedex"
-          :key="pokeItem.id"
-          :label="`对比${pokeItem.name}-${pokeItem.helpSpeed}s`"
-          :value="pokeItem.id"
-        >
-          <img
-            class="icon"
-            v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-            :alt="pokeItem.name"
-            v-bind:key="pokeItem.id"
-          />
-          {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
-        </el-option>
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            v-if="pokeItem.food"
+            :label="`对比${pokeItem.name}-${pokeItem.helpSpeed}s`"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="pokeItem.name"
+              v-bind:key="pokeItem.id"
+            />
+            {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
+          </el-option>
+        </template>
       </el-select>
     </el-form-item>
   </el-form>
