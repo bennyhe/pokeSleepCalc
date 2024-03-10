@@ -34,7 +34,7 @@ onMounted(() => {
   // }
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
-      const pokeItem = {...pokedex[key]}
+      const pokeItem = { ...pokedex[key] }
 
       pokeItem.helpSpeed = Math.floor(
         pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
@@ -51,24 +51,26 @@ onMounted(() => {
         [0, 1]
       ]
 
-      tempFoodType.forEach((arrFTItem, arrFTKey) => {
-        const is2n = (arrFTKey + 1) % 2 === 0
-        pageData.value.resRankArr.push({
-          ...pokeItem,
-          id: pokeItem.id,
-          nameExtra: is2n ? '树果S' : '',
-          ...getOneDayEnergy(
-            pokeItem,
-            pageData.value.lv,
-            [
-              pokeItem.food.type[arrFTItem[0]],
-              pokeItem.food.type[arrFTItem[1]]
-            ],
-            is2n ? true : false,
-            false
-          )
+      if (pokeItem.food) {
+        tempFoodType.forEach((arrFTItem, arrFTKey) => {
+          const is2n = (arrFTKey + 1) % 2 === 0
+          pageData.value.resRankArr.push({
+            ...pokeItem,
+            id: pokeItem.id,
+            nameExtra: is2n ? '树果S' : '',
+            ...getOneDayEnergy(
+              pokeItem,
+              pageData.value.lv,
+              [
+                pokeItem.food.type[arrFTItem[0]],
+                pokeItem.food.type[arrFTItem[1]]
+              ],
+              is2n ? true : false,
+              false
+            )
+          })
         })
-      })
+      }
     }
   }
   pageData.value.orgResRankArr = sortInObjectOptions(
