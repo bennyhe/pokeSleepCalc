@@ -77,7 +77,10 @@ const handleClickGet = () => {
       gameMap[pageData.value.curMap],
       +pageData.value.mapSleepType,
       allPoint,
-      getLevelIndexByEnergy(gameMap[pageData.value.curMap], curAllScore),
+      getLevelIndexByEnergy(
+        gameMap[pageData.value.curMap].levelList,
+        curAllScore
+      ),
       getTimes
     )
     console.log(
@@ -160,9 +163,10 @@ const handleClickChangeMap = id => {
     <el-form-item label="能量范围">
       <el-input type="tel" v-model="pageData.maxScore">
         <template #prefix>
-          <img class="icon" v-lazy="`./img/ui/energy.png`" /> 
+          <img class="icon" v-lazy="`./img/ui/energy.png`" />
           0-</template
-      ></el-input>
+        ></el-input
+      >
     </el-form-item>
     <el-form-item>
       <el-button @click="handleClickGet">计算结果</el-button>
@@ -172,7 +176,11 @@ const handleClickChangeMap = id => {
     {{ gameMap[pageData.curMap].name }}-{{ SLEEP_TYPES[pageData.mapSleepType] }}
   </h2>
   <div v-for="tdItem in testData" v-bind:key="tdItem.allPoint">
-    <h3>{{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}</h3>
+    <h3>
+      <img class="icon" v-lazy="`./img/ui/energy.png`" />
+      {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
+      <span class="extra">({{ tdItem.res.length }}只)</span>
+    </h3>
     <div class="page-inner">
       <div
         class="cpt-avatar"

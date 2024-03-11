@@ -208,7 +208,7 @@ const handleBlurEnergy = () => {
     userData.value.curStageIndex = 0
   } else {
     userData.value.curStageIndex = getLevelIndexByEnergy(
-      gameMap[userData.value.curMap],
+      gameMap[userData.value.curMap].levelList,
       userData.value.CurEnergy
     )
   }
