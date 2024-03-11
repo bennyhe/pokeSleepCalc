@@ -8,10 +8,11 @@ import PageFoodRec from './pages/FoodRec.vue'
 import PageNew from './pages/NewPoke.vue'
 import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
 import PageOneDayEnergy from './pages/OneDayEnergy.vue'
+
 import { updatePoke } from './config/pokedex.js'
 
 const newUpdatePoke = [...updatePoke.reverse()]
-const showPageIndex = ref(0)
+const showPageIndex = ref('0')
 const nav = [
   {
     name: 'SLEEP CALC'
@@ -40,41 +41,41 @@ const handleClickNav = key => {
 
 onMounted(() => {
   // console.log('组件已经挂载')
-  if (+getUrlQuery('p') >= 0) {
-    showPageIndex.value = +getUrlQuery('p')
-  }
+  // if (+getUrlQuery('p') >= 0) {
+  showPageIndex.value = getUrlQuery('p')
+  // }
 })
 </script>
 
 <template>
   <div class="main">
-    <div class="page-item" :class="{ cur: showPageIndex === 0 }">
+    <div class="page-item" :class="{ cur: +showPageIndex === 0 }">
       <PageSleepCalc />
     </div>
-    <div class="page-item" :class="{ cur: showPageIndex === 1 }">
+    <div class="page-item" :class="{ cur: +showPageIndex === 1 }">
       <PageFoodRec />
     </div>
-    <div class="page-item page-pokedex" :class="{ cur: showPageIndex === 3 }">
+    <div class="page-item page-pokedex" :class="{ cur: +showPageIndex === 3 }">
       <PagePokedex />
     </div>
     <div
       class="page-item"
-      :class="{ cur: showPageIndex === 2 }"
-      v-if="showPageIndex === 2"
+      :class="{ cur: +showPageIndex === 2 }"
+      v-if="+showPageIndex === 2"
     >
       <PageHelpSpeedCalc />
     </div>
     <div
       class="page-item"
-      :class="{ cur: showPageIndex === 4 }"
-      v-if="showPageIndex === 4"
+      :class="{ cur: +showPageIndex === 4 }"
+      v-if="+showPageIndex === 4"
     >
       <PageOneDayEnergy />
     </div>
     <div
       class="page-item"
-      :class="{ cur: showPageIndex === 5 }"
-      v-if="showPageIndex === 5"
+      :class="{ cur: +showPageIndex === 5 }"
+      v-if="+showPageIndex === 5"
     >
       <PageNew :newUpdatePoke="newUpdatePoke" />
     </div>
