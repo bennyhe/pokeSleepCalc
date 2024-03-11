@@ -1979,8 +1979,22 @@ const pokedex = {
     skillType: 14,
     pokeType: 3,
     berryType: 13,
-    helpSpeed: 2500
-    // foodPer: 17.79
+    helpSpeed: 2500,
+    foodPer: 17.72,
+    food: {
+      type: [5, 13, 16],
+      count: {
+        5: {
+          num: [1, 2, 4]
+        },
+        13: {
+          num: [0, 1, 2]
+        },
+        16: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   759: {
     id: 759,
@@ -2063,6 +2077,9 @@ const updatePoke = [{
 }, {
   time: '2024/01/1',
   pokemons: [147, 148, 149, 280, 281, 282, 475, 759, 760]
+}, {
+  time: '2024/03/1',
+  pokemons: [702]
 }]
 // console.log(pokedex)
 export {
