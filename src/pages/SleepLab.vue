@@ -10,46 +10,6 @@ import { SLEEP_NAMES, SLEEP_TYPES } from '../config/valKey.js'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 
-// const agm = [...gameMap]
-// for (let i = 5; i < agm.length; i++) {
-//   const gmItem = agm[i]
-//   gmItem.levelList.forEach(levelItem => {
-//     if (levelItem.sleepStyles.length > 0) {
-//       const arr = []
-//       levelItem.sleepStyles.forEach((sleepItem, sleepKey) => {
-//         for (const key in pokedex) {
-//           if (Object.hasOwnProperty.call(pokedex, key)) {
-//             const pokeItem = pokedex[key]
-//             if (
-//               !arr[sleepKey] &&
-//               sleepItem.indexOf('#') > -1 &&
-//               sleepItem.indexOf(pokeItem.name) > -1
-//             ) {
-//               const res = `${pokeItem.id}-id-${sleepItem
-//                 .replace(pokeItem.name, '')
-//                 .replace('#', '')}`
-//               arr[sleepKey] = res
-//             }
-//           }
-//         }
-//       })
-//       levelItem.sleepStyles = arr
-//     }
-//   })
-//   console.log(gmItem.levelList)
-// }
-// // 导出数据用
-// const arr = {}
-// testing4.forEach(item=>{
-//   const res = item.split(',')
-//   arr[`${res[0]}-id-${res[4]}`] = {
-//     id: +res[6],
-//     spo: +res[5]
-//   }
-//   console.log(res[0], res[5], res[6])
-// })
-// console.log(arr)
-
 const pageData = ref({
   curMap: 0,
   mapSleepType: '1',
