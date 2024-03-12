@@ -223,13 +223,12 @@ const handleClickChangeMap = id => {
             <p>{{ SLEEP_STYLE[sleepId].star }}星</p>
             <div
               v-if="
-                SPO_DATA[gmItem.id] &&
-                SPO_DATA[gmItem.id][sleepId] &&
-                SPO_DATA[gmItem.id][sleepId].spo
+                SPO_DATA[sleepId] &&
+                SPO_DATA[sleepId].spo
               "
             >
-              <p>SPO:{{ SPO_DATA[gmItem.id][sleepId].spo }}</p>
-              <p>SPOID:{{ SPO_DATA[gmItem.id][sleepId].id }}</p>
+              <p>SPO:{{ SPO_DATA[sleepId].spo }}</p>
+              <p>SPOID:{{ SPO_DATA[sleepId].id }}</p>
             </div>
             <div v-else>没有spo</div>
             <p>{{ SLEEP_STYLE[sleepId].exp }}</p>

@@ -6,12 +6,12 @@ import {
   getRandomArr,
   getNumberInMap
 } from '../utils/index.js'
-export function getUnLockSleeps(mapData, curStageIndex) {
+export function getUnLockSleeps(levelList, curStageIndex) {
   let unLockSleeps = []
   let curUnlockSleeps = []
   if (curStageIndex > 0) {
     const aResLast = []
-    mapData.levelList
+    levelList
       .slice(0, curStageIndex)
       .forEach((levelItem, levelKey) => {
         if (levelItem.sleepStyles.length > 0) {
@@ -20,8 +20,8 @@ export function getUnLockSleeps(mapData, curStageIndex) {
               aResLast.push({
                 ...SLEEP_STYLE[sItem],
                 sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-                spo: SPO_DATA[mapData.id][sItem].spo,
-                spoId: SPO_DATA[mapData.id][sItem].id,
+                spo: SPO_DATA[sItem].spo,
+                spoId: SPO_DATA[sItem].id,
                 unLockLevel: levelKey
               })
             }
@@ -38,18 +38,18 @@ export function getUnLockSleeps(mapData, curStageIndex) {
     )
   }
   if (
-    mapData.levelList[curStageIndex].sleepStyles.length >
+    levelList[curStageIndex].sleepStyles.length >
     0
   ) {
     const aRes = []
-    mapData.levelList[curStageIndex].sleepStyles.forEach(
+    levelList[curStageIndex].sleepStyles.forEach(
       sItem => {
         if (SLEEP_STYLE[sItem]) {
           aRes.push({
             ...SLEEP_STYLE[sItem],
             sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: SPO_DATA[mapData.id][sItem].spo,
-            spoId: SPO_DATA[mapData.id][sItem].id,
+            spo: SPO_DATA[sItem].spo,
+            spoId: SPO_DATA[sItem].id,
             unLockLevel: curStageIndex
           })
         }
@@ -83,7 +83,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   )
   let curSpo = Math.floor(score / 38000)
   let orgSleepList = getUnLockSleeps(
-    mapData,
+    mapData.levelList,
     curStageIndex
   ).allUnlockSleepsList
   // 睡眠类型图鉴筛选
@@ -171,7 +171,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   return res
   // console.log(
   //   mapData.name,
-  //   mapData.levelList[curStageIndex].name,
+  //   levelList[curStageIndex].name,
   //   3000000,
   //   `剩余SPO:${curSpo}`,
   //   SLEEP_TYPES[curUnLockSleepType],

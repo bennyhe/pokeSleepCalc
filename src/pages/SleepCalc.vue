@@ -58,7 +58,7 @@ const setDefaultCutNumber = () => {
 
 const setUnlockSleeps = () => {
   const resSleeps = getUnLockSleeps(
-    gameMap[userData.value.curMap],
+    gameMap[userData.value.curMap].levelList,
     userData.value.curStageIndex
   )
   userData.value.curUnlockSleeps = resSleeps.curUnlockSleeps
