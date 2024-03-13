@@ -73,7 +73,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
 
 
 const getShinyPoke = () => {
-  return parseInt(Math.floor(Math.random() * 128), 10) === 44
+  return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
 export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, banPokes) {
   const res = []
