@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-03-12
+1. update 优化性能
+
 ## 24-03-11
 1. add 谷歌分析
 2. update 咚咚鼠数据

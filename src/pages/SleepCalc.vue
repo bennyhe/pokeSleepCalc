@@ -528,6 +528,7 @@ setAndGetRandomSleepStyle(
                 getScore(randomSleepStyle.sleepPoint),
                 userData.curStageIndex,
                 getTimes,
+                [],
                 getRandomHopeCb
               )
             "

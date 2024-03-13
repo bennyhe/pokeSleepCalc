@@ -18,7 +18,8 @@ const pageData = ref({
   curMap: 0,
   mapSleepType: '1',
   maxScore: '5000000',
-  minScore: '0'
+  minScore: '0',
+  banPokes: []
 })
 
 const getTimes = 4000
@@ -46,7 +47,8 @@ const handleClickGet = () => {
         gameMap[pageData.value.curMap].levelList,
         curAllScore
       ),
-      getTimes
+      getTimes,
+      pageData.value.banPokes
     )
     console.log(
       i,
@@ -173,6 +175,32 @@ const handleClickChangeMap = id => {
           -
           {{ stageItem.energy }}
         </el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="去除宝可梦">
+      <el-select
+        v-model="pageData.banPokes"
+        placeholder="请选择要去除的宝可梦"
+        filterable
+        clearable
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+      >
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            :label="`${pokeItem.name}`"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="pokeItem.name"
+              v-bind:key="pokeItem.id"
+            />
+            {{ pokeItem.name }}
+          </el-option>
+        </template>
       </el-select>
     </el-form-item>
     <el-form-item>

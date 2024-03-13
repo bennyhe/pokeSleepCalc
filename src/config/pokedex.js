@@ -1980,7 +1980,7 @@ const pokedex = {
     pokeType: 3,
     berryType: 13,
     helpSpeed: 2500,
-    foodPer: 17.72,
+    foodPer: 17.7,
     food: {
       type: [5, 13, 16],
       count: {

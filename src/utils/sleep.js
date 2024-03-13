@@ -75,7 +75,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
 const getShinyPoke = () => {
   return parseInt(Math.floor(Math.random() * 128), 10) === 44
 }
-export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex) {
+export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, banPokes) {
   const res = []
   let cathPokeCount = getNumberInMap(
     score,
@@ -90,6 +90,12 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   if (+curUnLockSleepType !== 999) {
     orgSleepList = orgSleepList.filter(
       item => item.sleepType === +curUnLockSleepType
+    )
+  }
+  // 如果存在去除宝可梦
+  if (banPokes && banPokes.length > 0) {
+    orgSleepList = orgSleepList.filter(
+      item => !banPokes.includes(+item.pokeId)
     )
   }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
@@ -179,7 +185,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   // )
   // console.log('res', res)
 }
-export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, callback) {
+export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, banPokes, callback) {
   getTimes = getTimes || 4000
   let orgList = []
   for (let i = 0; i < getTimes; i++) {
@@ -188,7 +194,8 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
         mapData,
         curUnLockSleepType,
         score,
-        curStageIndex
+        curStageIndex,
+        banPokes
       )
     )
   }
