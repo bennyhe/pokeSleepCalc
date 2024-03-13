@@ -201,9 +201,9 @@ const getSkillRare = () => {
   }
   return level
 }
-const getRandomPoke = pokemonId => {
+const getRandomPoke = () => {
   const subSkills = []
-  const unlockLevel = [10, 25, 30, 75, 100]
+  const unlockLevel = [10, 25, 50, 75, 100]
   const allSkillsByRare = {
     1: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 1)], 200),
     2: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 2)], 200),
@@ -257,7 +257,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     sleepItem.iv = {
       useFoods,
       natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
-      skills: getRandomPoke(res[key].pokeId)
+      skills: getRandomPoke()
     }
   })
   console.log(res)
