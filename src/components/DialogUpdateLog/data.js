@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-03-13
+1. add 睡姿抽取-随机个体
+
 ## 24-03-12
 1. update 优化性能
 

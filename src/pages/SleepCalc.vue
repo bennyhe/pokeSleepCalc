@@ -4,7 +4,16 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
-import { BERRY_TYPES, SLEEP_TYPES, SLEEP_NAMES } from '../config/valKey.js'
+import {
+  BERRY_TYPES,
+  SLEEP_TYPES,
+  SUBSKILLS_NAMES,
+  SKILL_TYPES,
+  NATURE_NAMES,
+  FOOD_TYPES
+} from '../config/valKey.js'
+import { SUB_SKILLS } from '../config/pokeSkill.js'
+import { NATURE } from '../config/pokeNature.js'
 import { pokedex } from '../config/pokedex.js'
 import {
   getUnLockSleeps,
@@ -18,7 +27,8 @@ import {
   getNumberInMap,
   getStageLevelPicId,
   sortInObjectOptions,
-  getDecimalNumber
+  getDecimalNumber,
+  getRandomArr
 } from '../utils/index.js'
 
 const navData = ref({
@@ -179,13 +189,79 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+const getSkillRare = () => {
+  // 金技能出现几率 15%，蓝技能出现几率 35%，白技能出现几率 50%
+  const arr = getRandomArr([...Array(100).keys()], 200)
+  const res = arr[parseInt(Math.floor(Math.random() * 100), 10)]
+  let level = 1
+  if (res <= 15) {
+    level = 3
+  } else if (res <= 50) {
+    level = 2
+  }
+  return level
+}
+const getRandomPoke = pokemonId => {
+  const subSkills = []
+  const unlockLevel = [10, 25, 30, 75, 100]
+  const allSkillsByRare = {
+    1: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 1)], 200),
+    2: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 2)], 200),
+    3: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 3)], 200)
+  }
+  for (let i = 0; i < 5; i++) {
+    const skillRare = getSkillRare()
+    const rdmSkillRareIndex = parseInt(
+      Math.floor(Math.random() * allSkillsByRare[skillRare].length),
+      10
+    )
+    subSkills.push({
+      name: SUBSKILLS_NAMES[
+        allSkillsByRare[skillRare][rdmSkillRareIndex].nameId
+      ],
+      nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
+      skillRare,
+      unlockLevel: unlockLevel[i]
+    })
+    allSkillsByRare[skillRare].splice(rdmSkillRareIndex, 1)
+  }
+  return subSkills
+}
+
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
-  randomSleepStyle.value.resList = getRandomSleepStyle(
+  const res = getRandomSleepStyle(
     gameMap[userData.value.curMap],
     userData.value.curUnLockSleepType,
     score,
     curStageIndex
   )
+  res.forEach((sleepItem, key) => {
+    const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
+    for (let i = 1; i < 3; i++) {
+      const rdm = parseInt(Math.floor(Math.random() * 3), 10)
+      // 1/3概率a食材
+      if (rdm === 2) {
+        useFoods.push(pokedex[sleepItem.pokeId].food.type[0])
+      } else if (i === 1) {
+        useFoods.push(pokedex[sleepItem.pokeId].food.type[i])
+      } else {
+        let lastFoods = [...pokedex[sleepItem.pokeId].food.type]
+        lastFoods = lastFoods.slice(1, lastFoods.length)
+        if (lastFoods.length === 1) {
+          useFoods.push(lastFoods[0])
+        } else {
+          useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
+        }
+      }
+    }
+    sleepItem.iv = {
+      useFoods,
+      natureId: parseInt(Math.floor(Math.random() * 25), 10),
+      skills: getRandomPoke(res[key].pokeId)
+    }
+  })
+  console.log(res)
+  randomSleepStyle.value.resList = res
 }
 
 const getTimes = 4000
@@ -514,6 +590,84 @@ setAndGetRandomSleepStyle(
                 :showKey="['sleepType']"
                 :userData="userData"
               />
+              <el-popover
+                placement="bottom"
+                :title="`${pokedex[sleepItem.pokeId].name}`"
+                trigger="click"
+                :width="200"
+                :key="`${userData.CurEnergy}_${sleepKey + 1}`"
+              >
+                <template #reference>
+                  <el-button size="small"
+                    ><img
+                      class="icon"
+                      v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
+                    />个体</el-button
+                  >
+                </template>
+                <div class="cpt-iv">
+                  <h4>食材</h4>
+
+                  <div class="cpt-food all-food">
+                    <div
+                      class="cpt-food__item cur"
+                      v-for="(foodItem, foodKey) in sleepItem.iv.useFoods"
+                      v-bind:key="`${foodKey}_${foodItem}`"
+                    >
+                      <img
+                        v-lazy="`./img/food/${foodItem}.png`"
+                        :alt="FOOD_TYPES[foodItem]"
+                      />
+                      <p class="cpt-food__count">
+                        {{
+                          pokedex[sleepItem.pokeId].food.count[foodItem].num[
+                            foodKey
+                          ]
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                  <h4>主技能/副技能</h4>
+                  <div class="skill">
+                    <div class="main-skill">
+                      <div class="main-skill__inner">
+                        {{ SKILL_TYPES[pokedex[sleepItem.pokeId].skillType] }}
+                      </div>
+                    </div>
+                    <div
+                      class="mb3"
+                      v-for="skillItem in sleepItem.iv.skills"
+                      :key="skillItem.nameId"
+                    >
+                      <span class="level">lv{{ skillItem.unlockLevel }}</span>
+                      <span
+                        class="cpt-skill"
+                        :class="`cpt-skill--${skillItem.skillRare}`"
+                        >{{ skillItem.name }}</span
+                      >
+                    </div>
+                  </div>
+                  <h4>性格</h4>
+                  {{ NATURE_NAMES[sleepItem.iv.natureId] }}
+                  <p class="nature-up" v-if="NATURE[sleepItem.iv.natureId].up">
+                    {{ NATURE[sleepItem.iv.natureId].up }}△△
+                  </p>
+                  <p
+                    class="nature-down"
+                    v-if="NATURE[sleepItem.iv.natureId].down"
+                  >
+                    {{ NATURE[sleepItem.iv.natureId].down }}▽▽
+                  </p>
+                  <p
+                    v-if="
+                      NATURE[sleepItem.iv.natureId] &&
+                      NATURE[sleepItem.iv.natureId].up === undefined
+                    "
+                  >
+                    没有性格带来的特色
+                  </p>
+                </div>
+              </el-popover>
             </div>
           </template>
         </div>
