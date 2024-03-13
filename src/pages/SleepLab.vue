@@ -3,7 +3,11 @@ import { ref } from 'vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import { getRandomHope, getLevelIndexByEnergy } from '../utils/sleep.js'
-import { getDecimalNumber, getNum } from '../utils/index.js'
+import {
+  getDecimalNumber,
+  getNum,
+  getStageLevelPicId
+} from '../utils/index.js'
 import { SPO_DATA } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SLEEP_NAMES, SLEEP_TYPES } from '../config/valKey.js'
@@ -13,7 +17,8 @@ import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 const pageData = ref({
   curMap: 0,
   mapSleepType: '1',
-  maxScore: 5000000
+  maxScore: '5000000',
+  minScore: '0'
 })
 
 const getTimes = 4000
@@ -24,7 +29,7 @@ const testData = ref([])
 // 50w以上-400w 5000
 // 400w-500w 100000
 const handleClickGet = () => {
-  const basePoint = 0
+  const basePoint = +pageData.value.minScore
   const startTime = new Date().getTime()
   const baseStarI = 0
   const targetRes = []
@@ -55,6 +60,9 @@ const handleClickGet = () => {
       res
     }
     targetRes.push(lastRes)
+    if (curAllScore >= +pageData.value.maxScore) {
+      break
+    }
     if (basePoint + splitPoint > 4000000) {
       splitPoint += 100000
     } else if (
@@ -69,9 +77,6 @@ const handleClickGet = () => {
       splitPoint += 2000
     } else {
       splitPoint += 1000
-    }
-    if (curAllScore > +pageData.value.maxScore) {
-      break
     }
   }
   testData.value = targetRes
@@ -121,12 +126,54 @@ const handleClickChangeMap = id => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="能量范围">
-      <el-input type="tel" v-model="pageData.maxScore">
-        <template #prefix>
-          <img class="icon" v-lazy="`./img/ui/energy.png`" />
-          0-</template
-        ></el-input
+      <img class="icon" v-lazy="`./img/ui/energy.png`" />
+      <el-select
+        v-model="pageData.minScore"
+        placeholder="请填写下限分数"
+        filterable
+        allow-create
+        type="tel"
+        style="width: 150px"
       >
+        <el-option
+          v-for="(stageItem, stageIndex) in gameMap[pageData.curMap].levelList"
+          :key="stageIndex"
+          :label="stageItem.energy"
+          :value="stageItem.energy"
+        >
+          <img
+            class="icon"
+            v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+          />
+          {{ stageItem.name }}
+          -
+          {{ stageItem.energy }}
+        </el-option>
+      </el-select>
+      —
+      <el-select
+        v-model="pageData.maxScore"
+        placeholder="请填写上限分数"
+        filterable
+        allow-create
+        type="tel"
+        style="width: 150px"
+      >
+        <el-option
+          v-for="(stageItem, stageIndex) in gameMap[pageData.curMap].levelList"
+          :key="stageIndex"
+          :label="stageItem.energy"
+          :value="stageItem.energy"
+        >
+          <img
+            class="icon"
+            v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+          />
+          {{ stageItem.name }}
+          -
+          {{ stageItem.energy }}
+        </el-option>
+      </el-select>
     </el-form-item>
     <el-form-item>
       <el-button @click="handleClickGet">计算结果</el-button>
@@ -181,12 +228,7 @@ const handleClickChangeMap = id => {
             <p>{{ SLEEP_STYLE[sleepId].id }}</p>
             <p>{{ SLEEP_NAMES[SLEEP_STYLE[sleepId].sleepNameId] }}</p>
             <p>{{ SLEEP_STYLE[sleepId].star }}星</p>
-            <div
-              v-if="
-                SPO_DATA[sleepId] &&
-                SPO_DATA[sleepId].spo
-              "
-            >
+            <div v-if="SPO_DATA[sleepId] && SPO_DATA[sleepId].spo">
               <p>SPO:{{ SPO_DATA[sleepId].spo }}</p>
               <p>SPOID:{{ SPO_DATA[sleepId].id }}</p>
             </div>
