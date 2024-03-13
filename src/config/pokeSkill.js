@@ -62,7 +62,7 @@ export const SUB_SKILLS = [
   {
     id: 13,
     nameId: 13,
-    rare: 1
+    rare: 2
   },
   {
     id: 14,
