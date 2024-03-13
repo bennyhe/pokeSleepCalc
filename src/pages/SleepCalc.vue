@@ -10,7 +10,8 @@ import {
   SUBSKILLS_NAMES,
   SKILL_TYPES,
   NATURE_NAMES,
-  FOOD_TYPES
+  FOOD_TYPES,
+  POKE_TYPES
 } from '../config/valKey.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { NATURE } from '../config/pokeNature.js'
@@ -606,8 +607,23 @@ setAndGetRandomSleepStyle(
                   >
                 </template>
                 <div class="cpt-iv">
+                  {{ POKE_TYPES[pokedex[sleepItem.pokeId].pokeType] }}型
+                  <div class="cpt-food cpt-food--s berry">
+                    <div class="cpt-food__item">
+                      <img
+                        v-lazy="
+                          `./img/berry/${
+                            pokedex[sleepItem.pokeId].berryType
+                          }.png`
+                        "
+                        :alt="BERRY_TYPES[pokedex[sleepItem.pokeId].berryType]"
+                      />
+                    </div>
+                    <p>
+                      {{ BERRY_TYPES[pokedex[sleepItem.pokeId].berryType] }}
+                    </p>
+                  </div>
                   <h4>食材</h4>
-
                   <div class="cpt-food all-food">
                     <div
                       class="cpt-food__item cur"
