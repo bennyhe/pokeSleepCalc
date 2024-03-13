@@ -593,7 +593,7 @@ setAndGetRandomSleepStyle(
               />
               <el-popover
                 placement="bottom"
-                :title="`${pokedex[sleepItem.pokeId].name}`"
+                :title="`${sleepItem.isShiny ? '闪光 ' : ''}${pokedex[sleepItem.pokeId].name}`"
                 trigger="click"
                 :width="200"
                 :key="`${userData.CurEnergy}_${sleepKey + 1}`"
