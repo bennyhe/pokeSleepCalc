@@ -256,7 +256,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     sleepItem.iv = {
       useFoods,
-      natureId: parseInt(Math.floor(Math.random() * 25), 10),
+      natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
       skills: getRandomPoke(res[key].pokeId)
     }
   })
@@ -649,12 +649,21 @@ setAndGetRandomSleepStyle(
                   </div>
                   <h4>性格</h4>
                   {{ NATURE_NAMES[sleepItem.iv.natureId] }}
-                  <p class="nature-up" v-if="NATURE[sleepItem.iv.natureId].up">
+                  <p
+                    class="nature-up"
+                    v-if="
+                      NATURE[sleepItem.iv.natureId] &&
+                      NATURE[sleepItem.iv.natureId].up
+                    "
+                  >
                     {{ NATURE[sleepItem.iv.natureId].up }}△△
                   </p>
                   <p
                     class="nature-down"
-                    v-if="NATURE[sleepItem.iv.natureId].down"
+                    v-if="
+                      NATURE[sleepItem.iv.natureId] &&
+                      NATURE[sleepItem.iv.natureId].down
+                    "
                   >
                     {{ NATURE[sleepItem.iv.natureId].down }}▽▽
                   </p>
