@@ -54,7 +54,8 @@ const userData = ref({
   cutNum: 4,
   curUnLockSleepType: '999',
   curUnlockSleeps: [],
-  unLockSleeps: []
+  unLockSleeps: [],
+  lockSkillCount: '0'
 })
 const randomSleepStyle = ref({
   resList: [],
@@ -202,7 +203,7 @@ const getSkillRare = () => {
   }
   return level
 }
-const getRandomPoke = () => {
+const getRandomPokeSkills = () => {
   const subSkills = []
   const unlockLevel = [10, 25, 50, 75, 100]
   const allSkillsByRare = {
@@ -211,7 +212,15 @@ const getRandomPoke = () => {
     3: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 3)], 200)
   }
   for (let i = 0; i < 5; i++) {
-    const skillRare = getSkillRare()
+    let skillRare = getSkillRare()
+    let isLockRare = false
+    if (
+      +userData.value.lockSkillCount > 0 &&
+      i < +userData.value.lockSkillCount
+    ) {
+      skillRare = 3
+      isLockRare = true
+    }
     const rdmSkillRareIndex = parseInt(
       Math.floor(Math.random() * allSkillsByRare[skillRare].length),
       10
@@ -222,6 +231,7 @@ const getRandomPoke = () => {
       ],
       nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
       skillRare,
+      isLockRare,
       unlockLevel: unlockLevel[i]
     })
     allSkillsByRare[skillRare].splice(rdmSkillRareIndex, 1)
@@ -258,10 +268,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     sleepItem.iv = {
       useFoods,
       natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
-      skills: getRandomPoke()
+      skills: getRandomPokeSkills()
     }
   })
-  console.log(res)
+  // console.log(res)
   randomSleepStyle.value.resList = res
 }
 
@@ -538,6 +548,22 @@ setAndGetRandomSleepStyle(
               >分
             </div>
           </el-form-item>
+          <el-form-item label="个体选项">
+            <el-radio-group
+              v-model="userData.lockSkillCount"
+              size="small"
+              fill="#fecc11"
+            >
+              <el-radio-button
+                :label="cKey"
+                v-for="(cItem, cKey) in [0, 1, 2, 3]"
+                v-bind:key="cItem"
+              >
+                <template v-if="cItem === 0">不锁</template
+                ><template v-else>锁{{ cItem }}金</template></el-radio-button
+              >
+            </el-radio-group>
+          </el-form-item>
         </el-form>
         <div class="page-inner mb3">
           <el-button
@@ -593,7 +619,7 @@ setAndGetRandomSleepStyle(
               />
               <el-popover
                 placement="bottom"
-                :title="`${sleepItem.isShiny ? '闪光 ' : ''}${pokedex[sleepItem.pokeId].name}`"
+                :title="`${pokedex[sleepItem.pokeId].name}`"
                 trigger="click"
                 :width="200"
                 :key="`${userData.CurEnergy}_${sleepKey + 1}`"
@@ -607,6 +633,7 @@ setAndGetRandomSleepStyle(
                   >
                 </template>
                 <div class="cpt-iv">
+                  <span v-if="sleepItem.isShiny" class="shiny">闪光</span>
                   {{ POKE_TYPES[pokedex[sleepItem.pokeId].pokeType] }}型
                   <div class="cpt-food cpt-food--s berry">
                     <div class="cpt-food__item">
@@ -659,6 +686,19 @@ setAndGetRandomSleepStyle(
                       <span
                         class="cpt-skill"
                         :class="`cpt-skill--${skillItem.skillRare}`"
+                        ><svg
+                          v-if="skillItem.isLockRare"
+                          class="svg-icon"
+                          viewBox="0 0 1024 1024"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M791.1 388.4h-92.9V311c0-49.7-19.3-96.4-54.4-131.5-35.1-35.1-81.8-54.4-131.5-54.4s-96.4 19.3-131.5 54.4-54.4 81.8-54.4 131.5v77.4h-92.9c-8.6 0-15.5 7-15.5 15.5v433.7c0 8.6 7 15.5 15.5 15.5h557.6c8.6 0 15.5-7 15.5-15.5V403.9c0-8.6-6.9-15.5-15.5-15.5zM357.5 311c0-41.4 16.1-80.3 45.3-109.5 29.2-29.2 68.1-45.3 109.5-45.3 41.4 0 80.3 16.1 109.5 45.3 29.2 29.2 45.3 68.1 45.3 109.5v77.4H357.5V311zm418.1 511.1H249.1V419.4h526.5v402.7z"
+                          />
+                          <path
+                            d="M558.8 589.8c0 13.7-6.1 25.9-15.5 34.4v43c0 17.1-13.9 31-31 31s-31-13.9-31-31v-43c-9.4-8.5-15.5-20.7-15.5-34.4 0-25.7 20.8-46.5 46.5-46.5s46.5 20.8 46.5 46.5z"
+                          /></svg
                         >{{ skillItem.name }}</span
                       >
                     </div>
