@@ -23,6 +23,16 @@ newGameMap.push({
   berry: [8, 9, 2, 13, 3, 5]
 })
 
+for (const key in BERRY_TYPES) {
+  if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {
+    newGameMap.push({
+      name: BERRY_TYPES[key],
+      id: `berry_${BERRY_TYPES[key]}`,
+      berry: [+key]
+    })
+  }
+}
+
 // console.log('created')
 onMounted(() => {
   // console.log('onMounted')
@@ -123,42 +133,85 @@ const handleClickChangeMap = id => {
     <!-- S 当前岛屿 -->
     <el-form-item label="当前岛屿">
       <ul class="cpt-select-list">
-        <li
-          class="cpt-select-list__item"
-          v-for="(mapItem, mapIndex) in newGameMap"
-          v-bind:key="mapItem.id"
-          :class="{ cur: pageData.curMap === mapIndex }"
-          @click="handleClickChangeMap(mapIndex)"
-        >
-          <div class="cpt-select-list__name">
-            {{ mapItem.name }}
-            <div>
-              <div
-                class="cpt-food cpt-food--s berry"
-                v-for="(berryItem, berryKey) in mapItem.berry"
-                v-bind:key="berryKey"
-              >
-                <div class="cpt-food__item">
-                  <img
-                    v-if="berryItem !== '?'"
-                    v-lazy="`./img/berry/${berryItem}.png`"
-                    :alt="BERRY_TYPES[berryItem]"
-                  />
-                  <template v-else>?</template>
+        <template v-for="(mapItem, mapIndex) in newGameMap">
+          <li
+            class="cpt-select-list__item"
+            v-if="!(mapItem.id.indexOf('berry_') > -1)"
+            v-bind:key="mapItem.id"
+            :class="{ cur: pageData.curMap === mapIndex }"
+            @click="handleClickChangeMap(mapIndex)"
+          >
+            <div class="cpt-select-list__name">
+              {{ mapItem.name }}
+              <div>
+                <div
+                  class="cpt-food cpt-food--s berry"
+                  v-for="(berryItem, berryKey) in mapItem.berry"
+                  v-bind:key="berryKey"
+                >
+                  <div class="cpt-food__item">
+                    <img
+                      v-if="berryItem !== '?'"
+                      v-lazy="`./img/berry/${berryItem}.png`"
+                      :alt="BERRY_TYPES[berryItem]"
+                    />
+                    <template v-else>?</template>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <img
-            v-if="mapItem.pic"
-            class="cpt-select-list__bg"
-            v-lazy="`./img/ui/${mapItem.pic}.png`"
-            :alt="mapItem.name"
-          />
-        </li>
+            <img
+              v-if="mapItem.pic"
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
+            />
+          </li>
+        </template>
       </ul>
     </el-form-item>
     <!-- E 当前岛屿 -->
+    <!-- S 树果双倍 -->
+    <el-form-item label="树果双倍">
+      <ul class="cpt-select-list cpt-select-list--berry">
+        <template v-for="(mapItem, mapIndex) in newGameMap">
+          <li
+            class="cpt-select-list__item"
+            v-if="mapItem.id.indexOf('berry_') > -1"
+            v-bind:key="mapItem.id"
+            :class="{ cur: pageData.curMap === mapIndex }"
+            @click="handleClickChangeMap(mapIndex)"
+          >
+            <div class="cpt-select-list__name">
+              {{ mapItem.name }}
+              <div>
+                <div
+                  class="cpt-food cpt-food--s berry"
+                  v-for="(berryItem, berryKey) in mapItem.berry"
+                  v-bind:key="berryKey"
+                >
+                  <div class="cpt-food__item">
+                    <img
+                      v-if="berryItem !== '?'"
+                      v-lazy="`./img/berry/${berryItem}.png`"
+                      :alt="BERRY_TYPES[berryItem]"
+                    />
+                    <template v-else>?</template>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img
+              v-if="mapItem.pic"
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
+            />
+          </li>
+        </template>
+      </ul>
+    </el-form-item>
+    <!-- E 树果双倍 -->
     <!-- <el-form-item label="宝可梦等级">
       <el-slider
         v-model="pageData.lv"
