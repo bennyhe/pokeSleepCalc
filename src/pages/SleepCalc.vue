@@ -214,7 +214,7 @@ const getRandomPokeSkills = () => {
     3: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 3)], 200)
   }
   for (let i = 0; i < 5; i++) {
-    let skillRare = getSkillRare()
+    let skillRare = 1
     let isLockRare = false
     if (
       +userData.value.lockSkillCount > 0 &&
@@ -222,6 +222,10 @@ const getRandomPokeSkills = () => {
     ) {
       skillRare = 3
       isLockRare = true
+    } else if (allSkillsByRare[1].length === 0) {
+      skillRare = getSkillRare([30, 100])
+    } else {
+      skillRare = getSkillRare()
     }
     const rdmSkillRareIndex = parseInt(
       Math.floor(Math.random() * allSkillsByRare[skillRare].length),

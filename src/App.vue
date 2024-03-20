@@ -8,6 +8,7 @@ import PageFoodRec from './pages/FoodRec.vue'
 import PageNew from './pages/NewPoke.vue'
 import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
 import PageOneDayEnergy from './pages/OneDayEnergy.vue'
+import PageSleepLab from './pages/SleepLab.vue'
 
 import { updatePoke } from './config/pokedex.js'
 
@@ -78,6 +79,9 @@ onMounted(() => {
       v-if="+showPageIndex === 5"
     >
       <PageNew :newUpdatePoke="newUpdatePoke" />
+    </div>
+    <div class="page-item cur" v-if="showPageIndex === '0383a0134484d5bd'">
+      <PageSleepLab />
     </div>
     <PageFooter />
     <nav class="nav">
