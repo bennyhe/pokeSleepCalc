@@ -191,14 +191,16 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
-const getSkillRare = () => {
+const getSkillRare = arrProbability => {
+  arrProbability = arrProbability || [15, 50]
   // 金技能出现几率 15%，蓝技能出现几率 35%，白技能出现几率 50%
   const arr = getRandomArr([...Array(100).keys()], 200)
+  // 随机0-99
   const res = arr[parseInt(Math.floor(Math.random() * 100), 10)]
   let level = 1
-  if (res <= 15) {
+  if (res < arrProbability[0]) {
     level = 3
-  } else if (res <= 50) {
+  } else if (res < arrProbability[1]) {
     level = 2
   }
   return level
