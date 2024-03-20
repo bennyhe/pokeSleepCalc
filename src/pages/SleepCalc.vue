@@ -1,20 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
+import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
-import {
-  BERRY_TYPES,
-  SLEEP_TYPES,
-  SUBSKILLS_NAMES,
-  SKILL_TYPES,
-  NATURE_NAMES,
-  FOOD_TYPES,
-  POKE_TYPES
-} from '../config/valKey.js'
+import { BERRY_TYPES, SLEEP_TYPES, SUBSKILLS_NAMES } from '../config/valKey.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
-import { NATURE } from '../config/pokeNature.js'
 import { pokedex } from '../config/pokedex.js'
 import {
   getUnLockSleeps,
@@ -56,6 +48,13 @@ const userData = ref({
   curUnlockSleeps: [],
   unLockSleeps: [],
   lockSkillCount: '0'
+})
+const userSleep = ref({
+  count: 0,
+  pokeShinyCount: 0,
+  pokeShinyList: [],
+  pokeSum: 0,
+  showDetailShiny: false
 })
 const randomSleepStyle = ref({
   resList: [],
@@ -293,6 +292,26 @@ const getRandomHopeCb = res => {
 
 const handleClickTimes = () => {
   setDefaultCutNumber()
+}
+
+const handleClickSleepOnce = () => {
+  setAndGetRandomSleepStyle(
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex
+  )
+  userSleep.value.count++
+  userSleep.value.pokeSum += randomSleepStyle.value.resList.length
+  const shinyList = randomSleepStyle.value.resList.filter(
+    item => item.isShiny
+  )
+  userSleep.value.pokeShinyCount += shinyList.length
+  userSleep.value.pokeShinyList = userSleep.value.pokeShinyList.concat([
+    ...shinyList
+  ])
+}
+
+const handleClickShinyDetail = () => {
+  userSleep.value.showDetailShiny = !userSleep.value.showDetailShiny
 }
 
 const handleBlurEnergy = () => {
@@ -572,15 +591,7 @@ setAndGetRandomSleepStyle(
           </el-form-item>
         </el-form>
         <div class="page-inner mb3">
-          <el-button
-            type="success"
-            plain
-            @click="
-              setAndGetRandomSleepStyle(
-                getScore(randomSleepStyle.sleepPoint),
-                userData.curStageIndex
-              )
-            "
+          <el-button type="success" plain @click="handleClickSleepOnce()"
             >点击抽取<img
               class="icon"
               v-lazy="
@@ -604,216 +615,152 @@ setAndGetRandomSleepStyle(
             抽取睡姿结果
             <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
           </h3>
-        </div>
-        <div class="poke-tb poke-tb--xscorll poke-tb--lottery mb3">
-          <template v-for="(sleepItem, sleepKey) in randomSleepStyle.resList">
+          <div class="mod-tips" v-if="userSleep.count > 0">
+            你睡了<span class="sptime">{{ userSleep.count }}</span
+            >次，获得<span class="sptime">{{ userSleep.pokeSum }}</span
+            >只宝可梦，其中<span class="sptime">{{
+              userSleep.pokeShinyCount
+            }}</span
+            >只闪光。
+            <el-button size="small" @click="handleClickShinyDetail()" v-if="userSleep.pokeShinyCount>0"
+              >闪光详情(<template v-if="userSleep.showDetailShiny"
+                >收起</template
+              ><template v-else>展开</template>)</el-button
+            >
+          </div>
+          <div class="get-shiny" v-if="userSleep.showDetailShiny">
             <div
-              class="poke-tb__item"
-              v-if="sleepItem.id"
-              v-bind:key="sleepItem.id"
-              :class="{ shiny: sleepItem.isShiny }"
+              class="get-shiny__item"
+              v-for="(sleepItem, sleepKey) in userSleep.pokeShinyList"
+              v-bind:key="`${sleepItem.id}_${sleepKey}`"
             >
               <p>
                 <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
                   sleepKey + 1
                 }}</i>
               </p>
-              <CptSleepStyle
-                :sleepItem="sleepItem"
-                :showKey="['sleepType']"
-                :userData="userData"
-              />
-              <el-popover
-                placement="bottom"
-                :title="`${pokedex[sleepItem.pokeId].name}`"
-                trigger="click"
-                :width="200"
-                :key="`${userData.CurEnergy}_${sleepKey + 1}`"
-              >
-                <template #reference>
-                  <el-button size="small"
-                    ><img
-                      class="icon"
-                      v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
-                    />个体</el-button
-                  >
-                </template>
-                <div class="cpt-iv">
-                  <span v-if="sleepItem.isShiny" class="shiny">闪光</span>
-                  {{ POKE_TYPES[pokedex[sleepItem.pokeId].pokeType] }}型
-                  <div class="cpt-food cpt-food--s berry">
-                    <div class="cpt-food__item">
-                      <img
-                        v-lazy="
-                          `./img/berry/${
-                            pokedex[sleepItem.pokeId].berryType
-                          }.png`
-                        "
-                        :alt="BERRY_TYPES[pokedex[sleepItem.pokeId].berryType]"
-                      />
-                    </div>
-                    <p>
-                      {{ BERRY_TYPES[pokedex[sleepItem.pokeId].berryType] }}
-                    </p>
-                  </div>
-                  <h4>食材</h4>
-                  <div class="cpt-food all-food">
-                    <div
-                      class="cpt-food__item cur"
-                      v-for="(foodItem, foodKey) in sleepItem.iv.useFoods"
-                      v-bind:key="`${foodKey}_${foodItem}`"
-                    >
-                      <img
-                        v-lazy="`./img/food/${foodItem}.png`"
-                        :alt="FOOD_TYPES[foodItem]"
-                      />
-                      <p class="cpt-food__count">
-                        {{
-                          pokedex[sleepItem.pokeId].food.count[foodItem].num[
-                            foodKey
-                          ]
-                        }}
-                      </p>
-                    </div>
-                  </div>
-                  <h4>主技能/副技能</h4>
-                  <div class="skill">
-                    <div class="main-skill">
-                      <div class="main-skill__inner">
-                        {{ SKILL_TYPES[pokedex[sleepItem.pokeId].skillType] }}
-                      </div>
-                    </div>
-                    <div
-                      class="mb3"
-                      v-for="skillItem in sleepItem.iv.skills"
-                      :key="skillItem.nameId"
-                    >
-                      <span class="level">lv{{ skillItem.unlockLevel }}</span>
-                      <span
-                        class="cpt-skill"
-                        :class="`cpt-skill--${skillItem.skillRare}`"
-                        ><svg
-                          v-if="skillItem.isLockRare"
-                          class="svg-icon"
-                          viewBox="0 0 1024 1024"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M791.1 388.4h-92.9V311c0-49.7-19.3-96.4-54.4-131.5-35.1-35.1-81.8-54.4-131.5-54.4s-96.4 19.3-131.5 54.4-54.4 81.8-54.4 131.5v77.4h-92.9c-8.6 0-15.5 7-15.5 15.5v433.7c0 8.6 7 15.5 15.5 15.5h557.6c8.6 0 15.5-7 15.5-15.5V403.9c0-8.6-6.9-15.5-15.5-15.5zM357.5 311c0-41.4 16.1-80.3 45.3-109.5 29.2-29.2 68.1-45.3 109.5-45.3 41.4 0 80.3 16.1 109.5 45.3 29.2 29.2 45.3 68.1 45.3 109.5v77.4H357.5V311zm418.1 511.1H249.1V419.4h526.5v402.7z"
-                          />
-                          <path
-                            d="M558.8 589.8c0 13.7-6.1 25.9-15.5 34.4v43c0 17.1-13.9 31-31 31s-31-13.9-31-31v-43c-9.4-8.5-15.5-20.7-15.5-34.4 0-25.7 20.8-46.5 46.5-46.5s46.5 20.8 46.5 46.5z"
-                          /></svg
-                        >{{ skillItem.name }}</span
-                      >
-                    </div>
-                  </div>
-                  <h4>性格</h4>
-                  {{ NATURE_NAMES[sleepItem.iv.natureId] }}
-                  <p
-                    class="nature-up"
-                    v-if="
-                      NATURE[sleepItem.iv.natureId] &&
-                      NATURE[sleepItem.iv.natureId].up
-                    "
-                  >
-                    {{ NATURE[sleepItem.iv.natureId].up }}△△
-                  </p>
-                  <p
-                    class="nature-down"
-                    v-if="
-                      NATURE[sleepItem.iv.natureId] &&
-                      NATURE[sleepItem.iv.natureId].down
-                    "
-                  >
-                    {{ NATURE[sleepItem.iv.natureId].down }}▽▽
-                  </p>
-                  <p
-                    v-if="
-                      NATURE[sleepItem.iv.natureId] &&
-                      NATURE[sleepItem.iv.natureId].up === undefined
-                    "
-                  >
-                    没有性格带来的特色
-                  </p>
-                </div>
-              </el-popover>
+              <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
+              <CptIv :sleepItem="sleepItem" />
             </div>
-          </template>
-        </div>
-        <div class="page-inner mb3">
-          <el-button
-            type="primary"
-            plain
-            @click="
-              getRandomHope(
-                gameMap[userData.curMap],
-                userData.curUnLockSleepType,
-                getScore(randomSleepStyle.sleepPoint),
-                userData.curStageIndex,
-                getTimes,
-                [],
-                getRandomHopeCb
-              )
-            "
-            >点击计算期望(睡{{ getTimes }}次)</el-button
-          >
-        </div>
-        <div v-if="hopeList.length > 0">
-          <div class="page-inner">
-            <h3>
-              期望宝可梦睡姿列表
-              <span class="extra">({{ hopeList.length }}只)</span>
-            </h3>
           </div>
-          <div class="poke-tb poke-tb--xscorll">
-            <div class="page-inner">
-              <div
-                class="cpt-avatar"
-                v-for="hopeItem in hopeList"
-                v-bind:key="hopeItem.pokeId"
+          <div>
+            <div class="poke-tb poke-tb--xscorll poke-tb--lottery mb3">
+              <template
+                v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
               >
-                <img
-                  v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-                  :alt="pokedex[hopeItem.pokeId].name"
-                />
-                <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-              </div>
-            </div>
-            <template v-for="(hopeItem, hopeKey) in hopeList">
-              <div
-                class="poke-tb__item"
-                v-if="hopeItem.pokeId"
-                v-bind:key="hopeItem.pokeId"
-              >
-                <p>
-                  <i class="i i-rank" :class="`i-rank--${hopeKey + 1}`">{{
-                    hopeKey + 1
-                  }}</i>
-                </p>
-                <div>
-                  获得<span class="sptime">{{ hopeItem.count }}</span
-                  >次
-                </div>
-                <CptPoke :pokeId="hopeItem.pokeId" :showKey="['sleepType']" />
-                <CptSleepStyle
-                  class="sleeplist__sub-item"
-                  v-for="sleepItem in hopeItem.list"
+                <div
+                  class="poke-tb__item"
+                  v-if="sleepItem.id"
                   v-bind:key="sleepItem.id"
-                  :sleepItem="sleepItem"
-                  :userData="userData"
-                  :showCptPoke="false"
-                />
+                  :class="{ shiny: sleepItem.isShiny }"
+                >
+                  <p>
+                    <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
+                      sleepKey + 1
+                    }}</i>
+                  </p>
+                  <CptSleepStyle
+                    :sleepItem="sleepItem"
+                    :showKey="['sleepType']"
+                    :userData="userData"
+                  />
+                  <el-popover
+                    placement="bottom"
+                    :title="`${pokedex[sleepItem.pokeId].name}`"
+                    trigger="click"
+                    :width="200"
+                    :key="`${userData.CurEnergy}_${sleepKey + 1}`"
+                  >
+                    <template #reference>
+                      <el-button size="small"
+                        ><img
+                          class="icon"
+                          v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
+                        />个体</el-button
+                      >
+                    </template>
+                    <CptIv :sleepItem="sleepItem" />
+                  </el-popover>
+                </div>
+              </template>
+            </div>
+            <div class="page-inner mb3">
+              <el-button
+                type="primary"
+                plain
+                @click="
+                  getRandomHope(
+                    gameMap[userData.curMap],
+                    userData.curUnLockSleepType,
+                    getScore(randomSleepStyle.sleepPoint),
+                    userData.curStageIndex,
+                    getTimes,
+                    [],
+                    getRandomHopeCb
+                  )
+                "
+                >点击计算期望(睡{{ getTimes }}次)</el-button
+              >
+            </div>
+            <div v-if="hopeList.length > 0">
+              <div class="page-inner">
+                <h3>
+                  期望宝可梦睡姿列表
+                  <span class="extra">({{ hopeList.length }}只)</span>
+                </h3>
               </div>
-            </template>
-          </div>
-        </div>
-        <div class="page-inner">
-          <div class="mod-tips">
-            <p>* 抽取睡姿不支持活动up等特殊情况。</p>
-            <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
-            <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
+              <div class="poke-tb poke-tb--xscorll">
+                <div class="page-inner">
+                  <div
+                    class="cpt-avatar"
+                    v-for="hopeItem in hopeList"
+                    v-bind:key="hopeItem.pokeId"
+                  >
+                    <img
+                      v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
+                      :alt="pokedex[hopeItem.pokeId].name"
+                    />
+                    <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+                  </div>
+                </div>
+                <template v-for="(hopeItem, hopeKey) in hopeList">
+                  <div
+                    class="poke-tb__item"
+                    v-if="hopeItem.pokeId"
+                    v-bind:key="hopeItem.pokeId"
+                  >
+                    <p>
+                      <i class="i i-rank" :class="`i-rank--${hopeKey + 1}`">{{
+                        hopeKey + 1
+                      }}</i>
+                    </p>
+                    <div>
+                      获得<span class="sptime">{{ hopeItem.count }}</span
+                      >次
+                    </div>
+                    <CptPoke
+                      :pokeId="hopeItem.pokeId"
+                      :showKey="['sleepType']"
+                    />
+                    <CptSleepStyle
+                      class="sleeplist__sub-item"
+                      v-for="sleepItem in hopeItem.list"
+                      v-bind:key="sleepItem.id"
+                      :sleepItem="sleepItem"
+                      :userData="userData"
+                      :showCptPoke="false"
+                    />
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="page-inner">
+              <div class="mod-tips">
+                <p>* 抽取睡姿不支持活动up等特殊情况。</p>
+                <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
+                <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -285,6 +285,9 @@ h4 {
 }
 
 .cpt-iv {
+  font-size: 14px;
+  line-height: 1.4;
+
   h4 {
     background-color: #20cd61;
     color: #e6fdee;
@@ -981,6 +984,36 @@ h4 {
     display: inline-block;
     vertical-align: top;
     width: 66px;
+  }
+}
+
+.get-shiny {
+  white-space: nowrap;
+  overflow-x: auto;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px dashed #d1d1d1;
+  margin: 3px 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 5px;
+    margin-right: 5px;
+    
+    .cpt-pokemon {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .cpt-iv {
+      transform: scale(0.9);
+      margin: -20px -5px;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px dashed #d1d1d1;
+    }
   }
 }
 
