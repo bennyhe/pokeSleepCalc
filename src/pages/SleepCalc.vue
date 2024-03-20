@@ -313,6 +313,15 @@ const handleClickSleepOnce = () => {
 const handleClickShinyDetail = () => {
   userSleep.value.showDetailShiny = !userSleep.value.showDetailShiny
 }
+const handleClickShinyClear = () => {
+  userSleep.value = {
+    count: 0,
+    pokeShinyCount: 0,
+    pokeShinyList: [],
+    pokeSum: 0,
+    showDetailShiny: false
+  }
+}
 
 const handleBlurEnergy = () => {
   if (userData.value.CurEnergy < 0) {
@@ -622,10 +631,21 @@ setAndGetRandomSleepStyle(
               userSleep.pokeShinyCount
             }}</span
             >只闪光。
-            <el-button size="small" @click="handleClickShinyDetail()" v-if="userSleep.pokeShinyCount>0"
+            <el-button
+              size="small"
+              @click="handleClickShinyDetail()"
+              v-if="userSleep.pokeShinyCount > 0"
               >闪光详情(<template v-if="userSleep.showDetailShiny"
                 >收起</template
               ><template v-else>展开</template>)</el-button
+            >
+            <el-button
+              size="small"
+              type="warning"
+              plain
+              @click="handleClickShinyClear()"
+              v-if="userSleep.pokeShinyCount > 0"
+              >重头再来</el-button
             >
           </div>
           <div class="get-shiny" v-if="userSleep.showDetailShiny">
