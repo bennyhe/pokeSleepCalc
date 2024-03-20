@@ -1,4 +1,4 @@
-const mapSplitVer = '2.4.4'
+const mapSplitVer = '2.4.6'
 const gameMap = [
   {
     name: '萌绿之岛',
@@ -851,7 +851,7 @@ const gameMap = [
       { catchNum: 4, startscore: 1829448, endscore: 4626378 },
       { catchNum: 5, startscore: 4626380, endscore: 9935822 },
       { catchNum: 6, startscore: 9935824, endscore: 19563552 },
-      { catchNum: 7, startscore: 19563553, endscore: 43706480 },
+      { catchNum: 7, startscore: 19563553, endscore: 43706481 },
       { catchNum: 8, startscore: 43706488 }],
     levelList: [
       {
@@ -1226,10 +1226,10 @@ const gameMap = [
     id: 'snow',
     pic: 'map4',
     berry: [11, 7, 17],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821377 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 2821379 },
       { catchNum: 4, startscore: 2821380, endscore: 7162380 },
-      { catchNum: 5, startscore: 7162381, endscore: 15469180 },
-      { catchNum: 6, startscore: 15469188, endscore: 28772754 },
+      { catchNum: 5, startscore: 7162381, endscore: 15469182 },
+      { catchNum: 6, startscore: 15469184, endscore: 28772755 },
       { catchNum: 7, startscore: 28772756, endscore: 65691968 },
       { catchNum: 8, startscore: 65696600 }],
     levelList: [
@@ -1602,12 +1602,12 @@ const gameMap = [
     id: 'lake',
     pic: 'map5',
     berry: [4, 18, 6],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3152550 },
-      { catchNum: 4, startscore: 3153605, endscore: 7729830 },
-      { catchNum: 5, startscore: 7731504, endscore: 16656367 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153381 },
+      { catchNum: 4, startscore: 3153605, endscore: 7730385 },
+      { catchNum: 5, startscore: 7730580, endscore: 16659660 },
       { catchNum: 6, startscore: 16659966, endscore: 30491709 },
-      { catchNum: 7, startscore: 30491710, endscore: 68663700 },
-      { catchNum: 8, startscore: 68666000 }],
+      { catchNum: 7, startscore: 30491710, endscore: 68664090 },
+      { catchNum: 8, startscore: 68665104 }],
     levelList: [
       {
         'name': '普通1',
