@@ -617,7 +617,7 @@ setAndGetRandomSleepStyle(
           </h3>
           <div class="mod-tips" v-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
-            >次，获得<span class="sptime">{{ userSleep.pokeSum }}</span
+            >次，遇到<span class="sptime">{{ userSleep.pokeSum }}</span
             >只宝可梦，其中<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
