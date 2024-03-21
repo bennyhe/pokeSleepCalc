@@ -600,6 +600,9 @@ setAndGetRandomSleepStyle(
           </el-form-item>
         </el-form>
         <div class="page-inner mb3">
+          <p class="mb3">
+            <el-alert title="游戏v1.4.0更新了大量对睡姿相关内容，请注意抽取睡姿该功能可能不符合期望结果。" type="warning" show-icon />
+          </p>
           <el-button type="success" plain @click="handleClickSleepOnce()"
             >点击抽取<img
               class="icon"

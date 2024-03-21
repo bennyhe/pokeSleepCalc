@@ -1403,16 +1403,16 @@ const pokedex = {
     helpSpeed: 3300,
     foodPer: 20.21
   },
-  // 243: {
-  //   id: 243,
-  //   name: '雷公',
-  //   sleepType: 2,
-  //   skillType: 15,
-  //   // pokeType: 3,
-  //   berryType: 13,
-  //   helpSpeed: 2600
-  //   // foodPer: 20.21
-  // },
+  243: {
+    id: 243,
+    name: '雷公',
+    sleepType: 2,
+    skillType: 15,
+    pokeType: 3,
+    berryType: 13,
+    helpSpeed: 2100
+    // foodPer: 20.21
+  },
   246: {
     id: 246,
     name: '幼基拉斯',
@@ -2079,7 +2079,7 @@ const updatePoke = [{
   pokemons: [147, 148, 149, 280, 281, 282, 475, 759, 760]
 }, {
   time: '2024/03/1',
-  pokemons: [702]
+  pokemons: [702, 243]
 }]
 // console.log(pokedex)
 export {
