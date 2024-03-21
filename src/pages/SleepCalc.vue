@@ -47,7 +47,8 @@ const userData = ref({
   curUnLockSleepType: '999',
   curUnlockSleeps: [],
   unLockSleeps: [],
-  lockSkillCount: '0'
+  lockSkillCount: '0',
+  banPokes: [243]
 })
 const userSleep = ref({
   count: 0,
@@ -249,10 +250,11 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     gameMap[userData.value.curMap],
     userData.value.curUnLockSleepType,
     score,
-    curStageIndex
+    curStageIndex,
+    userData.value.banPokes
   )
   res.forEach((sleepItem, key) => {
-    if(pokedex[sleepItem.pokeId].food){
+    if (pokedex[sleepItem.pokeId].food) {
       const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
       for (let i = 1; i < 3; i++) {
         const rdm = parseInt(Math.floor(Math.random() * 3), 10)
@@ -267,7 +269,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
           if (lastFoods.length === 1) {
             useFoods.push(lastFoods[0])
           } else {
-            useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
+            useFoods.push(
+              lastFoods[parseInt(Math.floor(Math.random() * 2), 10)]
+            )
           }
         }
       }
@@ -584,7 +588,7 @@ setAndGetRandomSleepStyle(
               >分
             </div>
           </el-form-item>
-          <el-form-item label="个体选项">
+          <el-form-item label="抽取选项">
             <el-radio-group
               v-model="userData.lockSkillCount"
               size="small"
@@ -600,10 +604,26 @@ setAndGetRandomSleepStyle(
               >
             </el-radio-group>
           </el-form-item>
+          <el-form-item v-if="userData.curMap === 0">
+            <el-checkbox-group v-model="userData.banPokes" size="small">
+              <el-checkbox :label="243"
+                >抽取去除<span class="cpt-avatar">
+                  <img
+                    v-lazy="`./img/pokedex/${243}.png`"
+                    :alt="pokedex[243].name"
+                  /> </span
+                >{{ pokedex[243].name }}</el-checkbox
+              >
+            </el-checkbox-group>
+          </el-form-item>
         </el-form>
         <div class="page-inner mb3">
           <p class="mb3">
-            <el-alert title="游戏v1.4.0更新了大量对睡姿相关内容，请注意抽取睡姿该功能可能不符合期望结果。" type="warning" show-icon />
+            <el-alert
+              title="游戏v1.4.0更新了大量对睡姿相关内容，请注意抽取睡姿该功能可能不符合期望结果。"
+              type="warning"
+              show-icon
+            />
           </p>
           <el-button type="success" plain @click="handleClickSleepOnce()"
             >点击抽取<img
@@ -665,7 +685,7 @@ setAndGetRandomSleepStyle(
                 }}</i>
               </p>
               <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-              <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv"/>
+              <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv" />
             </div>
           </div>
           <div>
@@ -705,7 +725,7 @@ setAndGetRandomSleepStyle(
                         />个体</el-button
                       >
                     </template>
-                    <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv"/>
+                    <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv" />
                   </el-popover>
                 </div>
               </template>
@@ -721,7 +741,7 @@ setAndGetRandomSleepStyle(
                     getScore(randomSleepStyle.sleepPoint),
                     userData.curStageIndex,
                     getTimes,
-                    [],
+                    userData.banPokes,
                     getRandomHopeCb
                   )
                 "
@@ -782,7 +802,10 @@ setAndGetRandomSleepStyle(
             </div>
             <div class="page-inner">
               <div class="mod-tips">
-                <p>* 抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。</p>
+                <p>
+                  *
+                  抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。
+                </p>
                 <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
                 <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
               </div>
