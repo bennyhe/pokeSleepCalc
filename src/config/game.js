@@ -400,7 +400,8 @@ const gameMap = [
           '9-id-2',
           '6-id-2',
           '26-id-4',
-          '135-id-2'
+          '135-id-2',
+          '243-id-1'
         ]
       },
       {
@@ -435,7 +436,8 @@ const gameMap = [
         'name': '大师13',
         'energy': 885619,
         'sleepStyles': [
-          '700-id-3'
+          '700-id-3',
+          '243-id-2'
         ]
       },
       {
@@ -460,11 +462,28 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师17以上',
+        'name': '大师17',
         'energy': 1795052,
         'sleepStyles': [
           '462-id-3'
         ]
+      },
+      {
+        'name': '大师18',
+        'energy': 2165541,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师19',
+        'energy': 2604280,
+        'sleepStyles': [
+          '243-id-3'
+        ]
+      },
+      {
+        'name': '大师20以上',
+        'energy': 3245795,
+        'sleepStyles': []
       }
     ]
   },
@@ -836,8 +855,23 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师17以上',
+        'name': '大师17',
         'energy': 2064310,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师18',
+        'energy': 2490372,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师19',
+        'energy': 2994922,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师20以上',
+        'energy': 3732664,
         'sleepStyles': []
       }
     ]
@@ -1215,8 +1249,23 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师17以上',
+        'name': '大师17',
         'energy': 2333568,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师18',
+        'energy': 2815203,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师19',
+        'energy': 3385564,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师20以上',
+        'energy': 4219534,
         'sleepStyles': []
       }
     ]
@@ -1591,8 +1640,23 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师17以上',
+        'name': '大师17',
         'energy': 3317487,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师18',
+        'energy': 3670206,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师19',
+        'energy': 4058197,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师20以上',
+        'energy': 4706403,
         'sleepStyles': []
       }
     ]
@@ -1997,8 +2061,23 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师17以上',
+        'name': '大师17',
         'energy': 3454577,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师18',
+        'energy': 3739033,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师19',
+        'energy': 4166848,
+        'sleepStyles': []
+      },
+      {
+        'name': '大师20以上',
+        'energy': 5193272,
         'sleepStyles': []
       }
     ]

@@ -138,6 +138,12 @@ h4 {
   color: #9d9d9d;
   margin-top: 3px;
   line-height: 1.5;
+
+  em {
+    font-size: 12px;
+    text-decoration: underline;
+    color: $primaryColor;
+  }
 }
 
 .cpt-avatar {

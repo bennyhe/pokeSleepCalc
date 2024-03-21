@@ -1,5 +1,5 @@
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SPO_DATA } from '../config/spo.js'
+import { SPO_DATA, SPONEW_TO_SPOOLD } from '../config/spo.js'
 import { pokedex } from '../config/pokedex.js'
 import {
   sortInObjectOptions,
@@ -20,7 +20,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
               aResLast.push({
                 ...SLEEP_STYLE[sItem],
                 sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-                spo: SPO_DATA[sItem].spo,
+                spo: SPO_DATA[sItem].spo_n ? SPONEW_TO_SPOOLD[SPO_DATA[sItem].spo_n] : SPO_DATA[sItem].spo, // 转换最新的spo_n对应数值
                 spoId: SPO_DATA[sItem].id,
                 unLockLevel: levelKey
               })
@@ -48,7 +48,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
           aRes.push({
             ...SLEEP_STYLE[sItem],
             sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: SPO_DATA[sItem].spo,
+            spo: SPO_DATA[sItem].spo_n ? SPONEW_TO_SPOOLD[SPO_DATA[sItem].spo_n] : SPO_DATA[sItem].spo, // 转换最新的spo_n对应数值
             spoId: SPO_DATA[sItem].id,
             unLockLevel: curStageIndex
           })

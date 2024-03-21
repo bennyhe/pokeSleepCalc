@@ -88,6 +88,16 @@ const handleClickGet = () => {
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
 }
+
+// const newArr = []
+// for (const key in SPO_DATA) {
+//   if (Object.hasOwnProperty.call(SPO_DATA, key)) {
+//     if(!newArr.includes(SPO_DATA[key].spo)){
+//       newArr.push(SPO_DATA[key].spo)
+//     }
+//   }
+// }
+// console.log(newArr.sort((a, b) =>a - b))
 </script>
 
 <template>

@@ -35,7 +35,7 @@ const navData = ref({
       value: 2
     }
   ],
-  navIndex: 0
+  navIndex: 2
 })
 const userData = ref({
   CurEnergy: 0,
@@ -252,28 +252,30 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     curStageIndex
   )
   res.forEach((sleepItem, key) => {
-    const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
-    for (let i = 1; i < 3; i++) {
-      const rdm = parseInt(Math.floor(Math.random() * 3), 10)
-      // 1/3概率a食材
-      if (rdm === 2) {
-        useFoods.push(pokedex[sleepItem.pokeId].food.type[0])
-      } else if (i === 1) {
-        useFoods.push(pokedex[sleepItem.pokeId].food.type[i])
-      } else {
-        let lastFoods = [...pokedex[sleepItem.pokeId].food.type]
-        lastFoods = lastFoods.slice(1, lastFoods.length)
-        if (lastFoods.length === 1) {
-          useFoods.push(lastFoods[0])
+    if(pokedex[sleepItem.pokeId].food){
+      const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
+      for (let i = 1; i < 3; i++) {
+        const rdm = parseInt(Math.floor(Math.random() * 3), 10)
+        // 1/3概率a食材
+        if (rdm === 2) {
+          useFoods.push(pokedex[sleepItem.pokeId].food.type[0])
+        } else if (i === 1) {
+          useFoods.push(pokedex[sleepItem.pokeId].food.type[i])
         } else {
-          useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
+          let lastFoods = [...pokedex[sleepItem.pokeId].food.type]
+          lastFoods = lastFoods.slice(1, lastFoods.length)
+          if (lastFoods.length === 1) {
+            useFoods.push(lastFoods[0])
+          } else {
+            useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
+          }
         }
       }
-    }
-    sleepItem.iv = {
-      useFoods,
-      natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
-      skills: getRandomPokeSkills()
+      sleepItem.iv = {
+        useFoods,
+        natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
+        skills: getRandomPokeSkills()
+      }
     }
   })
   // console.log(res)
@@ -663,7 +665,7 @@ setAndGetRandomSleepStyle(
                 }}</i>
               </p>
               <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-              <CptIv :sleepItem="sleepItem" />
+              <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv"/>
             </div>
           </div>
           <div>
@@ -688,6 +690,7 @@ setAndGetRandomSleepStyle(
                     :userData="userData"
                   />
                   <el-popover
+                    v-if="sleepItem.iv"
                     placement="bottom"
                     :title="`${pokedex[sleepItem.pokeId].name}`"
                     trigger="click"
@@ -695,14 +698,14 @@ setAndGetRandomSleepStyle(
                     :key="`${userData.CurEnergy}_${sleepKey + 1}`"
                   >
                     <template #reference>
-                      <el-button size="small"
+                      <el-button size="small" v-if="sleepItem.iv"
                         ><img
                           class="icon"
                           v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
                         />个体</el-button
                       >
                     </template>
-                    <CptIv :sleepItem="sleepItem" />
+                    <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv"/>
                   </el-popover>
                 </div>
               </template>
@@ -779,7 +782,7 @@ setAndGetRandomSleepStyle(
             </div>
             <div class="page-inner">
               <div class="mod-tips">
-                <p>* 抽取睡姿不支持活动up等特殊情况。</p>
+                <p>* 抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。</p>
                 <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
                 <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
               </div>
