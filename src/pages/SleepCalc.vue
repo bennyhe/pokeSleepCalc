@@ -623,7 +623,16 @@ setAndGetRandomSleepStyle(
               title="游戏v1.4.0更新了大量对睡姿相关内容，请注意抽取睡姿该功能可能不符合期望结果。"
               type="warning"
               show-icon
-            />
+            >
+              <div class="mod-tips">
+                <p>
+                  *
+                  抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。
+                </p>
+                <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
+                <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
+              </div>
+            </el-alert>
           </p>
           <el-button type="success" plain @click="handleClickSleepOnce()"
             >点击抽取<img
@@ -798,16 +807,6 @@ setAndGetRandomSleepStyle(
                     />
                   </div>
                 </template>
-              </div>
-            </div>
-            <div class="page-inner">
-              <div class="mod-tips">
-                <p>
-                  *
-                  抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。
-                </p>
-                <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
-                <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
               </div>
             </div>
           </div>
