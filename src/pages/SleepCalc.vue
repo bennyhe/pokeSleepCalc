@@ -35,7 +35,7 @@ const navData = ref({
       value: 2
     }
   ],
-  navIndex: 2
+  navIndex: 0
 })
 const userData = ref({
   CurEnergy: 0,

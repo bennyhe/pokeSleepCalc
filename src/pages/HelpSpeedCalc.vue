@@ -126,6 +126,7 @@ const getNewHelpSpeed = (formData, level) => {
 }
 
 const getNewFoodPer = (formData, foodPer) => {
+  foodPer = foodPer || 0
   let basicfood = 0
   let mainMuti = 0
   if (formData.skill.includes('fs')) {
@@ -201,14 +202,18 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     if (isPlayer) {
       is2n = helpSpeedCalcForm.value.skill.includes('berrys')
     }
-    const arrFood = [
-      newPokeItem.food.type[arrFTItem[0]],
-      newPokeItem.food.type[arrFTItem[1]]
-    ]
-    if (helpSpeedCalcForm.value.level < 30) {
-      arrFood.splice(1, arrFood.length)
-    } else if (helpSpeedCalcForm.value.level >= 60) {
-      arrFood.push(newPokeItem.food.type[arrFTItem[2]])
+
+    let arrFood = []
+    if (newPokeItem.food) {
+      arrFood = [
+        newPokeItem.food.type[arrFTItem[0]],
+        newPokeItem.food.type[arrFTItem[1]]
+      ]
+      if (helpSpeedCalcForm.value.level < 30) {
+        arrFood.splice(1, arrFood.length)
+      } else if (helpSpeedCalcForm.value.level >= 60) {
+        arrFood.push(newPokeItem.food.type[arrFTItem[2]])
+      }
     }
     resRankArr.push({
       ...newPokeItem,
@@ -498,7 +503,6 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            v-if="pokeItem.food"
             :label="`${pokeItem.name}-${pokeItem.helpSpeed}s`"
             :value="pokeItem.id"
           >
@@ -526,7 +530,7 @@ watch(helpSpeedCalcForm.value, val => {
         <img v-lazy="`./img/pokedex/${pokeItem.id}.png`" :alt="pokeItem.name" />
       </span>
     </el-form-item>
-    <el-form-item label="食材">
+    <el-form-item label="食材" v-if="pokedex[helpSpeedCalcForm.pokemonId].food">
       <div
         class="cpt-food cpt-food--noborder"
         v-for="(subFoodItem, subKey) in 3"
@@ -777,7 +781,6 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            v-if="pokeItem.food"
             :label="`对比${pokeItem.name}-${pokeItem.helpSpeed}s`"
             :value="pokeItem.id"
           >
@@ -807,7 +810,7 @@ watch(helpSpeedCalcForm.value, val => {
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
           helpSpeedCalcForm.pokemonId
         )"
-        v-bind:key="`${pokeItem.id}_${pokeItem.useFoods.join('')}_${
+        v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"

@@ -34,7 +34,7 @@ const props = defineProps({
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
     />
-    <div>
+    <div v-if="props.pokeItem.useFoods && props.pokeItem.useFoods.length > 0">
       <div class="cpt-food all-food">
         <div
           class="cpt-food__item cur"
@@ -66,7 +66,12 @@ const props = defineProps({
       <p class="cpt-pokemon__poketype2 xs">
         食{{ props.pokeItem.oneDayFoodEnergy.allEnergy }}
       </p>
-      <div>
+      <div
+        v-if="
+          props.pokeItem.oneDayFoodEnergy.useFoods &&
+          props.pokeItem.oneDayFoodEnergy.useFoods.length > 0
+        "
+      >
         <div class="cpt-food cpt-food--s all-food">
           <div
             class="cpt-food__item cur"
