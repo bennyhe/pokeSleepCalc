@@ -80,6 +80,22 @@ onMounted(() => {
             )
           })
         })
+      } else {
+        [0,1].forEach((arrFTItem, arrFTKey) => {
+          const is2n = (arrFTKey + 1) % 2 === 0
+          pageData.value.resRankArr.push({
+            ...pokeItem,
+            id: pokeItem.id,
+            nameExtra: is2n ? '树果S' : '',
+            ...getOneDayEnergy(
+              pokeItem,
+              pageData.value.lv,
+              [],
+              is2n ? true : false,
+              false
+            )
+          })
+        })
       }
     }
   }
@@ -256,7 +272,7 @@ const handleClickChangeMap = id => {
         "
         v-bind:key="`area${pageData.curMap}_${
           pokeItem.id
-        }_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
+        }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
