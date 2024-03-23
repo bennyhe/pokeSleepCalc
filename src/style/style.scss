@@ -625,7 +625,7 @@ h4 {
   }
 
   li:nth-child(2n) {
-    background-color: rgba($color: $mainColor, $alpha: .1);
+    background-color: rgba($color: $evenColor, $alpha: .1);
   }
 
   .cpt-food+.cpt-food {
@@ -735,7 +735,7 @@ h4 {
     }
 
     &:nth-child(2n) {
-      background-color: rgba($color: $mainColor, $alpha: .1);
+      background-color: rgba($color: $evenColor, $alpha: .1);
     }
   }
 
@@ -971,7 +971,7 @@ h4 {
 
   .poke-tb__item {
     &:nth-child(2n) {
-      background-color: rgba($color: $mainColor, $alpha: .1);
+      background-color: rgba($color: $evenColor, $alpha: .1);
     }
 
     &.cur {
