@@ -3,9 +3,6 @@ import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
 import {
-  SUBSKILLS_NAMES,
-  SKILL_TYPES,
-  NATURE_NAMES,
   FOOD_TYPES,
   POKE_TYPES
 } from '../../config/valKey.js'
@@ -79,18 +76,18 @@ const props = defineProps({
       </div>
     </div>
     <h4>性格</h4>
-    {{ NATURE_NAMES[sleepItem.iv.natureId] }}
+    {{ $t(`NATURE_NAMES.${sleepItem.iv.natureId}`) }}
     <p
       class="nature-up"
       v-if="NATURE[sleepItem.iv.natureId] && NATURE[sleepItem.iv.natureId].up"
     >
-      {{ NATURE[sleepItem.iv.natureId].up }}△△
+      {{ $t(`NATURE_UPDOWN.${NATURE[sleepItem.iv.natureId].up}`) }}△△
     </p>
     <p
       class="nature-down"
       v-if="NATURE[sleepItem.iv.natureId] && NATURE[sleepItem.iv.natureId].down"
     >
-      {{ NATURE[sleepItem.iv.natureId].down }}▽▽
+      {{ $t(`NATURE_UPDOWN.${NATURE[sleepItem.iv.natureId].down}`) }}▽▽
     </p>
     <p
       v-if="
