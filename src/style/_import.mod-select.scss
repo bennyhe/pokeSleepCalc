@@ -1,0 +1,65 @@
+.select{
+  position: relative; 
+  border: 1px solid #CCC;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  padding: 3px 20px 3px 6px;
+  color: #666;
+  background-color: #f4f4f4;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 3;
+  border-radius: 4px;
+  cursor: pointer;
+
+  select{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 5px;
+
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #666;
+    border-right: 1px solid #666;
+    transform: rotate(135deg);
+  }
+
+  &--clear{
+    background: none;
+    color: inherit;
+    border: none;
+
+    &:after{
+      display: none;
+    }
+  }
+}
+//暗夜模式下的css样式
+@media (prefers-color-scheme: dark) { 
+  .select{
+    background: #303134;
+    color: #aaadb2;
+  }
+  .search{
+    &-select{
+      background: none;
+      color: #ff92b1;
+    }
+    &-result{
+      background: rgba(#f4f4f4, .9)
+    }
+  }
+}

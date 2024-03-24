@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { getUrlQuery } from './utils/index.js'
 import PageFooter from './components/PageFooter/PFooter.vue'
 import PageSleepCalc from './pages/SleepCalc.vue'
@@ -40,16 +41,47 @@ const handleClickNav = key => {
   window.scrollTo(0, 0)
 }
 
+const sellang = ref(localStorage.getItem('psclang') || 'cn')
+const allLang = [
+  {
+    id: 'cn',
+    name: '中文'
+  },
+  {
+    id: 'jp',
+    name: '日本語'
+  }
+]
+const { locale } = useI18n() // 先调用此方法，然后再使用
+const handleClickChangeLang = () => {
+  locale.value = sellang.value
+  localStorage.setItem('psclang', sellang.value)
+  console.log(locale.value)
+  location.reload()
+}
+
 onMounted(() => {
   // console.log('组件已经挂载')
-  // if (+getUrlQuery('p') >= 0) {
-  showPageIndex.value = getUrlQuery('p')
-  // }
+  if (getUrlQuery('p') !== undefined) {
+    showPageIndex.value = getUrlQuery('p')
+  }
 })
 </script>
 
 <template>
   <div class="main">
+    <span class="select lang">
+      Language: {{ $t("lang") }}
+      <select v-model="sellang" @change="handleClickChangeLang()">
+        <option
+          :value="item.id"
+          v-for="(item, index) in allLang"
+          v-bind:key="index"
+        >
+          {{ item.name }}
+        </option>
+      </select>
+    </span>
     <div class="page-item" :class="{ cur: +showPageIndex === 0 }">
       <PageSleepCalc />
     </div>
