@@ -48,7 +48,8 @@ const userData = ref({
   curUnlockSleeps: [],
   unLockSleeps: [],
   lockSkillCount: '0',
-  banPokes: [243]
+  onOffBan: false,
+  banPokes: []
 })
 const userSleep = ref({
   count: 0,
@@ -604,7 +605,7 @@ setAndGetRandomSleepStyle(
               >
             </el-radio-group>
           </el-form-item>
-          <el-form-item v-if="userData.curMap === 0">
+          <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
             <el-checkbox-group v-model="userData.banPokes" size="small">
               <el-checkbox :label="243"
                 >抽取去除<span class="cpt-avatar">

@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-03-24
 1. add 多国语言-日本语
 2. update 视觉样式-移动端
+3. update 去除默认ban雷公计算期望的功能
 
 ## 24-03-23
 1. update 视觉样式
