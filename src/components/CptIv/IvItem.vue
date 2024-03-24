@@ -25,11 +25,11 @@ const props = defineProps({
       <div class="cpt-food__item">
         <img
           v-lazy="`./img/berry/${pokedex[sleepItem.pokeId].berryType}.png`"
-          :alt="BERRY_TYPES[pokedex[sleepItem.pokeId].berryType]"
+          :alt="$t(`BERRY_TYPES.${pokedex[sleepItem.pokeId].berryType}`)"
         />
       </div>
       <p>
-        {{ BERRY_TYPES[pokedex[sleepItem.pokeId].berryType] }}
+        {{ $t(`BERRY_TYPES.${pokedex[sleepItem.pokeId].berryType}`) }}
       </p>
     </div>
     <h4>食材</h4>

@@ -388,7 +388,7 @@ setAndGetRandomSleepStyle(
                     <img
                       v-if="berryItem !== '?'"
                       v-lazy="`./img/berry/${berryItem}.png`"
-                      :alt="BERRY_TYPES[berryItem]"
+                      :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
                   </div>

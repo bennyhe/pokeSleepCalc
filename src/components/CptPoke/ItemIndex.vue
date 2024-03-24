@@ -8,6 +8,7 @@ import {
   BERRY_TYPES,
   SKILL_TYPES
 } from '../../config/valKey.js'
+
 const props = defineProps({
   pokeId: {
     type: [Number, String]
@@ -75,10 +76,10 @@ const props = defineProps({
       <div class="cpt-food__item">
         <img
           v-lazy="`./img/berry/${pokedex[pokeId].berryType}.png`"
-          :alt="BERRY_TYPES[pokedex[pokeId].berryType]"
+          :alt="$t(`BERRY_TYPES.${pokedex[pokeId].berryType}`)"
         />
       </div>
-      <p>{{ BERRY_TYPES[pokedex[pokeId].berryType] }}</p>
+      <p>{{ $t(`BERRY_TYPES.${pokedex[pokeId].berryType}`) }}</p>
     </div>
     <p
       v-if="

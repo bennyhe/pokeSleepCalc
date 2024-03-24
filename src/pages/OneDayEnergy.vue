@@ -8,6 +8,9 @@ import { gameMap } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import { BERRY_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
+import i18n from '../i18n'
+const { t } = i18n.global
+
 const newGameMap = [...gameMap]
 const pageData = ref({
   curMap: 0,
@@ -26,8 +29,8 @@ newGameMap.push({
 for (const key in BERRY_TYPES) {
   if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {
     newGameMap.push({
-      name: BERRY_TYPES[key],
-      id: `berry_${BERRY_TYPES[key]}`,
+      name: t(`BERRY_TYPES.${key}`),
+      id: `berry_${t(`BERRY_TYPES.${key}`)}`,
       berry: [+key]
     })
   }
@@ -39,7 +42,7 @@ onMounted(() => {
   // for (const key in BERRY_ENERGY) {
   //   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
   //     const element = BERRY_ENERGY[key]
-  //     console.log(BERRY_TYPES[key], `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
+  //     console.log(t(`BERRY_TYPES.${key}`), `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
   //   }
   // }
   for (const key in pokedex) {
@@ -169,7 +172,7 @@ const handleClickChangeMap = id => {
                     <img
                       v-if="berryItem !== '?'"
                       v-lazy="`./img/berry/${berryItem}.png`"
-                      :alt="BERRY_TYPES[berryItem]"
+                      :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
                   </div>
@@ -187,8 +190,8 @@ const handleClickChangeMap = id => {
       </ul>
     </el-form-item>
     <!-- E 当前岛屿 -->
-    <!-- S 树果双倍 -->
-    <el-form-item label="树果双倍">
+    <!-- S 2倍树果 -->
+    <el-form-item label="2倍树果">
       <ul class="cpt-select-list cpt-select-list--berry">
         <template v-for="(mapItem, mapIndex) in newGameMap">
           <li
@@ -210,7 +213,7 @@ const handleClickChangeMap = id => {
                     <img
                       v-if="berryItem !== '?'"
                       v-lazy="`./img/berry/${berryItem}.png`"
-                      :alt="BERRY_TYPES[berryItem]"
+                      :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
                   </div>
@@ -227,7 +230,7 @@ const handleClickChangeMap = id => {
         </template>
       </ul>
     </el-form-item>
-    <!-- E 树果双倍 -->
+    <!-- E 2倍树果 -->
     <!-- <el-form-item label="宝可梦等级">
       <el-slider
         v-model="pageData.lv"

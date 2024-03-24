@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import i18n from '../i18n'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
@@ -16,7 +15,9 @@ import {
   findMenuWithFood
 } from '../utils/index.js'
 
+import i18n from '../i18n'
 const {t}=i18n.global
+
 const pokedexLength = ref(0)
 const curFilter = ref('all')
 const filterResGroup = ref({
@@ -99,7 +100,7 @@ const initFilterGroup = () => {
         byBerryTypeResIn,
         byBerryTypeOrgList,
         'berryType',
-        `${BERRY_TYPES[pokeItem.berryType]}`
+        t(`BERRY_TYPES.${pokeItem.berryType}`)
       )
 
       // 技能类型
