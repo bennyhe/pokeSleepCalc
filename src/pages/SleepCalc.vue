@@ -5,7 +5,7 @@ import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
-import { BERRY_TYPES, SLEEP_TYPES, SUBSKILLS_NAMES } from '../config/valKey.js'
+import { SLEEP_TYPES, SUBSKILLS_NAMES } from '../config/valKey.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
 import {

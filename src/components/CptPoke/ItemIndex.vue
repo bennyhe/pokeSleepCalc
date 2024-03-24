@@ -5,7 +5,6 @@ import { toHM } from '../../utils/index.js'
 import {
   POKE_TYPES,
   FOOD_TYPES,
-  BERRY_TYPES,
   SKILL_TYPES
 } from '../../config/valKey.js'
 

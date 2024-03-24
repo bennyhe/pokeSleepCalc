@@ -5,7 +5,6 @@ import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
 import {
   FOOD_TYPES,
-  BERRY_TYPES,
   SKILL_TYPES
 } from '../config/valKey.js'
 import {
