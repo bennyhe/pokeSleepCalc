@@ -1052,8 +1052,16 @@ h4 {
     }
   }
 
+  .el-form-item__label {
+    height: 28px;
+    line-height: 28px;
+  }
+  .el-form-item__content {
+    line-height: 28px;
+  }
+
   .el-form-item {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .poke-tb--lottery {
