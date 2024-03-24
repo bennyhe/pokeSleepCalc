@@ -113,7 +113,7 @@ const handleClickChangeMap = id => {
           @click="handleClickChangeMap(mapIndex)"
         >
           <div class="cpt-select-list__name">
-            {{ mapItem.name }}
+            {{ $t(`ILAND.${mapItem.id}`) }}
           </div>
           <img
             v-if="mapItem.pic"

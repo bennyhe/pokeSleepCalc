@@ -377,7 +377,7 @@ setAndGetRandomSleepStyle(
             @click="handleClickChangeMap(mapIndex)"
           >
             <div class="cpt-select-list__name">
-              {{ mapItem.name }}
+              {{ $t(`ILAND.${mapItem.id}`) }}
               <div>
                 <div
                   class="cpt-food cpt-food--s berry"
@@ -883,7 +883,7 @@ setAndGetRandomSleepStyle(
       </div>
     </div>
     <h2>
-      {{ gameMap[userData.curMap].name }}-数据区间参考<span
+      {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{ $t(`PAGE_SLEEPCALC.titleCutNum`) }}<span
         class="mod-tips extra"
         >(v{{ mapSplitVer }})</span
       >

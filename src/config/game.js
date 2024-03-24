@@ -1,7 +1,7 @@
 const mapSplitVer = '2.4.6'
 const gameMap = [
   {
-    name: '萌绿之岛',
+    // name: '萌绿之岛',
     id: 'green',
     pic: 'map1',
     berry: ['?', '?', '?'],
@@ -488,7 +488,7 @@ const gameMap = [
     ]
   },
   {
-    name: '天青沙滩',
+    // name: '天青沙滩',
     id: 'beach',
     pic: 'map2',
     berry: [1, 16, 12],
@@ -877,7 +877,7 @@ const gameMap = [
     ]
   },
   {
-    name: '灰褐洞窟',
+    // name: '灰褐洞窟',
     id: 'hole',
     pic: 'map3',
     berry: [10, 15, 14],
@@ -1271,7 +1271,7 @@ const gameMap = [
     ]
   },
   {
-    name: '白花雪原',
+    // name: '白花雪原',
     id: 'snow',
     pic: 'map4',
     berry: [11, 7, 17],
@@ -1662,7 +1662,7 @@ const gameMap = [
     ]
   },
   {
-    name: '宝蓝湖畔',
+    // name: '宝蓝湖畔',
     id: 'lake',
     pic: 'map5',
     berry: [4, 18, 6],

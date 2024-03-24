@@ -1,5 +1,16 @@
 export default {
   lang: '日本語',
+  'ILAND': {
+    'green': 'ワカクサ本島',
+    'beach': 'シアンの砂浜',
+    'hole': 'トープ洞窟',
+    'snow': 'ウノハナ雪原',
+    'lake': 'ラピスラズリ湖畔',
+    'none': '未适正树果'
+  },
+  'PAGE_SLEEPCALC': {
+    'titleCutNum': '睡眠リサーチのポケモン数'
+  },
   'SLEEP_TYPES': {
     999: '沒有特徵',
     1: 'うとうと',

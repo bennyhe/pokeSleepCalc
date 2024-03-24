@@ -1,5 +1,16 @@
 export default {
   lang: '中文',
+  'ILAND': {
+    'green': '萌绿之岛',
+    'beach': '天青沙滩',
+    'hole': '灰褐洞窟',
+    'snow': '白花雪原',
+    'lake': '宝蓝湖畔',
+    'none': '未适正树果'
+  },
+  'PAGE_SLEEPCALC': {
+    'titleCutNum': '数据区间参考'
+  },
   'SLEEP_TYPES': {
     999: '沒有特徵',
     1: '淺淺入夢',

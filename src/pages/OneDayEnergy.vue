@@ -21,7 +21,6 @@ const pageData = ref({
   pageSize: 100
 })
 newGameMap.push({
-  name: '未适正树果',
   id: 'none',
   berry: [8, 9, 2, 13, 3, 5]
 })
@@ -161,7 +160,7 @@ const handleClickChangeMap = id => {
             @click="handleClickChangeMap(mapIndex)"
           >
             <div class="cpt-select-list__name">
-              {{ mapItem.name }}
+              {{ $t(`ILAND.${mapItem.id}`) }}
               <div>
                 <div
                   class="cpt-food cpt-food--s berry"
@@ -220,12 +219,6 @@ const handleClickChangeMap = id => {
                 </div>
               </div>
             </div>
-            <img
-              v-if="mapItem.pic"
-              class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
-              :alt="mapItem.name"
-            />
           </li>
         </template>
       </ul>
