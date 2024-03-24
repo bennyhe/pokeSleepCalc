@@ -611,9 +611,9 @@ setAndGetRandomSleepStyle(
                 >抽取去除<span class="cpt-avatar">
                   <img
                     v-lazy="`./img/pokedex/${243}.png`"
-                    :alt="pokedex[243].name"
+                    :alt="$t(`POKEMON_NAME.${243}`)"
                   /> </span
-                >{{ pokedex[243].name }}</el-checkbox
+                >{{ $t(`POKEMON_NAME.${243}`) }}</el-checkbox
               >
             </el-checkbox-group>
           </el-form-item>
@@ -722,7 +722,7 @@ setAndGetRandomSleepStyle(
                   <el-popover
                     v-if="sleepItem.iv"
                     placement="bottom"
-                    :title="`${pokedex[sleepItem.pokeId].name}`"
+                    :title="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
                     trigger="click"
                     :width="200"
                     :key="`${userData.CurEnergy}_${sleepKey + 1}`"
@@ -774,7 +774,7 @@ setAndGetRandomSleepStyle(
                   >
                     <img
                       v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-                      :alt="pokedex[hopeItem.pokeId].name"
+                      :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
                     />
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                   </div>

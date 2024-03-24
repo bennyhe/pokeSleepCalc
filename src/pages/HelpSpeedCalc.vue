@@ -503,16 +503,16 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            :label="`${pokeItem.name}-${pokeItem.helpSpeed}s`"
+            :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`"
             :value="pokeItem.id"
           >
             <img
               class="icon"
               v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="pokeItem.name"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />
-            {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
         </template>
       </el-select>
@@ -527,7 +527,7 @@ watch(helpSpeedCalcForm.value, val => {
         v-for="pokeItem in targetInList.list"
         v-bind:key="pokeItem.id"
       >
-        <img v-lazy="`./img/pokedex/${pokeItem.id}.png`" :alt="pokeItem.name" />
+        <img v-lazy="`./img/pokedex/${pokeItem.id}.png`" :alt="$t(`POKEMON_NAME.${pokeItem.id}`)" />
       </span>
     </el-form-item>
     <el-form-item label="食材" v-if="pokedex[helpSpeedCalcForm.pokemonId].food">
@@ -781,16 +781,16 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            :label="`对比${pokeItem.name}-${pokeItem.helpSpeed}s`"
+            :label="`对比${$t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`"
             :value="pokeItem.id"
           >
             <img
               class="icon"
               v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="pokeItem.name"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />
-            {{ pokeItem.name }}-{{ pokeItem.helpSpeed }}s
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
         </template>
       </el-select>

@@ -205,7 +205,7 @@ const handleClickChangeMap = id => {
             <img
               class="icon"
               v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="pokeItem.name"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />
             {{ pokeItem.name }}
@@ -234,7 +234,7 @@ const handleClickChangeMap = id => {
       >
         <img
           v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-          :alt="pokedex[hopeItem.pokeId].name"
+          :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
         />
         <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
       </div>

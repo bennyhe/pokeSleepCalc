@@ -40,7 +40,7 @@ const props = defineProps({
   >
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
-      <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="pokedex[pokeId].name" />
+      <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="$t(`POKEMON_NAME.${pokeId}`)" />
     </div>
     <div
       class="i i-sleeptype"
@@ -174,7 +174,7 @@ const props = defineProps({
     </p>
     <p class="cpt-pokemon__name">
       <span v-if="isShiny" class="sptime">闪光</span>
-      {{ pokedex[pokeId].name }}
+      {{ $t(`POKEMON_NAME.${pokeId}`) }}
     </p>
   </div>
 </template>
