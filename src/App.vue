@@ -67,10 +67,9 @@ onMounted(() => {
   }
 })
 </script>
-
 <template>
-  <div class="main">
-    <span class="select lang">
+  <div class="main" :class="`lang-${sellang}`">
+    <span class="select select-lang">
       Language: {{ $t("lang") }}
       <select v-model="sellang" @change="handleClickChangeLang()">
         <option

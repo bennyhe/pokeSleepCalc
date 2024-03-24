@@ -9,7 +9,7 @@ body {
   background: #f1f1f1 url(../img/ui/bg.png);
 }
 
-.lang {
+.select-lang {
   position: absolute;
   right: 3px;
   top: 2px;
@@ -1027,6 +1027,9 @@ h4 {
     }
   }
 }
+
+// 多语言界面适配
+@import "./_import.lang.scss";
 
 // 移动端适配
 @media screen and (max-width: 660px) {
