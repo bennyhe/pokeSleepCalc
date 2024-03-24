@@ -1,13 +1,18 @@
 @import "./_import.reset.scss";
 @import "./_import.mixin.scss";
-@import "./_import.mod-nav.scss";
-@import "./_import.mod-btn.scss";
+@import "./_import.mod-nav.scss";@import "./_import.mod-btn.scss";@import "./_import.mod-select.scss";
 
 body {
   line-height: 1.5;
   font-size: 16px;
   color: #333;
   background: #f1f1f1 url(../img/ui/bg.png);
+}
+
+.lang {
+  position: absolute;
+  right: 3px;
+  top: 2px;
 }
 
 .page-inner {
