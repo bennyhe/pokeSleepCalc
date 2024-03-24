@@ -51,7 +51,7 @@ const props = defineProps({
     <div class="skill">
       <div class="main-skill">
         <div class="main-skill__inner">
-          {{ SKILL_TYPES[pokedex[sleepItem.pokeId].skillType] }}
+          {{ $t(`SKILL_TYPES.${pokedex[sleepItem.pokeId].skillType}`) }}
         </div>
       </div>
       <div

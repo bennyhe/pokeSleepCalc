@@ -3,10 +3,7 @@ import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
-import {
-  FOOD_TYPES,
-  SKILL_TYPES
-} from '../config/valKey.js'
+import { FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
 import {
   get,
   sortInObjectOptions,
@@ -15,7 +12,7 @@ import {
 } from '../utils/index.js'
 
 import i18n from '../i18n'
-const {t}=i18n.global
+const { t } = i18n.global
 
 const pokedexLength = ref(0)
 const curFilter = ref('all')
@@ -108,7 +105,7 @@ const initFilterGroup = () => {
         bySkillTypeResIn,
         bySkillTypeOrgList,
         'skillType',
-        `${SKILL_TYPES[pokeItem.skillType]}`
+        t(`SKILL_TYPES.${pokeItem.skillType}`)
       )
 
       // 食材类型

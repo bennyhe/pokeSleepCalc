@@ -24,6 +24,9 @@ import {
   getRandomArr
 } from '../utils/index.js'
 
+import i18n from '../i18n'
+const { t } = i18n.global
+
 const navData = ref({
   navList: [
     {
@@ -233,9 +236,9 @@ const getRandomPokeSkills = () => {
       10
     )
     subSkills.push({
-      name: SUBSKILLS_NAMES[
-        allSkillsByRare[skillRare][rdmSkillRareIndex].nameId
-      ],
+      name: t(
+        `SUBSKILLS_NAMES.${allSkillsByRare[skillRare][rdmSkillRareIndex].nameId}`
+      ),
       nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
       skillRare,
       isLockRare,
@@ -884,10 +887,9 @@ setAndGetRandomSleepStyle(
       </div>
     </div>
     <h2>
-      {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{ $t(`PAGE_SLEEPCALC.titleCutNum`) }}<span
-        class="mod-tips extra"
-        >(v{{ mapSplitVer }})</span
-      >
+      {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{
+        $t(`PAGE_SLEEPCALC.titleCutNum`)
+      }}<span class="mod-tips extra">(v{{ mapSplitVer }})</span>
     </h2>
     <ul class="cpt-list">
       <li

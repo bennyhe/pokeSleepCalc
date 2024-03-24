@@ -2,11 +2,7 @@
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
 import { toHM } from '../../utils/index.js'
-import {
-  POKE_TYPES,
-  FOOD_TYPES,
-  SKILL_TYPES
-} from '../../config/valKey.js'
+import { POKE_TYPES, FOOD_TYPES } from '../../config/valKey.js'
 
 const props = defineProps({
   pokeId: {
@@ -40,7 +36,10 @@ const props = defineProps({
   >
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
-      <img v-lazy="`./img/pokedex/${pokeId}.png`" :alt="$t(`POKEMON_NAME.${pokeId}`)" />
+      <img
+        v-lazy="`./img/pokedex/${pokeId}.png`"
+        :alt="$t(`POKEMON_NAME.${pokeId}`)"
+      />
     </div>
     <div
       class="i i-sleeptype"
@@ -107,7 +106,7 @@ const props = defineProps({
         props.showKey.includes('skillType')
       "
     >
-      {{ SKILL_TYPES[pokedex[pokeId].skillType] }}
+      {{ $t(`SKILL_TYPES.${pokedex[pokeId].skillType}`) }}
     </p>
     <div
       class="cpt-food cpt-food--s"
