@@ -4,7 +4,6 @@ import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
 import {
   BERRY_TYPES,
-  SLEEP_TYPES,
   SUBSKILLS_NAMES,
   SKILL_TYPES,
   NATURE_NAMES,

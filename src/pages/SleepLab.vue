@@ -132,7 +132,7 @@ const handleClickChangeMap = id => {
           v-for="(cItem, cKey) in SLEEP_TYPES"
           v-bind:key="cItem"
           ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
-            {{ SLEEP_TYPES[cKey] }}
+            {{ $t(`SLEEP_TYPES.${cKey}`) }}
           </div>
         </el-radio>
       </el-radio-group>
@@ -218,7 +218,7 @@ const handleClickChangeMap = id => {
     </el-form-item>
   </el-form>
   <h2>
-    {{ gameMap[pageData.curMap].name }}-{{ SLEEP_TYPES[pageData.mapSleepType] }}
+    {{ gameMap[pageData.curMap].name }}-{{ $t(`SLEEP_TYPES.${pageData.mapSleepType}`) }}
   </h2>
   <div v-for="tdItem in testData" v-bind:key="tdItem.allPoint">
     <h3>

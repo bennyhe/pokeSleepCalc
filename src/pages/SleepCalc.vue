@@ -550,7 +550,7 @@ setAndGetRandomSleepStyle(
                 v-for="(cItem, cKey) in SLEEP_TYPES"
                 v-bind:key="cItem"
                 ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
-                  {{ SLEEP_TYPES[cKey] }}
+                  {{ $t(`SLEEP_TYPES.${cKey}`) }}
                   ({{
                     getFilterInTypes(userData.curUnlockSleeps, cKey).length +
                     getFilterInTypes(userData.unLockSleeps, cKey).length
@@ -645,7 +645,7 @@ setAndGetRandomSleepStyle(
               "
             />{{
               gameMap[userData.curMap].levelList[userData.curStageIndex].name
-            }}「{{ SLEEP_TYPES[userData.curUnLockSleepType] }}」({{
+            }}「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」({{
               getNumberInMap(
                 getScore(randomSleepStyle.sleepPoint),
                 gameMap[userData.curMap].scoreList
@@ -834,7 +834,7 @@ setAndGetRandomSleepStyle(
             :label="cKey"
             v-for="(cItem, cKey) in SLEEP_TYPES"
             v-bind:key="cItem"
-            >{{ cItem
+            >{{ $t(`SLEEP_TYPES.${cKey}`)
             }}<span class="extra"
               >({{
                 getFilterInTypes(userData.curUnlockSleeps, cKey).length +

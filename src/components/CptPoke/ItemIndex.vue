@@ -6,8 +6,7 @@ import {
   POKE_TYPES,
   FOOD_TYPES,
   BERRY_TYPES,
-  SKILL_TYPES,
-  SLEEP_TYPES
+  SKILL_TYPES
 } from '../../config/valKey.js'
 const props = defineProps({
   pokeId: {
@@ -52,7 +51,7 @@ const props = defineProps({
         props.showKey.includes('sleepType')
       "
     >
-      {{ SLEEP_TYPES[pokedex[pokeId].sleepType] }}
+      {{ $t(`SLEEP_TYPES.${pokedex[pokeId].sleepType}`) }}
     </div>
     <p
       v-if="
