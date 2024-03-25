@@ -8,6 +8,7 @@ import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES, SUBSKILLS_NAMES } from '../config/valKey.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
+import { POKE_243_IV } from '../config/lockIV.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
@@ -59,7 +60,8 @@ const userSleep = ref({
   pokeShinyCount: 0,
   pokeShinyList: [],
   pokeSum: 0,
-  showDetailShiny: false
+  showDetailShiny: false,
+  isFirst243: true
 })
 const randomSleepStyle = ref({
   resList: [],
@@ -236,9 +238,6 @@ const getRandomPokeSkills = () => {
       10
     )
     subSkills.push({
-      name: t(
-        `SUBSKILLS_NAMES.${allSkillsByRare[skillRare][rdmSkillRareIndex].nameId}`
-      ),
       nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
       skillRare,
       isLockRare,
@@ -257,6 +256,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     curStageIndex,
     userData.value.banPokes
   )
+  // 随机个体
   res.forEach((sleepItem, key) => {
     if (pokedex[sleepItem.pokeId].food) {
       const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
@@ -279,11 +279,20 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
           }
         }
       }
-      sleepItem.iv = {
+      let ivRes = {
         useFoods,
-        natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1,
-        skills: getRandomPokeSkills()
+        natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
       }
+      if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
+        userSleep.value.isFirst243 = false
+        ivRes = {
+          ...ivRes,
+          ...POKE_243_IV
+        }
+      } else {
+        ivRes.skills = getRandomPokeSkills()
+      }
+      sleepItem.iv = ivRes
     }
   })
   // console.log(res)

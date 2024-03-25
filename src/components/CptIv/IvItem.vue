@@ -2,10 +2,7 @@
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
-import {
-  FOOD_TYPES,
-  POKE_TYPES
-} from '../../config/valKey.js'
+import { FOOD_TYPES, POKE_TYPES } from '../../config/valKey.js'
 
 const props = defineProps({
   sleepItem: {
@@ -71,8 +68,8 @@ const props = defineProps({
             <path
               d="M558.8 589.8c0 13.7-6.1 25.9-15.5 34.4v43c0 17.1-13.9 31-31 31s-31-13.9-31-31v-43c-9.4-8.5-15.5-20.7-15.5-34.4 0-25.7 20.8-46.5 46.5-46.5s46.5 20.8 46.5 46.5z"
             /></svg
-          >{{ skillItem.name }}</span
-        >
+          >{{ $t(`SUBSKILLS_NAMES.${skillItem.nameId}`) }}
+        </span>
       </div>
     </div>
     <h4>性格</h4>
