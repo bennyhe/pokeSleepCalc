@@ -14,6 +14,9 @@ import {
   levelOptions
 } from '../config/helpSpeed.js'
 
+import i18n from '../i18n'
+const { t } = i18n.global
+
 const byHelpSpeedRes = ref([])
 const targetInList = ref([])
 const otherLevelShow = [25, 30, 50, 60, 100]
@@ -218,7 +221,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     resRankArr.push({
       ...newPokeItem,
       id: newPokeItem.id,
-      nameExtra: is2n ? '树果S' : '',
+      nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
       extraDesc: extraDesc,
       ...getOneDayEnergy(
         newPokeItem,
@@ -503,7 +506,9 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`"
+            :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-${
+              pokeItem.helpSpeed
+            }s`"
             :value="pokeItem.id"
           >
             <img
@@ -527,7 +532,10 @@ watch(helpSpeedCalcForm.value, val => {
         v-for="pokeItem in targetInList.list"
         v-bind:key="pokeItem.id"
       >
-        <img v-lazy="`./img/pokedex/${pokeItem.id}.png`" :alt="$t(`POKEMON_NAME.${pokeItem.id}`)" />
+        <img
+          v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+          :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+        />
       </span>
     </el-form-item>
     <el-form-item label="食材" v-if="pokedex[helpSpeedCalcForm.pokemonId].food">
@@ -601,8 +609,9 @@ watch(helpSpeedCalcForm.value, val => {
             :label="skillItem.label"
             v-for="skillItem in skillOptionsExtra2"
             v-bind:key="skillItem.label"
-            >{{ skillItem.txt }}</el-checkbox
           >
+            <span class="cpt-skill cpt-skill--3">{{ $t(skillItem.txt) }}</span>
+          </el-checkbox>
         </el-checkbox-group>
       </div>
       <div style="width: 100%">
@@ -611,7 +620,9 @@ watch(helpSpeedCalcForm.value, val => {
             :label="skillItem.label"
             v-for="skillItem in skillOptions"
             v-bind:key="skillItem.label"
-            >{{ skillItem.txt }}</el-checkbox
+            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`">{{
+              $t(skillItem.txt) + skillItem.txtExtra
+            }}</span></el-checkbox
           >
         </el-checkbox-group>
       </div>
@@ -621,7 +632,9 @@ watch(helpSpeedCalcForm.value, val => {
             :label="skillItem.label"
             v-for="skillItem in skillOptionsExtra"
             v-bind:key="skillItem.label"
-            >{{ skillItem.txt }}</el-checkbox
+            ><span class="cpt-skill cpt-skill--3">{{
+              $t(skillItem.txt) + skillItem.txtExtra
+            }}</span></el-checkbox
           >
         </el-checkbox-group>
       </div>
@@ -781,7 +794,9 @@ watch(helpSpeedCalcForm.value, val => {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
-            :label="`对比${$t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`"
+            :label="`对比${$t(`POKEMON_NAME.${pokeItem.id}`)}-${
+              pokeItem.helpSpeed
+            }s`"
             :value="pokeItem.id"
           >
             <img

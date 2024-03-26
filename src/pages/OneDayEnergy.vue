@@ -69,7 +69,7 @@ onMounted(() => {
           pageData.value.resRankArr.push({
             ...pokeItem,
             id: pokeItem.id,
-            nameExtra: is2n ? '树果S' : '',
+            nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
               pokeItem,
               pageData.value.lv,
@@ -88,7 +88,7 @@ onMounted(() => {
           pageData.value.resRankArr.push({
             ...pokeItem,
             id: pokeItem.id,
-            nameExtra: is2n ? '树果S' : '',
+            nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
               pokeItem,
               pageData.value.lv,
@@ -125,7 +125,7 @@ const getChangeOptionsAfterData = () => {
           pokeItem,
           pageData.value.lv,
           pokeItem.useFoods,
-          pokeItem.nameExtra === '树果S',
+          pokeItem.nameExtra.indexOf('S') > -1,
           newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType)
         )
       })

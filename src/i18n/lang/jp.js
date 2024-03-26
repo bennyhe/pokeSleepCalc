@@ -8,6 +8,9 @@ export default {
     'lake': 'ラピスラズリ湖畔',
     'none': '未适正树果'
   },
+  'SHORT_SKILL': {
+    'berrys': 'きのみS'
+  },
   'PAGE_SLEEPCALC': {
     'titleCutNum': '睡眠リサーチのポケモン数'
   },

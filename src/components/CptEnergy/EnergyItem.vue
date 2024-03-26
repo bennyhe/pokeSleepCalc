@@ -55,7 +55,7 @@ const props = defineProps({
       <p
         class="cpt-skill"
         :class="{
-          'cpt-skill--3': props.pokeItem.nameExtra.indexOf('树果') > -1,
+          'cpt-skill--3': props.pokeItem.nameExtra.indexOf('S') > -1,
         }"
       >
         {{ props.pokeItem.nameExtra }}

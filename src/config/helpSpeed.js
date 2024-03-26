@@ -63,36 +63,49 @@ export const allHelpType = [
 ]
 export const skillOptionsExtra2 = [{
   label: 'berrys',
-  txt: '树果S'
+  txt: 'SUBSKILLS_NAMES.1'
 }]
 export const skillOptions = [{
   label: 'hs',
-  txt: '帮忙速度S(7%)'
+  txt: 'SUBSKILLS_NAMES.14',
+  txtExtra: '(7%)',
+  rare: 1
 }, {
   label: 'hm',
-  txt: '帮忙速度M(14%)'
+  txt: 'SUBSKILLS_NAMES.8',
+  txtExtra: '(14%)',
+  rare: 2
 }, {
   label: 'fs',
-  txt: '食材几率S(18%)'
+  txt: 'SUBSKILLS_NAMES.15',
+  txtExtra: '(18%)',
+  rare: 1
 }, {
   label: 'fm',
-  txt: '食材几率M(36%)'
+  txt: 'SUBSKILLS_NAMES.9',
+  txtExtra: '(36%)',
+  rare: 2
 }]
 export const skillOptionsExtra = [{
   label: 'hg1',
-  txt: '帮手奖励1个(5%)'
+  txt: 'SUBSKILLS_NAMES.3',
+  txtExtra: '*1(5%)'
 }, {
   label: 'hg2',
-  txt: '帮手奖励2个(10%)'
+  txt: 'SUBSKILLS_NAMES.3',
+  txtExtra: '*2(10%)'
 }, {
   label: 'hg3',
-  txt: '帮手奖励3个(15%)'
+  txt: 'SUBSKILLS_NAMES.3',
+  txtExtra: '*3(15%)'
 }, {
   label: 'hg4',
-  txt: '帮手奖励4个(20%)'
+  txt: 'SUBSKILLS_NAMES.3',
+  txtExtra: '*4(20%)'
 }, {
   label: 'hg5',
-  txt: '帮手奖励5个(25%)'
+  txt: 'SUBSKILLS_NAMES.3',
+  txtExtra: '*5(25%)'
 }]
 export const characterOptions = [{
   label: 'none',
