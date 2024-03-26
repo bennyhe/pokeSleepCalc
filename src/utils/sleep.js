@@ -160,6 +160,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   } else {
     let lastList = orgSleepList.filter(
       item =>
+        // ![243].includes(item.pokeId) && 
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')
