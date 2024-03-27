@@ -31,6 +31,7 @@
 ## 特别鸣谢
 1. 岛屿只数区间表 by @skysland
 2. [睡姿期望相关](https://nga.178.com/read.php?tid=39443018) by @samuelwyf
+3. 食材率&技能率等数据来源自[Pokémon Sleep 攻略站](https://pks.raenonx.cc/)
 
 ## 参考
 1. [什麼是睡意之力需求 (DPR)？(+睡姿抽選邏輯)](https://pks.raenonx.cc/zh/docs/view/help/sleep-styles)

@@ -14,8 +14,13 @@ const markdownText = `
 1. 24年1月 ¥110
 2. 24年2月 ¥106.66
 
-#近期更新计划
+# 近期更新计划
 1. 宝可梦盒子
 2. 队伍日产/周产
+
+# 特别鸣谢
+1. 岛屿只数区间表 by @skysland
+2. [睡姿期望相关](https://nga.178.com/read.php?tid=39443018) by @samuelwyf
+3. 食材率&技能率等数据来源自[Pokémon Sleep 攻略站](https://pks.raenonx.cc/)
 `
 export default markdownText
