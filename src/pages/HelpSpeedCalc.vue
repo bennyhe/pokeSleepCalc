@@ -456,6 +456,62 @@ const getTargetPokemonEnergy = pokeId => {
     addArrInOptions('食材S,M\n性格:食材↑', tempPokeItem4)
   )
 
+  const tempPokeItem5 = { ...pokedex[pokeId] }
+  const tempSCOptions5 = {
+    skill: ['ss', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
+    character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
+  tempPokeItem5.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem5.helpSpeed,
+      ...tempSCOptions5
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem5.foodPer = getNewFoodPer(
+    {
+      ...tempSCOptions5
+    },
+    tempPokeItem5.foodPer
+  )
+  tempPokeItem5.skillPer = getNewSkillPer(
+    {
+      ...tempSCOptions5
+    },
+    tempPokeItem5.skillPer
+  )
+  resRankArr = resRankArr.concat(
+    addArrInOptions('技率S,M\n性格:技率↑', tempPokeItem5)
+  )
+
+  const tempPokeItem6 = { ...pokedex[pokeId] }
+  const tempSCOptions6 = {
+    skill: ['hm', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
+    character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
+  }
+  tempPokeItem6.helpSpeed = getNewHelpSpeed(
+    {
+      baseHelpSpeed: tempPokeItem6.helpSpeed,
+      ...tempSCOptions6
+    },
+    helpSpeedCalcForm.value.level
+  )
+  tempPokeItem6.foodPer = getNewFoodPer(
+    {
+      ...tempSCOptions6
+    },
+    tempPokeItem6.foodPer
+  )
+  tempPokeItem6.skillPer = getNewSkillPer(
+    {
+      ...tempSCOptions6
+    },
+    tempPokeItem6.skillPer
+  )
+  resRankArr = resRankArr.concat(
+    addArrInOptions('技M,帮忙M\n性格:技率↑', tempPokeItem6)
+  )
+
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
 
   helpSpeedCalcForm.value.rankIndex = res.findIndex(
