@@ -31,6 +31,7 @@ const props = defineProps({
       :pokeId="props.pokeItem.id"
       :helpSpeed="props.pokeItem.helpSpeed"
       :foodPer="props.pokeItem.foodPer"
+      :skillPer="props.pokeItem.skillPer"
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
     />
@@ -65,6 +66,9 @@ const props = defineProps({
       </p>
       <p class="cpt-pokemon__poketype2 xs">
         食{{ props.pokeItem.oneDayFoodEnergy.allEnergy }}
+      </p>
+      <p class="cpt-pokemon__poketype3 xs">
+        技{{ props.pokeItem.oneDayHelpCount.skill }}次
       </p>
       <div
         v-if="

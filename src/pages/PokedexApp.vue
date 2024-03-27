@@ -189,6 +189,7 @@ const getShowKeyVal = pokemonsItem => {
     'pokeType',
     'skillType',
     'foodPer',
+    'skillPer',
     'fullFood',
     'sleepType'
   ]

@@ -49,20 +49,27 @@ const getOneDayFoodEnergy = (pokeItem, useFoods) => {
   // console.log(helpFoodEnergy)
   return helpFoodEnergy
 }
-export const getOneDayHelpCount = (helpSpeed, foodPer) => {
-  if (!foodPer) {
-    foodPer = 0
-  }
+export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer) => {
+  foodPer = Math.floor(foodPer || 0)
+  skillPer = Math.floor(skillPer || 0)
   const oneDayHelpCount = {
     sum: Math.floor(86400 / (helpSpeed / 2.2)), // 一天总帮忙次数
     food: 0, // 其中树果的帮忙次数
-    berry: 0 // 其中食材的帮忙次数
+    berry: 0, // 其中食材的帮忙次数
+    skill: 0 // 其中技能的帮忙次数
   }
   oneDayHelpCount.berry = Math.floor(
-    oneDayHelpCount.sum * (1 - foodPer / 100)
+    oneDayHelpCount.sum * (1 - (foodPer + skillPer) / 100)
   )
+  let skillCount = parseInt(Math.floor(
+    oneDayHelpCount.sum * (skillPer / 100)
+  ), 10)
+  if (skillCount < 1) {
+    skillCount = 1
+  }
+  oneDayHelpCount.skill = skillCount
   oneDayHelpCount.food =
-    oneDayHelpCount.sum - oneDayHelpCount.berry
+    oneDayHelpCount.sum - oneDayHelpCount.berry - oneDayHelpCount.skill
 
   return oneDayHelpCount
 }

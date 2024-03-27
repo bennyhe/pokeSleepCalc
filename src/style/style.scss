@@ -470,6 +470,10 @@ h4 {
     color: darken($ptFood, 20%);
   }
 
+  &__skillper {
+    color: darken($ptSkill, 20%);
+  }
+
   &__poketype {
     &1 {
       color: $ptBerry
@@ -490,7 +494,8 @@ h4 {
     padding: 0 2px;
 
     &--hl {
-      color: $primaryColor
+      color: $primaryColor;
+      background: linear-gradient(45deg, rgba(#fceabb, 50%) 0%, rgba(#fccd4d, 50%) 50%, rgba(#f8b500, 50%) 51%, rgba(#fbdf93, 50%) 100%);
     }
   }
 

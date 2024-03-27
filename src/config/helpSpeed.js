@@ -85,6 +85,16 @@ export const skillOptions = [{
   txt: 'SUBSKILLS_NAMES.9',
   txtExtra: '(36%)',
   rare: 2
+}, {
+  label: 'ss',
+  txt: 'SUBSKILLS_NAMES.17',
+  txtExtra: '(18%)',
+  rare: 1
+}, {
+  label: 'sm',
+  txt: 'SUBSKILLS_NAMES.12',
+  txtExtra: '(36%)',
+  rare: 2
 }]
 export const skillOptionsExtra = [{
   label: 'hg1',
@@ -112,22 +122,40 @@ export const characterOptions = [{
   txt: '无加成' // (害羞、勤奮、坦率、浮躁、認真)
 }, {
   label: 'fdown',
-  txt: '慎重、爽朗、淘氣(食↓-20%)'
+  txt: '爽朗、淘氣(食↓-20%)'
 }, {
   label: 'fup',
-  txt: '慢吞吞、馬虎、冷靜(食↑+20%)'
+  txt: '慢吞吞、冷靜(食↑+20%)'
+}, {
+  label: 'fupsdown',
+  txt: '馬虎(食↑+20%技↓-20%)'
 }, {
   label: 'hdownfup',
   txt: '內斂(帮↓-10%食↑+20%)'
 }, {
   label: 'hup',
-  txt: '怕寂寞、頑皮、勇敢(帮↑+10%)'
+  txt: '怕寂寞、勇敢(帮↑+10%)'
+}, {
+  label: 'hupsdown',
+  txt: '頑皮(帮↑+10%技↓-20%)'
 }, {
   label: 'hupfdown',
   txt: '固執(帮↑+10%食↓-20%)'
 }, {
   label: 'hdown',
-  txt: '溫和、胆小、大膽(帮↓-10%)'
+  txt: '胆小、大膽(帮↓-10%)'
+}, {
+  label: 'sup',
+  txt: '溫順、自大(技↑+20%)'
+}, {
+  label: 'supfdown',
+  txt: '慎重(技↑+20%食↓-20%)'
+}, {
+  label: 'hdownsup',
+  txt: '溫和(技↑+20%帮↓-10%)'
+}, {
+  label: 'sdown',
+  txt: '天真、悠閒(技↓-20%)'
 }]
 export const levelOptions = [{
   label: 25,

@@ -14,6 +14,9 @@ const props = defineProps({
   foodPer: {
     type: [Number, String]
   },
+  skillPer: {
+    type: [Number, String]
+  },
   showKey: {
     type: Array
   },
@@ -107,6 +110,16 @@ const props = defineProps({
       "
     >
       {{ $t(`SKILL_TYPES.${pokedex[pokeId].skillType}`) }}
+    </p>
+    <p
+      v-if="
+        pokedex[pokeId].skillPer &&
+        props.showKey &&
+        props.showKey.includes('skillPer')
+      "
+      class="cpt-pokemon__skillper"
+    >
+      技{{ props.skillPer || pokedex[pokeId].skillPer }}%
     </p>
     <div
       class="cpt-food cpt-food--s"

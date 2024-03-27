@@ -144,14 +144,34 @@ const getNewFoodPer = (formData, foodPer) => {
   if (formData.character.indexOf('fdown') > -1) {
     mainMuti = -0.2
   }
-  return parseFloat(foodPer * ((1 + basicfood) * (1 + mainMuti))).toFixed(2)
+  return Math.floor(foodPer * ((1 + basicfood) * (1 + mainMuti)) * 1000) / 1000
+}
+
+const getNewSkillPer = (formData, skillPer) => {
+  skillPer = skillPer || 0
+  let basicsKill = 0
+  let mainMuti = 0
+  if (formData.skill.includes('ss')) {
+    basicsKill += 0.18
+  }
+  if (formData.skill.includes('sm')) {
+    basicsKill += 0.36
+  }
+  if (formData.character.indexOf('sup') > -1) {
+    mainMuti = 0.2
+  }
+  if (formData.character.indexOf('sdown') > -1) {
+    mainMuti = -0.2
+  }
+  return Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
 }
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   const newPokeItem = { ...pokeItem }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
-    newPokeItem.foodPer
+    newPokeItem.foodPer,
+    newPokeItem.skillPer
   )
 
   const resRankArr = []
@@ -282,6 +302,24 @@ const getPlayerExtraDesc = () => {
   if (helpSpeedCalcForm.value.skill.includes('fm')) {
     extraDesc += '食率M'
   }
+  if (
+    helpSpeedCalcForm.value.skill.includes('ss') ||
+    helpSpeedCalcForm.value.skill.includes('sm')
+  ) {
+    extraDesc += '\n'
+  }
+  if (helpSpeedCalcForm.value.skill.includes('ss')) {
+    extraDesc += '技率S'
+  }
+  if (
+    helpSpeedCalcForm.value.skill.includes('ss') &&
+    helpSpeedCalcForm.value.skill.includes('sm')
+  ) {
+    extraDesc += ','
+  }
+  if (helpSpeedCalcForm.value.skill.includes('sm')) {
+    extraDesc += '技率M'
+  }
   extraDesc += `\n${
     characterOptions.find(
       item => item.label === helpSpeedCalcForm.value.character
@@ -298,6 +336,10 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value.level
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+  pokeItem.skillPer = getNewSkillPer(
+    helpSpeedCalcForm.value,
+    pokeItem.skillPer
+  )
 
   resRankArr = resRankArr.concat(
     addArrInOptions(getPlayerExtraDesc(), pokeItem, true)
@@ -348,6 +390,12 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem2.foodPer
   )
+  pokeItem.skillPer = getNewSkillPer(
+    {
+      ...tempSCOptions2
+    },
+    tempPokeItem2.skillPer
+  )
   resRankArr = resRankArr.concat(
     addArrInOptions('食材S,M\n性格:帮忙↑', tempPokeItem2)
   )
@@ -370,6 +418,12 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem3.foodPer
   )
+  pokeItem.skillPer = getNewSkillPer(
+    {
+      ...tempSCOptions3
+    },
+    tempPokeItem3.skillPer
+  )
   resRankArr = resRankArr.concat(
     addArrInOptions('帮忙S,M\n性格:固执', tempPokeItem3)
   )
@@ -391,6 +445,12 @@ const getTargetPokemonEnergy = pokeId => {
       ...tempSCOptions4
     },
     tempPokeItem4.foodPer
+  )
+  pokeItem.skillPer = getNewSkillPer(
+    {
+      ...tempSCOptions4
+    },
+    tempPokeItem4.skillPer
   )
   resRankArr = resRankArr.concat(
     addArrInOptions('食材S,M\n性格:食材↑', tempPokeItem4)
@@ -816,7 +876,14 @@ watch(helpSpeedCalcForm.value, val => {
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
-        :showKey="['helpSpeed', 'helpSpeedHM', 'berry', 'pokeType', 'foodPer']"
+        :showKey="[
+          'helpSpeed',
+          'helpSpeedHM',
+          'berry',
+          'pokeType',
+          'foodPer',
+          'skillPer',
+        ]"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
           default: pokeItem.extraDesc.indexOf('白') > -1,
@@ -837,7 +904,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div class="mod-tips">
         <p>* 数值均为程序预估结果，与实际有误差。</p>
         <p>* 结果为对应等级一天产出。</p>
-        <p>* 非满包满活力，不含技能率。</p>
+        <p>* 非满包满活力，非技能型宝可梦无技能保底。</p>
       </div>
     </el-form-item>
   </el-form>

@@ -53,7 +53,8 @@ onMounted(() => {
       )
       pokeItem.oneDayHelpCount = getOneDayHelpCount(
         pokeItem.helpSpeed,
-        pokeItem.foodPer
+        pokeItem.foodPer,
+        pokeItem.skillPer
       )
 
       const tempFoodType = [
@@ -237,7 +238,7 @@ const handleClickChangeMap = id => {
   <div class="page-inner">
     <div class="mod-tips">
       <p>* 数值均为程序预估结果，与实际有误差。</p>
-      <p>* 非满包满活力没开露营券，不含技能率。</p>
+      <p>* 非满包满活力没开露营券，非技能型宝可梦无技能保底。</p>
     </div>
   </div>
   <div class="cpt-pagination">
@@ -259,6 +260,7 @@ const handleClickChangeMap = id => {
           'berry',
           'pokeType',
           'foodPer',
+          'skillPer',
           'skillType',
         ]"
         v-if="
