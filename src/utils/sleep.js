@@ -206,6 +206,7 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
       resItem => resItem.id === item.id
     )
     if (!findTargetResItem) {
+      delete item.isShiny
       mergeRes.push({
         ...item,
         count: 1
@@ -215,20 +216,27 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
     }
   })
   let res = []
+  // 合并同个pokemon的数据
   mergeRes.forEach(item => {
     const findTargetResItem = res.find(
       resItem => resItem.pokeId === item.pokeId
     )
     if (!findTargetResItem) {
-      delete item.isShiny
       res.push({
         pokeId: item.pokeId,
         list: [item],
-        count: item.count
+        count: item.count,
+        shardsSum: item.count * item.shards,
+        expSum: item.count * item.exp,
+        candysSum: item.count * item.candys
       })
     } else {
+      // console.log(res)
       findTargetResItem.list.push(item)
       findTargetResItem.count += item.count
+      findTargetResItem.shardsSum += item.count * item.shards
+      findTargetResItem.expSum += item.count * item.exp
+      findTargetResItem.candysSum += item.count * item.candys
     }
   })
   res.forEach(item => {

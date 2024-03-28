@@ -63,6 +63,9 @@ const userSleep = ref({
   showDetailShiny: false,
   isFirst243: true
 })
+const pageData = ref({
+  showMoreMathExp: false
+})
 const randomSleepStyle = ref({
   resList: [],
   sleepPoint: 100
@@ -306,7 +309,20 @@ const getRandomHopeCb = res => {
     getScore(randomSleepStyle.value.sleepPoint),
     userData.value.curStageIndex
   )
+  console.log(res)
   hopeList.value = res
+}
+
+const handleClickSleepMoreTimes = () => {
+  getRandomHope(
+    gameMap[userData.value.curMap],
+    userData.value.curUnLockSleepType,
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex,
+    getTimes,
+    userData.value.banPokes,
+    getRandomHopeCb
+  )
 }
 
 const handleClickTimes = () => {
@@ -331,6 +347,9 @@ const handleClickSleepOnce = () => {
 
 const handleClickShinyDetail = () => {
   userSleep.value.showDetailShiny = !userSleep.value.showDetailShiny
+}
+const handleClickShowMoreMathExp = () => {
+  pageData.value.showMoreMathExp = !pageData.value.showMoreMathExp
 }
 const handleClickShinyClear = () => {
   userSleep.value = {
@@ -756,17 +775,7 @@ setAndGetRandomSleepStyle(
               <el-button
                 type="primary"
                 plain
-                @click="
-                  getRandomHope(
-                    gameMap[userData.curMap],
-                    userData.curUnLockSleepType,
-                    getScore(randomSleepStyle.sleepPoint),
-                    userData.curStageIndex,
-                    getTimes,
-                    userData.banPokes,
-                    getRandomHopeCb
-                  )
-                "
+                @click="handleClickSleepMoreTimes()"
                 >点击计算期望(睡{{ getTimes }}次)</el-button
               >
             </div>
@@ -777,7 +786,7 @@ setAndGetRandomSleepStyle(
                   <span class="extra">({{ hopeList.length }}只)</span>
                 </h3>
               </div>
-              <div class="poke-tb poke-tb--xscorll">
+              <div class="poke-tb poke-tb--4000 poke-tb--xscorll">
                 <div class="page-inner">
                   <div
                     class="cpt-avatar"
@@ -785,10 +794,23 @@ setAndGetRandomSleepStyle(
                     v-bind:key="hopeItem.pokeId"
                   >
                     <img
+                      class="cpt-avatar__pic"
                       v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
                       :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
                     />
-                    <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+                    <p>{{ getDecimalNumber(hopeItem.count / getTimes, 3) }}</p>
+                    <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/exp.png`" />{{ getDecimalNumber(hopeItem.expSum / getTimes, 2) }}</p>
+                    <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/shards.png`" />{{ getDecimalNumber(hopeItem.shardsSum / getTimes, 2) }}</p>
+                    <p v-if="pageData.showMoreMathExp">糖{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}</p>
+                  </div>
+                  <div>
+                    <el-button
+                      size="small"
+                      @click="handleClickShowMoreMathExp()"
+                      >期望详情(<template v-if="pageData.showMoreMathExp"
+                        >收起</template
+                      ><template v-else>展开</template>)</el-button
+                    >
                   </div>
                 </div>
                 <template v-for="(hopeItem, hopeKey) in hopeList">

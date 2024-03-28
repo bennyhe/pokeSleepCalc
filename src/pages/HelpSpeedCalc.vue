@@ -649,6 +649,7 @@ watch(helpSpeedCalcForm.value, val => {
         v-bind:key="pokeItem.id"
       >
         <img
+          class="cpt-avatar__pic"
           v-lazy="`./img/pokedex/${pokeItem.id}.png`"
           :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
         />

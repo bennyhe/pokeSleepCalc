@@ -198,10 +198,7 @@ const handleClickChangeMap = id => {
         collapse-tags-tooltip
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="`${pokeItem.name}`"
-            :value="pokeItem.id"
-          >
+          <el-option :label="`${pokeItem.name}`" :value="pokeItem.id">
             <img
               class="icon"
               v-lazy="`./img/pokedex/${pokeItem.id}.png`"
@@ -218,7 +215,9 @@ const handleClickChangeMap = id => {
     </el-form-item>
   </el-form>
   <h2>
-    {{ gameMap[pageData.curMap].name }}-{{ $t(`SLEEP_TYPES.${pageData.mapSleepType}`) }}
+    {{ gameMap[pageData.curMap].name }}-{{
+      $t(`SLEEP_TYPES.${pageData.mapSleepType}`)
+    }}
   </h2>
   <div v-for="tdItem in testData" v-bind:key="tdItem.allPoint">
     <h3>
@@ -233,6 +232,7 @@ const handleClickChangeMap = id => {
         v-bind:key="hopeItem.pokeId"
       >
         <img
+          class="cpt-avatar__pic"
           v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
           :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
         />

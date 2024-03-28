@@ -60,7 +60,7 @@ const props = defineProps({
         >
       </p>
       <p>
-        可获得<span class="sptime">{{ sleepItem.candys }}</span
+        获得<span class="sptime">{{ sleepItem.candys }}</span
         >糖
       </p>
       <div v-if="sleepItem.count">
