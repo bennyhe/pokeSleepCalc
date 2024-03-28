@@ -1,5 +1,6 @@
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
+import { getDecimalNumber } from '../utils/index.js'
 
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) => {
   let pokeType = pokeItem.pokeType === 1 ? 2 : 1
@@ -61,15 +62,15 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer) => {
   oneDayHelpCount.berry = Math.floor(
     oneDayHelpCount.sum * (1 - (foodPer + skillPer) / 100)
   )
-  let skillCount = parseInt(Math.floor(
+  let skillCount = getDecimalNumber(
     oneDayHelpCount.sum * (skillPer / 100)
-  ), 10)
+    , 1)
+  oneDayHelpCount.skill = skillCount
   if (skillCount < 1) {
     skillCount = 1
   }
-  oneDayHelpCount.skill = skillCount
   oneDayHelpCount.food =
-    oneDayHelpCount.sum - oneDayHelpCount.berry - oneDayHelpCount.skill
+    oneDayHelpCount.sum - oneDayHelpCount.berry - parseInt(skillCount, 10)
 
   return oneDayHelpCount
 }
