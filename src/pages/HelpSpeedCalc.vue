@@ -163,7 +163,9 @@ const getNewSkillPer = (formData, skillPer) => {
   if (formData.character.indexOf('sdown') > -1) {
     mainMuti = -0.2
   }
-  return Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
+  return (
+    Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
+  )
 }
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
@@ -711,6 +713,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div style="width: 100%">
         <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
           <el-radio-button
+            class="radiogroup--level"
             :label="cItem.label"
             v-for="cItem in levelOptions"
             v-bind:key="cItem.label"
@@ -884,6 +887,7 @@ watch(helpSpeedCalcForm.value, val => {
     <el-form-item label="快速等级">
       <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
+          class="radiogroup--level"
           :label="cItem.label"
           v-for="cItem in levelOptions"
           v-bind:key="cItem.label"

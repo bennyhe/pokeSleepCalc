@@ -165,7 +165,10 @@ export const levelOptions = [{
   txt: '30级(2食)'
 }, {
   label: 50,
-  txt: '50级(上限)'
+  txt: '50级'
+}, {
+  label: 55,
+  txt: '55级(上限)'
 }, {
   label: 60,
   txt: '60级(3食)'

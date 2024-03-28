@@ -1105,6 +1105,12 @@ h4 {
     }
   }
 
+  .page-helpcalc {
+    .radiogroup--level .el-radio-button__inner {
+       padding: 5px;
+     }
+   }
+
   .pokedex-list {
     .poke-tb__col {
       width: 100%;

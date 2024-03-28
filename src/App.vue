@@ -95,7 +95,7 @@ onMounted(() => {
       <PagePokedex />
     </div>
     <div
-      class="page-item"
+      class="page-item page-helpcalc"
       :class="{ cur: +showPageIndex === 2 }"
       v-if="+showPageIndex === 2"
     >
