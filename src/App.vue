@@ -84,7 +84,11 @@ onMounted(() => {
     <div class="page-item" :class="{ cur: +showPageIndex === 0 }">
       <PageSleepCalc />
     </div>
-    <div class="page-item" :class="{ cur: +showPageIndex === 1 }">
+    <div
+      class="page-item"
+      :class="{ cur: +showPageIndex === 1 }"
+      v-if="+showPageIndex === 1"
+    >
       <PageFoodRec />
     </div>
     <div class="page-item page-pokedex" :class="{ cur: +showPageIndex === 3 }">
@@ -120,7 +124,7 @@ onMounted(() => {
         <li
           v-for="(navItem, key) in nav"
           v-bind:key="navItem.name"
-          :class="{ cur: showPageIndex === key }"
+          :class="{ cur: +showPageIndex === key }"
           @click="handleClickNav(key)"
         >
           {{ navItem.name }}
