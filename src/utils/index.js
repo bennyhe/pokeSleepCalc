@@ -204,7 +204,7 @@ export function getPercent(count, sum, decimalPoint) {
  */
 export function getDecimalNumber(number, decimalPoint) {
   decimalPoint = decimalPoint || 2
-  return parseFloat(number.toFixed(decimalPoint))
+  return Math.floor(number * Math.pow(10, decimalPoint)) / Math.pow(10, decimalPoint)
 }
 
 export function fnAccumulation(arr, key, isList) {
