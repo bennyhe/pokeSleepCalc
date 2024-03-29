@@ -798,7 +798,7 @@ setAndGetRandomSleepStyle(
                       v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
                       :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
                     />
-                    <p>{{ getDecimalNumber(hopeItem.count / getTimes, 3) }}</p>
+                    <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/exp.png`" />{{ getDecimalNumber(hopeItem.expSum / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/shards.png`" />{{ getDecimalNumber(hopeItem.shardsSum / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp">糖{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}</p>
