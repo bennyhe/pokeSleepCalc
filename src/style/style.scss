@@ -1056,6 +1056,10 @@ h4 {
 
 // 移动端适配
 @media screen and (max-width: 660px) {
+  .dialog-support,
+  .dialog-update {
+    max-height: vw(860);
+  }
   .cpt-foodmenu-scroll {
     overflow-x: auto;
     white-space: nowrap;

@@ -1,7 +1,9 @@
 <template>
   <CptDialog :isShow="isShowDialog" v-bind:key="dialogId">
-    <div class="dialog-support" v-html="updateLogDom"></div>
-    <div class="support-qrcode"></div>
+    <div class="dialog-support">
+      <div v-html="updateLogDom"></div>
+      <div class="support-qrcode"></div>
+    </div>
   </CptDialog>
 </template>
 
