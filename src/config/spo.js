@@ -66,7 +66,7 @@ export const SPONEW_TO_SPOOLD = {
   72: 3674,
   74: 4088,
   78: 4882,
-  84: 6429
+  84: 6411
 }
 export const SPO_DATA = {
   '1-id-1': {

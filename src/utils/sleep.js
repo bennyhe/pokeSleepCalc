@@ -4,7 +4,8 @@ import { pokedex } from '../config/pokedex.js'
 import {
   sortInObjectOptions,
   getRandomArr,
-  getNumberInMap
+  getNumberInMap,
+  get
 } from '../utils/index.js'
 export function getUnLockSleeps(levelList, curStageIndex) {
   let unLockSleeps = []
@@ -82,6 +83,14 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     isUseTicket: false
   }
   const res = []
+  const spacialPokemons = {
+    list: [243], // 特殊宝可梦列表，不进保底，只能一个
+    isGet: {
+      243: false
+    }
+  }
+  const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
+
   let cathPokeCount = getNumberInMap(
     score,
     mapData.scoreList
@@ -97,8 +106,18 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       item => item.sleepType === +curUnLockSleepType
     )
   }
+  // 使用熏香
+  if (spacialPokemons.list.includes(useIncensePokemonId)) {
+    // 如果存在ban的宝可梦列表则合并
+    if (get('banPokes', extraSleepStyleOptions, 1)) {
+      extraSleepStyleOptions.banPokes.push(+useIncensePokemonId)
+    } else {
+      extraSleepStyleOptions.banPokes = [+useIncensePokemonId]
+    }
+    console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
+  }
   // 如果存在去除宝可梦
-  if (extraSleepStyleOptions.banPokes && extraSleepStyleOptions.banPokes.length > 0) {
+  if (get('banPokes', extraSleepStyleOptions, 1)) {
     orgSleepList = orgSleepList.filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
@@ -165,7 +184,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   } else {
     let lastList = orgSleepList.filter(
       item =>
-        ![243].includes(item.pokeId) && // 去除雷公保底
+        !spacialPokemons.list.includes(item.pokeId) && // 去除雷公保底
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')
@@ -184,7 +203,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   const useOptionsCurSpo = Math.floor(score / 38000)
   let targetPokemonAllSleep = []
   // console.log(isSleepOnStomach)
-  if (extraSleepStyleOptions.useIncensePokemonId || extraSleepStyleOptions.isUseTicket) {
+  if (useIncensePokemonId || get('isUseTicket', extraSleepStyleOptions)) {
     // 获取当前地图所有睡姿
     targetPokemonAllSleep = getUnLockSleeps(
       mapData.levelList,
@@ -192,8 +211,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     ).allUnlockSleepsList.filter(sitem => (isSleepOnStomach ? sitem.sleepNameId !== 4 : true))
   }
   // 使用熏香
-  if (extraSleepStyleOptions.useIncensePokemonId) {
-    let incensePokemonSleeps = targetPokemonAllSleep.filter(sitem => +sitem.pokeId === +extraSleepStyleOptions.useIncensePokemonId)
+  if (useIncensePokemonId) {
+    let incensePokemonSleeps = targetPokemonAllSleep.filter(sitem => +sitem.pokeId === +useIncensePokemonId)
     incensePokemonSleeps = sortInObjectOptions(incensePokemonSleeps, ['spo'], 'up')
     // console.log(incensePokemonSleeps, extraSleepStyleOptions, useOptionsCurSpo)
     const resList = incensePokemonSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
@@ -218,8 +237,11 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 使用露营券
-  if (extraSleepStyleOptions.isUseTicket) {
-    let ticketSleeps = [...targetPokemonAllSleep]
+  if (get('isUseTicket', extraSleepStyleOptions)) {
+    let ticketSleeps = [...targetPokemonAllSleep].filter(
+      item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
+    )
+    
     // 睡眠类型图鉴筛选
     if (+curUnLockSleepType !== 999) {
       ticketSleeps = ticketSleeps.filter(
