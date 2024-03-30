@@ -53,6 +53,8 @@ const userData = ref({
   unLockSleeps: [],
   lockSkillCount: '0',
   onOffBan: false,
+  isUseTicket: false,
+  useIncensePokemonId: '',
   banPokes: []
 })
 const userSleep = ref({
@@ -70,6 +72,22 @@ const randomSleepStyle = ref({
   resList: [],
   sleepPoint: 100
 })
+
+// 存储每个地图会出现的宝可梦
+const gameMapPokemons = []
+gameMap.forEach((gitem, gkey) => {
+  const curMapSleeps = getUnLockSleeps(
+    gitem.levelList,
+    34
+  ).allUnlockSleepsList
+  gameMapPokemons.push([])
+  curMapSleeps.forEach(sleepsItem => {
+    if(!gameMapPokemons[gkey].includes(sleepsItem.pokeId)) {
+      gameMapPokemons[gkey].push(sleepsItem.pokeId)
+    }
+  })
+})
+
 const setDefaultCutNumber = () => {
   userData.value.cutNum = getNumberInMap(
     getScore(100),
@@ -97,6 +115,7 @@ const resetTool = () => {
 
 const handleClickChangeMap = id => {
   userData.value.curMap = id
+  userData.value.useIncensePokemonId = ''
   // 8只起步随着切岛记录
   userData.value.mapMaxScore =
     gameMap[userData.value.curMap].scoreList[
@@ -257,7 +276,11 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     userData.value.curUnLockSleepType,
     score,
     curStageIndex,
-    userData.value.banPokes
+    {
+      banPokes: userData.value.banPokes,
+      useIncensePokemonId: userData.value.useIncensePokemonId,
+      isUseTicket: userData.value.isUseTicket
+    }
   )
   // 随机个体
   res.forEach((sleepItem, key) => {
@@ -305,11 +328,11 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 const getTimes = 4000
 const hopeList = ref([])
 const getRandomHopeCb = res => {
-  setAndGetRandomSleepStyle(
-    getScore(randomSleepStyle.value.sleepPoint),
-    userData.value.curStageIndex
-  )
-  console.log(res)
+  // setAndGetRandomSleepStyle(
+  //   getScore(randomSleepStyle.value.sleepPoint),
+  //   userData.value.curStageIndex
+  // )
+  // console.log(res)
   hopeList.value = res
 }
 
@@ -636,6 +659,44 @@ setAndGetRandomSleepStyle(
               >
             </el-radio-group>
           </el-form-item>
+          <el-form-item label="熏香">
+            <el-select
+              v-model="userData.useIncensePokemonId"
+              placeholder="请选择宝可梦熏香"
+              filterable
+            >
+              <el-option
+                label="不使用"
+                value=""
+              >
+                不使用熏香
+              </el-option>
+              <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+                <el-option
+                  :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
+                  :value="pokeItem.id"
+                  :disabled="!gameMapPokemons[userData.curMap].includes(pokeItem.id)"
+                >
+                  <img
+                    class="icon"
+                    v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+                    :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+                    v-bind:key="pokeItem.id"
+                  />
+                  {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+                </el-option>
+              </template>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="露营券">
+            <el-switch
+              v-model="userData.isUseTicket"
+              inline-prompt
+              active-text="使用（多1只）"
+              inactive-text="不使用"
+              style="--el-switch-on-color: #ffaf00"
+            />
+          </el-form-item>
           <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
             <el-checkbox-group v-model="userData.banPokes" size="small">
               <el-checkbox :label="243"
@@ -776,7 +837,7 @@ setAndGetRandomSleepStyle(
                 type="primary"
                 plain
                 @click="handleClickSleepMoreTimes()"
-                >点击计算期望(睡{{ getTimes }}次)</el-button
+                >点击计算期望(睡{{ getTimes }}次，不含熏香和露营券)</el-button
               >
             </div>
             <div v-if="hopeList.length > 0">

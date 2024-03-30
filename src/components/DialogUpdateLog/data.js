@@ -2,9 +2,10 @@ const markdownText = `
 # 更新日志
 
 ## 24-03-29
-1. update 雷公期望
-2. update 视觉样式
-3. fix 移动端弹窗高度不对的问题
+1. add 睡姿抽取-熏香&露营券
+2. update 雷公期望
+3. update 视觉样式
+4. fix 移动端弹窗高度不对的问题
 
 ## 24-03-28
 1. add 期望睡姿-显示梦碎、exp、糖的期望

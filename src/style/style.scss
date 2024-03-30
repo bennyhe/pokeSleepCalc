@@ -919,6 +919,12 @@ h4 {
     width: 66px;
     margin: 0 auto;
     min-height: 36px;
+
+    .desc {
+      background-color: #ed556a;
+      color: #fff;
+      border-radius: 3px;
+    }
   }
 
   &__item {

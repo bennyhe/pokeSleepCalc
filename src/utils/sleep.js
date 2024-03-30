@@ -75,7 +75,12 @@ export function getUnLockSleeps(levelList, curStageIndex) {
 const getShinyPoke = () => {
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
-export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, banPokes) {
+export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions) {
+  extraSleepStyleOptions = extraSleepStyleOptions || {
+    banPokes: [],
+    useIncensePokemonId: '',
+    isUseTicket: false
+  }
   const res = []
   let cathPokeCount = getNumberInMap(
     score,
@@ -93,9 +98,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     )
   }
   // 如果存在去除宝可梦
-  if (banPokes && banPokes.length > 0) {
+  if (extraSleepStyleOptions.banPokes && extraSleepStyleOptions.banPokes.length > 0) {
     orgSleepList = orgSleepList.filter(
-      item => !banPokes.includes(+item.pokeId)
+      item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
   }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
@@ -175,6 +180,82 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     })
   }
 
+  // 使用熏香 / 露营券 公用参数
+  const useOptionsCurSpo = Math.floor(score / 38000)
+  let targetPokemonAllSleep = []
+  // console.log(isSleepOnStomach)
+  if (extraSleepStyleOptions.useIncensePokemonId || extraSleepStyleOptions.isUseTicket) {
+    // 获取当前地图所有睡姿
+    targetPokemonAllSleep = getUnLockSleeps(
+      mapData.levelList,
+      34
+    ).allUnlockSleepsList.filter(sitem => (isSleepOnStomach ? sitem.sleepNameId !== 4 : true))
+  }
+  // 使用熏香
+  if (extraSleepStyleOptions.useIncensePokemonId) {
+    let incensePokemonSleeps = targetPokemonAllSleep.filter(sitem => +sitem.pokeId === +extraSleepStyleOptions.useIncensePokemonId)
+    incensePokemonSleeps = sortInObjectOptions(incensePokemonSleeps, ['spo'], 'up')
+    // console.log(incensePokemonSleeps, extraSleepStyleOptions, useOptionsCurSpo)
+    const resList = incensePokemonSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
+    // 大于1个结果随机分配睡姿
+    if (resList.length > 1) {
+      res.push({
+        ...resList[parseInt(
+          Math.floor(Math.random() * resList.length),
+          10
+        )],
+        isShiny: getShinyPoke(),
+        extra: '熏香'
+      })
+    } else {
+      // 否则最低spo睡姿
+      res.push({
+        ...incensePokemonSleeps[0],
+        isShiny: getShinyPoke(),
+        extra: '熏香'
+      })
+    }
+  }
+
+  // 使用露营券
+  if (extraSleepStyleOptions.isUseTicket) {
+    let ticketSleeps = [...targetPokemonAllSleep]
+    // 睡眠类型图鉴筛选
+    if (+curUnLockSleepType !== 999) {
+      ticketSleeps = ticketSleeps.filter(
+        item => item.sleepType === +curUnLockSleepType
+      )
+    }
+    //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+    if (useOptionsCurSpo < 2) {
+      res.push({
+        ...spoZeroPoke,
+        isShiny: getShinyPoke(),
+        extra: '+奖励'
+        // extra: 'SPO<2' //debug
+      })
+    } else {
+      const resList = ticketSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
+      if (resList.length > 0) {
+        res.push({
+          ...resList[parseInt(
+            Math.floor(Math.random() * resList.length),
+            10
+          )],
+          isShiny: getShinyPoke(),
+          extra: '+奖励'
+        })
+      } else {
+        // 否则最低spo睡姿
+        res.push({
+          ...spoZeroPoke,
+          isShiny: getShinyPoke(),
+          extra: '+奖励'
+        })
+      }
+    }
+  }
+
   return res
   // console.log(
   //   mapData.name,
@@ -196,7 +277,9 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
         curUnLockSleepType,
         score,
         curStageIndex,
-        banPokes
+        {
+          banPokes
+        }
       )
     )
   }
