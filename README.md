@@ -38,6 +38,7 @@
 2. [検証：ねむけパワーと出現寝顔の関係](https://wikiwiki.jp/poke_sleep/%E6%A4%9C%E8%A8%BC%EF%BC%9A%E3%81%AD%E3%82%80%E3%81%91%E3%83%91%E3%83%AF%E3%83%BC%E3%81%A8%E5%87%BA%E7%8F%BE%E5%AF%9D%E9%A1%94%E3%81%AE%E9%96%A2%E4%BF%82)
 3. [寝顔図鑑-日文wiki](https://wikiwiki.jp/poke_sleep/%E5%AF%9D%E9%A1%94%E5%9B%B3%E9%91%91)
 4. [おてつだい時間-日文wiki](https://wikiwiki.jp/poke_sleep/%E3%81%8A%E3%81%A6%E3%81%A4%E3%81%A0%E3%81%84%E6%99%82%E9%96%93?word=floor)
+5. [検証：他の睡眠タイプのポケモンの出現確率-日文wiki](https://wikiwiki.jp/poke_sleep/%E6%A4%9C%E8%A8%BC%EF%BC%9A%E4%BB%96%E3%81%AE%E7%9D%A1%E7%9C%A0%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E3%81%AE%E5%87%BA%E7%8F%BE%E7%A2%BA%E7%8E%87#j2f67e8b)
 
 ## 免责声明
 1. 网站需要维护费用——域名&服务器，请大家多多支持；

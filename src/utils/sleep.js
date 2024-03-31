@@ -80,7 +80,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   extraSleepStyleOptions = extraSleepStyleOptions || {
     banPokes: [],
     useIncensePokemonId: '',
-    isUseTicket: false
+    isUseTicket: false,
+    isActRandom: false
   }
   const res = []
   const spacialPokemons = {
@@ -100,13 +101,20 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     mapData.levelList,
     curStageIndex
   ).allUnlockSleepsList
+  
+  let orgSleepListByActType = JSON.parse(JSON.stringify(orgSleepList))
+  const isActRandom = get('isActRandom', extraSleepStyleOptions)
+  let catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * 0.4) // 活动带类型的无症状 固定前几个无症状
+  console.log(isActRandom, catchNumByActRandom, orgSleepListByActType)
+
   // 睡眠类型图鉴筛选
   if (+curUnLockSleepType !== 999) {
     orgSleepList = orgSleepList.filter(
       item => item.sleepType === +curUnLockSleepType
     )
-  }
-  // 使用熏香
+  } 
+
+  // 特殊宝可梦使用熏香，也只能出1只
   if (spacialPokemons.list.includes(useIncensePokemonId)) {
     // 如果存在ban的宝可梦列表则合并
     if (get('banPokes', extraSleepStyleOptions, 1)) {
@@ -114,19 +122,32 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     } else {
       extraSleepStyleOptions.banPokes = [+useIncensePokemonId]
     }
-    console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
+    // console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
   }
   // 如果存在去除宝可梦
   if (get('banPokes', extraSleepStyleOptions, 1)) {
     orgSleepList = orgSleepList.filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
+    // 如果是活动无症状
+    if (isActRandom) {
+      orgSleepListByActType = orgSleepListByActType.filter(
+        item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
+      )
+    }
   }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
   orgSleepList = getRandomArr(
     orgSleepList,
     orgSleepList.length * 10 < 1000 ? 1000 : orgSleepList.length * 10
   )
+  // 如果是活动无症状
+  if (isActRandom) {
+    orgSleepListByActType = getRandomArr(
+      orgSleepListByActType,
+      orgSleepListByActType.length * 10 < 1000 ? 1000 : orgSleepListByActType.length * 10
+    )
+  }
 
   // SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
   const spoZeroPoke = sortInObjectOptions(
@@ -134,6 +155,15 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     ['spo', 'unLockLevel', 'spoId'],
     'up'
   )[0]
+  let spoZeroPokeByType = {}
+  // 类型非无症状的活动无症状
+  if (isActRandom && +curUnLockSleepType !== 999) {
+    spoZeroPokeByType = sortInObjectOptions(
+      orgSleepListByActType,
+      ['spo', 'unLockLevel', 'spoId'],
+      'up'
+    )[0]
+  }
   // console.log(`等级解锁睡姿——${orgSleepList.length}个`, orgSleepList)
 
   let isSleepOnStomach = false
@@ -144,36 +174,77 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     sleepList = getRandomArr(sleepList, sleepList.length * 10)
+
+    let sleepListByActRandom = []
+    // 类型非无症状的活动无症状
+    if (isActRandom && +curUnLockSleepType !== 999) {
+      sleepListByActRandom = orgSleepListByActType.filter(
+        item =>
+          item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+      )
+      sleepListByActRandom = getRandomArr(sleepListByActRandom, sleepListByActRandom.length * 10)
+    }
     //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
     if (curSpo < 2) {
-      res.push({
+      let pushZero = {
         ...spoZeroPoke,
         isShiny: getShinyPoke()
         // extra: 'SPO<2' //debug
-      })
+      }
+      // 类型非无症状的活动无症状
+      if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
+        pushZero = {
+          ...spoZeroPokeByType,
+          isShiny: getShinyPoke()
+          // extra: 'SPO<2' //debug
+        }
+      }
+      res.push(pushZero)
       curSpo = 1
     } else {
+      let useSleepList = [...sleepList]
+      // 类型非无症状的活动无症状
+      if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
+        useSleepList = [...sleepListByActRandom]
+      }
       const rdmIndex = parseInt(
-        Math.floor(Math.random() * sleepList.length),
+        Math.floor(Math.random() * useSleepList.length),
         10
       )
-      const rdmRes = sleepList[rdmIndex]
+      const rdmRes = useSleepList[rdmIndex]
       // 大肚子睡只能1次
       if (rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
         isSleepOnStomach = true
       }
-      // console.log(sleepList[rdmIndex])
+      // console.log(useSleepList[rdmIndex])
+      // 抽到特殊宝可梦后，接下来不会再出现该宝可梦
+      if (spacialPokemons.list.includes(useSleepList[rdmIndex].pokeId)) {
+        // console.log('抽到特殊宝可梦', useSleepList[rdmIndex].pokeId)
+        orgSleepList = orgSleepList.filter(
+          item =>
+            item.pokeId !== useSleepList[rdmIndex].pokeId
+        )
+        // 类型非无症状的活动无症状
+        if (isActRandom && +curUnLockSleepType !== 999) {
+          orgSleepListByActType = orgSleepListByActType.filter(
+            item =>
+              item.pokeId !== useSleepList[rdmIndex].pokeId
+          )
+        }
+        spacialPokemons.isGet[useSleepList[rdmIndex].pokeId] = true
+      }
       res.push({
         ...rdmRes,
         isShiny: getShinyPoke()
       })
-      curSpo -= sleepList[rdmIndex].spo
+      curSpo -= useSleepList[rdmIndex].spo
       if (curSpo < 2) {
         curSpo = 1
       }
     }
     // console.log(curSpo)
     cathPokeCount--
+    catchNumByActRandom--
   }
   //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
   if (curSpo < 2) {
@@ -241,13 +312,28 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     let ticketSleeps = [...targetPokemonAllSleep].filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
-    
+
     // 睡眠类型图鉴筛选
     if (+curUnLockSleepType !== 999) {
       ticketSleeps = ticketSleeps.filter(
         item => item.sleepType === +curUnLockSleepType
       )
     }
+
+    // 特殊宝可梦筛选，抽过的露营券不会再出
+    const isGetPokes = []
+    spacialPokemons.list.forEach(spitem => {
+      if (spacialPokemons.isGet[spitem]) {
+        isGetPokes.push(+spitem)
+      }
+    })
+    // console.log('已经抽过的特殊宝可梦', isGetPokes)
+    if (isGetPokes.length > 0) {
+      ticketSleeps = ticketSleeps.filter(
+        item => !isGetPokes.includes(+item.pokeId)
+      )
+    }
+
     //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
     if (useOptionsCurSpo < 2) {
       res.push({
@@ -289,7 +375,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   // )
   // console.log('res', res)
 }
-export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, banPokes, callback) {
+export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   getTimes = getTimes || 4000
   let orgList = []
   for (let i = 0; i < getTimes; i++) {
@@ -299,9 +385,7 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
         curUnLockSleepType,
         score,
         curStageIndex,
-        {
-          banPokes
-        }
+        extraSleepStyleOptions
       )
     )
   }

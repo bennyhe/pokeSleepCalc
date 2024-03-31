@@ -140,34 +140,34 @@ textarea {
   font-family: KumbhSansRegular, PingFangSC, -apple-system, Helvetica, "Microsoft YaHei", Arial, sans-serif, "微软雅黑", "黑体", "宋体", Verdana;
 }
 
-input[type=checkbox] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #333;
-  appearance: none;
-  vertical-align: -1px;
-  position: relative;
-  border-radius: 0;
+// input[type=checkbox] {
+//   display: inline-block;
+//   width: 14px;
+//   height: 14px;
+//   border: 1px solid #333;
+//   appearance: none;
+//   vertical-align: -1px;
+//   position: relative;
+//   border-radius: 0;
 
-  &:checked {
-    background: rgba(#333, 0.9);
+//   &:checked {
+//     background: rgba(#333, 0.9);
 
-    &:after {
-      content: '';
-      position: absolute;
-      width: 7px;
-      height: 3px;
-      background: transparent;
-      top: 2px;
-      left: 2px;
-      border: 2px solid #fcfff4;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg);
-    }
-  }
-}
+//     &:after {
+//       content: '';
+//       position: absolute;
+//       width: 7px;
+//       height: 3px;
+//       background: transparent;
+//       top: 2px;
+//       left: 2px;
+//       border: 2px solid #fcfff4;
+//       border-top: none;
+//       border-right: none;
+//       transform: rotate(-45deg);
+//     }
+//   }
+// }
 
 @import '_import.mixin.scss';
 

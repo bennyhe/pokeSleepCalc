@@ -54,6 +54,7 @@ const userData = ref({
   lockSkillCount: '0',
   onOffBan: false,
   isUseTicket: false,
+  isActRandom: false,
   useIncensePokemonId: '',
   banPokes: []
 })
@@ -279,7 +280,8 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     {
       banPokes: userData.value.banPokes,
       useIncensePokemonId: userData.value.useIncensePokemonId,
-      isUseTicket: userData.value.isUseTicket
+      isUseTicket: userData.value.isUseTicket,
+      isActRandom: userData.value.isActRandom
     }
   )
   // 随机个体
@@ -343,7 +345,10 @@ const handleClickSleepMoreTimes = () => {
     getScore(randomSleepStyle.value.sleepPoint),
     userData.value.curStageIndex,
     getTimes,
-    userData.value.banPokes,
+    {
+      banPokes: userData.value.banPokes,
+      isActRandom: userData.value.isActRandom
+    },
     getRandomHopeCb
   )
 }
@@ -688,14 +693,31 @@ setAndGetRandomSleepStyle(
               </template>
             </el-select>
           </el-form-item>
-          <el-form-item label="露营券">
-            <el-switch
-              v-model="userData.isUseTicket"
-              inline-prompt
-              active-text="使用（多1只）"
-              inactive-text="不使用"
-              style="--el-switch-on-color: #ffaf00"
-            />
+          <el-form-item>
+            <div style="margin-left: -53px; margin-right: 10px; color: var(--el-text-color-regular);">
+              露营券
+              <span style="display: inline-block; vertical-align: middle;  width: 85px; margin-left: 6px;">
+                <el-switch
+                  v-model="userData.isUseTicket"
+                  inline-prompt
+                  active-text="使用(多1只)"
+                  inactive-text="不使用"
+                  style="--el-switch-on-color: #ffaf00"
+                />
+              </span>
+            </div>
+            <div style="color: var(--el-text-color-regular);">
+              活动无特征
+              <span style="display: inline-block; vertical-align: middle;">
+                <el-switch
+                  v-model="userData.isActRandom"
+                  inline-prompt
+                  active-text="是"
+                  inactive-text="否"
+                  style="--el-switch-on-color: #ffaf00"
+                />
+              </span>
+            </div>
           </el-form-item>
           <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
             <el-checkbox-group v-model="userData.banPokes" size="small">
@@ -772,7 +794,7 @@ setAndGetRandomSleepStyle(
               plain
               @click="handleClickShinyClear()"
               v-if="userSleep.pokeShinyCount > 0"
-              >重头再来</el-button
+              >从头再来</el-button
             >
           </div>
           <div class="get-shiny" v-if="userSleep.showDetailShiny">

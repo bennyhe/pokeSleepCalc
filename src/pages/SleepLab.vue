@@ -48,7 +48,9 @@ const handleClickGet = () => {
         curAllScore
       ),
       getTimes,
-      pageData.value.banPokes
+      {
+        banPokes: pageData.value.banPokes
+      }
     )
     console.log(
       i,
