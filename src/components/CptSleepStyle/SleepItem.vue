@@ -9,15 +9,20 @@ const props = defineProps({
   sleepItem: {
     type: [Object]
   },
-  userData: {
-    type: [Object]
-  },
   showKey: {
     type: Array
   },
   showMapLevel: {
     type: [Boolean],
     default: false
+  },
+  mapLevel: {
+    type: [String, Number],
+    default: ''
+  },
+  curMap: {
+    type: [String, Number],
+    default: ''
   },
   showCptPoke: {
     type: [Boolean],
@@ -51,13 +56,11 @@ const props = defineProps({
       </p>
       <p>
         <img class="icon" v-lazy="`./img/ui/exp.png`" />
-        <span class="sptime">{{ sleepItem.exp }}</span
-        >
+        <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
       <p>
         <img class="icon" v-lazy="`./img/ui/shards.png`" />
-        <span class="sptime">{{ sleepItem.shards }}</span
-        >
+        <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
       <p>
         获得<span class="sptime">{{ sleepItem.candys }}</span
@@ -70,15 +73,17 @@ const props = defineProps({
       <p class="desc" v-if="sleepItem.extra">
         {{ sleepItem.extra }}
       </p>
-      <p v-if="showMapLevel && userData && userData.curStageIndex > 0">
+      <p v-if="showMapLevel && sleepItem.unLockLevel !== undefined">
         <img
           class="icon"
           v-lazy="
             `./img/ui/${getStageLevelPicId(
-              gameMap[userData.curMap].levelList[userData.curStageIndex].name
+              gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel].name
             )}.png`
           "
-        />{{ gameMap[userData.curMap].levelList[userData.curStageIndex].name }}
+        />{{
+          gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel].name
+        }}
       </p>
     </div>
   </div>

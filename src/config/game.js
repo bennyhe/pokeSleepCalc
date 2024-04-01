@@ -1,4 +1,4 @@
-const mapSplitVer = '2.4.6'
+const mapSplitVer = '2.4.7'
 const gameMap = [
   {
     // name: '萌绿之岛',
@@ -1667,11 +1667,11 @@ const gameMap = [
     pic: 'map5',
     berry: [4, 18, 6],
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153381 },
-      { catchNum: 4, startscore: 3153605, endscore: 7730385 },
-      { catchNum: 5, startscore: 7730580, endscore: 16659660 },
-      { catchNum: 6, startscore: 16659966, endscore: 30491709 },
+      { catchNum: 4, startscore: 3153540, endscore: 7730385 },
+      { catchNum: 5, startscore: 7730481, endscore: 16659660 },
+      { catchNum: 6, startscore: 16659818, endscore: 30491709 },
       { catchNum: 7, startscore: 30491710, endscore: 68664090 },
-      { catchNum: 8, startscore: 68665104 }],
+      { catchNum: 8, startscore: 68664888 }],
     levelList: [
       {
         'name': '普通1',

@@ -77,13 +77,10 @@ const randomSleepStyle = ref({
 // 存储每个地图会出现的宝可梦
 const gameMapPokemons = []
 gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(
-    gitem.levelList,
-    34
-  ).allUnlockSleepsList
+  const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
   gameMapPokemons.push([])
   curMapSleeps.forEach(sleepsItem => {
-    if(!gameMapPokemons[gkey].includes(sleepsItem.pokeId)) {
+    if (!gameMapPokemons[gkey].includes(sleepsItem.pokeId)) {
       gameMapPokemons[gkey].push(sleepsItem.pokeId)
     }
   })
@@ -670,17 +667,14 @@ setAndGetRandomSleepStyle(
               placeholder="请选择宝可梦熏香"
               filterable
             >
-              <el-option
-                label="不使用"
-                value=""
-              >
-                不使用熏香
-              </el-option>
+              <el-option label="不使用" value=""> 不使用熏香 </el-option>
               <template v-for="pokeItem in pokedex" :key="pokeItem.id">
                 <el-option
                   :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
                   :value="pokeItem.id"
-                  :disabled="!gameMapPokemons[userData.curMap].includes(pokeItem.id)"
+                  :disabled="
+                    !gameMapPokemons[userData.curMap].includes(pokeItem.id)
+                  "
                 >
                   <img
                     class="icon"
@@ -694,9 +688,22 @@ setAndGetRandomSleepStyle(
             </el-select>
           </el-form-item>
           <el-form-item>
-            <div style="margin-left: -53px; margin-right: 10px; color: var(--el-text-color-regular);">
+            <div
+              style="
+                margin-left: -53px;
+                margin-right: 10px;
+                color: var(--el-text-color-regular);
+              "
+            >
               露营券
-              <span style="display: inline-block; vertical-align: middle;  width: 85px; margin-left: 6px;">
+              <span
+                style="
+                  display: inline-block;
+                  vertical-align: middle;
+                  width: 85px;
+                  margin-left: 6px;
+                "
+              >
                 <el-switch
                   v-model="userData.isUseTicket"
                   inline-prompt
@@ -706,9 +713,9 @@ setAndGetRandomSleepStyle(
                 />
               </span>
             </div>
-            <div style="color: var(--el-text-color-regular);">
+            <div style="color: var(--el-text-color-regular)">
               活动无特征
-              <span style="display: inline-block; vertical-align: middle;">
+              <span style="display: inline-block; vertical-align: middle">
                 <el-switch
                   v-model="userData.isActRandom"
                   inline-prompt
@@ -882,9 +889,19 @@ setAndGetRandomSleepStyle(
                       :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
                     />
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-                    <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/exp.png`" />{{ getDecimalNumber(hopeItem.expSum / getTimes, 2) }}</p>
-                    <p v-if="pageData.showMoreMathExp"><img class="icon" v-lazy="`./img/ui/shards.png`" />{{ getDecimalNumber(hopeItem.shardsSum / getTimes, 2) }}</p>
-                    <p v-if="pageData.showMoreMathExp">糖{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}</p>
+                    <p v-if="pageData.showMoreMathExp">
+                      <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
+                        getDecimalNumber(hopeItem.expSum / getTimes, 2)
+                      }}
+                    </p>
+                    <p v-if="pageData.showMoreMathExp">
+                      <img class="icon" v-lazy="`./img/ui/shards.png`" />{{
+                        getDecimalNumber(hopeItem.shardsSum / getTimes, 2)
+                      }}
+                    </p>
+                    <p v-if="pageData.showMoreMathExp">
+                      糖{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}
+                    </p>
                   </div>
                   <div>
                     <el-button
@@ -980,7 +997,8 @@ setAndGetRandomSleepStyle(
                 :showMapLevel="true"
                 :sleepItem="sleepItem"
                 :showKey="['sleepType']"
-                :userData="userData"
+                :curMap="userData.curMap"
+                :mapLevel="userData.curStageIndex"
               />
             </div>
           </template>
@@ -992,9 +1010,10 @@ setAndGetRandomSleepStyle(
             v-bind:key="sleepItem.id"
           >
             <CptSleepStyle
+              :showMapLevel="true"
               :sleepItem="sleepItem"
               :showKey="['sleepType']"
-              :userData="userData"
+              :curMap="userData.curMap"
             />
           </div>
         </template>
