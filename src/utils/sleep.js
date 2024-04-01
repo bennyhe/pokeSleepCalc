@@ -105,7 +105,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   let orgSleepListByActType = JSON.parse(JSON.stringify(orgSleepList))
   const isActRandom = get('isActRandom', extraSleepStyleOptions)
   let catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * 0.4) // 活动带类型的无症状 固定前几个无症状
-  console.log(isActRandom, catchNumByActRandom, orgSleepListByActType)
+  // console.log(isActRandom, catchNumByActRandom, orgSleepListByActType)
 
   // 睡眠类型图鉴筛选
   if (+curUnLockSleepType !== 999) {

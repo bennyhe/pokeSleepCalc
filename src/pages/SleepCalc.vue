@@ -74,17 +74,32 @@ const randomSleepStyle = ref({
   sleepPoint: 100
 })
 
-// 存储每个地图会出现的宝可梦
-const gameMapPokemons = []
+// 存储每个地图每个等级会出现的宝可梦
+const gameMapPokemons = [
+  // {
+  //   levelPokemons: [], //stage level pokemons
+  //   allPokemons: [] //all pokemons
+  // }
+]
 gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
-  gameMapPokemons.push([])
+  gameMapPokemons.push({
+    // levelPokemons: [],
+    allPokemons: []
+  })
   curMapSleeps.forEach(sleepsItem => {
-    if (!gameMapPokemons[gkey].includes(sleepsItem.pokeId)) {
-      gameMapPokemons[gkey].push(sleepsItem.pokeId)
+    // if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
+    //   gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
+    // }
+    // if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(sleepsItem.pokeId)) {
+    //   gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(sleepsItem.pokeId)
+    // }
+    if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
+      gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
     }
   })
 })
+// console.log(gameMapPokemons)
 
 const setDefaultCutNumber = () => {
   userData.value.cutNum = getNumberInMap(
@@ -673,7 +688,7 @@ setAndGetRandomSleepStyle(
                   :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
                   :value="pokeItem.id"
                   :disabled="
-                    !gameMapPokemons[userData.curMap].includes(pokeItem.id)
+                    !gameMapPokemons[userData.curMap].allPokemons.includes(pokeItem.id)
                   "
                 >
                   <img
