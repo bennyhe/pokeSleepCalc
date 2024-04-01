@@ -5,6 +5,7 @@ const markdownText = `
 1. update 雷公期望
 2. update 岛屿数据区间参考
 3. update 已解锁睡姿-显示睡姿解锁等级
+4. update 睡姿抽取-取消抽取结果在移动端的横向滚动条，展示全部结果
 
 ## 24-03-31
 1. add 睡姿抽取-活动无症状

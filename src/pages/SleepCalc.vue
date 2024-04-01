@@ -835,7 +835,7 @@ setAndGetRandomSleepStyle(
             </div>
           </div>
           <div>
-            <div class="poke-tb poke-tb--xscorll poke-tb--lottery mb3">
+            <div class="poke-tb poke-tb--lottery mb3">
               <template
                 v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
               >
