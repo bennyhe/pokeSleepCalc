@@ -688,7 +688,9 @@ setAndGetRandomSleepStyle(
                   :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
                   :value="pokeItem.id"
                   :disabled="
-                    !gameMapPokemons[userData.curMap].allPokemons.includes(pokeItem.id)
+                    !gameMapPokemons[userData.curMap].allPokemons.includes(
+                      pokeItem.id
+                    )
                   "
                 >
                   <img
@@ -887,9 +889,28 @@ setAndGetRandomSleepStyle(
             <div v-if="hopeList.length > 0">
               <div class="page-inner">
                 <h3>
-                  期望宝可梦睡姿列表
+                  <img
+                    class="icon"
+                    v-lazy="
+                      `./img/ui/${getStageLevelPicId(
+                        gameMap[userData.curMap].levelList[
+                          userData.curStageIndex
+                        ].name
+                      )}.png`
+                    "
+                  />{{
+                    gameMap[userData.curMap].levelList[userData.curStageIndex]
+                      .name
+                  }}-期望宝可梦睡姿列表
                   <span class="extra">({{ hopeList.length }}只)</span>
                 </h3>
+                <div style="font-size: 12px">
+                  「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」
+                  (<span class="sptime">{{
+                    getNum(getScore(randomSleepStyle.sleepPoint))
+                  }}</span
+                  >分)
+                </div>
               </div>
               <div class="poke-tb poke-tb--4000 poke-tb--xscorll">
                 <div class="page-inner">
