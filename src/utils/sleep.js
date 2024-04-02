@@ -85,7 +85,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
   const res = []
   const spacialPokemons = {
-    list: [243], // 特殊宝可梦列表，不进保底，只能一个
+    list: [243], // 特殊宝可梦列表，只能一个
+    noLastList: [243, 35, 36, 173], // 不进保底
     isGet: {
       243: false
     }
@@ -253,9 +254,10 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       isShiny: getShinyPoke()
     })
   } else {
+    // 保底计算
     let lastList = orgSleepList.filter(
       item =>
-        !spacialPokemons.list.includes(item.pokeId) && // 去除雷公保底
+        !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')

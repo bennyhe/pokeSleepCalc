@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-04-02
+1. update 睡姿抽取
+
 ## 24-04-01
 1. update 雷公期望
 2. update 岛屿数据区间参考
