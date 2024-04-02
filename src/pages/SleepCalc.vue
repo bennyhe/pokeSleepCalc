@@ -906,6 +906,7 @@ setAndGetRandomSleepStyle(
                 </h3>
                 <div style="font-size: 12px">
                   「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」
+                  <template v-if="userData.isActRandom">活动无特征</template>
                   (<span class="sptime">{{
                     getNum(getScore(randomSleepStyle.sleepPoint))
                   }}</span

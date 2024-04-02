@@ -19,7 +19,7 @@ const props = defineProps({
     <p class="cpt-foodmenu__name">
       {{ MENU_TYPES[props.menuItem.id] }}({{
         fnAccumulation(props.menuItem.from, "num")
-      }})
+      }}) + {{ props.menuItem.menuPercent }}%
     </p>
     <div class="cpt-food all-food">
       <div

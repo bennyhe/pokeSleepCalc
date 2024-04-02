@@ -1,11 +1,14 @@
 export const COOKMENU = {
   '1000': {
+    // 拌拌咖哩
     'id': 1000,
     'type': 1,
     'from': [],
-    'baseEnergy': 0
+    'baseEnergy': 0,
+    'menuPercent': 0
   },
   '1001': {
+    // 特選蘋果咖哩
     'id': 1001,
     'type': 1,
     'from': [
@@ -14,9 +17,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 668
+    'baseEnergy': 668,
+    'menuPercent': 6
   },
   '1002': {
+    // 炙燒尾肉咖哩
     'id': 1002,
     'type': 1,
     'from': [
@@ -29,9 +34,11 @@ export const COOKMENU = {
         'num': 25
       }
     ],
-    'baseEnergy': 7483
+    'baseEnergy': 7483,
+    'menuPercent': 25
   },
   '1003': {
+    // 太陽之力番茄咖哩
     'id': 1003,
     'type': 1,
     'from': [
@@ -44,9 +51,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 1943
+    'baseEnergy': 1943,
+    'menuPercent': 11
   },
   '1004': {
+    // 絕對睡眠奶油咖哩
     'id': 1004,
     'type': 1,
     'from': [
@@ -67,9 +76,11 @@ export const COOKMENU = {
         'num': 10
       }
     ],
-    'baseEnergy': 9010
+    'baseEnergy': 9010,
+    'menuPercent': 35
   },
   '1005': {
+    // 辣味蔥勁十足咖哩
     'id': 1005,
     'type': 1,
     'from': [
@@ -86,9 +97,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 5900
+    'baseEnergy': 5900,
+    'menuPercent': 25
   },
   '1006': {
+    // 蘑菇孢子咖哩
     'id': 1006,
     'type': 1,
     'from': [
@@ -101,9 +114,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 4041
+    'baseEnergy': 4041,
+    'menuPercent': 17
   },
   '1007': {
+    // 親子愛咖哩
     'id': 1007,
     'type': 1,
     'from': [
@@ -124,9 +139,11 @@ export const COOKMENU = {
         'num': 4
       }
     ],
-    'baseEnergy': 4523
+    'baseEnergy': 4523,
+    'menuPercent': 25
   },
   '1008': {
+    // 吃飽飽起司肉排咖哩
     'id': 1008,
     'type': 1,
     'from': [
@@ -139,9 +156,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 1785
+    'baseEnergy': 1785,
+    'menuPercent': 11
   },
   '1009': {
+    // 窩心白醬濃湯
     'id': 1009,
     'type': 1,
     'from': [
@@ -158,9 +177,11 @@ export const COOKMENU = {
         'num': 4
       }
     ],
-    'baseEnergy': 3089
+    'baseEnergy': 3089,
+    'menuPercent': 17
   },
   '1010': {
+    // 單純白醬濃湯
     'id': 1010,
     'type': 1,
     'from': [
@@ -169,9 +190,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 727
+    'baseEnergy': 727,
+    'menuPercent': 7
   },
   '1011': {
+    // 豆製肉排咖哩
     'id': 1011,
     'type': 1,
     'from': [
@@ -180,9 +203,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 764
+    'baseEnergy': 764,
+    'menuPercent': 7
   },
   '1012': {
+    // 寶寶甜蜜咖哩
     'id': 1012,
     'type': 1,
     'from': [
@@ -191,9 +216,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 749
+    'baseEnergy': 749,
+    'menuPercent': 7
   },
   '1013': {
+    // 忍者咖哩
     'id': 1013,
     'type': 1,
     'from': [
@@ -214,9 +241,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 6159
+    'baseEnergy': 6159,
+    'menuPercent': 25
   },
   '1014': {
+    // 日照炸肉排咖哩
     'id': 1014,
     'type': 1,
     'from': [
@@ -229,9 +258,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 1815
+    'baseEnergy': 1815,
+    'menuPercent': 11
   },
   '1015': {
+    // 入口即化蛋捲咖哩
     'id': 1015,
     'type': 1,
     'from': [
@@ -244,9 +275,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 2009
+    'baseEnergy': 2009,
+    'menuPercent': 11
   },
   '1016': {
+    // 健美豆子咖哩
     'id': 1016,
     'type': 1,
     'from': [
@@ -267,9 +300,11 @@ export const COOKMENU = {
         'num': 4
       }
     ],
-    'baseEnergy': 3274
+    'baseEnergy': 3274,
+    'menuPercent': 17
   },
   '1017': {
+    // 柔軟玉米濃湯
     'id': 1017,
     'type': 1,
     'from': [
@@ -286,9 +321,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 4670
+    'baseEnergy': 4670,
+    'menuPercent': 25
   },
   '1018': {
+    // 煉獄玉米乾咖哩
     'id': 1018,
     'type': 1,
     'from': [
@@ -309,15 +346,19 @@ export const COOKMENU = {
         'num': 12
       }
     ],
-    'baseEnergy': 13690
+    'baseEnergy': 13690,
+    'menuPercent': 48
   },
   '2000': {
+    // 拌拌沙拉
     'id': 2000,
     'type': 2,
     'from': [],
-    'baseEnergy': 0
+    'baseEnergy': 0,
+    'menuPercent': 0
   },
   '2001': {
+    // 呆呆獸尾巴的胡椒沙拉
     'id': 2001,
     'type': 2,
     'from': [
@@ -334,9 +375,11 @@ export const COOKMENU = {
         'num': 15
       }
     ],
-    'baseEnergy': 8169
+    'baseEnergy': 8169,
+    'menuPercent': 25
   },
   '2002': {
+    // 蘑菇孢子沙拉
     'id': 2002,
     'type': 2,
     'from': [
@@ -353,9 +396,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 5859
+    'baseEnergy': 5859,
+    'menuPercent': 25
   },
   '2003': {
+    // 撥雪凱撒沙拉
     'id': 2003,
     'type': 2,
     'from': [
@@ -368,9 +413,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 1774
+    'baseEnergy': 1774,
+    'menuPercent': 11
   },
   '2004': {
+    // 貪吃鬼洋芋沙拉
     'id': 2004,
     'type': 2,
     'from': [
@@ -391,9 +438,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 5040
+    'baseEnergy': 5040,
+    'menuPercent': 25
   },
   '2005': {
+    // 濕潤豆腐沙拉
     'id': 2005,
     'type': 2,
     'from': [
@@ -406,9 +455,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 1843
+    'baseEnergy': 1843,
+    'menuPercent': 11
   },
   '2006': {
+    // 蠻力豪邁沙拉
     'id': 2006,
     'type': 2,
     'from': [
@@ -429,9 +480,11 @@ export const COOKMENU = {
         'num': 3
       }
     ],
-    'baseEnergy': 2958
+    'baseEnergy': 2958,
+    'menuPercent': 17
   },
   '2007': {
+    // 豆製火腿沙拉
     'id': 2007,
     'type': 2,
     'from': [
@@ -440,9 +493,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 873
+    'baseEnergy': 873,
+    'menuPercent': 0
   },
   '2008': {
+    // 好眠番茄沙拉
     'id': 2008,
     'type': 2,
     'from': [
@@ -451,9 +506,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 933
+    'baseEnergy': 933,
+    'menuPercent': 6
   },
   '2009': {
+    // 哞哞起司番茄沙拉
     'id': 2009,
     'type': 2,
     'from': [
@@ -470,9 +527,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 2856
+    'baseEnergy': 2856,
+    'menuPercent': 17
   },
   '2010': {
+    // 心情不定肉沙拉淋巧克力醬
     'id': 2010,
     'type': 2,
     'from': [
@@ -485,9 +544,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 3558
+    'baseEnergy': 3558,
+    'menuPercent': 17
   },
   '2011': {
+    // 過熱沙拉
     'id': 2011,
     'type': 2,
     'from': [
@@ -504,9 +565,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 5225
+    'baseEnergy': 5225,
+    'menuPercent': 25
   },
   '2012': {
+    // 特選蘋果沙拉
     'id': 2012,
     'type': 2,
     'from': [
@@ -515,9 +578,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 763
+    'baseEnergy': 763,
+    'menuPercent': 6
   },
   '2013': {
+    // 免疫蔥花沙拉
     'id': 2013,
     'type': 2,
     'from': [
@@ -530,9 +595,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 2658
+    'baseEnergy': 2658,
+    'menuPercent': 11
   },
   '2014': {
+    // 迷人蘋果起司沙拉
     'id': 2014,
     'type': 2,
     'from': [
@@ -549,9 +616,11 @@ export const COOKMENU = {
         'num': 3
       }
     ],
-    'baseEnergy': 2578
+    'baseEnergy': 2578,
+    'menuPercent': 17
   },
   '2015': {
+    // 忍者沙拉
     'id': 2015,
     'type': 2,
     'from': [
@@ -572,9 +641,11 @@ export const COOKMENU = {
         'num': 11
       }
     ],
-    'baseEnergy': 10095
+    'baseEnergy': 10095,
+    'menuPercent': 35
   },
   '2016': {
+    // 熱風豆腐沙拉
     'id': 2016,
     'type': 2,
     'from': [
@@ -587,9 +658,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 1976
+    'baseEnergy': 1976,
+    'menuPercent': 11
   },
   '2017': {
+    // 萌綠沙拉
     'id': 2017,
     'type': 2,
     'from': [
@@ -610,9 +683,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 11393
+    'baseEnergy': 11393,
+    'menuPercent': 48
   },
   '2018': {
+    // 冥想香甜沙拉
     'id': 2018,
     'type': 2,
     'from': [
@@ -629,9 +704,11 @@ export const COOKMENU = {
         'num': 12
       }
     ],
-    'baseEnergy': 7675
+    'baseEnergy': 7675,
+    'menuPercent': 48
   },
   '2019': {
+    // 亂擊玉米沙拉
     'id': 2019,
     'type': 2,
     'from': [
@@ -644,15 +721,19 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 2785
+    'baseEnergy': 2785,
+    'menuPercent': 25
   },
   '3000': {
+    // 拌拌果汁
     'id': 3000,
     'type': 3,
     'from': [],
-    'baseEnergy': 0
+    'baseEnergy': 0,
+    'menuPercent': 0
   },
   '3001': {
+    // 熟成甜薯燒
     'id': 3001,
     'type': 3,
     'from': [
@@ -665,9 +746,11 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 1783
+    'baseEnergy': 1783,
+    'menuPercent': 11
   },
   '3002': {
+    // 不屈薑餅
     'id': 3002,
     'type': 3,
     'from': [
@@ -688,9 +771,11 @@ export const COOKMENU = {
         'num': 4
       }
     ],
-    'baseEnergy': 4921
+    'baseEnergy': 4921,
+    'menuPercent': 25
   },
   '3003': {
+    // 特選蘋果汁
     'id': 3003,
     'type': 3,
     'from': [
@@ -699,9 +784,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 763
+    'baseEnergy': 763,
+    'menuPercent': 6
   },
   '3004': {
+    // 手製勁爽汽水
     'id': 3004,
     'type': 3,
     'from': [
@@ -710,9 +797,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 964
+    'baseEnergy': 964,
+    'menuPercent': 6
   },
   '3005': {
+    // 火花薑茶
     'id': 3005,
     'type': 3,
     'from': [
@@ -725,9 +814,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 1788
+    'baseEnergy': 1788,
+    'menuPercent': 11
   },
   '3006': {
+    // 胖丁百匯布丁
     'id': 3006,
     'type': 3,
     'from': [
@@ -748,9 +839,11 @@ export const COOKMENU = {
         'num': 10
       }
     ],
-    'baseEnergy': 7594
+    'baseEnergy': 7594,
+    'menuPercent': 35
   },
   '3007': {
+    // 惡魔之吻水果牛奶
     'id': 3007,
     'type': 3,
     'from': [
@@ -771,9 +864,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 4734
+    'baseEnergy': 4734,
+    'menuPercent': 25
   },
   '3008': {
+    // 祈願蘋果派
     'id': 3008,
     'type': 3,
     'from': [
@@ -786,9 +881,11 @@ export const COOKMENU = {
         'num': 4
       }
     ],
-    'baseEnergy': 1634
+    'baseEnergy': 1634,
+    'menuPercent': 11
   },
   '3009': {
+    // 橙夢的排毒茶
     'id': 3009,
     'type': 3,
     'from': [
@@ -805,9 +902,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 5065
+    'baseEnergy': 5065,
+    'menuPercent': 25
   },
   '3010': {
+    // 甜甜香氣巧克力蛋糕
     'id': 3010,
     'type': 3,
     'from': [
@@ -824,9 +923,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 3280
+    'baseEnergy': 3280,
+    'menuPercent': 17
   },
   '3011': {
+    // 哞哞熱鮮奶
     'id': 3011,
     'type': 3,
     'from': [
@@ -835,9 +936,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 727
+    'baseEnergy': 727,
+    'menuPercent': 6
   },
   '3012': {
+    // 輕裝豆香蛋糕
     'id': 3012,
     'type': 3,
     'from': [
@@ -850,9 +953,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 1798
+    'baseEnergy': 1798,
+    'menuPercent': 11
   },
   '3013': {
+    // 活力蛋白飲
     'id': 3013,
     'type': 3,
     'from': [
@@ -865,9 +970,11 @@ export const COOKMENU = {
         'num': 8
       }
     ],
-    'baseEnergy': 3168
+    'baseEnergy': 3168,
+    'menuPercent': 17
   },
   '3014': {
+    // 我行我素蔬菜汁
     'id': 3014,
     'type': 3,
     'from': [
@@ -880,9 +987,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 1798
+    'baseEnergy': 1798,
+    'menuPercent': 11
   },
   '3015': {
+    // 大馬拉薩達
     'id': 3015,
     'type': 3,
     'from': [
@@ -899,9 +1008,11 @@ export const COOKMENU = {
         'num': 6
       }
     ],
-    'baseEnergy': 2927
+    'baseEnergy': 2927,
+    'menuPercent': 17
   },
   '3016': {
+    // 大力士豆香甜甜圈
     'id': 3016,
     'type': 3,
     'from': [
@@ -918,9 +1029,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 3213
+    'baseEnergy': 3213,
+    'menuPercent': 17
   },
   '3017': {
+    // 大爆炸爆米花
     'id': 3017,
     'type': 3,
     'from': [
@@ -937,9 +1050,11 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 6048
+    'baseEnergy': 6048,
+    'menuPercent': 35
   },
   '3018': {
+    // 茶會玉米司康
     'id': 3018,
     'type': 3,
     'from': [
@@ -960,9 +1075,11 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 10925
+    'baseEnergy': 10925,
+    'menuPercent': 48
   },
   '3019': {
+    // 花瓣舞巧克力塔
     'id': 3019,
     'type': 3,
     'from': [{
@@ -972,9 +1089,11 @@ export const COOKMENU = {
       'id': 5,
       'num': 11
     }],
-    'baseEnergy': 3314
+    'baseEnergy': 3314,
+    'menuPercent': 25
   },
   '3020': {
+    // 花之禮馬卡龍
     'id': 3020,
     'type': 3,
     'from': [{
@@ -990,6 +1109,7 @@ export const COOKMENU = {
       'id': 8,
       'num': 10
     }],
-    'baseEnergy': 13834
+    'baseEnergy': 13834,
+    'menuPercent': 48
   }
 }

@@ -2,7 +2,8 @@ const markdownText = `
 # 更新日志
 
 ## 24-04-02
-1. update 睡姿抽取
+1. add 食材宝可梦推荐-食谱速查加成%显示
+2. update 睡姿抽取
 
 ## 24-04-01
 1. update 雷公期望
