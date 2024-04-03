@@ -104,5 +104,6 @@ const props = defineProps({
       class="sptime extra-desc"
       v-html="props.pokeItem.extraDesc"
     ></pre>
+    <slot />
   </div>
 </template>

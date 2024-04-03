@@ -33,6 +33,9 @@ const helpSpeedCalcForm = ref({
   resLength: 0,
   contrastPoke: null
 })
+const userPokemons = ref({
+  list: []
+})
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
@@ -169,6 +172,7 @@ const getNewSkillPer = (formData, skillPer) => {
 }
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
+  const pokeLevel = pokeItem.level || helpSpeedCalcForm.value.level
   const newPokeItem = { ...pokeItem }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
@@ -181,9 +185,9 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
     [0, 0],
     [0, 1]
   ]
-  if (helpSpeedCalcForm.value.level < 30) {
+  if (pokeLevel < 30) {
     tempFoodType = [[0]]
-  } else if (helpSpeedCalcForm.value.level >= 60) {
+  } else if (pokeLevel >= 60) {
     if (pokeItem.food.type.length === 3) {
       tempFoodType = [
         [0, 0, 0],
@@ -205,12 +209,9 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
 
   if (isPlayer) {
     tempFoodType = [[...helpSpeedCalcForm.value.useFoods]]
-    if (
-      helpSpeedCalcForm.value.level >= 30 &&
-      helpSpeedCalcForm.value.level < 60
-    ) {
+    if (pokeLevel >= 30 && pokeLevel < 60) {
       tempFoodType[0].splice(2, 1)
-    } else if (helpSpeedCalcForm.value.level < 30) {
+    } else if (pokeLevel < 30) {
       tempFoodType = [[0]]
     }
     // console.log(helpSpeedCalcForm.value.useFoods, tempFoodType)
@@ -234,9 +235,9 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
         newPokeItem.food.type[arrFTItem[0]],
         newPokeItem.food.type[arrFTItem[1]]
       ]
-      if (helpSpeedCalcForm.value.level < 30) {
+      if (pokeLevel < 30) {
         arrFood.splice(1, arrFood.length)
-      } else if (helpSpeedCalcForm.value.level >= 60) {
+      } else if (pokeLevel >= 60) {
         arrFood.push(newPokeItem.food.type[arrFTItem[2]])
       }
     }
@@ -247,7 +248,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
       extraDesc: extraDesc,
       ...getOneDayEnergy(
         newPokeItem,
-        helpSpeedCalcForm.value.level,
+        pokeLevel,
         arrFood,
         is2n ? true : false,
         helpSpeedCalcForm.value.isRightBerry
@@ -257,75 +258,55 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   return resRankArr
 }
 
-const getPlayerExtraDesc = () => {
+const getPlayerExtraDesc = pokemons => {
   let extraDesc = '自选'
-  if (
-    helpSpeedCalcForm.value.skill.includes('hs') ||
-    helpSpeedCalcForm.value.skill.includes('hm')
-  ) {
+  if (pokemons.skill.includes('hs') || pokemons.skill.includes('hm')) {
     extraDesc += '\n'
   }
-  if (helpSpeedCalcForm.value.skill.includes('hs')) {
+  if (pokemons.skill.includes('hs')) {
     extraDesc += '帮忙S'
   }
-  if (
-    helpSpeedCalcForm.value.skill.includes('hs') &&
-    helpSpeedCalcForm.value.skill.includes('hm')
-  ) {
+  if (pokemons.skill.includes('hs') && pokemons.skill.includes('hm')) {
     extraDesc += ','
   }
-  if (helpSpeedCalcForm.value.skill.includes('hm')) {
+  if (pokemons.skill.includes('hm')) {
     extraDesc += '帮忙M'
   }
   if (
-    helpSpeedCalcForm.value.skill.includes('hg1') ||
-    helpSpeedCalcForm.value.skill.includes('hg2') ||
-    helpSpeedCalcForm.value.skill.includes('hg3') ||
-    helpSpeedCalcForm.value.skill.includes('hg4') ||
-    helpSpeedCalcForm.value.skill.includes('hg5')
+    pokemons.skill.includes('hg1') ||
+    pokemons.skill.includes('hg2') ||
+    pokemons.skill.includes('hg3') ||
+    pokemons.skill.includes('hg4') ||
+    pokemons.skill.includes('hg5')
   ) {
     extraDesc += '\n帮手奖励'
   }
-  if (
-    helpSpeedCalcForm.value.skill.includes('fs') ||
-    helpSpeedCalcForm.value.skill.includes('fm')
-  ) {
+  if (pokemons.skill.includes('fs') || pokemons.skill.includes('fm')) {
     extraDesc += '\n'
   }
-  if (helpSpeedCalcForm.value.skill.includes('fs')) {
+  if (pokemons.skill.includes('fs')) {
     extraDesc += '食率S'
   }
-  if (
-    helpSpeedCalcForm.value.skill.includes('fs') &&
-    helpSpeedCalcForm.value.skill.includes('fm')
-  ) {
+  if (pokemons.skill.includes('fs') && pokemons.skill.includes('fm')) {
     extraDesc += ','
   }
-  if (helpSpeedCalcForm.value.skill.includes('fm')) {
+  if (pokemons.skill.includes('fm')) {
     extraDesc += '食率M'
   }
-  if (
-    helpSpeedCalcForm.value.skill.includes('ss') ||
-    helpSpeedCalcForm.value.skill.includes('sm')
-  ) {
+  if (pokemons.skill.includes('ss') || pokemons.skill.includes('sm')) {
     extraDesc += '\n'
   }
-  if (helpSpeedCalcForm.value.skill.includes('ss')) {
+  if (pokemons.skill.includes('ss')) {
     extraDesc += '技率S'
   }
-  if (
-    helpSpeedCalcForm.value.skill.includes('ss') &&
-    helpSpeedCalcForm.value.skill.includes('sm')
-  ) {
+  if (pokemons.skill.includes('ss') && pokemons.skill.includes('sm')) {
     extraDesc += ','
   }
-  if (helpSpeedCalcForm.value.skill.includes('sm')) {
+  if (pokemons.skill.includes('sm')) {
     extraDesc += '技率M'
   }
   extraDesc += `\n${
-    characterOptions.find(
-      item => item.label === helpSpeedCalcForm.value.character
-    ).txt
+    characterOptions.find(item => item.label === pokemons.character).txt
   }`
   return extraDesc
 }
@@ -344,7 +325,7 @@ const getTargetPokemonEnergy = pokeId => {
   )
 
   resRankArr = resRankArr.concat(
-    addArrInOptions(getPlayerExtraDesc(), pokeItem, true)
+    addArrInOptions(getPlayerExtraDesc(helpSpeedCalcForm.value), pokeItem, true)
   ) // 玩家自选
 
   const hsDefaultOptions = {
@@ -577,6 +558,50 @@ const handleChangePokemon = () => {
   setTargetListByHelp()
 }
 
+const getBoxCurEngery = () => {
+  let resRankArr = []
+  userPokemons.value.list.forEach(upItem => {
+    const pokeItem = { ...pokedex[upItem.pokemonId] }
+    pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
+    pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
+    pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+    pokeItem.level = upItem.level
+
+    resRankArr = resRankArr.concat(
+      addArrInOptions(getPlayerExtraDesc(upItem), pokeItem, true)
+    )
+  })
+  const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+  return res
+}
+// const LS_NAME = 'myPokemonBox_testing1'
+// const getLSBOX = localStorage.getItem(LS_NAME)
+// if (getLSBOX) {
+//   userPokemons.value.list = JSON.parse(getLSBOX)
+// }
+const hanldeClickAddBox = () => {
+  const curRes = {
+    id: `${new Date().getTime()}${helpSpeedCalcForm.value.pokemonId}`,
+    pokemonId: helpSpeedCalcForm.value.pokemonId,
+    baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
+    level: helpSpeedCalcForm.value.level,
+    skill: [...helpSpeedCalcForm.value.skill],
+    character: helpSpeedCalcForm.value.character,
+    useFoods: [...helpSpeedCalcForm.value.useFoods],
+    dataIndex: userPokemons.value.list.length
+  }
+  userPokemons.value.list.push(curRes)
+  // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+  // console.log(curRes)
+}
+const handleClickDelPoke = dataIndex => {
+  // const msg = '您真的确定要删除该宝可梦吗？'
+  // if (confirm(msg)) {
+  userPokemons.value.list.splice(dataIndex, 1)
+  // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+  // }
+}
+
 onMounted(() => {
   byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
@@ -771,6 +796,11 @@ watch(helpSpeedCalcForm.value, val => {
         >
       </el-radio-group>
     </el-form-item>
+    <el-form-item>
+      <el-button type="success" plain @click="hanldeClickAddBox()"
+        >将当前宝可梦加入盒子对比</el-button
+      >
+    </el-form-item>
     <el-form-item label="计算结果">
       <ul>
         <li>
@@ -912,6 +942,7 @@ watch(helpSpeedCalcForm.value, val => {
         placeholder="请选择要对比的宝可梦"
         filterable
         clearable
+        class="mb3"
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
@@ -933,7 +964,7 @@ watch(helpSpeedCalcForm.value, val => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
-    <div class="poke-tb poke-tb--xscorll">
+    <div class="poke-tb poke-tb--xscorll mb3">
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
@@ -958,6 +989,35 @@ watch(helpSpeedCalcForm.value, val => {
         }_${pokeItem.extraDesc || ''}`"
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       />
+    </div>
+    <h3 v-if="userPokemons.list.length > 0">
+      宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
+    </h3>
+    <div class="poke-tb poke-tb--xscorll" v-if="userPokemons.list.length > 0">
+      <CptEnergyItem
+        class="poke-tb__item--hasclose"
+        :pokeItem="pokeItem"
+        :pokeKey="pokeKey"
+        :showKey="[
+          'helpSpeed',
+          'helpSpeedHM',
+          'berry',
+          'pokeType',
+          'foodPer',
+          'skillPer',
+        ]"
+        v-for="(pokeItem, pokeKey) in getBoxCurEngery()"
+        v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
+          pokeItem.nameExtra || ''
+        }_${pokeItem.extraDesc || ''}`"
+        :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
+      >
+        <p class="spscore">{{ pokeItem.level }}级</p>
+        <i
+          class="i i-close"
+          @click="handleClickDelPoke(pokeItem.dataIndex)"
+        ></i>
+      </CptEnergyItem>
     </div>
   </div>
   <el-form label-width="90px">

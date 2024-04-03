@@ -937,6 +937,10 @@ h4 {
     margin: 2px;
     text-align: center;
 
+    &--hasclose {
+      position: relative;
+    }
+
     &.default {
       background-color: rgba($color: #c3c3c3, $alpha: .25);
     }
@@ -951,6 +955,22 @@ h4 {
 
     &.shiny {
       background: linear-gradient(45deg, rgba(#fceabb, 50%) 0%, rgba(#fccd4d, 50%) 50%, rgba(#f8b500, 50%) 51%, rgba(#fbdf93, 50%) 100%);
+    }
+
+    .i-close {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      z-index: 10;
+      width: 16px;
+      height: 16px;
+      background-color: rgba($color: #fff, $alpha: .5);
+      opacity: .5;
+
+      &:hover,
+      &:active {
+        opacity: 1;
+      }
     }
   }
 
@@ -1097,7 +1117,7 @@ h4 {
 
   .poke-tb--lottery {
     text-align: center;
-    
+
     .poke-tb__item {
       transform: scale(0.8);
       margin: -21px -5px;
