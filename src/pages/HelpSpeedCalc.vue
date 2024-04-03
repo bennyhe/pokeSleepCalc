@@ -1032,6 +1032,7 @@ watch(helpSpeedCalcForm.value, val => {
           'pokeType',
           'foodPer',
           'skillPer',
+          'skillType'
         ]"
         v-for="(pokeItem, pokeKey) in getBoxCurEngery()"
         v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
