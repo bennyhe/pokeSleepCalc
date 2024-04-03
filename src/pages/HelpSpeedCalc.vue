@@ -594,10 +594,13 @@ const hanldeClickAddBox = () => {
   // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   // console.log(curRes)
 }
-const handleClickDelPoke = dataIndex => {
+const handleClickDelPoke = dataId => {
   // const msg = '您真的确定要删除该宝可梦吗？'
   // if (confirm(msg)) {
-  userPokemons.value.list.splice(dataIndex, 1)
+  userPokemons.value.list.splice(
+    userPokemons.value.list.findIndex(item => item.id === dataId),
+    1
+  )
   // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   // }
 }
@@ -1013,10 +1016,7 @@ watch(helpSpeedCalcForm.value, val => {
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
-        <i
-          class="i i-close"
-          @click="handleClickDelPoke(pokeItem.dataIndex)"
-        ></i>
+        <i class="i i-close" @click="handleClickDelPoke(pokeItem.id)"></i>
       </CptEnergyItem>
     </div>
   </div>
