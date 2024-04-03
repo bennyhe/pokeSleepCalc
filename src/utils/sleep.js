@@ -266,6 +266,10 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     if (lastList.length > 0) {
       lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
     }
+    // 大肚子睡只能1次
+    if (lastList[0].sleepNameId && lastList[0].sleepNameId === 4) {
+      isSleepOnStomach = true
+    }
     res.push({
       ...lastList[0],
       isShiny: getShinyPoke()
@@ -291,16 +295,25 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     const resList = incensePokemonSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
     // 大于1个结果随机分配睡姿
     if (resList.length > 1) {
+      const rdmIndexIn = parseInt(
+        Math.floor(Math.random() * resList.length),
+        10
+      )
+      // 大肚子睡只能1次
+      if (resList[rdmIndexIn].sleepNameId && resList[rdmIndexIn].sleepNameId === 4) {
+        isSleepOnStomach = true
+      }
       res.push({
-        ...resList[parseInt(
-          Math.floor(Math.random() * resList.length),
-          10
-        )],
+        ...resList[rdmIndexIn],
         isShiny: getShinyPoke(),
         extra: '熏香'
       })
     } else {
       // 否则最低spo睡姿
+      // 大肚子睡只能1次
+      if (incensePokemonSleeps[0].sleepNameId && incensePokemonSleeps[0].sleepNameId === 4) {
+        isSleepOnStomach = true
+      }
       res.push({
         ...incensePokemonSleeps[0],
         isShiny: getShinyPoke(),
