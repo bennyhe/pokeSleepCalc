@@ -5,6 +5,7 @@ import { sortInObjectOptions, toHM } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
 import { FOOD_TYPES } from '../config/valKey.js'
+import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
   allHelpType,
   skillOptions,
@@ -17,6 +18,7 @@ import {
 import i18n from '../i18n'
 const { t } = i18n.global
 
+const navData = ref(NAV_HELPSPEEDCALC)
 const byHelpSpeedRes = ref([])
 const targetInList = ref([])
 const otherLevelShow = [25, 30, 50, 60, 100]
@@ -927,7 +929,19 @@ watch(helpSpeedCalcForm.value, val => {
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>
-    <el-form-item label="快速等级">
+    <el-form-item>
+      <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
+        <template v-for="cItem in navData.navList"
+          v-bind:key="cItem.name">
+        <el-radio-button
+          :label="cItem.value"
+          :disabled="cItem.value === 1 && userPokemons.list.length === 0"
+          >{{ cItem.name }}<span v-if="cItem.value === 1">({{userPokemons.list.length}})</span></el-radio-button
+        >
+        </template>
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="快速等级" v-if="navData.navIndex === 0">
       <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
           class="radiogroup--level"
@@ -977,7 +991,7 @@ watch(helpSpeedCalcForm.value, val => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
-    <div class="poke-tb poke-tb--xscorll mb3">
+    <div class="poke-tb poke-tb--xscorll mb3" v-if="navData.navIndex === 0">
       <CptEnergyItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
@@ -1003,10 +1017,10 @@ watch(helpSpeedCalcForm.value, val => {
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       />
     </div>
-    <h3 v-if="userPokemons.list.length > 0">
+    <h3 v-if="userPokemons.list.length > 0 && navData.navIndex === 1">
       宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
     </h3>
-    <div class="poke-tb poke-tb--xscorll" v-if="userPokemons.list.length > 0">
+    <div class="poke-tb poke-tb--xscorll" v-if="userPokemons.list.length > 0 && navData.navIndex === 1">
       <CptEnergyItem
         class="poke-tb__item--hasclose"
         :pokeItem="pokeItem"

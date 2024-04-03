@@ -9,6 +9,7 @@ import { SLEEP_TYPES } from '../config/valKey.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
 import { POKE_243_IV } from '../config/lockIV.js'
+import { NAV_SLEEPCALC } from '../config/nav.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
@@ -25,22 +26,11 @@ import {
   getRandomArr
 } from '../utils/index.js'
 
+
 import i18n from '../i18n'
 const { t } = i18n.global
 
-const navData = ref({
-  navList: [
-    {
-      name: '按只数拆分睡眠',
-      value: 0
-    },
-    {
-      name: '抽取睡姿',
-      value: 2
-    }
-  ],
-  navIndex: 0
-})
+const navData = ref(NAV_SLEEPCALC)
 const userData = ref({
   CurEnergy: 0,
   curStageIndex: 0,
