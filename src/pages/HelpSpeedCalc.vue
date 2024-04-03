@@ -173,6 +173,8 @@ const getNewSkillPer = (formData, skillPer) => {
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   const pokeLevel = pokeItem.level || helpSpeedCalcForm.value.level
+  const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
+  const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
   const newPokeItem = { ...pokeItem }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
@@ -208,13 +210,13 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   }
 
   if (isPlayer) {
-    tempFoodType = [[...helpSpeedCalcForm.value.useFoods]]
+    tempFoodType = [[...pokeUseFoods]]
     if (pokeLevel >= 30 && pokeLevel < 60) {
       tempFoodType[0].splice(2, 1)
     } else if (pokeLevel < 30) {
       tempFoodType = [[0]]
     }
-    // console.log(helpSpeedCalcForm.value.useFoods, tempFoodType)
+    // console.log(pokeUseFoods, tempFoodType)
   } else {
     const nArr = []
     for (let i = 0; i < tempFoodType.length; i++) {
@@ -226,7 +228,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     let is2n = (arrFTKey + 1) % 2 === 0
     if (isPlayer) {
-      is2n = helpSpeedCalcForm.value.skill.includes('berrys')
+      is2n = pokeUseSkill.includes('berrys')
     }
 
     let arrFood = []
@@ -272,14 +274,20 @@ const getPlayerExtraDesc = pokemons => {
   if (pokemons.skill.includes('hm')) {
     extraDesc += '帮忙M'
   }
-  if (
-    pokemons.skill.includes('hg1') ||
-    pokemons.skill.includes('hg2') ||
-    pokemons.skill.includes('hg3') ||
-    pokemons.skill.includes('hg4') ||
-    pokemons.skill.includes('hg5')
-  ) {
-    extraDesc += '\n帮手奖励'
+  if (pokemons.skill.includes('hg1')) {
+    extraDesc += '\n帮手奖励*1'
+  }
+  if (pokemons.skill.includes('hg2')) {
+    extraDesc += '\n帮手奖励*2'
+  }
+  if (pokemons.skill.includes('hg3')) {
+    extraDesc += '\n帮手奖励*3'
+  }
+  if (pokemons.skill.includes('hg4')) {
+    extraDesc += '\n帮手奖励*4'
+  }
+  if (pokemons.skill.includes('hg5')) {
+    extraDesc += '\n帮手奖励*5'
   }
   if (pokemons.skill.includes('fs') || pokemons.skill.includes('fm')) {
     extraDesc += '\n'
@@ -566,6 +574,8 @@ const getBoxCurEngery = () => {
     pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
     pokeItem.level = upItem.level
+    pokeItem.useFoods = upItem.useFoods
+    pokeItem.skill = upItem.skill
 
     resRankArr = resRankArr.concat(
       addArrInOptions(getPlayerExtraDesc(upItem), pokeItem, true)
