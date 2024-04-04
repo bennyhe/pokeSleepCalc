@@ -74,16 +74,23 @@ const gameMapPokemons = [
 gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
   gameMapPokemons.push({
-    // levelPokemons: [],
+    levelPokemons: [],
     allPokemons: []
   })
   curMapSleeps.forEach(sleepsItem => {
-    // if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
-    //   gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
-    // }
-    // if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(sleepsItem.pokeId)) {
-    //   gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(sleepsItem.pokeId)
-    // }
+    if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
+      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
+    }
+    if (
+      !gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
+        sleepsItem.pokeId
+      ) &&
+      !gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)
+    ) {
+      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(
+        sleepsItem.pokeId
+      )
+    }
     if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
       gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
     }
@@ -345,7 +352,7 @@ const handleClickSleepMoreTimes = () => {
   if (!userData.value.isMoreCalcLoading) {
     console.log('start clac more times...')
     userData.value.isMoreCalcLoading = true
-    
+
     getRandomHope(
       gameMap[userData.value.curMap],
       userData.value.curUnLockSleepType,
@@ -445,7 +452,10 @@ setAndGetRandomSleepStyle(
             @click="handleClickChangeMap(mapIndex)"
           >
             <div class="cpt-select-list__name">
-              {{ $t(`ILAND.${mapItem.id}`) }}
+              {{ $t(`ILAND.${mapItem.id}`)
+              }}<span class="cpt-select-list__extra"
+                >({{ gameMapPokemons[mapIndex].allPokemons.length }})</span
+              >
               <div>
                 <div
                   class="cpt-food cpt-food--s berry"
@@ -934,7 +944,9 @@ setAndGetRandomSleepStyle(
                       }}
                     </p>
                     <p v-if="pageData.showMoreMathExp">
-                      <img class="icon" v-lazy="`./img/ui/candy.png`" />{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}
+                      <img class="icon" v-lazy="`./img/ui/candy.png`" />{{
+                        getDecimalNumber(hopeItem.candysSum / getTimes, 2)
+                      }}
                     </p>
                   </div>
                   <div>
