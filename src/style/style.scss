@@ -991,6 +991,29 @@ h4 {
       background: linear-gradient(45deg, rgba(#fceabb, 50%) 0%, rgba(#fccd4d, 50%) 50%, rgba(#f8b500, 50%) 51%, rgba(#fbdf93, 50%) 100%);
     }
 
+    .cpt-select-list {
+      &__item {
+        display: block;
+        font-size: 12px;
+        width: 66px;
+        border: none;
+        margin: 0 0 1px;
+        cursor: auto;
+        white-space: nowrap;
+        &.cur .cpt-select-list__name {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+      &__bg {
+        bottom: 0;
+        width: 150%;
+      }
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     .i-close {
       position: absolute;
       right: 2px;

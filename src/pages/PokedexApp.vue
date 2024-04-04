@@ -3,13 +3,16 @@ import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
+import { gameMap } from '../config/game.js'
 import { FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
 import {
   get,
   sortInObjectOptions,
   getPercent,
-  findMenuWithFood
+  findMenuWithFood,
+  getStageLevelPicId
 } from '../utils/index.js'
+import { getUnLockSleeps } from '../utils/sleep.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -23,6 +26,43 @@ const filterResGroup = ref({
   foodType: {},
   sleepType: {}
 })
+
+// 存储每个地图每个等级会出现的宝可梦
+const gameMapPokemons = [
+  // {
+  //   levelPokemons: [], //stage level pokemons
+  //   allPokemons: [] //all pokemons
+  // }
+]
+gameMap.forEach((gitem, gkey) => {
+  const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
+  gameMapPokemons.push({
+    levelPokemons: [],
+    allPokemons: [],
+    pokemonsIdToMapLevelIndex: {}
+  })
+  curMapSleeps.forEach(sleepsItem => {
+    if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
+      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
+    }
+    if (
+      !gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
+        sleepsItem.pokeId
+      ) &&
+      !gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)
+    ) {
+      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(
+        sleepsItem.pokeId
+      )
+      gameMapPokemons[gkey].pokemonsIdToMapLevelIndex[sleepsItem.pokeId] =
+        sleepsItem.unLockLevel
+    }
+    if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
+      gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
+    }
+  })
+})
+console.log(gameMapPokemons)
 
 const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
   if (pokeItem[keyVel] && !orgList.includes(pokeItem[keyVel])) {
@@ -338,6 +378,47 @@ onMounted(() => {
         v-bind:key="pokemonsItem.name"
       >
         <CptPoke :pokeId="+pokemonKey" :showKey="getShowKeyVal(pokemonKey)" />
+        <ul
+          class="cpt-select-list"
+          v-for="(mapItem, mapKey) in gameMap"
+          v-bind:key="mapItem.id"
+        >
+          <li
+            class="cpt-select-list__item cur"
+            v-if="gameMapPokemons[mapKey].allPokemons.includes(+pokemonKey)"
+          >
+            <div class="cpt-select-list__name">
+              {{ $t(`ILAND.${mapItem.id}`) }}
+              <p>
+                <img
+                  class="icon"
+                  v-lazy="
+                    `./img/ui/${getStageLevelPicId(
+                      gameMap[mapKey].levelList[
+                        gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                          +pokemonKey
+                        ]
+                      ].name
+                    )}.png`
+                  "
+                />
+                {{
+                  gameMap[mapKey].levelList[
+                    gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                      +pokemonKey
+                    ]
+                  ].name
+                }}
+              </p>
+            </div>
+            <img
+              v-if="mapItem.pic"
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
+            />
+          </li>
+        </ul>
       </div>
       <!-- E 全图鉴 -->
     </div>
