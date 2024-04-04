@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1707743356812,
-  appVer: '1.4.0',
+  updateTime: 1712202361527,
+  appVer: '1.4.2',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -10,12 +10,12 @@ export const foodRecommend = {
     },
     {
       evoLine: [4, 5, 6],
-      needFood: [[7], [7, 11], [6, 11]],
+      needFood: [[7], [7, 11], [6, 7, 11]],
       desc: '对应含玉米高级料理需要肠、姜'
     },
     {
       evoLine: [7, 8, 9],
-      needFood: [[8], [13], [13, 8]],
+      needFood: [[8], [8, 13], [13, 8]],
       desc: '对应大部分牛奶料理以及料理所需的可可，如有伊布家族不考虑60奶'
     },
     {
@@ -25,7 +25,7 @@ export const foodRecommend = {
     },
     {
       evoLine: [69, 70, 71],
-      needFood: [[12], [4, 12], [4, 1]],
+      needFood: [[12], [4, 12], [12, 4, 1]],
       desc: '番茄土豆适配咖喱周'
     },
     {
@@ -40,7 +40,7 @@ export const foodRecommend = {
     },
     {
       evoLine: [92, 93, 94],
-      needFood: [[6], [2, 6], [2,10]],
+      needFood: [[6], [2, 6], [2, 6]],
       desc: '无加成得食材率有限，大部分时候会下树果'
     },
     {
@@ -56,7 +56,7 @@ export const foodRecommend = {
     {
       evoLine: [127],
       needFood: [[9], [9, 5], [9, 5]],
-      desc: '对应饮料甜品周，蜜建议抓种子，苹果建议抓灾兽、信使鸟'
+      desc: '对应饮料甜品/沙拉周，蜜建议抓种子，苹果也可以抓灾兽、信使鸟'
     },
     {
       evoLine: [132],
@@ -75,22 +75,22 @@ export const foodRecommend = {
     },
     {
       evoLine: [359],
-      needFood: [[13], [5], [13, 5]],
+      needFood: [[13], [5, 13], [13, 5]],
       desc: '对应饮料甜品周苹果'
     },
     {
       evoLine: [453, 454],
       needFood: [[10], [10], [10]],
-      desc: '一般不养，对应沙拉周油，帮忙速度拉，实在没别的油候补再养他'
+      desc: '对应沙拉周油，帮忙速度拉，推荐帮忙M起步'
     },
     {
       evoLine: [459, 460],
-      needFood: [[12], [3], [3, 2]],
+      needFood: [[12], [3], [3]],
       desc: '少数产蛋的食材型，建议抓加帮忙速度的。'
     },
     {
       evoLine: [147, 148, 149],
-      needFood: [[6], [6], [6, 16, 10]],
+      needFood: [[6], [6, 16], [6, 16]],
       desc: '同小班全家一样的1.5倍育成经验。要玉米找穿着熊。'
     },
     {

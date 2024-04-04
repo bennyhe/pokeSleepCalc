@@ -18,9 +18,18 @@ import {
 
 const nFoodRecommend = { ...foodRecommend }
 nFoodRecommend.list.forEach(pokeItem => {
-  pokeItem.menuList = findMenuWithFood(pokedex[pokeItem.evoLine[0]].food.type)
+  const needFoods = []
+  pokeItem.needFood.forEach(item=>{
+    item.forEach(sitem=>{
+      if(!needFoods.includes(sitem)){
+        needFoods.push(sitem)
+      }
+    })
+  })
+  pokeItem.menuList = findMenuWithFood(needFoods)
 })
 
+// 所有食谱
 const cookMenuRes = []
 for (const cookTypeKey in COOK_TYPES) {
   if (Object.hasOwnProperty.call(COOK_TYPES, cookTypeKey)) {
@@ -83,7 +92,7 @@ for (const cookTypeKey in COOK_TYPES) {
     <p>本文基于app v{{ nFoodRecommend.appVer }}</p>
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
     <p>
-      新人优先树果队，不要玩食材队，食材队收益较低，千算万算不如人家树果队稳定，千算万算不如人家料理暴击一顿。需要扩食材包，需要解锁高级食材，需要严选宝可梦，需要扩锅手，组队难度大，培养成本高，做饭不暴击失落感强，容易弃坑。
+      新人优先树果队，不要玩食材队，食材队收益较低，千算万算不如人家树果队稳定，千算万算不如人家料理暴击一顿。需要扩食材包，需要解锁高级食材，需要严选宝可梦，需要扩锅手，需要做饭暴击手，组队难度大，培养成本高，做饭不暴击失落感强，容易弃坑。
     </p>
   </div>
   <ul class="cpt-list food-list">
@@ -146,7 +155,7 @@ for (const cookTypeKey in COOK_TYPES) {
               v-for="menuItem in pokeItem.menuList"
               v-bind:key="menuItem.id"
             >
-              <CptFoodmenu :menuItem="menuItem" />
+              <CptFoodmenu :menuItem="menuItem"/>
             </template>
           </div>
           <div class="cpt-foodmenu-row msee">
