@@ -394,15 +394,16 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
   getTimes = getTimes || 4000
   let orgList = []
   for (let i = 0; i < getTimes; i++) {
-    orgList = orgList.concat(
-      getRandomSleepStyle(
+    orgList = [
+      ...orgList,
+      ...getRandomSleepStyle(
         mapData,
         curUnLockSleepType,
         score,
         curStageIndex,
         extraSleepStyleOptions
       )
-    )
+    ]
   }
   const mergeRes = []
   orgList.forEach(item => {

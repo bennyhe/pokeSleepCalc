@@ -26,7 +26,6 @@ import {
   getRandomArr
 } from '../utils/index.js'
 
-
 import i18n from '../i18n'
 const { t } = i18n.global
 
@@ -45,6 +44,7 @@ const userData = ref({
   onOffBan: false,
   isUseTicket: false,
   isActRandom: false,
+  isMoreCalcLoading: false,
   useIncensePokemonId: '',
   banPokes: []
 })
@@ -337,22 +337,28 @@ const getRandomHopeCb = res => {
   //   userData.value.curStageIndex
   // )
   // console.log(res)
+  userData.value.isMoreCalcLoading = false
   hopeList.value = res
 }
 
 const handleClickSleepMoreTimes = () => {
-  getRandomHope(
-    gameMap[userData.value.curMap],
-    userData.value.curUnLockSleepType,
-    getScore(randomSleepStyle.value.sleepPoint),
-    userData.value.curStageIndex,
-    getTimes,
-    {
-      banPokes: userData.value.banPokes,
-      isActRandom: userData.value.isActRandom
-    },
-    getRandomHopeCb
-  )
+  if (!userData.value.isMoreCalcLoading) {
+    console.log('start clac more times...')
+    userData.value.isMoreCalcLoading = true
+    
+    getRandomHope(
+      gameMap[userData.value.curMap],
+      userData.value.curUnLockSleepType,
+      getScore(randomSleepStyle.value.sleepPoint),
+      userData.value.curStageIndex,
+      getTimes,
+      {
+        banPokes: userData.value.banPokes,
+        isActRandom: userData.value.isActRandom
+      },
+      getRandomHopeCb
+    )
+  }
 }
 
 const handleClickTimes = () => {
@@ -870,13 +876,14 @@ setAndGetRandomSleepStyle(
             </div>
             <div class="page-inner mb3">
               <el-button
+                :loading="userData.isMoreCalcLoading"
                 type="primary"
                 plain
                 @click="handleClickSleepMoreTimes()"
                 >点击计算期望(睡{{ getTimes }}次，不含熏香和露营券)</el-button
               >
             </div>
-            <div v-if="hopeList.length > 0">
+            <div class="has-loading" v-if="hopeList.length > 0">
               <div class="page-inner">
                 <h3>
                   <img
@@ -969,6 +976,12 @@ setAndGetRandomSleepStyle(
                     />
                   </div>
                 </template>
+              </div>
+              <div
+                class="cpt-loading"
+                :class="{ hide: !userData.isMoreCalcLoading }"
+              >
+                <i class="i i-loading"></i>LOADING...
               </div>
             </div>
           </div>
