@@ -63,8 +63,9 @@ const props = defineProps({
         <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
       <p>
-        获得<span class="sptime">{{ sleepItem.candys }}</span
-        >糖
+        <img class="icon" v-lazy="`./img/ui/candy.png`" />
+        <span class="sptime">{{ sleepItem.candys }}</span
+        >
       </p>
       <div v-if="sleepItem.count">
         获得<span class="sptime">{{ sleepItem.count }}</span

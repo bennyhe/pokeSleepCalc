@@ -934,7 +934,7 @@ setAndGetRandomSleepStyle(
                       }}
                     </p>
                     <p v-if="pageData.showMoreMathExp">
-                      糖{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}
+                      <img class="icon" v-lazy="`./img/ui/candy.png`" />{{ getDecimalNumber(hopeItem.candysSum / getTimes, 2) }}
                     </p>
                   </div>
                   <div>
