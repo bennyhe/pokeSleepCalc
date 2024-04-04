@@ -49,12 +49,30 @@ for (const cookTypeKey in COOK_TYPES) {
         }}<span class="extra">({{ cookTypeItem.list.length }}个)</span>
       </h3>
       <div class="cpt-foodmenu-scroll">
-        <template
-          v-for="menuItem in cookTypeItem.list"
-          v-bind:key="menuItem.id"
-        >
-          <CptFoodmenu :menuItem="menuItem" />
-        </template>
+        <div class="cpt-foodmenu-row pcsee">
+          <template
+            v-for="menuItem in cookTypeItem.list"
+            v-bind:key="menuItem.id"
+          >
+            <CptFoodmenu :menuItem="menuItem" />
+          </template>
+        </div>
+        <div class="cpt-foodmenu-row msee">
+          <template
+            v-for="(menuItem, menuKey) in cookTypeItem.list"
+            v-bind:key="menuItem.id"
+          >
+            <CptFoodmenu :menuItem="menuItem" v-if="menuKey % 2 === 0" />
+          </template>
+        </div>
+        <div class="cpt-foodmenu-row msee">
+          <template
+            v-for="(menuItem, menuKey) in cookTypeItem.list"
+            v-bind:key="menuItem.id"
+          >
+            <CptFoodmenu :menuItem="menuItem" v-if="menuKey % 2 !== 0" />
+          </template>
+        </div>
       </div>
     </template>
   </div>
@@ -123,11 +141,30 @@ for (const cookTypeKey in COOK_TYPES) {
           关联食谱<span class="extra">({{ pokeItem.menuList.length }}个)</span>
         </h3>
         <div class="cpt-foodmenu-scroll">
-          <CptFoodmenu
-            v-for="menuItem in pokeItem.menuList"
-            v-bind:key="menuItem.id"
-            :menuItem="menuItem"
-          />
+          <div class="cpt-foodmenu-row pcsee">
+            <template
+              v-for="menuItem in pokeItem.menuList"
+              v-bind:key="menuItem.id"
+            >
+              <CptFoodmenu :menuItem="menuItem" />
+            </template>
+          </div>
+          <div class="cpt-foodmenu-row msee">
+            <template
+              v-for="(menuItem, menuKey) in pokeItem.menuList"
+              v-bind:key="menuItem.id"
+            >
+              <CptFoodmenu :menuItem="menuItem" v-if="menuKey % 2 === 0" />
+            </template>
+          </div>
+          <div class="cpt-foodmenu-row msee">
+            <template
+              v-for="(menuItem, menuKey) in pokeItem.menuList"
+              v-bind:key="menuItem.id"
+            >
+              <CptFoodmenu :menuItem="menuItem" v-if="menuKey % 2 !== 0" />
+            </template>
+          </div>
         </div>
       </div>
     </li>

@@ -662,7 +662,7 @@ h4 {
 .cpt-foodmenu {
   display: inline-block;
   vertical-align: middle;
-  width: 111px;
+  width: 110px;
   border: 1px solid #ccc;
   border-radius: 3px;
   position: relative;
@@ -860,6 +860,7 @@ h4 {
     opacity: 1;
   }
 }
+
 .cpt-loading {
   position: absolute;
   left: 0;
@@ -1088,7 +1089,7 @@ h4 {
     vertical-align: top;
     padding-right: 5px;
     margin-right: 5px;
-    
+
     .cpt-pokemon {
       margin: 0 auto;
       display: block;
@@ -1110,16 +1111,23 @@ h4 {
 
 // 移动端适配
 @media screen and (max-width: 660px) {
+
   .dialog-support,
   .dialog-update {
     max-height: vw(860);
   }
+
   .cpt-foodmenu-scroll {
+    height: 168px;
     overflow-x: auto;
     white-space: nowrap;
 
+    &--singlerow {
+      height: auto;
+    }
+
     .cpt-foodmenu {
-      margin-bottom: 0;
+      height: 77px;
     }
   }
 
@@ -1136,7 +1144,7 @@ h4 {
   .main {
     .el-form-item {
       margin-bottom: 8px;
-  
+
       &__content {
         line-height: 28px;
       }
@@ -1167,9 +1175,9 @@ h4 {
 
   .page-helpcalc {
     .radiogroup--level .el-radio-button__inner {
-       padding: 5px;
-     }
-   }
+      padding: 5px;
+    }
+  }
 
   .pokedex-list {
     .poke-tb__col {

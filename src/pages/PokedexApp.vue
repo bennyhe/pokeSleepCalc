@@ -262,7 +262,7 @@ onMounted(() => {
                   >({{ resItem.menuList.length }}个)</span
                 >
               </h3>
-              <div class="cpt-foodmenu-scroll">
+              <div class="cpt-foodmenu-scroll cpt-foodmenu-scroll--singlerow">
                 <CptFoodmenu
                   v-for="menuItem in resItem.menuList"
                   v-bind:key="menuItem.id"
