@@ -1148,6 +1148,137 @@ h4 {
   }
 }
 
+.lottery-map {
+  width: 638px;
+  height: 300px;
+  position: relative;
+  border: 1px dashed #d1d1d1;
+  box-shadow: 0 2px $mainColor;
+  margin-top: 5px;
+  overflow: hidden;
+
+  &__bg {
+    width: 100%;
+    height: 100%
+  }
+
+  &-wrap {
+    overflow-x: auto;
+  }
+
+  &__snorlax {
+    width: (944px / 5);
+    height: (776px / 5);
+    background: url(../img/ui/snorlax.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -(766px / 5 / 2) 0 0 0  -(944px / 5 / 2);
+    z-index: 3;
+  }
+
+  @keyframes aniFadeInTop {
+    0% {
+      opacity: 0;
+      transform: translate(0, 10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &__item {
+    position: absolute;
+    border-radius: 100%;
+    z-index: 10;
+    animation: aniFadeInTop 0.3s linear both;
+
+    .cpt-pokemon .cpt-pokemon__name {
+      display: none;
+    }
+
+    .cpt-pokemon__name {
+      background-color: rgba($color: #f1f1f1, $alpha: .9);
+      border-radius: 30px;
+      font-size: 12px;
+      text-align: center;
+      width: 66px;
+      box-shadow: 0 2px $mainColor;
+    }
+    
+    &--scalex1 {
+      .cpt-pokemon__pic {
+        transform: scaleX(-1);
+      }
+    }
+    &--1 {
+      left: 50%;
+      top: 1%;
+      margin-left: -33px;
+    }
+    &--2 {
+      left: 60%;
+      top: 15%;
+    }
+    &--3 {
+      left: 75%;
+      top: 10%;
+    }
+    &--4 {
+      left: 68%;
+      top: 35%;
+    }
+    &--5 {
+      left: 85%;
+      top: 30%;
+    }
+    &--6 {
+      left: 60%;
+      bottom: 15%;
+    }
+    &--7 {
+      left: 75%;
+      bottom: 10%;
+    }
+    // 开始镜像
+    &--8 {
+      left: 50%;
+      bottom: 1%;
+      margin-left: -33px;
+    }
+    &--9 {
+      right: 60%;
+      bottom: 15%;
+    }
+    &--10 {
+      right: 75%;
+      bottom: 10%;
+    }
+    &--11 {
+      right: 68%;
+      top: 35%;
+    }
+    &--12 {
+      right: 85%;
+      top: 30%;
+    }
+    &--13 {
+      right: 60%;
+      top: 15%;
+    }
+    &--14 {
+      right: 75%;
+      top: 10%;
+    }
+    &--999 {
+      left: 50%;
+      top: 46%;
+      margin: -33px 0 0 -33px;
+    }
+  }
+}
 // 多语言界面适配
 @import "./_import.lang.scss";
 

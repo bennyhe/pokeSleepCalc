@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -45,6 +45,7 @@ const userData = ref({
   isUseTicket: false,
   isActRandom: false,
   isMoreCalcLoading: false,
+  showLotteryMap: false,
   useIncensePokemonId: '',
   banPokes: []
 })
@@ -293,6 +294,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isActRandom: userData.value.isActRandom
     }
   )
+  const positionId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
   // 随机个体
   res.forEach((sleepItem, key) => {
     if (pokedex[sleepItem.pokeId].food) {
@@ -330,6 +332,17 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
         ivRes.skills = getRandomPokeSkills()
       }
       sleepItem.iv = ivRes
+
+      if (sleepItem.sleepNameId === 4) {
+        sleepItem.positionClassId = 999
+      } else {
+        const rdmIndex = parseInt(
+          Math.floor(Math.random() * positionId.length),
+          10
+        )
+        sleepItem.positionClassId = positionId[rdmIndex]
+        positionId.splice(rdmIndex, 1)
+      }
     }
   })
   // console.log(res)
@@ -420,10 +433,13 @@ const handleBlurEnergy = () => {
 // 初始化默认
 setDefaultCutNumber()
 setUnlockSleeps()
-setAndGetRandomSleepStyle(
-  getScore(randomSleepStyle.value.sleepPoint),
-  userData.value.curStageIndex
-)
+
+onMounted(() => {
+  setAndGetRandomSleepStyle(
+    getScore(randomSleepStyle.value.sleepPoint),
+    userData.value.curStageIndex
+  )
+})
 // setAndGetRandomSleepStyle(3000000, userData.value.curStageIndex) // debug
 </script>
 
@@ -618,7 +634,7 @@ setAndGetRandomSleepStyle(
         <p>* 开帐篷&熏香不在计算范围内。</p>
       </div>
     </div>
-    <template v-if="+navData.navIndex === 2">
+    <div :class="{ hide: +navData.navIndex !== 2 }">
       <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
         <el-form label-width="90px">
           <el-form-item label="睡眠类型">
@@ -749,6 +765,17 @@ setAndGetRandomSleepStyle(
               </span>
             </div>
           </el-form-item>
+          <el-form-item label="结果地图">
+            <span style="display: inline-block; vertical-align: middle">
+              <el-switch
+                v-model="userData.showLotteryMap"
+                inline-prompt
+                active-text="展开"
+                inactive-text="收起"
+                style="--el-switch-on-color: #ffaf00"
+              />
+            </span>
+          </el-form-item>
           <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
             <el-checkbox-group v-model="userData.banPokes" size="small">
               <el-checkbox :label="243"
@@ -843,6 +870,51 @@ setAndGetRandomSleepStyle(
             </div>
           </div>
           <div>
+            <div class="lottery-map-wrap" v-if="userData.showLotteryMap">
+              <div class="lottery-map">
+                <template
+                  v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
+                  v-bind:key="`${sleepItem.id}${sleepKey}${Math.random()}`"
+                >
+                  <div
+                    class="lottery-map__item"
+                    :class="[
+                      `lottery-map__item--${sleepItem.positionClassId}`,
+                      `lottery-map__item--scalex${parseInt(
+                        Math.floor(Math.random() * 2),
+                        10
+                      )}`,
+                    ]"
+                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s`"
+                  >
+                    <CptPoke :pokeId="sleepItem.pokeId" />
+                    <div
+                      class="cpt-pokemon__name"
+                      :class="{ shiny: sleepItem.isShiny }"
+                    >
+                      <p class="star">{{ sleepItem.star }}✩</p>
+                      <span v-if="sleepItem.isShiny" class="sptime">闪光</span>
+                      {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
+                    </div>
+                  </div>
+                </template>
+                <!-- <template
+                  v-for="sleepItem in 14"
+                  v-bind:key="`123${sleepItem}`"
+                >
+                  <div class="lottery-map__item" :class="[`lottery-map__item--${sleepItem}`]">
+                    <CptPoke :pokeId="randomSleepStyle.resList[0].pokeId" />
+                  </div>
+                </template> -->
+                <i class="lottery-map__snorlax"></i>
+                <img
+                  v-if="gameMap[userData.curMap].pic"
+                  class="lottery-map__bg"
+                  v-lazy="`./img/ui/${gameMap[userData.curMap].pic}.png`"
+                  :alt="gameMap[userData.curMap].name"
+                />
+              </div>
+            </div>
             <div class="poke-tb poke-tb--lottery mb3">
               <template
                 v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
@@ -999,11 +1071,11 @@ setAndGetRandomSleepStyle(
           </div>
         </div>
       </div>
-    </template>
+    </div>
     <div class="sleeplist">
       <div class="page-inner">
         <h3>
-          {{$t('PAGE_SLEEPCALC.sleepStyle')}}
+          {{ $t("PAGE_SLEEPCALC.sleepStyle") }}
           <span class="extra"
             >(<template
               v-if="getFilterInTypes(userData.unLockSleeps).length > 0"
