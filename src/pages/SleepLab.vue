@@ -10,7 +10,7 @@ import {
 } from '../utils/index.js'
 import { SPO_DATA } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SLEEP_NAMES, SLEEP_TYPES } from '../config/valKey.js'
+import { SLEEP_TYPES } from '../config/valKey.js'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 
@@ -266,7 +266,6 @@ const handleClickChangeMap = id => {
           >
             <CptPoke :pokeId="SLEEP_STYLE[sleepId].pokeId" />
             <p>{{ SLEEP_STYLE[sleepId].id }}</p>
-            <p>{{ SLEEP_NAMES[SLEEP_STYLE[sleepId].sleepNameId] }}</p>
             <p>{{ SLEEP_STYLE[sleepId].star }}星</p>
             <div v-if="SPO_DATA[sleepId] && SPO_DATA[sleepId].spo">
               <p>SPO:{{ SPO_DATA[sleepId].spo }}</p>
@@ -281,7 +280,7 @@ const handleClickChangeMap = id => {
       </div>
     </template>
   </div>
-  <div class="poke-tb hide">
+  <div class="poke-tb hid e">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"

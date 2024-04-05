@@ -1,10 +1,14 @@
 <script setup>
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import { gameMap } from '../../config/game.js'
-import { SLEEP_NAMES } from '../../config/valKey.js'
 import { getStageLevelPicId, getPercent } from '../../utils/index.js'
 
+const { locale } = useI18n()
+const localeLang = computed(()=>{
+  return locale.value
+})
 const props = defineProps({
   sleepItem: {
     type: [Object]
@@ -40,19 +44,25 @@ const props = defineProps({
       :isShiny="sleepItem.isShiny"
     />
     <div class="extra-desc">
+      <p v-if="sleepItem.sleepNameId !== 4">{{$t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`)}}</p>
       <p>
         <span class="star"
           ><template v-if="sleepItem.sleepNameId === 4">{{
-            SLEEP_NAMES[sleepItem.sleepNameId]
+            $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`)
           }}</template
           ><template v-else>{{ sleepItem.star }}✩</template></span
         >
       </p>
       <p>
-        <span class="sptime">{{
-          sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
-        }}</span
-        >号睡姿
+        <template v-if="localeLang === 'cn'">
+          <span class="sptime">{{
+            sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
+          }}</span
+          >号睡姿
+        </template>
+        <template v-else>
+          ID-<span class="sptime">{{ sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "") }}</span>
+        </template>
       </p>
       <p>
         <img class="icon" v-lazy="`./img/ui/exp.png`" />
@@ -64,8 +74,7 @@ const props = defineProps({
       </p>
       <p>
         <img class="icon" v-lazy="`./img/ui/candy.png`" />
-        <span class="sptime">{{ sleepItem.candys }}</span
-        >
+        <span class="sptime">{{ sleepItem.candys }}</span>
       </p>
       <div v-if="sleepItem.count">
         获得<span class="sptime">{{ sleepItem.count }}</span

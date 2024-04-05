@@ -1003,7 +1003,7 @@ setAndGetRandomSleepStyle(
     <div class="sleeplist">
       <div class="page-inner">
         <h3>
-          已解锁睡姿
+          {{$t('PAGE_SLEEPCALC.sleepStyle')}}
           <span class="extra"
             >(<template
               v-if="getFilterInTypes(userData.unLockSleeps).length > 0"

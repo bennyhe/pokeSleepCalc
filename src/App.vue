@@ -56,7 +56,7 @@ const { locale } = useI18n() // 先调用此方法，然后再使用
 const handleClickChangeLang = () => {
   locale.value = sellang.value
   localStorage.setItem('psclang', sellang.value)
-  console.log(locale.value)
+  // console.log(locale.value)
   location.reload()
 }
 

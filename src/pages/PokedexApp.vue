@@ -62,7 +62,7 @@ gameMap.forEach((gitem, gkey) => {
     }
   })
 })
-console.log(gameMapPokemons)
+// console.log(gameMapPokemons)
 
 const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
   if (pokeItem[keyVel] && !orgList.includes(pokeItem[keyVel])) {
