@@ -23,7 +23,8 @@ import {
   getStageLevelPicId,
   sortInObjectOptions,
   getDecimalNumber,
-  getRandomArr
+  getRandomArr,
+  calcPositions
 } from '../utils/index.js'
 
 import i18n from '../i18n'
@@ -294,7 +295,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isActRandom: userData.value.isActRandom
     }
   )
-  const positionId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  // const positionId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
   // 随机个体
   res.forEach((sleepItem, key) => {
     if (pokedex[sleepItem.pokeId].food) {
@@ -333,19 +334,20 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       }
       sleepItem.iv = ivRes
 
-      if (sleepItem.sleepNameId === 4) {
-        sleepItem.positionClassId = 999
-      } else {
-        const rdmIndex = parseInt(
-          Math.floor(Math.random() * positionId.length),
-          10
-        )
-        sleepItem.positionClassId = positionId[rdmIndex]
-        positionId.splice(rdmIndex, 1)
-      }
+      // if (sleepItem.sleepNameId === 4) {
+      //   sleepItem.positionClassId = 999
+      // } else {
+      //   const rdmIndex = parseInt(
+      //     Math.floor(Math.random() * positionId.length),
+      //     10
+      //   )
+      //   sleepItem.positionClassId = positionId[rdmIndex]
+      //   positionId.splice(rdmIndex, 1)
+      // }
     }
   })
-  // console.log(res)
+  calcPositions(res)
+  console.log(res)
   randomSleepStyle.value.resList = res
 }
 
@@ -879,13 +881,12 @@ onMounted(() => {
                   <div
                     class="lottery-map__item"
                     :class="[
-                      `lottery-map__item--${sleepItem.positionClassId}`,
                       `lottery-map__item--scalex${parseInt(
                         Math.floor(Math.random() * 2),
                         10
                       )}`,
                     ]"
-                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s`"
+                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s; left:${638 * sleepItem.position.xPercent}px; top:${380 * sleepItem.position.yPercent}px`"
                   >
                     <div class="cpt-pokemon">
                       <div class="cpt-pokemon__pic">

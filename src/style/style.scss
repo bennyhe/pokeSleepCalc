@@ -1194,6 +1194,7 @@ h4 {
     border-radius: 100%;
     z-index: 10;
     animation: aniFadeInTop 0.3s linear both;
+    margin: -85px 0 0 -33px;
 
     .cpt-pokemon {
       width: 70px;
@@ -1206,10 +1207,6 @@ h4 {
       }
     }
 
-    .cpt-pokemon .cpt-pokemon__name {
-      display: none;
-    }
-
     .cpt-pokemon__name {
       background-color: rgba($color: #f1f1f1, $alpha: .9);
       border-radius: 30px;
@@ -1217,76 +1214,15 @@ h4 {
       text-align: center;
       width: 66px;
       box-shadow: 0 2px $mainColor;
+      height: auto;
+      min-height: 24px;
+      text-shadow: 1px 1px #fff;
     }
     
     &--scalex1 {
       .cpt-pokemon__pic {
         transform: scaleX(-1);
       }
-    }
-    &--1 {
-      left: 50%;
-      top: 1%;
-      margin-left: -33px;
-    }
-    &--2 {
-      left: 60%;
-      top: 15%;
-    }
-    &--3 {
-      left: 75%;
-      top: 10%;
-    }
-    &--4 {
-      left: 68%;
-      top: 35%;
-    }
-    &--5 {
-      left: 85%;
-      top: 30%;
-    }
-    &--6 {
-      left: 60%;
-      bottom: 15%;
-    }
-    &--7 {
-      left: 75%;
-      bottom: 10%;
-    }
-    // 开始镜像
-    &--8 {
-      left: 50%;
-      bottom: 1%;
-      margin-left: -33px;
-    }
-    &--9 {
-      right: 60%;
-      bottom: 15%;
-    }
-    &--10 {
-      right: 75%;
-      bottom: 10%;
-    }
-    &--11 {
-      right: 68%;
-      top: 35%;
-    }
-    &--12 {
-      right: 85%;
-      top: 30%;
-    }
-    &--13 {
-      right: 60%;
-      top: 15%;
-    }
-    &--14 {
-      right: 75%;
-      top: 10%;
-    }
-    &--999 {
-      left: 50%;
-      top: 46%;
-      margin: -33px 0 0 -33px;
     }
   }
 }

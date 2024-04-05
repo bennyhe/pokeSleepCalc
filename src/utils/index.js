@@ -250,3 +250,62 @@ export function getRandomArr(data, eachNum) {
   }
   return result
 }
+
+/**
+ * @author samuelwyf
+ * @createTime 2024/04/05 21:00:00
+ * @param {*} sleepArr 
+ * @param {*} width 
+ * @param {*} height 
+ */
+export function calcPositions(sleepArr, width, height) {
+  width = width || 638
+  height = height || 380
+
+  let hasBellySleep = false
+  const shuffle = []
+  let areas = 0
+  let bellyKey = 0
+  sleepArr.forEach((sleepItem, sleepKey) => {
+    if (sleepItem.sleepNameId === 4) {
+      hasBellySleep = true
+      shuffle[sleepKey] = sleepArr.length - 1
+      bellyKey = sleepKey
+    } else {
+      shuffle[sleepKey] = areas
+      ++areas
+    }
+  })
+
+  shuffle.sort(() => Math.random() - 0.5)
+
+  const pi = Math.acos(-1.0)
+  const minRadius = 100
+
+  const argSlice = 2 * pi / areas
+  sleepArr.forEach((sleepItem, sleepKey) => {
+    if (sleepItem.sleepNameId === 4) {
+      // belly sleep
+      sleepItem.position = {
+        xPercent: 0.5,
+        yPercent: 0.46
+      }
+    } else {
+      let idx = shuffle.indexOf(sleepKey)
+      if (hasBellySleep && idx === sleepArr.length - 1) {
+        idx = shuffle.indexOf(bellyKey)
+      }
+      const arg = (idx + 0.5) * argSlice
+      const sinA = Math.sin(arg)
+      const cosA = Math.cos(arg)
+      const rX = Math.abs(sinA) < 0.0001 ? 0.0001 : Math.abs(sinA)
+      const rY = Math.abs(cosA) < 0.0001 ? 0.0001 : Math.abs(cosA)
+      const maxRadius = Math.min((width * 0.5 - 70) / rX, (height * 0.5 - 95) / rY)
+      const radius = Math.random() * (maxRadius - minRadius) + minRadius
+      sleepItem.position = {
+        xPercent: (radius * sinA + width * 0.5) / width,
+        yPercent: (radius * cosA + height * 0.5) / height
+      }
+    }
+  })
+}
