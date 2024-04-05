@@ -1195,6 +1195,17 @@ h4 {
     z-index: 10;
     animation: aniFadeInTop 0.3s linear both;
 
+    .cpt-pokemon {
+      width: 70px;
+      margin-left: -5px;
+      margin-bottom: -10px;
+      margin-top: -10px;
+      .cpt-pokemon__pic {
+        height: 70px;
+        width: 100%;
+      }
+    }
+
     .cpt-pokemon .cpt-pokemon__name {
       display: none;
     }

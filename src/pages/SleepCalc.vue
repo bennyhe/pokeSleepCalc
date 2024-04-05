@@ -887,7 +887,14 @@ onMounted(() => {
                     ]"
                     :style="`animation-delay: ${0.3 * (sleepKey + 1)}s`"
                   >
-                    <CptPoke :pokeId="sleepItem.pokeId" />
+                    <div class="cpt-pokemon">
+                      <div class="cpt-pokemon__pic">
+                        <img
+                          v-lazy="`./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${sleepItem.pokeId}.png`"
+                          :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
+                        />
+                      </div>
+                    </div>
                     <div
                       class="cpt-pokemon__name"
                       :class="{ shiny: sleepItem.isShiny }"
