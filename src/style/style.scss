@@ -1000,14 +1000,17 @@ h4 {
         margin: 0 0 1px;
         cursor: auto;
         white-space: nowrap;
+
         &.cur .cpt-select-list__name {
           background-color: rgba(0, 0, 0, 0.3);
         }
       }
+
       &__bg {
         bottom: 0;
         width: 150%;
       }
+
       .icon {
         width: 16px;
         height: 16px;
@@ -1075,8 +1078,19 @@ h4 {
   }
 
   .extra-desc {
+    .cpt-pokemon__name {
+      font-size: 13px;
+      color: #8b8b8b;
+      line-height: 1;
+    }
+
     .sptime {
       font-size: 14px;
+
+      &.cpt-pokemon__name {
+        color: $primaryColor;
+        font-size: 15px;
+      }
     }
   }
 

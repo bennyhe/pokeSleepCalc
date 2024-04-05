@@ -6,7 +6,7 @@ import { gameMap } from '../../config/game.js'
 import { getStageLevelPicId, getPercent } from '../../utils/index.js'
 
 const { locale } = useI18n()
-const localeLang = computed(()=>{
+const localeLang = computed(() => {
   return locale.value
 })
 const props = defineProps({
@@ -44,14 +44,14 @@ const props = defineProps({
       :isShiny="sleepItem.isShiny"
     />
     <div class="extra-desc">
-      <p v-if="sleepItem.sleepNameId !== 4">{{$t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`)}}</p>
       <p>
-        <span class="star"
-          ><template v-if="sleepItem.sleepNameId === 4">{{
-            $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`)
-          }}</template
-          ><template v-else>{{ sleepItem.star }}✩</template></span
-        >
+        <span class="star">{{ sleepItem.star }}✩</span>
+      </p>
+      <p
+        class="cpt-pokemon__name"
+        :class="{ sptime: sleepItem.sleepNameId === 4 }"
+      >
+        {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
       </p>
       <p>
         <template v-if="localeLang === 'cn'">
@@ -61,7 +61,9 @@ const props = defineProps({
           >号睡姿
         </template>
         <template v-else>
-          ID-<span class="sptime">{{ sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "") }}</span>
+          ID-<span class="sptime">{{
+            sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
+          }}</span>
         </template>
       </p>
       <p>
