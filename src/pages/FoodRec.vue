@@ -11,10 +11,12 @@ import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
 import {
   POKE_TYPES,
-  FOOD_TYPES,
   COOK_TYPES,
   MENU_TYPES
 } from '../config/valKey.js'
+
+import i18n from '../i18n'
+const { t } = i18n.global
 
 const nFoodRecommend = { ...foodRecommend }
 nFoodRecommend.list.forEach(pokeItem => {
@@ -43,7 +45,7 @@ for (const cookTypeKey in COOK_TYPES) {
     }
     cookMenuRes.push({
       id: cookTypeKey,
-      name: COOK_TYPES[cookTypeKey],
+      name: t(`COOK_TYPES.${cookTypeKey}`),
       list: sortInObjectOptions(res, ['baseEnergy'], 'down')
     })
   }
@@ -128,7 +130,7 @@ for (const cookTypeKey in COOK_TYPES) {
             >
               <img
                 v-lazy="`./img/food/${allFoodItem}.png`"
-                :alt="FOOD_TYPES[allFoodItem]"
+                :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
               />
               <p
                 class="cpt-food__count"

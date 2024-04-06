@@ -4,7 +4,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
-import { FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
+import { FOOD_TYPES } from '../config/valKey.js'
 import {
   get,
   sortInObjectOptions,
@@ -99,7 +99,7 @@ const initFilterGroup = () => {
       byFoodTypeResIn.push({
         id: +key,
         foodType: FOOD_TYPES[key],
-        title: `${FOOD_TYPES[key]}`,
+        title: t(`FOOD_TYPES.${key}`),
         list: []
       })
     }

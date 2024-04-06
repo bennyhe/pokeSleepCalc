@@ -2,7 +2,7 @@
 import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
-import { FOOD_TYPES, POKE_TYPES } from '../../config/valKey.js'
+import { POKE_TYPES } from '../../config/valKey.js'
 
 const props = defineProps({
   sleepItem: {
@@ -34,7 +34,7 @@ const props = defineProps({
       >
         <img
           v-lazy="`./img/food/${foodItem}.png`"
-          :alt="FOOD_TYPES[foodItem]"
+          :alt="$t(`FOOD_TYPES.${foodItem}`)"
         />
         <p class="cpt-food__count">
           {{ pokedex[sleepItem.pokeId].food.count[foodItem].num[foodKey] }}

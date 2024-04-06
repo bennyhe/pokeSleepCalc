@@ -1,7 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
-import { FOOD_TYPES } from '../../config/valKey.js'
 
 const props = defineProps({
   pokeKey: {
@@ -44,7 +43,7 @@ const props = defineProps({
         >
           <img
             v-lazy="`./img/food/${foodItem}.png`"
-            :alt="FOOD_TYPES[foodItem]"
+            :alt="$t(`FOOD_TYPES.${foodItem}`)"
           />
           <p class="cpt-food__count">
             {{ props.pokeItem.food.count[foodItem].num[foodKey] }}
@@ -85,7 +84,7 @@ const props = defineProps({
           >
             <img
               v-lazy="`./img/food/${foodItem}.png`"
-              :alt="FOOD_TYPES[foodItem]"
+              :alt="$t(`FOOD_TYPES.${foodItem}`)"
             />
             <p class="cpt-food__count">
               {{ props.pokeItem.oneDayFoodEnergy.count[foodKey] }}

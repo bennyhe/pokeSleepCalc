@@ -4,7 +4,6 @@ import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions, toHM } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
-import { FOOD_TYPES } from '../config/valKey.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
   allHelpType,
@@ -723,7 +722,7 @@ watch(helpSpeedCalcForm.value, val => {
               <div class="cpt-food__item">
                 <img
                   v-lazy="`./img/food/${allFoodItem}.png`"
-                  :alt="FOOD_TYPES[allFoodItem]"
+                  :alt="$t(`MENU_TYPES.${allFoodItem}`)"
                 />
                 <div
                   class="cpt-food__count"

@@ -137,7 +137,7 @@ const props = defineProps({
         <div class="cpt-food__item">
           <img
             v-lazy="`./img/food/${allFoodItem}.png`"
-            :alt="FOOD_TYPES[allFoodItem]"
+            :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
           />
         </div>
       </template>
@@ -162,7 +162,7 @@ const props = defineProps({
           >
             <img
               v-lazy="`./img/food/${allFoodItem}.png`"
-              :alt="FOOD_TYPES[allFoodItem]"
+              :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
             />
             <div
               class="cpt-food__count"

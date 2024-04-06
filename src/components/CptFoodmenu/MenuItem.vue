@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from 'vue'
-import { FOOD_TYPES, MENU_TYPES } from '../../config/valKey.js'
 import { fnAccumulation } from '../../utils/index.js'
 
 const props = defineProps({
@@ -17,7 +16,7 @@ const props = defineProps({
     :class="`cpt-foodmenu--${props.menuItem.type}`"
   >
     <p class="cpt-foodmenu__name">
-      {{ MENU_TYPES[props.menuItem.id] }}({{
+      {{ $t(`MENU_TYPES.${props.menuItem.id}`) }}({{
         fnAccumulation(props.menuItem.from, "num")
       }})
     </p>
@@ -29,7 +28,7 @@ const props = defineProps({
       >
         <img
           v-lazy="`./img/food/${allFoodItem.id}.png`"
-          :alt="FOOD_TYPES[allFoodItem.id]"
+          :alt="$t(`.${allFoodItem.id}`)"
         />
         <p>X{{ allFoodItem.num }}</p>
       </div>
@@ -42,7 +41,7 @@ const props = defineProps({
     <img
       class="cpt-foodmenu__bg"
       v-lazy="`./img/food/${props.menuItem.id}.png`"
-      :alt="MENU_TYPES[props.menuItem.id]"
+      :alt="$t(`MENU_TYPES.${props.menuItem.id}`)"
     />
   </div>
 </template>
