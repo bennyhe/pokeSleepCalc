@@ -35,6 +35,9 @@ body {
 .mb3 {
   margin-bottom: 3px;
 }
+.mr3 {
+  margin-right: 3px;
+}
 
 .i {
   display: inline-block;
@@ -1235,6 +1238,9 @@ h4 {
   .page-sleepcalc {
     .first-page-nav .el-radio-button__inner {
       padding: 8px
+    }
+    .el-select-sleepstyle {
+      width: 130px;
     }
   }
 

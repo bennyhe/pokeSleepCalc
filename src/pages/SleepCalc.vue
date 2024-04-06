@@ -6,6 +6,7 @@ import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SPONEW_TO_SPOOLD, SPO_DATA } from '../config/spo.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
@@ -496,7 +497,11 @@ onMounted(() => {
     <h2>拆分睡眠计算</h2>
     <el-form label-width="90px">
       <el-form-item>
-        <el-radio-group v-model="navData.navIndex" fill="#41ae3c" class="first-page-nav">
+        <el-radio-group
+          v-model="navData.navIndex"
+          fill="#41ae3c"
+          class="first-page-nav"
+        >
           <el-radio-button
             :label="cItem.value"
             v-for="cItem in navData.navList"
@@ -1177,26 +1182,26 @@ onMounted(() => {
               getScore(randomSleepStyle.sleepPoint),
               gameMap[userData.curMap].scoreList
             )
-          }}种)睡姿表</el-button
+          }}种)总SPO</el-button
         >
         <ul class="mb3">
           <li
+            class="mb3"
             v-for="(sleepItem, key) in sleepStyleAny.list"
-            v-bind:key="`selectCatch${key}_${Math.random()}`"
+            v-bind:key="`selectCatch${key}`"
           >
-            <i class="i i-rank" :class="`i-rank--${key + 1}`">{{ key + 1 }}</i>
+            <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{ key + 1 }}</i>
             <el-select
               placeholder="请选择宝可梦睡姿"
               filterable
               v-model="sleepStyleAny.list[key]"
+              class="el-select-sleepstyle mr3"
             >
               <template v-for="sItem in getSleepStyle()" :key="sItem.id">
                 <el-option
-                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${$t(
-                    `SLEEP_TYPES.${sItem.sleepType}`
-                  )}-${sItem.star}✩-${$t(
-                    `SLEEPSTYLE_NAME.${sItem.sleepNameId}`
-                  )}`"
+                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${
+                    sItem.star
+                  }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
                   :value="sItem.id"
                   :disabled="getCanUseSleepStyleByDpr(sItem)"
                 >
@@ -1217,9 +1222,36 @@ onMounted(() => {
                 </el-option>
               </template>
             </el-select>
+            <template v-if="sleepItem">
+              <span class="cpt-avatar">
+                <img
+                  class="cpt-avatar__pic"
+                  v-lazy="`./img/pokedex/${SLEEP_STYLE[sleepItem].pokeId}.png`"
+                  :alt="$t(`POKEMON_NAME.${SLEEP_STYLE[sleepItem].pokeId}`)"
+                />
+              </span>
+              <span
+                class="i i-sleeptype"
+                :class="`i i-sleeptype--${
+                  pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                }`"
+              >
+                {{
+                  $t(
+                    `SLEEP_TYPES.${
+                      pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                    }`
+                  )
+                }}</span
+              >
+            </template>
             <template v-if="sleepItem"
               >消耗
-              <span class="sptime" v-if="sleepItem && SPO_DATA[sleepItem].spo_n">{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span>
+              <span
+                class="sptime"
+                v-if="sleepItem && SPO_DATA[sleepItem].spo_n"
+                >{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span
+              >
               <span class="sptime" v-else>{{ SPO_DATA[sleepItem].spo }}</span>
               SPO</template
             >
