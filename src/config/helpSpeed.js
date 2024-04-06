@@ -154,7 +154,7 @@ export const characterOptions = [{
   useNatures: [5, 17]
 }, {
   label: 'sup',
-  txt: '溫順、自大(技↑+20%)',
+  txt: '(技↑+20%)',
   useNatures: [14, 16]
 }, {
   label: 'supfdown',
