@@ -7,6 +7,10 @@ export const NAV_SLEEPCALC = {
     {
       name: '抽取睡姿',
       value: 2
+    },
+    {
+      name: '睡眠分析',
+      value: 3
     }
   ],
   navIndex: 0

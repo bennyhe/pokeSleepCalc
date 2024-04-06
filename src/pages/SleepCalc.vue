@@ -6,6 +6,7 @@ import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { SPONEW_TO_SPOOLD, SPO_DATA } from '../config/spo.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
 import { POKE_243_IV } from '../config/lockIV.js'
@@ -64,6 +65,10 @@ const pageData = ref({
 const randomSleepStyle = ref({
   resList: [],
   sleepPoint: 100
+})
+const sleepStyleAny = ref({
+  curSPO: 0,
+  list: ['', '', '']
 })
 
 // 存储每个地图每个等级会出现的宝可梦
@@ -177,10 +182,30 @@ const getTargetStartScore = score => {
 
 const getSleepCatchNum = point => {
   const sleepPoint = point || 100
-  return getNumberInMap(
+  const resNumber = getNumberInMap(
     getScore(sleepPoint),
     gameMap[userData.value.curMap].scoreList
   )
+  return resNumber
+}
+
+const setNewSleepStyleList = () => {
+  sleepStyleAny.value.list = new Array(getSleepCatchNum()).fill('')
+  sleepStyleAny.value.curSPO = Math.floor(
+    getScore(randomSleepStyle.value.sleepPoint) / 38000
+  )
+}
+
+const getAfterClacSPO = () => {
+  let nowSPO = sleepStyleAny.value.curSPO
+  sleepStyleAny.value.list.forEach(itemId => {
+    if (SPO_DATA[itemId] && SPO_DATA[itemId].spo_n) {
+      nowSPO -= SPONEW_TO_SPOOLD[SPO_DATA[itemId].spo_n]
+    } else if (SPO_DATA[itemId] && SPO_DATA[itemId].spo) {
+      nowSPO -= SPO_DATA[itemId].spo
+    }
+  })
+  return nowSPO
 }
 
 const getNextScoreDiff = () => {
@@ -351,6 +376,26 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   randomSleepStyle.value.resList = res
 }
 
+const getSleepStyle = () => {
+  let orgSleepList = getUnLockSleeps(
+    gameMap[userData.value.curMap].levelList,
+    userData.value.curStageIndex
+  ).allUnlockSleepsList
+  if (+userData.value.curUnLockSleepType !== 999) {
+    orgSleepList = orgSleepList.filter(
+      item => item.sleepType === +userData.value.curUnLockSleepType
+    )
+  }
+  return orgSleepList
+}
+const getCanUseSleepStyleByDpr = sItem => {
+  return (
+    (sItem.spo <= 2 && false) ||
+    (sItem.spo > 2 &&
+      getScore(randomSleepStyle.value.sleepPoint) < sItem.spo * 38000)
+  )
+}
+
 const getTimes = 4000
 const hopeList = ref([])
 const getRandomHopeCb = res => {
@@ -432,6 +477,7 @@ const handleBlurEnergy = () => {
   setDefaultCutNumber()
   setUnlockSleeps()
 }
+
 // 初始化默认
 setDefaultCutNumber()
 setUnlockSleeps()
@@ -636,36 +682,37 @@ onMounted(() => {
         <p>* 开帐篷&熏香不在计算范围内。</p>
       </div>
     </div>
-    <div :class="{ hide: +navData.navIndex !== 2 }">
-      <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
-        <el-form label-width="90px">
-          <el-form-item label="睡眠类型">
-            <el-radio-group v-model="userData.curUnLockSleepType">
-              <el-radio
-                :label="cKey"
-                v-for="(cItem, cKey) in SLEEP_TYPES"
-                v-bind:key="cItem"
-                ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
-                  {{ $t(`SLEEP_TYPES.${cKey}`) }}
-                  ({{
-                    getFilterInTypes(userData.curUnlockSleeps, cKey).length +
-                    getFilterInTypes(userData.unLockSleeps, cKey).length
-                  }})
-                </div>
-              </el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="需睡眠分数">
-            <div style="width: 300px">
-              <el-slider
-                v-model="randomSleepStyle.sleepPoint"
-                show-input
-                :min="1"
-                :max="100"
-              />
+    <el-form
+      label-width="90px"
+      v-if="+navData.navIndex === 2 || +navData.navIndex === 3"
+    >
+      <el-form-item label="睡眠类型">
+        <el-radio-group v-model="userData.curUnLockSleepType">
+          <el-radio
+            :label="cKey"
+            v-for="(cItem, cKey) in SLEEP_TYPES"
+            v-bind:key="cItem"
+            ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
+              {{ $t(`SLEEP_TYPES.${cKey}`) }}
+              ({{
+                getFilterInTypes(userData.curUnlockSleeps, cKey).length +
+                getFilterInTypes(userData.unLockSleeps, cKey).length
+              }})
             </div>
-          </el-form-item>
-          <!-- <el-form-item v-if="getSleepCatchNum(randomSleepStyle.sleepPoint) > 3">
+          </el-radio>
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item label="需睡眠分数">
+        <div style="width: 300px">
+          <el-slider
+            v-model="randomSleepStyle.sleepPoint"
+            show-input
+            :min="1"
+            :max="100"
+          />
+        </div>
+      </el-form-item>
+      <!-- <el-form-item v-if="getSleepCatchNum(randomSleepStyle.sleepPoint) > 3">
             按<el-input-number
               v-model="userData.cutNum"
               :min="4"
@@ -673,17 +720,21 @@ onMounted(() => {
               :step="1"
             />只选择分数
           </el-form-item> -->
-          <el-form-item label="需睡眠时长">
-            <span class="sptime">{{
-              toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
-            }}</span>
-            <div style="width: 100%">
-              <span class="sptime">{{
-                getNum(getScore(randomSleepStyle.sleepPoint))
-              }}</span
-              >分
-            </div>
-          </el-form-item>
+      <el-form-item label="需睡眠时长">
+        <span class="sptime">{{
+          toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
+        }}</span>
+        <div style="width: 100%">
+          <span class="sptime">{{
+            getNum(getScore(randomSleepStyle.sleepPoint))
+          }}</span
+          >分
+        </div>
+      </el-form-item>
+    </el-form>
+    <div :class="{ hide: +navData.navIndex !== 2 }">
+      <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
+        <el-form label-width="90px">
           <el-form-item label="抽取选项">
             <el-radio-group
               v-model="userData.lockSkillCount"
@@ -886,12 +937,18 @@ onMounted(() => {
                         10
                       )}`,
                     ]"
-                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s; left:${638 * sleepItem.position.xPercent}px; top:${380 * sleepItem.position.yPercent}px`"
+                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s; left:${
+                      638 * sleepItem.position.xPercent
+                    }px; top:${380 * sleepItem.position.yPercent}px`"
                   >
                     <div class="cpt-pokemon">
                       <div class="cpt-pokemon__pic">
                         <img
-                          v-lazy="`./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${sleepItem.pokeId}.png`"
+                          v-lazy="
+                            `./img/portrait/${
+                              sleepItem.isShiny ? 'shiny/' : ''
+                            }${sleepItem.pokeId}.png`
+                          "
                           :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
                         />
                       </div>
@@ -1078,6 +1135,90 @@ onMounted(() => {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div v-if="+navData.navIndex === 3">
+      <!-- <el-form label-width="90px">
+        <el-form-item label="活动无特征">
+          <el-switch
+            v-model="userData.isActRandom"
+            inline-prompt
+            active-text="是"
+            inactive-text="否"
+            style="--el-switch-on-color: #ffaf00"
+          />
+        </el-form-item>
+      </el-form> -->
+      <div class="page-inner mb3">
+        <p class="mb3">
+          <el-alert
+            title="游戏v1.4.0更新了大量对睡姿相关内容，请注意该功能可能不符合期望结果。"
+            type="warning"
+            show-icon
+          >
+          </el-alert>
+        </p>
+        <el-button class="mb3" type="success" plain @click="setNewSleepStyleList()"
+          >点击获取用来研究<img
+            class="icon"
+            v-lazy="
+              `./img/ui/${getStageLevelPicId(
+                gameMap[userData.curMap].levelList[userData.curStageIndex].name
+              )}.png`
+            "
+          />{{
+            gameMap[userData.curMap].levelList[userData.curStageIndex].name
+          }}」({{
+              getNumberInMap(
+                getScore(randomSleepStyle.sleepPoint),
+                gameMap[userData.curMap].scoreList
+              )
+            }}种)睡姿表</el-button
+        >
+        <ul class="mb3">
+          <li
+            v-for="(sleepItem, key) in sleepStyleAny.list"
+            v-bind:key="`selectCatch${key}_${Math.random()}`"
+          >
+            <i class="i i-rank" :class="`i-rank--${key + 1}`">{{ key + 1 }}</i>
+            <el-select
+              placeholder="请选择宝可梦睡姿"
+              filterable
+              v-model="sleepStyleAny.list[key]"
+            >
+              <template v-for="sItem in getSleepStyle()" :key="sItem.id">
+                <el-option
+                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${$t(`SLEEP_TYPES.${sItem.sleepType}`)}-${
+                    sItem.star
+                  }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
+                  :value="sItem.id"
+                  :disabled="getCanUseSleepStyleByDpr(sItem)"
+                >
+                  <img
+                    class="icon"
+                    v-lazy="`./img/pokedex/${sItem.pokeId}.png`"
+                    :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
+                    v-bind:key="sItem.pokeId"
+                  />
+                  {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span class="i i-sleeptype" :class="`i i-sleeptype--${sItem.sleepType}`">
+              {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span>-{{ sItem.star }}✩-{{
+                    $t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)
+                  }}
+                </el-option>
+              </template>
+            </el-select>
+            <template v-if="sleepItem"
+              >消耗
+              <span class="sptime">{{ SPO_DATA[sleepItem].spo }}</span>
+              SPO</template
+            >
+          </li>
+        </ul>
+    <p>您当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
+    </p>
+          <p>
+            剩余SPO:<span class="sptime">{{ getAfterClacSPO() }}</span>
+          </p>
       </div>
     </div>
     <div class="sleeplist">
