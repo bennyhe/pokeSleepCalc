@@ -155,7 +155,8 @@ export const characterOptions = [{
   txt: '溫和(技↑+20%帮↓-10%)'
 }, {
   label: 'sdown',
-  txt: '天真、悠閒(技↓-20%)'
+  txt: '(技↓-20%)',
+  useNatures: [7, 20]
 }]
 export const levelOptions = [{
   label: 25,
