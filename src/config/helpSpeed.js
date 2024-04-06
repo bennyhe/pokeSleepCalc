@@ -122,37 +122,48 @@ export const characterOptions = [{
   txt: '无加成' // (害羞、勤奮、坦率、浮躁、認真)
 }, {
   label: 'fdown',
-  txt: '爽朗、淘氣(食↓-20%)'
+  txt: '(食↓-20%)',
+  useNatures: [6, 19]
 }, {
   label: 'fup',
-  txt: '慢吞吞、冷靜(食↑+20%)'
+  txt: '(食↑+20%)',
+  useNatures: [10, 12]
 }, {
   label: 'fupsdown',
-  txt: '馬虎(食↑+20%技↓-20%)'
+  txt: '(食↑+20%技↓-20%)',
+  useNatures: [11]
 }, {
   label: 'hdownfup',
-  txt: '內斂(帮↓-10%食↑+20%)'
+  txt: '(帮↓-10%食↑+20%)',
+  useNatures: [9]
 }, {
   label: 'hup',
-  txt: '怕寂寞、勇敢(帮↑+10%)'
+  txt: '(帮↑+10%)',
+  useNatures: [1, 4]
 }, {
   label: 'hupsdown',
-  txt: '頑皮(帮↑+10%技↓-20%)'
+  txt: '(帮↑+10%技↓-20%)',
+  useNatures: [3]
 }, {
   label: 'hupfdown',
-  txt: '固執(帮↑+10%食↓-20%)'
+  txt: '(帮↑+10%食↓-20%)',
+  useNatures: [2]
 }, {
   label: 'hdown',
-  txt: '胆小、大膽(帮↓-10%)'
+  txt: '(帮↓-10%)',
+  useNatures: [5, 17]
 }, {
   label: 'sup',
-  txt: '溫順、自大(技↑+20%)'
+  txt: '溫順、自大(技↑+20%)',
+  useNatures: [14, 16]
 }, {
   label: 'supfdown',
-  txt: '慎重(技↑+20%食↓-20%)'
+  txt: '(技↑+20%食↓-20%)',
+  useNatures: [15]
 }, {
   label: 'hdownsup',
-  txt: '溫和(技↑+20%帮↓-10%)'
+  txt: '(技↑+20%帮↓-10%)',
+  useNatures: [13]
 }, {
   label: 'sdown',
   txt: '(技↓-20%)',

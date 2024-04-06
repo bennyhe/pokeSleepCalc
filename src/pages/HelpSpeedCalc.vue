@@ -807,7 +807,20 @@ watch(helpSpeedCalcForm.value, val => {
           v-for="cItem in characterOptions"
           v-bind:key="cItem.label"
           :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
-          >{{ cItem.txt }}</el-radio
+        >
+          <template v-if="cItem.useNatures && cItem.useNatures.length > 0">
+            <template
+              v-for="(natureId, natureIndex) in cItem.useNatures"
+              v-bind:key="natureId"
+            >
+              {{ $t(`NATURE_NAMES.${natureId}`) }}
+              <template
+                v-if="natureIndex % 2 === 0 && cItem.useNatures.length > 1"
+                >、</template
+              >
+            </template>
+          </template>
+          {{ cItem.txt }}</el-radio
         >
       </el-radio-group>
     </el-form-item>
@@ -931,13 +944,15 @@ watch(helpSpeedCalcForm.value, val => {
     </el-form-item>
     <el-form-item>
       <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
-        <template v-for="cItem in navData.navList"
-          v-bind:key="cItem.name">
-        <el-radio-button
-          :label="cItem.value"
-          :disabled="cItem.value === 1 && userPokemons.list.length === 0"
-          >{{ cItem.name }}<span v-if="cItem.value === 1">({{userPokemons.list.length}})</span></el-radio-button
-        >
+        <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
+          <el-radio-button
+            :label="cItem.value"
+            :disabled="cItem.value === 1 && userPokemons.list.length === 0"
+            >{{ cItem.name
+            }}<span v-if="cItem.value === 1"
+              >({{ userPokemons.list.length }})</span
+            ></el-radio-button
+          >
         </template>
       </el-radio-group>
     </el-form-item>
@@ -1020,7 +1035,10 @@ watch(helpSpeedCalcForm.value, val => {
     <h3 v-if="userPokemons.list.length > 0 && navData.navIndex === 1">
       宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
     </h3>
-    <div class="poke-tb poke-tb--xscorll" v-if="userPokemons.list.length > 0 && navData.navIndex === 1">
+    <div
+      class="poke-tb poke-tb--xscorll"
+      v-if="userPokemons.list.length > 0 && navData.navIndex === 1"
+    >
       <CptEnergyItem
         class="poke-tb__item--hasclose"
         :pokeItem="pokeItem"
@@ -1032,7 +1050,7 @@ watch(helpSpeedCalcForm.value, val => {
           'pokeType',
           'foodPer',
           'skillPer',
-          'skillType'
+          'skillType',
         ]"
         v-for="(pokeItem, pokeKey) in getBoxCurEngery()"
         v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
