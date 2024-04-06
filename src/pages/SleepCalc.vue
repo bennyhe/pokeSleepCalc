@@ -1219,7 +1219,8 @@ onMounted(() => {
             </el-select>
             <template v-if="sleepItem"
               >消耗
-              <span class="sptime">{{ SPO_DATA[sleepItem].spo }}</span>
+              <span class="sptime" v-if="sleepItem && SPO_DATA[sleepItem].spo_n">{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span>
+              <span class="sptime" v-else>{{ SPO_DATA[sleepItem].spo }}</span>
               SPO</template
             >
           </li>
