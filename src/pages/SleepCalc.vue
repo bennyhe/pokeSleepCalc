@@ -1158,7 +1158,11 @@ onMounted(() => {
           >
           </el-alert>
         </p>
-        <el-button class="mb3" type="success" plain @click="setNewSleepStyleList()"
+        <el-button
+          class="mb3"
+          type="success"
+          plain
+          @click="setNewSleepStyleList()"
           >点击获取用来研究<img
             class="icon"
             v-lazy="
@@ -1169,11 +1173,11 @@ onMounted(() => {
           />{{
             gameMap[userData.curMap].levelList[userData.curStageIndex].name
           }}」({{
-              getNumberInMap(
-                getScore(randomSleepStyle.sleepPoint),
-                gameMap[userData.curMap].scoreList
-              )
-            }}种)睡姿表</el-button
+            getNumberInMap(
+              getScore(randomSleepStyle.sleepPoint),
+              gameMap[userData.curMap].scoreList
+            )
+          }}种)睡姿表</el-button
         >
         <ul class="mb3">
           <li
@@ -1188,9 +1192,11 @@ onMounted(() => {
             >
               <template v-for="sItem in getSleepStyle()" :key="sItem.id">
                 <el-option
-                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${$t(`SLEEP_TYPES.${sItem.sleepType}`)}-${
-                    sItem.star
-                  }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
+                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${$t(
+                    `SLEEP_TYPES.${sItem.sleepType}`
+                  )}-${sItem.star}✩-${$t(
+                    `SLEEPSTYLE_NAME.${sItem.sleepNameId}`
+                  )}`"
                   :value="sItem.id"
                   :disabled="getCanUseSleepStyleByDpr(sItem)"
                 >
@@ -1200,8 +1206,12 @@ onMounted(() => {
                     :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
                     v-bind:key="sItem.pokeId"
                   />
-                  {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span class="i i-sleeptype" :class="`i i-sleeptype--${sItem.sleepType}`">
-              {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span>-{{ sItem.star }}✩-{{
+                  {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span
+                    class="i i-sleeptype"
+                    :class="`i i-sleeptype--${sItem.sleepType}`"
+                  >
+                    {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span
+                  >-{{ sItem.star }}✩-{{
                     $t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)
                   }}
                 </el-option>
@@ -1214,11 +1224,12 @@ onMounted(() => {
             >
           </li>
         </ul>
-    <p>您当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
-    </p>
-          <p>
-            剩余SPO:<span class="sptime">{{ getAfterClacSPO() }}</span>
-          </p>
+        <p>
+          您当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
+        </p>
+        <p>
+          剩余SPO:<span class="sptime">{{ getAfterClacSPO() }}</span>
+        </p>
       </div>
     </div>
     <div class="sleeplist">
