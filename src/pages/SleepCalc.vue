@@ -496,7 +496,7 @@ onMounted(() => {
     <h2>拆分睡眠计算</h2>
     <el-form label-width="90px">
       <el-form-item>
-        <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
+        <el-radio-group v-model="navData.navIndex" fill="#41ae3c" class="first-page-nav">
           <el-radio-button
             :label="cItem.value"
             v-for="cItem in navData.navList"

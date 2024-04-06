@@ -1232,6 +1232,12 @@ h4 {
 // 移动端适配
 @media screen and (max-width: 660px) {
 
+  .page-sleepcalc {
+    .first-page-nav .el-radio-button__inner {
+      padding: 8px
+    }
+  }
+
   .dialog-support,
   .dialog-update {
     max-height: vw(860);
