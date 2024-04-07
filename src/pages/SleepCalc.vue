@@ -69,7 +69,8 @@ const randomSleepStyle = ref({
 })
 const sleepStyleAny = ref({
   curSPO: 0,
-  list: ['', '', '']
+  sleepCatchNum: 3,
+  list: new Array(8).fill('')
 })
 
 // 存储每个地图每个等级会出现的宝可梦
@@ -191,7 +192,11 @@ const getSleepCatchNum = point => {
 }
 
 const setNewSleepStyleList = () => {
-  sleepStyleAny.value.list = new Array(getSleepCatchNum()).fill('')
+  sleepStyleAny.value.list.fill('')
+  sleepStyleAny.value.sleepCatchNum = getNumberInMap(
+    getScore(randomSleepStyle.value.sleepPoint),
+    gameMap[userData.value.curMap].scoreList
+  )
   sleepStyleAny.value.curSPO = Math.floor(
     getScore(randomSleepStyle.value.sleepPoint) / 38000
   )
@@ -200,7 +205,7 @@ const setNewSleepStyleList = () => {
 const getAfterClacSPO = () => {
   let nowSPO = sleepStyleAny.value.curSPO
   sleepStyleAny.value.list.forEach(itemId => {
-    if (SPO_DATA[itemId] && SPO_DATA[itemId].spo_n) {
+    if (itemId && SPO_DATA[itemId] && SPO_DATA[itemId].spo_n) {
       nowSPO -= SPONEW_TO_SPOOLD[SPO_DATA[itemId].spo_n]
     } else if (SPO_DATA[itemId] && SPO_DATA[itemId].spo) {
       nowSPO -= SPO_DATA[itemId].spo
@@ -390,11 +395,12 @@ const getSleepStyle = () => {
   return orgSleepList
 }
 const getCanUseSleepStyleByDpr = sItem => {
-  return (
-    (sItem.spo <= 2 && false) ||
-    (sItem.spo > 2 &&
-      getScore(randomSleepStyle.value.sleepPoint) < sItem.spo * 38000)
-  )
+  return false
+  // return (
+  //   (sItem.spo <= 2 && false) ||
+  //   (sItem.spo > 2 &&
+  //     getScore(randomSleepStyle.value.sleepPoint) < sItem.spo * 38000)
+  // )
 }
 
 const getTimes = 4000
@@ -1168,7 +1174,7 @@ onMounted(() => {
           type="success"
           plain
           @click="setNewSleepStyleList()"
-          >点击获取用来研究<img
+          >点击获取用来研究「<img
             class="icon"
             v-lazy="
               `./img/ui/${getStageLevelPicId(
@@ -1185,77 +1191,82 @@ onMounted(() => {
           }}种)总SPO</el-button
         >
         <ul class="mb3">
-          <li
-            class="mb3"
+          <template
             v-for="(sleepItem, key) in sleepStyleAny.list"
             v-bind:key="`selectCatch${key}`"
           >
-            <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{ key + 1 }}</i>
-            <el-select
-              placeholder="请选择宝可梦睡姿"
-              filterable
-              v-model="sleepStyleAny.list[key]"
-              class="el-select-sleepstyle mr3"
-            >
-              <template v-for="sItem in getSleepStyle()" :key="sItem.id">
-                <el-option
-                  :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${
-                    sItem.star
-                  }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
-                  :value="sItem.id"
-                  :disabled="getCanUseSleepStyleByDpr(sItem)"
-                >
-                  <img
-                    class="icon"
-                    v-lazy="`./img/pokedex/${sItem.pokeId}.png`"
-                    :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
-                    v-bind:key="sItem.pokeId"
-                  />
-                  {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span
-                    class="i i-sleeptype"
-                    :class="`i i-sleeptype--${sItem.sleepType}`"
+            <li class="mb3" v-if="key < sleepStyleAny.sleepCatchNum">
+              <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{
+                key + 1
+              }}</i>
+              <el-select
+                placeholder="请选择宝可梦睡姿"
+                filterable
+                v-model="sleepStyleAny.list[key]"
+                class="el-select-sleepstyle mr3"
+              >
+                <template v-for="sItem in getSleepStyle()" :key="sItem.id">
+                  <el-option
+                    :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${
+                      sItem.star
+                    }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
+                    :value="sItem.id"
+                    :disabled="getCanUseSleepStyleByDpr(sItem)"
                   >
-                    {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span
-                  >-{{ sItem.star }}✩-{{
-                    $t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)
-                  }}
-                </el-option>
+                    <img
+                      class="icon"
+                      v-lazy="`./img/pokedex/${sItem.pokeId}.png`"
+                      :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
+                      v-bind:key="sItem.pokeId"
+                    />
+                    {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span
+                      class="i i-sleeptype"
+                      :class="`i i-sleeptype--${sItem.sleepType}`"
+                    >
+                      {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span
+                    >-{{ sItem.star }}✩-{{
+                      $t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)
+                    }}
+                  </el-option>
+                </template>
+              </el-select>
+              <template v-if="sleepItem">
+                <span class="cpt-avatar">
+                  <img
+                    class="cpt-avatar__pic"
+                    v-lazy="
+                      `./img/pokedex/${SLEEP_STYLE[sleepItem].pokeId}.png`
+                    "
+                    :alt="$t(`POKEMON_NAME.${SLEEP_STYLE[sleepItem].pokeId}`)"
+                  />
+                </span>
+                <span
+                  class="i i-sleeptype"
+                  :class="`i i-sleeptype--${
+                    pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                  }`"
+                >
+                  {{
+                    $t(
+                      `SLEEP_TYPES.${
+                        pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                      }`
+                    )
+                  }}</span
+                >
               </template>
-            </el-select>
-            <template v-if="sleepItem">
-              <span class="cpt-avatar">
-                <img
-                  class="cpt-avatar__pic"
-                  v-lazy="`./img/pokedex/${SLEEP_STYLE[sleepItem].pokeId}.png`"
-                  :alt="$t(`POKEMON_NAME.${SLEEP_STYLE[sleepItem].pokeId}`)"
-                />
-              </span>
-              <span
-                class="i i-sleeptype"
-                :class="`i i-sleeptype--${
-                  pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
-                }`"
+              <template v-if="sleepItem"
+                >消耗
+                <span
+                  class="sptime"
+                  v-if="sleepItem && SPO_DATA[sleepItem].spo_n"
+                  >{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span
+                >
+                <span class="sptime" v-else>{{ SPO_DATA[sleepItem].spo }}</span>
+                SPO</template
               >
-                {{
-                  $t(
-                    `SLEEP_TYPES.${
-                      pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
-                    }`
-                  )
-                }}</span
-              >
-            </template>
-            <template v-if="sleepItem"
-              >消耗
-              <span
-                class="sptime"
-                v-if="sleepItem && SPO_DATA[sleepItem].spo_n"
-                >{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span
-              >
-              <span class="sptime" v-else>{{ SPO_DATA[sleepItem].spo }}</span>
-              SPO</template
-            >
-          </li>
+            </li>
+          </template>
         </ul>
         <p>
           您当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
