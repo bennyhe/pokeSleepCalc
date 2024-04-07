@@ -384,20 +384,14 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 }
 
 const getSleepStyle = () => {
-  let res = [
-    ...userData.value.curUnlockSleeps,
-    ...userData.value.unLockSleeps
-  ]
-  res = sortInObjectOptions(res, ['SPO', 'SPOID'], 'down')
-  return res
-}
-const getCanUseSleepStyleByDpr = sItem => {
-  return false
-  // return (
-  //   (sItem.spo <= 2 && false) ||
-  //   (sItem.spo > 2 &&
-  //     getScore(randomSleepStyle.value.sleepPoint) < sItem.spo * 38000)
-  // )
+  let orgSleepList = [...userData.value.curUnlockSleeps, ...userData.value.unLockSleeps]
+  if (+userData.value.curUnLockSleepType !== 999) {
+    orgSleepList = orgSleepList.filter(
+      item => item.sleepType === +userData.value.curUnLockSleepType
+    )
+  }
+  orgSleepList = sortInObjectOptions(orgSleepList, ['SPO', 'SPOID'], 'down')
+  return orgSleepList
 }
 
 const getTimes = 4000
@@ -1213,7 +1207,6 @@ onMounted(() => {
                       sItem.star
                     }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
                     :value="sItem.id"
-                    :disabled="getCanUseSleepStyleByDpr(sItem)"
                   >
                     <img
                       class="icon"
