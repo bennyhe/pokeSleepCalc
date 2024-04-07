@@ -3,7 +3,9 @@ const markdownText = `
 
 ## 24-04-07
 1. add 睡眠分析-有效分数百分比
-2. update 优化性能
+2. add 睡眠分析-下拉框选择睡姿由SPO高到低排序，同SPO再按SPOid排序
+3. add 睡眠分析-下拉框选择睡姿内容显示SPO
+4. update 优化性能
 
 ## 24-04-06
 1. add 睡眠分析

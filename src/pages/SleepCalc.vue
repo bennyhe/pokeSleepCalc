@@ -384,16 +384,12 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 }
 
 const getSleepStyle = () => {
-  let orgSleepList = getUnLockSleeps(
-    gameMap[userData.value.curMap].levelList,
-    userData.value.curStageIndex
-  ).allUnlockSleepsList
-  if (+userData.value.curUnLockSleepType !== 999) {
-    orgSleepList = orgSleepList.filter(
-      item => item.sleepType === +userData.value.curUnLockSleepType
-    )
-  }
-  return orgSleepList
+  let res = [
+    ...userData.value.curUnlockSleeps,
+    ...userData.value.unLockSleeps
+  ]
+  res = sortInObjectOptions(res, ['SPO', 'SPOID'], 'down')
+  return res
 }
 const getCanUseSleepStyleByDpr = sItem => {
   return false
@@ -470,6 +466,10 @@ const handleClickShinyClear = () => {
     pokeSum: 0,
     showDetailShiny: false
   }
+}
+
+const handleChangeSleepStyle = () => {
+  console.log('change select...')
 }
 
 const handleBlurEnergy = () => {
@@ -1205,6 +1205,7 @@ onMounted(() => {
                 filterable
                 v-model="sleepStyleAny.list[key]"
                 class="el-select-sleepstyle mr3"
+                @change="handleChangeSleepStyle()"
               >
                 <template v-for="sItem in getSleepStyle()" :key="sItem.id">
                   <el-option
