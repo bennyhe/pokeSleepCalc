@@ -1276,16 +1276,15 @@ onMounted(() => {
         <p>
           剩余SPO:<span class="sptime">{{ getAfterClacSPO() }}</span>
         </p>
-        <p v-if="getAfterClacSPO() >= 0">
-          有效分数:<span class="sptime"
-            >{{
-              getPercent(
-                sleepStyleAny.curSPO - getAfterClacSPO(),
-                sleepStyleAny.curSPO,
-                2
-              )
-            }}%</span
-          >
+        <p v-if="getAfterClacSPO() >= 0 && sleepStyleAny.curSPO > 0">
+          有效分数:<span class="sptime">{{
+            getPercent(
+              sleepStyleAny.curSPO - getAfterClacSPO(),
+              sleepStyleAny.curSPO,
+              2
+            )
+          }}</span
+          >%
         </p>
       </div>
     </div>
