@@ -494,7 +494,7 @@ onMounted(() => {
 
 <template>
   <div class="page-sleepcalc">
-    <h2>拆分睡眠计算</h2>
+    <h2>睡眠计算</h2>
     <el-form label-width="90px">
       <el-form-item>
         <el-radio-group

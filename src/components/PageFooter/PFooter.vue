@@ -19,7 +19,7 @@ const handleClickShowSupport = () => {
 </script>
 <template>
   <div class="page-footer">
-    <p>同好Sleep交流QQ群：894464120或498245024（非本人创建）</p>
+    <p>工具建议&反馈以及交流(Pokemon sleep計算器研究交流室)QQ群：953956094</p>
     <p>
       <a href="https://github.com/bennyhe/pokeSleepCalc" target="_blank"
         >Github
