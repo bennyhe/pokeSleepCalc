@@ -385,12 +385,8 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 
 const getSleepStyle = () => {
   let orgSleepList = [...userData.value.curUnlockSleeps, ...userData.value.unLockSleeps]
-  if (+userData.value.curUnLockSleepType !== 999) {
-    orgSleepList = orgSleepList.filter(
-      item => item.sleepType === +userData.value.curUnLockSleepType
-    )
-  }
-  orgSleepList = sortInObjectOptions(orgSleepList, ['SPO', 'SPOID'], 'down')
+  orgSleepList = getFilterInTypes(orgSleepList, userData.value.curUnLockSleepType)
+  orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
 }
 
