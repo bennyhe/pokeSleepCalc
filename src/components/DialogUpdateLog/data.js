@@ -2,7 +2,8 @@ const markdownText = `
 # 更新日志
 
 ## 24-04-07
-1. update 优化性能
+1. add 睡眠分析-有效分数百分比
+2. update 优化性能
 
 ## 24-04-06
 1. add 睡眠分析
