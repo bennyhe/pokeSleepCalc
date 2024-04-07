@@ -1227,7 +1227,7 @@ onMounted(() => {
                       {{ $t(`SLEEP_TYPES.${sItem.sleepType}`) }}</span
                     >-{{ sItem.star }}✩-{{
                       $t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)
-                    }}
+                    }}-SPO:{{ sItem.spo }}
                   </el-option>
                 </template>
               </el-select>
