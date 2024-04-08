@@ -519,7 +519,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
 
   dataList.forEach(sleepStyleId => {
     // 有大肚睡
-    if (sleepStyleId && SLEEP_STYLE[sleepStyleId] && SLEEP_STYLE[sleepStyleId].sleepName === 4) {
+    if (sleepStyleId && SLEEP_STYLE[sleepStyleId] && SLEEP_STYLE[sleepStyleId].sleepNameId === 4) {
       isSleepOnStomach = true
     }
     // 抽到特殊宝可梦后，接下来不会再出现该宝可梦
@@ -554,6 +554,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
       }
 
       isLastGetArr[dataKey] = lastPokemon.id === sleepStyleId
+      console.log(isSleepOnStomach, curSpo, sleepStyleId, lastPokemon.id,  lastPokemon.id === sleepStyleId)
     }
   })
   return isLastGetArr
