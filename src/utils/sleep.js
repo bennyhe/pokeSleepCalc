@@ -533,7 +533,8 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
   })
 
   dataList.forEach((sleepStyleId, dataKey) => {
-    if (sleepStyleId) {
+    if (sleepStyleId && (+curUnLockSleepType === 999 || (
+      +curUnLockSleepType !== 999 && (pokedex[SLEEP_STYLE[sleepStyleId].pokeId].sleepType === +curUnLockSleepType)))) {
       const curSpo = canUseSPO - (canUseSPO - lastSPO - getSPOById(sleepStyleId))
       let lastPokemon = spoZeroPoke
       // 保底计算

@@ -390,10 +390,12 @@ const getSleepStyle = () => {
     ...userData.value.curUnlockSleeps,
     ...userData.value.unLockSleeps
   ]
-  orgSleepList = getFilterInTypes(
-    orgSleepList,
-    userData.value.curUnLockSleepType
-  )
+  if(!userData.value.isActRandom) {
+    orgSleepList = getFilterInTypes(
+      orgSleepList,
+      userData.value.curUnLockSleepType
+    )
+  }
   orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
 }
@@ -471,7 +473,7 @@ const handleChangeSleepStyle = () => {
   // console.log(sleepStyleAny.value.list)
   sleepStyleAny.value.isLastGet = checkListInLastGet(
     gameMap[userData.value.curMap],
-    999,
+    userData.value.curUnLockSleepType,
     userData.value.curStageIndex,
     sleepStyleAny.value.list,
     sleepStyleAny.value.curSPO,
@@ -1181,7 +1183,7 @@ onMounted(() => {
       </div>
     </div>
     <div v-if="+navData.navIndex === 3">
-      <!-- <el-form label-width="90px">
+      <el-form label-width="90px">
         <el-form-item label="活动无特征">
           <el-switch
             v-model="userData.isActRandom"
@@ -1191,7 +1193,7 @@ onMounted(() => {
             style="--el-switch-on-color: #ffaf00"
           />
         </el-form-item>
-      </el-form> -->
+      </el-form>
       <div class="page-inner mb3">
         <p class="mb3">
           <el-alert
