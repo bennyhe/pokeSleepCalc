@@ -208,7 +208,9 @@ const setNewSleepStyleList = () => {
 const getAfterClacSPO = () => {
   let nowSPO = sleepStyleAny.value.curSPO
   sleepStyleAny.value.list.forEach(sleepStyleId => {
-    nowSPO -= getSPOById(sleepStyleId)
+    if (sleepStyleId) {
+      nowSPO -= getSPOById(sleepStyleId)
+    }
   })
   return nowSPO
 }
