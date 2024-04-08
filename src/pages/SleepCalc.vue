@@ -7,7 +7,6 @@ import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SPONEW_TO_SPOOLD, SPO_DATA } from '../config/spo.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
 import { POKE_243_IV } from '../config/lockIV.js'
@@ -16,7 +15,9 @@ import {
   getUnLockSleeps,
   getRandomSleepStyle,
   getRandomHope,
-  getLevelIndexByEnergy
+  getLevelIndexByEnergy,
+  getSPOById,
+  checkListInLastGet
 } from '../utils/sleep.js'
 import {
   toHM,
@@ -71,7 +72,8 @@ const randomSleepStyle = ref({
 const sleepStyleAny = ref({
   curSPO: 0,
   sleepCatchNum: 3,
-  list: new Array(8).fill('')
+  list: new Array(8).fill(''),
+  isLastGet: new Array(8).fill(false)
 })
 
 // 存储每个地图每个等级会出现的宝可梦
@@ -205,12 +207,8 @@ const setNewSleepStyleList = () => {
 
 const getAfterClacSPO = () => {
   let nowSPO = sleepStyleAny.value.curSPO
-  sleepStyleAny.value.list.forEach(itemId => {
-    if (itemId && SPO_DATA[itemId] && SPO_DATA[itemId].spo_n) {
-      nowSPO -= SPONEW_TO_SPOOLD[SPO_DATA[itemId].spo_n]
-    } else if (SPO_DATA[itemId] && SPO_DATA[itemId].spo) {
-      nowSPO -= SPO_DATA[itemId].spo
-    }
+  sleepStyleAny.value.list.forEach(sleepStyleId => {
+    nowSPO -= getSPOById(sleepStyleId)
   })
   return nowSPO
 }
@@ -227,6 +225,7 @@ const getNextScoreDiff = () => {
   )
 }
 
+// 获取对应树果的宝可梦们
 const getBerryPokemon = berryArr => {
   const res = []
   for (const pokeKey in pokedex) {
@@ -243,6 +242,7 @@ const getBerryPokemon = berryArr => {
   return sortInObjectOptions(res, ['pokeType'], 'up')
 }
 
+// 获取掉的活力
 const getLostVigour = mins => {
   // 每10分钟掉1点
   let res = mins / 10
@@ -384,8 +384,14 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 }
 
 const getSleepStyle = () => {
-  let orgSleepList = [...userData.value.curUnlockSleeps, ...userData.value.unLockSleeps]
-  orgSleepList = getFilterInTypes(orgSleepList, userData.value.curUnLockSleepType)
+  let orgSleepList = [
+    ...userData.value.curUnlockSleeps,
+    ...userData.value.unLockSleeps
+  ]
+  orgSleepList = getFilterInTypes(
+    orgSleepList,
+    userData.value.curUnLockSleepType
+  )
   orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
 }
@@ -460,6 +466,15 @@ const handleClickShinyClear = () => {
 
 const handleChangeSleepStyle = () => {
   console.log('change select...')
+  // console.log(sleepStyleAny.value.list)
+  sleepStyleAny.value.isLastGet = checkListInLastGet(
+    gameMap[userData.value.curMap],
+    999,
+    userData.value.curStageIndex,
+    sleepStyleAny.value.list,
+    sleepStyleAny.value.curSPO,
+    getAfterClacSPO()
+  )
 }
 
 const handleBlurEnergy = () => {
@@ -487,6 +502,30 @@ onMounted(() => {
   )
 })
 // setAndGetRandomSleepStyle(3000000, userData.value.curStageIndex) // debug
+
+// debug
+// userData.value.curStageIndex = 29
+// userData.value.curMap = 0
+// sleepStyleAny.value.list = [
+//   '225-id-4',
+//   '135-id-2',
+//   '454-id-2',
+//   '132-id-1',
+//   '354-id-1',
+//   '180-id-1',
+//   '155-id-1',
+//   '453-id-1'
+// ]
+// sleepStyleAny.value.sleepCatchNum = 3073
+// sleepStyleAny.value.curSPO = 3073
+// sleepStyleAny.value.isLastGet = checkListInLastGet(
+//   gameMap[userData.value.curMap],
+//   999,
+//   userData.value.curStageIndex,
+//   sleepStyleAny.value.list,
+//   sleepStyleAny.value.curSPO,
+//   getAfterClacSPO()
+// )
 </script>
 
 <template>
@@ -1181,12 +1220,12 @@ onMounted(() => {
             )
           }}种)总SPO</el-button
         >
-        <ul class="mb3">
+        <ul class="spo-calc-list">
           <template
-            v-for="(sleepItem, key) in sleepStyleAny.list"
+            v-for="(sleepStyleId, key) in sleepStyleAny.list"
             v-bind:key="`selectCatch${key}`"
           >
-            <li class="mb3" v-if="key < sleepStyleAny.sleepCatchNum">
+            <li v-if="key < sleepStyleAny.sleepCatchNum">
               <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{
                 key + 1
               }}</i>
@@ -1201,7 +1240,7 @@ onMounted(() => {
                   <el-option
                     :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${
                       sItem.star
-                    }✩-${$t(`SLEEPSTYLE_NAME.${sItem.sleepNameId}`)}`"
+                    }✩`"
                     :value="sItem.id"
                   >
                     <img
@@ -1221,49 +1260,61 @@ onMounted(() => {
                   </el-option>
                 </template>
               </el-select>
-              <template v-if="sleepItem">
+              <template v-if="sleepStyleId">
                 <span class="cpt-avatar">
                   <img
                     class="cpt-avatar__pic"
                     v-lazy="
-                      `./img/pokedex/${SLEEP_STYLE[sleepItem].pokeId}.png`
+                      `./img/pokedex/${SLEEP_STYLE[sleepStyleId].pokeId}.png`
                     "
-                    :alt="$t(`POKEMON_NAME.${SLEEP_STYLE[sleepItem].pokeId}`)"
+                    :alt="
+                      $t(`POKEMON_NAME.${SLEEP_STYLE[sleepStyleId].pokeId}`)
+                    "
                   />
                 </span>
                 <span
                   class="i i-sleeptype"
                   :class="`i i-sleeptype--${
-                    pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                    pokedex[SLEEP_STYLE[sleepStyleId].pokeId].sleepType
                   }`"
                 >
                   {{
                     $t(
                       `SLEEP_TYPES.${
-                        pokedex[SLEEP_STYLE[sleepItem].pokeId].sleepType
+                        pokedex[SLEEP_STYLE[sleepStyleId].pokeId].sleepType
                       }`
                     )
                   }}</span
                 >
               </template>
-              <template v-if="sleepItem"
+              <span class="mr3" v-if="sleepStyleId"
                 >消耗
                 <span
                   class="sptime"
-                  v-if="sleepItem && SPO_DATA[sleepItem].spo_n"
-                  >{{ SPONEW_TO_SPOOLD[SPO_DATA[sleepItem].spo_n] }}</span
+                  v-if="sleepStyleId && getSPOById(sleepStyleId)"
+                  >{{ getSPOById(sleepStyleId) }}</span
                 >
-                <span class="sptime" v-else>{{ SPO_DATA[sleepItem].spo }}</span>
-                SPO</template
+                <span class="sptime" v-else>{{
+                  SPO_DATA[sleepStyleId].spo
+                }}</span>
+                SPO</span
+              >
+              <span
+                class="cpt-tag cpt-tag-important"
+                v-if="sleepStyleId && sleepStyleAny.isLastGet[key]"
+                >最后一抽？</span
               >
             </li>
           </template>
         </ul>
         <p>
-          您当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
+          当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
         </p>
         <p>
-          剩余SPO:<span class="sptime">{{ getAfterClacSPO() }}</span>
+          剩余SPO:<span class="sptime" v-if="sleepStyleAny.curSPO > 0">{{
+            getAfterClacSPO()
+          }}</span
+          ><span class="sptime" v-else>0</span>
         </p>
         <p v-if="getAfterClacSPO() >= 0 && sleepStyleAny.curSPO > 0">
           有效分数:<span class="sptime">{{

@@ -21,7 +21,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
               aResLast.push({
                 ...SLEEP_STYLE[sItem],
                 sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-                spo: SPO_DATA[sItem].spo_n ? SPONEW_TO_SPOOLD[SPO_DATA[sItem].spo_n] : SPO_DATA[sItem].spo, // 转换最新的spo_n对应数值
+                spo: getSPOById(sItem),
                 spoId: SPO_DATA[sItem].id,
                 unLockLevel: levelKey
               })
@@ -49,7 +49,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
           aRes.push({
             ...SLEEP_STYLE[sItem],
             sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: SPO_DATA[sItem].spo_n ? SPONEW_TO_SPOOLD[SPO_DATA[sItem].spo_n] : SPO_DATA[sItem].spo, // 转换最新的spo_n对应数值
+            spo: getSPOById(sItem),
             spoId: SPO_DATA[sItem].id,
             unLockLevel: curStageIndex
           })
@@ -76,6 +76,15 @@ export function getUnLockSleeps(levelList, curStageIndex) {
 const getShinyPoke = () => {
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
+const spacialPokemons = {
+  list: [243], // 特殊宝可梦列表，只能一个
+  noLastList: [243, 35, 36, 173], // 不进保底
+  isGet: { // 露营券判断是否重复使用
+    243: false
+  }
+}
+
+// 随机抽一次卡池
 export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions) {
   extraSleepStyleOptions = extraSleepStyleOptions || {
     banPokes: [],
@@ -84,14 +93,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     isActRandom: false
   }
   const res = []
-  const spacialPokemons = {
-    list: [243], // 特殊宝可梦列表，只能一个
-    noLastList: [243, 35, 36, 173], // 不进保底
-    isGet: {
-      243: false
-    }
-  }
   const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
+
+  spacialPokemons.isGet[243] = false //重置
 
   let cathPokeCount = getNumberInMap(
     score,
@@ -102,7 +106,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     mapData.levelList,
     curStageIndex
   ).allUnlockSleepsList
-  
+
   let orgSleepListByActType = JSON.parse(JSON.stringify(orgSleepList))
   const isActRandom = get('isActRandom', extraSleepStyleOptions)
   let catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * 0.4) // 活动带类型的无症状 固定前几个无症状
@@ -113,7 +117,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     orgSleepList = orgSleepList.filter(
       item => item.sleepType === +curUnLockSleepType
     )
-  } 
+  }
 
   // 特殊宝可梦使用熏香，也只能出1只
   if (spacialPokemons.list.includes(useIncensePokemonId)) {
@@ -390,6 +394,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   // )
   // console.log('res', res)
 }
+
+// x次期望分析
 export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   getTimes = getTimes || 4000
   let orgList = []
@@ -478,4 +484,76 @@ export function getLevelIndexByEnergy(curMapLevelList, CurEnergy) {
     }
   }
   return curStageIndex
+}
+
+export function getSPOById(sleepStyleId) {
+  if (sleepStyleId && SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo_n) {
+    return SPONEW_TO_SPOOLD[SPO_DATA[sleepStyleId].spo_n] // 转换最新的spo_n对应数值
+  } else if (SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo) {
+    return SPO_DATA[sleepStyleId].spo
+  }
+}
+
+export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, dataList, canUseSPO, lastSPO) {
+  const isLastGetArr = new Array(dataList.length).fill(false)
+  let isSleepOnStomach = false
+
+  let orgSleepList = getUnLockSleeps(
+    mapData.levelList,
+    curStageIndex
+  ).allUnlockSleepsList
+
+  // 睡眠类型图鉴筛选
+  if (+curUnLockSleepType !== 999) {
+    orgSleepList = orgSleepList.filter(
+      item => item.sleepType === +curUnLockSleepType
+    )
+  }
+
+  // SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
+  const spoZeroPoke = sortInObjectOptions(
+    orgSleepList,
+    ['spo', 'unLockLevel', 'spoId'],
+    'up'
+  )[0]
+
+  dataList.forEach(sleepStyleId => {
+    // 有大肚睡
+    if (sleepStyleId && SLEEP_STYLE[sleepStyleId] && SLEEP_STYLE[sleepStyleId].sleepName === 4) {
+      isSleepOnStomach = true
+    }
+    // 抽到特殊宝可梦后，接下来不会再出现该宝可梦
+    if (sleepStyleId && spacialPokemons.list.includes(SLEEP_STYLE[sleepStyleId].pokeId)) {
+      // console.log('抽到特殊宝可梦', SLEEP_STYLE[sleepStyleId].pokeId)
+      orgSleepList = orgSleepList.filter(
+        item =>
+          item.pokeId !== SLEEP_STYLE[sleepStyleId].pokeId
+      )
+    }
+  })
+
+  dataList.forEach((sleepStyleId, dataKey) => {
+    if (sleepStyleId) {
+      const curSpo = canUseSPO - (canUseSPO - lastSPO - getSPOById(sleepStyleId))
+      let lastPokemon = spoZeroPoke
+      // 保底计算
+      if (curSpo >= 2) {
+        let lastList = orgSleepList.filter(
+          item =>
+            !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
+            item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+        )
+        lastList = sortInObjectOptions(lastList, ['spo'], 'down')
+        const lastMostSpo = lastList[0].spo
+        lastList = lastList.filter(item => item.spo === lastMostSpo)
+        if (lastList.length > 0) {
+          lastList = sortInObjectOptions(lastList, ['unLockLevel', 'spoId'], 'up')
+        }
+        lastPokemon = lastList[0]
+      }
+
+      isLastGetArr[dataKey] = lastPokemon.id === sleepStyleId
+    }
+  })
+  return isLastGetArr
 }

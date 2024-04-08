@@ -82,7 +82,7 @@ const props = defineProps({
         获得<span class="sptime">{{ sleepItem.count }}</span
         >次
       </div>
-      <p class="desc" v-if="sleepItem.extra">
+      <p class="cpt-tag-important" v-if="sleepItem.extra">
         {{ sleepItem.extra }}
       </p>
       <p v-if="showMapLevel && sleepItem.unLockLevel !== undefined">

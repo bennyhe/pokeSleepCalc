@@ -160,6 +160,18 @@ h4 {
   }
 }
 
+.cpt-tag {
+  display: inline-block;
+  vertical-align: middle;
+
+  &-important {
+    background-color: #ed556a;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+}
+
 .cpt-avatar {
   display: inline-block;
   vertical-align: middle;
@@ -956,12 +968,6 @@ h4 {
     width: 66px;
     margin: 0 auto;
     min-height: 36px;
-
-    .desc {
-      background-color: #ed556a;
-      color: #fff;
-      border-radius: 3px;
-    }
   }
 
   &__item {
@@ -1227,6 +1233,14 @@ h4 {
         transform: scaleX(-1);
       }
     }
+  }
+}
+.spo-calc-list {
+  margin-bottom: 10px;
+  font-size: 14px;
+
+  li {
+    margin-bottom: 3px;
   }
 }
 // 多语言界面适配
