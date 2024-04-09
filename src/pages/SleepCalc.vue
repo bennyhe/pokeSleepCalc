@@ -1036,7 +1036,7 @@ onMounted(() => {
                   :class="{ shiny: sleepItem.isShiny }"
                 >
                   <p>
-                    <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
+                    <i class="i i-rank" :class="`i-rank--${sleepKey + 1} ${sleepItem.extra ? 'i-rank--ipt' : ''}`">{{
                       sleepKey + 1
                     }}</i>
                   </p>
