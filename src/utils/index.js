@@ -300,7 +300,7 @@ export function calcPositions(sleepArr, width, height) {
       const cosA = Math.cos(arg)
       const rX = Math.abs(sinA) < 0.0001 ? 0.0001 : Math.abs(sinA)
       const rY = Math.abs(cosA) < 0.0001 ? 0.0001 : Math.abs(cosA)
-      const maxRadius = Math.min((width * 0.5 - 70) / rX, (height * 0.5 - 95) / rY)
+      const maxRadius = Math.min((width * 0.5 - 70) / rX, (height * 0.5 - 70) / rY)
       const radius = Math.random() * (maxRadius - minRadius) + minRadius
       sleepItem.position = {
         xPercent: (radius * sinA + width * 0.5) / width,

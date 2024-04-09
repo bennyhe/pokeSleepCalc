@@ -390,7 +390,7 @@ const getSleepStyle = () => {
     ...userData.value.curUnlockSleeps,
     ...userData.value.unLockSleeps
   ]
-  if(!userData.value.isActRandom) {
+  if (!userData.value.isActRandom) {
     orgSleepList = getFilterInTypes(
       orgSleepList,
       userData.value.curUnLockSleepType
@@ -983,8 +983,8 @@ onMounted(() => {
                       )}`,
                     ]"
                     :style="`animation-delay: ${0.3 * (sleepKey + 1)}s; left:${
-                      638 * sleepItem.position.xPercent
-                    }px; top:${380 * sleepItem.position.yPercent}px`"
+                      sleepItem.position.xPercent * 100
+                    }%; top:${sleepItem.position.yPercent * 100}%`"
                   >
                     <div class="cpt-pokemon">
                       <div class="cpt-pokemon__pic">

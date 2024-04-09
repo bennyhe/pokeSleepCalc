@@ -1159,7 +1159,7 @@ h4 {
 
 .lottery-map {
   width: 638px;
-  height: 300px;
+  height: 383px;
   position: relative;
   border: 1px dashed #d1d1d1;
   box-shadow: 0 2px $mainColor;
@@ -1176,34 +1176,37 @@ h4 {
   }
 
   &__snorlax {
-    width: (944px / 5);
-    height: (776px / 5);
+    width: (944px / 6);
+    height: (776px / 6);
     background: url(../img/ui/snorlax.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -(766px / 5 / 2) 0 0 0  -(944px / 5 / 2);
+    margin: -(766px / 6 / 2) 0 0 0  -(944px / 6 / 2);
     z-index: 3;
   }
 
   @keyframes aniFadeInTop {
     0% {
       opacity: 0;
-      transform: translate(0, 10px);
+      transform: translate(0, 10px) scale(0);
+    }
+    30% {
+      transform: translate(0, 7px) scale(1);
     }
     100% {
       opacity: 1;
-      transform: translate(0, 0);
+      transform: translate(0, 0)scale(1);
     }
   }
 
   &__item {
     position: absolute;
-    border-radius: 100%;
     z-index: 10;
     animation: aniFadeInTop 0.3s linear both;
-    margin: -85px 0 0 -33px;
+    margin: -48px 0 0 -33px;
+    transform-origin: center bottom;
 
     .cpt-pokemon {
       width: 70px;
@@ -1213,6 +1216,10 @@ h4 {
       .cpt-pokemon__pic {
         height: 70px;
         width: 100%;
+
+        img {
+          height: auto;
+        }
       }
     }
 
@@ -1248,6 +1255,10 @@ h4 {
 
 // 移动端适配
 @media screen and (max-width: 660px) {
+
+  .lottery-map {
+    width: 538px
+  }
 
   .page-sleepcalc {
     .first-page-nav .el-radio-button__inner {
