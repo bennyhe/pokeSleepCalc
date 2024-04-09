@@ -329,7 +329,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   // 使用露营券
   if (get('isUseTicket', extraSleepStyleOptions)) {
     let ticketSleeps = [...targetPokemonAllSleep].filter(
-      item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
+      item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId) && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
 
     // 睡眠类型图鉴筛选
@@ -554,7 +554,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
       }
 
       isLastGetArr[dataKey] = lastPokemon.id === sleepStyleId
-      console.log(isSleepOnStomach, curSpo, sleepStyleId, lastPokemon.id,  lastPokemon.id === sleepStyleId)
+      console.log(isSleepOnStomach, curSpo, sleepStyleId, lastPokemon.id, lastPokemon.id === sleepStyleId)
     }
   })
   return isLastGetArr
