@@ -1,4 +1,8 @@
 export default {
+  'PROP': {
+    'incense': '熏香',
+    'ticket': '露营券'
+  },
   'ILAND': {
     'green': '萌绿之岛',
     'beach': '天青沙滩',

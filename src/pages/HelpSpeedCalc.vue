@@ -927,17 +927,17 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
-        active-text="是（2倍树果能量）"
-        inactive-text="否"
+        :active-text="`$t('OPTIONS.yes')（2倍树果能量）`"
+        :inactive-text="$t('OPTIONS.no')"
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>
-    <el-form-item label="露营券">
+    <el-form-item :label="$t('PROP.ticket')">
       <el-switch
         v-model="helpSpeedCalcForm.isUseTicket"
         inline-prompt
         active-text="使用（帮忙1.2倍）"
-        inactive-text="不使用"
+        :inactive-text="$t('OPTIONS.nouse')"
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>

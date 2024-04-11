@@ -481,7 +481,7 @@ const gameMap = [
         ]
       },
       {
-        'name': '大师20以上',
+        'name': '大师20',
         'energy': 3245795,
         'sleepStyles': []
       }
@@ -870,7 +870,7 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师20以上',
+        'name': '大师20',
         'energy': 3732664,
         'sleepStyles': []
       }
@@ -1264,7 +1264,7 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师20以上',
+        'name': '大师20',
         'energy': 4219534,
         'sleepStyles': []
       }
@@ -1655,7 +1655,7 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师20以上',
+        'name': '大师20',
         'energy': 4706403,
         'sleepStyles': []
       }
@@ -2076,7 +2076,7 @@ const gameMap = [
         'sleepStyles': []
       },
       {
-        'name': '大师20以上',
+        'name': '大师20',
         'energy': 5193272,
         'sleepStyles': []
       }

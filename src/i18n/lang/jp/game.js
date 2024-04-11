@@ -1,4 +1,8 @@
 export default {
+  'PROP': {
+    'incense': 'おこう',
+    'ticket': 'いいキャンプチケット'
+  },
   'ILAND': {
     'green': 'ワカクサ本島',
     'beach': 'シアンの砂浜',
@@ -8,7 +12,7 @@ export default {
     'none': '未适正树果'
   },
   'SLEEP_TYPES': {
-    999: '沒有特徵',
+    999: 'とくちょうなしタイプ',
     1: 'うとうと',
     2: 'すやすや',
     3: 'ぐっすり'

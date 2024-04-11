@@ -534,7 +534,7 @@ onMounted(() => {
 
 <template>
   <div class="page-sleepcalc">
-    <h2>睡眠计算</h2>
+    <h2>{{ $t("PAGE_SLEEPCALC.pageTitle") }}</h2>
     <el-form label-width="90px">
       <el-form-item>
         <el-radio-group
@@ -551,7 +551,7 @@ onMounted(() => {
         </el-radio-group>
       </el-form-item>
       <!-- S 当前岛屿 -->
-      <el-form-item label="当前岛屿">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableCurIland')">
         <ul class="cpt-select-list">
           <li
             class="cpt-select-list__item"
@@ -592,7 +592,7 @@ onMounted(() => {
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->
-      <el-form-item label="级别/能量">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableLevel')">
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"
@@ -629,7 +629,7 @@ onMounted(() => {
             </template> </el-input
         ></el-col>
       </el-form-item>
-      <el-form-item label="特殊加成">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">平时</el-radio>
           <el-radio :label="1.5">好眠日1.5倍</el-radio>
@@ -640,7 +640,7 @@ onMounted(() => {
         </el-radio-group>
       </el-form-item>
       <template v-if="+navData.navIndex === 0">
-        <el-form-item label="不拆分">
+        <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
           满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
             class="sptime"
             >{{ getSleepCatchNum() }}只</span
@@ -723,15 +723,15 @@ onMounted(() => {
     </el-form>
     <div class="page-inner" v-if="+navData.navIndex === 0">
       <div class="mod-tips">
-        <p>* 开帐篷（每天第一觉）可额外加1只，熏香可额外加1只。</p>
-        <p>* 开帐篷&熏香不在计算范围内。</p>
+        <p>* 使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。</p>
+        <p>* 使用露营券&熏香不在计算范围内。</p>
       </div>
     </div>
     <el-form
       label-width="90px"
       v-if="+navData.navIndex === 2 || +navData.navIndex === 3"
     >
-      <el-form-item label="睡眠类型">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepStyle')">
         <el-radio-group v-model="userData.curUnLockSleepType">
           <el-radio
             :label="cKey"
@@ -747,7 +747,7 @@ onMounted(() => {
           </el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="需睡眠分数">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepPoint')">
         <div style="width: 300px">
           <el-slider
             v-model="randomSleepStyle.sleepPoint"
@@ -765,7 +765,7 @@ onMounted(() => {
               :step="1"
             />只选择分数
           </el-form-item> -->
-      <el-form-item label="需睡眠时长">
+      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepTime')">
         <span class="sptime">{{
           toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
         }}</span>
@@ -780,7 +780,7 @@ onMounted(() => {
     <div :class="{ hide: +navData.navIndex !== 2 }">
       <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
         <el-form label-width="90px">
-          <el-form-item label="抽取选项">
+          <el-form-item :label="$t('PAGE_SLEEPCALC.formLableRandomOptions')">
             <el-radio-group
               v-model="userData.lockSkillCount"
               size="small"
@@ -791,18 +791,25 @@ onMounted(() => {
                 v-for="(cItem, cKey) in [0, 1, 2, 3]"
                 v-bind:key="cItem"
               >
-                <template v-if="cItem === 0">不锁</template
-                ><template v-else>锁{{ cItem }}金</template></el-radio-button
+                <template v-if="cItem === 0">{{
+                  $t("PAGE_SLEEPCALC.noLock")
+                }}</template
+                ><template v-else
+                  >{{ $t("PAGE_SLEEPCALC.lockBefore") }}{{ cItem
+                  }}{{ $t("PAGE_SLEEPCALC.lockAfter") }}</template
+                ></el-radio-button
               >
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="熏香">
+          <el-form-item :label="$t('PROP.incense')">
             <el-select
               v-model="userData.useIncensePokemonId"
               placeholder="请选择宝可梦熏香"
               filterable
             >
-              <el-option label="不使用" value=""> 不使用熏香 </el-option>
+              <el-option :label="$t('OPTIONS.nouse')" value="">
+                {{ $t("OPTIONS.nouse") }}
+              </el-option>
               <template v-for="pokeItem in pokedex" :key="pokeItem.id">
                 <el-option
                   :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
@@ -824,55 +831,39 @@ onMounted(() => {
               </template>
             </el-select>
           </el-form-item>
-          <el-form-item>
-            <div
-              style="
-                margin-left: -53px;
-                margin-right: 10px;
-                color: var(--el-text-color-regular);
-              "
+          <el-form-item :label="$t('PROP.ticket')">
+            <span
+              style="display: inline-block; vertical-align: middle; width: 85px"
             >
-              露营券
-              <span
-                style="
-                  display: inline-block;
-                  vertical-align: middle;
-                  width: 85px;
-                  margin-left: 6px;
-                "
-              >
-                <el-switch
-                  v-model="userData.isUseTicket"
-                  inline-prompt
-                  active-text="使用(多1只)"
-                  inactive-text="不使用"
-                  style="--el-switch-on-color: #ffaf00"
-                />
-              </span>
-            </div>
+              <el-switch
+                v-model="userData.isUseTicket"
+                inline-prompt
+                active-text="使用(多1只)"
+                :inactive-text="$t('OPTIONS.nouse')"
+                style="--el-switch-on-color: #ffaf00"
+              />
+            </span>
             <div style="color: var(--el-text-color-regular)">
-              活动无特征
+              {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
               <span style="display: inline-block; vertical-align: middle">
                 <el-switch
                   v-model="userData.isActRandom"
                   inline-prompt
-                  active-text="是"
-                  inactive-text="否"
+                  :active-text="$t('OPTIONS.yes')"
+                  :inactive-text="$t('OPTIONS.no')"
                   style="--el-switch-on-color: #ffaf00"
                 />
               </span>
             </div>
           </el-form-item>
-          <el-form-item label="结果地图">
-            <span style="display: inline-block; vertical-align: middle">
-              <el-switch
-                v-model="userData.showLotteryMap"
-                inline-prompt
-                active-text="展开"
-                inactive-text="收起"
-                style="--el-switch-on-color: #ffaf00"
-              />
-            </span>
+          <el-form-item :label="$t('PAGE_SLEEPCALC.formLableMapModel')">
+            <el-switch
+              v-model="userData.showLotteryMap"
+              inline-prompt
+              :active-text="$t('OPTIONS.yes')"
+              :inactive-text="$t('OPTIONS.no')"
+              style="--el-switch-on-color: #ffaf00"
+            />
           </el-form-item>
           <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
             <el-checkbox-group v-model="userData.banPokes" size="small">
@@ -890,22 +881,25 @@ onMounted(() => {
         <div class="page-inner mb3">
           <p class="mb3">
             <el-alert
-              title="游戏v1.4.0更新了大量对睡姿相关内容，请注意抽取睡姿该功能可能不符合期望结果。"
+              :title="$t('PAGE_SLEEPCALC.tipsTitle')"
               type="warning"
               show-icon
             >
               <div class="mod-tips">
                 <p>
                   *
-                  抽取睡姿不支持<em>睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率</em>等特殊情况。
+                  {{ $t("PAGE_SLEEPCALC.tipsNoSupportBefore")
+                  }}<em>{{ $t("PAGE_SLEEPCALC.tipsNoSupportMid") }}</em
+                  >{{ $t("PAGE_SLEEPCALC.tipsNoSupportAfter") }}
                 </p>
-                <p>* 抽取结果不代表游戏内结果，仅作为参考。</p>
-                <p>* 抽取结果的闪率并不是游戏内的闪率。</p>
+                <p>* {{ $t("PAGE_SLEEPCALC.tipsNoRes") }}</p>
+                <p>* {{ $t("PAGE_SLEEPCALC.tipsShiny") }}</p>
               </div>
             </el-alert>
           </p>
           <el-button type="success" plain @click="handleClickSleepOnce()"
-            >点击抽取<img
+            >{{ $t("PAGE_SLEEPCALC.btnSleepOnceBefore")
+            }}<img
               class="icon"
               v-lazy="
                 `./img/ui/${getStageLevelPicId(
@@ -919,14 +913,25 @@ onMounted(() => {
               getNumberInMap(
                 getScore(randomSleepStyle.sleepPoint),
                 gameMap[userData.curMap].scoreList
-              )
-            }}种)睡姿</el-button
+              ) +
+              (userData.useIncensePokemonId ? 1 : 0) +
+              (userData.isUseTicket ? 1 : 0)
+            }}{{ $t("PAGE_SLEEPCALC.btnSleepOnceAfter") }}</el-button
           >
         </div>
         <div class="page-inner">
           <h3>
-            抽取睡姿结果
-            <span class="extra">({{ randomSleepStyle.resList.length }}种)</span>
+            {{ $t("PAGE_SLEEPCALC.titleSleepRes") }}
+            <span class="extra"
+              >({{
+                getNumberInMap(
+                  getScore(randomSleepStyle.sleepPoint),
+                  gameMap[userData.curMap].scoreList
+                ) +
+                (userData.useIncensePokemonId ? 1 : 0) +
+                (userData.isUseTicket ? 1 : 0)
+              }}种)</span
+            >
           </h3>
           <div class="mod-tips" v-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
@@ -1036,9 +1041,13 @@ onMounted(() => {
                   :class="{ shiny: sleepItem.isShiny }"
                 >
                   <p>
-                    <i class="i i-rank" :class="`i-rank--${sleepKey + 1} ${sleepItem.extra ? 'i-rank--ipt' : ''}`">{{
-                      sleepKey + 1
-                    }}</i>
+                    <i
+                      class="i i-rank"
+                      :class="`i-rank--${sleepKey + 1} ${
+                        sleepItem.extra ? 'i-rank--ipt' : ''
+                      }`"
+                      >{{ sleepKey + 1 }}</i
+                    >
                   </p>
                   <CptSleepStyle
                     :sleepItem="sleepItem"
@@ -1072,7 +1081,8 @@ onMounted(() => {
                 type="primary"
                 plain
                 @click="handleClickSleepMoreTimes()"
-                >点击计算期望(睡{{ getTimes }}次，不含熏香和露营券)</el-button
+                >{{ $t("PAGE_SLEEPCALC.btnSleepMoreTimeBefore") }}{{ getTimes
+                }}{{ $t("PAGE_SLEEPCALC.btnSleepMoreTimeAfter") }}</el-button
               >
             </div>
             <div class="has-loading" v-if="hopeList.length > 0">
@@ -1095,7 +1105,9 @@ onMounted(() => {
                 </h3>
                 <div style="font-size: 12px">
                   「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」
-                  <template v-if="userData.isActRandom">活动无特征</template>
+                  <template v-if="userData.isActRandom">{{
+                    $t("PAGE_SLEEPCALC.formLableActRandom")
+                  }}</template>
                   (<span class="sptime">{{
                     getNum(getScore(randomSleepStyle.sleepPoint))
                   }}</span
@@ -1184,12 +1196,12 @@ onMounted(() => {
     </div>
     <div v-if="+navData.navIndex === 3">
       <el-form label-width="90px">
-        <el-form-item label="活动无特征">
+        <el-form-item :label="$t('PAGE_SLEEPCALC.formLableActRandom')">
           <el-switch
             v-model="userData.isActRandom"
             inline-prompt
-            active-text="是"
-            inactive-text="否"
+            :active-text="$t('OPTIONS.yes')"
+            :inactive-text="$t('OPTIONS.no')"
             style="--el-switch-on-color: #ffaf00"
           />
         </el-form-item>
@@ -1197,7 +1209,7 @@ onMounted(() => {
       <div class="page-inner mb3">
         <p class="mb3">
           <el-alert
-            title="游戏v1.4.0更新了大量对睡姿相关内容，请注意该功能可能不符合期望结果。"
+            :title="$t('PAGE_SLEEPCALC.tipsTitle')"
             type="warning"
             show-icon
           >
