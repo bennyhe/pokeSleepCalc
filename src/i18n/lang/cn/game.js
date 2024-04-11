@@ -1,5 +1,4 @@
 export default {
-  lang: '中文',
   'ILAND': {
     'green': '萌绿之岛',
     'beach': '天青沙滩',
@@ -7,13 +6,6 @@ export default {
     'snow': '白花雪原',
     'lake': '宝蓝湖畔',
     'none': '未适正树果'
-  },
-  'SHORT_SKILL': {
-    'berrys': '树果S'
-  },
-  'PAGE_SLEEPCALC': {
-    'titleCutNum': '数据区间参考',
-    'sleepStyle': '已解锁睡姿'
   },
   'SLEEP_TYPES': {
     999: '沒有特徵',

@@ -1,5 +1,4 @@
 export default {
-  lang: '日本語',
   'ILAND': {
     'green': 'ワカクサ本島',
     'beach': 'シアンの砂浜',
@@ -7,13 +6,6 @@ export default {
     'snow': 'ウノハナ雪原',
     'lake': 'ラピスラズリ湖畔',
     'none': '未适正树果'
-  },
-  'SHORT_SKILL': {
-    'berrys': 'きのみS'
-  },
-  'PAGE_SLEEPCALC': {
-    'titleCutNum': '睡眠リサーチのポケモン数',
-    'sleepStyle': '寝顔'
   },
   'SLEEP_TYPES': {
     999: '沒有特徵',

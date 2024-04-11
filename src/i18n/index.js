@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
-import cn from './lang/cn.js'
-import jp from './lang/jp.js'
+import cn from './lang/cn/index.js'
+import jp from './lang/jp/index.js'
 
 const i18n = createI18n({
   locale: localStorage.getItem('psclang') || 'cn', // 设置当前语言类型
