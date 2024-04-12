@@ -1,7 +1,8 @@
 export default {
   'PROP': {
     'incense': 'おこう',
-    'ticket': 'いいキャンプチケット'
+    'ticket': 'いいキャンプチケット',
+    'shiny': '色違'
   },
   'ILAND': {
     'green': 'ワカクサ本島',

@@ -1057,12 +1057,12 @@ onMounted(() => {
             >只宝可梦，其中<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
-            >只{{ $t("PROP.shiny") }}。
+            >只{{ $t('PROP.shiny') }}。
             <el-button
               size="small"
               @click="handleClickShinyDetail()"
               v-if="userSleep.pokeShinyCount > 0"
-              >{{ $t("PROP.shiny") }}详情(<template
+              >{{ $t('PROP.shiny') }}详情(<template
                 v-if="userSleep.showDetailShiny"
                 >收起</template
               ><template v-else>展开</template>)</el-button
@@ -1128,7 +1128,7 @@ onMounted(() => {
                     >
                       <p class="star">{{ sleepItem.star }}✩</p>
                       <span v-if="sleepItem.isShiny" class="sptime">{{
-                        $t("PROP.shiny")
+                        $t('PROP.shiny')
                       }}</span>
                       {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
                     </div>

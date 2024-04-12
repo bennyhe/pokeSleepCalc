@@ -8,7 +8,7 @@ export default {
     'Mon': '月曜日',
     'Tue': '火曜日',
     'Wed': '水曜日',
-    'otherDay': 'ウィークディー',
+    'otherDay': '下記以外の曜日',
     'sleepDay': '満月の前後の日',
     'fullMoon': '満月の日',
     'moreOne': '一匹余り'
@@ -39,13 +39,13 @@ export default {
     'formLableSleepPoint': '睡眠スコア',
     'formLableSleepTime': '睡眠時間',
     'formLableRandomOptions': '抽選項目',
-    'formLableMapModel': 'Map',
+    'formLableMapModel': '地図モード',
     'formLableActRandom': 'ほかの睡眠タイプポケモン出現（少し）',
 
     'btnSleepOnceBefore': 'クリックで',
     'btnSleepOnceAfter': '種)寝顔抽選',
     'btnSleepMoreTimeBefore': 'クリックで期待値を計算する(',
-    'btnSleepMoreTimeAfter': '回寝，不含熏香和露营券)',
+    'btnSleepMoreTimeAfter': '回寝，おこうといいキャンプチケットが含まず)',
 
     'tipsTitle': 'ームのバージョン1.4.0では多くの寝顔関連の内容が更新されたため、寝顔抽選機能が期待通りの結果をもたらさないことがあります。',
     'tipsNoSupportBefore': '寝顔取り出しは',
