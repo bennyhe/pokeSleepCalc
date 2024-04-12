@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="cpt-iv">
-    <span v-if="sleepItem.isShiny" class="shiny">闪光</span>
+    <span v-if="sleepItem.isShiny" class="shiny">{{ $t("PROP.shiny") }}</span>
     {{ POKE_TYPES[pokedex[sleepItem.pokeId].pokeType] }}型
     <div class="cpt-food cpt-food--s berry">
       <div class="cpt-food__item">

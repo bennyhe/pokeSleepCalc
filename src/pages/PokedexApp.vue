@@ -401,13 +401,22 @@ onMounted(() => {
                       ].name
                     )}.png`
                   "
-                />
-                {{
+                />{{
+                  $t(
+                    `LEVEL_TITLE.${
+                      gameMap[mapKey].levelList[
+                        gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                          +pokemonKey
+                        ]
+                      ].nameId
+                    }`
+                  )
+                }}{{
                   gameMap[mapKey].levelList[
                     gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
                       +pokemonKey
                     ]
-                  ].name
+                  ].nameIndex
                 }}
               </p>
             </div>

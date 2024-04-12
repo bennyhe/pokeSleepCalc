@@ -151,7 +151,7 @@ const handleClickChangeMap = id => {
   <el-form label-width="82px">
     <!-- S 当前岛屿 -->
     <el-form-item label="当前岛屿">
-      <ul class="cpt-select-list">
+      <ul class="cpt-select-list cpt-select-list--iland">
         <template v-for="(mapItem, mapIndex) in newGameMap">
           <li
             class="cpt-select-list__item"

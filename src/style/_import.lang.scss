@@ -1,11 +1,36 @@
 .lang-jp {
+
+  .el-form-item__label {
+    line-height: 1.2;
+    padding-top: 10px;
+  }
+
+  .cpt-select-list--iland .cpt-select-list__item {
+    width: 138px;
+  }
   .cpt-select-list__name {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .cpt-select-list--berry {
     .cpt-select-list__name {
       font-size: 14px;
+    }
+  }
+
+  .page-pokedex {
+    .poke-tb__item .cpt-select-list__item {
+      border-radius: 8px;
+    }
+    .cpt-select-list__name {
+      font-size: 11px;
+      padding-top: 3px;
+
+      p {
+        height: 30px;
+        white-space: normal;
+        padding: 0 3px;
+      }
     }
   }
 

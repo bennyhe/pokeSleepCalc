@@ -14,6 +14,8 @@ const gameMap = [
     levelList: [
       {
         'name': '普通1',
+        'nameIndex': 1,
+        'nameId': 1,
         'energy': 0,
         'sleepStyles': [
           '19-id-1',
@@ -40,6 +42,8 @@ const gameMap = [
       },
       {
         'name': '普通2',
+        'nameIndex': 2,
+        'nameId': 1,
         'energy': 3118,
         'sleepStyles': [
           '52-id-1',
@@ -60,6 +64,8 @@ const gameMap = [
       },
       {
         'name': '普通3',
+        'nameIndex': 3,
+        'nameId': 1,
         'energy': 7171,
         'sleepStyles': [
           '25-id-1',
@@ -69,6 +75,8 @@ const gameMap = [
       },
       {
         'name': '普通4',
+        'nameIndex': 4,
+        'nameId': 1,
         'energy': 11693,
         'sleepStyles': [
           '133-id-1',
@@ -80,6 +88,8 @@ const gameMap = [
       },
       {
         'name': '普通5',
+        'nameIndex': 5,
+        'nameId': 1,
         'energy': 17149,
         'sleepStyles': [
           '19-id-2',
@@ -106,6 +116,8 @@ const gameMap = [
       },
       {
         'name': '超级1',
+        'nameIndex': 1,
+        'nameId': 2,
         'energy': 23385,
         'sleepStyles': [
           '19-id-4',
@@ -145,6 +157,8 @@ const gameMap = [
       },
       {
         'name': '超级2',
+        'nameIndex': 2,
+        'nameId': 2,
         'energy': 31492,
         'sleepStyles': [
           '25-id-2',
@@ -171,6 +185,8 @@ const gameMap = [
       },
       {
         'name': '超级3',
+        'nameIndex': 3,
+        'nameId': 2,
         'energy': 41314,
         'sleepStyles': [
           '25-id-4',
@@ -186,6 +202,8 @@ const gameMap = [
       },
       {
         'name': '超级4',
+        'nameIndex': 4,
+        'nameId': 2,
         'energy': 53006,
         'sleepStyles': [
           '133-id-4',
@@ -203,6 +221,8 @@ const gameMap = [
       },
       {
         'name': '超级5',
+        'nameIndex': 5,
+        'nameId': 2,
         'energy': 65634,
         'sleepStyles': [
           '11-id-2',
@@ -214,6 +234,8 @@ const gameMap = [
       },
       {
         'name': '高级1',
+        'nameIndex': 1,
+        'nameId': '3',
         'energy': 79197,
         'sleepStyles': [
           '11-id-4',
@@ -237,6 +259,8 @@ const gameMap = [
       },
       {
         'name': '高级2',
+        'nameIndex': 2,
+        'nameId': '3',
         'energy': 93540,
         'sleepStyles': [
           '52-id-3',
@@ -256,6 +280,8 @@ const gameMap = [
       },
       {
         'name': '高级3',
+        'nameIndex': 3,
+        'nameId': '3',
         'energy': 109130,
         'sleepStyles': [
           '2-id-2',
@@ -273,6 +299,8 @@ const gameMap = [
       },
       {
         'name': '高级4',
+        'nameIndex': 4,
+        'nameId': '3',
         'energy': 125032,
         'sleepStyles': [
           '2-id-4',
@@ -289,6 +317,8 @@ const gameMap = [
       },
       {
         'name': '高级5',
+        'nameIndex': 5,
+        'nameId': '3',
         'energy': 156121,
         'sleepStyles': [
           '12-id-1',
@@ -302,6 +332,8 @@ const gameMap = [
       },
       {
         'name': '大师1',
+        'nameIndex': 1,
+        'nameId': 4,
         'energy': 187832,
         'sleepStyles': [
           '11-id-3',
@@ -316,6 +348,8 @@ const gameMap = [
       },
       {
         'name': '大师2',
+        'nameIndex': 2,
+        'nameId': 4,
         'energy': 220177,
         'sleepStyles': [
           '40-id-1',
@@ -331,6 +365,8 @@ const gameMap = [
       },
       {
         'name': '大师3',
+        'nameIndex': 3,
+        'nameId': 4,
         'energy': 253169,
         'sleepStyles': [
           '700-id-1',
@@ -340,6 +376,8 @@ const gameMap = [
       },
       {
         'name': '大师4',
+        'nameIndex': 4,
+        'nameId': 4,
         'energy': 286821,
         'sleepStyles': [
           '12-id-2',
@@ -349,6 +387,8 @@ const gameMap = [
       },
       {
         'name': '大师5',
+        'nameIndex': 5,
+        'nameId': 4,
         'energy': 321146,
         'sleepStyles': [
           '12-id-4',
@@ -363,6 +403,8 @@ const gameMap = [
       },
       {
         'name': '大师6',
+        'nameIndex': 6,
+        'nameId': 4,
         'energy': 356158,
         'sleepStyles': [
           '40-id-2',
@@ -373,6 +415,8 @@ const gameMap = [
       },
       {
         'name': '大师7',
+        'nameIndex': 7,
+        'nameId': 4,
         'energy': 391870,
         'sleepStyles': [
           '40-id-4',
@@ -385,6 +429,8 @@ const gameMap = [
       },
       {
         'name': '大师8',
+        'nameIndex': 8,
+        'nameId': 4,
         'energy': 428296,
         'sleepStyles': [
           '26-id-2',
@@ -394,6 +440,8 @@ const gameMap = [
       },
       {
         'name': '大师9',
+        'nameIndex': 9,
+        'nameId': 4,
         'energy': 465451,
         'sleepStyles': [
           '3-id-2',
@@ -406,6 +454,8 @@ const gameMap = [
       },
       {
         'name': '大师10',
+        'nameIndex': 10,
+        'nameId': 4,
         'energy': 532707,
         'sleepStyles': [
           '12-id-3',
@@ -418,6 +468,8 @@ const gameMap = [
       },
       {
         'name': '大师11',
+        'nameIndex': 11,
+        'nameId': 4,
         'energy': 601308,
         'sleepStyles': [
           '468-id-4',
@@ -427,6 +479,8 @@ const gameMap = [
       },
       {
         'name': '大师12',
+        'nameIndex': 12,
+        'nameId': 4,
         'energy': 742056,
         'sleepStyles': [
           '289-id-4'
@@ -434,6 +488,8 @@ const gameMap = [
       },
       {
         'name': '大师13',
+        'nameIndex': 13,
+        'nameId': 4,
         'energy': 885619,
         'sleepStyles': [
           '700-id-3',
@@ -442,6 +498,8 @@ const gameMap = [
       },
       {
         'name': '大师14',
+        'nameIndex': 14,
+        'nameId': 4,
         'energy': 1029700,
         'sleepStyles': [
           '26-id-3'
@@ -449,6 +507,8 @@ const gameMap = [
       },
       {
         'name': '大师15',
+        'nameIndex': 15,
+        'nameId': 4,
         'energy': 1199506,
         'sleepStyles': [
           '135-id-3'
@@ -456,6 +516,8 @@ const gameMap = [
       },
       {
         'name': '大师16',
+        'nameIndex': 16,
+        'nameId': 4,
         'energy': 1486800,
         'sleepStyles': [
           '468-id-3'
@@ -463,6 +525,8 @@ const gameMap = [
       },
       {
         'name': '大师17',
+        'nameIndex': 17,
+        'nameId': 4,
         'energy': 1795052,
         'sleepStyles': [
           '462-id-3'
@@ -470,11 +534,15 @@ const gameMap = [
       },
       {
         'name': '大师18',
+        'nameIndex': 18,
+        'nameId': 4,
         'energy': 2165541,
         'sleepStyles': []
       },
       {
         'name': '大师19',
+        'nameIndex': 19,
+        'nameId': 4,
         'energy': 2604280,
         'sleepStyles': [
           '243-id-3'
@@ -482,6 +550,8 @@ const gameMap = [
       },
       {
         'name': '大师20',
+        'nameIndex': 20,
+        'nameId': 4,
         'energy': 3245795,
         'sleepStyles': []
       }
@@ -501,6 +571,8 @@ const gameMap = [
     levelList: [
       {
         'name': '普通1',
+        'nameIndex': 1,
+        'nameId': 1,
         'energy': 0,
         'sleepStyles': [
           '25-id-1',
@@ -531,6 +603,8 @@ const gameMap = [
       },
       {
         'name': '普通2',
+        'nameIndex': 2,
+        'nameId': 1,
         'energy': 4822,
         'sleepStyles': [
           '19-id-2',
@@ -547,6 +621,8 @@ const gameMap = [
       },
       {
         'name': '普通3',
+        'nameIndex': 3,
+        'nameId': 1,
         'energy': 11090,
         'sleepStyles': [
           '7-id-2',
@@ -562,6 +638,8 @@ const gameMap = [
       },
       {
         'name': '普通4',
+        'nameIndex': 4,
+        'nameId': 1,
         'energy': 18082,
         'sleepStyles': [
           '25-id-2',
@@ -572,6 +650,8 @@ const gameMap = [
       },
       {
         'name': '普通5',
+        'nameIndex': 5,
+        'nameId': 1,
         'energy': 26520,
         'sleepStyles': [
           '133-id-2',
@@ -582,6 +662,8 @@ const gameMap = [
       },
       {
         'name': '超级1',
+        'nameIndex': 1,
+        'nameId': 2,
         'energy': 36164,
         'sleepStyles': [
           '25-id-4',
@@ -611,6 +693,8 @@ const gameMap = [
       },
       {
         'name': '超级2',
+        'nameIndex': 2,
+        'nameId': 2,
         'energy': 48700,
         'sleepStyles': [
           '55-id-1',
@@ -619,6 +703,8 @@ const gameMap = [
       },
       {
         'name': '超级3',
+        'nameIndex': 3,
+        'nameId': 2,
         'energy': 63889,
         'sleepStyles': [
           '19-id-3',
@@ -638,6 +724,8 @@ const gameMap = [
       },
       {
         'name': '超级4',
+        'nameIndex': 4,
+        'nameId': 2,
         'energy': 81971,
         'sleepStyles': [
           '7-id-3',
@@ -659,6 +747,8 @@ const gameMap = [
       },
       {
         'name': '超级5',
+        'nameIndex': 5,
+        'nameId': 2,
         'energy': 101499,
         'sleepStyles': [
           '25-id-3',
@@ -672,6 +762,8 @@ const gameMap = [
       },
       {
         'name': '高级1',
+        'nameIndex': 1,
+        'nameId': '3',
         'energy': 122474,
         'sleepStyles': [
           '133-id-3',
@@ -693,6 +785,8 @@ const gameMap = [
       },
       {
         'name': '高级2',
+        'nameIndex': 2,
+        'nameId': '3',
         'energy': 144654,
         'sleepStyles': [
           '80-id-2',
@@ -703,6 +797,8 @@ const gameMap = [
       },
       {
         'name': '高级3',
+        'nameIndex': 3,
+        'nameId': '3',
         'energy': 168763,
         'sleepStyles': [
           '80-id-4',
@@ -713,6 +809,8 @@ const gameMap = [
       },
       {
         'name': '高级4',
+        'nameIndex': 4,
+        'nameId': '3',
         'energy': 195283,
         'sleepStyles': [
           '40-id-1',
@@ -724,6 +822,8 @@ const gameMap = [
       },
       {
         'name': '高级5',
+        'nameIndex': 5,
+        'nameId': '3',
         'energy': 224455,
         'sleepStyles': [
           '122-id-3',
@@ -732,6 +832,8 @@ const gameMap = [
       },
       {
         'name': '大师1',
+        'nameIndex': 1,
+        'nameId': 4,
         'energy': 256544,
         'sleepStyles': [
           '8-id-3',
@@ -745,6 +847,8 @@ const gameMap = [
       },
       {
         'name': '大师2',
+        'nameIndex': 2,
+        'nameId': 4,
         'energy': 291842,
         'sleepStyles': [
           '9-id-1',
@@ -757,6 +861,8 @@ const gameMap = [
       },
       {
         'name': '大师3',
+        'nameIndex': 3,
+        'nameId': 4,
         'energy': 330670,
         'sleepStyles': [
           '40-id-2',
@@ -765,6 +871,8 @@ const gameMap = [
       },
       {
         'name': '大师4',
+        'nameIndex': 4,
+        'nameId': 4,
         'energy': 373381,
         'sleepStyles': [
           '40-id-4',
@@ -776,11 +884,15 @@ const gameMap = [
       },
       {
         'name': '大师5',
+        'nameIndex': 5,
+        'nameId': 4,
         'energy': 420363,
         'sleepStyles': []
       },
       {
         'name': '大师6',
+        'nameIndex': 6,
+        'nameId': 4,
         'energy': 472043,
         'sleepStyles': [
           '9-id-2',
@@ -792,6 +904,8 @@ const gameMap = [
       },
       {
         'name': '大师7',
+        'nameIndex': 7,
+        'nameId': 4,
         'energy': 528891,
         'sleepStyles': [
           '9-id-4',
@@ -802,11 +916,15 @@ const gameMap = [
       },
       {
         'name': '大师8',
+        'nameIndex': 8,
+        'nameId': 4,
         'energy': 591424,
         'sleepStyles': []
       },
       {
         'name': '大师9',
+        'nameIndex': 9,
+        'nameId': 4,
         'energy': 660210,
         'sleepStyles': [
           '40-id-3'
@@ -814,6 +932,8 @@ const gameMap = [
       },
       {
         'name': '大师10',
+        'nameIndex': 10,
+        'nameId': 4,
         'energy': 735875,
         'sleepStyles': [
           '36-id-3'
@@ -821,11 +941,15 @@ const gameMap = [
       },
       {
         'name': '大师11',
+        'nameIndex': 11,
+        'nameId': 4,
         'energy': 819107,
         'sleepStyles': []
       },
       {
         'name': '大师12',
+        'nameIndex': 12,
+        'nameId': 4,
         'energy': 910662,
         'sleepStyles': [
           '9-id-3',
@@ -836,41 +960,57 @@ const gameMap = [
       },
       {
         'name': '大师13',
+        'nameIndex': 13,
+        'nameId': 4,
         'energy': 1018462,
         'sleepStyles': []
       },
       {
         'name': '大师14',
+        'nameIndex': 14,
+        'nameId': 4,
         'energy': 1184155,
         'sleepStyles': []
       },
       {
         'name': '大师15',
+        'nameIndex': 15,
+        'nameId': 4,
         'energy': 1379432,
         'sleepStyles': []
       },
       {
         'name': '大师16',
+        'nameIndex': 16,
+        'nameId': 4,
         'energy': 1709820,
         'sleepStyles': []
       },
       {
         'name': '大师17',
+        'nameIndex': 17,
+        'nameId': 4,
         'energy': 2064310,
         'sleepStyles': []
       },
       {
         'name': '大师18',
+        'nameIndex': 18,
+        'nameId': 4,
         'energy': 2490372,
         'sleepStyles': []
       },
       {
         'name': '大师19',
+        'nameIndex': 19,
+        'nameId': 4,
         'energy': 2994922,
         'sleepStyles': []
       },
       {
         'name': '大师20',
+        'nameIndex': 20,
+        'nameId': 4,
         'energy': 3732664,
         'sleepStyles': []
       }
@@ -890,6 +1030,8 @@ const gameMap = [
     levelList: [
       {
         'name': '普通1',
+        'nameIndex': 1,
+        'nameId': 1,
         'energy': 0,
         'sleepStyles': [
           '133-id-1',
@@ -928,6 +1070,8 @@ const gameMap = [
       },
       {
         'name': '普通2',
+        'nameIndex': 2,
+        'nameId': 1,
         'energy': 6885,
         'sleepStyles': [
           '4-id-2',
@@ -941,6 +1085,8 @@ const gameMap = [
       },
       {
         'name': '普通3',
+        'nameIndex': 3,
+        'nameId': 1,
         'energy': 15835,
         'sleepStyles': [
           '105-id-1',
@@ -951,6 +1097,8 @@ const gameMap = [
       },
       {
         'name': '普通4',
+        'nameIndex': 4,
+        'nameId': 1,
         'energy': 25817,
         'sleepStyles': [
           '133-id-2',
@@ -963,6 +1111,8 @@ const gameMap = [
       },
       {
         'name': '普通5',
+        'nameIndex': 5,
+        'nameId': 1,
         'energy': 37865,
         'sleepStyles': [
           '5-id-1',
@@ -973,6 +1123,8 @@ const gameMap = [
       },
       {
         'name': '超级1',
+        'nameIndex': 1,
+        'nameId': 2,
         'energy': 51635,
         'sleepStyles': [
           '133-id-4',
@@ -1000,6 +1152,8 @@ const gameMap = [
       },
       {
         'name': '超级2',
+        'nameIndex': 2,
+        'nameId': 2,
         'energy': 69534,
         'sleepStyles': [
           '19-id-3',
@@ -1021,6 +1175,8 @@ const gameMap = [
       },
       {
         'name': '超级3',
+        'nameIndex': 3,
+        'nameId': 2,
         'energy': 91221,
         'sleepStyles': [
           '4-id-3',
@@ -1036,6 +1192,8 @@ const gameMap = [
       },
       {
         'name': '超级4',
+        'nameIndex': 4,
+        'nameId': 2,
         'energy': 117038,
         'sleepStyles': [
           '5-id-2',
@@ -1047,6 +1205,8 @@ const gameMap = [
       },
       {
         'name': '超级5',
+        'nameIndex': 5,
+        'nameId': 2,
         'energy': 144921,
         'sleepStyles': [
           '133-id-3',
@@ -1063,6 +1223,8 @@ const gameMap = [
       },
       {
         'name': '高级1',
+        'nameIndex': 1,
+        'nameId': '3',
         'energy': 174869,
         'sleepStyles': [
           '75-id-4',
@@ -1081,6 +1243,8 @@ const gameMap = [
       },
       {
         'name': '高级2',
+        'nameIndex': 2,
+        'nameId': '3',
         'energy': 206538,
         'sleepStyles': [
           '302-id-4',
@@ -1089,6 +1253,8 @@ const gameMap = [
       },
       {
         'name': '高级3',
+        'nameIndex': 3,
+        'nameId': '3',
         'energy': 240961,
         'sleepStyles': [
           '40-id-1',
@@ -1099,6 +1265,8 @@ const gameMap = [
       },
       {
         'name': '高级4',
+        'nameIndex': 4,
+        'nameId': '3',
         'energy': 278826,
         'sleepStyles': [
           '75-id-3',
@@ -1107,6 +1275,8 @@ const gameMap = [
       },
       {
         'name': '高级5',
+        'nameIndex': 5,
+        'nameId': '3',
         'energy': 320478,
         'sleepStyles': [
           '5-id-3',
@@ -1120,6 +1290,8 @@ const gameMap = [
       },
       {
         'name': '大师1',
+        'nameIndex': 1,
+        'nameId': 4,
         'energy': 366295,
         'sleepStyles': [
           '51-id-3',
@@ -1133,6 +1305,8 @@ const gameMap = [
       },
       {
         'name': '大师2',
+        'nameIndex': 2,
+        'nameId': 4,
         'energy': 416694,
         'sleepStyles': [
           '40-id-2',
@@ -1143,6 +1317,8 @@ const gameMap = [
       },
       {
         'name': '大师3',
+        'nameIndex': 3,
+        'nameId': 4,
         'energy': 472133,
         'sleepStyles': [
           '40-id-4',
@@ -1151,6 +1327,8 @@ const gameMap = [
       },
       {
         'name': '大师4',
+        'nameIndex': 4,
+        'nameId': 4,
         'energy': 533116,
         'sleepStyles': [
           '76-id-2',
@@ -1159,6 +1337,8 @@ const gameMap = [
       },
       {
         'name': '大师5',
+        'nameIndex': 5,
+        'nameId': 4,
         'energy': 600197,
         'sleepStyles': [
           '6-id-2',
@@ -1170,6 +1350,8 @@ const gameMap = [
       },
       {
         'name': '大师6',
+        'nameIndex': 6,
+        'nameId': 4,
         'energy': 673986,
         'sleepStyles': [
           '6-id-4',
@@ -1183,11 +1365,15 @@ const gameMap = [
       },
       {
         'name': '大师7',
+        'nameIndex': 7,
+        'nameId': 4,
         'energy': 755154,
         'sleepStyles': []
       },
       {
         'name': '大师8',
+        'nameIndex': 8,
+        'nameId': 4,
         'energy': 844439,
         'sleepStyles': [
           '40-id-3'
@@ -1195,6 +1381,8 @@ const gameMap = [
       },
       {
         'name': '大师9',
+        'nameIndex': 9,
+        'nameId': 4,
         'energy': 942653,
         'sleepStyles': [
           '36-id-3'
@@ -1202,6 +1390,8 @@ const gameMap = [
       },
       {
         'name': '大师10',
+        'nameIndex': 10,
+        'nameId': 4,
         'energy': 1050688,
         'sleepStyles': [
           '76-id-3',
@@ -1211,6 +1401,8 @@ const gameMap = [
       },
       {
         'name': '大师11',
+        'nameIndex': 11,
+        'nameId': 4,
         'energy': 1169527,
         'sleepStyles': [
           '6-id-3',
@@ -1221,6 +1413,8 @@ const gameMap = [
       },
       {
         'name': '大师12',
+        'nameIndex': 12,
+        'nameId': 4,
         'energy': 1300250,
         'sleepStyles': [
           '208-id-3'
@@ -1228,21 +1422,29 @@ const gameMap = [
       },
       {
         'name': '大师13',
+        'nameIndex': 13,
+        'nameId': 4,
         'energy': 1444045,
         'sleepStyles': []
       },
       {
         'name': '大师14',
+        'nameIndex': 14,
+        'nameId': 4,
         'energy': 1602220,
         'sleepStyles': []
       },
       {
         'name': '大师15',
+        'nameIndex': 15,
+        'nameId': 4,
         'energy': 1776213,
         'sleepStyles': []
       },
       {
         'name': '大师16',
+        'nameIndex': 16,
+        'nameId': 4,
         'energy': 1967605,
         'sleepStyles': [
           '248-id-3'
@@ -1250,21 +1452,29 @@ const gameMap = [
       },
       {
         'name': '大师17',
+        'nameIndex': 17,
+        'nameId': 4,
         'energy': 2333568,
         'sleepStyles': []
       },
       {
         'name': '大师18',
+        'nameIndex': 18,
+        'nameId': 4,
         'energy': 2815203,
         'sleepStyles': []
       },
       {
         'name': '大师19',
+        'nameIndex': 19,
+        'nameId': 4,
         'energy': 3385564,
         'sleepStyles': []
       },
       {
         'name': '大师20',
+        'nameIndex': 20,
+        'nameId': 4,
         'energy': 4219534,
         'sleepStyles': []
       }
@@ -1284,6 +1494,8 @@ const gameMap = [
     levelList: [
       {
         'name': '普通1',
+        'nameIndex': 1,
+        'nameId': 1,
         'energy': 0,
         'sleepStyles': [
           '133-id-1',
@@ -1331,6 +1543,8 @@ const gameMap = [
       },
       {
         'name': '普通2',
+        'nameIndex': 2,
+        'nameId': 1,
         'energy': 10486,
         'sleepStyles': [
           '105-id-1',
@@ -1343,6 +1557,8 @@ const gameMap = [
       },
       {
         'name': '普通3',
+        'nameIndex': 3,
+        'nameId': 1,
         'energy': 24118,
         'sleepStyles': [
           '133-id-2',
@@ -1354,6 +1570,8 @@ const gameMap = [
       },
       {
         'name': '普通4',
+        'nameIndex': 4,
+        'nameId': 1,
         'energy': 39323,
         'sleepStyles': [
           '20-id-1',
@@ -1364,6 +1582,8 @@ const gameMap = [
       },
       {
         'name': '普通5',
+        'nameIndex': 5,
+        'nameId': 1,
         'energy': 57673,
         'sleepStyles': [
           '132-id-1'
@@ -1371,6 +1591,8 @@ const gameMap = [
       },
       {
         'name': '超级1',
+        'nameIndex': 1,
+        'nameId': 2,
         'energy': 78645,
         'sleepStyles': [
           '133-id-4',
@@ -1411,6 +1633,8 @@ const gameMap = [
       },
       {
         'name': '超级2',
+        'nameIndex': 2,
+        'nameId': 2,
         'energy': 105909,
         'sleepStyles': [
           '79-id-3',
@@ -1429,6 +1653,8 @@ const gameMap = [
       },
       {
         'name': '超级3',
+        'nameIndex': 3,
+        'nameId': 2,
         'energy': 138940,
         'sleepStyles': [
           '20-id-2',
@@ -1441,6 +1667,8 @@ const gameMap = [
       },
       {
         'name': '超级4',
+        'nameIndex': 4,
+        'nameId': 2,
         'energy': 178262,
         'sleepStyles': [
           '133-id-3',
@@ -1454,6 +1682,8 @@ const gameMap = [
       },
       {
         'name': '超级5',
+        'nameIndex': 5,
+        'nameId': 2,
         'energy': 220730,
         'sleepStyles': [
           '80-id-2',
@@ -1463,6 +1693,8 @@ const gameMap = [
       },
       {
         'name': '高级1',
+        'nameIndex': 1,
+        'nameId': '3',
         'energy': 266344,
         'sleepStyles': [
           '79-id-4',
@@ -1482,6 +1714,8 @@ const gameMap = [
       },
       {
         'name': '高级2',
+        'nameIndex': 2,
+        'nameId': '3',
         'energy': 314580,
         'sleepStyles': [
           '105-id-3',
@@ -1500,6 +1734,8 @@ const gameMap = [
       },
       {
         'name': '高级3',
+        'nameIndex': 3,
+        'nameId': '3',
         'energy': 367010,
         'sleepStyles': [
           '288-id-3',
@@ -1509,6 +1745,8 @@ const gameMap = [
       },
       {
         'name': '高级4',
+        'nameIndex': 4,
+        'nameId': '3',
         'energy': 424683,
         'sleepStyles': [
           '20-id-3',
@@ -1519,6 +1757,8 @@ const gameMap = [
       },
       {
         'name': '高级5',
+        'nameIndex': 5,
+        'nameId': '3',
         'energy': 488123,
         'sleepStyles': [
           '471-id-1'
@@ -1526,6 +1766,8 @@ const gameMap = [
       },
       {
         'name': '大师1',
+        'nameIndex': 1,
+        'nameId': 4,
         'energy': 557907,
         'sleepStyles': [
           '80-id-3',
@@ -1537,6 +1779,8 @@ const gameMap = [
       },
       {
         'name': '大师2',
+        'nameIndex': 2,
+        'nameId': 4,
         'energy': 634669,
         'sleepStyles': [
           '181-id-4',
@@ -1550,6 +1794,8 @@ const gameMap = [
       },
       {
         'name': '大师3',
+        'nameIndex': 3,
+        'nameId': 4,
         'energy': 719107,
         'sleepStyles': [
           '225-id-3'
@@ -1557,6 +1803,8 @@ const gameMap = [
       },
       {
         'name': '大师4',
+        'nameIndex': 4,
+        'nameId': 4,
         'energy': 811989,
         'sleepStyles': [
           '471-id-2'
@@ -1564,6 +1812,8 @@ const gameMap = [
       },
       {
         'name': '大师5',
+        'nameIndex': 5,
+        'nameId': 4,
         'energy': 914159,
         'sleepStyles': [
           '471-id-4'
@@ -1571,6 +1821,8 @@ const gameMap = [
       },
       {
         'name': '大师6',
+        'nameIndex': 6,
+        'nameId': 4,
         'energy': 1026546,
         'sleepStyles': [
           '289-id-2',
@@ -1579,6 +1831,8 @@ const gameMap = [
       },
       {
         'name': '大师7',
+        'nameIndex': 7,
+        'nameId': 4,
         'energy': 1150172,
         'sleepStyles': [
           '181-id-3',
@@ -1590,6 +1844,8 @@ const gameMap = [
       },
       {
         'name': '大师8',
+        'nameIndex': 8,
+        'nameId': 4,
         'energy': 1286161,
         'sleepStyles': [
           '36-id-3'
@@ -1597,11 +1853,15 @@ const gameMap = [
       },
       {
         'name': '大师9',
+        'nameIndex': 9,
+        'nameId': 4,
         'energy': 1435749,
         'sleepStyles': []
       },
       {
         'name': '大师10',
+        'nameIndex': 10,
+        'nameId': 4,
         'energy': 1600296,
         'sleepStyles': [
           '471-id-3'
@@ -1609,11 +1869,15 @@ const gameMap = [
       },
       {
         'name': '大师11',
+        'nameIndex': 11,
+        'nameId': 4,
         'energy': 1781298,
         'sleepStyles': []
       },
       {
         'name': '大师12',
+        'nameIndex': 12,
+        'nameId': 4,
         'energy': 1980400,
         'sleepStyles': [
           '289-id-3'
@@ -1621,41 +1885,57 @@ const gameMap = [
       },
       {
         'name': '大师13',
+        'nameIndex': 13,
+        'nameId': 4,
         'energy': 2199412,
         'sleepStyles': []
       },
       {
         'name': '大师14',
+        'nameIndex': 14,
+        'nameId': 4,
         'energy': 2440325,
         'sleepStyles': []
       },
       {
         'name': '大师15',
+        'nameIndex': 15,
+        'nameId': 4,
         'energy': 2705329,
         'sleepStyles': []
       },
       {
         'name': '大师16',
+        'nameIndex': 16,
+        'nameId': 4,
         'energy': 2996833,
         'sleepStyles': []
       },
       {
         'name': '大师17',
+        'nameIndex': 17,
+        'nameId': 4,
         'energy': 3317487,
         'sleepStyles': []
       },
       {
         'name': '大师18',
+        'nameIndex': 18,
+        'nameId': 4,
         'energy': 3670206,
         'sleepStyles': []
       },
       {
         'name': '大师19',
+        'nameIndex': 19,
+        'nameId': 4,
         'energy': 4058197,
         'sleepStyles': []
       },
       {
         'name': '大师20',
+        'nameIndex': 20,
+        'nameId': 4,
         'energy': 4706403,
         'sleepStyles': []
       }
@@ -1675,6 +1955,8 @@ const gameMap = [
     levelList: [
       {
         'name': '普通1',
+        'nameIndex': 1,
+        'nameId': 1,
         'energy': 0,
         'sleepStyles': [
           '25-id-1',
@@ -1727,6 +2009,8 @@ const gameMap = [
       },
       {
         'name': '普通2',
+        'nameIndex': 2,
+        'nameId': 1,
         'energy': 12938,
         'sleepStyles': [
           '133-id-2',
@@ -1738,6 +2022,8 @@ const gameMap = [
       },
       {
         'name': '普通3',
+        'nameIndex': 3,
+        'nameId': 1,
         'energy': 29756,
         'sleepStyles': [
           '2-id-1',
@@ -1750,6 +2036,8 @@ const gameMap = [
       },
       {
         'name': '普通4',
+        'nameIndex': 4,
+        'nameId': 1,
         'energy': 48515,
         'sleepStyles': [
           '85-id-1',
@@ -1758,6 +2046,8 @@ const gameMap = [
       },
       {
         'name': '普通5',
+        'nameIndex': 5,
+        'nameId': 1,
         'energy': 71156,
         'sleepStyles': [
           '172-id-3',
@@ -1778,6 +2068,8 @@ const gameMap = [
       },
       {
         'name': '超级1',
+        'nameIndex': 1,
+        'nameId': 2,
         'energy': 97031,
         'sleepStyles': [
           '25-id-4',
@@ -1814,6 +2106,8 @@ const gameMap = [
       },
       {
         'name': '超级2',
+        'nameIndex': 2,
+        'nameId': 2,
         'energy': 130668,
         'sleepStyles': [
           '25-id-3',
@@ -1828,6 +2122,8 @@ const gameMap = [
       },
       {
         'name': '超级3',
+        'nameIndex': 3,
+        'nameId': 2,
         'energy': 171420,
         'sleepStyles': [
           '133-id-3',
@@ -1844,6 +2140,8 @@ const gameMap = [
       },
       {
         'name': '超级4',
+        'nameIndex': 4,
+        'nameId': 2,
         'energy': 219936,
         'sleepStyles': [
           '80-id-2',
@@ -1857,6 +2155,8 @@ const gameMap = [
       },
       {
         'name': '超级5',
+        'nameIndex': 5,
+        'nameId': 2,
         'energy': 272333,
         'sleepStyles': [
           '334-id-2',
@@ -1867,6 +2167,8 @@ const gameMap = [
       },
       {
         'name': '高级1',
+        'nameIndex': 1,
+        'nameId': '3',
         'energy': 328610,
         'sleepStyles': [
           '2-id-4',
@@ -1890,6 +2192,8 @@ const gameMap = [
       },
       {
         'name': '高级2',
+        'nameIndex': 2,
+        'nameId': '3',
         'energy': 388122,
         'sleepStyles': [
           '36-id-1'
@@ -1897,6 +2201,8 @@ const gameMap = [
       },
       {
         'name': '高级3',
+        'nameIndex': 3,
+        'nameId': '3',
         'energy': 452809,
         'sleepStyles': [
           '2-id-3',
@@ -1908,6 +2214,8 @@ const gameMap = [
       },
       {
         'name': '高级4',
+        'nameIndex': 4,
+        'nameId': '3',
         'energy': 522025,
         'sleepStyles': [
           '3-id-1',
@@ -1922,6 +2230,8 @@ const gameMap = [
       },
       {
         'name': '高级5',
+        'nameIndex': 5,
+        'nameId': '3',
         'energy': 596086,
         'sleepStyles': [
           '80-id-3',
@@ -1932,6 +2242,8 @@ const gameMap = [
       },
       {
         'name': '大师1',
+        'nameIndex': 1,
+        'nameId': 4,
         'energy': 675330,
         'sleepStyles': [
           '71-id-4',
@@ -1945,11 +2257,15 @@ const gameMap = [
       },
       {
         'name': '大师2',
+        'nameIndex': 2,
+        'nameId': 4,
         'energy': 760123,
         'sleepStyles': []
       },
       {
         'name': '大师3',
+        'nameIndex': 3,
+        'nameId': 4,
         'energy': 850851,
         'sleepStyles': [
           '3-id-2',
@@ -1962,6 +2278,8 @@ const gameMap = [
       },
       {
         'name': '大师4',
+        'nameIndex': 4,
+        'nameId': 4,
         'energy': 958702,
         'sleepStyles': [
           '3-id-4',
@@ -1973,6 +2291,8 @@ const gameMap = [
       },
       {
         'name': '大师5',
+        'nameIndex': 5,
+        'nameId': 4,
         'energy': 1075709,
         'sleepStyles': [
           '282-id-2',
@@ -1981,6 +2301,8 @@ const gameMap = [
       },
       {
         'name': '大师6',
+        'nameIndex': 6,
+        'nameId': 4,
         'energy': 1202596,
         'sleepStyles': [
           '71-id-3',
@@ -1992,6 +2314,8 @@ const gameMap = [
       },
       {
         'name': '大师7',
+        'nameIndex': 7,
+        'nameId': 4,
         'energy': 1340143,
         'sleepStyles': [
           '36-id-3',
@@ -2000,6 +2324,8 @@ const gameMap = [
       },
       {
         'name': '大师8',
+        'nameIndex': 8,
+        'nameId': 4,
         'energy': 1489190,
         'sleepStyles': [
           '475-id-4'
@@ -2007,6 +2333,8 @@ const gameMap = [
       },
       {
         'name': '大师9',
+        'nameIndex': 9,
+        'nameId': 4,
         'energy': 1650645,
         'sleepStyles': [
           '3-id-3',
@@ -2018,6 +2346,8 @@ const gameMap = [
       },
       {
         'name': '大师10',
+        'nameIndex': 10,
+        'nameId': 4,
         'energy': 1825483,
         'sleepStyles': [
           '149-id-2'
@@ -2025,6 +2355,8 @@ const gameMap = [
       },
       {
         'name': '大师11',
+        'nameIndex': 11,
+        'nameId': 4,
         'energy': 2014758,
         'sleepStyles': [
           '149-id-4',
@@ -2033,11 +2365,15 @@ const gameMap = [
       },
       {
         'name': '大师12',
+        'nameIndex': 12,
+        'nameId': 4,
         'energy': 2219603,
         'sleepStyles': []
       },
       {
         'name': '大师13',
+        'nameIndex': 13,
+        'nameId': 4,
         'energy': 2441243,
         'sleepStyles': [
           '475-id-3'
@@ -2045,16 +2381,22 @@ const gameMap = [
       },
       {
         'name': '大师14',
+        'nameIndex': 14,
+        'nameId': 4,
         'energy': 2680993,
         'sleepStyles': []
       },
       {
         'name': '大师15',
+        'nameIndex': 15,
+        'nameId': 4,
         'energy': 2925574,
         'sleepStyles': []
       },
       {
         'name': '大师16',
+        'nameIndex': 16,
+        'nameId': 4,
         'energy': 3188730,
         'sleepStyles': [
           '149-id-3'
@@ -2062,21 +2404,29 @@ const gameMap = [
       },
       {
         'name': '大师17',
+        'nameIndex': 17,
+        'nameId': 4,
         'energy': 3454577,
         'sleepStyles': []
       },
       {
         'name': '大师18',
+        'nameIndex': 18,
+        'nameId': 4,
         'energy': 3739033,
         'sleepStyles': []
       },
       {
         'name': '大师19',
+        'nameIndex': 19,
+        'nameId': 4,
         'energy': 4166848,
         'sleepStyles': []
       },
       {
         'name': '大师20',
+        'nameIndex': 20,
+        'nameId': 4,
         'energy': 5193272,
         'sleepStyles': []
       }

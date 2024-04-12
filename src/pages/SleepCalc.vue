@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -30,6 +30,12 @@ import {
   getRandomArr,
   calcPositions
 } from '../utils/index.js'
+
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+const localeLang = computed(() => {
+  return locale.value
+})
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -546,13 +552,14 @@ onMounted(() => {
             :label="cItem.value"
             v-for="cItem in navData.navList"
             v-bind:key="cItem.name"
-            >{{ cItem.name }}</el-radio-button
+          >
+            {{ $t(`PAGE_SLEEPCALC.${cItem.name}`) }}</el-radio-button
           >
         </el-radio-group>
       </el-form-item>
       <!-- S 当前岛屿 -->
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableCurIland')">
-        <ul class="cpt-select-list">
+        <ul class="cpt-select-list cpt-select-list--iland">
           <li
             class="cpt-select-list__item"
             v-for="(mapItem, mapIndex) in gameMap"
@@ -604,14 +611,17 @@ onMounted(() => {
               v-for="(stageItem, stageIndex) in gameMap[userData.curMap]
                 .levelList"
               :key="stageIndex"
-              :label="stageItem.name"
+              :label="
+                $t(`LEVEL_TITLE.${stageItem.nameId}`) + stageItem.nameIndex
+              "
               :value="stageIndex"
             >
               <img
                 class="icon"
                 v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
               />
-              {{ stageItem.name }}
+              {{ $t(`LEVEL_TITLE.${stageItem.nameId}`)
+              }}{{ stageItem.nameIndex }}
             </el-option>
           </el-select></el-col
         >
@@ -631,100 +641,198 @@ onMounted(() => {
       </el-form-item>
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
-          <el-radio :label="1">平时</el-radio>
-          <el-radio :label="1.5">好眠日1.5倍</el-radio>
-          <el-radio :label="2">满月日2倍</el-radio>
-          <el-radio :label="2.5">满月日2.5倍(周三)</el-radio>
-          <el-radio :label="3">满月日3倍(周二)</el-radio>
-          <el-radio :label="4">满月日4倍(周一)</el-radio>
+          <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
+          <el-radio :label="1.5">{{ $t("OPTIONS.sleepDay") }}*1.5倍</el-radio>
+          <el-radio :label="2">{{ $t("OPTIONS.fullMoon") }}*2倍</el-radio>
+          <el-radio :label="2.5"
+            >{{ $t("OPTIONS.fullMoon") }}*2.5倍({{ $t("OPTIONS.Wed") }})</el-radio
+          >
+          <el-radio :label="3"
+            >{{ $t("OPTIONS.fullMoon") }}*3倍({{ $t("OPTIONS.Tue") }})</el-radio
+          >
+          <el-radio :label="4"
+            >{{ $t("OPTIONS.fullMoon") }}*4倍({{ $t("OPTIONS.Mon") }})</el-radio
+          >
         </el-radio-group>
       </el-form-item>
       <template v-if="+navData.navIndex === 0">
-        <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
-          满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
-            class="sptime"
-            >{{ getSleepCatchNum() }}只</span
-          >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
-            getNum(getScore(100))
-          }}</span
-          >睡意之力，预计掉<span class="vigour">{{
-            getLostVigour(8 * 60 + 30)
-          }}</span
-          >点活力
-        </el-form-item>
-        <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
-          <p>
-            距离抓<span class="sptime">{{ getSleepCatchNum() + 1 }}只</span
-            >还需<span class="sptime"
-              ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-                getNextScoreDiff()
-              }}</span
-            >能量
-          </p>
-        </el-form-item>
-        <el-form-item v-if="getSleepCatchNum() > 3">
-          按<el-input-number
-            v-model="userData.cutNum"
-            :min="4"
-            :max="getSleepCatchNum()"
-            :step="1"
-          />只拆分睡眠
-        </el-form-item>
-        <el-form-item
-          label="第1觉"
-          v-if="
-            userData.cutNum > 3 &&
-            userData.CurEnergy * 100 * userData.times > getTargetStartScore(100)
-          "
-        >
-          所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
-          >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
-          >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
-            class="spscore"
-            >{{ getNum(getScore(getFirstSleepScore()))
-            }}<span class="spscore__extra"
-              >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
-            ></span
-          >睡意之力，预计掉<span class="vigour">{{
-            getLostVigour(toHM(firstSleepTime(), "mm"))
-          }}</span
-          >点活力
-        </el-form-item>
-        <el-form-item
-          label="第2觉"
-          v-if="
-            userData.cutNum > 3 &&
-            userData.CurEnergy * 100 * userData.times > getTargetStartScore(100)
-          "
-        >
-          <p>
-            剩余睡眠<span class="sptime">{{
-              toHM(8.5 - firstSleepTime())
+        <template v-if="localeLang === 'jp'">
+          <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
+            一回フル睡眠（<span class="sptime">8時間30分</span>）で、<CptProcss
+              score="100"
+            />ポイント睡眠スコアがもらえて、<span class="sptime"
+              >{{ getSleepCatchNum() }}匹</span
+            >のポケモンが捕獲できます。そして、少なくとも<span
+              class="spscore"
+              >{{ getNum(getScore(100)) }}</span
+            >のねむけパワーを獲得して、約<span class="vigour">{{
+              getLostVigour(8 * 60 + 30)
             }}</span
-            >，可捕捉<span class="sptime"
-              >{{
-                getNumberInMap(
-                  getScore(100 - getFirstSleepScore()),
-                  gameMap[userData.curMap].scoreList
-                )
-              }}只</span
-            >，约<CptProcss
-              :score="100 - getFirstSleepScore()"
-            />分，可获得至少<span class="spscore">{{
-              getNum(getScore(100 - getFirstSleepScore()))
+            >ポイントのげんきを消費します。
+          </el-form-item>
+          <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
+            <p>
+              <span class="sptime">{{ getSleepCatchNum() + 1 }}匹</span
+              >捕獲まで<span class="sptime"
+                ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                  getNextScoreDiff()
+                }}</span
+              >エナジーが必要
+            </p>
+          </el-form-item>
+          <el-form-item v-if="getSleepCatchNum() > 3">
+            <el-input-number
+              v-model="userData.cutNum"
+              :min="4"
+              :max="getSleepCatchNum()"
+              :step="1"
+            />匹で分割睡眠
+          </el-form-item>
+          <el-form-item
+            label="第1回目寝"
+            v-if="
+              userData.cutNum > 3 &&
+              userData.CurEnergy * 100 * userData.times >
+                getTargetStartScore(100)
+            "
+          >
+            必須睡眠時間（<span class="sptime">{{
+              toHM(firstSleepTime())
+            }}</span
+            >）で、<CptProcss
+              :score="getFirstSleepScore()"
+            />ポイント睡眠スコアがもらえて、<span class="sptime"
+              >{{ userData.cutNum }}匹</span
+            >のポケモンが捕獲できます。そして、少なくとも<span class="spscore"
+              >{{ getNum(getScore(getFirstSleepScore()))
+              }}<span class="spscore__extra"
+                >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
+              ></span
+            >のねむけパワーを獲得して、約<span class="vigour">{{
+              getLostVigour(toHM(firstSleepTime(), "mm"))
+            }}</span
+            >ポイントのげんきを消費します。
+          </el-form-item>
+          <el-form-item
+            label="第2回目寝"
+            v-if="
+              userData.cutNum > 3 &&
+              userData.CurEnergy * 100 * userData.times >
+                getTargetStartScore(100)
+            "
+          >
+            <p>
+              残り睡眠時間（<span class="sptime">{{
+                toHM(8.5 - firstSleepTime())
+              }}</span
+              >）で、<CptProcss
+                :score="100 - getFirstSleepScore()"
+              />ポイント睡眠スコアがもらえて、<span class="sptime"
+                >{{
+                  getNumberInMap(
+                    getScore(100 - getFirstSleepScore()),
+                    gameMap[userData.curMap].scoreList
+                  )
+                }}匹</span
+              >のポケモンが捕獲できます。そして、少なくとも<span
+                class="spscore"
+                >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
+              >のねむけパワーを獲得して、約<span class="vigour">{{
+                getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+              }}</span
+              >ポイントのげんきを消費します。
+            </p>
+          </el-form-item>
+        </template>
+        <template v-else>
+          <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
+            满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
+              class="sptime"
+              >{{ getSleepCatchNum() }}只</span
+            >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
+              getNum(getScore(100))
             }}</span
             >睡意之力，预计掉<span class="vigour">{{
-              getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+              getLostVigour(8 * 60 + 30)
             }}</span
             >点活力
-          </p>
-        </el-form-item>
+          </el-form-item>
+          <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
+            <p>
+              距离抓<span class="sptime">{{ getSleepCatchNum() + 1 }}只</span
+              >还需<span class="sptime"
+                ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                  getNextScoreDiff()
+                }}</span
+              >能量
+            </p>
+          </el-form-item>
+          <el-form-item v-if="getSleepCatchNum() > 3">
+            按<el-input-number
+              v-model="userData.cutNum"
+              :min="4"
+              :max="getSleepCatchNum()"
+              :step="1"
+            />只拆分睡眠
+          </el-form-item>
+          <el-form-item
+            label="第1觉"
+            v-if="
+              userData.cutNum > 3 &&
+              userData.CurEnergy * 100 * userData.times >
+                getTargetStartScore(100)
+            "
+          >
+            所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
+            >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
+            >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
+              class="spscore"
+              >{{ getNum(getScore(getFirstSleepScore()))
+              }}<span class="spscore__extra"
+                >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
+              ></span
+            >睡意之力，预计掉<span class="vigour">{{
+              getLostVigour(toHM(firstSleepTime(), "mm"))
+            }}</span
+            >点活力
+          </el-form-item>
+          <el-form-item
+            label="第2觉"
+            v-if="
+              userData.cutNum > 3 &&
+              userData.CurEnergy * 100 * userData.times >
+                getTargetStartScore(100)
+            "
+          >
+            <p>
+              剩余睡眠<span class="sptime">{{
+                toHM(8.5 - firstSleepTime())
+              }}</span
+              >，可捕捉<span class="sptime"
+                >{{
+                  getNumberInMap(
+                    getScore(100 - getFirstSleepScore()),
+                    gameMap[userData.curMap].scoreList
+                  )
+                }}只</span
+              >，约<CptProcss
+                :score="100 - getFirstSleepScore()"
+              />分，可获得至少<span class="spscore">{{
+                getNum(getScore(100 - getFirstSleepScore()))
+              }}</span
+              >睡意之力，预计掉<span class="vigour">{{
+                getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+              }}</span
+              >点活力
+            </p>
+          </el-form-item>
+        </template>
       </template>
     </el-form>
     <div class="page-inner" v-if="+navData.navIndex === 0">
       <div class="mod-tips">
-        <p>* 使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。</p>
-        <p>* 使用露营券&熏香不在计算范围内。</p>
+        <p>* {{ $t("PAGE_SLEEPCALC.tipsUseTickets1") }}</p>
+        <p>* {{ $t("PAGE_SLEEPCALC.tipsUseTickets2") }}</p>
       </div>
     </div>
     <el-form
@@ -838,7 +946,9 @@ onMounted(() => {
               <el-switch
                 v-model="userData.isUseTicket"
                 inline-prompt
-                active-text="使用(多1只)"
+                :active-text="`${$t('OPTIONS.use')}(${$t(
+                  'PAGE_SLEEPCALC.moreOne'
+                )})`"
                 :inactive-text="$t('OPTIONS.nouse')"
                 style="--el-switch-on-color: #ffaf00"
               />
@@ -908,7 +1018,15 @@ onMounted(() => {
                 )}.png`
               "
             />{{
-              gameMap[userData.curMap].levelList[userData.curStageIndex].name
+              $t(
+                `LEVEL_TITLE.${
+                  gameMap[userData.curMap].levelList[userData.curStageIndex]
+                    .nameId
+                }`
+              )
+            }}{{
+              gameMap[userData.curMap].levelList[userData.curStageIndex]
+                .nameIndex
             }}「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」({{
               getNumberInMap(
                 getScore(randomSleepStyle.sleepPoint),
@@ -939,12 +1057,13 @@ onMounted(() => {
             >只宝可梦，其中<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
-            >只闪光。
+            >只{{ $t("PROP.shiny") }}。
             <el-button
               size="small"
               @click="handleClickShinyDetail()"
               v-if="userSleep.pokeShinyCount > 0"
-              >闪光详情(<template v-if="userSleep.showDetailShiny"
+              >{{ $t("PROP.shiny") }}详情(<template
+                v-if="userSleep.showDetailShiny"
                 >收起</template
               ><template v-else>展开</template>)</el-button
             >
@@ -1008,7 +1127,9 @@ onMounted(() => {
                       :class="{ shiny: sleepItem.isShiny }"
                     >
                       <p class="star">{{ sleepItem.star }}✩</p>
-                      <span v-if="sleepItem.isShiny" class="sptime">闪光</span>
+                      <span v-if="sleepItem.isShiny" class="sptime">{{
+                        $t("PROP.shiny")
+                      }}</span>
                       {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
                     </div>
                   </div>
@@ -1098,8 +1219,16 @@ onMounted(() => {
                       )}.png`
                     "
                   />{{
+                    $t(
+                      `LEVEL_TITLE.${
+                        gameMap[userData.curMap].levelList[
+                          userData.curStageIndex
+                        ].nameId
+                      }`
+                    )
+                  }}{{
                     gameMap[userData.curMap].levelList[userData.curStageIndex]
-                      .name
+                      .nameIndex
                   }}-期望宝可梦睡姿列表
                   <span class="extra">({{ hopeList.length }}只)</span>
                 </h3>
@@ -1228,7 +1357,15 @@ onMounted(() => {
               )}.png`
             "
           />{{
-            gameMap[userData.curMap].levelList[userData.curStageIndex].name
+            $t(
+              `LEVEL_TITLE.${
+                gameMap[userData.curMap].levelList[userData.curStageIndex]
+                  .nameId
+              }`
+            )
+          }}{{
+            gameMap[userData.curMap].levelList[userData.curStageIndex]
+              .nameIndex
           }}」({{
             getNumberInMap(
               getScore(randomSleepStyle.sleepPoint),

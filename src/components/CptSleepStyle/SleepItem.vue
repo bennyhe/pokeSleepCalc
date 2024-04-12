@@ -3,7 +3,7 @@ import { computed, defineProps } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import { gameMap } from '../../config/game.js'
-import { getStageLevelPicId, getPercent } from '../../utils/index.js'
+import { getStageLevelPicId } from '../../utils/index.js'
 
 const { locale } = useI18n()
 const localeLang = computed(() => {
@@ -94,7 +94,14 @@ const props = defineProps({
             )}.png`
           "
         />{{
-          gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel].name
+          $t(
+            `LEVEL_TITLE.${
+              gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel]
+                .nameId
+            }`
+          )
+        }}{{
+          gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel].nameIndex
         }}
       </p>
     </div>

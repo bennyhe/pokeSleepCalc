@@ -1,7 +1,8 @@
 export default {
   'PROP': {
     'incense': '熏香',
-    'ticket': '露营券'
+    'ticket': '露营券',
+    'shiny': '闪光'
   },
   'ILAND': {
     'green': '萌绿之岛',
@@ -10,6 +11,12 @@ export default {
     'snow': '白花雪原',
     'lake': '宝蓝湖畔',
     'none': '未适正树果'
+  },
+  'LEVEL_TITLE': {
+    1: '普通',
+    2: '超级',
+    3: '高级',
+    4: '大师'
   },
   'SLEEP_TYPES': {
     999: '沒有特徵',

@@ -3,7 +3,14 @@ export default {
   'OPTIONS': {
     'yes': '是',
     'no': '否',
-    'nouse': '不使用'
+    'use': '使用',
+    'nouse': '不使用',
+    'Mon': '周一',
+    'Tue': '周二',
+    'Wed': '周三',
+    'otherDay': '平时',
+    'sleepDay': '好眠日',
+    'fullMoon': '满月日'
   },
   'SHORT_SKILL': {
     'berrys': '树果S'
@@ -11,9 +18,9 @@ export default {
   'PAGE_SLEEPCALC': {
     'pageTitle': '睡眠计算',
 
-    'navSplitByNum': '按只数拆分睡眠',
-    'navRandomGet': '抽取睡姿',
-    'navAnalytics': '睡眠分析',
+    'nav0': '按只数拆分睡眠',
+    'nav2': '抽取睡姿',
+    'nav3': '睡眠分析',
 
     'titleCutNum': '数据区间参考',
     'titleSleepRes': '抽取睡姿结果',
@@ -21,6 +28,7 @@ export default {
     'noLock': '不锁',
     'lockBefore': '锁',
     'lockAfter': '金',
+    'moreOne': '多1只',
 
     'formLableCurIland': '当前岛屿',
     'formLableLevel': '级别/能量',
@@ -37,12 +45,14 @@ export default {
     'btnSleepOnceAfter': '种)睡姿',
     'btnSleepMoreTimeBefore': '点击计算期望(睡',
     'btnSleepMoreTimeAfter': '次，不使用熏香和露营券)',
-    
+
     'tipsTitle': '游戏v1.4.0更新了大量对睡姿相关内容，请注意该功能可能不符合期望结果。',
     'tipsNoSupportBefore': '抽取睡姿不支持',
     'tipsNoSupportMid': '睡眠日up、活动up以及雷公等特殊宝可梦自带的极低概率',
     'tipsNoSupportAfter': '等特殊情况。',
     'tipsNoRes': '抽取结果不代表游戏内结果，仅作为参考。',
-    'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。'
+    'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。',
+    'tipsUseTickets1': '使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。',
+    'tipsUseTickets2': '使用露营券&熏香不在计算范围内。'
   }
 }

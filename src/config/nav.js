@@ -1,17 +1,15 @@
-import i18n from '../i18n'
-const { t } = i18n.global
 export const NAV_SLEEPCALC = {
   navList: [
     {
-      name: t('PAGE_SLEEPCALC.navSplitByNum'),
+      name: 'nav0',
       value: 0
     },
     {
-      name: t('PAGE_SLEEPCALC.navRandomGet'),
+      name: 'nav2',
       value: 2
     },
     {
-      name: t('PAGE_SLEEPCALC.navAnalytics'),
+      name: 'nav3',
       value: 3
     }
   ],

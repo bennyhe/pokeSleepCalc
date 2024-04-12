@@ -185,7 +185,7 @@ const props = defineProps({
       食{{ props.foodPer || pokedex[pokeId].foodPer }}%
     </p>
     <p class="cpt-pokemon__name">
-      <span v-if="isShiny" class="sptime">闪光</span>
+      <span v-if="isShiny" class="sptime">{{ $t("PROP.shiny") }}</span>
       {{ $t(`POKEMON_NAME.${pokeId}`) }}
     </p>
   </div>
