@@ -30,7 +30,7 @@ const getShowKeyVal = pokemonsItem => {
 }
 </script>
 <template>
-  <h2>最新宝可梦</h2>
+  <h2>{{$t('PAGE_TITLE.newpoke')}}</h2>
   <ul class="cpt-list">
     <li v-for="updateItem in props.newUpdatePoke" v-bind:key="updateItem.time">
       <h3>

@@ -1,8 +1,14 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
-import { toHM } from '../../utils/index.js'
-import { POKE_TYPES, FOOD_TYPES } from '../../config/valKey.js'
+import { toHMInLang } from '../../utils/index.js'
+import { POKE_TYPES } from '../../config/valKey.js'
+
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+const localeLangId = computed(() => {
+  return locale.value
+})
 
 const props = defineProps({
   pokeId: {
@@ -99,7 +105,7 @@ const props = defineProps({
         props.showKey.includes('helpSpeedHM')
       "
     >
-      {{ toHM(props.helpSpeed || pokedex[pokeId].helpSpeed, "sec") }}
+      {{ toHMInLang(props.helpSpeed || pokedex[pokeId].helpSpeed, "sec", localeLangId) }}
     </p>
     <p
       class="cpt-pokemon__skill"

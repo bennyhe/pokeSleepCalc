@@ -20,7 +20,7 @@ import {
   checkListInLastGet
 } from '../utils/sleep.js'
 import {
-  toHM,
+  toHMInLang,
   getNum,
   getNumberInMap,
   getStageLevelPicId,
@@ -33,7 +33,7 @@ import {
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
-const localeLang = computed(() => {
+const localeLangId = computed(() => {
   return locale.value
 })
 
@@ -540,23 +540,23 @@ onMounted(() => {
 
 <template>
   <div class="page-sleepcalc">
-    <h2>{{ $t("PAGE_SLEEPCALC.pageTitle") }}</h2>
-    <el-form label-width="90px">
-      <el-form-item>
-        <el-radio-group
-          v-model="navData.navIndex"
-          fill="#41ae3c"
-          class="first-page-nav"
+    <h2>{{ $t("PAGE_TITLE.sleepcalc") }}</h2>
+    <div class="page-inner">
+      <el-radio-group
+        v-model="navData.navIndex"
+        fill="#41ae3c"
+        class="first-page-nav"
+      >
+        <el-radio-button
+          :label="cItem.value"
+          v-for="cItem in navData.navList"
+          v-bind:key="cItem.name"
         >
-          <el-radio-button
-            :label="cItem.value"
-            v-for="cItem in navData.navList"
-            v-bind:key="cItem.name"
-          >
-            {{ $t(`PAGE_SLEEPCALC.${cItem.name}`) }}</el-radio-button
-          >
-        </el-radio-group>
-      </el-form-item>
+          {{ $t(`PAGE_SLEEPCALC.${cItem.name}`) }}</el-radio-button
+        >
+      </el-radio-group>
+    </div>
+    <el-form label-width="90px">
       <!-- S 当前岛屿 -->
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableCurIland')">
         <ul class="cpt-select-list cpt-select-list--iland">
@@ -645,7 +645,9 @@ onMounted(() => {
           <el-radio :label="1.5">{{ $t("OPTIONS.sleepDay") }}*1.5倍</el-radio>
           <el-radio :label="2">{{ $t("OPTIONS.fullMoon") }}*2倍</el-radio>
           <el-radio :label="2.5"
-            >{{ $t("OPTIONS.fullMoon") }}*2.5倍({{ $t("OPTIONS.Wed") }})</el-radio
+            >{{ $t("OPTIONS.fullMoon") }}*2.5倍({{
+              $t("OPTIONS.Wed")
+            }})</el-radio
           >
           <el-radio :label="3"
             >{{ $t("OPTIONS.fullMoon") }}*3倍({{ $t("OPTIONS.Tue") }})</el-radio
@@ -656,7 +658,7 @@ onMounted(() => {
         </el-radio-group>
       </el-form-item>
       <template v-if="+navData.navIndex === 0">
-        <template v-if="localeLang === 'jp'">
+        <template v-if="localeLangId === 'jp'">
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
             一回フル睡眠（<span class="sptime">8時間30分</span>）で、<CptProcss
               score="100"
@@ -697,7 +699,7 @@ onMounted(() => {
             "
           >
             必須睡眠時間（<span class="sptime">{{
-              toHM(firstSleepTime())
+              toHMInLang(firstSleepTime(), '', localeLangId)
             }}</span
             >）で、<CptProcss
               :score="getFirstSleepScore()"
@@ -709,7 +711,7 @@ onMounted(() => {
                 >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
               ></span
             >のねむけパワーを獲得して、約<span class="vigour">{{
-              getLostVigour(toHM(firstSleepTime(), "mm"))
+              getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
             }}</span
             >ポイントのげんきを消費します。
           </el-form-item>
@@ -723,7 +725,7 @@ onMounted(() => {
           >
             <p>
               残り睡眠時間（<span class="sptime">{{
-                toHM(8.5 - firstSleepTime())
+                toHMInLang(8.5 - firstSleepTime(), '', localeLangId)
               }}</span
               >）で、<CptProcss
                 :score="100 - getFirstSleepScore()"
@@ -738,7 +740,7 @@ onMounted(() => {
                 class="spscore"
                 >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
               >のねむけパワーを獲得して、約<span class="vigour">{{
-                getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+                getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
               }}</span
               >ポイントのげんきを消費します。
             </p>
@@ -783,7 +785,7 @@ onMounted(() => {
                 getTargetStartScore(100)
             "
           >
-            所需睡眠<span class="sptime">{{ toHM(firstSleepTime()) }}</span
+            所需睡眠<span class="sptime">{{ toHMInLang(firstSleepTime(), '', localeLangId) }}</span
             >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
             >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
               class="spscore"
@@ -792,7 +794,7 @@ onMounted(() => {
                 >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
               ></span
             >睡意之力，预计掉<span class="vigour">{{
-              getLostVigour(toHM(firstSleepTime(), "mm"))
+              getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
             }}</span
             >点活力
           </el-form-item>
@@ -806,7 +808,7 @@ onMounted(() => {
           >
             <p>
               剩余睡眠<span class="sptime">{{
-                toHM(8.5 - firstSleepTime())
+                toHMInLang(8.5 - firstSleepTime(), '', localeLangId)
               }}</span
               >，可捕捉<span class="sptime"
                 >{{
@@ -821,7 +823,7 @@ onMounted(() => {
                 getNum(getScore(100 - getFirstSleepScore()))
               }}</span
               >睡意之力，预计掉<span class="vigour">{{
-                getLostVigour(toHM(8.5 - firstSleepTime(), "mm"))
+                getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId))
               }}</span
               >点活力
             </p>
@@ -875,7 +877,7 @@ onMounted(() => {
           </el-form-item> -->
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepTime')">
         <span class="sptime">{{
-          toHM((randomSleepStyle.sleepPoint / 100) * 8.5)
+          toHMInLang((randomSleepStyle.sleepPoint / 100) * 8.5, '', localeLangId)
         }}</span>
         <div style="width: 100%">
           <span class="sptime">{{
@@ -941,7 +943,11 @@ onMounted(() => {
           </el-form-item>
           <el-form-item :label="$t('PROP.ticket')">
             <span
-              style="display: inline-block; vertical-align: middle; width: 85px"
+              style="
+                display: inline-block;
+                vertical-align: middle;
+                width: 105px;
+              "
             >
               <el-switch
                 v-model="userData.isUseTicket"
@@ -1007,9 +1013,13 @@ onMounted(() => {
               </div>
             </el-alert>
           </p>
-          <el-button type="success" plain @click="handleClickSleepOnce()"
+          <el-button
+            class="el-button-sp"
+            type="success"
+            plain
+            @click="handleClickSleepOnce()"
             >{{ $t("PAGE_SLEEPCALC.btnSleepOnceBefore")
-            }}<img
+            }}<span><img
               class="icon"
               v-lazy="
                 `./img/ui/${getStageLevelPicId(
@@ -1024,7 +1034,7 @@ onMounted(() => {
                     .nameId
                 }`
               )
-            }}{{
+            }}</span>{{
               gameMap[userData.curMap].levelList[userData.curStageIndex]
                 .nameIndex
             }}「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」({{
@@ -1057,12 +1067,12 @@ onMounted(() => {
             >只宝可梦，其中<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
-            >只{{ $t('PROP.shiny') }}。
+            >只{{ $t("PROP.shiny") }}。
             <el-button
               size="small"
               @click="handleClickShinyDetail()"
               v-if="userSleep.pokeShinyCount > 0"
-              >{{ $t('PROP.shiny') }}详情(<template
+              >{{ $t("PROP.shiny") }}详情(<template
                 v-if="userSleep.showDetailShiny"
                 >收起</template
               ><template v-else>展开</template>)</el-button
@@ -1128,7 +1138,7 @@ onMounted(() => {
                     >
                       <p class="star">{{ sleepItem.star }}✩</p>
                       <span v-if="sleepItem.isShiny" class="sptime">{{
-                        $t('PROP.shiny')
+                        $t("PROP.shiny")
                       }}</span>
                       {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
                     </div>
@@ -1198,6 +1208,7 @@ onMounted(() => {
             </div>
             <div class="page-inner mb3">
               <el-button
+                class="el-button-sp"
                 :loading="userData.isMoreCalcLoading"
                 type="primary"
                 plain

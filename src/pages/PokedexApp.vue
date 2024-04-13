@@ -258,7 +258,7 @@ onMounted(() => {
 </script>
 <template>
   <h2>
-    全图鉴速查<span class="extra">({{ pokedexLength }}只)</span>
+    {{$t('PAGE_TITLE.pokedex')}}<span class="extra">({{ pokedexLength }}只)</span>
   </h2>
   <div class="page-inner">
     <el-radio-group v-model="curFilter">
@@ -298,7 +298,7 @@ onMounted(() => {
           <template v-if="curFilter === 'foodType'">
             <div class="cpt-foodmenu-list">
               <h3>
-                关联食谱<span class="extra"
+                {{$t('PROP.with')}}{{$t('PROP.recipes')}}<span class="extra"
                   >({{ resItem.menuList.length }}个)</span
                 >
               </h3>

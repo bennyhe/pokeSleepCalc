@@ -2,7 +2,9 @@ export default {
   'PROP': {
     'incense': 'おこう',
     'ticket': 'いいキャンプチケット',
-    'shiny': '色違'
+    'shiny': '色違',
+    'recipes': 'レシピ',
+    'with': '関連'
   },
   'ILAND': {
     'green': 'ワカクサ本島',
@@ -10,7 +12,7 @@ export default {
     'hole': 'トープ洞窟',
     'snow': 'ウノハナ雪原',
     'lake': 'ラピスラズリ湖畔',
-    'none': '未适正树果'
+    'none': 'Other'
   },
   'LEVEL_TITLE': {
     1: 'ノーマル',

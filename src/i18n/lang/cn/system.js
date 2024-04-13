@@ -15,9 +15,14 @@ export default {
   'SHORT_SKILL': {
     'berrys': '树果S'
   },
+  'PAGE_TITLE': {
+    'sleepcalc': '睡眠计算',
+    'helpspeedcalc': '帮速计算',
+    'pokedex': '全图鉴速查',
+    'onedayenergy': '级一天能量排行',
+    'newpoke': '最新宝可梦'
+  },
   'PAGE_SLEEPCALC': {
-    'pageTitle': '睡眠计算',
-
     'nav0': '按只数拆分睡眠',
     'nav2': '抽取睡姿',
     'nav3': '睡眠分析',

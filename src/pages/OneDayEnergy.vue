@@ -147,7 +147,7 @@ const handleClickChangeMap = id => {
 </script>
 
 <template>
-  <h2>{{ pageData.lv }}级一天能量排行</h2>
+  <h2>{{ pageData.lv }}{{$t('PAGE_TITLE.onedayenergy')}}</h2>
   <el-form label-width="82px">
     <!-- S 当前岛屿 -->
     <el-form-item label="当前岛屿">

@@ -1,7 +1,7 @@
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
-import { sortInObjectOptions, toHM } from '../utils/index.js'
+import { sortInObjectOptions, toHMInLang } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -13,6 +13,12 @@ import {
   skillOptionsExtra2,
   levelOptions
 } from '../config/helpSpeed.js'
+
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+const localeLangId = computed(() => {
+  return locale.value
+})
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -642,8 +648,8 @@ onMounted(() => {
   //   },
   //   35
   // )
-  // console.log(res1, toHM(res1, 'sec'))
-  // console.log(res2, toHM(res2, 'sec'))
+  // console.log(res1, toHMInLang(res1, 'sec', localeLangId))
+  // console.log(res2, toHMInLang(res2, 'sec', localeLangId))
 })
 watch(helpSpeedCalcForm.value, val => {
   if (!val.level) {
@@ -652,7 +658,7 @@ watch(helpSpeedCalcForm.value, val => {
 })
 </script>
 <template>
-  <h2>帮忙速度计算</h2>
+  <h2>{{$t('PAGE_TITLE.helpspeedcalc')}}</h2>
   <el-form label-width="90px">
     <el-form-item label="宝可梦">
       <el-select
@@ -839,9 +845,10 @@ watch(helpSpeedCalcForm.value, val => {
           >
           /
           {{
-            toHM(
+            toHMInLang(
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level),
-              "sec"
+              "sec",
+              localeLangId
             )
           }}
         </li>
@@ -918,7 +925,7 @@ watch(helpSpeedCalcForm.value, val => {
               >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
             /
-            {{ toHM(getNewHelpSpeed(helpSpeedCalcForm, olItem), "sec") }}
+            {{ toHMInLang(getNewHelpSpeed(helpSpeedCalcForm, olItem), "sec", localeLangId) }}
           </li>
         </template>
       </ul>

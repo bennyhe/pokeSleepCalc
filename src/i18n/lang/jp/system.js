@@ -16,9 +16,14 @@ export default {
   'SHORT_SKILL': {
     'berrys': 'きのみS'
   },
+  'PAGE_TITLE': {
+    'sleepcalc': '睡眠計算',
+    'helpspeedcalc': 'おてつだいスピード計算',
+    'pokedex': 'ポケモン図鑑',
+    'onedayenergy': 'レベル一日エナジーランキング',
+    'newpoke': '最新ポケモン'
+  },
   'PAGE_SLEEPCALC': {
-    'pageTitle': '睡眠計算',
-    
     'nav0': 'ポケモン個数で分割睡眠計算',
     'nav2': '寝顔抽選',
     'nav3': '睡眠の分析'
@@ -53,7 +58,7 @@ export default {
     'tipsNoSupportAfter': 'に対応しません。',
     'tipsNoRes': '抽選結果はゲーム内の結果のそのものではないので、あくまでも参考です。',
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
-    'tipsUseTickets1': 'いいキャップチケット（第一回寝）はおまけ１匹、おこうり使いもおまけ１匹。',
+    'tipsUseTickets1': 'いいキャップチケット（第1回目寝）はおまけ１匹、おこうり使いもおまけ１匹。',
     'tipsUseTickets2': 'いいキャップチケットとおこうり使いは計算範囲外。'
   }
 }

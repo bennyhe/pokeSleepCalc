@@ -6,7 +6,7 @@ import { gameMap } from '../../config/game.js'
 import { getStageLevelPicId } from '../../utils/index.js'
 
 const { locale } = useI18n()
-const localeLang = computed(() => {
+const localeLangId = computed(() => {
   return locale.value
 })
 const props = defineProps({
@@ -54,7 +54,7 @@ const props = defineProps({
         {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
       </p>
       <p>
-        <template v-if="localeLang === 'cn'">
+        <template v-if="localeLangId === 'cn'">
           <span class="sptime">{{
             sleepItem.id.replace(`${sleepItem.pokeId}-id-`, "")
           }}</span
