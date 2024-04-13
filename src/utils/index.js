@@ -3,7 +3,19 @@ function thousands(num) {
   const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g
   return str.replace(reg, '$1,')
 }
-
+export function toHMInLang(time, type, langId) {
+  let resTime = toHM(time, type)
+  if (langId === 'jp' && (typeof resTime === 'string')) {
+    resTime = resTime.replace('小时', '時間')
+    resTime = resTime.replace('分钟', '分')
+  } else if (langId === 'en' && (typeof resTime === 'string')) {
+    resTime = resTime.replace('小时', 'hr')
+    resTime = resTime.replace('分钟', 'mins')
+    resTime = resTime.replace('分', 'mins')
+    resTime = resTime.replace('秒', 'secs')
+  }
+  return resTime
+}
 export function toHM(time, type) {
   if (type === 'sec') { // time传入为x秒
     const _hours = Math.floor(time / 3600)
