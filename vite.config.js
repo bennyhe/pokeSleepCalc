@@ -50,6 +50,8 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return 'node_lib'
+          } else if (id.includes('i18n')) {
+            return 'lang'
           } else if (id.includes('config')) {
             return 'config'
           } else {
