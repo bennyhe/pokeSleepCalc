@@ -4,7 +4,8 @@ export default {
     'ticket': '露营券',
     'shiny': '闪光',
     'recipes': '食谱',
-    'with': '关联'
+    'with': '关联',
+    'individual': '个体'
   },
   'ILAND': {
     'green': '萌绿之岛',

@@ -92,7 +92,7 @@ const props = defineProps({
         NATURE[sleepItem.iv.natureId].up === undefined
       "
     >
-      没有性格带来的特色
+      {{$t('NATURE_UPDOWN.没有性格带来的特色')}}
     </p>
   </div>
 </template>

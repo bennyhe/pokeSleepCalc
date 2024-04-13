@@ -1198,7 +1198,7 @@ onMounted(() => {
                         ><img
                           class="icon"
                           v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
-                        />个体</el-button
+                        />{{$t('PROP.individual')}}</el-button
                       >
                     </template>
                     <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv" />
