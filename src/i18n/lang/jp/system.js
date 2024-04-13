@@ -21,7 +21,8 @@ export default {
     'helpspeedcalc': 'おてつだいスピード計算',
     'pokedex': 'ポケモン図鑑',
     'onedayenergy': 'レベル一日エナジーランキング',
-    'newpoke': '最新ポケモン'
+    'newpoke': '最新ポケモン',
+    'berrypokeinmap': 'ポケモンきのみに対応する'
   },
   'PAGE_SLEEPCALC': {
     'nav0': 'ポケモン個数で分割睡眠計算',

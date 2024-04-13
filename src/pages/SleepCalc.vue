@@ -1588,7 +1588,7 @@ onMounted(() => {
         +navData.navIndex !== 2 && gameMap[userData.curMap].berry[0] !== '?'
       "
     >
-      <h2>对应树果宝可梦</h2>
+      <h2>{{$t('PAGE_TITLE.berrypokeinmap')}}</h2>
       <div class="poke-tb">
         <div
           class="poke-tb__item"

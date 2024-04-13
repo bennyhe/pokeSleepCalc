@@ -20,7 +20,8 @@ export default {
     'helpspeedcalc': '帮速计算',
     'pokedex': '全图鉴速查',
     'onedayenergy': '级一天能量排行',
-    'newpoke': '最新宝可梦'
+    'newpoke': '最新宝可梦',
+    'berrypokeinmap': '对应树果宝可梦'
   },
   'PAGE_SLEEPCALC': {
     'nav0': '按只数拆分睡眠',
