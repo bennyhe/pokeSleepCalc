@@ -12,7 +12,7 @@ export default {
     'hole': 'トープ洞窟',
     'snow': 'ウノハナ雪原',
     'lake': 'ラピスラズリ湖畔',
-    'none': 'Other'
+    'none': 'Other Area'
   },
   'LEVEL_TITLE': {
     1: 'ノーマル',
