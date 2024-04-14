@@ -1221,7 +1221,7 @@ h4 {
 
 .catchpoke-list {
   overflow-y: auto;
-  max-height: 252px;
+  max-height: 278px;
   border-radius: 10px;
   padding: 3px;
   border: 1px dashed #d1d1d1;
@@ -1234,6 +1234,16 @@ h4 {
     margin-bottom: 5px;
     width: 60px;
     text-align: center;
+  }
+
+  .cpt-pokemon__pic {
+    width: 60px;
+    height: auto;
+    min-height: 55px;
+    
+    img {
+      height: auto;
+    }
   }
 }
 

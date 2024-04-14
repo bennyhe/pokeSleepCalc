@@ -346,7 +346,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 
       sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
       sleepItem.eatStateType = 3
-      if (sleepItem.isShiny) {
+
+      // 贪吃判定，闪光必贪吃，露营券必贪吃，其它10%贪吃
+      if (sleepItem.isShiny || sleepItem.isUseTicket) {
         sleepItem.eatStateType = 1
       } else {
         const rdmRes = parseInt(Math.floor(Math.random() * 100), 10) <= 10

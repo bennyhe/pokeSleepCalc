@@ -358,6 +358,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       res.push({
         ...spoZeroPoke,
         isShiny: getShinyPoke(),
+        isUseTicket: true,
         extra: '+奖励'
         // extra: 'SPO<2' //debug
       })
@@ -370,6 +371,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
             10
           )],
           isShiny: getShinyPoke(),
+          isUseTicket: true,
           extra: '+奖励'
         })
       } else {
@@ -377,6 +379,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         res.push({
           ...spoZeroPoke,
           isShiny: getShinyPoke(),
+          isUseTicket: true,
           extra: '+奖励'
         })
       }
