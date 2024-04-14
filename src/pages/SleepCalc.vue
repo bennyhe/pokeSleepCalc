@@ -4,6 +4,8 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
+import CptGameMap from '../components/GameMap/PlayArea.vue'
+
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
@@ -30,6 +32,7 @@ import {
   getRandomArr,
   calcPositions
 } from '../utils/index.js'
+import { feedSandslash } from '../utils/game.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -56,7 +59,7 @@ const userData = ref({
   isUseTicket: false,
   isActRandom: false,
   isMoreCalcLoading: false,
-  showLotteryMap: false,
+  mapModel: true,
   useIncensePokemonId: '',
   banPokes: []
 })
@@ -335,60 +338,65 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isActRandom: userData.value.isActRandom
     }
   )
-  // const positionId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
   // 随机个体
   res.forEach((sleepItem, key) => {
     if (pokedex[sleepItem.pokeId].food) {
-      const useFoods = [pokedex[sleepItem.pokeId].food.type[0]]
-      for (let i = 1; i < 3; i++) {
-        const rdm = parseInt(Math.floor(Math.random() * 3), 10)
-        // 1/3概率a食材
-        if (rdm === 2) {
-          useFoods.push(pokedex[sleepItem.pokeId].food.type[0])
-        } else if (i === 1) {
-          useFoods.push(pokedex[sleepItem.pokeId].food.type[i])
-        } else {
-          let lastFoods = [...pokedex[sleepItem.pokeId].food.type]
-          lastFoods = lastFoods.slice(1, lastFoods.length)
-          if (lastFoods.length === 1) {
-            useFoods.push(lastFoods[0])
-          } else {
-            useFoods.push(
-              lastFoods[parseInt(Math.floor(Math.random() * 2), 10)]
-            )
-          }
-        }
-      }
-      let ivRes = {
-        useFoods,
-        natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
-      }
-      if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
-        userSleep.value.isFirst243 = false
-        ivRes = {
-          ...ivRes,
-          ...POKE_243_IV
-        }
-      } else {
-        ivRes.skills = getRandomPokeSkills()
-      }
-      sleepItem.iv = ivRes
+      sleepItem.iv = getRandomIV(sleepItem.pokeId)
+      sleepItem.ivInMap = getRandomIV(sleepItem.pokeId)
 
-      // if (sleepItem.sleepNameId === 4) {
-      //   sleepItem.positionClassId = 999
-      // } else {
-      //   const rdmIndex = parseInt(
-      //     Math.floor(Math.random() * positionId.length),
-      //     10
-      //   )
-      //   sleepItem.positionClassId = positionId[rdmIndex]
-      //   positionId.splice(rdmIndex, 1)
-      // }
+      sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
+      sleepItem.eatStateType = 3
+      if (sleepItem.isShiny) {
+        sleepItem.eatStateType = 1
+      } else {
+        const rdmRes = parseInt(Math.floor(Math.random() * 100), 10) <= 10
+        if (rdmRes) {
+          sleepItem.eatStateType = 1
+        }
+      }
     }
   })
   calcPositions(res)
-  console.log(res)
+  // console.log(res)
+  catchPokeState.value.eatTimes = {} //重置吃饱判定
   randomSleepStyle.value.resList = res
+}
+
+const getRandomIV = pokeId => {
+  if (pokedex[pokeId].food) {
+    const useFoods = [pokedex[pokeId].food.type[0]]
+    for (let i = 1; i < 3; i++) {
+      const rdm = parseInt(Math.floor(Math.random() * 3), 10)
+      // 1/3概率a食材
+      if (rdm === 2) {
+        useFoods.push(pokedex[pokeId].food.type[0])
+      } else if (i === 1) {
+        useFoods.push(pokedex[pokeId].food.type[i])
+      } else {
+        let lastFoods = [...pokedex[pokeId].food.type]
+        lastFoods = lastFoods.slice(1, lastFoods.length)
+        if (lastFoods.length === 1) {
+          useFoods.push(lastFoods[0])
+        } else {
+          useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
+        }
+      }
+    }
+    let ivRes = {
+      useFoods,
+      natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
+    }
+    if (userSleep.value.isFirst243 && pokeId === 243) {
+      userSleep.value.isFirst243 = false
+      ivRes = {
+        ...ivRes,
+        ...POKE_243_IV
+      }
+    } else {
+      ivRes.skills = getRandomPokeSkills()
+    }
+    return ivRes
+  }
 }
 
 const getSleepStyle = () => {
@@ -461,6 +469,10 @@ const handleClickSleepOnce = () => {
 const handleClickShinyDetail = () => {
   userSleep.value.showDetailShiny = !userSleep.value.showDetailShiny
 }
+const handleClickCatchDetail = () => {
+  catchPokeState.value.showDetailCatchList =
+    !catchPokeState.value.showDetailCatchList
+}
 const handleClickShowMoreMathExp = () => {
   pageData.value.showMoreMathExp = !pageData.value.showMoreMathExp
 }
@@ -471,6 +483,80 @@ const handleClickShinyClear = () => {
     pokeShinyList: [],
     pokeSum: 0,
     showDetailShiny: false
+  }
+}
+
+const catchPokeState = ref({
+  list: [],
+  showDetailCatchList: false,
+  eatTimes: {},
+  friendship: {},
+  friendshipLevel: {}
+})
+const handleClickMapPokeItem = (sleepItem, sleepKey) => {
+  console.log(sleepItem, sleepItem.eatStateType)
+  // eatStateType:[1,2,3,4] // 1:贪吃 2:友情点MAX 3:平常 4:吃饱了
+  if (sleepItem.eatStateType === 1 || sleepItem.eatStateType === 3) {
+    const curId = `${sleepKey}_${sleepItem.pokeId}`
+    if (!catchPokeState.value.eatTimes[curId]) {
+      catchPokeState.value.eatTimes[curId] = 1
+    } else {
+      catchPokeState.value.eatTimes[curId]++
+    }
+
+    const getFriendShip = feedSandslash(
+      sleepItem,
+      3,
+      catchPokeState.value.eatTimes[curId]
+    )
+    if (catchPokeState.value.friendship[sleepItem.pokeId] === undefined) {
+      catchPokeState.value.friendship[sleepItem.pokeId] = 0
+    }
+    // 友情点数MAX
+    if (
+      sleepItem.isShiny ||
+      catchPokeState.value.friendship[sleepItem.pokeId] + getFriendShip.point >=
+        pokedex[sleepItem.pokeId].friendship
+    ) {
+      catchPokeState.value.friendship[sleepItem.pokeId] =
+        pokedex[sleepItem.pokeId].friendship
+      randomSleepStyle.value.resList[sleepKey].eatStateType = 2
+      catchPokeState.value.list.push({
+        pokeId: sleepItem.pokeId,
+        isShiny: sleepItem.isShiny,
+        ...randomSleepStyle.value.resList[sleepKey].ivInMap
+      })
+      if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
+        catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
+      } else {
+        catchPokeState.value.friendshipLevel[sleepItem.pokeId]++
+      }
+    } else {
+      catchPokeState.value.friendship[sleepItem.pokeId] += getFriendShip.point
+    }
+
+    if (
+      catchPokeState.value.eatTimes[curId] >= 2 &&
+      sleepItem.eatStateType !== 2 &&
+      sleepItem.eatStateType !== 4
+    ) {
+      randomSleepStyle.value.resList[sleepKey].eatStateType =
+        getFriendShip.eatStateType
+    }
+
+    if (sleepItem.eatStateType === 1) {
+      randomSleepStyle.value.resList[sleepKey].eatStateType = 3
+    }
+
+    setTimeout(() => {
+      if (
+        catchPokeState.value.friendship[sleepItem.pokeId] >=
+        pokedex[sleepItem.pokeId].friendship
+      ) {
+        catchPokeState.value.friendship[sleepItem.pokeId] = 0
+      }
+    }, 200)
+    console.log(getFriendShip, catchPokeState.value.list)
   }
 }
 
@@ -699,7 +785,7 @@ onMounted(() => {
             "
           >
             必須睡眠時間（<span class="sptime">{{
-              toHMInLang(firstSleepTime(), '', localeLangId)
+              toHMInLang(firstSleepTime(), "", localeLangId)
             }}</span
             >）で、<CptProcss
               :score="getFirstSleepScore()"
@@ -725,7 +811,7 @@ onMounted(() => {
           >
             <p>
               残り睡眠時間（<span class="sptime">{{
-                toHMInLang(8.5 - firstSleepTime(), '', localeLangId)
+                toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
               }}</span
               >）で、<CptProcss
                 :score="100 - getFirstSleepScore()"
@@ -785,7 +871,9 @@ onMounted(() => {
                 getTargetStartScore(100)
             "
           >
-            所需睡眠<span class="sptime">{{ toHMInLang(firstSleepTime(), '', localeLangId) }}</span
+            所需睡眠<span class="sptime">{{
+              toHMInLang(firstSleepTime(), "", localeLangId)
+            }}</span
             >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
             >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
               class="spscore"
@@ -808,7 +896,7 @@ onMounted(() => {
           >
             <p>
               剩余睡眠<span class="sptime">{{
-                toHMInLang(8.5 - firstSleepTime(), '', localeLangId)
+                toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
               }}</span
               >，可捕捉<span class="sptime"
                 >{{
@@ -823,7 +911,9 @@ onMounted(() => {
                 getNum(getScore(100 - getFirstSleepScore()))
               }}</span
               >睡意之力，预计掉<span class="vigour">{{
-                getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId))
+                getLostVigour(
+                  toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
+                )
               }}</span
               >点活力
             </p>
@@ -877,7 +967,11 @@ onMounted(() => {
           </el-form-item> -->
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepTime')">
         <span class="sptime">{{
-          toHMInLang((randomSleepStyle.sleepPoint / 100) * 8.5, '', localeLangId)
+          toHMInLang(
+            (randomSleepStyle.sleepPoint / 100) * 8.5,
+            "",
+            localeLangId
+          )
         }}</span>
         <div style="width: 100%">
           <span class="sptime">{{
@@ -974,7 +1068,7 @@ onMounted(() => {
           </el-form-item>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableMapModel')">
             <el-switch
-              v-model="userData.showLotteryMap"
+              v-model="userData.mapModel"
               inline-prompt
               :active-text="$t('OPTIONS.yes')"
               :inactive-text="$t('OPTIONS.no')"
@@ -1019,22 +1113,24 @@ onMounted(() => {
             plain
             @click="handleClickSleepOnce()"
             >{{ $t("PAGE_SLEEPCALC.btnSleepOnceBefore")
-            }}<span><img
-              class="icon"
-              v-lazy="
-                `./img/ui/${getStageLevelPicId(
-                  gameMap[userData.curMap].levelList[userData.curStageIndex]
-                    .name
-                )}.png`
-              "
-            />{{
-              $t(
-                `LEVEL_TITLE.${
-                  gameMap[userData.curMap].levelList[userData.curStageIndex]
-                    .nameId
-                }`
-              )
-            }}</span>{{
+            }}<span
+              ><img
+                class="icon"
+                v-lazy="
+                  `./img/ui/${getStageLevelPicId(
+                    gameMap[userData.curMap].levelList[userData.curStageIndex]
+                      .name
+                  )}.png`
+                "
+              />{{
+                $t(
+                  `LEVEL_TITLE.${
+                    gameMap[userData.curMap].levelList[userData.curStageIndex]
+                      .nameId
+                  }`
+                )
+              }}</span
+            >{{
               gameMap[userData.curMap].levelList[userData.curStageIndex]
                 .nameIndex
             }}「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」({{
@@ -1064,7 +1160,7 @@ onMounted(() => {
           <div class="mod-tips" v-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
             >次，遇到<span class="sptime">{{ userSleep.pokeSum }}</span
-            >只宝可梦，其中<span class="sptime">{{
+            >只宝可梦，其中遇到<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
             >只{{ $t("PROP.shiny") }}。
@@ -1098,69 +1194,100 @@ onMounted(() => {
                 }}</i>
               </p>
               <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
-              <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv" />
+              <CptIv
+                :pokeId="sleepItem.pokeId"
+                :dataSource="sleepItem.iv"
+                :isShiny="sleepItem.isShiny"
+                v-if="sleepItem.iv"
+              />
+            </div>
+          </div>
+          <div
+            class="mod-tips"
+            v-if="userData.mapModel && catchPokeState.list.length > 0"
+          >
+            获得<span class="sptime">{{ catchPokeState.list.length }}</span
+            >只宝可梦，其中<span class="sptime">{{
+              catchPokeState.list.filter((item) => item.shiny).length
+            }}</span
+            >只{{ $t("PROP.shiny") }}。
+            <el-button
+              size="small"
+              @click="handleClickCatchDetail()"
+              v-if="catchPokeState.list.length > 0"
+              >获得详情(<template v-if="catchPokeState.showDetailCatchList"
+                >收起</template
+              ><template v-else>展开</template>)</el-button
+            >
+          </div>
+          <div
+            class="catchpoke-list"
+            v-if="
+              userData.mapModel &&
+              catchPokeState.showDetailCatchList &&
+              catchPokeState.list.length > 0
+            "
+          >
+            <div
+              class="catchpoke-list__item"
+              v-for="(sleepItem, sleepKey) in catchPokeState.list"
+              v-bind:key="`cathList_${sleepItem.pokeId}_${sleepKey}`"
+            >
+              <p>
+                <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
+                  sleepKey + 1
+                }}</i>
+              </p>
+              <div class="cpt-pokemon">
+                <div class="cpt-pokemon__pic">
+                  <img
+                    v-lazy="
+                      `./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
+                        sleepItem.pokeId
+                      }.png`
+                    "
+                    :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
+                  />
+                </div>
+                <div
+                  class="cpt-pokemon__name"
+                  :class="{ shiny: sleepItem.isShiny }"
+                >
+                  <span v-if="sleepItem.isShiny" class="sptime">{{
+                    $t("PROP.shiny")
+                  }}</span>
+                  {{ $t(`POKEMON_NAME.${sleepItem.pokeId}`) }}
+                </div>
+              </div>
+              <el-popover
+                placement="bottom"
+                :title="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
+                trigger="click"
+                :width="200"
+                :key="`catch_${userData.CurEnergy}_${sleepKey + 1}`"
+              >
+                <template #reference>
+                  <el-button size="small">{{
+                    $t("PROP.individual")
+                  }}</el-button>
+                </template>
+                <CptIv
+                  :pokeId="sleepItem.pokeId"
+                  :dataSource="sleepItem"
+                  :isShiny="sleepItem.isShiny"
+                />
+              </el-popover>
             </div>
           </div>
           <div>
-            <div class="lottery-map-wrap" v-if="userData.showLotteryMap">
-              <div class="lottery-map">
-                <template
-                  v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
-                  v-bind:key="`${sleepItem.id}${sleepKey}${Math.random()}`"
-                >
-                  <div
-                    class="lottery-map__item"
-                    :class="[
-                      `lottery-map__item--scalex${parseInt(
-                        Math.floor(Math.random() * 2),
-                        10
-                      )}`,
-                    ]"
-                    :style="`animation-delay: ${0.3 * (sleepKey + 1)}s; left:${
-                      sleepItem.position.xPercent * 100
-                    }%; top:${sleepItem.position.yPercent * 100}%`"
-                  >
-                    <div class="cpt-pokemon">
-                      <div class="cpt-pokemon__pic">
-                        <img
-                          v-lazy="
-                            `./img/portrait/${
-                              sleepItem.isShiny ? 'shiny/' : ''
-                            }${sleepItem.pokeId}.png`
-                          "
-                          :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="cpt-pokemon__name"
-                      :class="{ shiny: sleepItem.isShiny }"
-                    >
-                      <p class="star">{{ sleepItem.star }}✩</p>
-                      <span v-if="sleepItem.isShiny" class="sptime">{{
-                        $t("PROP.shiny")
-                      }}</span>
-                      {{ $t(`SLEEPSTYLE_NAME.${sleepItem.sleepNameId}`) }}
-                    </div>
-                  </div>
-                </template>
-                <!-- <template
-                  v-for="sleepItem in 14"
-                  v-bind:key="`123${sleepItem}`"
-                >
-                  <div class="lottery-map__item" :class="[`lottery-map__item--${sleepItem}`]">
-                    <CptPoke :pokeId="randomSleepStyle.resList[0].pokeId" />
-                  </div>
-                </template> -->
-                <i class="lottery-map__snorlax"></i>
-                <img
-                  v-if="gameMap[userData.curMap].pic"
-                  class="lottery-map__bg"
-                  v-lazy="`./img/ui/${gameMap[userData.curMap].pic}.png`"
-                  :alt="gameMap[userData.curMap].name"
-                />
-              </div>
-            </div>
+            <CptGameMap
+              v-bind:key="`map${userSleep.count}`"
+              v-if="userData.mapModel"
+              :resList="randomSleepStyle.resList"
+              :curMap="userData.curMap"
+              :handleClickPokeItem="handleClickMapPokeItem"
+              :catchPokeFriendship="catchPokeState.friendship"
+            />
             <div class="poke-tb poke-tb--lottery mb3">
               <template
                 v-for="(sleepItem, sleepKey) in randomSleepStyle.resList"
@@ -1198,10 +1325,15 @@ onMounted(() => {
                         ><img
                           class="icon"
                           v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
-                        />{{$t('PROP.individual')}}</el-button
+                        />{{ $t("PROP.individual") }}</el-button
                       >
                     </template>
-                    <CptIv :sleepItem="sleepItem" v-if="sleepItem.iv" />
+                    <CptIv
+                      :pokeId="sleepItem.pokeId"
+                      :dataSource="sleepItem.iv"
+                      :isShiny="sleepItem.isShiny"
+                      v-if="sleepItem.iv"
+                    />
                   </el-popover>
                 </div>
               </template>
@@ -1588,7 +1720,7 @@ onMounted(() => {
         +navData.navIndex !== 2 && gameMap[userData.curMap].berry[0] !== '?'
       "
     >
-      <h2>{{$t('PAGE_TITLE.berrypokeinmap')}}</h2>
+      <h2>{{ $t("PAGE_TITLE.berrypokeinmap") }}</h2>
       <div class="poke-tb">
         <div
           class="poke-tb__item"

@@ -271,6 +271,62 @@ h4 {
   }
 }
 
+.cpt-friendship {
+  display: flex;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 2px 5px;
+  box-sizing: border-box;
+  box-shadow: 0 2px $mainColor;
+
+  i {
+    display: block;
+    flex: 1;
+    height: 3px;
+    margin: 1px;
+    background-color: #e3dddd;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+
+    &.get {
+      background-color: #ed556a;
+    }
+  }
+
+  &--2row {
+    display: block;
+    height: 15px;
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &--txt {
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    text-align: center;
+    margin-top: -13px;
+    display: block;
+
+    &.cpt-friendship--2row {
+      margin-top: -7px;
+    }
+  }
+
+  &--max {
+    background-color: #ed556a;
+    color: #f1f1f1;
+  }
+
+  &--full {
+    background-color: #fdb43b;
+    color: #ffedd0;
+  }
+}
+
 .cpt-list {
   padding: 5px 8px;
   font-size: 15px;
@@ -1163,9 +1219,27 @@ h4 {
   }
 }
 
+.catchpoke-list {
+  overflow-y: auto;
+  max-height: 252px;
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px dashed #d1d1d1;
+  margin: 3px 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 60px;
+    text-align: center;
+  }
+}
+
 .lottery-map {
-  width: 638px;
-  height: 383px;
+  width: 638px * 1.25;
+  height: 383px * 1.25;
   position: relative;
   border: 1px dashed #d1d1d1;
   box-shadow: 0 2px $mainColor;
@@ -1179,6 +1253,38 @@ h4 {
 
   &-wrap {
     overflow-x: auto;
+  }
+
+  &__catch {
+    position: relative;
+    left: 50%;
+    width: 86px;
+    margin-left: (-86px / 2);
+    z-index: 3;
+  }
+
+  &__eattips {
+    position: absolute;
+    top: -24px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+
+    // 贪吃
+    &--1 {
+      top: 18px;
+      right: 0;
+      color: #f9acb4;
+      background-color: #fffdfe;
+      border-radius: 100%;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      font-size: 11px;
+      text-align: center;
+      border: 2px solid #f9acb4;
+      box-shadow: 0 0 2px #fae38d inset;
+    }
   }
 
   &__snorlax {
@@ -1213,6 +1319,7 @@ h4 {
     animation: aniFadeInTop 0.3s linear both;
     margin: -48px 0 0 -33px;
     transform-origin: center bottom;
+    cursor: pointer;
 
     .cpt-pokemon {
       width: 70px;
@@ -1262,9 +1369,9 @@ h4 {
 // 移动端适配
 @media screen and (max-width: 660px) {
 
-  .lottery-map {
-    width: 538px
-  }
+  // .lottery-map {
+  //   width: 538px
+  // }
 
   .page-sleepcalc {
     .first-page-nav .el-radio-button__inner {

@@ -5,31 +5,37 @@ import { NATURE } from '../../config/pokeNature.js'
 import { POKE_TYPES } from '../../config/valKey.js'
 
 const props = defineProps({
-  sleepItem: {
+  dataSource: {
     type: [Object]
+  },
+  pokeId: {
+    type: [String, Number]
+  },
+  isShiny: {
+    type: [Boolean]
   }
 })
 </script>
 <template>
-  <div class="cpt-iv">
-    <span v-if="sleepItem.isShiny" class="shiny">{{ $t("PROP.shiny") }}</span>
-    {{ POKE_TYPES[pokedex[sleepItem.pokeId].pokeType] }}型
+  <div class="cpt-iv" v-if="pokeId">
+    <span v-if="isShiny" class="shiny">{{ $t("PROP.shiny") }}</span>
+    {{ POKE_TYPES[pokedex[pokeId].pokeType] }}型
     <div class="cpt-food cpt-food--s berry">
       <div class="cpt-food__item">
         <img
-          v-lazy="`./img/berry/${pokedex[sleepItem.pokeId].berryType}.png`"
-          :alt="$t(`BERRY_TYPES.${pokedex[sleepItem.pokeId].berryType}`)"
+          v-lazy="`./img/berry/${pokedex[pokeId].berryType}.png`"
+          :alt="$t(`BERRY_TYPES.${pokedex[pokeId].berryType}`)"
         />
       </div>
       <p>
-        {{ $t(`BERRY_TYPES.${pokedex[sleepItem.pokeId].berryType}`) }}
+        {{ $t(`BERRY_TYPES.${pokedex[pokeId].berryType}`) }}
       </p>
     </div>
     <h4>食材</h4>
     <div class="cpt-food all-food">
       <div
         class="cpt-food__item cur"
-        v-for="(foodItem, foodKey) in sleepItem.iv.useFoods"
+        v-for="(foodItem, foodKey) in dataSource.useFoods"
         v-bind:key="`${foodKey}_${foodItem}`"
       >
         <img
@@ -37,7 +43,7 @@ const props = defineProps({
           :alt="$t(`FOOD_TYPES.${foodItem}`)"
         />
         <p class="cpt-food__count">
-          {{ pokedex[sleepItem.pokeId].food.count[foodItem].num[foodKey] }}
+          {{ pokedex[pokeId].food.count[foodItem].num[foodKey] }}
         </p>
       </div>
     </div>
@@ -45,12 +51,12 @@ const props = defineProps({
     <div class="skill">
       <div class="main-skill">
         <div class="main-skill__inner">
-          {{ $t(`SKILL_TYPES.${pokedex[sleepItem.pokeId].skillType}`) }}
+          {{ $t(`SKILL_TYPES.${pokedex[pokeId].skillType}`) }}
         </div>
       </div>
       <div
         class="mb3"
-        v-for="skillItem in sleepItem.iv.skills"
+        v-for="skillItem in dataSource.skills"
         :key="skillItem.nameId"
       >
         <span class="level">lv{{ skillItem.unlockLevel }}</span>
@@ -73,26 +79,26 @@ const props = defineProps({
       </div>
     </div>
     <h4>性格</h4>
-    {{ $t(`NATURE_NAMES.${sleepItem.iv.natureId}`) }}
+    {{ $t(`NATURE_NAMES.${dataSource.natureId}`) }}
     <p
       class="nature-up"
-      v-if="NATURE[sleepItem.iv.natureId] && NATURE[sleepItem.iv.natureId].up"
+      v-if="NATURE[dataSource.natureId] && NATURE[dataSource.natureId].up"
     >
-      {{ $t(`NATURE_UPDOWN.${NATURE[sleepItem.iv.natureId].up}`) }}△△
+      {{ $t(`NATURE_UPDOWN.${NATURE[dataSource.natureId].up}`) }}△△
     </p>
     <p
       class="nature-down"
-      v-if="NATURE[sleepItem.iv.natureId] && NATURE[sleepItem.iv.natureId].down"
+      v-if="NATURE[dataSource.natureId] && NATURE[dataSource.natureId].down"
     >
-      {{ $t(`NATURE_UPDOWN.${NATURE[sleepItem.iv.natureId].down}`) }}▽▽
+      {{ $t(`NATURE_UPDOWN.${NATURE[dataSource.natureId].down}`) }}▽▽
     </p>
     <p
       v-if="
-        NATURE[sleepItem.iv.natureId] &&
-        NATURE[sleepItem.iv.natureId].up === undefined
+        NATURE[dataSource.natureId] &&
+        NATURE[dataSource.natureId].up === undefined
       "
     >
-      {{$t('NATURE_UPDOWN.没有性格带来的特色')}}
+      {{ $t("NATURE_UPDOWN.没有性格带来的特色") }}
     </p>
   </div>
 </template>
