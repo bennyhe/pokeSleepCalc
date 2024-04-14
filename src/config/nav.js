@@ -13,7 +13,7 @@ export const NAV_SLEEPCALC = {
       value: 3
     }
   ],
-  navIndex: 2
+  navIndex: 0
 }
 export const NAV_HELPSPEEDCALC = {
   navList: [

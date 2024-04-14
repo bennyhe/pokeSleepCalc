@@ -12,6 +12,9 @@ const props = defineProps({
   catchPokeFriendship: {
     type: [Object]
   },
+  catchPokeFriendshipLevel: {
+    type: [Object]
+  },
   useBallId: {
     type: [Number, String]
   },
@@ -83,6 +86,15 @@ const pokeBall = [
                     sleepItem.eatStateType === 4,
                 }"
               >
+                <div
+                  class="cpt-friendship__level"
+                  v-if="
+                    sleepItem.eatStateType === 1 || sleepItem.eatStateType === 3
+                  "
+                >
+                  {{ catchPokeFriendshipLevel[sleepItem.pokeId] }}
+                  <p>Lv.</p>
+                </div>
                 <template v-if="sleepItem.eatStateType === 2"
                   >友情点数MAX</template
                 >

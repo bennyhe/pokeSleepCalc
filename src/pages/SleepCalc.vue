@@ -61,7 +61,7 @@ const userData = ref({
   isUseTicket: false,
   isActRandom: false,
   isMoreCalcLoading: false,
-  mapModel: true,
+  mapModel: false,
   useIncensePokemonId: '',
   banPokes: []
 })
@@ -301,12 +301,15 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       }
 
       let isCurPokeMapLock = 0
-      if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 98) {
+      if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 99) {
         isCurPokeMapLock = 3
-      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 38) {
+      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 39) {
         isCurPokeMapLock = 2
-      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 8) {
+      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 9) {
         isCurPokeMapLock = 1
+      }
+      if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
+        catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
       }
       sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
         isFirst243: userSleep.value.isFirst243,
@@ -490,11 +493,7 @@ const handleClickMapPokeItem = (sleepItem, sleepKey) => {
         isShiny: sleepItem.isShiny,
         ...randomSleepStyle.value.resList[sleepKey].ivInMap
       })
-      if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
-        catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
-      } else {
-        catchPokeState.value.friendshipLevel[sleepItem.pokeId]++
-      }
+      catchPokeState.value.friendshipLevel[sleepItem.pokeId]++
     } else {
       catchPokeState.value.friendship[sleepItem.pokeId] += getFriendShip.point
     }
@@ -1249,6 +1248,7 @@ onMounted(() => {
               :curMap="userData.curMap"
               :handleClickPokeItem="handleClickMapPokeItem"
               :catchPokeFriendship="catchPokeState.friendship"
+              :catchPokeFriendshipLevel="catchPokeState.friendshipLevel"
               :useBallId="catchPokeState.useBallId"
               :hasBall="catchPokeState.hasBall"
               :handleClickPokeBll="handleClickPokeBll"
