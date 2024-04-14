@@ -27,6 +27,8 @@ const handleClickShowSupport = () => {
     </p>
     <p>
       <a href="javascript:;" @click="handleClickShowSupport()">捐赠须知</a>
+    </p>
+    <p>
       <a href="https://afdian.net/a/pokesleepcalc" target="_blank">去爱发电捐赠&支持(微信/支付宝/Paypal/Stripe)</a>
     </p>
     <p>
