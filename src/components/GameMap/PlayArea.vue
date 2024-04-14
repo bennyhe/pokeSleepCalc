@@ -12,10 +12,37 @@ const props = defineProps({
   catchPokeFriendship: {
     type: [Object]
   },
+  useBallId: {
+    type: [Number, String]
+  },
+  hasBall: {
+    type: [Object]
+  },
   handleClickPokeItem: {
+    type: [Function]
+  },
+  handleClickPokeBll: {
     type: [Function]
   }
 })
+const pokeBall = [
+  {
+    name: '普通沙布雷',
+    id: 1
+  },
+  {
+    name: '超级沙布雷',
+    id: 2
+  },
+  {
+    name: '奖励沙布雷',
+    id: 3
+  },
+  {
+    name: '大师沙布雷',
+    id: 4
+  }
+]
 </script>
 <template>
   <div class="lottery-map-wrap" v-if="resList && resList.length > 0">
@@ -33,7 +60,12 @@ const props = defineProps({
           }%; top:${sleepItem.position.yPercent * 100}%`"
         >
           <div class="lottery-map__catch">
-            <div class="lottery-map__eattips" :class="{'lottery-map__eattips--1': sleepItem.eatStateType === 1}">
+            <div
+              class="lottery-map__eattips"
+              :class="{
+                'lottery-map__eattips--1': sleepItem.eatStateType === 1,
+              }"
+            >
               <template v-if="sleepItem.eatStateType === 1">贪吃</template>
             </div>
             <div
@@ -41,12 +73,18 @@ const props = defineProps({
               :class="{
                 'cpt-friendship--2row':
                   pokedex[sleepItem.pokeId].friendship > 7,
-                'cpt-friendship--txt cpt-friendship--max': sleepItem.eatStateType === 2,
-                'cpt-friendship--txt cpt-friendship--full': sleepItem.eatStateType === 4,
+                'cpt-friendship--txt cpt-friendship--max':
+                  sleepItem.eatStateType === 2,
+                'cpt-friendship--txt cpt-friendship--full':
+                  sleepItem.eatStateType === 4,
               }"
             >
-              <template v-if="sleepItem.eatStateType === 2">友情点数MAX</template>
-              <template v-else-if="sleepItem.eatStateType === 4">吃饱了</template>
+              <template v-if="sleepItem.eatStateType === 2"
+                >友情点数MAX</template
+              >
+              <template v-else-if="sleepItem.eatStateType === 4"
+                >吃饱了</template
+              >
               <template v-else>
                 <template v-if="pokedex[sleepItem.pokeId].friendship > 7">
                   <div class="row">
@@ -145,6 +183,26 @@ const props = defineProps({
         :src="`./img/ui/${gameMap[curMap].pic}.png`"
         :alt="gameMap[curMap].name"
       />
+    </div>
+    <div class="lottery-map__pokeball">
+      <div
+        class="lottery-map__pokeball-item"
+        :class="{
+          use: useBallId === ballItem.id,
+          disabled: hasBall[ballItem.id] === 0,
+        }"
+        v-for="ballItem in pokeBall"
+        v-bind:key="ballItem.id"
+        @click="handleClickPokeBll(ballItem.id)"
+      >
+        <div class="lottery-map__pokeball-info">
+          {{ ballItem.name }}
+          <p>
+            <span class="sptime">{{ hasBall[ballItem.id] }}</span
+            >个
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>

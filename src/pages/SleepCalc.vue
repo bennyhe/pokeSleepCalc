@@ -361,6 +361,12 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   calcPositions(res)
   // console.log(res)
   catchPokeState.value.eatTimes = {} //重置吃饱判定
+  catchPokeState.value.hasBall = { //重置球数量
+    1: 4,
+    2: 3,
+    3: 1,
+    4: 0
+  }
   randomSleepStyle.value.resList = res
 }
 
@@ -493,12 +499,35 @@ const catchPokeState = ref({
   showDetailCatchList: false,
   eatTimes: {},
   friendship: {},
-  friendshipLevel: {}
+  friendshipLevel: {},
+  useBallId: 1,
+  ballEatPoint: {
+    1: 1,
+    2: 3,
+    3: 3,
+    4: 999
+  },
+  hasBall: {
+    1: 4,
+    2: 3,
+    3: 1,
+    4: 0
+  }
 })
+const handleClickPokeBll = ballId => {
+  if (catchPokeState.value.hasBall[ballId] > 0) {
+    catchPokeState.value.useBallId = ballId
+  }
+}
 const handleClickMapPokeItem = (sleepItem, sleepKey) => {
-  console.log(sleepItem, sleepItem.eatStateType)
+  // console.log(sleepItem, sleepItem.eatStateType)
   // eatStateType:[1,2,3,4] // 1:贪吃 2:友情点MAX 3:平常 4:吃饱了
-  if (sleepItem.eatStateType === 1 || sleepItem.eatStateType === 3) {
+  if (
+    (sleepItem.eatStateType === 1 || sleepItem.eatStateType === 3) &&
+    catchPokeState.value.hasBall[catchPokeState.value.useBallId] > 0
+  ) {
+    catchPokeState.value.hasBall[catchPokeState.value.useBallId]--
+
     const curId = `${sleepKey}_${sleepItem.pokeId}`
     if (!catchPokeState.value.eatTimes[curId]) {
       catchPokeState.value.eatTimes[curId] = 1
@@ -508,7 +537,7 @@ const handleClickMapPokeItem = (sleepItem, sleepKey) => {
 
     const getFriendShip = feedSandslash(
       sleepItem,
-      3,
+      catchPokeState.value.ballEatPoint[catchPokeState.value.useBallId],
       catchPokeState.value.eatTimes[curId]
     )
     if (catchPokeState.value.friendship[sleepItem.pokeId] === undefined) {
@@ -1204,13 +1233,11 @@ onMounted(() => {
               />
             </div>
           </div>
-          <div
-            class="mod-tips"
-            v-if="userData.mapModel && catchPokeState.list.length > 0"
-          >
+          <div class="mod-tips" v-if="userData.mapModel">
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
             >只宝可梦，其中<span class="sptime">{{
-              catchPokeState.list.filter((cListItem) => cListItem.isSHiny).length
+              catchPokeState.list.filter((cListItem) => cListItem.isSHiny)
+                .length
             }}</span
             >只{{ $t("PROP.shiny") }}。
             <el-button
@@ -1289,6 +1316,9 @@ onMounted(() => {
               :curMap="userData.curMap"
               :handleClickPokeItem="handleClickMapPokeItem"
               :catchPokeFriendship="catchPokeState.friendship"
+              :useBallId="catchPokeState.useBallId"
+              :hasBall="catchPokeState.hasBall"
+              :handleClickPokeBll="handleClickPokeBll"
             />
             <div class="poke-tb poke-tb--lottery mb3">
               <template
