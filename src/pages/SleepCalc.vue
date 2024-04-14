@@ -1208,7 +1208,7 @@ onMounted(() => {
           >
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
             >只宝可梦，其中<span class="sptime">{{
-              catchPokeState.list.filter((item) => item.shiny).length
+              catchPokeState.list.filter((cListItem) => cListItem.isSHiny).length
             }}</span
             >只{{ $t("PROP.shiny") }}。
             <el-button
