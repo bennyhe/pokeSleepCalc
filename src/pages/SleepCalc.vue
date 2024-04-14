@@ -9,9 +9,7 @@ import CptGameMap from '../components/GameMap/PlayArea.vue'
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SUB_SKILLS } from '../config/pokeSkill.js'
 import { pokedex } from '../config/pokedex.js'
-import { POKE_243_IV } from '../config/lockIV.js'
 import { NAV_SLEEPCALC } from '../config/nav.js'
 import {
   getUnLockSleeps,
@@ -32,7 +30,11 @@ import {
   getRandomArr,
   calcPositions
 } from '../utils/index.js'
-import { feedSandslash } from '../utils/game.js'
+import {
+  feedSandslash,
+  getRandomIV,
+  getRandomPokeSkills
+} from '../utils/game.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -274,57 +276,6 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
-const getSkillRare = arrProbability => {
-  arrProbability = arrProbability || [15, 50]
-  // 金技能出现几率 15%，蓝技能出现几率 35%，白技能出现几率 50%
-  const arr = getRandomArr([...Array(100).keys()], 200)
-  // 随机0-99
-  const res = arr[parseInt(Math.floor(Math.random() * 100), 10)]
-  let level = 1
-  if (res < arrProbability[0]) {
-    level = 3
-  } else if (res < arrProbability[1]) {
-    level = 2
-  }
-  return level
-}
-const getRandomPokeSkills = () => {
-  const subSkills = []
-  const unlockLevel = [10, 25, 50, 75, 100]
-  const allSkillsByRare = {
-    1: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 1)], 200),
-    2: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 2)], 200),
-    3: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 3)], 200)
-  }
-  for (let i = 0; i < 5; i++) {
-    let skillRare = 1
-    let isLockRare = false
-    if (
-      +userData.value.lockSkillCount > 0 &&
-      i < +userData.value.lockSkillCount
-    ) {
-      skillRare = 3
-      isLockRare = true
-    } else if (allSkillsByRare[1].length === 0) {
-      skillRare = getSkillRare([30, 100])
-    } else {
-      skillRare = getSkillRare()
-    }
-    const rdmSkillRareIndex = parseInt(
-      Math.floor(Math.random() * allSkillsByRare[skillRare].length),
-      10
-    )
-    subSkills.push({
-      nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
-      skillRare,
-      isLockRare,
-      unlockLevel: unlockLevel[i]
-    })
-    allSkillsByRare[skillRare].splice(rdmSkillRareIndex, 1)
-  }
-  return subSkills
-}
-
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   const res = getRandomSleepStyle(
     gameMap[userData.value.curMap],
@@ -341,8 +292,26 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   // 随机个体
   res.forEach((sleepItem, key) => {
     if (pokedex[sleepItem.pokeId].food) {
-      sleepItem.iv = getRandomIV(sleepItem.pokeId)
-      sleepItem.ivInMap = getRandomIV(sleepItem.pokeId)
+      sleepItem.iv = getRandomIV(sleepItem.pokeId, {
+        isFirst243: userSleep.value.isFirst243,
+        lockSkillCount: userData.value.lockSkillCount
+      })
+      if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
+        userSleep.value.isFirst243 = false
+      }
+
+      let isCurPokeMapLock = 0
+      if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 98) {
+        isCurPokeMapLock = 3
+      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 38) {
+        isCurPokeMapLock = 2
+      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 8) {
+        isCurPokeMapLock = 1
+      }
+      sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
+        isFirst243: userSleep.value.isFirst243,
+        lockSkillCount: isCurPokeMapLock
+      })
 
       sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
       sleepItem.eatStateType = 3
@@ -361,50 +330,14 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   calcPositions(res)
   // console.log(res)
   catchPokeState.value.eatTimes = {} //重置吃饱判定
-  catchPokeState.value.hasBall = { //重置球数量
+  catchPokeState.value.hasBall = {
+    //重置球数量
     1: 4,
     2: 3,
     3: 1,
     4: 0
   }
   randomSleepStyle.value.resList = res
-}
-
-const getRandomIV = pokeId => {
-  if (pokedex[pokeId].food) {
-    const useFoods = [pokedex[pokeId].food.type[0]]
-    for (let i = 1; i < 3; i++) {
-      const rdm = parseInt(Math.floor(Math.random() * 3), 10)
-      // 1/3概率a食材
-      if (rdm === 2) {
-        useFoods.push(pokedex[pokeId].food.type[0])
-      } else if (i === 1) {
-        useFoods.push(pokedex[pokeId].food.type[i])
-      } else {
-        let lastFoods = [...pokedex[pokeId].food.type]
-        lastFoods = lastFoods.slice(1, lastFoods.length)
-        if (lastFoods.length === 1) {
-          useFoods.push(lastFoods[0])
-        } else {
-          useFoods.push(lastFoods[parseInt(Math.floor(Math.random() * 2), 10)])
-        }
-      }
-    }
-    let ivRes = {
-      useFoods,
-      natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
-    }
-    if (userSleep.value.isFirst243 && pokeId === 243) {
-      userSleep.value.isFirst243 = false
-      ivRes = {
-        ...ivRes,
-        ...POKE_243_IV
-      }
-    } else {
-      ivRes.skills = getRandomPokeSkills()
-    }
-    return ivRes
-  }
 }
 
 const getSleepStyle = () => {
