@@ -982,6 +982,21 @@ h4 {
 .svg-icon {
   width: 24px;
   height: 24px;
+
+  &--small {
+    width: 12px;
+    height: 12px;
+  }
+}
+.el-button {
+  .svg-icon {
+    transition: all 0.3s linear;
+  }
+}
+.btn--show {
+  .svg-icon {
+    transform: rotate(180deg);
+  }
 }
 
 .i {
@@ -1293,7 +1308,7 @@ h4 {
     &-item {
       display: inline-block;
       vertical-align: bottom;
-      width: 106px;
+      width: 100px;
       cursor: pointer;
       box-sizing: border-box;
       padding: 3px 0;
@@ -1332,7 +1347,6 @@ h4 {
       &.use {
         background-color: #ffb457;
         color: #333;
-        font-size: 16px;
         font-weight: bold;
         background: linear-gradient(to bottom, darken(#ffb457, 10%) 0%, #ffb457 100%);
           z-index: 2;

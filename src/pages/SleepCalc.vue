@@ -5,6 +5,7 @@ import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import CptGameMap from '../components/GameMap/PlayArea.vue'
+import SvgIcon from '../components/SvgIcon/IconItem.vue'
 
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
@@ -1131,11 +1132,9 @@ onMounted(() => {
               size="small"
               @click="handleClickShinyDetail()"
               v-if="userSleep.pokeShinyCount > 0"
-              >{{ $t("PROP.shiny") }}详情(<template
-                v-if="userSleep.showDetailShiny"
-                >收起</template
-              ><template v-else>展开</template>)</el-button
-            >
+              :class="{ 'btn--show': userSleep.showDetailShiny }"
+              >{{ $t("PROP.shiny") }}详情<svgIcon size="small" type="arrowDown"
+            /></el-button>
             <el-button
               size="small"
               type="warning"
@@ -1175,11 +1174,11 @@ onMounted(() => {
             <el-button
               size="small"
               @click="handleClickCatchDetail()"
+              type="primary"
               v-if="catchPokeState.list.length > 0"
-              >获得详情(<template v-if="catchPokeState.showDetailCatchList"
-                >收起</template
-              ><template v-else>展开</template>)</el-button
-            >
+              :class="{ 'btn--show': catchPokeState.showDetailCatchList }"
+              >BOX<svgIcon size="small" type="arrowDown"
+            /></el-button>
           </div>
           <div
             class="catchpoke-list"
@@ -1384,10 +1383,9 @@ onMounted(() => {
                     <el-button
                       size="small"
                       @click="handleClickShowMoreMathExp()"
-                      >期望详情(<template v-if="pageData.showMoreMathExp"
-                        >收起</template
-                      ><template v-else>展开</template>)</el-button
-                    >
+                      :class="{ 'btn--show': pageData.showMoreMathExp }"
+                      >期望详情<svgIcon size="small" type="arrowDown"
+                    /></el-button>
                   </div>
                 </div>
                 <template v-for="(hopeItem, hopeKey) in hopeList">
