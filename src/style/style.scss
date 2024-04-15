@@ -273,8 +273,10 @@ h4 {
 
 .cpt-friendship {
   display: flex;
+  align-items: center;
   background-color: #f1f1f1;
   border-radius: 4px;
+  height: 15px;
   padding: 2px 5px;
   box-sizing: border-box;
   box-shadow: 0 2px $mainColor;
@@ -282,17 +284,18 @@ h4 {
 
   &__level {
     position: absolute;
-    left: -28px;
-    top: 50%;
-    margin-top: -12px;
+    left: -23px;
+    top: -3px;
     background-color: #ff7788;
+    border: 1px solid #f1f1f1;
     border-radius: 100%;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
     color: #f1f1f1;
     font-size: 11px;
+    white-space: nowrap;
 
     p {
       line-height: 1;
@@ -318,7 +321,6 @@ h4 {
 
   &--2row {
     display: block;
-    height: 15px;
 
     .row {
       display: flex;
@@ -331,13 +333,9 @@ h4 {
     line-height: 22px;
     font-size: 12px;
     text-align: center;
-    margin-top: -13px;
+    margin-top: -7px;
     display: block;
     white-space: nowrap;
-
-    &.cpt-friendship--2row {
-      margin-top: -7px;
-    }
   }
 
   &--max {
@@ -1398,7 +1396,7 @@ h4 {
 
     // 贪吃
     &--1 {
-      top: 18px;
+      top: 12px;
       right: -12px;
       color: #ff7788;
       width: 36px;
@@ -1408,9 +1406,24 @@ h4 {
       text-align: center;
       line-height: 1;
 
+      img {
+        animation: aniRotate 14s linear infinite;
+
+        @keyframes aniRotate {
+          0% {
+            transform: rotate(0);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+
       p {
         text-shadow: -1px -1px #fffdfe,1px 1px #fffdfe;
         margin-top: -10px;
+        position: relative;
+        z-index: 3;
       }
 
       img{
