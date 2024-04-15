@@ -732,11 +732,11 @@ onMounted(() => {
               >エナジーが必要
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() > 3">
+          <el-form-item v-if="getSleepCatchNum(99) > 3">
             <el-input-number
               v-model="userData.cutNum"
               :min="4"
-              :max="getSleepCatchNum()"
+              :max="getSleepCatchNum(99)"
               :step="1"
             />匹で分割睡眠
           </el-form-item>
@@ -819,11 +819,11 @@ onMounted(() => {
               >能量
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() > 3">
+          <el-form-item v-if="getSleepCatchNum(99) > 3">
             按<el-input-number
               v-model="userData.cutNum"
               :min="4"
-              :max="getSleepCatchNum()"
+              :max="getSleepCatchNum(99)"
               :step="1"
             />只拆分睡眠
           </el-form-item>
