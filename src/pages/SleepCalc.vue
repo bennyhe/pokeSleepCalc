@@ -1167,7 +1167,7 @@ onMounted(() => {
           <div class="mod-tips" v-if="userData.mapModel">
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
             >只宝可梦，其中<span class="sptime">{{
-              catchPokeState.list.filter((cListItem) => cListItem.isSHiny)
+              catchPokeState.list.filter((cListItem) => cListItem.isShiny)
                 .length
             }}</span
             >只{{ $t("PROP.shiny") }}。
