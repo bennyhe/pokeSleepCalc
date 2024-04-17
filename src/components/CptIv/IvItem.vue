@@ -1,10 +1,15 @@
 <script setup>
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
+import { useI18n } from 'vue-i18n'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
 import { POKE_TYPES } from '../../config/valKey.js'
 
+const { locale } = useI18n()
+const localeLangId = computed(() => {
+  return locale.value
+})
 const props = defineProps({
   dataSource: {
     type: [Object]
@@ -18,7 +23,7 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="cpt-iv" v-if="pokeId">
+  <div class="cpt-iv" :class="`lang-${localeLangId}`" v-if="pokeId">
     <span v-if="isShiny" class="shiny">{{ $t("PROP.shiny") }}</span>
     {{ $t(`POKE_TYPES.${pokedex[pokeId].pokeType}`) }}
     <div class="cpt-food cpt-food--s berry">
