@@ -20,7 +20,7 @@ const props = defineProps({
 <template>
   <div class="cpt-iv" v-if="pokeId">
     <span v-if="isShiny" class="shiny">{{ $t("PROP.shiny") }}</span>
-    {{ POKE_TYPES[pokedex[pokeId].pokeType] }}型
+    {{ $t(`POKE_TYPES.${pokedex[pokeId].pokeType}`) }}
     <div class="cpt-food cpt-food--s berry">
       <div class="cpt-food__item">
         <img

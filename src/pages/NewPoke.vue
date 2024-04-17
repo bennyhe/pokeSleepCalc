@@ -35,7 +35,7 @@ const getShowKeyVal = pokemonsItem => {
     <li v-for="updateItem in props.newUpdatePoke" v-bind:key="updateItem.time">
       <h3>
         {{ formatTime(updateItem.time, "YY年MM月")
-        }}<span class="extra">({{ updateItem.pokemons.length }}只)</span>
+        }}<span class="extra">({{ updateItem.pokemons.length }}{{$t(`OPTIONS.one`)}})</span>
       </h3>
       <div class="poke-tb">
         <div

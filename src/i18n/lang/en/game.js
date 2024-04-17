@@ -27,6 +27,11 @@ export default {
     2: 'Snoozing',
     3: 'Slumbering'
   },
+  'POKE_TYPES': {
+    1: 'Berries',
+    2: 'Ingredients',
+    3: 'Skills'
+  },
   'BERRY_TYPES': {
     1: '橙橙果',
     2: '靛莓果',

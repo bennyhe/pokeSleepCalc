@@ -258,7 +258,7 @@ onMounted(() => {
 </script>
 <template>
   <h2>
-    {{$t('PAGE_TITLE.pokedex')}}<span class="extra">({{ pokedexLength }}只)</span>
+    {{$t('PAGE_TITLE.pokedex')}}<span class="extra">({{ pokedexLength }}{{$t(`OPTIONS.one`)}})</span>
   </h2>
   <div class="page-inner">
     <el-radio-group v-model="curFilter">
@@ -290,7 +290,7 @@ onMounted(() => {
         <h3>
           {{ resItem.title }}
           <span class="extra"
-            >({{ resItem.list.length }}只 /
+            >({{ resItem.list.length }}{{$t(`OPTIONS.one`)}} /
             {{ getPercent(resItem.list.length, pokedexLength, 2) }}%)</span
           >
         </h3>
@@ -318,7 +318,7 @@ onMounted(() => {
               <h4>
                 {{ resItem[`level${levelKey}List`].subTitle }}级
                 <span class="extra"
-                  >({{ resItem[`level${levelKey}List`].subList.length }}只
+                  >({{ resItem[`level${levelKey}List`].subList.length }}{{$t(`OPTIONS.one`)}}
                   <template
                     v-if="resItem[`level${levelKey}List`].subList.length > 0"
                   >

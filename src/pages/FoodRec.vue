@@ -100,7 +100,7 @@ for (const cookTypeKey in COOK_TYPES) {
   <ul class="cpt-list food-list">
     <li v-for="(pokeItem, pokeKey) in nFoodRecommend.list" v-bind:key="pokeKey">
       <p class="mod-tips">
-        {{ POKE_TYPES[pokedex[pokeItem.evoLine[0]].pokeType] }}型
+        {{ $t(`POKE_TYPES.${pokedex[pokeItem.evoLine[0]].pokeType}`) }}
       </p>
       <CptPoke
         :pokeId="pokemonsItem"

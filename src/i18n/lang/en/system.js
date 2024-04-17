@@ -10,7 +10,10 @@ export default {
     'Wed': 'Wed',
     'otherDay': 'Other Days',
     'sleepDay': 'Good Sleep Day',
-    'fullMoon': 'Full Moon'
+    'fullMoon': 'Full Moon',
+    'one': '',
+    'doubleEnergy': 'Double Berry Energy',
+    'formLableCurIland': '当前岛屿'
   },
   'SHORT_SKILL': {
     'berrys': 'Berry S'
@@ -36,7 +39,6 @@ export default {
     'lockAfter': '金',
     'moreOne': '多1只',
 
-    'formLableCurIland': '当前岛屿',
     'formLableLevel': '级别/能量',
     'formLableDays': '特殊加成',
     'formLableNoSplit': '不拆分',
@@ -60,5 +62,10 @@ export default {
     'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。',
     'tipsUseTickets1': '使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。',
     'tipsUseTickets2': '使用露营券&熏香不在计算范围内。'
+  },
+  'TIPS': {
+    'energy1': '数值均为程序预估结果，与实际有误差。',
+    'energy2': '结果为对应等级一天产出。',
+    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。'
   }
 }

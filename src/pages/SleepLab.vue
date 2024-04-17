@@ -105,7 +105,7 @@ const handleClickChangeMap = id => {
 <template>
   <el-form label-width="90px">
     <!-- S 当前岛屿 -->
-    <el-form-item label="当前岛屿">
+    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <ul class="cpt-select-list">
         <li
           class="cpt-select-list__item"
@@ -225,7 +225,7 @@ const handleClickChangeMap = id => {
     <h3>
       <img class="icon" v-lazy="`./img/ui/energy.png`" />
       {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
-      <span class="extra">({{ tdItem.res.length }}只)</span>
+      <span class="extra">({{ tdItem.res.length }}{{$t(`OPTIONS.one`)}})</span>
     </h3>
     <div class="page-inner">
       <div
@@ -255,7 +255,7 @@ const handleClickChangeMap = id => {
         <h4>
           {{ levelItem.name }}
           <span class="extra" v-if="levelItem.sleepStyles"
-            >{{ levelItem.sleepStyles.length }}只</span
+            >{{ levelItem.sleepStyles.length }}{{$t(`OPTIONS.one`)}}</span
           >
         </h4>
         <template v-for="sleepId in levelItem.sleepStyles">

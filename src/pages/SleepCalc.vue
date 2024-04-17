@@ -608,7 +608,7 @@ onMounted(() => {
     </div>
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->
-      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableCurIland')">
+      <el-form-item :label="$t('OPTIONS.formLableCurIland')">
         <ul class="cpt-select-list cpt-select-list--iland">
           <li
             class="cpt-select-list__item"
@@ -1124,10 +1124,10 @@ onMounted(() => {
           <div class="mod-tips" v-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
             >次，遇到<span class="sptime">{{ userSleep.pokeSum }}</span
-            >只宝可梦，其中遇到<span class="sptime">{{
+            >{{ $t(`OPTIONS.one`) }}宝可梦，其中遇到<span class="sptime">{{
               userSleep.pokeShinyCount
             }}</span
-            >只{{ $t("PROP.shiny") }}。
+            >{{ $t(`OPTIONS.one`) }}{{ $t("PROP.shiny") }}。
             <el-button
               size="small"
               @click="handleClickShinyDetail()"
@@ -1166,11 +1166,11 @@ onMounted(() => {
           </div>
           <div class="mod-tips" v-if="userData.mapModel">
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
-            >只宝可梦，其中<span class="sptime">{{
+            >{{ $t(`OPTIONS.one`) }}宝可梦，其中<span class="sptime">{{
               catchPokeState.list.filter((cListItem) => cListItem.isShiny)
                 .length
             }}</span
-            >只{{ $t("PROP.shiny") }}。
+            >{{ $t(`OPTIONS.one`) }}{{ $t("PROP.shiny") }}。
             <el-button
               size="small"
               @click="handleClickCatchDetail()"
@@ -1337,7 +1337,9 @@ onMounted(() => {
                     gameMap[userData.curMap].levelList[userData.curStageIndex]
                       .nameIndex
                   }}-期望宝可梦睡姿列表
-                  <span class="extra">({{ hopeList.length }}只)</span>
+                  <span class="extra"
+                    >({{ hopeList.length }}{{ $t(`OPTIONS.one`) }})</span
+                  >
                 </h3>
                 <div style="font-size: 12px">
                   「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」
@@ -1431,14 +1433,19 @@ onMounted(() => {
     </div>
     <div v-if="+navData.navIndex === 3">
       <el-form label-width="90px">
-        <el-form-item :label="$t('PAGE_SLEEPCALC.formLableActRandom')">
-          <el-switch
-            v-model="userData.isActRandom"
-            inline-prompt
-            :active-text="$t('OPTIONS.yes')"
-            :inactive-text="$t('OPTIONS.no')"
-            style="--el-switch-on-color: #ffaf00"
-          />
+        <el-form-item>
+          <div style="color: var(--el-text-color-regular)">
+            {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
+            <span style="display: inline-block; vertical-align: middle">
+              <el-switch
+                v-model="userData.isActRandom"
+                inline-prompt
+                :active-text="$t('OPTIONS.yes')"
+                :inactive-text="$t('OPTIONS.no')"
+                style="--el-switch-on-color: #ffaf00"
+              />
+            </span>
+          </div>
         </el-form-item>
       </el-form>
       <div class="page-inner mb3">
@@ -1668,9 +1675,9 @@ onMounted(() => {
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
         v-bind:key="catchItem.catchNum"
       >
-        <span class="sptime">{{ catchItem.catchNum }}只</span>：{{
-          getNum(catchItem.startscore)
-        }}
+        <span class="sptime"
+          >{{ catchItem.catchNum }}{{ $t(`OPTIONS.one`) }}</span
+        >：{{ getNum(catchItem.startscore) }}
         <template
           v-if="catchKey !== gameMap[userData.curMap].scoreList.length - 1"
           >- {{ getNum(catchItem.endscore) }}</template

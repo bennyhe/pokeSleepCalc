@@ -11,7 +11,10 @@ export default {
     'otherDay': '下記以外の曜日',
     'sleepDay': '満月の前後の日',
     'fullMoon': '満月の日',
-    'moreOne': '一匹余り'
+    'moreOne': '一匹余り',
+    'one': '匹',
+    'doubleEnergy': '2倍のきのみパワー',
+    'formLableCurIland': 'リサーチフィールド'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
@@ -37,7 +40,6 @@ export default {
     'lockAfter': '金',
     'moreOne': '1匹余り',
 
-    'formLableCurIland': 'リサーチフィールド',
     'formLableLevel': '評価/エナジー',
     'formLableDays': '特殊効果',
     'formLableNoSplit': '分割睡眠しない',
@@ -61,5 +63,10 @@ export default {
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
     'tipsUseTickets1': 'いいキャップチケット（第1回目寝）はおまけ１匹、おこうり使いもおまけ１匹。',
     'tipsUseTickets2': 'いいキャップチケットとおこうり使いは計算範囲外。'
+  },
+  'TIPS': {
+    'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',
+    'energy2': '結果は対応レベルの産出。',
+    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。'
   }
 }

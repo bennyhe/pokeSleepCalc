@@ -69,7 +69,7 @@ const props = defineProps({
       "
       :class="`cpt-pokemon__poketype${pokedex[pokeId].pokeType}`"
     >
-      {{ POKE_TYPES[pokedex[pokeId].pokeType] }}型
+      {{ $t(`POKE_TYPES.${pokedex[pokeId].pokeType}`) }}
     </p>
     <div
       class="cpt-food cpt-food--s berry"

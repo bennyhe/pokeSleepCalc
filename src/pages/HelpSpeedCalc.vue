@@ -573,7 +573,7 @@ const handleChangePokemon = () => {
   setTargetListByHelp()
 }
 
-const getBoxCurEngery = () => {
+const getBoxCurEnergy = () => {
   let resRankArr = []
   userPokemons.value.list.forEach(upItem => {
     const pokeItem = { ...pokedex[upItem.pokemonId] }
@@ -658,7 +658,7 @@ watch(helpSpeedCalcForm.value, val => {
 })
 </script>
 <template>
-  <h2>{{$t('PAGE_TITLE.helpspeedcalc')}}</h2>
+  <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
   <el-form label-width="90px">
     <el-form-item label="宝可梦">
       <el-select
@@ -803,7 +803,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
         </el-checkbox-group>
       </div>
-      <div class="mod-tips">注：所有帮忙技能加成累积不能超过35%。</div>
+      <div class="mod-tips">* 所有帮忙技能加成累积不能超过35%。</div>
     </el-form-item>
     <el-form-item label="性格">
       <el-radio-group v-model="helpSpeedCalcForm.character">
@@ -925,7 +925,13 @@ watch(helpSpeedCalcForm.value, val => {
               >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
             /
-            {{ toHMInLang(getNewHelpSpeed(helpSpeedCalcForm, olItem), "sec", localeLangId) }}
+            {{
+              toHMInLang(
+                getNewHelpSpeed(helpSpeedCalcForm, olItem),
+                "sec",
+                localeLangId
+              )
+            }}
           </li>
         </template>
       </ul>
@@ -934,7 +940,9 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
-        :active-text="`$t('OPTIONS.yes')（2倍树果能量）`"
+        :active-text="`${$t('OPTIONS.yes')}(${$t(
+          'OPTIONS.doubleEnergy'
+        )})`"
         :inactive-text="$t('OPTIONS.no')"
         style="--el-switch-on-color: #ffaf00"
       />
@@ -943,7 +951,7 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isUseTicket"
         inline-prompt
-        active-text="使用（帮忙1.2倍）"
+        :active-text="`${$t('OPTIONS.use')}(帮忙1.2倍)`"
         :inactive-text="$t('OPTIONS.nouse')"
         style="--el-switch-on-color: #ffaf00"
       />
@@ -1058,7 +1066,7 @@ watch(helpSpeedCalcForm.value, val => {
           'skillPer',
           'skillType',
         ]"
-        v-for="(pokeItem, pokeKey) in getBoxCurEngery()"
+        v-for="(pokeItem, pokeKey) in getBoxCurEnergy()"
         v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
@@ -1072,9 +1080,9 @@ watch(helpSpeedCalcForm.value, val => {
   <el-form label-width="90px">
     <el-form-item>
       <div class="mod-tips">
-        <p>* 数值均为程序预估结果，与实际有误差。</p>
-        <p>* 结果为对应等级一天产出。</p>
-        <p>* 非满包满活力，非技能型宝可梦无技能保底。</p>
+        <p>* {{ $t("TIPS.energy1") }}</p>
+        <p>* {{ $t("TIPS.energy2") }}</p>
+        <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
       </div>
     </el-form-item>
   </el-form>

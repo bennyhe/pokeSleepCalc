@@ -84,7 +84,7 @@ onMounted(() => {
           })
         })
       } else {
-        [0,1].forEach((arrFTItem, arrFTKey) => {
+        [0, 1].forEach((arrFTItem, arrFTKey) => {
           const is2n = (arrFTKey + 1) % 2 === 0
           pageData.value.resRankArr.push({
             ...pokeItem,
@@ -147,10 +147,10 @@ const handleClickChangeMap = id => {
 </script>
 
 <template>
-  <h2>{{ pageData.lv }}{{$t('PAGE_TITLE.onedayenergy')}}</h2>
+  <h2>{{ pageData.lv }}{{ $t("PAGE_TITLE.onedayenergy") }}</h2>
   <el-form label-width="82px">
     <!-- S 当前岛屿 -->
-    <el-form-item label="当前岛屿">
+    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <ul class="cpt-select-list cpt-select-list--iland">
         <template v-for="(mapItem, mapIndex) in newGameMap">
           <li
@@ -191,7 +191,7 @@ const handleClickChangeMap = id => {
     </el-form-item>
     <!-- E 当前岛屿 -->
     <!-- S 2倍树果 -->
-    <el-form-item label="2倍树果">
+    <el-form-item :label="$t('OPTIONS.doubleEnergy')">
       <ul class="cpt-select-list cpt-select-list--berry">
         <template v-for="(mapItem, mapIndex) in newGameMap">
           <li
@@ -237,8 +237,8 @@ const handleClickChangeMap = id => {
   </el-form>
   <div class="page-inner">
     <div class="mod-tips">
-      <p>* 数值均为程序预估结果，与实际有误差。</p>
-      <p>* 非满包满活力没开露营券，非技能型宝可梦无技能保底。</p>
+      <p>* {{ $t("TIPS.energy1") }}</p>
+      <p>* {{ $t("TIPS.energy2") }}</p>
     </div>
   </div>
   <div class="cpt-pagination">
