@@ -14,7 +14,8 @@ export default {
     'moreOne': '一匹余り',
     'one': '匹',
     'doubleEnergy': '2倍のきのみパワー',
-    'formLableCurIland': 'リサーチフィールド'
+    'formLableCurIland': 'リサーチフィールド',
+    'lastGet': '最終枠'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
@@ -35,9 +36,9 @@ export default {
     'titleCutNum': '睡眠リサーチのポケモン数',
     'titleSleepRes': '寝顔抽選結果',
     'sleepStyle': '記録済み寝顔',
-    'noLock': 'ロック解除',
-    'lockBefore': 'ロック',
-    'lockAfter': '金',
+    'noLock': '選択解除',
+    'lockBefore': '金枠',
+    'lockAfter': 'つ目固定',
     'moreOne': '1匹余り',
 
     'formLableLevel': '評価/エナジー',
@@ -46,7 +47,7 @@ export default {
     'formLableSleepStyle': '睡眠タイプ',
     'formLableSleepPoint': '睡眠スコア',
     'formLableSleepTime': '睡眠時間',
-    'formLableRandomOptions': '抽選項目',
+    'formLableRandomOptions': 'サブスキル抽選',
     'formLableMapModel': '地図モード',
     'formLableActRandom': 'ほかの睡眠タイプポケモン出現（少し）',
 

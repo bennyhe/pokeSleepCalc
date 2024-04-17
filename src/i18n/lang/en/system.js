@@ -13,7 +13,8 @@ export default {
     'fullMoon': 'Full Moon',
     'one': '',
     'doubleEnergy': 'Double Berry Energy',
-    'formLableCurIland': '当前岛屿'
+    'formLableCurIland': '当前岛屿',
+    'lastGet': 'Last get'
   },
   'SHORT_SKILL': {
     'berrys': 'Berry S'

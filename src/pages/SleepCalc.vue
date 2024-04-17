@@ -1568,7 +1568,7 @@ onMounted(() => {
               <span
                 class="cpt-tag cpt-tag-important"
                 v-if="sleepStyleId && sleepStyleAny.isLastGet[key]"
-                >最后一抽？</span
+                >{{$t('OPTIONS.lastGet')}}?</span
               >
             </li>
           </template>
