@@ -15,7 +15,8 @@ export default {
     'one': '匹',
     'doubleEnergy': '2倍のきのみパワー',
     'formLableCurIland': 'リサーチフィールド',
-    'lastGet': '最終枠'
+    'lastGet': '最終枠',
+    'getWithout': '寝顔抽選の抜去'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'

@@ -58,13 +58,13 @@ const userData = ref({
   curUnlockSleeps: [],
   unLockSleeps: [],
   lockSkillCount: '0',
-  onOffBan: false,
   isUseTicket: false,
   isActRandom: false,
   isMoreCalcLoading: false,
   mapModel: false,
   useIncensePokemonId: '',
-  banPokes: []
+  onOffBan: true,
+  banPokes: [764]
 })
 const userSleep = ref({
   count: 0,
@@ -1037,15 +1037,24 @@ onMounted(() => {
               style="--el-switch-on-color: #ffaf00"
             />
           </el-form-item>
-          <el-form-item v-if="userData.curMap === 0 && userData.onOffBan">
+          <el-form-item
+            v-if="
+              (userData.curMap === 0 ||
+                userData.curMap === 1 ||
+                userData.curMap === 4) &&
+              userData.onOffBan
+            "
+          >
             <el-checkbox-group v-model="userData.banPokes" size="small">
-              <el-checkbox :label="243"
-                >抽取去除<span class="cpt-avatar">
+              <el-checkbox :label="764"
+                >{{ $t("OPTIONS.getWithout")
+                }}<span class="cpt-avatar">
                   <img
-                    v-lazy="`./img/pokedex/${243}.png`"
-                    :alt="$t(`POKEMON_NAME.${243}`)"
+                    class="cpt-avatar__pic"
+                    v-lazy="`./img/pokedex/${764}.png`"
+                    :alt="$t(`POKEMON_NAME.${764}`)"
                   /> </span
-                >{{ $t(`POKEMON_NAME.${243}`) }}</el-checkbox
+                >{{ $t(`POKEMON_NAME.${764}`) }}</el-checkbox
               >
             </el-checkbox-group>
           </el-form-item>
@@ -1566,7 +1575,7 @@ onMounted(() => {
               <span
                 class="cpt-tag cpt-tag-important"
                 v-if="sleepStyleId && sleepStyleAny.isLastGet[key]"
-                >{{$t('OPTIONS.lastGet')}}?</span
+                >{{ $t("OPTIONS.lastGet") }}?</span
               >
             </li>
           </template>

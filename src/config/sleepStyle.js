@@ -480,5 +480,9 @@ export const SLEEP_STYLE = {
   '760-id-1': { pokeId: 760, id: '760-id-1', star: 1, sleepNameId: 9, exp: 300, shards: 324, candys: 5 },
   '760-id-2': { pokeId: 760, id: '760-id-2', star: 2, sleepNameId: 30, exp: 1096, shards: 1184, candys: 7 },
   '760-id-3': { pokeId: 760, id: '760-id-3', star: 3, sleepNameId: 232, exp: 2957, shards: 3193, candys: 9 },
-  '760-id-4': { pokeId: 760, id: '760-id-4', star: 4, sleepNameId: 4, exp: 3946, shards: 4261, candys: 10 }
+  '760-id-4': { pokeId: 760, id: '760-id-4', star: 4, sleepNameId: 4, exp: 3946, shards: 4261, candys: 10 },
+  '764-id-1': { pokeId: 764, id: '764-id-1', star: 1, sleepNameId: 233, exp: 232, shards: 695, candys: 6 },
+  '764-id-2': { pokeId: 764, id: '764-id-2', star: 2, sleepNameId: 196, exp: 911, shards: 2734, candys: 8 },
+  '764-id-3': { pokeId: 764, id: '764-id-3', star: 3, sleepNameId: 234, exp: 2268, shards: 6803, candys: 10 },
+  '764-id-4': { pokeId: 764, id: '764-id-4', star: 4, sleepNameId: 4, exp: 3115, shards: 9345, candys: 11 }
 }

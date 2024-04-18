@@ -2298,6 +2298,18 @@ const pokedex = {
     foodPer: 22.88,
     skillPer: 1.306
   },
+  764: {
+    id: 764,
+    // name: '花療環環',
+    friendship: 16,
+    sleepType: 2,
+    skillType: 4,
+    pokeType: 2,
+    helpSpeed: 2500,
+    berryType: 12
+    // foodPer: 0,
+    // skillPer: 0
+  },
   9001: {
     id: 9001,
     // name: '皮卡丘（萬聖節）',

@@ -14,7 +14,8 @@ export default {
     'one': '只',
     'doubleEnergy': '2倍树果能量',
     'formLableCurIland': '当前岛屿',
-    'lastGet': '最后一抽'
+    'lastGet': '最后一抽',
+    'getWithout': '抽取去除'
   },
   'SHORT_SKILL': {
     'berrys': '树果S'
