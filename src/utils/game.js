@@ -38,6 +38,10 @@ export function feedSandslash(sleepItem, sandslashPower, eatTimes) {
 
 export function getRandomIV(pokeId, options) {
   const { isFirst243, lockSkillCount } = options
+  let ivRes = {
+    useFoods: [],
+    natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
+  }
   if (pokedex[pokeId].food) {
     const useFoods = [pokedex[pokeId].food.type[0]]
     for (let i = 1; i < 3; i++) {
@@ -57,21 +61,18 @@ export function getRandomIV(pokeId, options) {
         }
       }
     }
-    let ivRes = {
-      useFoods,
-      natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
-    }
-    if (isFirst243 && pokeId === 243) {
-      isFirst243 = false
-      ivRes = {
-        ...ivRes,
-        ...POKE_243_IV
-      }
-    } else {
-      ivRes.skills = getRandomPokeSkills(lockSkillCount)
-    }
-    return ivRes
+    ivRes.useFoods = useFoods
   }
+  if (isFirst243 && pokeId === 243) {
+    isFirst243 = false
+    ivRes = {
+      ...ivRes,
+      ...POKE_243_IV
+    }
+  } else {
+    ivRes.skills = getRandomPokeSkills(lockSkillCount)
+  }
+  return ivRes
 }
 
 export function getSkillRare(arrProbability) {
