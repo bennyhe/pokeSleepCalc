@@ -361,7 +361,8 @@ const gameMap = [
           '214-id-4',
           '359-id-4',
           '225-id-2',
-          '702-id-4'
+          '702-id-4',
+          '764-id-2'
         ]
       },
       {
@@ -373,7 +374,7 @@ const gameMap = [
           '700-id-1',
           '36-id-1',
           '225-id-4',
-          '764-id-2'
+          '764-id-4'
         ]
       },
       {
@@ -476,8 +477,7 @@ const gameMap = [
         'sleepStyles': [
           '468-id-4',
           '289-id-2',
-          '462-id-2',
-          '764-id-4'
+          '462-id-2'
         ]
       },
       {
@@ -821,7 +821,8 @@ const gameMap = [
           '70-id-3',
           '454-id-3',
           '127-id-4',
-          '214-id-4'
+          '214-id-4',
+          '764-id-2'
         ]
       },
       {
@@ -847,7 +848,7 @@ const gameMap = [
           '57-id-3',
           '115-id-4',
           '122-id-4',
-          '764-id-2'
+          '764-id-4'
         ]
       },
       {
@@ -892,7 +893,9 @@ const gameMap = [
         'nameIndex': 5,
         'nameId': 4,
         'energy': 420363,
-        'sleepStyles': []
+        'sleepStyles': [
+          '764-id-3'
+        ]
       },
       {
         'name': '大师6',
@@ -916,8 +919,7 @@ const gameMap = [
           '9-id-4',
           '134-id-4',
           '160-id-4',
-          '199-id-4',
-          '764-id-3'
+          '199-id-4'
         ]
       },
       {
@@ -933,8 +935,7 @@ const gameMap = [
         'nameId': 4,
         'energy': 660210,
         'sleepStyles': [
-          '40-id-3',
-          '764-id-4'
+          '40-id-3'
         ]
       },
       {
