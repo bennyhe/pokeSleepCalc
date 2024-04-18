@@ -38,7 +38,10 @@ const props = defineProps({
       </p>
     </div>
     <h4>食材</h4>
-    <div class="cpt-food all-food">
+    <div
+      class="cpt-food all-food"
+      v-if="dataSource.useFoods && dataSource.useFoods.length > 0"
+    >
       <div
         class="cpt-food__item cur"
         v-for="(foodItem, foodKey) in dataSource.useFoods"
@@ -53,6 +56,7 @@ const props = defineProps({
         </p>
       </div>
     </div>
+    <div class="mb3" v-else>NULL</div>
     <h4>主技能/副技能</h4>
     <div class="skill">
       <div class="main-skill">

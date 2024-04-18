@@ -292,42 +292,40 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   )
   // 随机个体
   res.forEach((sleepItem, key) => {
-    if (pokedex[sleepItem.pokeId].food) {
-      sleepItem.iv = getRandomIV(sleepItem.pokeId, {
-        isFirst243: userSleep.value.isFirst243,
-        lockSkillCount: userData.value.lockSkillCount
-      })
-      if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
-        userSleep.value.isFirst243 = false
-      }
+    sleepItem.iv = getRandomIV(sleepItem.pokeId, {
+      isFirst243: userSleep.value.isFirst243,
+      lockSkillCount: userData.value.lockSkillCount
+    })
+    if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
+      userSleep.value.isFirst243 = false
+    }
 
-      let isCurPokeMapLock = 0
-      if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 99) {
-        isCurPokeMapLock = 3
-      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 39) {
-        isCurPokeMapLock = 2
-      } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 9) {
-        isCurPokeMapLock = 1
-      }
-      if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
-        catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
-      }
-      sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
-        isFirst243: userSleep.value.isFirst243,
-        lockSkillCount: isCurPokeMapLock
-      })
+    let isCurPokeMapLock = 0
+    if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 99) {
+      isCurPokeMapLock = 3
+    } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 39) {
+      isCurPokeMapLock = 2
+    } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 9) {
+      isCurPokeMapLock = 1
+    }
+    if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
+      catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
+    }
+    sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
+      isFirst243: userSleep.value.isFirst243,
+      lockSkillCount: isCurPokeMapLock
+    })
 
-      sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
-      sleepItem.eatStateType = 3
+    sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
+    sleepItem.eatStateType = 3
 
-      // 贪吃判定，闪光必贪吃，露营券必贪吃，其它10%贪吃
-      if (sleepItem.isShiny || sleepItem.isUseTicket) {
+    // 贪吃判定，闪光必贪吃，露营券必贪吃，其它10%贪吃
+    if (sleepItem.isShiny || sleepItem.isUseTicket) {
+      sleepItem.eatStateType = 1
+    } else {
+      const rdmRes = parseInt(Math.floor(Math.random() * 100), 10) <= 10
+      if (rdmRes) {
         sleepItem.eatStateType = 1
-      } else {
-        const rdmRes = parseInt(Math.floor(Math.random() * 100), 10) <= 10
-        if (rdmRes) {
-          sleepItem.eatStateType = 1
-        }
       }
     }
   })
