@@ -712,15 +712,15 @@ onMounted(() => {
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
             一回フル睡眠（<span class="sptime">8時間30分</span>）で、<CptProcss
               score="100"
-            />ポイント睡眠スコアがもらえて、<span class="sptime"
+            />睡眠スコアGet!、<span class="sptime"
               >{{ getSleepCatchNum() }}匹</span
-            >のポケモンが捕獲できます。そして、少なくとも<span
+            >のポケモンが捕獲可能。<span
               class="spscore"
               >{{ getNum(getScore(100)) }}</span
-            >のねむけパワーを獲得して、約<span class="vigour">{{
+            >のねむけパワー獲得、約<span class="vigour">{{
               getLostVigour(8 * 60 + 30)
             }}</span
-            >ポイントのげんきを消費します。
+            >げんき消費。
           </el-form-item>
           <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
             <p>
@@ -753,17 +753,16 @@ onMounted(() => {
             }}</span
             >）で、<CptProcss
               :score="getFirstSleepScore()"
-            />ポイント睡眠スコアがもらえて、<span class="sptime"
-              >{{ userData.cutNum }}匹</span
-            >のポケモンが捕獲できます。そして、少なくとも<span class="spscore"
+            />睡眠スコアGet!、<span class="sptime">{{ userData.cutNum }}匹</span
+            >のポケモンが捕獲可能。<span class="spscore"
               >{{ getNum(getScore(getFirstSleepScore()))
               }}<span class="spscore__extra"
                 >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
               ></span
-            >のねむけパワーを獲得して、約<span class="vigour">{{
+            >のねむけパワー獲得、約<span class="vigour">{{
               getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
             }}</span
-            >ポイントのげんきを消費します。
+            >げんき消費。
           </el-form-item>
           <el-form-item
             label="第2回目寝"
@@ -779,20 +778,20 @@ onMounted(() => {
               }}</span
               >）で、<CptProcss
                 :score="100 - getFirstSleepScore()"
-              />ポイント睡眠スコアがもらえて、<span class="sptime"
+              />睡眠スコアGet!、<span class="sptime"
                 >{{
                   getNumberInMap(
                     getScore(100 - getFirstSleepScore()),
                     gameMap[userData.curMap].scoreList
                   )
                 }}匹</span
-              >のポケモンが捕獲できます。そして、少なくとも<span
+              >のポケモンが捕獲可能。<span
                 class="spscore"
                 >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
-              >のねむけパワーを獲得して、約<span class="vigour">{{
+              >のねむけパワー獲得、約<span class="vigour">{{
                 getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
               }}</span
-              >ポイントのげんきを消費します。
+              >げんき消費。
             </p>
           </el-form-item>
         </template>
