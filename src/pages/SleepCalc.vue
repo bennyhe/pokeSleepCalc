@@ -336,10 +336,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   catchPokeState.value.eatTimes = {} //重置吃饱判定
   catchPokeState.value.hasBall = {
     //重置球数量
-    1: 4,
+    1: 5,
     2: 3,
     3: 1,
-    4: 0
+    4: 1
   }
   randomSleepStyle.value.resList = res
 }
@@ -445,10 +445,10 @@ const catchPokeState = ref({
     4: 999
   },
   hasBall: {
-    1: 4,
+    1: 5,
     2: 3,
     3: 1,
-    4: 0
+    4: 1
   }
 })
 const handleClickPokeBll = ballId => {
