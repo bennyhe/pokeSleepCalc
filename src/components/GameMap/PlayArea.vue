@@ -30,19 +30,19 @@ const props = defineProps({
 })
 const pokeBall = [
   {
-    name: '普通沙布雷',
+    // name: '普通沙布雷',
     id: 1
   },
   {
-    name: '超级沙布雷',
+    // name: '超级沙布雷',
     id: 2
   },
   {
-    name: '奖励沙布雷',
+    // name: '奖励沙布雷',
     id: 3
   },
   {
-    name: '大师沙布雷',
+    // name: '大师沙布雷',
     id: 4
   }
 ]
@@ -221,7 +221,7 @@ const pokeBall = [
             v-lazy="`./img/ui/sandslash${ballItem.id}.png`"
             :alt="ballItem.name"
           />
-          <p>{{ ballItem.name }}</p>
+          <p>{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>
           <p>
             <span class="sptime">{{ hasBall[ballItem.id] }}</span
             >个

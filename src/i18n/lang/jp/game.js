@@ -7,6 +7,12 @@ export default {
     'with': '関連',
     'individual': '個体'
   },
+  'BALL_TYPES': {
+    1: 'ポケサブレ',
+    2: 'スーパーサブレ',
+    3: 'ボーナスサブレ',
+    4: 'マスターサブレ'
+  },
   'ILAND': {
     'green': 'ワカクサ本島',
     'beach': 'シアンの砂浜',

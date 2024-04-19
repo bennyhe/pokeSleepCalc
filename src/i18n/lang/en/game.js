@@ -7,6 +7,12 @@ export default {
     'with': '关联',
     'individual': 'Individual'
   },
+  'BALL_TYPES': {
+    1: '普通沙布雷',
+    2: '超级沙布雷',
+    3: '奖励沙布雷',
+    4: '大师沙布雷'
+  },
   'ILAND': {
     'green': 'Greengrass Isle',
     'beach': 'Cyan Beach',
