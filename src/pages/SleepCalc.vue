@@ -960,9 +960,9 @@ onMounted(() => {
                 <template v-if="cItem === 0">{{
                   $t("PAGE_SLEEPCALC.noLock")
                 }}</template
-                ><template v-else
-                  >{{ $t("PAGE_SLEEPCALC.lockOptions", [cItem]) }}</template
-                ></el-radio-button
+                ><template v-else>{{
+                  $t("PAGE_SLEEPCALC.lockOptions", [cItem])
+                }}</template></el-radio-button
               >
             </el-radio-group>
           </el-form-item>
@@ -1161,7 +1161,11 @@ onMounted(() => {
                   sleepKey + 1
                 }}</i>
               </p>
-              <CptPoke :pokeId="sleepItem.pokeId" :showKey="['sleepType']" />
+              <CptPoke
+                :pokeId="sleepItem.pokeId"
+                :showKey="['sleepType']"
+                :isShiny="sleepItem.isShiny"
+              />
               <CptIv
                 :pokeId="sleepItem.pokeId"
                 :dataSource="sleepItem.iv"
@@ -1280,7 +1284,6 @@ onMounted(() => {
                   <CptSleepStyle
                     :sleepItem="sleepItem"
                     :showKey="['sleepType']"
-                    :userData="userData"
                   />
                   <el-popover
                     v-if="sleepItem.iv"
@@ -1315,7 +1318,9 @@ onMounted(() => {
                 type="primary"
                 plain
                 @click="handleClickSleepMoreTimes()"
-                >{{ $t("PAGE_SLEEPCALC.btnSleepMoreTime", [getTimes]) }}</el-button
+                >{{
+                  $t("PAGE_SLEEPCALC.btnSleepMoreTime", [getTimes])
+                }}</el-button
               >
             </div>
             <div class="has-loading" v-if="hopeList.length > 0">
@@ -1419,7 +1424,6 @@ onMounted(() => {
                       v-for="sleepItem in hopeItem.list"
                       v-bind:key="sleepItem.id"
                       :sleepItem="sleepItem"
-                      :userData="userData"
                       :showCptPoke="false"
                     />
                   </div>

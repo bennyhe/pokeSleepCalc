@@ -18,7 +18,8 @@ const props = defineProps({
     type: [String, Number]
   },
   isShiny: {
-    type: [Boolean]
+    type: Boolean,
+    default: false
   }
 })
 </script>

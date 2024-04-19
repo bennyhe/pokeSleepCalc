@@ -46,7 +46,7 @@ const props = defineProps({
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img
-        v-lazy="`./img/pokedex/${pokeId}.png`"
+        v-lazy="`./img/pokedex/${isShiny ? 'shiny/' : ''}${pokeId}.png`"
         :alt="$t(`POKEMON_NAME.${pokeId}`)"
       />
     </div>
@@ -105,7 +105,13 @@ const props = defineProps({
         props.showKey.includes('helpSpeedHM')
       "
     >
-      {{ toHMInLang(props.helpSpeed || pokedex[pokeId].helpSpeed, "sec", localeLangId) }}
+      {{
+        toHMInLang(
+          props.helpSpeed || pokedex[pokeId].helpSpeed,
+          "sec",
+          localeLangId
+        )
+      }}
     </p>
     <p
       class="cpt-pokemon__skill"
