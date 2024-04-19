@@ -38,8 +38,7 @@ export default {
     'titleSleepRes': '寝顔抽選結果',
     'sleepStyle': '記録済み寝顔',
     'noLock': '選択解除',
-    'lockBefore': '金枠',
-    'lockAfter': 'つ目固定',
+    'lockOptions': '金枠{0}つ目固定',
     'moreOne': '1匹余り',
 
     'formLableLevel': '評価/エナジー',
@@ -54,8 +53,7 @@ export default {
 
     'btnSleepOnceBefore': 'クリックで',
     'btnSleepOnceAfter': '種)寝顔抽選',
-    'btnSleepMoreTimeBefore': 'クリックで期待値を計算する(',
-    'btnSleepMoreTimeAfter': '回寝，おこうといいキャンプチケットが含まず)',
+    'btnSleepMoreTime': 'クリックで期待値を計算する({0}回寝，おこうといいキャンプチケットが含まず)',
 
     'tipsTitle': 'ームのバージョン1.4.0では多くの寝顔関連の内容が更新されたため、寝顔抽選機能が期待通りの結果をもたらさないことがあります。',
     'tipsNoSupportBefore': '寝顔取り出しは',

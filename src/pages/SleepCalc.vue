@@ -961,8 +961,7 @@ onMounted(() => {
                   $t("PAGE_SLEEPCALC.noLock")
                 }}</template
                 ><template v-else
-                  >{{ $t("PAGE_SLEEPCALC.lockBefore") }}{{ cItem
-                  }}{{ $t("PAGE_SLEEPCALC.lockAfter") }}</template
+                  >{{ $t("PAGE_SLEEPCALC.lockOptions", [cItem]) }}</template
                 ></el-radio-button
               >
             </el-radio-group>
@@ -1316,8 +1315,7 @@ onMounted(() => {
                 type="primary"
                 plain
                 @click="handleClickSleepMoreTimes()"
-                >{{ $t("PAGE_SLEEPCALC.btnSleepMoreTimeBefore") }}{{ getTimes
-                }}{{ $t("PAGE_SLEEPCALC.btnSleepMoreTimeAfter") }}</el-button
+                >{{ $t("PAGE_SLEEPCALC.btnSleepMoreTime", [getTimes]) }}</el-button
               >
             </div>
             <div class="has-loading" v-if="hopeList.length > 0">

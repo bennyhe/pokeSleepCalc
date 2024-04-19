@@ -37,8 +37,7 @@ export default {
     'titleSleepRes': '抽取睡姿结果',
     'sleepStyle': '已解锁睡姿',
     'noLock': '不锁',
-    'lockBefore': '锁',
-    'lockAfter': '金',
+    'lockOptions': '锁{0}金',
     'moreOne': '多1只',
 
     'formLableLevel': '级别/能量',
@@ -53,8 +52,7 @@ export default {
 
     'btnSleepOnceBefore': '点击抽取',
     'btnSleepOnceAfter': '种)睡姿',
-    'btnSleepMoreTimeBefore': '点击计算期望(睡',
-    'btnSleepMoreTimeAfter': '次，不使用熏香和露营券)',
+    'btnSleepMoreTime': '点击计算期望(睡{0}次，不使用熏香和露营券)',
 
     'tipsTitle': '游戏v1.4.0更新了大量对睡姿相关内容，请注意该功能可能不符合期望结果。',
     'tipsNoSupportBefore': '抽取睡姿不支持',
