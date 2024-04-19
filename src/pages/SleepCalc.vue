@@ -339,7 +339,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     1: 5,
     2: 3,
     3: 1,
-    4: 1
+    4: 0
   }
   randomSleepStyle.value.resList = res
 }
@@ -448,7 +448,7 @@ const catchPokeState = ref({
     1: 5,
     2: 3,
     3: 1,
-    4: 1
+    4: 0
   }
 })
 const handleClickPokeBll = ballId => {
