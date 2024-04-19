@@ -224,7 +224,7 @@ const pokeBall = [
           <p>{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>
           <p>
             <span class="sptime">{{ hasBall[ballItem.id] }}</span
-            >个
+            >{{ $t("OPTIONS.oneThing") }}
           </p>
         </div>
       </div>

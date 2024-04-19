@@ -12,6 +12,7 @@ export default {
     'sleepDay': 'Good Sleep Day',
     'fullMoon': 'Full Moon',
     'one': '',
+    'oneThing': '',
     'doubleEnergy': 'Double Berry Energy',
     'formLableCurIland': '当前岛屿',
     'lastGet': 'Last get',

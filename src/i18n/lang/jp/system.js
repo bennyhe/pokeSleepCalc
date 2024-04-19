@@ -13,6 +13,7 @@ export default {
     'fullMoon': '満月の日',
     'moreOne': '一匹余り',
     'one': '匹',
+    'oneThing': '個',
     'doubleEnergy': '2倍のきのみパワー',
     'formLableCurIland': 'リサーチフィールド',
     'lastGet': '最終枠',
