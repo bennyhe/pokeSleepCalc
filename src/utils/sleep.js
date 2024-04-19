@@ -310,7 +310,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       res.push({
         ...resList[rdmIndexIn],
         isShiny: getShinyPoke(),
-        extra: '熏香'
+        extra: extraSleepStyleOptions.extraTextIncense
       })
     } else {
       // 否则最低spo睡姿
@@ -321,7 +321,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       res.push({
         ...incensePokemonSleeps[0],
         isShiny: getShinyPoke(),
-        extra: '熏香'
+        extra: extraSleepStyleOptions.extraTextIncense
       })
     }
   }
@@ -359,7 +359,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         ...spoZeroPoke,
         isShiny: getShinyPoke(),
         isUseTicket: true,
-        extra: '+奖励'
+        extra: `+${extraSleepStyleOptions.extraTextTicket}`
         // extra: 'SPO<2' //debug
       })
     } else {
@@ -372,7 +372,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
           )],
           isShiny: getShinyPoke(),
           isUseTicket: true,
-          extra: '+奖励'
+          extra: `+${extraSleepStyleOptions.extraTextTicket}`
         })
       } else {
         // 否则最低spo睡姿
@@ -380,7 +380,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
           ...spoZeroPoke,
           isShiny: getShinyPoke(),
           isUseTicket: true,
-          extra: '+奖励'
+          extra: `+${extraSleepStyleOptions.extraTextTicket}`
         })
       }
     }

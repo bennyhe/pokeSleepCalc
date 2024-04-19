@@ -287,7 +287,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       banPokes: userData.value.banPokes,
       useIncensePokemonId: userData.value.useIncensePokemonId,
       isUseTicket: userData.value.isUseTicket,
-      isActRandom: userData.value.isActRandom
+      isActRandom: userData.value.isActRandom,
+      extraTextIncense: t('PROP.incense'),
+      extraTextTicket: t('PROP.ticket')
     }
   )
   // 随机个体
