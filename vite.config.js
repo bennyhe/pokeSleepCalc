@@ -56,6 +56,12 @@ export default defineConfig({
             return 'pokedex'
           } else if (id.includes('config')) {
             return 'config'
+          } else if (id.includes('pages/SleepCalc.vue')) {
+            return 'sleepcalc'
+          } else if (id.includes('pages/')) {
+            return 'pages'
+          } else if (id.includes('components/')) {
+            return 'components'
           } else {
             return 'main'
           }
