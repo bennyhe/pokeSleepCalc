@@ -1542,14 +1542,13 @@ h4 {
   .cpt-foodmenu-scroll {
     height: 168px;
     overflow-x: auto;
-    white-space: nowrap;
-
-    &--singlerow {
-      height: auto;
-    }
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 
     .cpt-foodmenu {
       height: 77px;
+      flex: 0 0 auto;
     }
   }
 
