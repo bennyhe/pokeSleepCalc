@@ -78,7 +78,11 @@ const props = defineProps({
         <img class="icon" v-lazy="`./img/ui/candy.png`" />
         <span class="sptime">{{ sleepItem.candys }}</span>
       </p>
-      <div v-if="sleepItem.count">
+      <div v-if="localeLangId === 'jp' && sleepItem.count">
+        <span class="sptime">{{ sleepItem.count }}</span
+        >回獲得
+      </div>
+      <div v-else-if="sleepItem.count">
         获得<span class="sptime">{{ sleepItem.count }}</span
         >次
       </div>

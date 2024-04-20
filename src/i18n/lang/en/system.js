@@ -16,7 +16,9 @@ export default {
     'doubleEnergy': 'Double Berry Energy',
     'formLableCurIland': '当前岛屿',
     'lastGet': 'Last get',
-    'getWithout': 'Without'
+    'getWithout': 'Without',
+    'detail': 'Detail',
+    'restart': 'RESTART'
   },
   'SHORT_SKILL': {
     'berrys': 'Berry S'
@@ -40,6 +42,7 @@ export default {
     'noLock': '不锁',
     'lockOptions': '锁{0}金',
     'moreOne': '多1只',
+    'sleepMathExp': '期望',
 
     'formLableLevel': '级别/能量',
     'formLableDays': '特殊加成',

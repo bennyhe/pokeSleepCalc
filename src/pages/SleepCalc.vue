@@ -1131,7 +1131,34 @@ onMounted(() => {
               }}种)</span
             >
           </h3>
-          <div class="mod-tips" v-if="userSleep.count > 0">
+          <div
+            class="mod-tips"
+            v-if="localeLangId === 'jp' && userSleep.count > 0"
+          >
+            <span class="sptime">{{ userSleep.count }}</span
+            >回寝て、<span class="sptime">{{ userSleep.pokeSum }}</span
+            >{{ $t(`OPTIONS.one`) }}のポケモンに遭遇しました ({{
+              $t("PROP.shiny")
+            }}<span class="sptime">{{ userSleep.pokeShinyCount }}</span
+            >{{ $t(`OPTIONS.one`) }})。
+            <el-button
+              size="small"
+              @click="handleClickShinyDetail()"
+              v-if="userSleep.pokeShinyCount > 0"
+              :class="{ 'btn--show': userSleep.showDetailShiny }"
+              >{{ $t("PROP.shiny") }}{{ $t("OPTIONS.detail")
+              }}<svgIcon size="small" type="arrowDown"
+            /></el-button>
+            <el-button
+              size="small"
+              type="warning"
+              plain
+              @click="handleClickShinyClear()"
+              v-if="userSleep.pokeShinyCount > 0"
+              >{{ $t("OPTIONS.restart") }}</el-button
+            >
+          </div>
+          <div class="mod-tips" v-else-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
             >次，遇到<span class="sptime">{{ userSleep.pokeSum }}</span
             >{{ $t(`OPTIONS.one`) }}宝可梦，其中遇到<span class="sptime">{{
@@ -1143,7 +1170,8 @@ onMounted(() => {
               @click="handleClickShinyDetail()"
               v-if="userSleep.pokeShinyCount > 0"
               :class="{ 'btn--show': userSleep.showDetailShiny }"
-              >{{ $t("PROP.shiny") }}详情<svgIcon size="small" type="arrowDown"
+              >{{ $t("PROP.shiny") }}{{ $t("OPTIONS.detail")
+              }}<svgIcon size="small" type="arrowDown"
             /></el-button>
             <el-button
               size="small"
@@ -1151,7 +1179,7 @@ onMounted(() => {
               plain
               @click="handleClickShinyClear()"
               v-if="userSleep.pokeShinyCount > 0"
-              >从头再来</el-button
+              >{{ $t("OPTIONS.restart") }}</el-button
             >
           </div>
           <div class="get-shiny" v-if="userSleep.showDetailShiny">
@@ -1178,7 +1206,29 @@ onMounted(() => {
               />
             </div>
           </div>
-          <div class="mod-tips" v-if="userData.mapModel">
+          <div
+            class="mod-tips"
+            v-if="localeLangId === 'jp' && userData.mapModel"
+          >
+            ポケモンを<span class="sptime">{{
+              catchPokeState.list.length
+            }}</span
+            >匹入手し（{{ $t("PROP.shiny")
+            }}<span class="sptime">{{
+              catchPokeState.list.filter((cListItem) => cListItem.isShiny)
+                .length
+            }}</span
+            >{{ $t(`OPTIONS.one`) }}）。
+            <el-button
+              size="small"
+              @click="handleClickCatchDetail()"
+              type="primary"
+              v-if="catchPokeState.list.length > 0"
+              :class="{ 'btn--show': catchPokeState.showDetailCatchList }"
+              >BOX<svgIcon size="small" type="arrowDown"
+            /></el-button>
+          </div>
+          <div class="mod-tips" v-else-if="userData.mapModel">
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
             >{{ $t(`OPTIONS.one`) }}宝可梦，其中<span class="sptime">{{
               catchPokeState.list.filter((cListItem) => cListItem.isShiny)
@@ -1350,7 +1400,7 @@ onMounted(() => {
                   }}{{
                     gameMap[userData.curMap].levelList[userData.curStageIndex]
                       .nameIndex
-                  }}-期望宝可梦睡姿列表
+                  }}-{{ $t("PAGE_SLEEPCALC.sleepMathExp") }}宝可梦睡姿列表
                   <span class="extra"
                     >({{ hopeList.length }}{{ $t(`OPTIONS.one`) }})</span
                   >
@@ -1400,7 +1450,9 @@ onMounted(() => {
                       size="small"
                       @click="handleClickShowMoreMathExp()"
                       :class="{ 'btn--show': pageData.showMoreMathExp }"
-                      >期望详情<svgIcon size="small" type="arrowDown"
+                      >{{ $t("PAGE_SLEEPCALC.sleepMathExp")
+                      }}{{ $t("OPTIONS.detail")
+                      }}<svgIcon size="small" type="arrowDown"
                     /></el-button>
                   </div>
                 </div>
@@ -1415,7 +1467,11 @@ onMounted(() => {
                         hopeKey + 1
                       }}</i>
                     </p>
-                    <div>
+                    <div v-if="localeLangId === 'jp'">
+                      <span class="sptime">{{ hopeItem.count }}</span
+                      >回獲得
+                    </div>
+                    <div v-else>
                       获得<span class="sptime">{{ hopeItem.count }}</span
                       >次
                     </div>
@@ -1566,8 +1622,7 @@ onMounted(() => {
                   }}</span
                 >
               </template>
-              <span class="mr3" v-if="sleepStyleId"
-                >消耗
+              <span class="mr3" v-if="sleepStyleId">
                 <span
                   class="sptime"
                   v-if="sleepStyleId && getSPOById(sleepStyleId)"

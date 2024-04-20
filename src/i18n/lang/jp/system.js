@@ -17,7 +17,9 @@ export default {
     'doubleEnergy': '2倍のきのみパワー',
     'formLableCurIland': 'リサーチフィールド',
     'lastGet': '最終枠',
-    'getWithout': '寝顔抽選の抜去'
+    'getWithout': '寝顔抽選の抜去',
+    'detail': 'の詳細',
+    'restart': 'RESTART'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
@@ -41,6 +43,7 @@ export default {
     'noLock': '選択解除',
     'lockOptions': '金枠{0}つ目固定',
     'moreOne': '1匹余り',
+    'sleepMathExp': '期待値',
 
     'formLableLevel': '評価/エナジー',
     'formLableDays': '特殊効果',

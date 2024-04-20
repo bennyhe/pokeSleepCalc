@@ -16,7 +16,9 @@ export default {
     'doubleEnergy': '2倍树果能量',
     'formLableCurIland': '当前岛屿',
     'lastGet': '最后一抽',
-    'getWithout': '抽取去除'
+    'getWithout': '抽取去除',
+    'detail': '详情',
+    'restart': '从头再来'
   },
   'SHORT_SKILL': {
     'berrys': '树果S'
@@ -40,6 +42,7 @@ export default {
     'noLock': '不锁',
     'lockOptions': '锁{0}金',
     'moreOne': '多1只',
+    'sleepMathExp': '期望',
 
     'formLableLevel': '级别/能量',
     'formLableDays': '特殊加成',
