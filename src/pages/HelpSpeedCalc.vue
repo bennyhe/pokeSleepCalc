@@ -395,7 +395,7 @@ const getTargetPokemonEnergy = pokeId => {
     tempPokeItem2.skillPer
   )
   resRankArr = resRankArr.concat(
-    addArrInOptions('食材S,M\n性格:帮忙↑', tempPokeItem2)
+    addArrInOptions('食材S,M\n性格:帮↑', tempPokeItem2)
   )
 
   const tempPokeItem3 = { ...pokedex[pokeId] }
@@ -451,7 +451,7 @@ const getTargetPokemonEnergy = pokeId => {
     tempPokeItem4.skillPer
   )
   resRankArr = resRankArr.concat(
-    addArrInOptions('食材S,M\n性格:食材↑', tempPokeItem4)
+    addArrInOptions('食材S,M\n性格:食↑', tempPokeItem4)
   )
 
   const tempPokeItem5 = { ...pokedex[pokeId] }
@@ -479,7 +479,7 @@ const getTargetPokemonEnergy = pokeId => {
     tempPokeItem5.skillPer
   )
   resRankArr = resRankArr.concat(
-    addArrInOptions('技率S,M\n性格:技率↑', tempPokeItem5)
+    addArrInOptions('技率S,M\n性格:技↑', tempPokeItem5)
   )
 
   const tempPokeItem6 = { ...pokedex[pokeId] }
@@ -507,7 +507,7 @@ const getTargetPokemonEnergy = pokeId => {
     tempPokeItem6.skillPer
   )
   resRankArr = resRankArr.concat(
-    addArrInOptions('技M,帮忙M\n性格:技率↑', tempPokeItem6)
+    addArrInOptions('技M,帮忙M\n性格:技↑', tempPokeItem6)
   )
 
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
@@ -702,7 +702,10 @@ watch(helpSpeedCalcForm.value, val => {
         />
       </span>
     </el-form-item>
-    <el-form-item label="食材" v-if="pokedex[helpSpeedCalcForm.pokemonId].food">
+    <el-form-item
+      :label="$t('PROP.food')"
+      v-if="pokedex[helpSpeedCalcForm.pokemonId].food"
+    >
       <div
         class="cpt-food cpt-food--noborder"
         v-for="(subFoodItem, subKey) in 3"
@@ -767,7 +770,7 @@ watch(helpSpeedCalcForm.value, val => {
         </el-radio-group>
       </div>
     </el-form-item>
-    <el-form-item label="技能">
+    <el-form-item :label="$t('PROP.subSkill')">
       <div style="width: 100%">
         <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
           <el-checkbox
@@ -805,7 +808,7 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
       <div class="mod-tips">* 所有帮忙技能加成累积不能超过35%。</div>
     </el-form-item>
-    <el-form-item label="性格">
+    <el-form-item :label="$t('PROP.nature')">
       <el-radio-group v-model="helpSpeedCalcForm.character">
         <el-radio
           :label="cItem.label"
@@ -940,9 +943,7 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
-        :active-text="`${$t('OPTIONS.yes')}(${$t(
-          'OPTIONS.doubleEnergy'
-        )})`"
+        :active-text="`${$t('OPTIONS.yes')}(${$t('OPTIONS.doubleEnergy')})`"
         :inactive-text="$t('OPTIONS.no')"
         style="--el-switch-on-color: #ffaf00"
       />
