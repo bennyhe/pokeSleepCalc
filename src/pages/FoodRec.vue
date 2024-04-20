@@ -53,7 +53,9 @@ for (const cookTypeKey in COOK_TYPES) {
     <template v-for="cookTypeItem in cookMenuRes" v-bind:key="cookTypeItem.id">
       <h3>
         {{ cookTypeItem.name
-        }}<span class="extra">({{ cookTypeItem.list.length }}个)</span>
+        }}<span class="extra"
+          >({{ cookTypeItem.list.length }}{{ $t("OPTIONS.oneThing") }})</span
+        >
       </h3>
       <div class="cpt-foodmenu-scroll">
         <template
@@ -128,7 +130,9 @@ for (const cookTypeKey in COOK_TYPES) {
       <div class="cpt-foodmenu-list">
         <h3>
           {{ $t("PROP.with") }}{{ $t("PROP.recipes")
-          }}<span class="extra">({{ pokeItem.menuList.length }}个)</span>
+          }}<span class="extra"
+            >({{ pokeItem.menuList.length }}{{ $t("OPTIONS.oneThing") }})</span
+          >
         </h3>
         <div class="cpt-foodmenu-scroll">
           <template

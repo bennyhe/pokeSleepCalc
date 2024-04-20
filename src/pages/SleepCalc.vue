@@ -1137,9 +1137,9 @@ onMounted(() => {
           >
             <span class="sptime">{{ userSleep.count }}</span
             >回寝て、<span class="sptime">{{ userSleep.pokeSum }}</span
-            >{{ $t(`OPTIONS.one`) }}のポケモンに遭遇しました ({{
+            >{{ $t(`OPTIONS.one`) }}のポケモンに遭遇した ({{
               $t("PROP.shiny")
-            }}<span class="sptime">{{ userSleep.pokeShinyCount }}</span
+            }}い<span class="sptime">{{ userSleep.pokeShinyCount }}</span
             >{{ $t(`OPTIONS.one`) }})。
             <el-button
               size="small"
@@ -1213,8 +1213,7 @@ onMounted(() => {
             ポケモンを<span class="sptime">{{
               catchPokeState.list.length
             }}</span
-            >匹入手し（{{ $t("PROP.shiny")
-            }}<span class="sptime">{{
+            >匹入手した（{{ $t("PROP.shiny") }}い<span class="sptime">{{
               catchPokeState.list.filter((cListItem) => cListItem.isShiny)
                 .length
             }}</span
