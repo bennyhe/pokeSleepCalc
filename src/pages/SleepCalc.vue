@@ -335,11 +335,11 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   // console.log(res)
   catchPokeState.value.eatTimes = {} //重置吃饱判定
   catchPokeState.value.hasBall = {
+    ...catchPokeState.value.hasBall,
     //重置球数量
     1: 5,
     2: 3,
-    3: 1,
-    4: 0
+    3: 1
   }
   randomSleepStyle.value.resList = res
 }
@@ -401,6 +401,9 @@ const handleClickSleepOnce = () => {
     userData.value.curStageIndex
   )
   userSleep.value.count++
+  if (userSleep.value.count > 49 && userSleep.value.count % 50 === 0) {
+    catchPokeState.value.hasBall[4]++
+  }
   userSleep.value.pokeSum += randomSleepStyle.value.resList.length
   const shinyList = randomSleepStyle.value.resList.filter(
     item => item.isShiny
@@ -441,7 +444,7 @@ const catchPokeState = ref({
   ballEatPoint: {
     1: 1,
     2: 3,
-    3: 3,
+    3: 4,
     4: 999
   },
   hasBall: {
@@ -714,9 +717,9 @@ onMounted(() => {
               score="100"
             />睡眠スコアGet!、<span class="sptime"
               >{{ getSleepCatchNum() }}匹</span
-            >のポケモンが捕獲可能。<span
-              class="spscore"
-              >{{ getNum(getScore(100)) }}</span
+            >のポケモンが捕獲可能。<span class="spscore">{{
+              getNum(getScore(100))
+            }}</span
             >のねむけパワー獲得、約<span class="vigour">{{
               getLostVigour(8 * 60 + 30)
             }}</span
@@ -785,9 +788,9 @@ onMounted(() => {
                     gameMap[userData.curMap].scoreList
                   )
                 }}匹</span
-              >のポケモンが捕獲可能。<span
-                class="spscore"
-                >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
+              >のポケモンが捕獲可能。<span class="spscore">{{
+                getNum(getScore(100 - getFirstSleepScore()))
+              }}</span
               >のねむけパワー獲得、約<span class="vigour">{{
                 getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
               }}</span
