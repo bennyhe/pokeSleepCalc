@@ -1399,7 +1399,7 @@ onMounted(() => {
                   }}{{
                     gameMap[userData.curMap].levelList[userData.curStageIndex]
                       .nameIndex
-                  }}-{{ $t("PAGE_SLEEPCALC.sleepMathExp") }}宝可梦睡姿列表
+                  }}-{{ $t("PAGE_SLEEPCALC.titleMathExp") }}
                   <span class="extra"
                     >({{ hopeList.length }}{{ $t(`OPTIONS.one`) }})</span
                   >

@@ -38,6 +38,7 @@ export default {
 
     'titleCutNum': '数据区间参考',
     'titleSleepRes': '抽取睡姿结果',
+    'titleMathExp': '期待宝可梦睡姿列表',
     'sleepStyle': '已解锁睡姿',
     'noLock': '不锁',
     'lockOptions': '锁{0}金',

@@ -6,7 +6,11 @@ export default {
     'recipes': '食谱',
     'with': '关联',
     'individual': '个体',
-    'hungry': '贪吃'
+    'hungry': '贪吃',
+    'food': '食材',
+    'mainSkill': '主技能',
+    'subSkill': '副技能',
+    'nature': '性格'
   },
   'BALL_TYPES': {
     1:'普通沙布雷',

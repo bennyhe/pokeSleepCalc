@@ -39,6 +39,7 @@ export default {
     ,
     'titleCutNum': '睡眠リサーチのポケモン数',
     'titleSleepRes': '寝顔抽選結果',
+    'titleMathExp': '期待宝可梦睡姿列表',
     'sleepStyle': '記録済み寝顔',
     'noLock': '選択解除',
     'lockOptions': '金枠{0}つ目固定',

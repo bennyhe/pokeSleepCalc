@@ -6,7 +6,11 @@ export default {
     'recipes': 'レシピ',
     'with': '関連',
     'individual': '個体',
-    'hungry': 'チャンス'
+    'hungry': 'チャンス',
+    'food': '食材',
+    'mainSkill': 'メインスキル',
+    'subSkill': 'サブスキル',
+    'nature': 'せいかく'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

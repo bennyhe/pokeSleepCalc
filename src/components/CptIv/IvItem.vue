@@ -38,7 +38,7 @@ const props = defineProps({
         {{ $t(`BERRY_TYPES.${pokedex[pokeId].berryType}`) }}
       </p>
     </div>
-    <h4>食材</h4>
+    <h4>{{ $t("PROP.food") }}</h4>
     <div
       class="cpt-food all-food"
       v-if="dataSource.useFoods && dataSource.useFoods.length > 0"
@@ -58,7 +58,7 @@ const props = defineProps({
       </div>
     </div>
     <div class="mb3" v-else>NULL</div>
-    <h4>主技能/副技能</h4>
+    <h4>{{ $t("PROP.mainSkill") }}/{{ $t("PROP.subSkill") }}</h4>
     <div class="skill">
       <div class="main-skill">
         <div class="main-skill__inner">
@@ -78,7 +78,7 @@ const props = defineProps({
         </span>
       </div>
     </div>
-    <h4>性格</h4>
+    <h4>{{ $t("PROP.nature") }}</h4>
     {{ $t(`NATURE_NAMES.${dataSource.natureId}`) }}
     <p
       class="nature-up"
