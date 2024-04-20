@@ -5,7 +5,8 @@ export default {
     'shiny': '色違',
     'recipes': 'レシピ',
     'with': '関連',
-    'individual': '個体'
+    'individual': '個体',
+    'hungry': 'チャンス'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

@@ -5,7 +5,8 @@ export default {
     'shiny': '闪光',
     'recipes': '食谱',
     'with': '关联',
-    'individual': 'Individual'
+    'individual': 'Individual',
+    'hungry': 'Hungry'
   },
   'BALL_TYPES': {
     1: '普通沙布雷',

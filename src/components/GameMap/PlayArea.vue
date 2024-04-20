@@ -71,8 +71,11 @@ const pokeBall = [
                 }"
               >
                 <template v-if="sleepItem.eatStateType === 1"
-                  ><img v-lazy="`./img/ui/hungry.png`" alt="贪吃" />
-                  <p>贪吃</p></template
+                  ><img
+                    v-lazy="`./img/ui/hungry.png`"
+                    :alt="$t('PROP.hungry')"
+                  />
+                  <p>{{ $t("PROP.hungry") }}</p></template
                 >
               </div>
               <div
