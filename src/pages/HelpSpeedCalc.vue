@@ -5,7 +5,8 @@ import { sortInObjectOptions, toHMInLang } from '../utils/index.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
-  getNewFoodAndSkillPer
+  getNewFoodPer,
+  getNewSkillPer
 } from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -297,11 +298,11 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
   )
-  pokeItem.foodPer = getNewFoodAndSkillPer(
+  pokeItem.foodPer = getNewFoodPer(
     helpSpeedCalcForm.value,
     pokeItem.foodPer
   )
-  pokeItem.skillPer = getNewFoodAndSkillPer(
+  pokeItem.skillPer = getNewSkillPer(
     helpSpeedCalcForm.value,
     pokeItem.skillPer
   )
@@ -387,13 +388,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem2.foodPer = getNewFoodAndSkillPer(
+  tempPokeItem2.foodPer = getNewFoodPer(
     {
       ...tempSCOptions2
     },
     tempPokeItem2.foodPer
   )
-  pokeItem.skillPer = getNewFoodAndSkillPer(
+  pokeItem.skillPer = getNewSkillPer(
     {
       ...tempSCOptions2
     },
@@ -408,13 +409,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem3.foodPer = getNewFoodAndSkillPer(
+  tempPokeItem3.foodPer = getNewFoodPer(
     {
       ...tempSCOptions3
     },
     tempPokeItem3.foodPer
   )
-  pokeItem.skillPer = getNewFoodAndSkillPer(
+  pokeItem.skillPer = getNewSkillPer(
     {
       ...tempSCOptions3
     },
@@ -429,13 +430,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem4.foodPer = getNewFoodAndSkillPer(
+  tempPokeItem4.foodPer = getNewFoodPer(
     {
       ...tempSCOptions4
     },
     tempPokeItem4.foodPer
   )
-  pokeItem.skillPer = getNewFoodAndSkillPer(
+  pokeItem.skillPer = getNewSkillPer(
     {
       ...tempSCOptions4
     },
@@ -450,13 +451,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem5.foodPer = getNewFoodAndSkillPer(
+  tempPokeItem5.foodPer = getNewFoodPer(
     {
       ...tempSCOptions5
     },
     tempPokeItem5.foodPer
   )
-  tempPokeItem5.skillPer = getNewFoodAndSkillPer(
+  tempPokeItem5.skillPer = getNewSkillPer(
     {
       ...tempSCOptions5
     },
@@ -471,13 +472,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem6.foodPer = getNewFoodAndSkillPer(
+  tempPokeItem6.foodPer = getNewFoodPer(
     {
       ...tempSCOptions6
     },
     tempPokeItem6.foodPer
   )
-  tempPokeItem6.skillPer = getNewFoodAndSkillPer(
+  tempPokeItem6.skillPer = getNewSkillPer(
     {
       ...tempSCOptions6
     },
@@ -553,8 +554,8 @@ const getBoxCurEnergy = () => {
   userPokemons.value.list.forEach(upItem => {
     const pokeItem = { ...pokedex[upItem.pokemonId] }
     pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
-    pokeItem.foodPer = getNewFoodAndSkillPer(upItem, pokeItem.foodPer)
-    pokeItem.skillPer = getNewFoodAndSkillPer(upItem, pokeItem.skillPer)
+    pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
+    pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
     pokeItem.level = upItem.level
     pokeItem.useFoods = upItem.useFoods
     pokeItem.skill = upItem.skill
