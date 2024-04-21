@@ -2,7 +2,11 @@
 import { ref, watch, computed, onMounted } from 'vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions, toHMInLang } from '../utils/index.js'
-import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
+import {
+  getOneDayEnergy,
+  getOneDayHelpCount,
+  getNewFoodAndSkillPer
+} from '../utils/energy.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
@@ -136,25 +140,6 @@ const getNewHelpSpeed = (formData, level) => {
     res = Math.floor(res / 1.2)
   }
   return res
-}
-
-const getNewFoodAndSkillPer = (formData, per) => {
-  per = per || 0
-  let basic = 0
-  let mainMuti = 0
-  if (formData.skill.includes('fs') || formData.skill.includes('ss')) {
-    basic += 0.18
-  }
-  if (formData.skill.includes('fm') || formData.skill.includes('sm')) {
-    basic += 0.36
-  }
-  if (formData.character.indexOf('fup') > -1 || formData.character.indexOf('sup') > -1) {
-    mainMuti = 0.2
-  }
-  if (formData.character.indexOf('fdown') > -1 || formData.character.indexOf('sdown') > -1) {
-    mainMuti = -0.2
-  }
-  return Math.floor(per * ((1 + basic) * (1 + mainMuti)) * 1000) / 1000
 }
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
@@ -312,7 +297,10 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
   )
-  pokeItem.foodPer = getNewFoodAndSkillPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+  pokeItem.foodPer = getNewFoodAndSkillPer(
+    helpSpeedCalcForm.value,
+    pokeItem.foodPer
+  )
   pokeItem.skillPer = getNewFoodAndSkillPer(
     helpSpeedCalcForm.value,
     pokeItem.skillPer

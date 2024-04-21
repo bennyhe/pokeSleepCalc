@@ -90,3 +90,22 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     oneDayEnergy: oneDayBerryEnergy + oneDayFoodEnergy.allEnergy
   }
 }
+
+export function getNewFoodAndSkillPer (formData, per) {
+  per = per || 0
+  let basic = 0
+  let mainMuti = 0
+  if (formData.skill.includes('fs') || formData.skill.includes('ss')) {
+    basic += 0.18
+  }
+  if (formData.skill.includes('fm') || formData.skill.includes('sm')) {
+    basic += 0.36
+  }
+  if (formData.character.indexOf('fup') > -1 || formData.character.indexOf('sup') > -1) {
+    mainMuti = 0.2
+  }
+  if (formData.character.indexOf('fdown') > -1 || formData.character.indexOf('sdown') > -1) {
+    mainMuti = -0.2
+  }
+  return Math.floor(per * ((1 + basic) * (1 + mainMuti)) * 1000) / 1000
+}
