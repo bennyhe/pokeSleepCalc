@@ -138,44 +138,23 @@ const getNewHelpSpeed = (formData, level) => {
   return res
 }
 
-const getNewFoodPer = (formData, foodPer) => {
-  foodPer = foodPer || 0
-  let basicfood = 0
+const getNewFoodAndSkillPer = (formData, per) => {
+  per = per || 0
+  let basic = 0
   let mainMuti = 0
-  if (formData.skill.includes('fs')) {
-    basicfood += 0.18
+  if (formData.skill.includes('fs') || formData.skill.includes('ss')) {
+    basic += 0.18
   }
-  if (formData.skill.includes('fm')) {
-    basicfood += 0.36
+  if (formData.skill.includes('fm') || formData.skill.includes('sm')) {
+    basic += 0.36
   }
-  if (formData.character.indexOf('fup') > -1) {
+  if (formData.character.indexOf('fup') > -1 || formData.character.indexOf('sup') > -1) {
     mainMuti = 0.2
   }
-  if (formData.character.indexOf('fdown') > -1) {
+  if (formData.character.indexOf('fdown') > -1 || formData.character.indexOf('sdown') > -1) {
     mainMuti = -0.2
   }
-  return Math.floor(foodPer * ((1 + basicfood) * (1 + mainMuti)) * 1000) / 1000
-}
-
-const getNewSkillPer = (formData, skillPer) => {
-  skillPer = skillPer || 0
-  let basicsKill = 0
-  let mainMuti = 0
-  if (formData.skill.includes('ss')) {
-    basicsKill += 0.18
-  }
-  if (formData.skill.includes('sm')) {
-    basicsKill += 0.36
-  }
-  if (formData.character.indexOf('sup') > -1) {
-    mainMuti = 0.2
-  }
-  if (formData.character.indexOf('sdown') > -1) {
-    mainMuti = -0.2
-  }
-  return (
-    Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
-  )
+  return Math.floor(per * ((1 + basic) * (1 + mainMuti)) * 1000) / 1000
 }
 
 const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
@@ -333,8 +312,8 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
   )
-  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
-  pokeItem.skillPer = getNewSkillPer(
+  pokeItem.foodPer = getNewFoodAndSkillPer(helpSpeedCalcForm.value, pokeItem.foodPer)
+  pokeItem.skillPer = getNewFoodAndSkillPer(
     helpSpeedCalcForm.value,
     pokeItem.skillPer
   )
@@ -382,13 +361,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem2.foodPer = getNewFoodPer(
+  tempPokeItem2.foodPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions2
     },
     tempPokeItem2.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  pokeItem.skillPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions2
     },
@@ -410,13 +389,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem3.foodPer = getNewFoodPer(
+  tempPokeItem3.foodPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions3
     },
     tempPokeItem3.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  pokeItem.skillPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions3
     },
@@ -438,13 +417,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem4.foodPer = getNewFoodPer(
+  tempPokeItem4.foodPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions4
     },
     tempPokeItem4.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  pokeItem.skillPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions4
     },
@@ -466,13 +445,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem5.foodPer = getNewFoodPer(
+  tempPokeItem5.foodPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions5
     },
     tempPokeItem5.foodPer
   )
-  tempPokeItem5.skillPer = getNewSkillPer(
+  tempPokeItem5.skillPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions5
     },
@@ -494,13 +473,13 @@ const getTargetPokemonEnergy = pokeId => {
     },
     helpSpeedCalcForm.value.level
   )
-  tempPokeItem6.foodPer = getNewFoodPer(
+  tempPokeItem6.foodPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions6
     },
     tempPokeItem6.foodPer
   )
-  tempPokeItem6.skillPer = getNewSkillPer(
+  tempPokeItem6.skillPer = getNewFoodAndSkillPer(
     {
       ...tempSCOptions6
     },
@@ -578,8 +557,8 @@ const getBoxCurEnergy = () => {
   userPokemons.value.list.forEach(upItem => {
     const pokeItem = { ...pokedex[upItem.pokemonId] }
     pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
-    pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
-    pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+    pokeItem.foodPer = getNewFoodAndSkillPer(upItem, pokeItem.foodPer)
+    pokeItem.skillPer = getNewFoodAndSkillPer(upItem, pokeItem.skillPer)
     pokeItem.level = upItem.level
     pokeItem.useFoods = upItem.useFoods
     pokeItem.skill = upItem.skill
