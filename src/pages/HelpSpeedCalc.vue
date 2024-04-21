@@ -366,7 +366,7 @@ const getTargetPokemonEnergy = pokeId => {
   let tempExtra3 = '帮忙S,M\n性格:固执'
   let tempExtra4 = '食材S,M\n性格:食↑'
   let tempExtra5 = '技率S,M\n性格:技↑'
-  let tempExtra6 = '技率M,帮忙M\n性格:技↑'
+  let tempExtra6 = '技M,帮忙M\n性格:技↑'
   if (helpSpeedCalcForm.value.level < 50) {
     tempSCOptions2.skill = ['fm']
     tempSCOptions3.skill = ['hm']
