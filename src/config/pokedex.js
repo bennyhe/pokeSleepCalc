@@ -2306,9 +2306,23 @@ const pokedex = {
     skillType: 4,
     pokeType: 2,
     helpSpeed: 2500,
-    berryType: 12
+    berryType: 12,
     // foodPer: 0
-    // skillPer: 0
+    // skillPer: 0,
+    food: {
+      type: [16, 11, 13],
+      count: {
+        16: {
+          num: [2, 5, 7]
+        },
+        11: {
+          num: [0, 6, 9]
+        },
+        13: {
+          num: [0, 0, 7]
+        }
+      }
+    }
   },
   9001: {
     id: 9001,
