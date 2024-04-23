@@ -28,7 +28,7 @@ const props = defineProps({
       >
         <img
           v-lazy="`./img/food/${allFoodItem.id}.png`"
-          :alt="$t(`.${allFoodItem.id}`)"
+          :alt="$t(`FOOD_TYPES.${allFoodItem.id}`)"
         />
         <p>X{{ allFoodItem.num }}</p>
       </div>

@@ -707,7 +707,7 @@ watch(helpSpeedCalcForm.value, val => {
               <div class="cpt-food__item">
                 <img
                   v-lazy="`./img/food/${allFoodItem}.png`"
-                  :alt="$t(`MENU_TYPES.${allFoodItem}`)"
+                  :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
                 />
                 <div
                   class="cpt-food__count"
