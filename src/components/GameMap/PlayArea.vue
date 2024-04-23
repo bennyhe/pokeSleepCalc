@@ -72,7 +72,7 @@ const pokeBall = [
               >
                 <template v-if="sleepItem.eatStateType === 1"
                   ><img
-                    v-lazy="`./img/ui/hungry.png`"
+                    :src="`./img/ui/hungry.png`"
                     :alt="$t('PROP.hungry')"
                   />
                   <p>{{ $t("PROP.hungry") }}</p></template
@@ -170,7 +170,7 @@ const pokeBall = [
             <div class="cpt-pokemon">
               <div class="cpt-pokemon__pic">
                 <img
-                  v-lazy="
+                  :src="
                     `./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
                       sleepItem.pokeId
                     }.png`
@@ -221,7 +221,7 @@ const pokeBall = [
       >
         <div class="lottery-map__pokeball-info">
           <img
-            v-lazy="`./img/ui/sandslash${ballItem.id}.png`"
+            :src="`./img/ui/sandslash${ballItem.id}.png`"
             :alt="ballItem.name"
           />
           <p>{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>

@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-04-23
 1. update 文案
 2. update 花疗环环数据
+3. update 抽取睡姿-地图模式-图片取消延迟加载
 
 ## 24-04-22
 1. update 花疗环环数据
