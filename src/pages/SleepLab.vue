@@ -19,7 +19,19 @@ const pageData = ref({
   mapSleepType: '1',
   maxScore: '5000000',
   minScore: '0',
-  banPokes: []
+  banPokes: [],
+  isActRandom: false,
+  upIdsSmall: {
+    upType: 'small',
+    ids: []
+  },
+  upIdsMid: {
+    upType: 'mid',
+    ids: [
+      1, 2, 3, 69, 70, 71, 152, 153, 154, 470, 35, 36, 39, 40, 173, 174, 175,
+      176, 468, 700, 764
+    ]
+  }
 })
 
 const getTimes = 4000
@@ -49,7 +61,10 @@ const handleClickGet = () => {
       ),
       getTimes,
       {
-        banPokes: pageData.value.banPokes
+        isActRandom: pageData.value.isActRandom,
+        banPokes: pageData.value.banPokes,
+        upIdsMid: pageData.value.upIdsMid,
+        upIdsSmall: pageData.value.upIdsSmall
       }
     )
     console.log(
@@ -189,6 +204,20 @@ const handleClickChangeMap = id => {
         </el-option>
       </el-select>
     </el-form-item>
+    <el-form-item>
+      <div style="color: var(--el-text-color-regular)">
+        {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
+        <span style="display: inline-block; vertical-align: middle">
+          <el-switch
+            v-model="pageData.isActRandom"
+            inline-prompt
+            :active-text="$t('OPTIONS.yes')"
+            :inactive-text="$t('OPTIONS.no')"
+            style="--el-switch-on-color: #ffaf00"
+          />
+        </span>
+      </div>
+    </el-form-item>
     <el-form-item label="去除宝可梦">
       <el-select
         v-model="pageData.banPokes"
@@ -200,14 +229,69 @@ const handleClickChangeMap = id => {
         collapse-tags-tooltip
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option :label="`${pokeItem.name}`" :value="pokeItem.id">
+          <el-option
+            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
+            :value="pokeItem.id"
+          >
             <img
               class="icon"
               v-lazy="`./img/pokedex/${pokeItem.id}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />
-            {{ pokeItem.name }}
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+          </el-option>
+        </template>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="中UP">
+      <el-select
+        v-model="pageData.upIdsMid.ids"
+        placeholder="请选择要去除的宝可梦"
+        filterable
+        clearable
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+      >
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+              v-bind:key="pokeItem.id"
+            />
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+          </el-option>
+        </template>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="小UP">
+      <el-select
+        v-model="pageData.upIdsSmall.ids"
+        placeholder="请选择要去除的宝可梦"
+        filterable
+        clearable
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+      >
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+              v-bind:key="pokeItem.id"
+            />
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
           </el-option>
         </template>
       </el-select>
@@ -217,7 +301,7 @@ const handleClickChangeMap = id => {
     </el-form-item>
   </el-form>
   <h2>
-    {{ gameMap[pageData.curMap].name }}-{{
+    {{ $t(`ILAND.${gameMap[pageData.curMap].id}`) }}-{{
       $t(`SLEEP_TYPES.${pageData.mapSleepType}`)
     }}
   </h2>
@@ -225,7 +309,9 @@ const handleClickChangeMap = id => {
     <h3>
       <img class="icon" v-lazy="`./img/ui/energy.png`" />
       {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
-      <span class="extra">({{ tdItem.res.length }}{{$t(`OPTIONS.one`)}})</span>
+      <span class="extra"
+        >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
+      >
     </h3>
     <div class="page-inner">
       <div
@@ -255,7 +341,7 @@ const handleClickChangeMap = id => {
         <h4>
           {{ levelItem.name }}
           <span class="extra" v-if="levelItem.sleepStyles"
-            >{{ levelItem.sleepStyles.length }}{{$t(`OPTIONS.one`)}}</span
+            >{{ levelItem.sleepStyles.length }}{{ $t(`OPTIONS.one`) }}</span
           >
         </h4>
         <template v-for="sleepId in levelItem.sleepStyles">
@@ -280,7 +366,7 @@ const handleClickChangeMap = id => {
       </div>
     </template>
   </div>
-  <div class="poke-tb hid e">
+  <div class="poke-tb hide">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"

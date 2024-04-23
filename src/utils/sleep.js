@@ -84,6 +84,31 @@ const spacialPokemons = {
   }
 }
 
+const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
+  if (options === undefined) {
+    return orgSleepList
+  }
+  let upCoefficient = 4 // 默认small
+  if (options.upType === 'mid') {
+    upCoefficient = 6
+  }
+  if (options.ids && options.ids.length > 0) {
+    const needUseSleepStyles = orgSleepList.filter(item => options.ids.includes(item.pokeId))
+    if (needUseSleepStyles.length > 0) {
+      let newRes = []
+      for (let i = 0; i < upCoefficient - 1; i++) {
+        newRes = [...newRes, ...needUseSleepStyles]
+      }
+      newRes = [
+        ...newRes,
+        ...orgSleepList
+      ]
+      return newRes
+    }
+  }
+  return orgSleepList
+}
+
 // 随机抽一次卡池
 export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions) {
   extraSleepStyleOptions = extraSleepStyleOptions || {
@@ -140,6 +165,13 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
       )
     }
+  }
+  // 部分宝可梦权重
+  if (get('upIdsMid.ids', extraSleepStyleOptions, 1)) {
+    orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsMid)
+  }
+  if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
+    orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
   }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
   orgSleepList = getRandomArr(
