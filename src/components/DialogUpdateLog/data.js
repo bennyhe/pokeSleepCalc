@@ -5,6 +5,7 @@ const markdownText = `
 1. update 文案
 2. update 花疗环环数据
 3. update 抽取睡姿-地图模式-图片取消延迟加载
+4. update 食材宝可梦推荐文
 
 ## 24-04-22
 1. update 花疗环环数据
