@@ -264,16 +264,16 @@ onMounted(() => {
     <el-radio-group v-model="curFilter">
       <el-radio-button label="all" @click="fnGetBy('all')">ALL</el-radio-button>
       <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
-        >帮忙速度↓</el-radio-button
+        >帮速↓</el-radio-button
       >
       <el-radio-button label="berryType" @click="fnGetBy('berryType')"
-        >树果类型↓</el-radio-button
+        >树果↓</el-radio-button
       >
       <el-radio-button label="foodType" @click="fnGetBy('foodType')"
-        >食材类型↓</el-radio-button
+        >食材↓</el-radio-button
       >
       <el-radio-button label="skillType" @click="fnGetBy('skillType')"
-        >技能类型↓</el-radio-button
+        >技能↓</el-radio-button
       >
       <el-radio-button label="sleepType" @click="fnGetBy('sleepType')"
         >睡眠类型↓</el-radio-button

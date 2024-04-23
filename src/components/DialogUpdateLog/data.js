@@ -1,6 +1,10 @@
 const markdownText = `
 # 更新日志
 
+## 24-04-23
+1. update 文案
+2. update 花疗环环数据
+
 ## 24-04-22
 1. update 花疗环环数据
 
