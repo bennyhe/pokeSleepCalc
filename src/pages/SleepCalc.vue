@@ -1780,8 +1780,8 @@ onMounted(() => {
         </el-radio-group>
       </div>
       <div
-        class="poke-tb poke-tb--xscorll"
-        v-bind:key="gameMap[userData.curMap]"
+        class="poke-tb poke-tb--xscorll poke-tb--msmall"
+        v-bind:key="`ss_${gameMap[userData.curMap].id}`"
       >
         <template v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0">
           <template
@@ -1845,7 +1845,7 @@ onMounted(() => {
       "
     >
       <h2>{{ $t("PAGE_TITLE.berrypokeinmap") }}</h2>
-      <div class="poke-tb">
+      <div class="poke-tb poke-tb--curmapberry poke-tb--msmall">
         <div
           class="poke-tb__item"
           v-for="pokemonsItem in getBerryPokemon(

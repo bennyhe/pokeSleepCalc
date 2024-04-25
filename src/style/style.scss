@@ -5,8 +5,8 @@
 @import "./_import.mod-select.scss";
 
 body {
-  line-height: 1.5;
-  font-size: 16px;
+  // line-height: 1.5;
+  // font-size: 16px;
   color: #333;
   background: #f1f1f1 url(../img/ui/bg.png);
 }
@@ -32,6 +32,10 @@ body {
   margin: 0 auto;
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
+
+  .el-form-item {
+    margin-bottom: 12px;
+  }
 }
 
 .mb3 {
@@ -1597,6 +1601,19 @@ h4 {
     .poke-tb__item {
       transform: scale(0.8);
       margin: -21px -5px;
+    }
+  }
+
+  .poke-tb--msmall {
+    .poke-tb__item {
+      transform: scale(0.8);
+      margin: -21px -5px;
+    }
+  }
+
+  .poke-tb--curmapberry {
+    .poke-tb__item {
+      margin: -14px -4px;
     }
   }
 
