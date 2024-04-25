@@ -876,12 +876,13 @@ onMounted(() => {
         <template v-else>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
             <p>
-              满睡眠<span class="sptime">8小时30分钟</span>，<span
-                class="mobile-br"
-                >可捕捉<span class="sptime">{{ getSleepCatchNum() }}只</span
-                >，<CptProcss score="100" />分，</span
+              <span class="mobile-br"
+                >满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
+                  class="sptime"
+                  >{{ getSleepCatchNum() }}只</span
+                >，</span
               ><span class="mobile-br"
-                >可获得至少<span class="spscore">{{
+                ><CptProcss score="100" />分，可获得至少<span class="spscore">{{
                   getNum(getScore(100))
                 }}</span
                 >睡意之力，</span
@@ -916,14 +917,16 @@ onMounted(() => {
             "
           >
             <p>
-              所需睡眠<span class="sptime">{{
-                toHMInLang(firstSleepTime(), "", localeLangId)
-              }}</span
-              >，<span class="mobile-br"
-                >可捕捉<span class="sptime">{{ userData.cutNum }}只</span
-                >，约<CptProcss :score="getFirstSleepScore()" />分，</span
+              <span class="mobile-br"
+                >所需睡眠<span class="sptime">{{
+                  toHMInLang(firstSleepTime(), "", localeLangId)
+                }}</span
+                >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
+                >，</span
               ><span class="mobile-br"
-                >可获得至少<span class="spscore"
+                >约<CptProcss
+                  :score="getFirstSleepScore()"
+                />分，可获得至少<span class="spscore"
                   >{{ getNum(getScore(getFirstSleepScore()))
                   }}<span class="spscore__extra"
                     >({{
@@ -946,20 +949,22 @@ onMounted(() => {
             "
           >
             <p>
-              剩余睡眠<span class="sptime">{{
-                toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
-              }}</span
-              >，<span class="mobile-br"
-                >可捕捉<span class="sptime"
+              <span class="mobile-br"
+                >剩余睡眠<span class="sptime">{{
+                  toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
+                }}</span
+                >，可捕捉<span class="sptime"
                   >{{
                     getNumberInMap(
                       getScore(100 - getFirstSleepScore()),
                       gameMap[userData.curMap].scoreList
                     )
                   }}只</span
-                >，约<CptProcss :score="100 - getFirstSleepScore()" />分，</span
+                >，</span
               ><span class="mobile-br"
-                >可获得至少<span class="spscore">{{
+                >约<CptProcss
+                  :score="100 - getFirstSleepScore()"
+                />分，可获得至少<span class="spscore">{{
                   getNum(getScore(100 - getFirstSleepScore()))
                 }}</span
                 >睡意之力，</span

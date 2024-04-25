@@ -1076,7 +1076,6 @@ h4 {
     width: 66px;
     margin: 0 auto;
     min-height: 36px;
-    white-space: normal;
   }
 
   &__item {
@@ -1527,11 +1526,36 @@ h4 {
     margin-bottom: 3px;
   }
 }
+.page-sleepcalc {
+  .poke-tb .extra-desc {
+    white-space: normal
+  }
+}
 // 多语言界面适配
 @import "./_import.lang.scss";
 
 // 移动端适配
 @media screen and (max-width: 660px) {
+
+  .m-dialog {
+    &__bd {
+      width: vw(676);
+    }
+
+    &__close {
+      margin-left: vw(676 - 62);
+    }
+  }
+
+  .main {
+    .el-form-item {
+      margin-bottom: 8px;
+
+      &__content {
+        line-height: 28px;
+      }
+    }
+  }
 
   .mobile-br {
     display: block;
@@ -1544,16 +1568,16 @@ h4 {
     }
   }
 
-  // .lottery-map {
-  //   width: 538px
-  // }
-
   .page-sleepcalc {
     .first-page-nav .el-radio-button__inner {
       padding: 8px
     }
     .el-select-sleepstyle {
       width: 130px;
+    }
+    .el-radio-button--small .el-radio-button__inner {
+      padding-left: 6px;
+      padding-right: 6px;
     }
   }
 
@@ -1576,26 +1600,6 @@ h4 {
     }
   }
 
-  .m-dialog {
-    &__bd {
-      width: vw(676);
-    }
-
-    &__close {
-      margin-left: vw(676 - 62);
-    }
-  }
-
-  .main {
-    .el-form-item {
-      margin-bottom: 8px;
-
-      &__content {
-        line-height: 28px;
-      }
-    }
-  }
-
   .poke-tb--lottery {
     text-align: center;
 
@@ -1609,13 +1613,6 @@ h4 {
     .poke-tb__item {
       transform: scale(0.85);
       margin: -9px -4px;
-    }
-  }
-
-  .page-sleepcalc {
-    .el-radio-button--small .el-radio-button__inner {
-      padding-left: 6px;
-      padding-right: 6px;
     }
   }
 
