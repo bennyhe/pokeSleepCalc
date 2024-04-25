@@ -769,17 +769,19 @@ onMounted(() => {
       <template v-if="+navData.navIndex === 0">
         <template v-if="localeLangId === 'jp'">
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
-            一回フル睡眠（<span class="sptime">8時間30分</span>）で、<CptProcss
-              score="100"
-            />睡眠スコアGet!、<span class="sptime"
-              >{{ getSleepCatchNum() }}匹</span
-            >のポケモンが捕獲可能。<span class="spscore">{{
-              getNum(getScore(100))
-            }}</span
-            >のねむけパワー獲得、約<span class="vigour">{{
-              getLostVigour(8 * 60 + 30)
-            }}</span
-            >げんき消費。
+            <p>
+              一回フル睡眠（<span class="sptime">8時間30分</span>）で、<span
+                class="mobile-br"
+                ><CptProcss score="100" />睡眠スコアGet!、</span
+              ><span class="mobile-br"
+                ><span class="sptime">{{ getSleepCatchNum() }}匹</span
+                >のポケモンが捕獲可能。</span
+              ><span class="mobile-br"
+                ><span class="spscore">{{ getNum(getScore(100)) }}</span
+                >のねむけパワー獲得、</span
+              >約<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+              >げんき消費。
+            </p>
           </el-form-item>
           <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
             <p>
@@ -807,21 +809,32 @@ onMounted(() => {
                 getTargetStartScore(100)
             "
           >
-            必須睡眠時間（<span class="sptime">{{
-              toHMInLang(firstSleepTime(), "", localeLangId)
-            }}</span
-            >）で、<CptProcss
-              :score="getFirstSleepScore()"
-            />睡眠スコアGet!、<span class="sptime">{{ userData.cutNum }}匹</span
-            >のポケモンが捕獲可能。<span class="spscore"
-              >{{ getNum(getScore(getFirstSleepScore()))
-              }}<span class="spscore__extra"
-                >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
-              ></span
-            >のねむけパワー獲得、約<span class="vigour">{{
-              getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
-            }}</span
-            >げんき消費。
+            <p>
+              必須睡眠時間（<span class="sptime">{{
+                toHMInLang(firstSleepTime(), "", localeLangId)
+              }}</span
+              >）で、<span class="mobile-br"
+                ><CptProcss
+                  :score="getFirstSleepScore()"
+                />睡眠スコアGet!、</span
+              ><span class="mobile-br"
+                ><span class="sptime">{{ userData.cutNum }}匹</span
+                >のポケモンが捕獲可能。</span
+              ><span class="mobile-br"
+                ><span class="spscore"
+                  >{{ getNum(getScore(getFirstSleepScore()))
+                  }}<span class="spscore__extra"
+                    >({{
+                      getNum(getTargetStartScore(getFirstSleepScore()))
+                    }})</span
+                  ></span
+                >のねむけパワー獲得、</span
+              >
+              約<span class="vigour">{{
+                getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
+              }}</span
+              >げんき消費。
+            </p>
           </el-form-item>
           <el-form-item
             label="第2回目寝"
@@ -835,19 +848,25 @@ onMounted(() => {
               残り睡眠時間（<span class="sptime">{{
                 toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
               }}</span
-              >）で、<CptProcss
-                :score="100 - getFirstSleepScore()"
-              />睡眠スコアGet!、<span class="sptime"
-                >{{
-                  getNumberInMap(
-                    getScore(100 - getFirstSleepScore()),
-                    gameMap[userData.curMap].scoreList
-                  )
-                }}匹</span
-              >のポケモンが捕獲可能。<span class="spscore">{{
-                getNum(getScore(100 - getFirstSleepScore()))
-              }}</span
-              >のねむけパワー獲得、約<span class="vigour">{{
+              >）で、<span class="mobile-br"
+                ><CptProcss
+                  :score="100 - getFirstSleepScore()"
+                />睡眠スコアGet!、</span
+              ><span class="mobile-br"
+                ><span class="sptime"
+                  >{{
+                    getNumberInMap(
+                      getScore(100 - getFirstSleepScore()),
+                      gameMap[userData.curMap].scoreList
+                    )
+                  }}匹</span
+                >のポケモンが捕獲可能。</span
+              ><span class="mobile-br"
+                ><span class="spscore">{{
+                  getNum(getScore(100 - getFirstSleepScore()))
+                }}</span
+                >のねむけパワー獲得、</span
+              >約<span class="vigour">{{
                 getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
               }}</span
               >げんき消費。
@@ -856,16 +875,19 @@ onMounted(() => {
         </template>
         <template v-else>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableNoSplit')">
-            满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
-              class="sptime"
-              >{{ getSleepCatchNum() }}只</span
-            >，<CptProcss score="100" />分，可获得至少<span class="spscore">{{
-              getNum(getScore(100))
-            }}</span
-            >睡意之力，预计掉<span class="vigour">{{
-              getLostVigour(8 * 60 + 30)
-            }}</span
-            >点活力
+            <p>
+              满睡眠<span class="sptime">8小时30分钟</span>，<span
+                class="mobile-br"
+                >可捕捉<span class="sptime">{{ getSleepCatchNum() }}只</span
+                >，<CptProcss score="100" />分，</span
+              ><span class="mobile-br"
+                >可获得至少<span class="spscore">{{
+                  getNum(getScore(100))
+                }}</span
+                >睡意之力，</span
+              >预计掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+              >点活力
+            </p>
           </el-form-item>
           <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
             <p>
@@ -893,20 +915,27 @@ onMounted(() => {
                 getTargetStartScore(100)
             "
           >
-            所需睡眠<span class="sptime">{{
-              toHMInLang(firstSleepTime(), "", localeLangId)
-            }}</span
-            >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
-            >，约<CptProcss :score="getFirstSleepScore()" />分，可获得至少<span
-              class="spscore"
-              >{{ getNum(getScore(getFirstSleepScore()))
-              }}<span class="spscore__extra"
-                >({{ getNum(getTargetStartScore(getFirstSleepScore())) }})</span
-              ></span
-            >睡意之力，预计掉<span class="vigour">{{
-              getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
-            }}</span
-            >点活力
+            <p>
+              所需睡眠<span class="sptime">{{
+                toHMInLang(firstSleepTime(), "", localeLangId)
+              }}</span
+              >，<span class="mobile-br"
+                >可捕捉<span class="sptime">{{ userData.cutNum }}只</span
+                >，约<CptProcss :score="getFirstSleepScore()" />分，</span
+              ><span class="mobile-br"
+                >可获得至少<span class="spscore"
+                  >{{ getNum(getScore(getFirstSleepScore()))
+                  }}<span class="spscore__extra"
+                    >({{
+                      getNum(getTargetStartScore(getFirstSleepScore()))
+                    }})</span
+                  ></span
+                >睡意之力，</span
+              >预计掉<span class="vigour">{{
+                getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
+              }}</span
+              >点活力
+            </p>
           </el-form-item>
           <el-form-item
             label="第2觉"
@@ -920,19 +949,21 @@ onMounted(() => {
               剩余睡眠<span class="sptime">{{
                 toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
               }}</span
-              >，可捕捉<span class="sptime"
-                >{{
-                  getNumberInMap(
-                    getScore(100 - getFirstSleepScore()),
-                    gameMap[userData.curMap].scoreList
-                  )
-                }}只</span
-              >，约<CptProcss
-                :score="100 - getFirstSleepScore()"
-              />分，可获得至少<span class="spscore">{{
-                getNum(getScore(100 - getFirstSleepScore()))
-              }}</span
-              >睡意之力，预计掉<span class="vigour">{{
+              >，<span class="mobile-br"
+                >可捕捉<span class="sptime"
+                  >{{
+                    getNumberInMap(
+                      getScore(100 - getFirstSleepScore()),
+                      gameMap[userData.curMap].scoreList
+                    )
+                  }}只</span
+                >，约<CptProcss :score="100 - getFirstSleepScore()" />分，</span
+              ><span class="mobile-br"
+                >可获得至少<span class="spscore">{{
+                  getNum(getScore(100 - getFirstSleepScore()))
+                }}</span
+                >睡意之力，</span
+              >预计掉<span class="vigour">{{
                 getLostVigour(
                   toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
                 )

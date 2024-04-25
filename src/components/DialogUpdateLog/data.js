@@ -1,6 +1,8 @@
 const markdownText = `
 # 更新日志
 
+## 24-04-25
+1. update 优化移动端的拆睡交互
 ## 24-04-23
 1. update 文案
 2. update 花疗环环数据
