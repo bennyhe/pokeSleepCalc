@@ -64,7 +64,6 @@ export function getRandomIV(pokeId, options) {
     ivRes.useFoods = useFoods
   }
   if (isFirst243 && pokeId === 243) {
-    isFirst243 = false
     ivRes = {
       ...ivRes,
       ...POKE_243_IV
