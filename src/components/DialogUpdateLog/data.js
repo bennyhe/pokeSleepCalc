@@ -5,8 +5,9 @@ const markdownText = `
 1. add 抽取睡姿-闪率UP
 2. update #764期望
 3. update 帮速计算-交互优化
-4. fix 视觉样式
-5. fix 随机雷公个体时出错
+4. update 宝可梦图鉴-食材率&技能率
+5. fix 视觉样式
+6. fix 抽取睡姿-随机雷公个体时出错
 
 ## 24-04-25
 1. update 优化移动端的拆睡交互
