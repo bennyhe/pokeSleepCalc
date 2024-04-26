@@ -62,6 +62,7 @@ const userData = ref({
   isActRandom: false,
   isMoreCalcLoading: false,
   mapModel: false,
+  shinyUp: false,
   useIncensePokemonId: '',
   onOffBan: false,
   banPokes: []
@@ -277,6 +278,7 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+/* 抽取睡姿 */
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   const res = getRandomSleepStyle(
     gameMap[userData.value.curMap],
@@ -289,7 +291,8 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isUseTicket: userData.value.isUseTicket,
       isActRandom: userData.value.isActRandom,
       extraTextIncense: t('PROP.incense'),
-      extraTextTicket: t('PROP.ticket')
+      extraTextTicket: t('PROP.ticket'),
+      shinyUp: userData.value.shinyUp
     }
   )
   // 随机个体
@@ -395,6 +398,7 @@ const handleClickTimes = () => {
   setDefaultCutNumber()
 }
 
+/* 点击抽取睡姿按钮 */
 const handleClickSleepOnce = () => {
   setAndGetRandomSleepStyle(
     getScore(randomSleepStyle.value.sleepPoint),
@@ -1124,13 +1128,33 @@ onMounted(() => {
             </div>
           </el-form-item>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableMapModel')">
-            <el-switch
-              v-model="userData.mapModel"
-              inline-prompt
-              :active-text="$t('OPTIONS.yes')"
-              :inactive-text="$t('OPTIONS.no')"
-              style="--el-switch-on-color: #ffaf00"
-            />
+            <span
+              style="
+                display: inline-block;
+                vertical-align: middle;
+                width: 105px;
+              "
+            >
+              <el-switch
+                v-model="userData.mapModel"
+                inline-prompt
+                :active-text="$t('OPTIONS.yes')"
+                :inactive-text="$t('OPTIONS.no')"
+                style="--el-switch-on-color: #ffaf00"
+              />
+            </span>
+            <div style="color: var(--el-text-color-regular)">
+              {{ $t("PAGE_SLEEPCALC.formLableShinyUp") }}
+              <span style="display: inline-block; vertical-align: middle">
+                <el-switch
+                  v-model="userData.shinyUp"
+                  inline-prompt
+                  :active-text="$t('OPTIONS.yes')"
+                  :inactive-text="$t('OPTIONS.no')"
+                  style="--el-switch-on-color: #ffaf00"
+                />
+              </span>
+            </div>
           </el-form-item>
           <el-form-item
             v-if="

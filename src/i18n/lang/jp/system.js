@@ -54,6 +54,7 @@ export default {
     'formLableSleepTime': '睡眠時間',
     'formLableRandomOptions': 'サブスキル抽選',
     'formLableMapModel': '地図モード',
+    'formLableShinyUp': '色違い率 UP',
     'formLableActRandom': 'ほかの睡眠タイプポケモン出現（少し）',
 
     'btnSleepOnceBefore': 'クリックで',

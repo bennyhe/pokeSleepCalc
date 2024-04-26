@@ -52,7 +52,8 @@ export default {
     'formLableSleepPoint': '睡眠分数',
     'formLableSleepTime': '睡眠时长',
     'formLableRandomOptions': '抽取选项',
-    'formLableMapModel': '地图模式',
+    'formLableMapModel': 'Map Model',
+    'formLableShinyUp': 'Shiny Up Model',
     'formLableActRandom': '活动无特征',
 
     'btnSleepOnceBefore': '点击抽取',

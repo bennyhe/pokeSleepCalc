@@ -73,7 +73,11 @@ export function getUnLockSleeps(levelList, curStageIndex) {
 }
 
 
-const getShinyPoke = () => {
+const getShinyPoke = isShinyUp => {
+  if (isShinyUp) {
+    // console.log('闪率up')
+    return parseInt(Math.floor(Math.random() * 40), 10) === 4
+  }
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
 const spacialPokemons = {
@@ -115,7 +119,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     banPokes: [],
     useIncensePokemonId: '',
     isUseTicket: false,
-    isActRandom: false
+    isActRandom: false,
+    shinyUp: false
   }
   const res = []
   const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
@@ -225,14 +230,14 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     if (curSpo < 2) {
       let pushZero = {
         ...spoZeroPoke,
-        isShiny: getShinyPoke()
+        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
         // extra: 'SPO<2' //debug
       }
       // 类型非无症状的活动无症状
       if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
         pushZero = {
           ...spoZeroPokeByType,
-          isShiny: getShinyPoke()
+          isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
           // extra: 'SPO<2' //debug
         }
       }
@@ -272,7 +277,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...rdmRes,
-        isShiny: getShinyPoke()
+        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
       })
       curSpo -= useSleepList[rdmIndex].spo
       if (curSpo < 2) {
@@ -287,7 +292,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   if (curSpo < 2) {
     res.push({
       ...spoZeroPoke,
-      isShiny: getShinyPoke()
+      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
     })
   } else {
     // 保底计算
@@ -308,7 +313,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     }
     res.push({
       ...lastList[0],
-      isShiny: getShinyPoke()
+      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
     })
   }
 
@@ -341,7 +346,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...resList[rdmIndexIn],
-        isShiny: getShinyPoke(),
+        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
         extra: extraSleepStyleOptions.extraTextIncense
       })
     } else {
@@ -352,7 +357,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...incensePokemonSleeps[0],
-        isShiny: getShinyPoke(),
+        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
         extra: extraSleepStyleOptions.extraTextIncense
       })
     }
@@ -389,7 +394,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     if (useOptionsCurSpo < 2) {
       res.push({
         ...spoZeroPoke,
-        isShiny: getShinyPoke(),
+        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
         isUseTicket: true,
         extra: `+${extraSleepStyleOptions.extraTextTicket}`
         // extra: 'SPO<2' //debug
@@ -402,7 +407,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
             Math.floor(Math.random() * resList.length),
             10
           )],
-          isShiny: getShinyPoke(),
+          isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
           isUseTicket: true,
           extra: `+${extraSleepStyleOptions.extraTextTicket}`
         })
@@ -410,7 +415,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         // 否则最低spo睡姿
         res.push({
           ...spoZeroPoke,
-          isShiny: getShinyPoke(),
+          isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
           isUseTicket: true,
           extra: `+${extraSleepStyleOptions.extraTextTicket}`
         })

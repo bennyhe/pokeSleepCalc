@@ -53,6 +53,7 @@ export default {
     'formLableSleepTime': '睡眠时长',
     'formLableRandomOptions': '抽取选项',
     'formLableMapModel': '地图模式',
+    'formLableShinyUp': '闪率UP',
     'formLableActRandom': '活动期间遇到一些其他类型宝可梦',
 
     'btnSleepOnceBefore': '点击抽取',
