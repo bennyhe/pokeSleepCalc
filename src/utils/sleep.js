@@ -78,7 +78,7 @@ const getShinyPoke = () => {
 }
 const spacialPokemons = {
   list: [243], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 35, 36, 173], // 不进保底
+  noLastList: [243, 35, 36, 173, 764], // 不进保底
   isGet: { // 露营券判断是否重复使用
     243: false
   }
