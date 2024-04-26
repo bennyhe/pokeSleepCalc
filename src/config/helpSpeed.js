@@ -65,7 +65,7 @@ export const skillOptionsExtra2 = [{
   label: 'berrys',
   txt: 'SUBSKILLS_NAMES.1'
 }]
-export const skillOptions = [{
+export const skillOptionsHelpSpeed = [{
   label: 'hs',
   txt: 'SUBSKILLS_NAMES.14',
   txtExtra: '(7%)',
@@ -75,7 +75,8 @@ export const skillOptions = [{
   txt: 'SUBSKILLS_NAMES.8',
   txtExtra: '(14%)',
   rare: 2
-}, {
+}]
+export const skillOptionsFoodPer = [{
   label: 'fs',
   txt: 'SUBSKILLS_NAMES.15',
   txtExtra: '(18%)',
@@ -85,7 +86,8 @@ export const skillOptions = [{
   txt: 'SUBSKILLS_NAMES.9',
   txtExtra: '(36%)',
   rare: 2
-}, {
+}]
+export const skillOptionsSkillPer = [{
   label: 'ss',
   txt: 'SUBSKILLS_NAMES.17',
   txtExtra: '(18%)',

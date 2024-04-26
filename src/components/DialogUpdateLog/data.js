@@ -4,8 +4,9 @@ const markdownText = `
 ## 24-04-26
 1. add 抽取睡姿-闪率UP
 2. update #764期望
-3. fix 视觉样式
-4. fix 随机雷公个体时出错
+3. update 帮速计算-交互优化
+4. fix 视觉样式
+5. fix 随机雷公个体时出错
 
 ## 24-04-25
 1. update 优化移动端的拆睡交互

@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
-import { sortInObjectOptions, toHMInLang } from '../utils/index.js'
+import { get, sortInObjectOptions, toHMInLang } from '../utils/index.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
@@ -12,10 +12,12 @@ import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
   allHelpType,
-  skillOptions,
   characterOptions,
   skillOptionsExtra,
   skillOptionsExtra2,
+  skillOptionsHelpSpeed,
+  skillOptionsFoodPer,
+  skillOptionsSkillPer,
   levelOptions
 } from '../config/helpSpeed.js'
 
@@ -298,10 +300,7 @@ const getTargetPokemonEnergy = pokeId => {
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
   )
-  pokeItem.foodPer = getNewFoodPer(
-    helpSpeedCalcForm.value,
-    pokeItem.foodPer
-  )
+  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
   pokeItem.skillPer = getNewSkillPer(
     helpSpeedCalcForm.value,
     pokeItem.skillPer
@@ -542,6 +541,20 @@ const setTargetListByHelp = () => {
   )
 }
 
+const getNatureDetail = cItem => {
+  let natureInfo = ''
+  if (get('useNatures', cItem, 1)) {
+    cItem.useNatures.forEach((natureId, natureIndex) => {
+      natureInfo += t(`NATURE_NAMES.${natureId}`)
+      if (natureIndex % 2 === 0 && cItem.useNatures.length > 1) {
+        natureInfo += '、'
+      }
+    })
+  }
+  natureInfo += cItem.txt
+  return natureInfo
+}
+
 const handleChangePokemon = () => {
   helpSpeedCalcForm.value.baseHelpSpeed =
     pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
@@ -635,7 +648,7 @@ watch(helpSpeedCalcForm.value, val => {
 </script>
 <template>
   <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
-  <el-form label-width="90px">
+  <el-form label-width="110px">
     <el-form-item label="宝可梦">
       <el-select
         v-model="helpSpeedCalcForm.pokemonId"
@@ -758,55 +771,99 @@ watch(helpSpeedCalcForm.value, val => {
           </el-checkbox>
         </el-checkbox-group>
       </div>
+    </el-form-item>
+    <el-form-item :label="$t(skillOptionsHelpSpeed[0].txt).replace('S', '')">
       <div style="width: 100%">
-        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-          <el-checkbox
+        <el-checkbox-group
+          class="el-checkbox-group--inline"
+          v-model="helpSpeedCalcForm.skill"
+          :min="0"
+          :max="5"
+        >
+          <el-checkbox-button
             :label="skillItem.label"
-            v-for="skillItem in skillOptions"
+            v-for="skillItem in skillOptionsHelpSpeed"
             v-bind:key="skillItem.label"
-            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`">{{
-              $t(skillItem.txt) + skillItem.txtExtra
-            }}</span></el-checkbox
+            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+              >{{ skillItem.txtExtra.indexOf("7") > -1 ? "S" : "M"
+              }}{{ skillItem.txtExtra }}</span
+            ></el-checkbox-button
           >
         </el-checkbox-group>
       </div>
+    </el-form-item>
+    <el-form-item :label="$t(skillOptionsFoodPer[0].txt).replace('S', '')">
       <div style="width: 100%">
-        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-          <el-checkbox
+        <el-checkbox-group
+          class="el-checkbox-group--inline"
+          v-model="helpSpeedCalcForm.skill"
+          :min="0"
+          :max="5"
+        >
+          <el-checkbox-button
+            :label="skillItem.label"
+            v-for="skillItem in skillOptionsFoodPer"
+            v-bind:key="skillItem.label"
+            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+              >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
+              }}{{ skillItem.txtExtra }}</span
+            ></el-checkbox-button
+          >
+        </el-checkbox-group>
+      </div>
+    </el-form-item>
+    <el-form-item :label="$t(skillOptionsSkillPer[0].txt).replace('S', '')">
+      <div style="width: 100%">
+        <el-checkbox-group
+          class="el-checkbox-group--inline"
+          v-model="helpSpeedCalcForm.skill"
+          :min="0"
+          :max="5"
+        >
+          <el-checkbox-button
+            :label="skillItem.label"
+            v-for="skillItem in skillOptionsSkillPer"
+            v-bind:key="skillItem.label"
+            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+              >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
+              }}{{ skillItem.txtExtra }}</span
+            ></el-checkbox-button
+          >
+        </el-checkbox-group>
+      </div>
+    </el-form-item>
+    <el-form-item :label="$t(skillOptionsExtra[0].txt)">
+      <div style="width: 100%">
+        <el-checkbox-group
+          class="el-checkbox-group--inline"
+          v-model="helpSpeedCalcForm.skill"
+          :min="0"
+          :max="5"
+        >
+          <el-checkbox-button
             :label="skillItem.label"
             v-for="skillItem in skillOptionsExtra"
             v-bind:key="skillItem.label"
             ><span class="cpt-skill cpt-skill--3">{{
-              $t(skillItem.txt) + skillItem.txtExtra
-            }}</span></el-checkbox
+              skillItem.txtExtra
+            }}</span></el-checkbox-button
           >
         </el-checkbox-group>
       </div>
       <div class="mod-tips">* 所有帮忙技能加成累积不能超过35%。</div>
     </el-form-item>
     <el-form-item :label="$t('PROP.nature')">
-      <el-radio-group v-model="helpSpeedCalcForm.character">
-        <el-radio
-          :label="cItem.label"
+      <el-select filterable v-model="helpSpeedCalcForm.character">
+        <el-option
+          :label="getNatureDetail(cItem)"
           v-for="cItem in characterOptions"
           v-bind:key="cItem.label"
           :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
+          :value="cItem.label"
         >
-          <template v-if="cItem.useNatures && cItem.useNatures.length > 0">
-            <template
-              v-for="(natureId, natureIndex) in cItem.useNatures"
-              v-bind:key="natureId"
-            >
-              {{ $t(`NATURE_NAMES.${natureId}`) }}
-              <template
-                v-if="natureIndex % 2 === 0 && cItem.useNatures.length > 1"
-                >、</template
-              >
-            </template>
-          </template>
-          {{ cItem.txt }}</el-radio
+          {{ getNatureDetail(cItem) }}</el-option
         >
-      </el-radio-group>
+      </el-select>
     </el-form-item>
     <el-form-item>
       <el-button type="success" plain @click="hanldeClickAddBox()"
