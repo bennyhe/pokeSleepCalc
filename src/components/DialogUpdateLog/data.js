@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-04-26
 1. update #764期望
 2. fix 视觉样式
+3. fix 随机雷公个体时出错
 
 ## 24-04-25
 1. update 优化移动端的拆睡交互
