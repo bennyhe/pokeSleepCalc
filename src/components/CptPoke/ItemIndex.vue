@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, computed } from 'vue'
+import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { toHMInLang } from '../../utils/index.js'
 import { POKE_TYPES } from '../../config/valKey.js'
@@ -61,6 +62,17 @@ const props = defineProps({
     >
       {{ $t(`SLEEP_TYPES.${pokedex[pokeId].sleepType}`) }}
     </div>
+    <p
+      v-if="
+        pokedex[pokeId].friendship &&
+        props.showKey &&
+        props.showKey.includes('friendship')
+      "
+      class="cpt-pokemon__friendship"
+    >
+      <SvgIcon type="love" size="small" />
+      {{ pokedex[pokeId].friendship }}
+    </p>
     <p
       v-if="
         pokedex[pokeId].pokeType >= 0 &&

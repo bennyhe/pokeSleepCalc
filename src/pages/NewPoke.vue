@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['pokeType', 'sleepType', 'helpSpeed']
+  const showKey = ['pokeType', 'sleepType', 'helpSpeed', 'friendship']
   if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
     const res = pokedex[pokemonsItem]
     // console.log(res)
