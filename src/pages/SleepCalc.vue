@@ -1753,7 +1753,7 @@ onMounted(() => {
         </p>
       </div>
     </div>
-    <div class="sleeplist">
+    <div class="sleeplist sleeplist-unlock">
       <div class="page-inner">
         <h3>
           {{ $t("PAGE_SLEEPCALC.sleepStyle") }}
