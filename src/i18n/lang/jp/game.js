@@ -1,5 +1,6 @@
 export default {
   'PROP': {
+    'pokemon': 'ポケモン',
     'incense': 'おこう',
     'ticket': 'いいキャンプチケット',
     'shiny': '色違',
@@ -10,7 +11,8 @@ export default {
     'food': '食材',
     'mainSkill': 'メインスキル',
     'subSkill': 'サブスキル',
-    'nature': 'せいかく'
+    'nature': 'せいかく',
+    'helpSpeed': 'おてつだい'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

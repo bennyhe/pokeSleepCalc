@@ -1,5 +1,6 @@
 export default {
   'PROP': {
+    'pokemon': '宝可梦',
     'incense': '熏香',
     'ticket': '露营券',
     'shiny': '闪光',

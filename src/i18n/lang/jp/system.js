@@ -19,7 +19,8 @@ export default {
     'lastGet': '最終枠',
     'getWithout': '寝顔抽選の抜去',
     'detail': 'の詳細',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'noHas': 'ない'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
@@ -69,6 +70,9 @@ export default {
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
     'tipsUseTickets1': 'いいキャップチケット（第1回目寝）はおまけ１匹、おこうり使いもおまけ１匹。',
     'tipsUseTickets2': 'いいキャップチケットとおこうり使いは計算範囲外。'
+  },
+  'PAGE_HELPSPEEDCALC': {
+    'tipsHS': 'おてつだいスピード関係のサブスキルによるおてつだい時間短縮効果の上限は35％となっている。'
   },
   'TIPS': {
     'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',

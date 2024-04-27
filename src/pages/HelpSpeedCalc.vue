@@ -131,7 +131,7 @@ const getNewHelpSpeed = (formData, level) => {
     basichelp += 0.05 * 5
   }
   if (basichelp >= 0.35) {
-    // 所有帮忙技能加起来不能大于35%
+    // 所有帮速技能加起来不能大于35%
     basichelp = 0.35
   }
   let res = Math.floor(
@@ -240,13 +240,13 @@ const getPlayerExtraDesc = pokemons => {
     extraDesc += '\n'
   }
   if (pokemons.skill.includes('hs')) {
-    extraDesc += '帮忙S'
+    extraDesc += '帮速S'
   }
   if (pokemons.skill.includes('hs') && pokemons.skill.includes('hm')) {
     extraDesc += ','
   }
   if (pokemons.skill.includes('hm')) {
-    extraDesc += '帮忙M'
+    extraDesc += '帮速M'
   }
   if (pokemons.skill.includes('hg1')) {
     extraDesc += '\n帮手奖励*1'
@@ -363,10 +363,10 @@ const getTargetPokemonEnergy = pokeId => {
     character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
   let tempExtra2 = '食材S,M\n性格:帮↑'
-  let tempExtra3 = '帮忙S,M\n性格:固执'
+  let tempExtra3 = '帮速S,M\n性格:固执'
   let tempExtra4 = '食材S,M\n性格:食↑'
   let tempExtra5 = '技率S,M\n性格:技↑'
-  let tempExtra6 = '技M,帮忙M\n性格:技↑'
+  let tempExtra6 = '技M,帮速M\n性格:技↑'
   if (helpSpeedCalcForm.value.level < 50) {
     tempSCOptions2.skill = ['fm']
     tempSCOptions3.skill = ['hm']
@@ -374,7 +374,7 @@ const getTargetPokemonEnergy = pokeId => {
     tempSCOptions5.skill = ['sm']
     tempSCOptions6.skill = ['hm']
     tempExtra2 = '食材M\n性格:帮↑'
-    tempExtra3 = '帮忙M\n性格:固执'
+    tempExtra3 = '帮速M\n性格:固执'
     tempExtra4 = '食材M\n性格:食↑'
     tempExtra5 = '技率M\n性格:技↑'
     tempExtra6 = '技M\n性格:技↑'
@@ -543,6 +543,9 @@ const setTargetListByHelp = () => {
 
 const getNatureDetail = cItem => {
   let natureInfo = ''
+  if (cItem.label === 'none') {
+    return t(`OPTIONS.${cItem.txt}`)
+  }
   if (get('useNatures', cItem, 1)) {
     cItem.useNatures.forEach((natureId, natureIndex) => {
       natureInfo += t(`NATURE_NAMES.${natureId}`)
@@ -648,11 +651,10 @@ watch(helpSpeedCalcForm.value, val => {
 </script>
 <template>
   <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
-  <el-form label-width="110px">
-    <el-form-item label="宝可梦">
+  <el-form label-width="90px">
+    <el-form-item :label="$t('PROP.pokemon')">
       <el-select
         v-model="helpSpeedCalcForm.pokemonId"
-        placeholder="请选择宝可梦"
         filterable
         @change="handleChangePokemon()"
       >
@@ -850,7 +852,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
         </el-checkbox-group>
       </div>
-      <div class="mod-tips">* 所有帮忙技能加成累积不能超过35%。</div>
+      <div class="mod-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
     </el-form-item>
     <el-form-item :label="$t('PROP.nature')">
       <el-select filterable v-model="helpSpeedCalcForm.character">
@@ -972,7 +974,7 @@ watch(helpSpeedCalcForm.value, val => {
         </template>
       </ul>
     </el-form-item>
-    <el-form-item label="适正岛屿">
+    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <el-switch
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
@@ -985,7 +987,7 @@ watch(helpSpeedCalcForm.value, val => {
       <el-switch
         v-model="helpSpeedCalcForm.isUseTicket"
         inline-prompt
-        :active-text="`${$t('OPTIONS.use')}(帮忙1.2倍)`"
+        :active-text="`${$t('OPTIONS.use')}(${$t('PROP.helpSpeed')}1.2倍)`"
         :inactive-text="$t('OPTIONS.nouse')"
         style="--el-switch-on-color: #ffaf00"
       />

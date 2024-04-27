@@ -121,7 +121,7 @@ export const skillOptionsExtra = [{
 }]
 export const characterOptions = [{
   label: 'none',
-  txt: '无加成' // (害羞、勤奮、坦率、浮躁、認真)
+  txt: 'noHas' // (害羞、勤奮、坦率、浮躁、認真)
 }, {
   label: 'fdown',
   txt: '(食↓-20%)',

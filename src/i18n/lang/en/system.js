@@ -18,7 +18,8 @@ export default {
     'lastGet': 'Last get',
     'getWithout': 'Without',
     'detail': 'Detail',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'noHas': '没有'
   },
   'SHORT_SKILL': {
     'berrys': 'Berry S'
@@ -68,6 +69,9 @@ export default {
     'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。',
     'tipsUseTickets1': '使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。',
     'tipsUseTickets2': '使用露营券&熏香不在计算范围内。'
+  },
+  'PAGE_HELPSPEEDCALC': {
+    'tipsHS': '所有帮速的技能&性格加成累积不能超过35%。'
   },
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',
