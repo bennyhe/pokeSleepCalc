@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-04-27
 1. update 日语化
+2. update 视觉样式
 
 ## 24-04-26
 1. add 抽取睡姿-闪率UP

@@ -395,22 +395,22 @@ h4 {
   &--1 {
     color: #563426;
     background: linear-gradient(to bottom, #fcfbfc 0%, #f6f6f6 100%);
-    box-shadow: 0 1px #dcdcdc inset, 0 1px #e9f1f4;
+    box-shadow: 0 0 1px #dcdcdc inset, 0 1px #ededed;
     border: 1px solid #b3b3b3;
   }
 
   &--2 {
     color: #243a4c;
     background: linear-gradient(to bottom, #d5eefc 0%, #ceebfc 100%);
-    box-shadow: 0 1px #93caf0 inset, 0 1px #e9f1f4;
-    border: 1px solid #5586b5;
+    box-shadow: 0 0 1px #9bd9fc inset, 0 1px #ededed;
+    border: 1px solid #2266c7;
   }
 
   &--3 {
     color: #6a3600;
     background: linear-gradient(to bottom, #fedf85 0%, #fbe764 100%);
     box-shadow: 0 1px #fff5e6 inset, 0 1px #e9f1f4;
-    border: 1px solid #ca9c85;
+    border: 1px solid #d9903b;
   }
 }
 
