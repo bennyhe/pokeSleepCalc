@@ -11,7 +11,8 @@ export default {
     'food': '食材',
     'mainSkill': '主技能',
     'subSkill': '副技能',
-    'nature': '性格'
+    'nature': '性格',
+    'helpSpeed': '帮忙速度'
   },
   'BALL_TYPES': {
     1:'普通沙布雷',
