@@ -12,7 +12,9 @@ export default {
     'mainSkill': 'メインスキル',
     'subSkill': 'サブスキル',
     'nature': 'せいかく',
-    'helpSpeed': 'おてつだい'
+    'helpSpeed': 'おてつだい',
+    'esMaxPoints': 'フレンドポイントMAX',
+    'esFull': '満腹です'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

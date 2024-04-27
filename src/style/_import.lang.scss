@@ -17,6 +17,7 @@
   .cpt-select-list--iland .cpt-select-list__item {
     width: 134px;
   }
+
   .cpt-select-list__name {
     font-size: 14px;
   }
@@ -31,6 +32,7 @@
     .poke-tb__item .cpt-select-list__item {
       border-radius: 8px;
     }
+
     .cpt-select-list__name {
       font-size: 11px;
       padding-top: 3px;
@@ -47,5 +49,11 @@
     .berry {
       font-size: 10px;
     }
+  }
+
+  .cpt-friendship--max {
+    line-height: 1;
+    font-size: 10px;
+    white-space: normal;
   }
 }

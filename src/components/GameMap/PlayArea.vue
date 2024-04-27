@@ -71,10 +71,7 @@ const pokeBall = [
                 }"
               >
                 <template v-if="sleepItem.eatStateType === 1"
-                  ><img
-                    :src="`./img/ui/hungry.png`"
-                    :alt="$t('PROP.hungry')"
-                  />
+                  ><img :src="`./img/ui/hungry.png`" :alt="$t('PROP.hungry')" />
                   <p>{{ $t("PROP.hungry") }}</p></template
                 >
               </div>
@@ -98,12 +95,12 @@ const pokeBall = [
                   {{ catchPokeFriendshipLevel[sleepItem.pokeId] }}
                   <p>Lv.</p>
                 </div>
-                <template v-if="sleepItem.eatStateType === 2"
-                  >友情点数MAX</template
-                >
-                <template v-else-if="sleepItem.eatStateType === 4"
-                  >吃饱了</template
-                >
+                <template v-if="sleepItem.eatStateType === 2">{{
+                  $t("PROP.esMaxPoints")
+                }}</template>
+                <template v-else-if="sleepItem.eatStateType === 4">{{
+                  $t("PROP.esFull")
+                }}</template>
                 <template v-else>
                   <template v-if="pokedex[sleepItem.pokeId].friendship > 7">
                     <div class="row">
@@ -170,11 +167,9 @@ const pokeBall = [
             <div class="cpt-pokemon">
               <div class="cpt-pokemon__pic">
                 <img
-                  :src="
-                    `./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
-                      sleepItem.pokeId
-                    }.png`
-                  "
+                  :src="`./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
+                    sleepItem.pokeId
+                  }.png`"
                   :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
                 />
               </div>
@@ -226,8 +221,8 @@ const pokeBall = [
           />
           <p>{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>
           <p>
-            <span class="sptime">{{ hasBall[ballItem.id] }}</span
-            >{{ $t("OPTIONS.oneThing") }}
+            x <span class="sptime">{{ hasBall[ballItem.id] }}</span
+            >
           </p>
         </div>
       </div>

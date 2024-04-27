@@ -12,7 +12,9 @@ export default {
     'mainSkill': '主技能',
     'subSkill': '副技能',
     'nature': '性格',
-    'helpSpeed': '帮忙速度'
+    'helpSpeed': '帮忙速度',
+    'esMaxPoints': '友情点数MAX',
+    'esFull': '吃饱了'
   },
   'BALL_TYPES': {
     1:'宝可沙布雷',

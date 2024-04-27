@@ -12,7 +12,9 @@ export default {
     'mainSkill': '主技能',
     'subSkill': '副技能',
     'nature': '性格',
-    'helpSpeed': '帮忙速度'
+    'helpSpeed': '帮忙速度',
+    'esMaxPoints': 'Max Friendship Points!',
+    'esFull': 'All Full!'
   },
   'BALL_TYPES': {
     1: 'Poké Biscuit',
