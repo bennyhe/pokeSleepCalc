@@ -19,7 +19,7 @@ export default {
     'getWithout': '抽取去除',
     'detail': '详情',
     'restart': '从头再来',
-    'nohas': '无'
+    'noHas': '无'
   },
   'SHORT_SKILL': {
     'berrys': '树果S'
