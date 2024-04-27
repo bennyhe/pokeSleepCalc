@@ -12,6 +12,7 @@ import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import PageSleepLab from './pages/SleepLab.vue'
 
 import { updatePoke } from './config/pokedex.js'
+import { NAV_LANG } from './config/nav.js'
 
 const newUpdatePoke = [...updatePoke.reverse()]
 const showPageIndex = ref('0')
@@ -42,20 +43,6 @@ const handleClickNav = key => {
 }
 
 const sellang = ref(localStorage.getItem('psclang') || 'cn')
-const allLang = [
-  {
-    id: 'cn',
-    name: '中文'
-  },
-  {
-    id: 'jp',
-    name: '日本語'
-  }
-  // {
-  //   id: 'en',
-  //   name: 'English'
-  // }
-]
 const { locale } = useI18n() // 先调用此方法，然后再使用
 const handleClickChangeLang = () => {
   locale.value = sellang.value
@@ -78,7 +65,7 @@ onMounted(() => {
       <select v-model="sellang" @change="handleClickChangeLang()">
         <option
           :value="item.id"
-          v-for="(item, index) in allLang"
+          v-for="(item, index) in NAV_LANG"
           v-bind:key="index"
         >
           {{ item.name }}

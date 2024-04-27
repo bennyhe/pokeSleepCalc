@@ -28,3 +28,17 @@ export const NAV_HELPSPEEDCALC = {
   ],
   navIndex: 0
 }
+export const NAV_LANG = [
+  {
+    id: 'cn',
+    name: '中文'
+  },
+  {
+    id: 'jp',
+    name: '日本語'
+  }
+  // {
+  //   id: 'en',
+  //   name: 'English'
+  // }
+]
