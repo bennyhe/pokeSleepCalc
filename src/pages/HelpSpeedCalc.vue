@@ -287,10 +287,10 @@ const getPlayerExtraDesc = pokemons => {
   if (pokemons.skill.includes('sm')) {
     extraDesc += '技率M'
   }
-  const resTxt = characterOptions.find(item => item.label === pokemons.character).txt
-  extraDesc += `\n${
-    resTxt === 'noHas' ? '性格:无' : ''
-  }`
+  const resTxt = characterOptions.find(
+    item => item.label === pokemons.character
+  )
+  extraDesc += `\n${t('PROP.nature')}:${getNatureDetail(resTxt)}`
   return extraDesc
 }
 
