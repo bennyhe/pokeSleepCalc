@@ -12,33 +12,13 @@ import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import PageSleepLab from './pages/SleepLab.vue'
 
 import { updatePoke } from './config/pokedex.js'
-import { NAV_LANG } from './config/nav.js'
+import { NAV_LANG, NAV_PAGE } from './config/nav.js'
 
 const newUpdatePoke = [...updatePoke.reverse()]
-const showPageIndex = ref('0')
-const nav = [
-  {
-    name: 'SLEEP CALC'
-  },
-  {
-    name: 'FOOD RECOMMEND'
-  },
-  {
-    name: 'HELP SPEED CALC'
-  },
-  {
-    name: 'POKEDEX'
-  },
-  {
-    name: 'ONE DAY ENERGY'
-  },
-  {
-    name: 'NEW'
-  }
-]
+const navData = ref(NAV_PAGE)
 
 const handleClickNav = key => {
-  showPageIndex.value = key
+  navData.value.navIndex = key
   window.scrollTo(0, 0)
 }
 
@@ -54,7 +34,7 @@ const handleClickChangeLang = () => {
 onMounted(() => {
   // console.log('组件已经挂载')
   if (getUrlQuery('p') !== undefined) {
-    showPageIndex.value = getUrlQuery('p')
+    navData.value.navIndex = getUrlQuery('p')
   }
 })
 </script>
@@ -72,50 +52,50 @@ onMounted(() => {
         </option>
       </select>
     </span>
-    <div class="page-item" :class="{ cur: +showPageIndex === 0 }">
+    <div class="page-item" :class="{ cur: +navData.navIndex === 0 }">
       <PageSleepCalc />
     </div>
     <div
       class="page-item"
-      :class="{ cur: +showPageIndex === 1 }"
-      v-if="+showPageIndex === 1"
+      :class="{ cur: +navData.navIndex === 2 }"
+      v-if="+navData.navIndex === 2"
     >
       <PageFoodRec />
     </div>
-    <div class="page-item page-pokedex" :class="{ cur: +showPageIndex === 3 }">
-      <PagePokedex />
-    </div>
     <div
       class="page-item page-helpcalc"
-      :class="{ cur: +showPageIndex === 2 }"
-      v-if="+showPageIndex === 2"
+      :class="{ cur: +navData.navIndex === 3 }"
+      v-if="+navData.navIndex === 3"
     >
       <PageHelpSpeedCalc />
     </div>
+    <div class="page-item page-pokedex" :class="{ cur: +navData.navIndex === 4 }">
+      <PagePokedex />
+    </div>
     <div
       class="page-item"
-      :class="{ cur: +showPageIndex === 4 }"
-      v-if="+showPageIndex === 4"
+      :class="{ cur: +navData.navIndex === 5 }"
+      v-if="+navData.navIndex === 5"
     >
       <PageOneDayEnergy />
     </div>
     <div
       class="page-item"
-      :class="{ cur: +showPageIndex === 5 }"
-      v-if="+showPageIndex === 5"
+      :class="{ cur: +navData.navIndex === 6 }"
+      v-if="+navData.navIndex === 6"
     >
       <PageNew :newUpdatePoke="newUpdatePoke" />
     </div>
-    <div class="page-item cur" v-if="showPageIndex === '0383a0134484d5bd'">
+    <div class="page-item cur" v-if="navData.navIndex === '0383a0134484d5bd'">
       <PageSleepLab />
     </div>
     <PageFooter />
     <nav class="nav">
       <ul>
         <li
-          v-for="(navItem, key) in nav"
+          v-for="(navItem, key) in navData.navList"
           v-bind:key="navItem.name"
-          :class="{ cur: +showPageIndex === key }"
+          :class="{ cur: +navData.navIndex === key }"
           @click="handleClickNav(key)"
         >
           {{ navItem.name }}

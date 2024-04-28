@@ -1,3 +1,29 @@
+export const NAV_PAGE = {
+  navList: [
+    {
+      name: 'SLEEP CALC'
+    },
+    {
+      name: 'CANDYS CALC'
+    },
+    {
+      name: 'FOOD RECOMMEND'
+    },
+    {
+      name: 'HELP SPEED CALC'
+    },
+    {
+      name: 'POKEDEX'
+    },
+    {
+      name: 'ONE DAY ENERGY'
+    },
+    {
+      name: 'NEW'
+    }
+  ],
+  navIndex: 0
+}
 export const NAV_SLEEPCALC = {
   navList: [
     {
