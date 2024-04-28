@@ -287,8 +287,9 @@ const getPlayerExtraDesc = pokemons => {
   if (pokemons.skill.includes('sm')) {
     extraDesc += '技率M'
   }
+  const resTxt = characterOptions.find(item => item.label === pokemons.character).txt
   extraDesc += `\n${
-    characterOptions.find(item => item.label === pokemons.character).txt
+    resTxt === 'noHas' ? '性格:无' : ''
   }`
   return extraDesc
 }
