@@ -573,6 +573,11 @@ h4 {
 
   &__friendship {
     color: #f54445;
+    line-height: 16px;
+
+    .svg-icon {
+      vertical-align: top;
+    }
   }
 
   &.shiny {
