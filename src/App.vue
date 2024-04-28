@@ -10,6 +10,7 @@ import PageNew from './pages/NewPoke.vue'
 import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
 import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import PageSleepLab from './pages/SleepLab.vue'
+import PageCandyCalc from './pages/CandyCalc.vue'
 
 import { updatePoke } from './config/pokedex.js'
 import { NAV_LANG, NAV_PAGE } from './config/nav.js'
@@ -54,6 +55,13 @@ onMounted(() => {
     </span>
     <div class="page-item" :class="{ cur: +navData.navIndex === 0 }">
       <PageSleepCalc />
+    </div>
+    <div
+      class="page-item"
+      :class="{ cur: +navData.navIndex === 1 }"
+      v-if="+navData.navIndex === 1"
+    >
+      <PageCandyCalc />
     </div>
     <div
       class="page-item"
