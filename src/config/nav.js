@@ -4,10 +4,10 @@ export const NAV_PAGE = {
       name: 'SLEEP CALC'
     },
     {
-      name: 'CANDY CALC'
+      name: 'FOOD RECOMMEND'
     },
     {
-      name: 'FOOD RECOMMEND'
+      name: 'CANDY CALC'
     },
     {
       name: 'HELP SPEED CALC'

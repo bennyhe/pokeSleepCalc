@@ -61,14 +61,14 @@ onMounted(() => {
       :class="{ cur: +navData.navIndex === 1 }"
       v-if="+navData.navIndex === 1"
     >
-      <PageCandyCalc />
+      <PageFoodRec />
     </div>
     <div
-      class="page-item"
+      class="page-item page-candycalc"
       :class="{ cur: +navData.navIndex === 2 }"
       v-if="+navData.navIndex === 2"
     >
-      <PageFoodRec />
+      <PageCandyCalc />
     </div>
     <div
       class="page-item page-helpcalc"

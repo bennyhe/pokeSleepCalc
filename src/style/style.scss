@@ -194,13 +194,16 @@ h4 {
   font-size: 10px;
   text-align: center;
   color: lighten($color: $mainColor, $amount: 20%);
+  background-color: #f1f1f1;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 1px solid lighten($color: $mainColor, $amount: 20%);
+  width: 24px;
+  height: 24px;
 
   &__pic {
-    width: 24px;
-    height: 24px;
-    border: 1px solid lighten($color: $mainColor, $amount: 20%);
-    border-radius: 100%;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -414,6 +417,15 @@ h4 {
   }
 }
 
+
+.nature-up {
+  color: #c02c38
+}
+
+.nature-down {
+  color: $navColor
+}
+
 .cpt-iv {
   font-size: 14px;
   line-height: 1.4;
@@ -495,14 +507,6 @@ h4 {
 
   .berry {
     text-align: center;
-  }
-
-  .nature-up {
-    color: #c02c38
-  }
-
-  .nature-down {
-    color: $navColor
   }
 
 
@@ -1578,6 +1582,14 @@ h4 {
   }
 }
 
+.page-candycalc {
+  .el-radio-button__original-radio:checked+.el-radio-button__inner {
+      color: #1c4f00;
+      border-color: #4caf50;
+      background-color: #abe8ae;
+    }
+}
+
 // 多语言界面适配
 @import "./_import.lang.scss";
 
@@ -1623,6 +1635,18 @@ h4 {
 
     .el-select-sleepstyle {
       width: 130px;
+    }
+
+    .el-radio-button--small .el-radio-button__inner {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+
+  .page-candycalc {
+    .cpt-avatar {
+      width: 16px;
+      height: 16px
     }
 
     .el-radio-button--small .el-radio-button__inner {
