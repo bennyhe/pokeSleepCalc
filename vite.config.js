@@ -54,6 +54,8 @@ export default defineConfig({
             return 'lang'
           } else if (id.includes('config/sleepStyle.js') || id.includes('config/pokedex.js') || id.includes('config/spo.js')) {
             return 'pokedex'
+          } else if (id.includes('components/DialogUpdateLog/data.js')) {
+            return 'update'
           } else if (id.includes('config')) {
             return 'config'
           } else if (id.includes('src/pages/SleepCalc.vue')) {
