@@ -15,6 +15,12 @@ const candyCalcForm = ref({
   toLevel: 30,
   nature: 'normal'
 })
+const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
+levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
+levelOptionsTo.push({
+  label: 55,
+  txt: 'Lv.55'
+})
 const getExp = (fromLevel, toLevel) => {
   const fromExp = Math.round(
     LEVEL_EXP[fromLevel - 1] * candyCalcForm.value.pType
@@ -87,7 +93,7 @@ const getRes = () => {
       </el-radio-group>
     </el-form-item>
     <el-form-item :label="$t('NATURE_UPDOWN.EXP獲得量')">
-      <el-radio-group size="small" v-model="candyCalcForm.nature">
+      <el-radio-group v-model="candyCalcForm.nature">
         <el-radio-button class="radiogroup--level" :label="'down'">
           <span class="nature-down">▽▽</span>
         </el-radio-button>
@@ -135,7 +141,7 @@ const getRes = () => {
       <template v-else>Lv.55</template>
       <div style="width: 100%">
         <el-radio-group v-model="candyCalcForm.toLevel" size="small">
-          <template v-for="cItem in levelOptions" v-bind:key="cItem.label">
+          <template v-for="cItem in levelOptionsTo" v-bind:key="cItem.label">
             <el-radio-button
               :disabled="candyCalcForm.fromLevel + 1 > cItem.label"
               class="radiogroup--level"
