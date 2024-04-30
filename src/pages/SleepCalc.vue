@@ -64,8 +64,9 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: false,
-  banPokes: []
+  onOffBan: true,
+  showBan: true,
+  banPokes: [37, 38]
 })
 const userSleep = ref({
   count: 0,
@@ -280,13 +281,17 @@ const getFilterInTypes = (arr, sleepType) => {
 
 /* 抽取睡姿 */
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
+  let banPokes = []
+  if (userData.value.onOffBan) {
+    banPokes = userData.value.banPokes
+  }
   const res = getRandomSleepStyle(
     gameMap[userData.value.curMap],
     userData.value.curUnLockSleepType,
     score,
     curStageIndex,
     {
-      banPokes: userData.value.banPokes,
+      banPokes,
       useIncensePokemonId: userData.value.useIncensePokemonId,
       isUseTicket: userData.value.isUseTicket,
       isActRandom: userData.value.isActRandom,
@@ -378,7 +383,10 @@ const handleClickSleepMoreTimes = () => {
   if (!userData.value.isMoreCalcLoading) {
     console.log('start clac more times...')
     userData.value.isMoreCalcLoading = true
-
+    let banPokes = []
+    if (userData.value.onOffBan) {
+      banPokes = userData.value.banPokes
+    }
     getRandomHope(
       gameMap[userData.value.curMap],
       userData.value.curUnLockSleepType,
@@ -386,7 +394,7 @@ const handleClickSleepMoreTimes = () => {
       userData.value.curStageIndex,
       getTimes,
       {
-        banPokes: userData.value.banPokes,
+        banPokes,
         isActRandom: userData.value.isActRandom
       },
       getRandomHopeCb
@@ -1158,24 +1166,24 @@ onMounted(() => {
           </el-form-item>
           <el-form-item
             v-if="
-              (userData.curMap === 0 ||
-                userData.curMap === 1 ||
-                userData.curMap === 4) &&
-              userData.onOffBan
+              (userData.curMap === 0 || userData.curMap === 2) &&
+              userData.showBan
             "
           >
-            <el-checkbox-group v-model="userData.banPokes" size="small">
-              <el-checkbox :label="764"
-                >{{ $t("OPTIONS.getWithout")
-                }}<span class="cpt-avatar">
+            <el-checkbox v-model="userData.onOffBan" size="small"
+              >{{ $t("OPTIONS.getWithout")
+              }}<template
+                v-for="chItem in userData.banPokes"
+                v-bind:key="`ban${chItem}`"
+                ><span class="cpt-avatar">
                   <img
                     class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${764}.png`"
-                    :alt="$t(`POKEMON_NAME.${764}`)"
+                    v-lazy="`./img/pokedex/${chItem}.png`"
+                    :alt="$t(`POKEMON_NAME.${chItem}`)"
                   /> </span
-                >{{ $t(`POKEMON_NAME.${764}`) }}</el-checkbox
-              >
-            </el-checkbox-group>
+                >{{ $t(`POKEMON_NAME.${chItem}`) }}</template
+              ></el-checkbox
+            >
           </el-form-item>
         </el-form>
         <div class="page-inner mb3">
