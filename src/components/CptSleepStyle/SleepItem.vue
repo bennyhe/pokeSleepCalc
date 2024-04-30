@@ -89,6 +89,7 @@ const props = defineProps({
       <p class="cpt-tag-important" v-if="sleepItem.extra">
         {{ sleepItem.extra }}
       </p>
+      <slot />
       <p v-if="showMapLevel && sleepItem.unLockLevel !== undefined">
         <img
           class="icon"

@@ -2,7 +2,11 @@
 import { ref } from 'vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
-import { getRandomHope, getLevelIndexByEnergy } from '../utils/sleep.js'
+import {
+  getRandomHope,
+  getLevelIndexByEnergy,
+  getSPOById
+} from '../utils/sleep.js'
 import {
   getDecimalNumber,
   getNum,
@@ -366,7 +370,7 @@ const handleClickChangeMap = id => {
       </div>
     </template>
   </div>
-  <div class="poke-tb hide">
+  <div class="poke-tb hid e">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"
@@ -377,7 +381,14 @@ const handleClickChangeMap = id => {
             :showMapLevel="true"
             :sleepItem="sleepItem"
             :showKey="['sleepType']"
-          />
+          >
+            <p v-if="SPO_DATA[sleepItem.id]">
+              spoId: {{ SPO_DATA[sleepItem.id].id }}
+            </p>
+            <p v-if="SPO_DATA[sleepItem.id]">
+              spo: {{ getSPOById(sleepItem.id) }}
+            </p>
+          </CptSleepStyle>
         </div>
       </template>
     </template>
