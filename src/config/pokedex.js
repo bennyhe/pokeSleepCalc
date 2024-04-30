@@ -42,7 +42,8 @@ const evoLine = [
   [447, 448],
   [453, 454],
   [459, 460],
-  [759, 760]
+  [759, 760],
+  [37, 38]
 ]
 const pokedex = {
   1: {
@@ -354,7 +355,6 @@ const pokedex = {
     pokeType: 1,
     berryType: 12,
     helpSpeed: 4000,
-    berryType: 12,
     foodPer: 16.83,
     skillPer: 3.594
   },
@@ -367,9 +367,32 @@ const pokedex = {
     pokeType: 1,
     berryType: 12,
     helpSpeed: 2800,
-    berryType: 12,
     foodPer: 16.81,
     skillPer: 3.599
+  },
+  37: {
+    id: 37,
+    // name: '六尾',
+    friendship: 5,
+    sleepType: 2,
+    skillType: 4,
+    pokeType: 1,
+    berryType: 10,
+    helpSpeed: 4700
+    // foodPer: 0,
+    // skillPer: 0
+  },
+  38: {
+    id: 38,
+    // name: '九尾',
+    friendship: 20,
+    sleepType: 2,
+    skillType: 4,
+    pokeType: 1,
+    berryType: 10,
+    helpSpeed: 2600
+    // foodPer: 0,
+    // skillPer: 0
   },
   39: {
     id: 39,
@@ -1288,7 +1311,6 @@ const pokedex = {
     pokeType: 1,
     berryType: 12,
     helpSpeed: 5600,
-    berryType: 12,
     foodPer: 16.33,
     skillPer: 3.400,
     food: {
@@ -2380,7 +2402,7 @@ const updatePoke = [{
   pokemons: [702, 243]
 }, {
   time: '2024/04/1',
-  pokemons: [764]
+  pokemons: [764, 37, 38]
 }]
 // console.log(pokedex)
 export {

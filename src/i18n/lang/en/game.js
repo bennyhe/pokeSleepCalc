@@ -244,6 +244,8 @@ export default {
     26: 'Raichu',
     35: 'Clefairy',
     36: 'Clefable',
+    37: 'Vulpix',
+    38: 'Ninetales',
     39: 'Jigglypuff',
     40: 'Wigglytuff',
     50: 'Diglett',
