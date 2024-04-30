@@ -333,7 +333,7 @@ const handleClickChangeMap = id => {
     </div>
   </div>
   <div class="hide">
-    <template v-for="gmItem in gameMap" v-bind:key="gmItem.id">
+    <template v-for="gmItem in [gameMap[pageData.curMap]]" v-bind:key="gmItem.id">
       <h3>
         {{ gmItem.name }}
       </h3>
@@ -357,9 +357,9 @@ const handleClickChangeMap = id => {
             <CptPoke :pokeId="SLEEP_STYLE[sleepId].pokeId" />
             <p>{{ SLEEP_STYLE[sleepId].id }}</p>
             <p>{{ SLEEP_STYLE[sleepId].star }}星</p>
-            <div v-if="SPO_DATA[sleepId] && SPO_DATA[sleepId].spo">
-              <p>SPO:{{ SPO_DATA[sleepId].spo }}</p>
+            <div v-if="getSPOById(sleepId)">
               <p>SPOID:{{ SPO_DATA[sleepId].id }}</p>
+              <p>SPO:{{ getSPOById(sleepId) }}</p>
             </div>
             <div v-else>没有spo</div>
             <p>{{ SLEEP_STYLE[sleepId].exp }}</p>
@@ -370,7 +370,7 @@ const handleClickChangeMap = id => {
       </div>
     </template>
   </div>
-  <div class="poke-tb hid e">
+  <div class="poke-tb hide">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"
@@ -382,6 +382,9 @@ const handleClickChangeMap = id => {
             :sleepItem="sleepItem"
             :showKey="['sleepType']"
           >
+            <p v-if="sleepItem.id">
+              {{sleepItem.id }}
+            </p>
             <p v-if="SPO_DATA[sleepItem.id]">
               spoId: {{ SPO_DATA[sleepItem.id].id }}
             </p>
