@@ -22,6 +22,9 @@ export default {
     'restart': 'RESTART',
     'noHas': 'ない'
   },
+  'PLACEHOLDER': {
+    'energy': 'エナジーを入力してください'
+  },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
   },

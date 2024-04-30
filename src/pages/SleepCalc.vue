@@ -750,7 +750,7 @@ onMounted(() => {
           <el-input
             type="tel"
             v-model="userData.CurEnergy"
-            placeholder="请输入当前能量"
+            :placeholder="$t('PLACEHOLDER.energy')"
             clearable
             class="m-2"
             @blur="handleBlurEnergy"

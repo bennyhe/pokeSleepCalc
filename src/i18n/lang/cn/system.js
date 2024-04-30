@@ -21,6 +21,9 @@ export default {
     'restart': '从头再来',
     'noHas': '无'
   },
+  'PLACEHOLDER': {
+    'energy': '请输入当前能量'
+  },
   'SHORT_SKILL': {
     'berrys': '树果S'
   },

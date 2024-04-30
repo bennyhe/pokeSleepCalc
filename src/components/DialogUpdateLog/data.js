@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-04-30
 1. add #37 #38（图鉴&睡姿&期望）
 2. update 1岛、2岛（睡姿&期望）
+3. update 日语化
 
 ## 24-04-29
 1. update 升级经验糖果计算-交互

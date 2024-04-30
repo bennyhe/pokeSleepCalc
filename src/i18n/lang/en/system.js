@@ -21,6 +21,9 @@ export default {
     'restart': 'RESTART',
     'noHas': '没有'
   },
+  'PLACEHOLDER': {
+    'energy': '请输入当前能量'
+  },
   'SHORT_SKILL': {
     'berrys': 'Berry S'
   },
