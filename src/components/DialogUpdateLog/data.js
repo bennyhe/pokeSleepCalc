@@ -7,6 +7,7 @@ const markdownText = `
 3. update 导航文案FOOD RECOMMEND->FOOD
 4. fix 最新宝可梦时间错误问题
 5. fix 3岛遗漏了火伊布睡姿3
+6. fix 火伊布睡姿名称错误问题
 
 ## 24-04-30
 1. add #37 #38（图鉴&睡姿&期望）
