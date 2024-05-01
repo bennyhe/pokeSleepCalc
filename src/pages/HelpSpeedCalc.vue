@@ -45,7 +45,8 @@ const helpSpeedCalcForm = ref({
   useFoods: [0, 0, 0],
   rankIndex: 1,
   resLength: 0,
-  contrastPoke: null
+  contrastPoke: null,
+  isShiny: false
 })
 const userPokemons = ref({
   list: []
@@ -297,6 +298,7 @@ const getPlayerExtraDesc = pokemons => {
 const getTargetPokemonEnergy = pokeId => {
   let resRankArr = []
   const pokeItem = { ...pokedex[pokeId] }
+  pokeItem.isShiny = helpSpeedCalcForm.value.isShiny
   pokeItem.helpSpeed = getNewHelpSpeed(
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
@@ -569,14 +571,13 @@ const handleChangePokemon = () => {
 const getBoxCurEnergy = () => {
   let resRankArr = []
   userPokemons.value.list.forEach(upItem => {
-    const pokeItem = { ...pokedex[upItem.pokemonId] }
+    const pokeItem = {
+      ...pokedex[upItem.pokemonId],
+      ...upItem
+    }
     pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
     pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
-    pokeItem.level = upItem.level
-    pokeItem.useFoods = upItem.useFoods
-    pokeItem.skill = upItem.skill
-
     resRankArr = resRankArr.concat(
       addArrInOptions(getPlayerExtraDesc(upItem), pokeItem, true)
     )
@@ -591,9 +592,10 @@ const getBoxCurEnergy = () => {
 // }
 const hanldeClickAddBox = () => {
   const curRes = {
-    id: `${new Date().getTime()}${helpSpeedCalcForm.value.pokemonId}`,
+    dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
     pokemonId: helpSpeedCalcForm.value.pokemonId,
     baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
+    isShiny: helpSpeedCalcForm.value.isShiny,
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,

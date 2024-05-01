@@ -33,6 +33,7 @@ const props = defineProps({
       :skillPer="props.pokeItem.skillPer"
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
+      :isShiny="props.pokeItem.isShiny"
     />
     <div v-if="props.pokeItem.useFoods && props.pokeItem.useFoods.length > 0">
       <div class="cpt-food all-food">

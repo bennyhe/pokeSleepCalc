@@ -4,6 +4,7 @@ const markdownText = `
 ## 24-05-01
 1. fix 最新宝可梦时间错误问题
 2. update 导航文案FOOD RECOMMEND->FOOD
+2. add 帮速计算-支持显示闪光
 
 ## 24-04-30
 1. add #37 #38（图鉴&睡姿&期望）
