@@ -585,11 +585,11 @@ const getBoxCurEnergy = () => {
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
   return res
 }
-// const LS_NAME = 'myPokemonBox_testing1'
-// const getLSBOX = localStorage.getItem(LS_NAME)
-// if (getLSBOX) {
-//   userPokemons.value.list = JSON.parse(getLSBOX)
-// }
+const LS_NAME = 'myPokemonBox_testing'
+const getLSBOX = localStorage.getItem(LS_NAME)
+if (getLSBOX) {
+  userPokemons.value.list = JSON.parse(getLSBOX)
+}
 const hanldeClickAddBox = () => {
   const curRes = {
     dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
@@ -603,18 +603,18 @@ const hanldeClickAddBox = () => {
     dataIndex: userPokemons.value.list.length
   }
   userPokemons.value.list.push(curRes)
-  // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+  localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   // console.log(curRes)
 }
 const handleClickDelPoke = dataId => {
-  // const msg = '您真的确定要删除该宝可梦吗？'
-  // if (confirm(msg)) {
-  userPokemons.value.list.splice(
-    userPokemons.value.list.findIndex(item => item.id === dataId),
-    1
-  )
-  // localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
-  // }
+  const msg = 'Are you going to delete Pokémon?'
+  if (confirm(msg)) {
+    userPokemons.value.list.splice(
+      userPokemons.value.list.findIndex(item => item.dataId === dataId),
+      1
+    )
+    localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+  }
 }
 
 onMounted(() => {
@@ -763,6 +763,13 @@ watch(helpSpeedCalcForm.value, val => {
           >
         </el-radio-group>
       </div>
+    </el-form-item>
+    <el-form-item>
+          <el-checkbox
+          v-model="helpSpeedCalcForm.isShiny"
+          >
+            {{ $t('PROP.shiny') }}
+          </el-checkbox>
     </el-form-item>
     <el-form-item :label="$t('PROP.subSkill')">
       <div style="width: 100%">
@@ -998,9 +1005,7 @@ watch(helpSpeedCalcForm.value, val => {
     <el-form-item>
       <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
         <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
-          <el-radio-button
-            :label="cItem.value"
-            :disabled="cItem.value === 1 && userPokemons.list.length === 0"
+          <el-radio-button :label="cItem.value"
             >{{ cItem.name
             }}<span v-if="cItem.value === 1"
               >({{ userPokemons.list.length }})</span
@@ -1106,15 +1111,18 @@ watch(helpSpeedCalcForm.value, val => {
           'skillType',
         ]"
         v-for="(pokeItem, pokeKey) in getBoxCurEnergy()"
-        v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
+        v-bind:key="`${pokeItem.dataId}_${
+          pokeItem.id
+        }_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
-        <i class="i i-close" @click="handleClickDelPoke(pokeItem.id)"></i>
+        <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
       </CptEnergyItem>
     </div>
+    <div class="mod-tips" v-else-if="navData.navIndex === 1">暂无宝可梦</div>
   </div>
   <el-form label-width="90px">
     <el-form-item>
@@ -1122,6 +1130,7 @@ watch(helpSpeedCalcForm.value, val => {
         <p>* {{ $t("TIPS.energy1") }}</p>
         <p>* {{ $t("TIPS.energy2") }}</p>
         <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
+        <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
       </div>
     </el-form-item>
   </el-form>

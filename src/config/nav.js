@@ -48,7 +48,7 @@ export const NAV_HELPSPEEDCALC = {
       value: 0
     },
     {
-      name: '盒子对比',
+      name: '宝可梦盒子',
       value: 1
     }
   ],
