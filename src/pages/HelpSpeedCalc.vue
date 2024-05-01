@@ -51,6 +51,9 @@ const helpSpeedCalcForm = ref({
 const userPokemons = ref({
   list: []
 })
+const userPokemonsNoSvae = ref({
+  list: []
+})
 // 获取选择帮忙速度的宝可梦分组
 const initFilterGroup = () => {
   let byHelpSpeedResIn = []
@@ -568,9 +571,9 @@ const handleChangePokemon = () => {
   setTargetListByHelp()
 }
 
-const getBoxCurEnergy = () => {
+const getBoxCurEnergy = dataList => {
   let resRankArr = []
-  userPokemons.value.list.forEach(upItem => {
+  dataList.forEach(upItem => {
     const pokeItem = {
       ...pokedex[upItem.pokemonId],
       ...upItem
@@ -599,8 +602,7 @@ const hanldeClickAddBox = () => {
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,
-    useFoods: [...helpSpeedCalcForm.value.useFoods],
-    dataIndex: userPokemons.value.list.length
+    useFoods: [...helpSpeedCalcForm.value.useFoods]
   }
   userPokemons.value.list.push(curRes)
   localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
@@ -615,6 +617,25 @@ const handleClickDelPoke = dataId => {
     )
     localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   }
+}
+const hanldeClickAddBoxTemp = () => {
+  const curRes = {
+    dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
+    pokemonId: helpSpeedCalcForm.value.pokemonId,
+    baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
+    isShiny: helpSpeedCalcForm.value.isShiny,
+    level: helpSpeedCalcForm.value.level,
+    skill: [...helpSpeedCalcForm.value.skill],
+    character: helpSpeedCalcForm.value.character,
+    useFoods: [...helpSpeedCalcForm.value.useFoods]
+  }
+  userPokemonsNoSvae.value.list.push(curRes)
+}
+const handleClickDelPoke2 = dataId => {
+  userPokemonsNoSvae.value.list.splice(
+    userPokemonsNoSvae.value.list.findIndex(item => item.dataId === dataId),
+    1
+  )
 }
 
 onMounted(() => {
@@ -878,9 +899,14 @@ watch(helpSpeedCalcForm.value, val => {
       </el-select>
     </el-form-item>
     <el-form-item>
-      <el-button type="success" plain @click="hanldeClickAddBox()"
-        >将当前宝可梦加入盒子对比</el-button
+      <el-button class="mb3" type="success" plain @click="hanldeClickAddBox()"
+        >将当前宝可梦加入盒子</el-button
       >
+      <div style="width: 100%">
+        <el-button type="primary" plain @click="hanldeClickAddBoxTemp()"
+          >将当前宝可梦加入快速对比</el-button
+        >
+      </div>
     </el-form-item>
     <el-form-item label="计算结果">
       <ul>
@@ -1005,10 +1031,16 @@ watch(helpSpeedCalcForm.value, val => {
     <el-form-item>
       <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
         <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
-          <el-radio-button :label="cItem.value"
+          <el-radio-button
+            :label="cItem.value"
+            :disabled="
+              cItem.value === 2 && userPokemonsNoSvae.list.length === 0
+            "
             >{{ cItem.name
             }}<span v-if="cItem.value === 1"
               >({{ userPokemons.list.length }})</span
+            ><span v-if="cItem.value === 2"
+              >({{ userPokemonsNoSvae.list.length }})</span
             ></el-radio-button
           >
         </template>
@@ -1110,7 +1142,7 @@ watch(helpSpeedCalcForm.value, val => {
           'skillPer',
           'skillType',
         ]"
-        v-for="(pokeItem, pokeKey) in getBoxCurEnergy()"
+        v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemons.list)"
         v-bind:key="`${pokeItem.dataId}_${
           pokeItem.id
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${
@@ -1123,6 +1155,39 @@ watch(helpSpeedCalcForm.value, val => {
       </CptEnergyItem>
     </div>
     <div class="mod-tips" v-else-if="navData.navIndex === 1">暂无宝可梦</div>
+    <h3 v-if="userPokemonsNoSvae.list.length > 0 && navData.navIndex === 2">
+      快速对比<span class="extra">({{ userPokemonsNoSvae.list.length }})</span>
+    </h3>
+    <div
+      class="poke-tb poke-tb--xscorll"
+      v-if="userPokemonsNoSvae.list.length > 0 && navData.navIndex === 2"
+    >
+      <CptEnergyItem
+        class="poke-tb__item--hasclose"
+        :pokeItem="pokeItem"
+        :pokeKey="pokeKey"
+        :showKey="[
+          'helpSpeed',
+          'helpSpeedHM',
+          'berry',
+          'pokeType',
+          'foodPer',
+          'skillPer',
+          'skillType',
+        ]"
+        v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemonsNoSvae.list)"
+        v-bind:key="`${pokeItem.dataId}_${
+          pokeItem.id
+        }_${pokeKey}_${pokeItem.useFoods.join('')}_${
+          pokeItem.nameExtra || ''
+        }_${pokeItem.extraDesc || ''}`"
+        :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
+      >
+        <p class="spscore">{{ pokeItem.level }}级</p>
+        <i class="i i-close" @click="handleClickDelPoke2(pokeItem.dataId)"></i>
+      </CptEnergyItem>
+    </div>
+    <div class="mod-tips" v-else-if="navData.navIndex === 2">暂无宝可梦</div>
   </div>
   <el-form label-width="90px">
     <el-form-item>

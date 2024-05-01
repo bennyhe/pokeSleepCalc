@@ -50,6 +50,10 @@ export const NAV_HELPSPEEDCALC = {
     {
       name: '宝可梦盒子',
       value: 1
+    },
+    {
+      name: '快速对比',
+      value: 2
     }
   ],
   navIndex: 0
