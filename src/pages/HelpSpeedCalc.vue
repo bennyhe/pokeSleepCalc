@@ -588,7 +588,7 @@ const getBoxCurEnergy = dataList => {
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
   return res
 }
-const LS_NAME = 'myPokemonBox_testing'
+const LS_NAME = 'myPokemonBox'
 const getLSBOX = localStorage.getItem(LS_NAME)
 if (getLSBOX) {
   userPokemons.value.list = JSON.parse(getLSBOX)
