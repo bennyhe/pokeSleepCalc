@@ -2402,7 +2402,10 @@ const updatePoke = [{
   pokemons: [702, 243]
 }, {
   time: '2024/04/1',
-  pokemons: [764, 37, 38]
+  pokemons: [764]
+}, {
+  time: '2024/05/1',
+  pokemons: [37, 38]
 }]
 // console.log(pokedex)
 export {
