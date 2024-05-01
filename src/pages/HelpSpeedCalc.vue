@@ -786,11 +786,9 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
     </el-form-item>
     <el-form-item>
-          <el-checkbox
-          v-model="helpSpeedCalcForm.isShiny"
-          >
-            {{ $t('PROP.shiny') }}
-          </el-checkbox>
+      <el-checkbox v-model="helpSpeedCalcForm.isShiny">
+        {{ $t("PROP.shiny") }}
+      </el-checkbox>
     </el-form-item>
     <el-form-item :label="$t('PROP.subSkill')">
       <div style="width: 100%">
