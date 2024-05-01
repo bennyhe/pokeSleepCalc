@@ -4,8 +4,9 @@ const markdownText = `
 ## 24-05-01
 1. add 帮速计算-宝可梦盒子支持本地存储
 2. add 帮速计算-支持显示闪光
-3. fix 最新宝可梦时间错误问题
-4. update 导航文案FOOD RECOMMEND->FOOD
+3. update 导航文案FOOD RECOMMEND->FOOD
+4. fix 最新宝可梦时间错误问题
+5. fix 3岛遗漏了火伊布睡姿3
 
 ## 24-04-30
 1. add #37 #38（图鉴&睡姿&期望）
