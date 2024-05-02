@@ -8,6 +8,7 @@ import {
   getNewFoodPer,
   getNewSkillPer
 } from '../utils/energy.js'
+import { gameMap } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
@@ -35,6 +36,7 @@ const byHelpSpeedRes = ref([])
 const targetInList = ref([])
 const otherLevelShow = [25, 30, 50, 60, 100]
 const helpSpeedCalcForm = ref({
+  curMap: 0,
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
   level: 50, // Number
@@ -149,7 +151,8 @@ const getNewHelpSpeed = (formData, level) => {
   return res
 }
 
-const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
+const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
+  isRightBerry = isRightBerry || helpSpeedCalcForm.value.isRightBerry
   const pokeLevel = pokeItem.level || helpSpeedCalcForm.value.level
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
   const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
@@ -231,7 +234,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer) => {
         pokeLevel,
         arrFood,
         is2n ? true : false,
-        helpSpeedCalcForm.value.isRightBerry
+        isRightBerry
       )
     })
   })
@@ -582,7 +585,14 @@ const getBoxCurEnergy = dataList => {
     pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
     resRankArr = resRankArr.concat(
-      addArrInOptions(getPlayerExtraDesc(upItem), pokeItem, true)
+      addArrInOptions(
+        getPlayerExtraDesc(upItem),
+        pokeItem,
+        true,
+        gameMap[helpSpeedCalcForm.value.curMap].berry.includes(
+          pokeItem.berryType
+        )
+      )
     )
   })
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
@@ -636,6 +646,9 @@ const handleClickDelPoke2 = dataId => {
     userPokemonsNoSvae.value.list.findIndex(item => item.dataId === dataId),
     1
   )
+}
+const handleClickChangeMap = id => {
+  helpSpeedCalcForm.value.curMap = id
 }
 
 onMounted(() => {
@@ -1010,12 +1023,53 @@ watch(helpSpeedCalcForm.value, val => {
     </el-form-item>
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <el-switch
+        v-if="navData.navIndex === 0"
         v-model="helpSpeedCalcForm.isRightBerry"
         inline-prompt
         :active-text="`${$t('OPTIONS.yes')}(${$t('OPTIONS.doubleEnergy')})`"
         :inactive-text="$t('OPTIONS.no')"
         style="--el-switch-on-color: #ffaf00"
       />
+      <ul
+        class="cpt-select-list cpt-select-list--iland"
+        v-else
+      >
+        <template v-for="(mapItem, mapIndex) in gameMap">
+          <li
+            class="cpt-select-list__item"
+            v-if="!(mapItem.id.indexOf('berry_') > -1)"
+            v-bind:key="mapItem.id"
+            :class="{ cur: helpSpeedCalcForm.curMap === mapIndex }"
+            @click="handleClickChangeMap(mapIndex)"
+          >
+            <div class="cpt-select-list__name">
+              {{ $t(`ILAND.${mapItem.id}`) }}
+              <div>
+                <div
+                  class="cpt-food cpt-food--s berry"
+                  v-for="(berryItem, berryKey) in mapItem.berry"
+                  v-bind:key="berryKey"
+                >
+                  <div class="cpt-food__item">
+                    <img
+                      v-if="berryItem !== '?'"
+                      v-lazy="`./img/berry/${berryItem}.png`"
+                      :alt="$t(`BERRY_TYPES.${berryItem}`)"
+                    />
+                    <template v-else>?</template>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img
+              v-if="mapItem.pic"
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
+            />
+          </li>
+        </template>
+      </ul>
     </el-form-item>
     <el-form-item :label="$t('PROP.ticket')">
       <el-switch
@@ -1146,7 +1200,9 @@ watch(helpSpeedCalcForm.value, val => {
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
-        :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
+        :isHightLightBerry="
+          gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+        "
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
         <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
@@ -1179,7 +1235,9 @@ watch(helpSpeedCalcForm.value, val => {
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
-        :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
+        :isHightLightBerry="
+          gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+        "
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
         <i class="i i-close" @click="handleClickDelPoke2(pokeItem.dataId)"></i>
