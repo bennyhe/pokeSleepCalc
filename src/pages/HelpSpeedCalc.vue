@@ -1030,10 +1030,7 @@ watch(helpSpeedCalcForm.value, val => {
         :inactive-text="$t('OPTIONS.no')"
         style="--el-switch-on-color: #ffaf00"
       />
-      <ul
-        class="cpt-select-list cpt-select-list--iland"
-        v-else
-      >
+      <ul class="cpt-select-list cpt-select-list--iland" v-else>
         <template v-for="(mapItem, mapIndex) in gameMap">
           <li
             class="cpt-select-list__item"
@@ -1178,7 +1175,7 @@ watch(helpSpeedCalcForm.value, val => {
       宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
     </h3>
     <div
-      class="poke-tb poke-tb--xscorll"
+      class="poke-tb poke-tb--xscorll poke-tb--box"
       v-if="userPokemons.list.length > 0 && navData.navIndex === 1"
     >
       <CptEnergyItem
@@ -1205,6 +1202,52 @@ watch(helpSpeedCalcForm.value, val => {
         "
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
+        <div class="other-skill">
+          <div
+            v-for="skillItem in skillOptionsExtra"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--3`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsHelpSpeed"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsFoodPer"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsSkillPer"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+        </div>
         <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
       </CptEnergyItem>
     </div>
@@ -1213,7 +1256,7 @@ watch(helpSpeedCalcForm.value, val => {
       快速对比<span class="extra">({{ userPokemonsNoSvae.list.length }})</span>
     </h3>
     <div
-      class="poke-tb poke-tb--xscorll"
+      class="poke-tb poke-tb--xscorll poke-tb--box"
       v-if="userPokemonsNoSvae.list.length > 0 && navData.navIndex === 2"
     >
       <CptEnergyItem
@@ -1240,6 +1283,52 @@ watch(helpSpeedCalcForm.value, val => {
         "
       >
         <p class="spscore">{{ pokeItem.level }}级</p>
+        <div class="other-skill">
+          <div
+            v-for="skillItem in skillOptionsExtra"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--3`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsHelpSpeed"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsFoodPer"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+          <div
+            v-for="skillItem in skillOptionsSkillPer"
+            v-bind:key="skillItem.label"
+          >
+            <span
+              v-if="pokeItem.skill.includes(skillItem.label)"
+              class="cpt-skill"
+              :class="`cpt-skill--${skillItem.rare}`"
+              >{{ $t(`${skillItem.txt}`) }}</span
+            >
+          </div>
+        </div>
         <i class="i i-close" @click="handleClickDelPoke2(pokeItem.dataId)"></i>
       </CptEnergyItem>
     </div>

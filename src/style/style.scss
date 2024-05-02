@@ -1578,6 +1578,18 @@ h4 {
       }
     }
   }
+
+  .poke-tb--box {
+    .other-skill {
+      .cpt-skill {
+        width: 85px;
+        font-size: 12px;
+        margin-bottom: 3px;
+        transform: scale(.85);
+        margin: 0 -8px;
+      }
+    }
+  }
 }
 
 .page-candycalc {
