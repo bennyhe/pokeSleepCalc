@@ -14,7 +14,7 @@ const props = defineProps({
   <template v-if="type">
     <svg
       class="svg-icon"
-      :class="`svg-icon--${size}`"
+      :class="size ? `svg-icon--${size}` : ''"
       v-if="type === 'arrowDown'"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 1024"
@@ -28,7 +28,7 @@ const props = defineProps({
     <svg
       v-else-if="type === 'lock'"
       class="svg-icon"
-      :class="`svg-icon--${size}`"
+      :class="size ? `svg-icon--${size}` : ''"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
@@ -43,7 +43,7 @@ const props = defineProps({
     <svg
       v-else-if="type === 'love'"
       class="svg-icon"
-      :class="`svg-icon--${size}`"
+      :class="size ? `svg-icon--${size}` : ''"
       viewBox="0 0 1030 1024"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
@@ -55,6 +55,30 @@ const props = defineProps({
       <path
         d="M1030.144 382.976c0-41.984-9.216-80.896-26.624-116.736-89.088 294.912-483.328 533.504-577.536 533.504-55.296 0-217.088-83.968-358.4-214.016C189.44 789.504 449.536 942.08 518.144 942.08c91.136 0 512-261.12 512-559.104z"
         fill="#E82D2D"
+      />
+    </svg>
+    <svg
+      class="svg-icon"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      :class="size ? `svg-icon--${size}` : ''"
+      v-else-if="type === 'upload'"
+    >
+      <path
+        d="M825.813 428.16C796.8 281.387 667.307 170.667 512 170.667c-123.307 0-230.187 69.973-283.733 172.16C100.053 356.693 0 465.28 0 597.333c0 141.44 114.56 256 256 256h554.667C928.427 853.333 1024 757.76 1024 640c0-112.64-87.68-203.947-198.187-211.84zm-228.48 126.507v170.666H426.667V554.667h-128L512 341.333l213.333 213.334h-128z"
+      />
+    </svg>
+    <svg
+      class="svg-icon"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      :class="size ? `svg-icon--${size}` : ''"
+      v-else-if="type === 'download'"
+    >
+      <path
+        d="M825.813 428.16C796.8 281.387 667.307 170.667 512 170.667c-123.307 0-230.187 69.973-283.733 172.16C100.053 356.693 0 465.28 0 597.333c0 141.44 114.56 256 256 256h554.667C928.427 853.333 1024 757.76 1024 640c0-112.64-87.68-203.947-198.187-211.84zm-100.48 126.507L512 768 298.667 554.667h128V384h170.666v170.667h128z"
       />
     </svg>
   </template>

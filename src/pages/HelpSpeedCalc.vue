@@ -1,6 +1,8 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
+import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
+import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import { get, sortInObjectOptions, toHMInLang } from '../utils/index.js'
 import {
   getOneDayEnergy,
@@ -35,6 +37,9 @@ const navData = ref(NAV_HELPSPEEDCALC)
 const byHelpSpeedRes = ref([])
 const targetInList = ref([])
 const otherLevelShow = [25, 30, 50, 60, 100]
+const saveBoxData = ref('')
+const uploadData = ref('')
+const textareaBoxData = ref()
 const helpSpeedCalcForm = ref({
   curMap: 0,
   pokemonId: 26,
@@ -602,6 +607,7 @@ const LS_NAME = 'myPokemonBox'
 const getLSBOX = localStorage.getItem(LS_NAME)
 if (getLSBOX) {
   userPokemons.value.list = JSON.parse(getLSBOX)
+  saveBoxData.value = JSON.stringify(userPokemons.value.list)
 }
 const hanldeClickAddBox = () => {
   const curRes = {
@@ -615,8 +621,13 @@ const hanldeClickAddBox = () => {
     useFoods: [...helpSpeedCalcForm.value.useFoods]
   }
   userPokemons.value.list.push(curRes)
+  saveBoxData.value = JSON.stringify(userPokemons.value.list)
   localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   // console.log(curRes)
+  ElMessage({
+    message: '已经成功添加到盒子！',
+    type: 'success'
+  })
 }
 const handleClickDelPoke = dataId => {
   const msg = 'Are you going to delete Pokémon?'
@@ -625,7 +636,31 @@ const handleClickDelPoke = dataId => {
       userPokemons.value.list.findIndex(item => item.dataId === dataId),
       1
     )
+    saveBoxData.value = JSON.stringify(userPokemons.value.list)
     localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+    ElMessage({
+      message: '删除宝可梦成功！',
+      type: 'success'
+    })
+  }
+}
+const handleClickCopyData = () => {
+  textareaBoxData.value.select() // 选中文本
+  document.execCommand('copy') // 执行浏览器复制命令
+  ElMessage({
+    message: '导出到剪贴板成功！',
+    type: 'success'
+  })
+}
+const handleClickUploadData = () => {
+  if (uploadData.value) {
+    userPokemons.value.list = JSON.parse(uploadData.value)
+    localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+    uploadData.value = ''
+    ElMessage({
+      message: '导入数据成功！',
+      type: 'success'
+    })
   }
 }
 const hanldeClickAddBoxTemp = () => {
@@ -911,13 +946,11 @@ watch(helpSpeedCalcForm.value, val => {
     </el-form-item>
     <el-form-item>
       <el-button class="mb3" type="success" plain @click="hanldeClickAddBox()"
-        >将当前宝可梦加入盒子</el-button
+        >加入盒子</el-button
       >
-      <div style="width: 100%">
-        <el-button type="primary" plain @click="hanldeClickAddBoxTemp()"
-          >将当前宝可梦加入快速对比</el-button
-        >
-      </div>
+      <el-button type="primary" plain @click="hanldeClickAddBoxTemp()"
+        >快速对比</el-button
+      >
     </el-form-item>
     <el-form-item label="计算结果">
       <ul>
@@ -1171,168 +1204,221 @@ watch(helpSpeedCalcForm.value, val => {
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
       />
     </div>
-    <h3 v-if="userPokemons.list.length > 0 && navData.navIndex === 1">
-      宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
-    </h3>
-    <div
-      class="poke-tb poke-tb--xscorll poke-tb--box"
-      v-if="userPokemons.list.length > 0 && navData.navIndex === 1"
-    >
-      <CptEnergyItem
-        class="poke-tb__item--hasclose"
-        :pokeItem="pokeItem"
-        :pokeKey="pokeKey"
-        :showKey="[
-          'helpSpeed',
-          'helpSpeedHM',
-          'berry',
-          'pokeType',
-          'foodPer',
-          'skillPer',
-          'skillType',
-        ]"
-        v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemons.list)"
-        v-bind:key="`${pokeItem.dataId}_${
-          pokeItem.id
-        }_${pokeKey}_${pokeItem.useFoods.join('')}_${
-          pokeItem.nameExtra || ''
-        }_${pokeItem.extraDesc || ''}`"
-        :isHightLightBerry="
-          gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
-        "
+    <div v-if="navData.navIndex === 1">
+      <h3>
+        宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
+      </h3>
+      <textarea
+        type="text"
+        ref="textareaBoxData"
+        class="textarea textarea--data"
+        v-model="saveBoxData"
+        readonly
+      ></textarea>
+      <el-button
+        type="success"
+        size="small"
+        plain
+        @click="handleClickCopyData()"
+        ><SvgIcon type="download" />导出数据到剪贴板</el-button
       >
-        <p class="spscore">{{ pokeItem.level }}级</p>
-        <div class="other-skill">
-          <div
-            v-for="skillItem in skillOptionsExtra"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--3`"
-              >{{ $t(`${skillItem.txt}`) }}</span
-            >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsHelpSpeed"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
-            >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsFoodPer"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
-            >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsSkillPer"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
-            >
-          </div>
-        </div>
-        <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
-      </CptEnergyItem>
-    </div>
-    <div class="mod-tips" v-else-if="navData.navIndex === 1">暂无宝可梦</div>
-    <h3 v-if="userPokemonsNoSvae.list.length > 0 && navData.navIndex === 2">
-      快速对比<span class="extra">({{ userPokemonsNoSvae.list.length }})</span>
-    </h3>
-    <div
-      class="poke-tb poke-tb--xscorll poke-tb--box"
-      v-if="userPokemonsNoSvae.list.length > 0 && navData.navIndex === 2"
-    >
-      <CptEnergyItem
-        class="poke-tb__item--hasclose"
-        :pokeItem="pokeItem"
-        :pokeKey="pokeKey"
-        :showKey="[
-          'helpSpeed',
-          'helpSpeedHM',
-          'berry',
-          'pokeType',
-          'foodPer',
-          'skillPer',
-          'skillType',
-        ]"
-        v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemonsNoSvae.list)"
-        v-bind:key="`${pokeItem.dataId}_${
-          pokeItem.id
-        }_${pokeKey}_${pokeItem.useFoods.join('')}_${
-          pokeItem.nameExtra || ''
-        }_${pokeItem.extraDesc || ''}`"
-        :isHightLightBerry="
-          gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
-        "
+
+      <el-popover
+        placement="bottom"
+        title="导入数据"
+        trigger="click"
+        :width="200"
       >
-        <p class="spscore">{{ pokeItem.level }}级</p>
-        <div class="other-skill">
-          <div
-            v-for="skillItem in skillOptionsExtra"
-            v-bind:key="skillItem.label"
+        <template #reference>
+          <el-button type="primary" size="small" plain
+            ><SvgIcon type="upload" />导入数据</el-button
           >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--3`"
-              >{{ $t(`${skillItem.txt}`) }}</span
+        </template>
+        <el-input
+          class="mb3"
+          v-model="uploadData"
+          style="width: 100%"
+          :rows="2"
+          type="textarea"
+        />
+        <el-button
+          type="primary"
+          size="small"
+          plain
+          @click="handleClickUploadData()"
+          ><SvgIcon type="upload" />导入数据</el-button
+        >
+      </el-popover>
+
+      <div
+        class="poke-tb poke-tb--xscorll poke-tb--box"
+        v-if="userPokemons.list.length > 0"
+      >
+        <CptEnergyItem
+          class="poke-tb__item--hasclose"
+          :pokeItem="pokeItem"
+          :pokeKey="pokeKey"
+          :showKey="[
+            'helpSpeed',
+            'helpSpeedHM',
+            'berry',
+            'pokeType',
+            'foodPer',
+            'skillPer',
+            'skillType',
+          ]"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemons.list)"
+          v-bind:key="`${pokeItem.dataId}_${
+            pokeItem.id
+          }_${pokeKey}_${pokeItem.useFoods.join('')}_${
+            pokeItem.nameExtra || ''
+          }_${pokeItem.extraDesc || ''}`"
+          :isHightLightBerry="
+            gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+          "
+        >
+          <p class="spscore">{{ pokeItem.level }}级</p>
+          <div class="other-skill">
+            <div
+              v-for="skillItem in skillOptionsExtra"
+              v-bind:key="skillItem.label"
             >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsHelpSpeed"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--3`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsHelpSpeed"
+              v-bind:key="skillItem.label"
             >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsFoodPer"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsFoodPer"
+              v-bind:key="skillItem.label"
             >
-          </div>
-          <div
-            v-for="skillItem in skillOptionsSkillPer"
-            v-bind:key="skillItem.label"
-          >
-            <span
-              v-if="pokeItem.skill.includes(skillItem.label)"
-              class="cpt-skill"
-              :class="`cpt-skill--${skillItem.rare}`"
-              >{{ $t(`${skillItem.txt}`) }}</span
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsSkillPer"
+              v-bind:key="skillItem.label"
             >
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
           </div>
-        </div>
-        <i class="i i-close" @click="handleClickDelPoke2(pokeItem.dataId)"></i>
-      </CptEnergyItem>
+          <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
+        </CptEnergyItem>
+      </div>
+      <div class="mod-tips" v-else>暂无宝可梦</div>
     </div>
-    <div class="mod-tips" v-else-if="navData.navIndex === 2">暂无宝可梦</div>
+    <div v-if="navData.navIndex === 2">
+      <h3>
+        快速对比<span class="extra"
+          >({{ userPokemonsNoSvae.list.length }})</span
+        >
+      </h3>
+      <div
+        class="poke-tb poke-tb--xscorll poke-tb--box"
+        v-if="userPokemonsNoSvae.list.length > 0"
+      >
+        <CptEnergyItem
+          class="poke-tb__item--hasclose"
+          :pokeItem="pokeItem"
+          :pokeKey="pokeKey"
+          :showKey="[
+            'helpSpeed',
+            'helpSpeedHM',
+            'berry',
+            'pokeType',
+            'foodPer',
+            'skillPer',
+            'skillType',
+          ]"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
+            userPokemonsNoSvae.list
+          )"
+          v-bind:key="`${pokeItem.dataId}_${
+            pokeItem.id
+          }_${pokeKey}_${pokeItem.useFoods.join('')}_${
+            pokeItem.nameExtra || ''
+          }_${pokeItem.extraDesc || ''}`"
+          :isHightLightBerry="
+            gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+          "
+        >
+          <p class="spscore">{{ pokeItem.level }}级</p>
+          <div class="other-skill">
+            <div
+              v-for="skillItem in skillOptionsExtra"
+              v-bind:key="skillItem.label"
+            >
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--3`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsHelpSpeed"
+              v-bind:key="skillItem.label"
+            >
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsFoodPer"
+              v-bind:key="skillItem.label"
+            >
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+            <div
+              v-for="skillItem in skillOptionsSkillPer"
+              v-bind:key="skillItem.label"
+            >
+              <span
+                v-if="pokeItem.skill.includes(skillItem.label)"
+                class="cpt-skill"
+                :class="`cpt-skill--${skillItem.rare}`"
+                >{{ $t(`${skillItem.txt}`) }}</span
+              >
+            </div>
+          </div>
+          <i
+            class="i i-close"
+            @click="handleClickDelPoke2(pokeItem.dataId)"
+          ></i>
+        </CptEnergyItem>
+      </div>
+      <div class="mod-tips" v-else>暂无宝可梦</div>
+    </div>
   </div>
   <el-form label-width="90px">
     <el-form-item>

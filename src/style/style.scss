@@ -1561,6 +1561,11 @@ h4 {
 }
 
 .page-helpcalc {
+  .textarea--data {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
   .el-checkbox-group--inline {
     display: inline-block;
     vertical-align: middle;
