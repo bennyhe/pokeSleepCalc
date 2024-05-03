@@ -13,8 +13,7 @@ const markdownText = `
 [去爱发电捐赠&支持(微信/支付宝/Paypal/Stripe)](https://afdian.net/a/pokesleepcalc)
 
 # 近期更新计划
-1. 宝可梦盒子
-2. 队伍日产/周产
+1. 队伍日产/周产
 
 # 特别鸣谢
 1. 岛屿只数区间表 by @skysland
