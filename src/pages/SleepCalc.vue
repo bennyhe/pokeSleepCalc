@@ -64,9 +64,9 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: true,
-  showBan: true,
-  banPokes: [37, 38]
+  onOffBan: false,
+  showBan: false,
+  banPokes: []
 })
 const userSleep = ref({
   count: 0,
