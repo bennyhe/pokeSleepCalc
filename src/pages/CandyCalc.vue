@@ -14,10 +14,20 @@ const candyCalcForm = ref({
   fromLevel: 1,
   toLevel: 30,
   nature: 'normal',
-  actUp: 'none'
+  actUp: 'none',
+  useShards: 1,
+  useExps: 1
 })
 const actType = {
-  minicandy: {
+  none: {
+    useShards: 1,
+    useExps: 1
+  },
+  candyup: {
+    useShards: 6,
+    useExps: 2
+  },
+  minicandyup: {
     useShards: 4,
     useExps: 2
   }
@@ -37,22 +47,10 @@ const getExp = (fromLevel, toLevel) => {
   return exp
 }
 const getOnceCandyExp = nature => {
-  if (actType[candyCalcForm.value.actUp]) {
-    return (
-      NATURE_ONE_CANDY_EXP[nature] * actType[candyCalcForm.value.actUp].useExps
-    )
-  }
-  return NATURE_ONE_CANDY_EXP[nature]
+  return NATURE_ONE_CANDY_EXP[nature] * candyCalcForm.value.useExps
 }
 const getOnceShards = (i, useCandyNumCurLevel) => {
-  if (actType[candyCalcForm.value.actUp]) {
-    return (
-      SHARDS_CANDY[i] *
-      useCandyNumCurLevel *
-      actType[candyCalcForm.value.actUp].useShards
-    )
-  }
-  return SHARDS_CANDY[i] * useCandyNumCurLevel
+  return SHARDS_CANDY[i] * useCandyNumCurLevel * candyCalcForm.value.useShards
 }
 const getRes = (fromLevel, toLevel, nature) => {
   fromLevel = fromLevel || candyCalcForm.value.fromLevel
@@ -80,6 +78,10 @@ const getRes = (fromLevel, toLevel, nature) => {
     shards,
     candys
   }
+}
+const handleChangeActUp = () => {
+  candyCalcForm.value.useExps = actType[candyCalcForm.value.actUp].useExps
+  candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
 }
 </script>
 
@@ -121,13 +123,31 @@ const getRes = (fromLevel, toLevel, nature) => {
         </el-radio-button>
       </el-radio-group>
     </el-form-item>
-    <el-form-item label="活动加成">
-      <el-radio-group v-model="candyCalcForm.actUp">
+    <el-form-item label="经验获取倍率">
+      <el-slider v-model="candyCalcForm.useExps" show-input :min="1" :max="5" />
+    </el-form-item>
+    <el-form-item label="梦碎消耗倍率">
+      <el-slider
+        v-model="candyCalcForm.useShards"
+        show-input
+        :min="1"
+        :max="10"
+      />
+    </el-form-item>
+    <el-form-item>
+      <el-radio-group
+        v-model="candyCalcForm.actUp"
+        size="small"
+        @change="handleChangeActUp()"
+      >
         <el-radio-button class="radiogroup--level" :label="'none'">
           -
         </el-radio-button>
-        <el-radio-button class="radiogroup--level" :label="'minicandy'">
-          迷你糖果增强(Exp2倍,梦碎4倍)
+        <el-radio-button class="radiogroup--level" :label="'candyup'">
+          糖果增强
+        </el-radio-button>
+        <el-radio-button class="radiogroup--level" :label="'minicandyup'">
+          迷你糖果增强
         </el-radio-button>
       </el-radio-group>
     </el-form-item>
