@@ -32,7 +32,7 @@ export default {
     'sleepcalc': '睡眠計算',
     'helpspeedcalc': 'おてつだいスピード計算',
     'pokedex': 'ポケモン図鑑',
-    'onedayenergy': 'レベル一日エナジーランキング',
+    'onedayenergy': 'Lv.{0}一日エナジーランキング',
     'newpoke': '最新ポケモン',
     'berrypokeinmap': 'ポケモンきのみに対応する'
   },

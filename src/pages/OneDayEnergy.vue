@@ -147,7 +147,7 @@ const handleClickChangeMap = id => {
 </script>
 
 <template>
-  <h2>{{ pageData.lv }}{{ $t("PAGE_TITLE.onedayenergy") }}</h2>
+  <h2>{{ $t("PAGE_TITLE.onedayenergy", [pageData.lv]) }}</h2>
   <el-form label-width="82px">
     <!-- S 当前岛屿 -->
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
