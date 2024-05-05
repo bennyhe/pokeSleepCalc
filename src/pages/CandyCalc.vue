@@ -13,8 +13,15 @@ const candyCalcForm = ref({
   pType: 1,
   fromLevel: 1,
   toLevel: 30,
-  nature: 'normal'
+  nature: 'normal',
+  actUp: 'minicandy'
 })
+const actType = {
+  minicandy: {
+    useShards: 4,
+    useExps: 2
+  }
+}
 const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
 levelOptionsTo.push({
@@ -29,34 +36,43 @@ const getExp = (fromLevel, toLevel) => {
   const exp = toExp - fromExp
   return exp
 }
-const getRes = () => {
-  // 最后一级处理
-  if (candyCalcForm.value.fromLevel === 54) {
-    candyCalcForm.value.toLevel = 55
+const getOnceCandyExp = nature => {
+  if (actType[candyCalcForm.value.actUp]) {
+    return (
+      NATURE_ONE_CANDY_EXP[nature] * actType[candyCalcForm.value.actUp].useExps
+    )
   }
-  const exp = getExp(
-    candyCalcForm.value.fromLevel,
-    candyCalcForm.value.toLevel
-  )
-  const candys = Math.ceil(
-    exp / NATURE_ONE_CANDY_EXP[candyCalcForm.value.nature]
-  )
+  return NATURE_ONE_CANDY_EXP[nature]
+}
+const getOnceShards = (i, useCandyNumCurLevel) => {
+  if (actType[candyCalcForm.value.actUp]) {
+    return (
+      SHARDS_CANDY[i] *
+      useCandyNumCurLevel *
+      actType[candyCalcForm.value.actUp].useShards
+    )
+  }
+  return SHARDS_CANDY[i] * useCandyNumCurLevel
+}
+const getRes = (fromLevel, toLevel, nature) => {
+  fromLevel = fromLevel || candyCalcForm.value.fromLevel
+  toLevel = toLevel || candyCalcForm.value.toLevel
+  nature = nature || candyCalcForm.value.nature
+  // 最后一级处理
+  if (fromLevel === 54) {
+    toLevel = 55
+  }
+  const exp = getExp(fromLevel, toLevel)
+  const candys = Math.ceil(exp / getOnceCandyExp(nature))
   let shards = 0
-  if (candyCalcForm.value.toLevel - candyCalcForm.value.fromLevel > 0) {
+  if (toLevel - fromLevel > 0) {
     let carryNextLevelExp = 0
-    for (
-      let i = candyCalcForm.value.fromLevel;
-      i < candyCalcForm.value.toLevel;
-      i++
-    ) {
+    for (let i = fromLevel; i < toLevel; i++) {
       const needExp = getExp(i, i + 1) - carryNextLevelExp
-      const useCandyNumCurLevel = Math.ceil(
-        needExp / NATURE_ONE_CANDY_EXP[candyCalcForm.value.nature]
-      )
+      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature))
       carryNextLevelExp =
-        useCandyNumCurLevel * NATURE_ONE_CANDY_EXP[candyCalcForm.value.nature] -
-        needExp
-      shards += SHARDS_CANDY[i] * useCandyNumCurLevel
+        useCandyNumCurLevel * getOnceCandyExp(nature) - needExp
+      shards += getOnceShards(i, useCandyNumCurLevel)
     }
   }
   return {
@@ -102,6 +118,16 @@ const getRes = () => {
         </el-radio-button>
         <el-radio-button class="radiogroup--level" :label="'up'">
           <span class="nature-up">△△</span>
+        </el-radio-button>
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="活动加成">
+      <el-radio-group v-model="candyCalcForm.actUp">
+        <el-radio-button class="radiogroup--level" :label="'none'">
+          无
+        </el-radio-button>
+        <el-radio-button class="radiogroup--level" :label="'minicandy'">
+          迷你糖果增强(Exp2倍,梦碎4倍)
         </el-radio-button>
       </el-radio-group>
     </el-form-item>
