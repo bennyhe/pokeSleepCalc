@@ -14,7 +14,7 @@ const candyCalcForm = ref({
   fromLevel: 1,
   toLevel: 30,
   nature: 'normal',
-  actUp: 'minicandy'
+  actUp: 'none'
 })
 const actType = {
   minicandy: {
