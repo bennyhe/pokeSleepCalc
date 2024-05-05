@@ -814,7 +814,7 @@ watch(helpSpeedCalcForm.value, val => {
         </el-radio-group>
       </div>
     </el-form-item>
-    <el-form-item label="等级(10-60)">
+    <el-form-item label="当前等级(Lv.10-60)">
       <el-slider
         v-model="helpSpeedCalcForm.level"
         show-input
@@ -955,7 +955,7 @@ watch(helpSpeedCalcForm.value, val => {
     <el-form-item label="计算结果">
       <ul>
         <li>
-          {{ helpSpeedCalcForm.level }}级：
+          Lv.{{ helpSpeedCalcForm.level }}:
           <span class="sptime"
             >{{
               getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
@@ -1038,7 +1038,7 @@ watch(helpSpeedCalcForm.value, val => {
               helpSpeedCalcForm.level < olItem
             "
           >
-            {{ olItem }}级：
+            Lv.{{ olItem }}:
             <span class="sptime"
               >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
             >
@@ -1139,8 +1139,8 @@ watch(helpSpeedCalcForm.value, val => {
         >
       </el-radio-group>
       <div style="width: 100%">
-        当前等级：<span class="sptime">{{ helpSpeedCalcForm.level }}</span
-        >级
+        当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span
+        >
       </div>
       <div style="width: 100%">
         当前能量排位：第
@@ -1277,7 +1277,7 @@ watch(helpSpeedCalcForm.value, val => {
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
           "
         >
-          <p class="spscore">{{ pokeItem.level }}级</p>
+          <p class="spscore">Lv.{{ pokeItem.level }}</p>
           <div class="other-skill">
             <div
               v-for="skillItem in skillOptionsExtra"
@@ -1364,7 +1364,7 @@ watch(helpSpeedCalcForm.value, val => {
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
           "
         >
-          <p class="spscore">{{ pokeItem.level }}级</p>
+          <p class="spscore">Lv.{{ pokeItem.level }}</p>
           <div class="other-skill">
             <div
               v-for="skillItem in skillOptionsExtra"

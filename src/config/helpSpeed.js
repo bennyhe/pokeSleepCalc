@@ -173,17 +173,17 @@ export const characterOptions = [{
 }]
 export const levelOptions = [{
   label: 25,
-  txt: '25级'
+  txt: 'Lv.25'
 }, {
   label: 30,
-  txt: '30级(2食)'
+  txt: 'Lv.30(2食)'
 }, {
   label: 50,
-  txt: '50级'
+  txt: 'Lv.50'
 }, {
   label: 55,
-  txt: '55级(上限)'
+  txt: 'Lv.55(上限)'
 }, {
   label: 60,
-  txt: '60级(3食)'
+  txt: 'Lv.60(3食)'
 }]

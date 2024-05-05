@@ -317,7 +317,7 @@ onMounted(() => {
               v-bind:key="`${resItem.id}_${levelKey}`"
             >
               <h4>
-                {{ resItem[`level${levelKey}List`].subTitle }}级
+                Lv.{{ resItem[`level${levelKey}List`].subTitle }}
                 <span class="extra"
                   >({{ resItem[`level${levelKey}List`].subList.length }}{{$t(`OPTIONS.one`)}}
                   <template
