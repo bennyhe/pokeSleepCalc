@@ -124,7 +124,7 @@ const getRes = (fromLevel, toLevel, nature) => {
     <el-form-item label="活动加成">
       <el-radio-group v-model="candyCalcForm.actUp">
         <el-radio-button class="radiogroup--level" :label="'none'">
-          无
+          -
         </el-radio-button>
         <el-radio-button class="radiogroup--level" :label="'minicandy'">
           迷你糖果增强(Exp2倍,梦碎4倍)
