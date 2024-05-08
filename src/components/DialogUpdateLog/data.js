@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-05-08
 1. update 睡姿抽取-随机个体-抽取副技能
+2. update #38期望
 
 ## 24-05-07
 1. update 宝可梦图鉴-食材率&技能率
