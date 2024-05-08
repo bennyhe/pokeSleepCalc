@@ -74,54 +74,54 @@ export function getRandomIV(pokeId, options) {
   return ivRes
 }
 
-export function getSkillRare(arrProbability) {
-  arrProbability = arrProbability || [15, 50]
-  // 金技能出现几率 15%，蓝技能出现几率 35%，白技能出现几率 50%
-  const arr = getRandomArr([...Array(100).keys()], 200)
-  // 随机0-99
-  const res = arr[parseInt(Math.floor(Math.random() * 100), 10)]
-  let level = 1
-  if (res < arrProbability[0]) {
-    level = 3
-  } else if (res < arrProbability[1]) {
-    level = 2
-  }
-  return level
+// 根据稀有度计算权重
+// 金技能出现几率 15%，蓝技能出现几率 35%，白技能出现几率 50%
+const rarityWeights = {
+  1: 50,
+  2: 35,
+  3: 15
 }
-
-export function getRandomPokeSkills(lockSkillCount) {
-  const subSkills = []
-  const unlockLevel = [10, 25, 50, 75, 100]
-  const allSkillsByRare = {
-    1: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 1)], 200),
-    2: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 2)], 200),
-    3: getRandomArr([...SUB_SKILLS.filter(item => item.rare === 3)], 200)
-  }
-  for (let i = 0; i < 5; i++) {
-    let skillRare = 1
-    let isLockRare = false
-    if (
-      +lockSkillCount > 0 &&
-      i < +lockSkillCount
-    ) {
-      skillRare = 3
-      isLockRare = true
-    } else if (allSkillsByRare[1].length === 0) {
-      skillRare = getSkillRare([30, 100])
-    } else {
-      skillRare = getSkillRare()
+// 权重随机选择函数
+function weightedRandomSelect(items, weights) {
+  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0)
+  let random = Math.random() * totalWeight
+  for (let i = 0; i < items.length; i++) {
+    random -= weights[i]
+    if (random <= 0) {
+      return items[i]
     }
-    const rdmSkillRareIndex = parseInt(
-      Math.floor(Math.random() * allSkillsByRare[skillRare].length),
-      10
-    )
-    subSkills.push({
-      nameId: allSkillsByRare[skillRare][rdmSkillRareIndex].nameId,
-      skillRare,
-      isLockRare,
+  }
+}
+export function getRandomPokeSkills(lockSkillCount) {
+  const uniqueSubSkills = new Set()
+  const unlockLevel = [10, 25, 50, 75, 100]
+  let i = 0
+  let rare3Skills = getRandomArr([...SUB_SKILLS].filter(skill => skill.rare === 3), 100)
+
+  // 随机抽取稀有度为3的技能
+  while (lockSkillCount > 0 && i < lockSkillCount && rare3Skills.length > 0) {
+    const subSkill = weightedRandomSelect(rare3Skills, rare3Skills.map(skill => rarityWeights[skill.rare]))
+    uniqueSubSkills.add({
+      nameId: subSkill.nameId,
+      skillRare: 3,
+      isLockRare: true,
       unlockLevel: unlockLevel[i]
     })
-    allSkillsByRare[skillRare].splice(rdmSkillRareIndex, 1)
+    i++
+    rare3Skills = rare3Skills.filter(skill => skill.nameId !== subSkill.nameId) // 移除已选取的技能
   }
-  return subSkills
+
+  // 随机抽取剩余的技能，确保不重复
+  while (uniqueSubSkills.size < 5) {
+    const remainingSkills = getRandomArr(SUB_SKILLS.filter(skill => ![...uniqueSubSkills].some(uniqueSkill => uniqueSkill.nameId === skill.nameId)), 100)
+    const subSkill = weightedRandomSelect(remainingSkills, remainingSkills.map(skill => rarityWeights[skill.rare]))
+    uniqueSubSkills.add({
+      nameId: subSkill.nameId,
+      skillRare: subSkill.rare,
+      isLockRare: false,
+      unlockLevel: unlockLevel[i]
+    })
+    i++
+  }
+  return Array.from(uniqueSubSkills)
 }

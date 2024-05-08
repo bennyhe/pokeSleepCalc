@@ -33,8 +33,7 @@ import {
 } from '../utils/index.js'
 import {
   feedSandslash,
-  getRandomIV,
-  getRandomPokeSkills
+  getRandomIV
 } from '../utils/game.js'
 
 import { useI18n } from 'vue-i18n'
