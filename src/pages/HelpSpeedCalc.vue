@@ -53,8 +53,23 @@ const helpSpeedCalcForm = ref({
   rankIndex: 1,
   resLength: 0,
   contrastPoke: null,
-  isShiny: false
+  isShiny: false,
+  calcTime: 86400
 })
+const calcTimeConfig = [
+  {
+    name: '哨子(3小时)',
+    value: 10800
+  },
+  {
+    name: '1天(24小时)',
+    value: 86400
+  },
+  {
+    name: '1周(7天)',
+    value: 604800
+  }
+]
 const userPokemons = ref({
   list: []
 })
@@ -162,10 +177,14 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
   const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
   const newPokeItem = { ...pokeItem }
+  if (+helpSpeedCalcForm.value.calcTime === 10800) {
+    newPokeItem.skillPer = 0
+  }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
     newPokeItem.foodPer,
-    newPokeItem.skillPer
+    newPokeItem.skillPer,
+    helpSpeedCalcForm.value.calcTime
   )
 
   const resRankArr = []
@@ -628,6 +647,11 @@ const hanldeClickAddBox = () => {
     message: '已经成功添加到盒子！',
     type: 'success'
   })
+}
+const handleClickTime = () => {
+  if (helpSpeedCalcForm.value.calcTime === 'threehours') {
+    helpSpeedCalcForm.value.isUseTicket = false
+  }
 }
 const handleClickDelPoke = dataId => {
   const msg = 'Are you going to delete Pokémon?'
@@ -1110,6 +1134,21 @@ watch(helpSpeedCalcForm.value, val => {
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>
+    <el-form-item label="按时间产出">
+      <el-radio-group
+        v-model="helpSpeedCalcForm.calcTime"
+        @change="handleClickTime()"
+      >
+        <template v-for="cItem in calcTimeConfig" v-bind:key="cItem.name">
+          <el-radio-button
+            size="small"
+            class="radiogroup--primary"
+            :label="cItem.value"
+            >{{ cItem.name }}</el-radio-button
+          >
+        </template>
+      </el-radio-group>
+    </el-form-item>
     <el-form-item>
       <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
         <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
@@ -1139,8 +1178,7 @@ watch(helpSpeedCalcForm.value, val => {
         >
       </el-radio-group>
       <div style="width: 100%">
-        当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span
-        >
+        当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span>
       </div>
       <div style="width: 100%">
         当前能量排位：第

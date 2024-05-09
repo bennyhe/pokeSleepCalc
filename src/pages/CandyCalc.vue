@@ -91,7 +91,7 @@ const handleChangeActUp = () => {
     <el-form-item label="类型">
       <el-radio-group size="small" v-model="candyCalcForm.pType">
         <el-radio-button
-          class="radiogroup--level"
+          class="radiogroup--primary radiogroup--level"
           :label="cItem.value"
           v-for="cItem in POKEMON_TYPE"
           v-bind:key="cItem.value"
@@ -112,13 +112,22 @@ const handleChangeActUp = () => {
     </el-form-item>
     <el-form-item :label="$t('NATURE_UPDOWN.EXP獲得量')">
       <el-radio-group v-model="candyCalcForm.nature">
-        <el-radio-button class="radiogroup--level" :label="'down'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'down'"
+        >
           <span class="nature-down">▽▽</span>
         </el-radio-button>
-        <el-radio-button class="radiogroup--level" :label="'normal'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'normal'"
+        >
           -
         </el-radio-button>
-        <el-radio-button class="radiogroup--level" :label="'up'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'up'"
+        >
           <span class="nature-up">△△</span>
         </el-radio-button>
       </el-radio-group>
@@ -129,13 +138,22 @@ const handleChangeActUp = () => {
         size="small"
         @change="handleChangeActUp()"
       >
-        <el-radio-button class="radiogroup--level" :label="'none'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'none'"
+        >
           <span style="display: inline-block; width: 1.5em">-</span>
         </el-radio-button>
-        <el-radio-button class="radiogroup--level" :label="'candyup'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'candyup'"
+        >
           糖果增强
         </el-radio-button>
-        <el-radio-button class="radiogroup--level" :label="'minicandyup'">
+        <el-radio-button
+          class="radiogroup--primary radiogroup--level"
+          :label="'minicandyup'"
+        >
           迷你糖果增强
         </el-radio-button>
       </el-radio-group>
@@ -176,7 +194,7 @@ const handleChangeActUp = () => {
       <div style="width: 100%">
         <el-radio-group v-model="candyCalcForm.fromLevel" size="small">
           <el-radio-button
-            class="radiogroup--level"
+            class="radiogroup--primary radiogroup--level"
             :label="cItem.label"
             v-for="cItem in levelOptions"
             v-bind:key="cItem.label"
@@ -205,7 +223,7 @@ const handleChangeActUp = () => {
           <template v-for="cItem in levelOptionsTo" v-bind:key="cItem.label">
             <el-radio-button
               :disabled="candyCalcForm.fromLevel + 1 > cItem.label"
-              class="radiogroup--level"
+              class="radiogroup--primary radiogroup--level"
               :label="cItem.label"
               >{{ cItem.txt }}</el-radio-button
             >
