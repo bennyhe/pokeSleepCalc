@@ -234,21 +234,22 @@ h4 {
     font-size: 16px;
     position: relative;
     overflow: hidden;
-    color: #666;
+    color: #b7b7b7;
 
     &:hover,
     &:active {
-      color: $mainColor;
+      color: #f1f1f1;
     }
 
     &.cur {
-      border-color: #f1f1f1;
+      border-color: $navColor;
+      border-style: dashed;
       font-weight: bold;
       color: $mainColor;
 
       .cpt-select-list__name {
         opacity: 1;
-        color: #fff;
+        color: #f1f1f1;
         text-shadow: 1px 1px #333;
         background-color: rgba($color: #000000, $alpha: .1);
       }
@@ -262,10 +263,10 @@ h4 {
   &__name {
     position: relative;
     z-index: 5;
-    background-color: rgba($color: #000000, $alpha: .2);
+    background-color: rgba($color: #000000, $alpha: .4);
     display: block;
     padding: 4px 0 2px;
-    transition: 0.3s linear all;
+    transition: 0.2s linear all;
   }
 
   &__bg {
