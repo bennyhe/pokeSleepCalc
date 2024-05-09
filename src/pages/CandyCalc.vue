@@ -123,17 +123,6 @@ const handleChangeActUp = () => {
         </el-radio-button>
       </el-radio-group>
     </el-form-item>
-    <el-form-item label="经验获取倍率">
-      <el-slider v-model="candyCalcForm.useExps" show-input :min="1" :max="5" />
-    </el-form-item>
-    <el-form-item label="梦碎消耗倍率">
-      <el-slider
-        v-model="candyCalcForm.useShards"
-        show-input
-        :min="1"
-        :max="10"
-      />
-    </el-form-item>
     <el-form-item>
       <el-radio-group
         v-model="candyCalcForm.actUp"
@@ -141,7 +130,7 @@ const handleChangeActUp = () => {
         @change="handleChangeActUp()"
       >
         <el-radio-button class="radiogroup--level" :label="'none'">
-          -
+          <span style="display: inline-block; width: 1.5em">-</span>
         </el-radio-button>
         <el-radio-button class="radiogroup--level" :label="'candyup'">
           糖果增强
@@ -151,6 +140,32 @@ const handleChangeActUp = () => {
         </el-radio-button>
       </el-radio-group>
     </el-form-item>
+  </el-form>
+  <div class="el-form-item__content">
+    <div class="el-form-item--half-wrap">
+      <div class="el-form-item--half">
+        <div class="el-form-item__label">经验获取倍率</div>
+        <el-slider
+          size="small"
+          v-model="candyCalcForm.useExps"
+          show-input
+          :min="1"
+          :max="5"
+        />
+      </div>
+      <div class="el-form-item--half">
+        <div class="el-form-item__label">梦碎消耗倍率</div>
+        <el-slider
+          size="small"
+          v-model="candyCalcForm.useShards"
+          show-input
+          :min="1"
+          :max="10"
+        />
+      </div>
+    </div>
+  </div>
+  <el-form label-width="90px">
     <el-form-item label="当前等级(Lv.1-54)">
       <el-slider
         v-model="candyCalcForm.fromLevel"

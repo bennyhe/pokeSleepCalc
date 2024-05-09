@@ -1566,6 +1566,7 @@ h4 {
     width: 0;
     height: 0;
   }
+
   .el-checkbox-group--inline {
     display: inline-block;
     vertical-align: middle;
@@ -1600,10 +1601,58 @@ h4 {
 
 .page-candycalc {
   .el-radio-button__original-radio:checked+.el-radio-button__inner {
-      color: #1c4f00;
-      border-color: #4caf50;
-      background-color: #abe8ae;
+    color: #1c4f00;
+    border-color: #4caf50;
+    background-color: #abe8ae;
+  }
+
+  .el-form-item--half {
+    width: 50%;
+    padding-left: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 10px;
+    max-width: 350px;
+
+    &-wrap {
+      display: flex;
+      width: 100%;
+      padding-left: 75px;
+      box-sizing: border-box;
+      background-color: rgba($color: #abe8ae, $alpha: .1);
     }
+
+    .el-slider__bar {
+      --el-slider-main-bg-color: #abe8ae;
+    }
+    .el-slider__button {
+      border-color: #4caf50
+    }
+
+    .el-slider__input {
+      width: 100px;
+    }
+
+    .el-form-item__label {
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .el-slider__runway {
+      margin-bottom: 10px;
+
+      &.show-input {
+        margin-right: 12px;
+      }
+    }
+
+    .el-slider {
+      display: block;
+      height: auto
+    }
+  }
 }
 
 // 多语言界面适配
@@ -1629,6 +1678,9 @@ h4 {
       &__content {
         line-height: 28px;
       }
+    }
+    .el-form-item--half-wrap {
+      padding-left: 0;
     }
   }
 
