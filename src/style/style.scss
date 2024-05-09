@@ -1558,6 +1558,21 @@ h4 {
   .sleeplist-unlock .poke-tb .extra-desc {
     white-space: normal
   }
+  .act-random {
+    background-color: rgba($color: #abe8ae, $alpha: .1);
+    border-radius: 6px;
+    color: #1c4f00;
+    border: 1px solid #4caf50;
+    padding: 0 5px;
+
+    &__switch{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .el-switch {
+      --el-switch-on-color: #ffaf00
+    }
+  }
 }
 
 .page-helpcalc {

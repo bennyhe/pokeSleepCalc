@@ -2,8 +2,9 @@ const markdownText = `
 # 更新日志
 
 ## 24-05-09
-1. update 升级经验糖果计算-交互
-2. update 导航-视觉&交互
+1. update 睡眠计算-交互
+2. update 升级经验糖果计算-交互
+3. update 导航-视觉&交互
 
 ## 24-05-08
 1. update 睡姿抽取-随机个体-抽取副技能

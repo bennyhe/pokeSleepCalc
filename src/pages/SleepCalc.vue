@@ -31,10 +31,7 @@ import {
   getRandomArr,
   calcPositions
 } from '../utils/index.js'
-import {
-  feedSandslash,
-  getRandomIV
-} from '../utils/game.js'
+import { feedSandslash, getRandomIV } from '../utils/game.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -1016,6 +1013,19 @@ onMounted(() => {
           </el-radio>
         </el-radio-group>
       </el-form-item>
+      <el-form-item>
+        <div class="act-random">
+          {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
+          <span class="act-random__switch">
+            <el-switch
+              v-model="userData.isActRandom"
+              inline-prompt
+              :active-text="$t('OPTIONS.yes')"
+              :inactive-text="$t('OPTIONS.no')"
+            />
+          </span>
+        </div>
+      </el-form-item>
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepPoint')">
         <div style="width: 300px">
           <el-slider
@@ -1121,18 +1131,6 @@ onMounted(() => {
                 style="--el-switch-on-color: #ffaf00"
               />
             </span>
-            <div style="color: var(--el-text-color-regular)">
-              {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
-              <span style="display: inline-block; vertical-align: middle">
-                <el-switch
-                  v-model="userData.isActRandom"
-                  inline-prompt
-                  :active-text="$t('OPTIONS.yes')"
-                  :inactive-text="$t('OPTIONS.no')"
-                  style="--el-switch-on-color: #ffaf00"
-                />
-              </span>
-            </div>
           </el-form-item>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableMapModel')">
             <span
@@ -1623,22 +1621,6 @@ onMounted(() => {
       </div>
     </div>
     <div v-if="+navData.navIndex === 3">
-      <el-form label-width="90px">
-        <el-form-item>
-          <div style="color: var(--el-text-color-regular)">
-            {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
-            <span style="display: inline-block; vertical-align: middle">
-              <el-switch
-                v-model="userData.isActRandom"
-                inline-prompt
-                :active-text="$t('OPTIONS.yes')"
-                :inactive-text="$t('OPTIONS.no')"
-                style="--el-switch-on-color: #ffaf00"
-              />
-            </span>
-          </div>
-        </el-form-item>
-      </el-form>
       <div class="page-inner mb3">
         <p class="mb3">
           <el-alert
