@@ -67,6 +67,13 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
+## Icon
+1. [Element Plus Icon](https://element-plus.org/zh-CN/component/icon.html)
+2. [https://www.veryicon.com/icons/food--drinks/food-collection/](https://www.veryicon.com/icons/food--drinks/food-collection/)
+3. [https://www.veryicon.com/icons/healthcate-medical/health-management-icon/](https://www.veryicon.com/icons/healthcate-medical/health-management-icon/)
+4. [https://www.veryicon.com/icons/miscellaneous/iconpack-2/](https://www.veryicon.com/icons/miscellaneous/iconpack-2/)
+5. [https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/](https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/)
+
 ## Github提交规范约束
 1. feat: 提交新功能
 2. fix: 修复了bug

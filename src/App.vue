@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { getUrlQuery } from './utils/index.js'
 import PageFooter from './components/PageFooter/PFooter.vue'
+import SvgIcon from './components/SvgIcon/IconItem.vue'
 import PageSleepCalc from './pages/SleepCalc.vue'
 import PagePokedex from './pages/PokedexApp.vue'
 import PageFoodRec from './pages/FoodRec.vue'
@@ -77,7 +78,10 @@ onMounted(() => {
     >
       <PageHelpSpeedCalc />
     </div>
-    <div class="page-item page-pokedex" :class="{ cur: +navData.navIndex === 4 }">
+    <div
+      class="page-item page-pokedex"
+      :class="{ cur: +navData.navIndex === 4 }"
+    >
       <PagePokedex />
     </div>
     <div
@@ -106,7 +110,8 @@ onMounted(() => {
           :class="{ cur: +navData.navIndex === key }"
           @click="handleClickNav(key)"
         >
-          {{ navItem.name }}
+          <SvgIcon :type="navItem.icon" v-if="navItem.icon" />
+          <span class="nav__text">{{ navItem.name }}</span>
         </li>
       </ul>
     </nav>

@@ -1,25 +1,32 @@
 export const NAV_PAGE = {
   navList: [
     {
-      name: 'SLEEP CALC'
+      name: 'SLEEP CALC',
+      icon: 'sleep'
     },
     {
-      name: 'FOOD'
+      name: 'FOOD',
+      icon: 'food'
     },
     {
-      name: 'CANDY CALC'
+      name: 'CANDY CALC',
+      icon: 'candy2'
     },
     {
-      name: 'HELP SPEED CALC'
+      name: 'HELP SPEED CALC',
+      icon: 'lab'
     },
     {
-      name: 'POKEDEX'
+      name: 'POKEDEX',
+      icon: 'pokeball'
     },
     {
-      name: 'ONE DAY ENERGY'
+      name: 'ONE DAY ENERGY',
+      icon: 'board'
     },
     {
-      name: 'NEW'
+      name: 'NEW',
+      icon: 'calendar'
     }
   ],
   navIndex: 0
