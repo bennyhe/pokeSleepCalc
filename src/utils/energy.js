@@ -64,18 +64,18 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
     oneDayHelpCount.sum * (skillPer / 100)
     , 1)
   oneDayHelpCount.skill = skillCount
-  if (skillCount < 1) {
+  if (skillPer > 0 && skillCount < 1) {
     skillCount = 1
   }
-  let foodCount = getDecimalNumber(
+  let foodCount = parseInt(
     oneDayHelpCount.sum * (foodPer / 100)
-    , 1)
-  oneDayHelpCount.food = foodCount
-  if (foodCount < 1) {
+    , 10)
+  if (foodPer > 0 && foodCount < 1) {
     foodCount = 1
   }
+  oneDayHelpCount.food = foodCount
   oneDayHelpCount.berry =
-    oneDayHelpCount.sum - oneDayHelpCount.skill - oneDayHelpCount.food
+    oneDayHelpCount.sum - parseInt(skillCount, 10) - oneDayHelpCount.food
 
   return oneDayHelpCount
 }
