@@ -177,13 +177,10 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
   const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
   const newPokeItem = { ...pokeItem }
-  if (+helpSpeedCalcForm.value.calcTime === 10800) {
-    newPokeItem.skillPer = 0
-  }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
     newPokeItem.foodPer,
-    newPokeItem.skillPer,
+    +helpSpeedCalcForm.value.calcTime === 10800 ? 0 : newPokeItem.skillPer,
     helpSpeedCalcForm.value.calcTime
   )
 

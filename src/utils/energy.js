@@ -60,9 +60,6 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
     berry: 0, // 其中食材的帮忙次数
     skill: 0 // 其中技能的帮忙次数
   }
-  oneDayHelpCount.berry = Math.floor(
-    oneDayHelpCount.sum * (1 - (foodPer + skillPer) / 100)
-  )
   let skillCount = getDecimalNumber(
     oneDayHelpCount.sum * (skillPer / 100)
     , 1)
@@ -70,8 +67,15 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
   if (skillCount < 1) {
     skillCount = 1
   }
-  oneDayHelpCount.food =
-    oneDayHelpCount.sum - oneDayHelpCount.berry - parseInt(skillCount, 10)
+  let foodCount = getDecimalNumber(
+    oneDayHelpCount.sum * (foodPer / 100)
+    , 1)
+  oneDayHelpCount.food = foodCount
+  if (foodCount < 1) {
+    foodCount = 1
+  }
+  oneDayHelpCount.berry =
+    oneDayHelpCount.sum - oneDayHelpCount.skill - oneDayHelpCount.food
 
   return oneDayHelpCount
 }
