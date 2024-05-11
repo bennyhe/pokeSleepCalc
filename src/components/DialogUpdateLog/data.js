@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-05-11
 1. update #38期望
+2. update 帮速计算-能量模块-交互
 
 ## 24-05-09
 1. add 帮速计算-按时间计算

@@ -315,11 +315,15 @@ const getPlayerExtraDesc = pokemons => {
   if (pokemons.skill.includes('sm')) {
     extraDesc += '技率M'
   }
+  extraDesc += `\n${getNature(pokemons)}`
+  return extraDesc
+}
+
+const getNature = pokemons => {
   const resTxt = characterOptions.find(
     item => item.label === pokemons.character
   )
-  extraDesc += `\n${t('PROP.nature')}:${getNatureDetail(resTxt)}`
-  return extraDesc
+  return `${t('PROP.nature')}:${getNatureDetail(resTxt)}`
 }
 
 const getTargetPokemonEnergy = pokeId => {
@@ -607,7 +611,7 @@ const getBoxCurEnergy = dataList => {
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
     resRankArr = resRankArr.concat(
       addArrInOptions(
-        getPlayerExtraDesc(upItem),
+        getNature(pokeItem),
         pokeItem,
         true,
         gameMap[helpSpeedCalcForm.value.curMap].berry.includes(
@@ -1307,58 +1311,11 @@ watch(helpSpeedCalcForm.value, val => {
             pokeItem.id
           }_${pokeKey}_${pokeItem.useFoods.join('')}_${
             pokeItem.nameExtra || ''
-          }_${pokeItem.extraDesc || ''}`"
+          }`"
           :isHightLightBerry="
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
           "
         >
-          <p class="spscore">Lv.{{ pokeItem.level }}</p>
-          <div class="other-skill">
-            <div
-              v-for="skillItem in skillOptionsExtra"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--3`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsHelpSpeed"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsFoodPer"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsSkillPer"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-          </div>
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
       </div>
@@ -1394,58 +1351,11 @@ watch(helpSpeedCalcForm.value, val => {
             pokeItem.id
           }_${pokeKey}_${pokeItem.useFoods.join('')}_${
             pokeItem.nameExtra || ''
-          }_${pokeItem.extraDesc || ''}`"
+          }`"
           :isHightLightBerry="
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
           "
         >
-          <p class="spscore">Lv.{{ pokeItem.level }}</p>
-          <div class="other-skill">
-            <div
-              v-for="skillItem in skillOptionsExtra"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--3`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsHelpSpeed"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsFoodPer"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-            <div
-              v-for="skillItem in skillOptionsSkillPer"
-              v-bind:key="skillItem.label"
-            >
-              <span
-                v-if="pokeItem.skill.includes(skillItem.label)"
-                class="cpt-skill"
-                :class="`cpt-skill--${skillItem.rare}`"
-                >{{ $t(`${skillItem.txt}`) }}</span
-              >
-            </div>
-          </div>
           <i
             class="i i-close"
             @click="handleClickDelPoke2(pokeItem.dataId)"

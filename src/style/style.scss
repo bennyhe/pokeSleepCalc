@@ -1614,6 +1614,7 @@ h4 {
   .poke-tb--box {
     .other-skill {
       .cpt-skill {
+        display: block;
         width: 85px;
         font-size: 12px;
         margin-bottom: 3px;
@@ -1621,6 +1622,9 @@ h4 {
         margin: 0 -8px;
         padding: 0;
       }
+    }
+    .extra-desc {
+      min-height: 54px;
     }
   }
 }

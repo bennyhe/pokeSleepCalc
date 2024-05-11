@@ -1,6 +1,13 @@
 <script setup>
 import { defineProps } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
+import {
+  skillOptionsExtra,
+  skillOptionsHelpSpeed,
+  skillOptionsFoodPer,
+  skillOptionsSkillPer
+} from '../../config/helpSpeed.js'
+import { getNum } from '../../utils/index.js'
 
 const props = defineProps({
   pokeKey: {
@@ -62,13 +69,13 @@ const props = defineProps({
         {{ props.pokeItem.nameExtra }}
       </p>
       <p class="cpt-pokemon__poketype1 xs">
-        果{{ props.pokeItem.oneDayBerryEnergy }}
+        果{{ getNum(props.pokeItem.oneDayBerryEnergy) }}
       </p>
       <p class="cpt-pokemon__poketype2 xs">
-        食{{ props.pokeItem.oneDayFoodEnergy.allEnergy }}
+        食{{ getNum(props.pokeItem.oneDayFoodEnergy.allEnergy) }}
       </p>
       <p class="cpt-pokemon__poketype3 xs">
-        技{{ props.pokeItem.oneDayHelpCount.skill }}次
+        技{{ getNum(props.pokeItem.oneDayHelpCount.skill) }}次
       </p>
       <div
         v-if="
@@ -95,15 +102,64 @@ const props = defineProps({
       </div>
       <p class="res">
         <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-          props.pokeItem.oneDayEnergy
+          getNum(props.pokeItem.oneDayEnergy)
         }}
       </p>
     </div>
+    <p class="spscore" v-if="props.pokeItem.level">
+      Lv.{{ props.pokeItem.level }}
+    </p>
     <pre
       v-if="props.pokeItem.extraDesc"
       class="sptime extra-desc"
       v-html="props.pokeItem.extraDesc"
     ></pre>
+    <div class="other-skill" v-if="props.pokeItem.skill">
+      <template
+        v-for="skillItem in skillOptionsExtra"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--3`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+      <template
+        v-for="skillItem in skillOptionsHelpSpeed"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--${skillItem.rare}`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+      <template
+        v-for="skillItem in skillOptionsFoodPer"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--${skillItem.rare}`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+      <template
+        v-for="skillItem in skillOptionsSkillPer"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--${skillItem.rare}`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+    </div>
     <slot />
   </div>
 </template>
