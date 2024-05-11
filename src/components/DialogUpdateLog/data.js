@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-05-11
+1. update #38期望
+
 ## 24-05-09
 1. add 帮速计算-按时间计算
 2. update 选择列表的视觉样式
