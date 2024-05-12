@@ -1,5 +1,6 @@
-const mapSplitVer = '2.4.8'
-const gameMap = [
+export const areaBonusMax = 60
+export const mapSplitVer = '2.4.8'
+export const gameMap = [
   {
     // name: '萌绿之岛',
     id: 'green',
@@ -2515,7 +2516,3 @@ const gameMap = [
     ]
   }
 ]
-export {
-  mapSplitVer,
-  gameMap
-}

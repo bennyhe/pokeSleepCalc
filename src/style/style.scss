@@ -52,6 +52,14 @@ body {
       background-color: #abe8ae;
     }
   }
+
+  .el-form-slider--bonus {
+    display: flex;
+    width: 100%;
+    max-width: 350px;
+    padding: 3px;
+    border-radius: 6px;
+  }
 }
 
 .mb3 {
@@ -1653,14 +1661,6 @@ h3 {
       margin: 0 -8px;
       padding: 0;
     }
-  }
-
-  .el-form-slider--bonus {
-    display: flex;
-    width: 100%;
-    max-width: 350px;
-    padding: 3px;
-    border-radius: 6px;
   }
 }
 

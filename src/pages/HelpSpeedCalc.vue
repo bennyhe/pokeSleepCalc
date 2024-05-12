@@ -18,7 +18,7 @@ import {
   getNewSkillPer
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
-import { gameMap } from '../config/game.js'
+import { gameMap, areaBonusMax } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
@@ -1173,7 +1173,7 @@ watch(helpSpeedCalcForm.value, val => {
           show-input
           show-stops
           :min="0"
-          :max="60"
+          :max="areaBonusMax"
           :step="5"
         />
       </div>
@@ -1389,13 +1389,14 @@ watch(helpSpeedCalcForm.value, val => {
         >从盒子自动组队(能量最高的前5)</el-button
       >
       <p>
-        {{$t('PROP.energy')}}: <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+        {{ $t("PROP.energy") }}:
+        <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
           class="sptime"
           >{{ getNum(getTeamCurEnergy()) }}</span
         >
       </p>
       <p>
-        {{$t('PROP.level')}}:
+        {{ $t("PROP.level") }}:
         <img
           class="icon"
           v-lazy="

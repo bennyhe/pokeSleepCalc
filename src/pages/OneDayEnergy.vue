@@ -4,7 +4,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import { sortInObjectOptions } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
-import { gameMap } from '../config/game.js'
+import { gameMap, areaBonusMax } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import { BERRY_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
@@ -18,7 +18,8 @@ const pageData = ref({
   resRankArr: [],
   lv: 55,
   curPageIndex: 1,
-  pageSize: 100
+  pageSize: 100,
+  areaBonus: 60
 })
 newGameMap.push({
   id: 'none',
@@ -79,7 +80,8 @@ onMounted(() => {
                 pokeItem.food.type[arrFTItem[1]]
               ],
               is2n ? true : false,
-              false
+              false,
+              +pageData.value.areaBonus
             )
           })
         })
@@ -95,7 +97,8 @@ onMounted(() => {
               pageData.value.lv,
               [],
               is2n ? true : false,
-              false
+              false,
+              +pageData.value.areaBonus
             )
           })
         })
@@ -113,31 +116,35 @@ onMounted(() => {
 })
 
 const getChangeOptionsAfterData = () => {
-  if (pageData.value.curMap === 0) {
-    pageData.value.resRankArr = JSON.parse(
-      JSON.stringify(pageData.value.orgResRankArr)
-    )
-  } else {
-    const newRes = []
-    pageData.value.orgResRankArr.forEach(pokeItem => {
-      newRes.push({
-        ...pokeItem,
-        ...getOneDayEnergy(
-          pokeItem,
-          pageData.value.lv,
-          pokeItem.useFoods,
-          pokeItem.nameExtra.indexOf('S') > -1,
-          newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType)
-        )
-      })
+  // if (pageData.value.curMap === 0) {
+  //   pageData.value.resRankArr = JSON.parse(
+  //     JSON.stringify(pageData.value.orgResRankArr)
+  //   )
+  // } else {
+  const newRes = []
+  pageData.value.orgResRankArr.forEach(pokeItem => {
+    newRes.push({
+      ...pokeItem,
+      ...getOneDayEnergy(
+        pokeItem,
+        pageData.value.lv,
+        pokeItem.useFoods,
+        pokeItem.nameExtra.indexOf('S') > -1,
+        newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType),
+        +pageData.value.areaBonus
+      )
     })
-    pageData.value.resRankArr = sortInObjectOptions(newRes, ['oneDayEnergy'])
-  }
+  })
+  pageData.value.resRankArr = sortInObjectOptions(newRes, ['oneDayEnergy'])
+  // }
 }
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
   pageData.value.curPageIndex = 1
 
+  getChangeOptionsAfterData()
+}
+const handleChangeBonus = () => {
   getChangeOptionsAfterData()
 }
 
@@ -234,6 +241,20 @@ const handleClickChangeMap = id => {
         @change="handleClickSlider()"
       />
     </el-form-item> -->
+    <el-form-item :label="$t('PROP.areaBonus')">
+      <div class="el-form-slider--bonus">
+        <el-slider
+        @change="handleChangeBonus()"
+          size="small"
+          v-model="pageData.areaBonus"
+          show-input
+          show-stops
+          :min="0"
+          :max="areaBonusMax"
+          :step="5"
+        />
+      </div>
+    </el-form-item>
   </el-form>
   <div class="page-inner">
     <div class="mod-tips">
