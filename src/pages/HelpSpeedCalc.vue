@@ -1388,30 +1388,40 @@ watch(helpSpeedCalcForm.value, val => {
         @click="handleClickGetMostEnergyPokemons()"
         >从盒子自动组队(能量最高的前5)</el-button
       >
-      <p>
-        {{ $t("PROP.energy") }}:
-        <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
-          class="sptime"
-          >{{ getNum(getTeamCurEnergy()) }}</span
-        >
-      </p>
-      <p>
-        {{ $t("PROP.level") }}:
-        <img
-          class="icon"
-          v-lazy="
-            `./img/ui/${getStageLevelPicId(
-              gameMap[0].levelList[getTeamCurEnergyLevel()].name
-            )}.png`
-          "
-        />{{
-          $t(
-            `LEVEL_TITLE.${
-              gameMap[0].levelList[getTeamCurEnergyLevel()].nameId
-            }`
-          )
-        }}{{ gameMap[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
-      </p>
+      <el-row>
+        <el-col :span="24">
+          {{ $t(`ILAND.${gameMap[helpSpeedCalcForm.curMap].id}`) }}(+<span
+            class="sptime"
+            >{{ helpSpeedCalcForm.areaBonus }}</span
+          >%)
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="9">
+          {{ $t("PROP.level") }}:
+          <img
+            class="icon"
+            v-lazy="
+              `./img/ui/${getStageLevelPicId(
+                gameMap[0].levelList[getTeamCurEnergyLevel()].name
+              )}.png`
+            "
+          />{{
+            $t(
+              `LEVEL_TITLE.${
+                gameMap[0].levelList[getTeamCurEnergyLevel()].nameId
+              }`
+            )
+          }}{{ gameMap[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
+        </el-col>
+        <el-col :span="12">
+          {{ $t("PROP.energy") }}:
+          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+            class="sptime"
+            >{{ getNum(getTeamCurEnergy()) }}</span
+          >
+        </el-col>
+      </el-row>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemonsNoSvae.list.length > 0"
