@@ -1632,6 +1632,30 @@ h4 {
       padding: 0;
     }
   }
+
+  .el-form-slider--bonus {
+    display: flex;
+    width: 100%;
+    max-width: 350px;
+    padding: 3px;
+    border-radius: 6px;
+  }
+}
+
+.el-form-slider--bonus {
+  background-color: rgba($color: #abe8ae, $alpha: .2);
+
+  .el-slider__bar {
+    --el-slider-main-bg-color: #abe8ae;
+  }
+
+  .el-slider__button {
+    border-color: #4caf50
+  }
+
+  .el-slider__input {
+    width: 100px;
+  }
 }
 
 .page-candycalc {
@@ -1649,19 +1673,6 @@ h4 {
       width: 100%;
       padding-left: 75px;
       box-sizing: border-box;
-      background-color: rgba($color: #abe8ae, $alpha: .1);
-    }
-
-    .el-slider__bar {
-      --el-slider-main-bg-color: #abe8ae;
-    }
-
-    .el-slider__button {
-      border-color: #4caf50
-    }
-
-    .el-slider__input {
-      width: 100px;
     }
 
     .el-form-item__label {

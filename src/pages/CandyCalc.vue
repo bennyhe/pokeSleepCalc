@@ -160,7 +160,7 @@ const handleChangeActUp = () => {
     </el-form-item>
   </el-form>
   <div class="el-form-item__content">
-    <div class="el-form-item--half-wrap">
+    <div class="el-form-item--half-wrap el-form-slider--bonus">
       <div class="el-form-item--half">
         <div class="el-form-item__label">经验获取倍率</div>
         <el-slider

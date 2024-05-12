@@ -14,7 +14,9 @@ export default {
     'nature': '性格',
     'helpSpeed': '帮忙速度',
     'esMaxPoints': 'Max Friendship Points!',
-    'esFull': 'All Full!'
+    'esFull': 'All Full!',
+    'areaBonus': 'Area bonus',
+    'whistle': 'Whistle'
   },
   'BALL_TYPES': {
     1: 'Poké Biscuit',

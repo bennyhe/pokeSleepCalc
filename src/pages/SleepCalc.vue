@@ -780,7 +780,7 @@ onMounted(() => {
             <p>
               一回フル睡眠（<span class="sptime">8時間30分</span>）で、<span
                 class="mobile-br"
-                ><CptProcss score="100" />睡眠スコアGet!、</span
+                ><CptProcss :score="100" />睡眠スコアGet!、</span
               ><span class="mobile-br"
                 ><span class="sptime">{{ getSleepCatchNum() }}匹</span
                 >のポケモンが捕獲可能。</span
@@ -890,7 +890,7 @@ onMounted(() => {
                   >{{ getSleepCatchNum() }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss score="100" />分，可获得至少<span class="spscore">{{
+                ><CptProcss :score="100" />分，可获得至少<span class="spscore">{{
                   getNum(getScore(100))
                 }}</span
                 >睡意之力，</span

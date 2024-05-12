@@ -23,7 +23,7 @@ export function toHM(time, type) {
     const _remainingSeconds = time % 60
 
     let res = _minutes + '分' + _remainingSeconds + '秒'
-    if (_hours !== 0) {
+    if (_hours > 0) {
       res = _hours + '小时' + res
     }
     // 转换成x小时x分x秒
@@ -41,7 +41,11 @@ export function toHM(time, type) {
     return hours * 60 + minutes
   }
   // 转换成x小时x分钟
-  return hours + '小时' + minutes + '分钟'
+  const txtHours = hours + '小时'
+  if (minutes > 0) {
+    return txtHours + minutes + '分钟'
+  }
+  return txtHours
 }
 
 /**

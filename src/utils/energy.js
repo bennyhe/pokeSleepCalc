@@ -2,7 +2,8 @@ import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
 import { getDecimalNumber } from '../utils/index.js'
 
-const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) => {
+const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
+  areaBonus = areaBonus || 0
   let pokeType = pokeItem.pokeType === 1 ? 2 : 1
   if (isDoubleBerry) {
     pokeType++
@@ -15,9 +16,10 @@ const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry) 
   if (isRightBerry) {
     res = res * 2
   }
-  return res
+  return Math.floor(res * (1 + areaBonus / 100))
 }
-const getOneDayFoodEnergy = (pokeItem, useFoods) => {
+const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
+  areaBonus = areaBonus || 0
   // console.log(pokeItem.oneDayHelpCount.food, useFoods)
   const helpFoodEnergy = {
     useFoods: [...useFoods],
@@ -46,6 +48,14 @@ const getOneDayFoodEnergy = (pokeItem, useFoods) => {
         }
       }
     }
+  }
+  if (areaBonus>0){
+    helpFoodEnergy.allEnergy = 0
+    helpFoodEnergy.energy.forEach(item => {
+      helpFoodEnergy.allEnergy += item * (1 + areaBonus / 100)
+      return item * (1 + areaBonus / 100)
+    })
+    helpFoodEnergy.allEnergy = Math.floor(helpFoodEnergy.allEnergy)
   }
   // console.log(helpFoodEnergy)
   return helpFoodEnergy
@@ -79,15 +89,17 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
 
   return oneDayHelpCount
 }
-export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry) => {
+export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus) => {
   const level = pokeLevel || 50
+  areaBonus = areaBonus || 0
   const oneDayBerryEnergy = getOneDayBerryEnergy(
     pokeItem,
     level,
     isDoubleBerry,
-    isRightBerry
+    isRightBerry,
+    areaBonus
   )
-  const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods)
+  const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus)
   return {
     useFoods,
     oneDayBerryEnergy,

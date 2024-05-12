@@ -14,7 +14,9 @@ export default {
     'nature': 'せいかく',
     'helpSpeed': 'おてつだい',
     'esMaxPoints': 'フレンドポイントMAX',
-    'esFull': '満腹です'
+    'esFull': '満腹です',
+    'areaBonus': 'フィールドボーナス',
+    'whistle': 'おてつだいホイッスル'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

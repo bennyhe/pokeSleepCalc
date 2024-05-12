@@ -54,22 +54,23 @@ const helpSpeedCalcForm = ref({
   resLength: 0,
   contrastPoke: null,
   isShiny: false,
-  calcTime: 86400
+  calcTime: 86400,
+  areaBonus: 0
 })
-const calcTimeConfig = [
+const calcTimeConfig = ref([
   {
-    name: '哨子(3小时)',
+    name:`${t('PROP.whistle')}(${toHMInLang(3, '', localeLangId.value)})`,
     value: 10800
   },
   {
-    name: '1天(24小时)',
+    name: '1日',
     value: 86400
   },
   {
-    name: '1周(7天)',
+    name: '1周(7日)',
     value: 604800
   }
-]
+])
 const userPokemons = ref({
   list: []
 })
@@ -255,7 +256,8 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
         pokeLevel,
         arrFood,
         is2n ? true : false,
-        isRightBerry
+        isRightBerry,
+        +helpSpeedCalcForm.value.areaBonus
       )
     })
   })
@@ -1105,6 +1107,19 @@ watch(helpSpeedCalcForm.value, val => {
           </li>
         </template>
       </ul>
+    </el-form-item>
+    <el-form-item :label="$t('PROP.areaBonus')">
+    <div class="el-form-slider--bonus">
+      <el-slider
+        size="small"
+        v-model="helpSpeedCalcForm.areaBonus"
+        show-input
+        show-stops
+        :min="0"
+        :max="60"
+        :step="5"
+      />
+    </div>
     </el-form-item>
     <el-form-item :label="$t('PROP.ticket')">
       <el-switch
