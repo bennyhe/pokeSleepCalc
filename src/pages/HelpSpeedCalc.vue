@@ -1130,7 +1130,7 @@ watch(helpSpeedCalcForm.value, val => {
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>
-    <el-form-item label="按时间产出">
+    <el-form-item label="时间">
       <el-radio-group
         v-model="helpSpeedCalcForm.calcTime"
         @change="handleClickTime()"
