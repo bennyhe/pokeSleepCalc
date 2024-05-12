@@ -681,7 +681,24 @@ const handleClickUploadData = () => {
     })
   }
 }
-const hanldeClickAddBoxTemp = () => {
+const handleClickAddCurPokemonTeam = pokemonItem => {
+  const curRes = {
+    dataId: `${new Date().getTime()}_${pokemonItem.pokemonId}`,
+    pokemonId: pokemonItem.pokemonId,
+    baseHelpSpeed: pokemonItem.baseHelpSpeed,
+    isShiny: pokemonItem.isShiny,
+    level: pokemonItem.level,
+    skill: [...pokemonItem.skill],
+    character: pokemonItem.character,
+    useFoods: [...pokemonItem.pokeUseFoods]
+  }
+  userPokemonsNoSvae.value.list.push(curRes)
+  ElMessage({
+    message: '加入队伍成功！',
+    type: 'success'
+  })
+}
+const hanldeClickAddTeam = () => {
   const curRes = {
     dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
     pokemonId: helpSpeedCalcForm.value.pokemonId,
@@ -698,7 +715,7 @@ const hanldeClickAddBoxTemp = () => {
     type: 'success'
   })
 }
-const handleClickDelPoke2 = dataId => {
+const handleClickDelPokeInTeam = dataId => {
   userPokemonsNoSvae.value.list.splice(
     userPokemonsNoSvae.value.list.findIndex(item => item.dataId === dataId),
     1
@@ -1012,7 +1029,7 @@ watch(helpSpeedCalcForm.value, val => {
       <el-button type="success" plain @click="hanldeClickAddBox()"
         ><SvgIcon type="box" />加入盒子</el-button
       >
-      <el-button type="primary" plain @click="hanldeClickAddBoxTemp()"
+      <el-button type="primary" plain @click="hanldeClickAddTeam()"
         ><SvgIcon type="team" />加入队伍</el-button
       >
     </el-form-item>
@@ -1369,6 +1386,13 @@ watch(helpSpeedCalcForm.value, val => {
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
           "
         >
+          <el-button
+            type="success"
+            size="small"
+            plain
+            @click="handleClickAddCurPokemonTeam(pokeItem)"
+            ><SvgIcon type="team"/>加入</el-button
+          >
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
       </div>
@@ -1397,7 +1421,7 @@ watch(helpSpeedCalcForm.value, val => {
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="9">
+        <el-col style="max-width: 178px">
           {{ $t("PROP.level") }}:
           <img
             class="icon"
@@ -1453,7 +1477,7 @@ watch(helpSpeedCalcForm.value, val => {
         >
           <i
             class="i i-close"
-            @click="handleClickDelPoke2(pokeItem.dataId)"
+            @click="handleClickDelPokeInTeam(pokeItem.dataId)"
           ></i>
         </CptEnergyItem>
       </div>
