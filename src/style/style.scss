@@ -1611,20 +1611,25 @@ h4 {
     }
   }
 
+  .poke-tb .extra-desc {
+    min-height: 17px;
+  }
+
   .poke-tb--box {
-    .other-skill {
-      .cpt-skill {
-        display: block;
-        width: 85px;
-        font-size: 12px;
-        margin-bottom: 3px;
-        transform: scale(.85);
-        margin: 0 -8px;
-        padding: 0;
-      }
-    }
     .extra-desc {
       min-height: 54px;
+    }
+  }
+
+  .other-skill {
+    .cpt-skill {
+      display: block;
+      width: 85px;
+      font-size: 12px;
+      margin-bottom: 3px;
+      transform: scale(.85);
+      margin: 0 -8px;
+      padding: 0;
     }
   }
 }

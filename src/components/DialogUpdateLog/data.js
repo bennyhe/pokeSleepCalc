@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-05-12
+2. update 帮速计算-能量模块-交互
+
 ## 24-05-11
 1. update #38期望
 2. update 帮速计算-能量模块-交互

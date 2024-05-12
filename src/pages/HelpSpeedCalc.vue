@@ -264,56 +264,20 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
 
 const getPlayerExtraDesc = pokemons => {
   let extraDesc = '自选'
-  if (pokemons.skill.includes('hs') || pokemons.skill.includes('hm')) {
-    extraDesc += '\n'
-  }
-  if (pokemons.skill.includes('hs')) {
-    extraDesc += '帮速S'
-  }
-  if (pokemons.skill.includes('hs') && pokemons.skill.includes('hm')) {
-    extraDesc += ','
-  }
-  if (pokemons.skill.includes('hm')) {
-    extraDesc += '帮速M'
-  }
   if (pokemons.skill.includes('hg1')) {
-    extraDesc += '\n帮手奖励*1'
+    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*1`
   }
   if (pokemons.skill.includes('hg2')) {
-    extraDesc += '\n帮手奖励*2'
+    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*2`
   }
   if (pokemons.skill.includes('hg3')) {
-    extraDesc += '\n帮手奖励*3'
+    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*3`
   }
   if (pokemons.skill.includes('hg4')) {
-    extraDesc += '\n帮手奖励*4'
+    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*4`
   }
   if (pokemons.skill.includes('hg5')) {
-    extraDesc += '\n帮手奖励*5'
-  }
-  if (pokemons.skill.includes('fs') || pokemons.skill.includes('fm')) {
-    extraDesc += '\n'
-  }
-  if (pokemons.skill.includes('fs')) {
-    extraDesc += '食率S'
-  }
-  if (pokemons.skill.includes('fs') && pokemons.skill.includes('fm')) {
-    extraDesc += ','
-  }
-  if (pokemons.skill.includes('fm')) {
-    extraDesc += '食率M'
-  }
-  if (pokemons.skill.includes('ss') || pokemons.skill.includes('sm')) {
-    extraDesc += '\n'
-  }
-  if (pokemons.skill.includes('ss')) {
-    extraDesc += '技率S'
-  }
-  if (pokemons.skill.includes('ss') && pokemons.skill.includes('sm')) {
-    extraDesc += ','
-  }
-  if (pokemons.skill.includes('sm')) {
-    extraDesc += '技率M'
+    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*5`
   }
   extraDesc += `\n${getNature(pokemons)}`
   return extraDesc
@@ -341,7 +305,15 @@ const getTargetPokemonEnergy = pokeId => {
   )
 
   resRankArr = resRankArr.concat(
-    addArrInOptions(getPlayerExtraDesc(helpSpeedCalcForm.value), pokeItem, true)
+    addArrInOptions(
+      getPlayerExtraDesc(helpSpeedCalcForm.value),
+      {
+        ...pokeItem,
+        skill: helpSpeedCalcForm.value.skill,
+        character: helpSpeedCalcForm.value.character
+      },
+      true
+    )
   ) // 玩家自选
 
   const hsDefaultOptions = {
@@ -396,22 +368,22 @@ const getTargetPokemonEnergy = pokeId => {
     skill: ['hm', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
-  let tempExtra2 = '食材S,M\n性格:帮↑'
-  let tempExtra3 = '帮速S,M\n性格:固执'
-  let tempExtra4 = '食材S,M\n性格:食↑'
-  let tempExtra5 = '技率S,M\n性格:技↑'
-  let tempExtra6 = '技M,帮速M\n性格:技↑'
+  let tempExtra2 = `${t('PROP.nature')}:帮↑`
+  let tempExtra3 = `${t('PROP.nature')}:${t('NATURE_NAMES.2')}`
+  let tempExtra4 = `${t('PROP.nature')}:食↑`
+  let tempExtra5 = `${t('PROP.nature')}:技↑`
+  let tempExtra6 = `${t('PROP.nature')}:技↑`
   if (helpSpeedCalcForm.value.level < 50) {
     tempSCOptions2.skill = ['fm']
     tempSCOptions3.skill = ['hm']
     tempSCOptions4.skill = ['fm']
     tempSCOptions5.skill = ['sm']
     tempSCOptions6.skill = ['hm']
-    tempExtra2 = '食材M\n性格:帮↑'
-    tempExtra3 = '帮速M\n性格:固执'
-    tempExtra4 = '食材M\n性格:食↑'
-    tempExtra5 = '技率M\n性格:技↑'
-    tempExtra6 = '技M\n性格:技↑'
+    tempExtra2 = `${t('PROP.nature')}:帮↑`
+    tempExtra3 = `${t('PROP.nature')}:${t('NATURE_NAMES.2')}`
+    tempExtra4 = `${t('PROP.nature')}:食↑`
+    tempExtra5 = `${t('PROP.nature')}:技↑`
+    tempExtra6 = `${t('PROP.nature')}:技↑`
   }
 
   tempPokeItem2.helpSpeed = getNewHelpSpeed(
@@ -433,7 +405,9 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem2.skillPer
   )
-  resRankArr = resRankArr.concat(addArrInOptions(tempExtra2, tempPokeItem2))
+  resRankArr = resRankArr.concat(
+    addArrInOptions(tempExtra2, { ...tempPokeItem2, ...tempSCOptions2 })
+  )
 
   tempPokeItem3.helpSpeed = getNewHelpSpeed(
     {
@@ -454,7 +428,9 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem3.skillPer
   )
-  resRankArr = resRankArr.concat(addArrInOptions(tempExtra3, tempPokeItem3))
+  resRankArr = resRankArr.concat(
+    addArrInOptions(tempExtra3, { ...tempPokeItem3, ...tempSCOptions3 })
+  )
 
   tempPokeItem4.helpSpeed = getNewHelpSpeed(
     {
@@ -475,7 +451,9 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem4.skillPer
   )
-  resRankArr = resRankArr.concat(addArrInOptions(tempExtra4, tempPokeItem4))
+  resRankArr = resRankArr.concat(
+    addArrInOptions(tempExtra4, { ...tempPokeItem4, ...tempSCOptions4 })
+  )
 
   tempPokeItem5.helpSpeed = getNewHelpSpeed(
     {
@@ -496,7 +474,9 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem5.skillPer
   )
-  resRankArr = resRankArr.concat(addArrInOptions(tempExtra5, tempPokeItem5))
+  resRankArr = resRankArr.concat(
+    addArrInOptions(tempExtra5, { ...tempPokeItem5, ...tempSCOptions5 })
+  )
 
   tempPokeItem6.helpSpeed = getNewHelpSpeed(
     {
@@ -517,7 +497,9 @@ const getTargetPokemonEnergy = pokeId => {
     },
     tempPokeItem6.skillPer
   )
-  resRankArr = resRankArr.concat(addArrInOptions(tempExtra6, tempPokeItem6))
+  resRankArr = resRankArr.concat(
+    addArrInOptions(tempExtra6, { ...tempPokeItem6, ...tempSCOptions6 })
+  )
 
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
 
@@ -673,7 +655,7 @@ const handleClickCopyData = () => {
   textareaBoxData.value.select() // 选中文本
   document.execCommand('copy') // 执行浏览器复制命令
   ElMessage({
-    message: '导出到剪贴板成功！',
+    message: '导出并复制到剪贴板成功！',
     type: 'success'
   })
 }
@@ -859,21 +841,19 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
     </el-form-item>
     <el-form-item>
-      <el-checkbox v-model="helpSpeedCalcForm.isShiny">
-        {{ $t("PROP.shiny") }}
-      </el-checkbox>
-    </el-form-item>
-    <el-form-item :label="$t('PROP.subSkill')">
-      <div style="width: 100%">
-        <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
-          <el-checkbox
-            :label="skillItem.label"
-            v-for="skillItem in skillOptionsExtra2"
-            v-bind:key="skillItem.label"
-          >
-            <span class="cpt-skill cpt-skill--3">{{ $t(skillItem.txt) }}</span>
-          </el-checkbox>
-        </el-checkbox-group>
+      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
+        <el-checkbox
+          :label="skillItem.label"
+          v-for="skillItem in skillOptionsExtra2"
+          v-bind:key="skillItem.label"
+        >
+          <span class="cpt-skill cpt-skill--3">{{ $t(skillItem.txt) }}</span>
+        </el-checkbox>
+      </el-checkbox-group>
+      <div style="margin-top: 3px; margin-left: 12px">
+        <el-checkbox v-model="helpSpeedCalcForm.isShiny">
+          {{ $t("PROP.shiny") }}
+        </el-checkbox>
       </div>
     </el-form-item>
     <el-form-item :label="$t(skillOptionsHelpSpeed[0].txt).replace('S', '')">
