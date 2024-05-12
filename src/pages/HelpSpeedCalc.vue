@@ -3,13 +3,21 @@ import { ref, watch, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
-import { get, sortInObjectOptions, toHMInLang } from '../utils/index.js'
+import {
+  get,
+  sortInObjectOptions,
+  toHMInLang,
+  getNum,
+  fnAccumulation,
+  getStageLevelPicId
+} from '../utils/index.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
   getNewFoodPer,
   getNewSkillPer
 } from '../utils/energy.js'
+import { getLevelIndexByEnergy } from '../utils/sleep.js'
 import { gameMap } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -59,7 +67,7 @@ const helpSpeedCalcForm = ref({
 })
 const calcTimeConfig = ref([
   {
-    name:`${t('PROP.whistle')}(${toHMInLang(3, '', localeLangId.value)})`,
+    name: `${t('PROP.whistle')}(${toHMInLang(3, '', localeLangId.value)})`,
     value: 10800
   },
   {
@@ -251,6 +259,7 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
       id: newPokeItem.id,
       nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
       extraDesc: extraDesc,
+      pokeUseFoods: pokeUseFoods,
       ...getOneDayEnergy(
         newPokeItem,
         pokeLevel,
@@ -629,7 +638,7 @@ const hanldeClickAddBox = () => {
   localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
   // console.log(curRes)
   ElMessage({
-    message: '已经成功添加到盒子！',
+    message: '成功添加到盒子！',
     type: 'success'
   })
 }
@@ -684,6 +693,10 @@ const hanldeClickAddBoxTemp = () => {
     useFoods: [...helpSpeedCalcForm.value.useFoods]
   }
   userPokemonsNoSvae.value.list.push(curRes)
+  ElMessage({
+    message: '加入队伍成功！',
+    type: 'success'
+  })
 }
 const handleClickDelPoke2 = dataId => {
   userPokemonsNoSvae.value.list.splice(
@@ -693,6 +706,50 @@ const handleClickDelPoke2 = dataId => {
 }
 const handleClickChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
+}
+const handleClickGetMostEnergyPokemons = () => {
+  userPokemonsNoSvae.value.list = []
+  const resList = getBoxCurEnergy(userPokemons.value.list)
+  for (let i = 0; i < 5; i++) {
+    if (resList[i]) {
+      const curRes = {
+        dataId: `${new Date().getTime()}_${resList[i].pokemonId}`,
+        pokemonId: resList[i].pokemonId,
+        baseHelpSpeed: resList[i].baseHelpSpeed,
+        isShiny: resList[i].isShiny,
+        level: resList[i].level,
+        skill: [...resList[i].skill],
+        character: resList[i].character,
+        useFoods: [...resList[i].pokeUseFoods]
+      }
+      userPokemonsNoSvae.value.list.push(curRes)
+    }
+  }
+  if (userPokemonsNoSvae.value.list.length > 0) {
+    ElMessage({
+      message: '自动组队成功！',
+      type: 'success'
+    })
+  }
+}
+
+const getTeamCurEnergy = () => {
+  const resList = getBoxCurEnergy(userPokemonsNoSvae.value.list)
+  if (userPokemonsNoSvae.value.list.length > 0) {
+    return fnAccumulation(resList, 'oneDayEnergy')
+  }
+  return 0
+}
+
+const getTeamCurEnergyLevel = () => {
+  const energy = getTeamCurEnergy()
+  if (energy > 0) {
+    return getLevelIndexByEnergy(
+      gameMap[helpSpeedCalcForm.value.curMap].levelList,
+      energy
+    )
+  }
+  return 0
 }
 
 onMounted(() => {
@@ -952,11 +1009,11 @@ watch(helpSpeedCalcForm.value, val => {
       </el-select>
     </el-form-item>
     <el-form-item>
-      <el-button class="mb3" type="success" plain @click="hanldeClickAddBox()"
-        >加入盒子</el-button
+      <el-button type="success" plain @click="hanldeClickAddBox()"
+        ><SvgIcon type="box" />加入盒子</el-button
       >
       <el-button type="primary" plain @click="hanldeClickAddBoxTemp()"
-        >快速对比</el-button
+        ><SvgIcon type="team" />加入队伍</el-button
       >
     </el-form-item>
     <el-form-item label="计算结果">
@@ -1109,17 +1166,17 @@ watch(helpSpeedCalcForm.value, val => {
       </ul>
     </el-form-item>
     <el-form-item :label="$t('PROP.areaBonus')">
-    <div class="el-form-slider--bonus">
-      <el-slider
-        size="small"
-        v-model="helpSpeedCalcForm.areaBonus"
-        show-input
-        show-stops
-        :min="0"
-        :max="60"
-        :step="5"
-      />
-    </div>
+      <div class="el-form-slider--bonus">
+        <el-slider
+          size="small"
+          v-model="helpSpeedCalcForm.areaBonus"
+          show-input
+          show-stops
+          :min="0"
+          :max="60"
+          :step="5"
+        />
+      </div>
     </el-form-item>
     <el-form-item :label="$t('PROP.ticket')">
       <el-switch
@@ -1146,14 +1203,14 @@ watch(helpSpeedCalcForm.value, val => {
       </el-radio-group>
     </el-form-item>
     <el-form-item>
-      <el-radio-group v-model="navData.navIndex" fill="#41ae3c">
+      <el-radio-group
+        class="first-page-nav"
+        v-model="navData.navIndex"
+        fill="#41ae3c"
+      >
         <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
-          <el-radio-button
-            :label="cItem.value"
-            :disabled="
-              cItem.value === 2 && userPokemonsNoSvae.list.length === 0
-            "
-            >{{ cItem.name
+          <el-radio-button :label="cItem.value">
+            <SvgIcon :type="cItem.icon" v-if="cItem.icon" />{{ cItem.name
             }}<span v-if="cItem.value === 1"
               >({{ userPokemons.list.length }})</span
             ><span v-if="cItem.value === 2"
@@ -1240,7 +1297,9 @@ watch(helpSpeedCalcForm.value, val => {
     </div>
     <div v-if="navData.navIndex === 1">
       <h3>
-        宝可梦盒子<span class="extra">({{ userPokemons.list.length }})</span>
+        <SvgIcon type="box" size="small" />宝可梦盒子<span class="extra"
+          >({{ userPokemons.list.length }})</span
+        >
       </h3>
       <textarea
         type="text"
@@ -1256,7 +1315,6 @@ watch(helpSpeedCalcForm.value, val => {
         @click="handleClickCopyData()"
         ><SvgIcon type="download" />导出数据到剪贴板</el-button
       >
-
       <el-popover
         placement="bottom"
         title="导入数据"
@@ -1318,10 +1376,41 @@ watch(helpSpeedCalcForm.value, val => {
     </div>
     <div v-if="navData.navIndex === 2">
       <h3>
-        快速对比<span class="extra"
+        <SvgIcon type="team" />队伍<span class="extra"
           >({{ userPokemonsNoSvae.list.length }})</span
         >
       </h3>
+      <el-button
+        type="success"
+        size="small"
+        plain
+        :disabled="userPokemons.list.length === 0"
+        @click="handleClickGetMostEnergyPokemons()"
+        >从盒子自动组队(能量最高的前5)</el-button
+      >
+      <p>
+        能量: <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+          class="sptime"
+          >{{ getNum(getTeamCurEnergy()) }}</span
+        >
+      </p>
+      <p>
+        级别:
+        <img
+          class="icon"
+          v-lazy="
+            `./img/ui/${getStageLevelPicId(
+              gameMap[0].levelList[getTeamCurEnergyLevel()].name
+            )}.png`
+          "
+        />{{
+          $t(
+            `LEVEL_TITLE.${
+              gameMap[0].levelList[getTeamCurEnergyLevel()].nameId
+            }`
+          )
+        }}{{ gameMap[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
+      </p>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemonsNoSvae.list.length > 0"

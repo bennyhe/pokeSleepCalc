@@ -74,6 +74,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 3. [https://www.veryicon.com/icons/healthcate-medical/health-management-icon/](https://www.veryicon.com/icons/healthcate-medical/health-management-icon/)
 4. [https://www.veryicon.com/icons/miscellaneous/iconpack-2/](https://www.veryicon.com/icons/miscellaneous/iconpack-2/)
 5. [https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/](https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/)
+6. [https://www.veryicon.com/icons/miscellaneous/huihon_iconfont/box-51.html](https://www.veryicon.com/icons/miscellaneous/huihon_iconfont/box-51.html)
+7. [https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html](https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html)
 
 ## Github提交规范约束
 1. feat: 提交新功能

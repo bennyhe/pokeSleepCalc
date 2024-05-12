@@ -56,9 +56,11 @@ export default defineConfig({
             return 'pokedex'
           } else if (id.includes('components/DialogUpdateLog/data.js')) {
             return 'update'
+          } else if (id.includes('components/SvgIcon/IconItem.vue')) {
+            return 'svg-icon'
           } else if (id.includes('config')) {
             return 'config'
-          } else if (id.includes('src/pages/SleepCalc.vue')) {
+          } else if (id.includes('pages/SleepCalc.vue')) {
             return 'sleepcalc'
           } else {
             return 'main'

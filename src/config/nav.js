@@ -56,11 +56,13 @@ export const NAV_HELPSPEEDCALC = {
     },
     {
       name: '宝可梦盒子',
-      value: 1
+      value: 1,
+      icon: 'box'
     },
     {
-      name: '快速对比',
-      value: 2
+      name: '队伍',
+      value: 2,
+      icon: 'team'
     }
   ],
   navIndex: 0

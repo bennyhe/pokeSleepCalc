@@ -1018,6 +1018,7 @@ h4 {
 .svg-icon {
   width: 24px;
   height: 24px;
+  vertical-align: middle;
 
   &--small {
     width: 12px;
@@ -1027,7 +1028,28 @@ h4 {
 
 .el-button {
   .svg-icon {
+    margin: 0 1px;
     transition: all 0.3s linear;
+    width: 18px;
+    height: 18px;
+    margin-top: -2px;
+  }
+}
+.el-radio-button {
+  .svg-icon {
+    margin: 0 1px;
+    transition: all 0.3s linear;
+    width: 18px;
+    height: 18px;
+    margin-bottom: -4px;
+    margin-top: -4px;
+  }
+}
+h3 {
+  .svg-icon {
+    margin: 0 1px;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -1738,11 +1760,11 @@ h4 {
       width: 25%;
     }
   }
+  .first-page-nav .el-radio-button__inner {
+    padding: 8px
+  }
 
   .page-sleepcalc {
-    .first-page-nav .el-radio-button__inner {
-      padding: 8px
-    }
 
     .el-select-sleepstyle {
       width: 130px;
