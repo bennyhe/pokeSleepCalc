@@ -49,7 +49,6 @@ export default {
     'moreOne': '多1只',
     'sleepMathExp': '期望',
 
-    'formLableLevel': '级别/能量',
     'formLableDays': '特殊加成',
     'formLableNoSplit': '不拆分',
     'formLableSleepStyle': '睡眠类型',

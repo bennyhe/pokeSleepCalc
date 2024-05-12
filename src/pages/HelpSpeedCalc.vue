@@ -1389,13 +1389,13 @@ watch(helpSpeedCalcForm.value, val => {
         >从盒子自动组队(能量最高的前5)</el-button
       >
       <p>
-        能量: <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+        {{$t('PROP.energy')}}: <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
           class="sptime"
           >{{ getNum(getTeamCurEnergy()) }}</span
         >
       </p>
       <p>
-        级别:
+        {{$t('PROP.level')}}:
         <img
           class="icon"
           v-lazy="

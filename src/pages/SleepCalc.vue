@@ -716,7 +716,7 @@ onMounted(() => {
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->
-      <el-form-item :label="$t('PAGE_SLEEPCALC.formLableLevel')">
+      <el-form-item :label="`${$t('PROP.level')}/${$t('PROP.energy')}`">
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"

@@ -50,7 +50,6 @@ export default {
     'moreOne': '1匹余り',
     'sleepMathExp': '期待値',
 
-    'formLableLevel': '評価/エナジー',
     'formLableDays': '特殊効果',
     'formLableNoSplit': '分割睡眠しない',
     'formLableSleepStyle': '睡眠タイプ',

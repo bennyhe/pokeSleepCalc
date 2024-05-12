@@ -16,7 +16,9 @@ export default {
     'esMaxPoints': 'フレンドポイントMAX',
     'esFull': '満腹です',
     'areaBonus': 'フィールドボーナス',
-    'whistle': 'おてつだいホイッスル'
+    'whistle': 'おてつだいホイッスル',
+    'level': '評価',
+    'energy': 'エナジー'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

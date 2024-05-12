@@ -16,7 +16,9 @@ export default {
     'esMaxPoints': 'Max Friendship Points!',
     'esFull': 'All Full!',
     'areaBonus': 'Area bonus',
-    'whistle': 'Whistle'
+    'whistle': 'Whistle',
+    'level': '評価',
+    'energy': 'エナジー'
   },
   'BALL_TYPES': {
     1: 'Poké Biscuit',
