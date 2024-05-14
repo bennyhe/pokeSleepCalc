@@ -508,7 +508,8 @@ export const gameMap = [
           '196-id-4',
           '197-id-4',
           '470-id-4',
-          '471-id-4'
+          '471-id-4',
+          '244-id-1'
         ]
       },
       {
@@ -547,7 +548,8 @@ export const gameMap = [
         'nameId': 4,
         'energy': 1029700,
         'sleepStyles': [
-          '26-id-3'
+          '26-id-3',
+          '244-id-2'
         ]
       },
       {
@@ -598,7 +600,9 @@ export const gameMap = [
         'nameIndex': 20,
         'nameId': 4,
         'energy': 3245795,
-        'sleepStyles': []
+        'sleepStyles': [,
+          '244-id-3'
+        ]
       }
     ]
   },
@@ -1432,7 +1436,8 @@ export const gameMap = [
           '136-id-4',
           '38-id-4',
           '157-id-4',
-          '59-id-2'
+          '59-id-2',
+          '244-id-1'
         ]
       },
       {
@@ -1471,7 +1476,8 @@ export const gameMap = [
         'sleepStyles': [
           '76-id-3',
           '94-id-3',
-          '248-id-2'
+          '248-id-2',
+          '244-id-2'
         ]
       },
       {
@@ -1525,7 +1531,8 @@ export const gameMap = [
         'nameId': 4,
         'energy': 1967605,
         'sleepStyles': [
-          '248-id-3'
+          '248-id-3',
+          '244-id-3'
         ]
       },
       {

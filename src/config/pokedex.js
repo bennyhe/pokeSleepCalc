@@ -1641,6 +1641,32 @@ const pokedex = {
       }
     }
   },
+  244: {
+    id: 244,
+    // name: '炎帝',
+    friendship: 30,
+    sleepType: 2,
+    skillType: 15,
+    pokeType: 3,
+    berryType: 10,
+    helpSpeed: 2400
+    // foodPer: 19.12,
+    // skillPer: 1.90,
+    // food: {
+    //   type: [7, 6, 1],
+    //   count: {
+    //     7: {
+    //       num: [1, 2, 4]
+    //     },
+    //     6: {
+    //       num: [0, 2, 3]
+    //     },
+    //     1: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   246: {
     id: 246,
     // name: '幼基拉斯',
@@ -2419,7 +2445,7 @@ const updatePoke = [{
   pokemons: [764]
 }, {
   time: '2024/05/1',
-  pokemons: [37, 38]
+  pokemons: [37, 38, 244]
 }]
 // console.log(pokedex)
 export {

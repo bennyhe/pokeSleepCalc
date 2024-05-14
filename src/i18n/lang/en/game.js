@@ -319,6 +319,7 @@ export default {
     228: 'Houndour',
     229: 'Houndoom',
     243: 'Raikou',
+    244: 'Entei',
     246: 'Larvitar',
     247: 'Pupitar',
     248: 'Tyranitar',
@@ -600,6 +601,7 @@ export default {
     236: '尾巴柔晃睡',
     237: '尾巴蓋肚睡',
     238: '噴火睡',
-    239: '圍尾巴睡'
+    239: '圍尾巴睡',
+    240: '火山睡'
   }
 }

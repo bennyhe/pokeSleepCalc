@@ -81,10 +81,11 @@ const getShinyPoke = isShinyUp => {
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
 const spacialPokemons = {
-  list: [243], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 35, 36, 173], // 不进保底
+  list: [243, 244], // 特殊宝可梦列表，只能一个
+  noLastList: [243, 244, 35, 36, 173], // 不进保底
   isGet: { // 露营券判断是否重复使用
-    243: false
+    243: false,
+    244: false
   }
 }
 
@@ -126,6 +127,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
 
   spacialPokemons.isGet[243] = false //重置
+  spacialPokemons.isGet[244] = false //重置
 
   let cathPokeCount = getNumberInMap(
     score,
