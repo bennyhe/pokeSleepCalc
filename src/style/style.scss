@@ -56,7 +56,6 @@ body {
   .el-form-slider--bonus {
     display: flex;
     width: 100%;
-    max-width: 350px;
     padding: 3px;
     border-radius: 6px;
   }
@@ -1621,6 +1620,10 @@ h3 {
     opacity: 0;
     width: 0;
     height: 0;
+  }
+
+  .el-form-slider--bonus {
+    max-width: 350px;
   }
 
   .el-checkbox-group--inline {
