@@ -65,7 +65,55 @@ const helpSpeedCalcForm = ref({
   calcTime: 86400,
   areaBonus: 0
 })
-const calcTimeConfig = ref([
+const subskillOn = computed(() => {
+  const teamSkill = {
+    helpBonus: {
+      count: 0,
+      energy: 0,
+      energyList: [],
+      list: []
+    }
+  }
+  if (userTeam.value.list.length > 0) {
+    // 统计出多少个金帮
+    userTeam.value.list.forEach(pokeItem => {
+      if (pokeItem.skill.includes('hg1')) {
+        teamSkill.helpBonus.list.push(pokeItem.pokemonId)
+        teamSkill.helpBonus.count++
+      }
+    })
+
+    // 开始算金帮后的总能量
+    let afterBonusList = []
+    if (teamSkill.helpBonus.count > 0) {
+      userTeam.value.list.forEach(pokeItem => {
+        let skill = [...pokeItem.skill]
+        if (skill.includes('hg1')) {
+          skill = skill.filter(item => !(item.indexOf('hg') > -1))
+        }
+        skill.push(`hg${teamSkill.helpBonus.count}`)
+        afterBonusList.push({
+          ...JSON.parse(JSON.stringify(pokeItem)),
+          skill
+        })
+      })
+    } else {
+      afterBonusList = [...userTeam.value.list]
+    }
+    teamSkill.helpBonus.energyList = getBoxCurEnergy(afterBonusList)
+    teamSkill.helpBonus.energy = fnAccumulation(
+      teamSkill.helpBonus.energyList,
+      'oneDayEnergy'
+    )
+    // console.log(
+    //   teamSkill.helpBonus.energyList,
+    //   afterBonusList,
+    //   teamSkill.helpBonus.energy
+    // )
+  }
+  return teamSkill
+})
+const calcTimeConfig = [
   {
     name: `${t('PROP.whistle')}(${toHMInLang(3, '', localeLangId.value)})`,
     value: 10800
@@ -78,11 +126,11 @@ const calcTimeConfig = ref([
     name: '1周(7日)',
     value: 604800
   }
-])
+]
 const userPokemons = ref({
   list: []
 })
-const userPokemonsNoSvae = ref({
+const userTeam = ref({
   list: []
 })
 // 获取选择帮忙速度的宝可梦分组
@@ -692,7 +740,7 @@ const handleClickAddCurPokemonTeam = pokemonItem => {
     character: pokemonItem.character,
     useFoods: [...pokemonItem.pokeUseFoods]
   }
-  userPokemonsNoSvae.value.list.push(curRes)
+  userTeam.value.list.push(curRes)
   ElMessage({
     message: '加入队伍成功！',
     type: 'success'
@@ -709,23 +757,23 @@ const hanldeClickAddTeam = () => {
     character: helpSpeedCalcForm.value.character,
     useFoods: [...helpSpeedCalcForm.value.useFoods]
   }
-  userPokemonsNoSvae.value.list.push(curRes)
+  userTeam.value.list.push(curRes)
   ElMessage({
     message: '加入队伍成功！',
     type: 'success'
   })
 }
 const handleClickDelPokeInTeam = dataId => {
-  userPokemonsNoSvae.value.list.splice(
-    userPokemonsNoSvae.value.list.findIndex(item => item.dataId === dataId),
+  userTeam.value.list.splice(
+    userTeam.value.list.findIndex(item => item.dataId === dataId),
     1
   )
 }
 const handleClickChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
 }
-const handleClickGetMostEnergyPokemons = () => {
-  userPokemonsNoSvae.value.list = []
+const handleClickAutoTeam = () => {
+  userTeam.value.list = []
   const resList = getBoxCurEnergy(userPokemons.value.list)
   for (let i = 0; i < 5; i++) {
     if (resList[i]) {
@@ -739,10 +787,10 @@ const handleClickGetMostEnergyPokemons = () => {
         character: resList[i].character,
         useFoods: [...resList[i].pokeUseFoods]
       }
-      userPokemonsNoSvae.value.list.push(curRes)
+      userTeam.value.list.push(curRes)
     }
   }
-  if (userPokemonsNoSvae.value.list.length > 0) {
+  if (userTeam.value.list.length > 0) {
     ElMessage({
       message: '自动组队成功！',
       type: 'success'
@@ -751,11 +799,22 @@ const handleClickGetMostEnergyPokemons = () => {
 }
 
 const getTeamCurEnergy = () => {
-  const resList = getBoxCurEnergy(userPokemonsNoSvae.value.list)
-  if (userPokemonsNoSvae.value.list.length > 0) {
-    return fnAccumulation(resList, 'oneDayEnergy')
+  let energy = 0
+  if (userTeam.value.list.length > 0) {
+    const afterBonusList = []
+    userTeam.value.list.forEach(pokeItem => {
+      const skill = [...pokeItem.skill].filter(
+        item => !(item.indexOf('hg') > -1)
+      )
+      afterBonusList.push({
+        ...JSON.parse(JSON.stringify(pokeItem)),
+        skill
+      })
+    })
+    const energyList = getBoxCurEnergy(afterBonusList)
+    energy = fnAccumulation(energyList, 'oneDayEnergy')
   }
-  return 0
+  return energy
 }
 
 const getTeamCurEnergyLevel = () => {
@@ -1231,7 +1290,7 @@ watch(helpSpeedCalcForm.value, val => {
             }}<span v-if="cItem.value === 1"
               >({{ userPokemons.list.length }})</span
             ><span v-if="cItem.value === 2"
-              >({{ userPokemonsNoSvae.list.length }})</span
+              >({{ userTeam.list.length }})</span
             ></el-radio-button
           >
         </template>
@@ -1391,7 +1450,7 @@ watch(helpSpeedCalcForm.value, val => {
             size="small"
             plain
             @click="handleClickAddCurPokemonTeam(pokeItem)"
-            ><SvgIcon type="team"/>加入</el-button
+            ><SvgIcon type="team" />加入</el-button
           >
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
@@ -1401,7 +1460,7 @@ watch(helpSpeedCalcForm.value, val => {
     <div v-if="navData.navIndex === 2">
       <h3>
         <SvgIcon type="team" />队伍<span class="extra"
-          >({{ userPokemonsNoSvae.list.length }})</span
+          >({{ userTeam.list.length }})</span
         >
       </h3>
       <el-button
@@ -1409,20 +1468,17 @@ watch(helpSpeedCalcForm.value, val => {
         size="small"
         plain
         :disabled="userPokemons.list.length === 0"
-        @click="handleClickGetMostEnergyPokemons()"
+        @click="handleClickAutoTeam()"
         >从盒子自动组队(能量最高的前5)</el-button
       >
       <el-row>
-        <el-col :span="24">
+        <el-col style="max-width: 9em">
           {{ $t(`ILAND.${gameMap[helpSpeedCalcForm.curMap].id}`) }}(+<span
             class="sptime"
             >{{ helpSpeedCalcForm.areaBonus }}</span
           >%)
         </el-col>
-      </el-row>
-      <el-row>
-        <el-col style="max-width: 178px">
-          {{ $t("PROP.level") }}:
+        <el-col span="12">
           <img
             class="icon"
             v-lazy="
@@ -1438,17 +1494,42 @@ watch(helpSpeedCalcForm.value, val => {
             )
           }}{{ gameMap[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
         </el-col>
-        <el-col :span="12">
-          {{ $t("PROP.energy") }}:
+      </el-row>
+      <el-row>
+        <el-col>
+          队伍{{ $t("PROP.energy") }}：
           <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
             class="sptime"
-            >{{ getNum(getTeamCurEnergy()) }}</span
+          >
+            <template v-if="subskillOn.helpBonus.energy > 0">
+              {{ getNum(subskillOn.helpBonus.energy) }}</template
+            ><template v-else>{{ getNum(getTeamCurEnergy()) }}</template></span
+          ><template v-if="subskillOn.helpBonus.count > 0"
+            >(全队技能生效中)</template
           >
         </el-col>
       </el-row>
+      <el-row v-if="subskillOn.helpBonus.count > 0">
+        全队技能：
+        <span class="cpt-skill cpt-skill--3">{{
+          $t("SUBSKILLS_NAMES.3")
+        }}</span>
+        * {{ subskillOn.helpBonus.count }}
+        <span
+          class="cpt-avatar"
+          v-for="pokeId in subskillOn.helpBonus.list"
+          v-bind:key="pokeId"
+        >
+          <img
+            class="cpt-avatar__pic"
+            v-lazy="`./img/pokedex/${pokeId}.png`"
+            :alt="$t(`POKEMON_NAME.${pokeId}`)"
+          />
+        </span>
+      </el-row>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
-        v-if="userPokemonsNoSvae.list.length > 0"
+        v-if="userTeam.list.length > 0"
       >
         <CptEnergyItem
           class="poke-tb__item--hasclose"
@@ -1463,9 +1544,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
           ]"
-          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
-            userPokemonsNoSvae.list
-          )"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userTeam.list)"
           v-bind:key="`${pokeItem.dataId}_${
             pokeItem.id
           }_${pokeKey}_${pokeItem.useFoods.join('')}_${
@@ -1473,6 +1552,17 @@ watch(helpSpeedCalcForm.value, val => {
           }`"
           :isHightLightBerry="
             gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+          "
+          :showAfterBonusInfo="
+            subskillOn.helpBonus.energyList.length > 0 &&
+            subskillOn.helpBonus.energyList.find(
+              (item) => item.dataId === pokeItem.dataId
+            ).oneDayEnergy !== pokeItem.oneDayEnergy
+          "
+          :pokeItemAfterBonus="
+            subskillOn.helpBonus.energyList.find(
+              (item) => item.dataId === pokeItem.dataId
+            )
           "
         >
           <i

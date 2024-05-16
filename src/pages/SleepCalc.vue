@@ -621,7 +621,7 @@ onMounted(() => {
       <table>
         <thead>
           <tr>
-            <th style="width: 5em"></th>
+            <th style="width: 5.5em"></th>
             <th
               v-for="(gItem, gkey) in gameMapPokemons"
               v-bind:key="`pomap_${gameMap[gkey].id}`"
@@ -635,8 +635,7 @@ onMounted(() => {
             v-for="(ggItem, ggkey) in gameMap[0].levelList"
             v-bind:key="ggItem.id"
           >
-            <tr 
-                  v-if="ggkey<=23">
+            <tr v-if="ggkey <= 24">
               <td>
                 <img
                   class="icon"
@@ -890,9 +889,9 @@ onMounted(() => {
                   >{{ getSleepCatchNum() }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss :score="100" />分，可获得至少<span class="spscore">{{
-                  getNum(getScore(100))
-                }}</span
+                ><CptProcss :score="100" />分，可获得至少<span
+                  class="spscore"
+                  >{{ getNum(getScore(100)) }}</span
                 >睡意之力，</span
               >预计掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力

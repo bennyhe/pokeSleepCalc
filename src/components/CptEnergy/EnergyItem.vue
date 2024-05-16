@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import {
   skillOptionsExtra,
@@ -7,7 +7,13 @@ import {
   skillOptionsFoodPer,
   skillOptionsSkillPer
 } from '../../config/helpSpeed.js'
-import { getNum } from '../../utils/index.js'
+import { getNum, toHMInLang } from '../../utils/index.js'
+
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+const localeLangId = computed(() => {
+  return locale.value
+})
 
 const props = defineProps({
   pokeKey: {
@@ -22,6 +28,13 @@ const props = defineProps({
   isHightLightBerry: {
     type: [Boolean],
     default: false
+  },
+  showAfterBonusInfo: {
+    type: [Boolean],
+    default: false
+  },
+  pokeItemAfterBonus: {
+    type: [Object]
   }
 })
 </script>
@@ -159,6 +172,61 @@ const props = defineProps({
           >{{ $t(`${skillItem.txt}`) }}</span
         >
       </template>
+    </div>
+    <div v-if="showAfterBonusInfo">
+      <div
+        class="cpt-pokemon cpt-pokemon--l"
+        style="
+          min-height: auto;
+          border-top: 2px dashed #d1813a;
+          margin-top: 6px;
+          padding-top: 6px;
+        "
+      >
+        <p>{{ pokeItemAfterBonus.helpSpeed }}s</p>
+        <p class="cpt-pokemon__hshm">
+          {{ toHMInLang(pokeItemAfterBonus.helpSpeed, "sec", localeLangId) }}
+        </p>
+      </div>
+      <div class="poke-tb__energy">
+        <p class="cpt-pokemon__poketype1 xs">
+          果{{ getNum(pokeItemAfterBonus.oneDayBerryEnergy) }}
+        </p>
+        <p class="cpt-pokemon__poketype2 xs">
+          食{{ getNum(pokeItemAfterBonus.oneDayFoodEnergy.allEnergy) }}
+        </p>
+        <p class="cpt-pokemon__poketype3 xs">
+          技{{ getNum(pokeItemAfterBonus.oneDayHelpCount.skill) }}次
+        </p>
+        <div
+          v-if="
+            pokeItemAfterBonus.oneDayFoodEnergy.useFoods &&
+            pokeItemAfterBonus.oneDayFoodEnergy.useFoods.length > 0
+          "
+        >
+          <div class="cpt-food cpt-food--s all-food">
+            <div
+              class="cpt-food__item cur"
+              v-for="(foodItem, foodKey) in pokeItemAfterBonus.oneDayFoodEnergy
+                .useFoods"
+              v-bind:key="foodKey"
+            >
+              <img
+                v-lazy="`./img/food/${foodItem}.png`"
+                :alt="$t(`FOOD_TYPES.${foodItem}`)"
+              />
+              <p class="cpt-food__count">
+                {{ pokeItemAfterBonus.oneDayFoodEnergy.count[foodKey] }}
+              </p>
+            </div>
+          </div>
+          <p class="res">
+            <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+              getNum(pokeItemAfterBonus.oneDayEnergy)
+            }}
+          </p>
+        </div>
+      </div>
     </div>
     <slot />
   </div>
