@@ -485,7 +485,8 @@ export const gameMap = [
           '196-id-2',
           '197-id-2',
           '470-id-2',
-          '471-id-2'
+          '471-id-2',
+          '244-id-1'
         ]
       },
       {
@@ -508,8 +509,7 @@ export const gameMap = [
           '196-id-4',
           '197-id-4',
           '470-id-4',
-          '471-id-4',
-          '244-id-1'
+          '471-id-4'
         ]
       },
       {
@@ -539,7 +539,8 @@ export const gameMap = [
         'energy': 885619,
         'sleepStyles': [
           '700-id-3',
-          '243-id-2'
+          '243-id-2',
+          '244-id-2'
         ]
       },
       {
@@ -548,8 +549,7 @@ export const gameMap = [
         'nameId': 4,
         'energy': 1029700,
         'sleepStyles': [
-          '26-id-3',
-          '244-id-2'
+          '26-id-3'
         ]
       },
       {
@@ -592,7 +592,8 @@ export const gameMap = [
         'nameId': 4,
         'energy': 2604280,
         'sleepStyles': [
-          '243-id-3'
+          '243-id-3',
+          '244-id-3'
         ]
       },
       {
@@ -600,8 +601,7 @@ export const gameMap = [
         'nameIndex': 20,
         'nameId': 4,
         'energy': 3245795,
-        'sleepStyles': [,
-          '244-id-3'
+        'sleepStyles': [
         ]
       }
     ]
@@ -1417,7 +1417,8 @@ export const gameMap = [
           '196-id-2',
           '197-id-2',
           '136-id-2',
-          '157-id-2'
+          '157-id-2',
+          '244-id-1'
         ]
       },
       {
@@ -1436,8 +1437,7 @@ export const gameMap = [
           '136-id-4',
           '38-id-4',
           '157-id-4',
-          '59-id-2',
-          '244-id-1'
+          '59-id-2'
         ]
       },
       {
@@ -1465,7 +1465,8 @@ export const gameMap = [
         'nameId': 4,
         'energy': 942653,
         'sleepStyles': [
-          '36-id-3'
+          '36-id-3',
+          '244-id-2'
         ]
       },
       {
@@ -1476,8 +1477,7 @@ export const gameMap = [
         'sleepStyles': [
           '76-id-3',
           '94-id-3',
-          '248-id-2',
-          '244-id-2'
+          '248-id-2'
         ]
       },
       {
@@ -1523,7 +1523,9 @@ export const gameMap = [
         'nameIndex': 15,
         'nameId': 4,
         'energy': 1776213,
-        'sleepStyles': []
+        'sleepStyles': [
+          '244-id-3'
+        ]
       },
       {
         'name': '大师16',
@@ -1531,8 +1533,7 @@ export const gameMap = [
         'nameId': 4,
         'energy': 1967605,
         'sleepStyles': [
-          '248-id-3',
-          '244-id-3'
+          '248-id-3'
         ]
       },
       {
