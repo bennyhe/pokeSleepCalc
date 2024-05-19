@@ -501,9 +501,9 @@ const pokedex = {
     skillType: 3,
     pokeType: 3,
     berryType: 11,
-    helpSpeed: 3000,
     foodPer: 16.83,
     skillPer: 4.40
+    helpSpeed: 2800,
   },
   54: {
     id: 54,
@@ -2146,7 +2146,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 3,
     pokeType: 3,
-    helpSpeed: 2700,
+    helpSpeed: 2600,
     berryType: 18,
     foodPer: 14.91,
     skillPer: 5.10

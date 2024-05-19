@@ -1,6 +1,7 @@
 const markdownText = `
 # 更新日志
 
+2. update 游戏v1.7.2宝可梦平衡调整
 ## 24-05-17
 1. update #244（睡姿&期望）
 
