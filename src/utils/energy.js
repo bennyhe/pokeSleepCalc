@@ -61,8 +61,8 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   return helpFoodEnergy
 }
 export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
-  foodPer = Math.floor(foodPer || 0)
-  skillPer = Math.floor(skillPer || 0)
+  foodPer = parseFloat(foodPer || 0)
+  skillPer = parseFloat(skillPer || 0)
   calcTime = +calcTime || 86400
   const oneDayHelpCount = {
     sum: Math.floor(calcTime / (helpSpeed / 2.2)), // 一天总帮忙次数
