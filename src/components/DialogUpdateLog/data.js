@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-05-20
+1. update #244数据
+
 ## 24-05-19
 1. update 宝可梦图鉴-食材率&技能率
 2. update 游戏v1.7.2宝可梦平衡调整

@@ -60,9 +60,9 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: true,
-  showBan: true,
-  banPokes: [244]
+  onOffBan: false,
+  showBan: false,
+  banPokes: []
 })
 const userSleep = ref({
   count: 0,
@@ -70,7 +70,8 @@ const userSleep = ref({
   pokeShinyList: [],
   pokeSum: 0,
   showDetailShiny: false,
-  isFirst243: true
+  isFirst243: true,
+  isFirst244: true
 })
 const pageData = ref({
   showMoreMathExp: false
@@ -300,10 +301,14 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   res.forEach((sleepItem, key) => {
     sleepItem.iv = getRandomIV(sleepItem.pokeId, {
       isFirst243: userSleep.value.isFirst243,
+      isFirst244: userSleep.value.isFirst244,
       lockSkillCount: userData.value.lockSkillCount
     })
     if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
       userSleep.value.isFirst243 = false
+    }
+    if (userSleep.value.isFirst244 && sleepItem.pokeId === 244) {
+      userSleep.value.isFirst244 = false
     }
 
     let isCurPokeMapLock = 0
@@ -319,6 +324,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
       isFirst243: userSleep.value.isFirst243,
+      isFirst244: userSleep.value.isFirst244,
       lockSkillCount: isCurPokeMapLock
     })
 
