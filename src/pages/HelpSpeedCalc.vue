@@ -66,7 +66,7 @@ const helpSpeedCalcForm = ref({
   calcTime: 86400,
   areaBonus: 0
 })
-const gameMapNew = ref([...gameMap])
+const gameMapNew = ref(JSON.parse(JSON.stringify(gameMap)))
 const berryList = ref([])
 for (const key in BERRY_TYPES) {
   if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {
@@ -677,6 +677,7 @@ const getBoxCurEnergy = dataList => {
     pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
     pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+    // console.log(pokeItem)
     resRankArr = resRankArr.concat(
       addArrInOptions(
         getNature(pokeItem),
@@ -819,7 +820,7 @@ const handleClickAutoTeam = () => {
   for (let i = 0; i < 5; i++) {
     if (resList[i]) {
       const curRes = {
-        dataId: `${new Date().getTime()}_${resList[i].pokemonId}`,
+        dataId: `${new Date().getTime()}_${i}_${resList[i].pokemonId}`,
         pokemonId: resList[i].pokemonId,
         baseHelpSpeed: resList[i].baseHelpSpeed,
         isShiny: resList[i].isShiny,
@@ -828,6 +829,7 @@ const handleClickAutoTeam = () => {
         character: resList[i].character,
         useFoods: [...resList[i].pokeUseFoods]
       }
+      // console.log(curRes)
       userTeam.value.list.push(curRes)
     }
   }

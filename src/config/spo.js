@@ -69,7 +69,7 @@ export const SPONEW_TO_SPOOLD = {
   74: 4088,
   78: 4882,
   84: 6405, // 待定6404-6405
-  86: 6938 // 待定
+  86: 6908 // 待定
 }
 export const SPO_DATA = {
   '1-id-1': {
