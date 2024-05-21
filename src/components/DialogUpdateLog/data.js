@@ -2,7 +2,8 @@ const markdownText = `
 # 更新日志
 
 ## 24-05-21
-1. update #244数据
+1. add 帮速计算-1岛可以自选树果
+2. update #244数据
 
 ## 24-05-20
 1. update #244数据

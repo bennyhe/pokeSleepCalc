@@ -297,6 +297,7 @@ h4 {
       width: 48px;
       font-size: 13px;
       border-radius: 16px;
+      margin: 1px;
     }
   }
 }
@@ -1042,6 +1043,7 @@ h4 {
     margin-top: -2px;
   }
 }
+
 .el-radio-button {
   .svg-icon {
     margin: 0 1px;
@@ -1052,6 +1054,7 @@ h4 {
     margin-top: -4px;
   }
 }
+
 h3 {
   .svg-icon {
     margin: 0 1px;
@@ -1616,6 +1619,12 @@ h3 {
 }
 
 .page-helpcalc {
+  .cpt-select-list--berry {
+    .cpt-select-list__item {
+      width: 28px;
+    }
+  }
+
   .textarea--data {
     opacity: 0;
     width: 0;
@@ -1766,6 +1775,7 @@ h3 {
       width: 25%;
     }
   }
+
   .first-page-nav .el-radio-button__inner {
     padding: 8px
   }

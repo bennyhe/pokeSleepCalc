@@ -16,6 +16,7 @@
   padding-bottom: env(safe-area-inset-bottom);
   user-select: none;
   text-shadow: 0 1px darken($color: $navColor, $amount: 25%);
+  box-shadow: 0 0 3px lighten($color: $navColor, $amount: 25%);
 
   ul {
     max-width: 1280px;

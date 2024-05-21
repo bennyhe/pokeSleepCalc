@@ -31,6 +31,7 @@ import {
   skillOptionsSkillPer,
   levelOptions
 } from '../config/helpSpeed.js'
+import { BERRY_TYPES } from '../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -65,6 +66,17 @@ const helpSpeedCalcForm = ref({
   calcTime: 86400,
   areaBonus: 0
 })
+const gameMapNew = ref([...gameMap])
+const berryList = ref([])
+for (const key in BERRY_TYPES) {
+  if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {
+    berryList.value.push({
+      name: t(`BERRY_TYPES.${key}`),
+      id: `berry_${t(`BERRY_TYPES.${key}`)}`,
+      berry: +key
+    })
+  }
+}
 const subskillOn = computed(() => {
   const teamSkill = {
     helpBonus: {
@@ -655,7 +667,7 @@ const getBoxCurEnergy = dataList => {
         getNature(pokeItem),
         pokeItem,
         true,
-        gameMap[helpSpeedCalcForm.value.curMap].berry.includes(
+        gameMapNew.value[helpSpeedCalcForm.value.curMap].berry.includes(
           pokeItem.berryType
         )
       )
@@ -772,6 +784,22 @@ const handleClickDelPokeInTeam = dataId => {
 const handleClickChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
 }
+const handleClickChangeFMBerrys = berryId => {
+  if (gameMapNew.value[0].berry.includes(berryId)) {
+    gameMapNew.value[0].berry = gameMapNew.value[0].berry.filter(
+      item => item !== berryId
+    )
+  } else {
+    if (gameMapNew.value[0].berry.join('') === '???') {
+      gameMapNew.value[0].berry = []
+    }
+    gameMapNew.value[0].berry.push(berryId)
+  }
+  if (gameMapNew.value[0].berry.length === 0) {
+    gameMapNew.value[0].berry = ['?', '?', '?']
+  }
+  // console.log(gameMapNew.value[0].berry)
+}
 const handleClickAutoTeam = () => {
   userTeam.value.list = []
   const resList = getBoxCurEnergy(userPokemons.value.list)
@@ -821,7 +849,7 @@ const getTeamCurEnergyLevel = () => {
   const energy = getTeamCurEnergy()
   if (energy > 0) {
     return getLevelIndexByEnergy(
-      gameMap[helpSpeedCalcForm.value.curMap].levelList,
+      gameMapNew.value[helpSpeedCalcForm.value.curMap].levelList,
       energy
     )
   }
@@ -1204,7 +1232,7 @@ watch(helpSpeedCalcForm.value, val => {
         style="--el-switch-on-color: #ffaf00"
       />
       <ul class="cpt-select-list cpt-select-list--iland" v-else>
-        <template v-for="(mapItem, mapIndex) in gameMap">
+        <template v-for="(mapItem, mapIndex) in gameMapNew">
           <li
             class="cpt-select-list__item"
             v-if="!(mapItem.id.indexOf('berry_') > -1)"
@@ -1237,6 +1265,32 @@ watch(helpSpeedCalcForm.value, val => {
               v-lazy="`./img/ui/${mapItem.pic}.png`"
               :alt="mapItem.name"
             />
+          </li>
+        </template>
+      </ul>
+    </el-form-item>
+    <el-form-item
+      v-if="navData.navIndex !== 0 && helpSpeedCalcForm.curMap === 0"
+    >
+      <ul class="cpt-select-list cpt-select-list--berry">
+        <template v-for="mapItem in berryList">
+          <li
+            class="cpt-select-list__item"
+            v-if="mapItem.id.indexOf('berry_') > -1"
+            v-bind:key="mapItem.id"
+            @click="handleClickChangeFMBerrys(mapItem.berry)"
+            :class="{ cur: gameMapNew[0].berry.includes(mapItem.berry) }"
+          >
+            <div class="cpt-select-list__name">
+              <div class="cpt-food cpt-food--s berry">
+                <div class="cpt-food__item">
+                  <img
+                    v-lazy="`./img/berry/${mapItem.berry}.png`"
+                    :alt="$t(`BERRY_TYPES.${mapItem.berry}`)"
+                  />
+                </div>
+              </div>
+            </div>
           </li>
         </template>
       </ul>
@@ -1442,7 +1496,9 @@ watch(helpSpeedCalcForm.value, val => {
             pokeItem.nameExtra || ''
           }`"
           :isHightLightBerry="
-            gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+            gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
+              pokeItem.berryType
+            )
           "
         >
           <el-button
@@ -1473,7 +1529,7 @@ watch(helpSpeedCalcForm.value, val => {
       >
       <el-row>
         <el-col style="max-width: 9em">
-          {{ $t(`ILAND.${gameMap[helpSpeedCalcForm.curMap].id}`) }}(+<span
+          {{ $t(`ILAND.${gameMapNew[helpSpeedCalcForm.curMap].id}`) }}(+<span
             class="sptime"
             >{{ helpSpeedCalcForm.areaBonus }}</span
           >%)
@@ -1483,16 +1539,16 @@ watch(helpSpeedCalcForm.value, val => {
             class="icon"
             v-lazy="
               `./img/ui/${getStageLevelPicId(
-                gameMap[0].levelList[getTeamCurEnergyLevel()].name
+                gameMapNew[0].levelList[getTeamCurEnergyLevel()].name
               )}.png`
             "
           />{{
             $t(
               `LEVEL_TITLE.${
-                gameMap[0].levelList[getTeamCurEnergyLevel()].nameId
+                gameMapNew[0].levelList[getTeamCurEnergyLevel()].nameId
               }`
             )
-          }}{{ gameMap[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
+          }}{{ gameMapNew[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
         </el-col>
       </el-row>
       <el-row>
@@ -1551,7 +1607,9 @@ watch(helpSpeedCalcForm.value, val => {
             pokeItem.nameExtra || ''
           }`"
           :isHightLightBerry="
-            gameMap[helpSpeedCalcForm.curMap].berry.includes(pokeItem.berryType)
+            gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
+              pokeItem.berryType
+            )
           "
           :showAfterBonusInfo="
             subskillOn.helpBonus.energyList.length > 0 &&
