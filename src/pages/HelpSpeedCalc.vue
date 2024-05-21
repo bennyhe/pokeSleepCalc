@@ -186,6 +186,21 @@ const initFilterGroup = () => {
   return byHelpSpeedResIn
 }
 
+const LS_NAME = 'myPokemonBox'
+const getLSBOX = localStorage.getItem(LS_NAME)
+if (getLSBOX) {
+  userPokemons.value.list = JSON.parse(getLSBOX)
+  saveBoxData.value = JSON.stringify(userPokemons.value.list)
+}
+const getLSFMBs = localStorage.getItem('PSC_FMBs')
+if (getLSFMBs) {
+  gameMapNew.value[0].berry = JSON.parse(getLSFMBs)
+}
+const getLSAB = localStorage.getItem('PSC_AB')
+if (getLSAB) {
+  helpSpeedCalcForm.value.areaBonus = +getLSAB
+}
+
 // 获取计算结果
 const getNewHelpSpeed = (formData, level) => {
   // console.log(formData, level)
@@ -676,12 +691,6 @@ const getBoxCurEnergy = dataList => {
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
   return res
 }
-const LS_NAME = 'myPokemonBox'
-const getLSBOX = localStorage.getItem(LS_NAME)
-if (getLSBOX) {
-  userPokemons.value.list = JSON.parse(getLSBOX)
-  saveBoxData.value = JSON.stringify(userPokemons.value.list)
-}
 const hanldeClickAddBox = () => {
   const curRes = {
     dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
@@ -798,7 +807,11 @@ const handleClickChangeFMBerrys = berryId => {
   if (gameMapNew.value[0].berry.length === 0) {
     gameMapNew.value[0].berry = ['?', '?', '?']
   }
+  localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
   // console.log(gameMapNew.value[0].berry)
+}
+const handleChangeAreaBonus = () => {
+  localStorage.setItem('PSC_AB', helpSpeedCalcForm.value.areaBonus)
 }
 const handleClickAutoTeam = () => {
   userTeam.value.list = []
@@ -1305,6 +1318,7 @@ watch(helpSpeedCalcForm.value, val => {
           :min="0"
           :max="areaBonusMax"
           :step="5"
+          @change="handleChangeAreaBonus()"
         />
       </div>
     </el-form-item>
