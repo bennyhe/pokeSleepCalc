@@ -672,9 +672,13 @@ const getBoxCurEnergy = dataList => {
   dataList.forEach(upItem => {
     const pokeItem = {
       ...pokedex[upItem.pokemonId],
-      ...upItem
+      ...upItem,
+      baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed
     }
-    pokeItem.helpSpeed = getNewHelpSpeed(upItem, upItem.level)
+    pokeItem.helpSpeed = getNewHelpSpeed(
+      { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
+      upItem.level
+    )
     pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
     pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
     // console.log(pokeItem)
@@ -696,7 +700,7 @@ const hanldeClickAddBox = () => {
   const curRes = {
     dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
     pokemonId: helpSpeedCalcForm.value.pokemonId,
-    baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
+    // baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
     isShiny: helpSpeedCalcForm.value.isShiny,
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
@@ -755,7 +759,7 @@ const handleClickAddCurPokemonTeam = pokemonItem => {
   const curRes = {
     dataId: `${new Date().getTime()}_${pokemonItem.pokemonId}`,
     pokemonId: pokemonItem.pokemonId,
-    baseHelpSpeed: pokemonItem.baseHelpSpeed,
+    // baseHelpSpeed: pokemonItem.baseHelpSpeed,
     isShiny: pokemonItem.isShiny,
     level: pokemonItem.level,
     skill: [...pokemonItem.skill],
@@ -772,7 +776,7 @@ const hanldeClickAddTeam = () => {
   const curRes = {
     dataId: `${new Date().getTime()}_${helpSpeedCalcForm.value.pokemonId}`,
     pokemonId: helpSpeedCalcForm.value.pokemonId,
-    baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
+    // baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
     isShiny: helpSpeedCalcForm.value.isShiny,
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
@@ -822,7 +826,7 @@ const handleClickAutoTeam = () => {
       const curRes = {
         dataId: `${new Date().getTime()}_${i}_${resList[i].pokemonId}`,
         pokemonId: resList[i].pokemonId,
-        baseHelpSpeed: resList[i].baseHelpSpeed,
+        // baseHelpSpeed: pokedex[resList[i].pokemonId].helpSpeed,
         isShiny: resList[i].isShiny,
         level: resList[i].level,
         skill: [...resList[i].skill],
