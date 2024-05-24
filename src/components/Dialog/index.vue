@@ -45,12 +45,18 @@ export default defineComponent({
     isHandleClickMaskClose: {
       type: Boolean,
       default: true
+    },
+    closeCallBack: {
+      type: Function
     }
   },
   setup(props, context) {
     const showDialog = ref(true)
     // console.log(showDialog, props.isShow)
     const handleClickClose = closeType => {
+      if (props.closeCallBack) {
+        props.closeCallBack()
+      }
       if (closeType === 'mask' && props.isHandleClickMaskClose) {
         showDialog.value = false
       } else {

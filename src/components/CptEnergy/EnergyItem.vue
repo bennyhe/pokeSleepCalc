@@ -1,13 +1,19 @@
 <script setup>
-import { defineProps, computed } from 'vue'
+import { defineProps, computed, ref } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
+import CptDialog from '../Dialog/index.vue'
+import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
   skillOptionsExtra,
   skillOptionsHelpSpeed,
   skillOptionsFoodPer,
-  skillOptionsSkillPer
+  skillOptionsSkillPer,
+  skillOptionsExtra2,
+  characterOptions
 } from '../../config/helpSpeed.js'
 import { getNum, toHMInLang } from '../../utils/index.js'
+import { getNatureDetail } from '../../utils/energy.js'
+import { pokedex } from '../../config/pokedex.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -35,8 +41,33 @@ const props = defineProps({
   },
   pokeItemAfterBonus: {
     type: [Object]
+  },
+  editPokeData: {
+    type: Object
+  },
+  isEdit: {
+    type: [Boolean],
+    default: false
+  },
+  closeDialogCB: {
+    type: Function
   }
 })
+
+const editData = ref({})
+const isShowDialog = ref(false)
+const dialogId = ref(false)
+
+const handleClickEdit = () => {
+  editData.value = props.editPokeData
+  isShowDialog.value = true
+  dialogId.value = Math.random()
+}
+const handleBlurLevel = () => {
+  if (!editData.value.level) {
+    editData.value.level = 10
+  }
+}
 </script>
 
 <template>
@@ -228,6 +259,196 @@ const props = defineProps({
         </div>
       </div>
     </div>
+    <div v-if="props.isEdit" class="mb3" style="margin-top: 6px">
+      <el-button size="small" @click="handleClickEdit()" type="primary" plain
+        ><SvgIcon type="edits" />编辑</el-button
+      >
+    </div>
+    <CptDialog
+      :isShow="isShowDialog"
+      v-bind:key="dialogId"
+      :closeCallBack="props.closeDialogCB"
+    >
+      <div class="page-helpcalc el-form" v-if="editData && editData.pokemonId">
+        <h3>
+          编辑<span v-if="editData.isShiny" class="sptime">{{
+            $t("PROP.shiny")
+          }}</span>
+          {{ $t(`POKEMON_NAME.${editData.pokemonId}`) }}
+        </h3>
+        <div v-if="pokedex[editData.pokemonId].food">
+          <div
+            class="cpt-food cpt-food--noborder"
+            v-for="(subFoodItem, subKey) in 3"
+            v-bind:key="subKey"
+          >
+            <el-radio-group size="small" v-model="editData.useFoods[subKey]">
+              <template
+                v-for="(allFoodItem, allKey) in pokedex[editData.pokemonId].food
+                  .type"
+                v-bind:key="'2_' + allKey"
+              >
+                <el-radio-button
+                  :label="allKey"
+                  v-if="
+                    pokedex[editData.pokemonId].food.count[allFoodItem].num[
+                      subKey
+                    ] > 0
+                  "
+                  style="--el-radio-button-checked-bg-color: #c2e4ff"
+                >
+                  <div class="cpt-food__item">
+                    <img
+                      v-lazy="`./img/food/${allFoodItem}.png`"
+                      :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
+                    />
+                    <div
+                      class="cpt-food__count"
+                      v-if="
+                        pokedex[editData.pokemonId].food.count[allFoodItem].num[
+                          subKey
+                        ] > 0
+                      "
+                    >
+                      {{
+                        pokedex[editData.pokemonId].food.count[allFoodItem].num[
+                          subKey
+                        ]
+                      }}
+                    </div>
+                  </div>
+                </el-radio-button>
+              </template>
+            </el-radio-group>
+          </div>
+        </div>
+        <h4>当前等级(Lv.10-60)</h4>
+        <div>
+          <el-input-number
+            v-model="editData.level"
+            :min="10"
+            :max="60"
+            @blur="handleBlurLevel"
+          />
+        </div>
+        <div style="display: flex">
+          <el-checkbox-group v-model="editData.skill" :min="0" :max="5">
+            <el-checkbox
+              :label="skillItem.label"
+              v-for="skillItem in skillOptionsExtra2"
+              v-bind:key="skillItem.label"
+            >
+              <span class="cpt-skill cpt-skill--3">{{
+                $t(skillItem.txt)
+              }}</span>
+            </el-checkbox>
+          </el-checkbox-group>
+          <div style="margin-top: 3px; margin-left: 12px">
+            <el-checkbox v-model="editData.isShiny">
+              {{ $t("PROP.shiny") }}
+            </el-checkbox>
+          </div>
+        </div>
+        <h4>{{ $t(skillOptionsHelpSpeed[0].txt).replace("S", "") }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="skillItem in skillOptionsHelpSpeed"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillItem.txtExtra.indexOf("7") > -1 ? "S" : "M"
+                  }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+        <h4>{{ $t(skillOptionsFoodPer[0].txt).replace("S", "") }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="skillItem in skillOptionsFoodPer"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
+                  }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+        <h4>{{ $t(skillOptionsSkillPer[0].txt).replace("S", "") }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="skillItem in skillOptionsSkillPer"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
+                  }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+        <h4>{{ $t(skillOptionsExtra[0].txt) }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="skillItem in skillOptionsExtra"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill cpt-skill--3">{{
+                  skillItem.txtExtra
+                }}</span></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+          <div class="mod-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
+        </div>
+        <h4>{{ $t("PROP.nature") }}</h4>
+        <div>
+          <el-select filterable v-model="editData.character">
+            <el-option
+              :label="getNatureDetail(cItem, $t)"
+              v-for="cItem in characterOptions"
+              v-bind:key="cItem.label"
+              :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
+              :value="cItem.label"
+            >
+              {{ getNatureDetail(cItem, $t) }}</el-option
+            >
+          </el-select>
+        </div>
+      </div>
+    </CptDialog>
     <slot />
   </div>
 </template>

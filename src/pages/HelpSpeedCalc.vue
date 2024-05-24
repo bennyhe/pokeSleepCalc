@@ -15,7 +15,8 @@ import {
   getOneDayEnergy,
   getOneDayHelpCount,
   getNewFoodPer,
-  getNewSkillPer
+  getNewSkillPer,
+  getNatureDetail
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
@@ -373,7 +374,7 @@ const getNature = pokemons => {
   const resTxt = characterOptions.find(
     item => item.label === pokemons.character
   )
-  return `${t('PROP.nature')}:${getNatureDetail(resTxt)}`
+  return `${t('PROP.nature')}:${getNatureDetail(resTxt, t)}`
 }
 
 const getTargetPokemonEnergy = pokeId => {
@@ -643,23 +644,6 @@ const setTargetListByHelp = () => {
   )
 }
 
-const getNatureDetail = cItem => {
-  let natureInfo = ''
-  if (cItem.label === 'none') {
-    return t(`OPTIONS.${cItem.txt}`)
-  }
-  if (get('useNatures', cItem, 1)) {
-    cItem.useNatures.forEach((natureId, natureIndex) => {
-      natureInfo += t(`NATURE_NAMES.${natureId}`)
-      if (natureIndex % 2 === 0 && cItem.useNatures.length > 1) {
-        natureInfo += '、'
-      }
-    })
-  }
-  natureInfo += cItem.txt
-  return natureInfo
-}
-
 const handleChangePokemon = () => {
   helpSpeedCalcForm.value.baseHelpSpeed =
     pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
@@ -713,6 +697,14 @@ const hanldeClickAddBox = () => {
   // console.log(curRes)
   ElMessage({
     message: '成功添加到盒子！',
+    type: 'success'
+  })
+}
+
+const closeDialogCB = () => {
+  localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
+  ElMessage({
+    message: '修改宝可梦成功！',
     type: 'success'
   })
 }
@@ -1121,13 +1113,13 @@ watch(helpSpeedCalcForm.value, val => {
     <el-form-item :label="$t('PROP.nature')">
       <el-select filterable v-model="helpSpeedCalcForm.character">
         <el-option
-          :label="getNatureDetail(cItem)"
+          :label="getNatureDetail(cItem, $t)"
           v-for="cItem in characterOptions"
           v-bind:key="cItem.label"
           :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
           :value="cItem.label"
         >
-          {{ getNatureDetail(cItem) }}</el-option
+          {{ getNatureDetail(cItem, $t) }}</el-option
         >
       </el-select>
     </el-form-item>
@@ -1510,16 +1502,17 @@ watch(helpSpeedCalcForm.value, val => {
             'skillType',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemons.list)"
-          v-bind:key="`${pokeItem.dataId}_${
-            pokeItem.id
-          }_${pokeKey}_${pokeItem.useFoods.join('')}_${
-            pokeItem.nameExtra || ''
-          }`"
+          v-bind:key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
               pokeItem.berryType
             )
           "
+          :editPokeData="
+            userPokemons.list.find((item) => item.dataId === pokeItem.dataId)
+          "
+          :isEdit="true"
+          :closeDialogCB="closeDialogCB"
         >
           <el-button
             type="success"
@@ -1621,11 +1614,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillType',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userTeam.list)"
-          v-bind:key="`${pokeItem.dataId}_${
-            pokeItem.id
-          }_${pokeKey}_${pokeItem.useFoods.join('')}_${
-            pokeItem.nameExtra || ''
-          }`"
+          v-bind:key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
               pokeItem.berryType
@@ -1642,6 +1631,10 @@ watch(helpSpeedCalcForm.value, val => {
               (item) => item.dataId === pokeItem.dataId
             )
           "
+          :editPokeData="
+            userTeam.list.find((item) => item.dataId === pokeItem.dataId)
+          "
+          :isEdit="true"
         >
           <i
             class="i i-close"

@@ -1,6 +1,6 @@
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
-import { getDecimalNumber } from '../utils/index.js'
+import { getDecimalNumber, get } from '../utils/index.js'
 
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
   areaBonus = areaBonus || 0
@@ -49,7 +49,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
       }
     }
   }
-  if (areaBonus>0){
+  if (areaBonus > 0) {
     helpFoodEnergy.allEnergy = 0
     helpFoodEnergy.energy.forEach(item => {
       helpFoodEnergy.allEnergy += item * (1 + areaBonus / 100)
@@ -146,4 +146,21 @@ export function getNewSkillPer(formData, skillPer) {
   return (
     Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
   )
+}
+
+export function getNatureDetail(cItem, t) {
+  let natureInfo = ''
+  if (cItem.label === 'none') {
+    return t(`OPTIONS.${cItem.txt}`)
+  }
+  if (get('useNatures', cItem, 1)) {
+    cItem.useNatures.forEach((natureId, natureIndex) => {
+      natureInfo += t(`NATURE_NAMES.${natureId}`)
+      if (natureIndex % 2 === 0 && cItem.useNatures.length > 1) {
+        natureInfo += '、'
+      }
+    })
+  }
+  natureInfo += cItem.txt
+  return natureInfo
 }
