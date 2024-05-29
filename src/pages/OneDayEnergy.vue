@@ -18,7 +18,7 @@ const pageData = ref({
   resRankArr: [],
   lv: 55,
   curPageIndex: 1,
-  pageSize: 100,
+  pageSize: 102,
   areaBonus: 60
 })
 newGameMap.push({
@@ -210,20 +210,18 @@ const handleChangeBonus = () => {
           >
             <div class="cpt-select-list__name">
               {{ mapItem.name }}
-              <div>
-                <div
-                  class="cpt-food cpt-food--s berry"
-                  v-for="(berryItem, berryKey) in mapItem.berry"
-                  v-bind:key="berryKey"
-                >
-                  <div class="cpt-food__item">
-                    <img
-                      v-if="berryItem !== '?'"
-                      v-lazy="`./img/berry/${berryItem}.png`"
-                      :alt="$t(`BERRY_TYPES.${berryItem}`)"
-                    />
-                    <template v-else>?</template>
-                  </div>
+              <div
+                class="cpt-food cpt-food--s berry"
+                v-for="(berryItem, berryKey) in mapItem.berry"
+                v-bind:key="berryKey"
+              >
+                <div class="cpt-food__item">
+                  <img
+                    v-if="berryItem !== '?'"
+                    v-lazy="`./img/berry/${berryItem}.png`"
+                    :alt="$t(`BERRY_TYPES.${berryItem}`)"
+                  />
+                  <template v-else>?</template>
                 </div>
               </div>
             </div>
@@ -244,7 +242,7 @@ const handleChangeBonus = () => {
     <el-form-item :label="$t('PROP.areaBonus')">
       <div class="el-form-slider--bonus">
         <el-slider
-        @change="handleChangeBonus()"
+          @change="handleChangeBonus()"
           size="small"
           v-model="pageData.areaBonus"
           show-input

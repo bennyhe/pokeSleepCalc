@@ -3,6 +3,7 @@ import { ref, watch, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
+import CptDialog from '../components/Dialog/index.vue'
 import {
   get,
   sortInObjectOptions,
@@ -32,7 +33,13 @@ import {
   skillOptionsSkillPer,
   levelOptions
 } from '../config/helpSpeed.js'
-import { BERRY_TYPES } from '../config/valKey.js'
+import {
+  BERRY_TYPES,
+  FOOD_TYPES,
+  POKE_TYPES,
+  SKILL_TYPES,
+  SUBSKILLS_NAMES
+} from '../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -68,16 +75,6 @@ const helpSpeedCalcForm = ref({
   areaBonus: 0
 })
 const gameMapNew = ref(JSON.parse(JSON.stringify(gameMap)))
-const berryList = ref([])
-for (const key in BERRY_TYPES) {
-  if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {
-    berryList.value.push({
-      name: t(`BERRY_TYPES.${key}`),
-      id: `berry_${t(`BERRY_TYPES.${key}`)}`,
-      berry: +key
-    })
-  }
-}
 const subskillOn = computed(() => {
   const teamSkill = {
     helpBonus: {
@@ -650,32 +647,70 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.useFoods = [0, 0, 0]
   setTargetListByHelp()
 }
-
-const getBoxCurEnergy = dataList => {
+function containsAny(a, b) {
+  return b.some(item => a.includes(item))
+}
+const getBoxCurEnergy = (dataList, isUseFilter) => {
   let resRankArr = []
   dataList.forEach(upItem => {
-    const pokeItem = {
-      ...pokedex[upItem.pokemonId],
-      ...upItem,
-      baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed
+    let addIn = true
+    if (isUseFilter) {
+      if (FILTER_OBJECT.value.pokeTypes.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.pokeTypes.includes(
+            pokedex[upItem.pokemonId].pokeType
+          )
+      }
+      if (FILTER_OBJECT.value.berrys.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.berrys.includes(
+            pokedex[upItem.pokemonId].berryType
+          )
+      }
+      if (
+        FILTER_OBJECT.value.foods.length > 0 &&
+        pokedex[upItem.pokemonId].food
+      ) {
+        const useFoods = []
+        upItem.useFoods.forEach(sf => {
+          useFoods.push(pokedex[upItem.pokemonId].food.type[sf])
+        })
+        addIn = addIn && containsAny(FILTER_OBJECT.value.foods, useFoods)
+      }
+      if (FILTER_OBJECT.value.mainSkills.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.mainSkills.includes(
+            pokedex[upItem.pokemonId].skillType
+          )
+      }
     }
-    pokeItem.helpSpeed = getNewHelpSpeed(
-      { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
-      upItem.level
-    )
-    pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
-    pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
-    // console.log(pokeItem)
-    resRankArr = resRankArr.concat(
-      addArrInOptions(
-        getNature(pokeItem),
-        pokeItem,
-        true,
-        gameMapNew.value[helpSpeedCalcForm.value.curMap].berry.includes(
-          pokeItem.berryType
+    if (addIn) {
+      const pokeItem = {
+        ...pokedex[upItem.pokemonId],
+        ...upItem,
+        baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed
+      }
+      pokeItem.helpSpeed = getNewHelpSpeed(
+        { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
+        upItem.level
+      )
+      pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
+      pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+      // console.log(pokeItem)
+      resRankArr = resRankArr.concat(
+        addArrInOptions(
+          getNature(pokeItem),
+          pokeItem,
+          true,
+          gameMapNew.value[helpSpeedCalcForm.value.curMap].berry.includes(
+            pokeItem.berryType
+          )
         )
       )
-    )
+    }
   })
   const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
   return res
@@ -714,7 +749,7 @@ const handleClickTime = () => {
   }
 }
 const handleClickDelPoke = dataId => {
-  const msg = 'Are you going to delete Pokémon?'
+  const msg = '真的放生宝可梦?'
   if (confirm(msg)) {
     userPokemons.value.list.splice(
       userPokemons.value.list.findIndex(item => item.dataId === dataId),
@@ -837,6 +872,35 @@ const handleClickAutoTeam = () => {
   }
 }
 
+const FILTER_OBJECT = ref({
+  pokeTypes: [],
+  berrys: [],
+  foods: [],
+  mainSkills: [],
+  subSkills: []
+})
+const isShowDialog = ref(false)
+const dialogId = ref(false)
+const handleClickFilter = () => {
+  isShowDialog.value = true
+  dialogId.value = `filterdialog_${Math.random()}`
+}
+const handleClickFilterPokes = (typeKey, val) => {
+  if (FILTER_OBJECT.value[typeKey].includes(val)) {
+    FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
+      item => item !== val
+    )
+  } else {
+    FILTER_OBJECT.value[typeKey].push(val)
+  }
+}
+const closeDialogCB2 = () => {
+  ElMessage({
+    message: '查找宝可梦成功！',
+    type: 'success'
+  })
+}
+
 const getTeamCurEnergy = () => {
   let energy = 0
   if (userTeam.value.list.length > 0) {
@@ -870,31 +934,6 @@ const getTeamCurEnergyLevel = () => {
 onMounted(() => {
   byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
-
-  // debug
-  // const tempPokeItem2 = { ...pokedex[282] }
-  // const res1 = getNewHelpSpeed(
-  //   {
-  //     baseHelpSpeed: tempPokeItem2.helpSpeed,
-  //     ...{
-  //       skill: ['hs'],
-  //       character: ''
-  //     }
-  //   },
-  //   35
-  // )
-  // const res2 = getNewHelpSpeed(
-  //   {
-  //     baseHelpSpeed: tempPokeItem2.helpSpeed,
-  //     ...{
-  //       skill: ['hs', 'hg2'],
-  //       character: ''
-  //     }
-  //   },
-  //   35
-  // )
-  // console.log(res1, toHMInLang(res1, 'sec', localeLangId))
-  // console.log(res2, toHMInLang(res2, 'sec', localeLangId))
 })
 watch(helpSpeedCalcForm.value, val => {
   if (!val.level) {
@@ -1284,20 +1323,21 @@ watch(helpSpeedCalcForm.value, val => {
       v-if="navData.navIndex !== 0 && helpSpeedCalcForm.curMap === 0"
     >
       <ul class="cpt-select-list cpt-select-list--berry">
-        <template v-for="mapItem in berryList">
+        <template
+          v-for="(mapItem, key) in BERRY_TYPES"
+          v-bind:key="`berry_${t(`BERRY_TYPES.${key}`)}`"
+        >
           <li
             class="cpt-select-list__item"
-            v-if="mapItem.id.indexOf('berry_') > -1"
-            v-bind:key="mapItem.id"
-            @click="handleClickChangeFMBerrys(mapItem.berry)"
-            :class="{ cur: gameMapNew[0].berry.includes(mapItem.berry) }"
+            @click="handleClickChangeFMBerrys(+key)"
+            :class="{ cur: gameMapNew[0].berry.includes(+key) }"
           >
             <div class="cpt-select-list__name">
               <div class="cpt-food cpt-food--s berry">
                 <div class="cpt-food__item">
                   <img
-                    v-lazy="`./img/berry/${mapItem.berry}.png`"
-                    :alt="$t(`BERRY_TYPES.${mapItem.berry}`)"
+                    v-lazy="`./img/berry/${+key}.png`"
+                    :alt="$t(`BERRY_TYPES.${+key}`)"
                   />
                 </div>
               </div>
@@ -1440,7 +1480,8 @@ watch(helpSpeedCalcForm.value, val => {
     <div v-if="navData.navIndex === 1">
       <h3>
         <SvgIcon type="box" size="small" />宝可梦盒子<span class="extra"
-          >({{ userPokemons.list.length }})</span
+          >({{ getBoxCurEnergy(userPokemons.list, true).length }} /
+          {{ userPokemons.list.length }})</span
         >
       </h3>
       <textarea
@@ -1483,7 +1524,9 @@ watch(helpSpeedCalcForm.value, val => {
           ><SvgIcon type="upload" />导入数据</el-button
         >
       </el-popover>
-
+      <el-button color="#626aef" size="small" plain @click="handleClickFilter()"
+        ><SvgIcon type="filter" />筛选</el-button
+      >
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemons.list.length > 0"
@@ -1501,7 +1544,10 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
           ]"
-          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userPokemons.list)"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
+            userPokemons.list,
+            true
+          )"
           v-bind:key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
@@ -1524,7 +1570,13 @@ watch(helpSpeedCalcForm.value, val => {
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
       </div>
-      <div class="mod-tips" v-else>暂无宝可梦</div>
+      <div class="cpt-empty" v-else>暂无宝可梦</div>
+      <div
+        class="cpt-empty"
+        v-if="getBoxCurEnergy(userPokemons.list, true).length === 0"
+      >
+        暂无宝可梦
+      </div>
     </div>
     <div v-if="navData.navIndex === 2">
       <h3>
@@ -1642,17 +1694,117 @@ watch(helpSpeedCalcForm.value, val => {
           ></i>
         </CptEnergyItem>
       </div>
-      <div class="mod-tips" v-else>暂无宝可梦</div>
+      <div class="cpt-empty" v-else>暂无宝可梦</div>
     </div>
   </div>
-  <el-form label-width="90px">
-    <el-form-item>
-      <div class="mod-tips">
-        <p>* {{ $t("TIPS.energy1") }}</p>
-        <p>* {{ $t("TIPS.energy2") }}</p>
-        <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
-        <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
-      </div>
-    </el-form-item>
-  </el-form>
+  <div class="page-inner mod-tips">
+    <p>* {{ $t("TIPS.energy1") }}</p>
+    <p>* {{ $t("TIPS.energy2") }}</p>
+    <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
+    <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
+  </div>
+  <CptDialog
+    :isShow="isShowDialog"
+    v-bind:key="dialogId"
+    :closeCallBack="closeDialogCB2"
+  >
+    <div class="dialog-filter">
+      <h3><SvgIcon type="filter" />查找盒子里的宝可梦</h3>
+      <el-form label-width="60">
+        <el-form-item label="类型">
+          <ul class="cpt-select-list cpt-select-list--txt">
+            <template
+              v-for="(mapItem, key) in POKE_TYPES"
+              v-bind:key="`berry_${t(`POKE_TYPES.${key}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('pokeTypes', +key)"
+                :class="{ cur: FILTER_OBJECT.pokeTypes.includes(+key) }"
+              >
+                <div class="cpt-select-list__name">
+                  {{ t(`POKE_TYPES.${key}`) }}
+                </div>
+              </li>
+            </template>
+          </ul>
+        </el-form-item>
+        <el-form-item label="树果">
+          <ul class="cpt-select-list cpt-select-list--berry">
+            <template
+              v-for="(mapItem, key) in BERRY_TYPES"
+              v-bind:key="`berry_${t(`BERRY_TYPES.${key}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('berrys', +key)"
+                :class="{ cur: FILTER_OBJECT.berrys.includes(+key) }"
+              >
+                <div class="cpt-select-list__name">
+                  {{ t(`BERRY_TYPES.${key}`) }}
+                  <div>
+                    <div class="cpt-food cpt-food--s berry">
+                      <div class="cpt-food__item">
+                        <img
+                          v-lazy="`./img/berry/${+key}.png`"
+                          :alt="$t(`BERRY_TYPES.${+key}`)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </el-form-item>
+        <el-form-item label="食材">
+          <ul
+            class="cpt-select-list cpt-select-list--berry cpt-select-list--food"
+          >
+            <template
+              v-for="(mapItem, key) in FOOD_TYPES"
+              v-bind:key="`f_${t(`FOOD_TYPES.${key}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('foods', +key)"
+                :class="{ cur: FILTER_OBJECT.foods.includes(+key) }"
+              >
+                <div class="cpt-select-list__name">
+                  {{ t(`FOOD_TYPES.${key}`) }}
+                  <div>
+                    <div class="cpt-food cpt-food--s berry">
+                      <div class="cpt-food__item">
+                        <img
+                          v-lazy="`./img/food/${+key}.png`"
+                          :alt="$t(`FOOD_TYPES.${+key}`)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template></ul
+        ></el-form-item>
+        <el-form-item label="主技能">
+          <ul class="cpt-select-list cpt-select-list--txt">
+            <template
+              v-for="(mapItem, key) in SKILL_TYPES"
+              v-bind:key="`st_${t(`SKILL_TYPES.${key}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('mainSkills', +key)"
+                :class="{ cur: FILTER_OBJECT.mainSkills.includes(+key) }"
+              >
+                <div class="cpt-select-list__name">
+                  {{ t(`SKILL_TYPES.${key}`) }}
+                </div>
+              </li>
+            </template>
+          </ul></el-form-item
+        >
+      </el-form>
+    </div>
+  </CptDialog>
 </template>

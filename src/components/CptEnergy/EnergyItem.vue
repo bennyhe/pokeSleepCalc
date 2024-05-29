@@ -61,7 +61,7 @@ const dialogId = ref(false)
 const handleClickEdit = () => {
   editData.value = props.editPokeData
   isShowDialog.value = true
-  dialogId.value = Math.random()
+  dialogId.value = `energyitem_${Math.random()}`
 }
 const handleBlurLevel = () => {
   if (!editData.value.level) {
