@@ -655,6 +655,9 @@ const getBoxCurEnergy = (dataList, isUseFilter) => {
   dataList.forEach(upItem => {
     let addIn = true
     if (isUseFilter) {
+      if (FILTER_OBJECT.value.isShiny) {
+        addIn = addIn && upItem.isShiny
+      }
       if (FILTER_OBJECT.value.pokeTypes.length > 0) {
         addIn =
           addIn &&
@@ -685,6 +688,10 @@ const getBoxCurEnergy = (dataList, isUseFilter) => {
           FILTER_OBJECT.value.mainSkills.includes(
             pokedex[upItem.pokemonId].skillType
           )
+      }
+      if (FILTER_OBJECT.value.subSkills.length > 0) {
+        addIn =
+          addIn && containsAny(FILTER_OBJECT.value.subSkills, upItem.skill)
       }
     }
     if (addIn) {
@@ -877,7 +884,8 @@ const FILTER_OBJECT = ref({
   berrys: [],
   foods: [],
   mainSkills: [],
-  subSkills: []
+  subSkills: [],
+  isShiny: false
 })
 const isShowDialog = ref(false)
 const dialogId = ref(false)
@@ -1711,6 +1719,11 @@ watch(helpSpeedCalcForm.value, val => {
     <div class="dialog-filter">
       <h3><SvgIcon type="filter" />查找盒子里的宝可梦</h3>
       <el-form label-width="60">
+        <el-form-item>
+          <el-checkbox v-model="FILTER_OBJECT.isShiny">
+            {{ $t("PROP.shiny") }}
+          </el-checkbox>
+        </el-form-item>
         <el-form-item label="类型">
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
@@ -1804,6 +1817,105 @@ watch(helpSpeedCalcForm.value, val => {
             </template>
           </ul></el-form-item
         >
+        <el-form-item label="副技能">
+          <ul class="cpt-select-list cpt-select-list--txt">
+            <template
+              v-for="skillItem in skillOptionsExtra2"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span class="cpt-skill cpt-skill--3">{{
+                    $t(skillItem.txt)
+                  }}</span>
+                </div>
+              </li>
+            </template>
+            <li
+              class="cpt-select-list__item"
+              @click="
+                handleClickFilterPokes('subSkills', skillOptionsExtra[0].label)
+              "
+              :class="{
+                cur: FILTER_OBJECT.subSkills.includes(
+                  skillOptionsExtra[0].label
+                ),
+              }"
+            >
+              <div class="cpt-select-list__name">
+                <span class="cpt-skill cpt-skill--3">{{
+                  $t(skillOptionsExtra[0].txt)
+                }}</span>
+              </div>
+            </li>
+            <template
+              v-for="skillItem in skillOptionsHelpSpeed"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span
+                    class="cpt-skill"
+                    :class="`cpt-skill--${skillItem.rare}`"
+                    >{{ $t(skillItem.txt) }}</span
+                  >
+                </div>
+              </li>
+            </template>
+            <template
+              v-for="skillItem in skillOptionsFoodPer"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span
+                    class="cpt-skill"
+                    :class="`cpt-skill--${skillItem.rare}`"
+                    >{{ $t(skillItem.txt) }}</span
+                  >
+                </div>
+              </li>
+            </template>
+            <template
+              v-for="skillItem in skillOptionsSkillPer"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span
+                    class="cpt-skill"
+                    :class="`cpt-skill--${skillItem.rare}`"
+                    >{{ $t(skillItem.txt) }}</span
+                  >
+                </div>
+              </li>
+            </template>
+          </ul>
+        </el-form-item>
       </el-form>
     </div>
   </CptDialog>

@@ -298,7 +298,7 @@ h4 {
     .cpt-select-list__item {
       font-size: 14px;
       width: 30%;
-      min-width: 100px;
+      min-width: 118px;
       
     }
   }
@@ -1795,6 +1795,11 @@ h3 {
     .cpt-select-list__item {
       width: 55px;
     }
+  }
+
+  .cpt-skill {
+    text-shadow: none;
+    font-weight: normal;
   }
 }
 
