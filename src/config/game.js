@@ -1,5 +1,5 @@
 export const areaBonusMax = 60
-export const mapSplitVer = '2.4.8'
+export const mapSplitVer = '2.4.9'
 export const gameMap = [
   {
     // name: '萌绿之岛',
@@ -1575,8 +1575,8 @@ export const gameMap = [
       { catchNum: 4, startscore: 2821380, endscore: 7162380 },
       { catchNum: 5, startscore: 7162381, endscore: 15469182 },
       { catchNum: 6, startscore: 15469184, endscore: 28772755 },
-      { catchNum: 7, startscore: 28772756, endscore: 65693303 },
-      { catchNum: 8, startscore: 65693422 }],
+      { catchNum: 7, startscore: 28772756, endscore: 65693394 },
+      { catchNum: 8, startscore: 65693395 }],
     levelList: [
       {
         'name': '普通1',
@@ -2034,7 +2034,7 @@ export const gameMap = [
     berry: [4, 18, 6],
     scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153381 },
       { catchNum: 4, startscore: 3153540, endscore: 7730385 },
-      { catchNum: 5, startscore: 7730481, endscore: 16659775 },
+      { catchNum: 5, startscore: 7730448, endscore: 16659775 },
       { catchNum: 6, startscore: 16659818, endscore: 30491709 },
       { catchNum: 7, startscore: 30491710, endscore: 68664090 },
       { catchNum: 8, startscore: 68664888 }],
