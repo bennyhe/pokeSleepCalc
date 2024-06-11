@@ -2386,6 +2386,32 @@ const pokedex = {
       }
     }
   },
+  845: {
+    id: 845,
+    // name: '古月鳥',
+    friendship: 16,
+    sleepType: 3,
+    skillType: 14,
+    pokeType: 2,
+    helpSpeed: 2700,
+    berryType: 16
+    // foodPer: 22.47,
+    // skillPer: 1.10,
+    // food: {
+    //   type: [16, 7, 3],
+    //   count: {
+    //     16: {
+    //       num: [2, 5, 7]
+    //     },
+    //     7: {
+    //       num: [0, 6, 10]
+    //     },
+    //     3: {
+    //       num: [0, 0, 9]
+    //     }
+    //   }
+    // }
+  },
   9001: {
     id: 9001,
     // name: '皮卡丘（萬聖節）',
@@ -2446,6 +2472,9 @@ const updatePoke = [{
 }, {
   time: '2024/05/1',
   pokemons: [37, 38, 244]
+}, {
+  time: '2024/06/1',
+  pokemons: [845]
 }]
 // console.log(pokedex)
 export {

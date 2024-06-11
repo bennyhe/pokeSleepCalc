@@ -60,9 +60,10 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: false,
-  showBan: false,
-  banPokes: []
+  onOffBan: true,
+  showBan: true,
+  banPokes: [845],
+  showBanArea: [0, 1, 3]
 })
 const userSleep = ref({
   count: 0,
@@ -1168,8 +1169,7 @@ onMounted(() => {
           </el-form-item>
           <el-form-item
             v-if="
-              (userData.curMap === 0 || userData.curMap === 2) &&
-              userData.showBan
+              userData.showBanArea.includes(userData.curMap) && userData.showBan
             "
           >
             <el-checkbox v-model="userData.onOffBan" size="small"

@@ -359,6 +359,7 @@ export default {
     759: 'Stufful',
     760: 'Bewear',
     764: 'Comfey',
+    845: 'Cramorant',
     9001: 'Pikachu (Halloween)',
     9002: 'Pikachu (Festivo)'
   },
@@ -602,6 +603,9 @@ export default {
     237: '尾巴蓋肚睡',
     238: '噴火睡',
     239: '圍尾巴睡',
-    240: '火山睡'
+    240: '火山睡',
+    241: '理理羽毛睡',
+    242: '大吃特吃睡',
+    243: '大口吞吞睡'
   }
 }
