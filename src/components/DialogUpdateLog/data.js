@@ -3,6 +3,8 @@ const markdownText = `
 
 ## 24-06-11
 1. add #845
+2. update #214 2500s→2400s
+
 ## 24-06-04
 1. update 岛屿数据区间参考v2.4.9
 

@@ -1533,7 +1533,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 3,
     berryType: 9,
-    helpSpeed: 2500,
+    helpSpeed: 2400,
     foodPer: 15.76,
     skillPer: 4.50,
     food: {
