@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 const getShowKeyVal = pokemonsItem => {
-  const showKey = ['pokeType', 'sleepType', 'helpSpeed', 'friendship']
+  const showKey = ['pokeType', 'sleepType', 'helpSpeed', 'friendship', 'skillType']
   if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
     const res = pokedex[pokemonsItem]
     // console.log(res)
@@ -20,10 +20,11 @@ const getShowKeyVal = pokemonsItem => {
     } else if (res.pokeType === 2) {
       // 食材型
       showKey.push('food')
-    } else if (res.pokeType === 3) {
-      // 技能型
-      showKey.push('skillType')
-    }
+    } 
+    // else if (res.pokeType === 3) {
+    //   // 技能型
+    //   showKey.push('skillType')
+    // }
   }
   // console.log(showKey)
   return showKey

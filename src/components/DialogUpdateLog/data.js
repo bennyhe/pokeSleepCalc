@@ -3,6 +3,8 @@ const markdownText = `
 
 ## 24-06-12
 1. update #845数据
+2. update 最新宝可梦显示主技能
+
 ## 24-06-11
 1. add #845
 2. update #214 2500s→2400s
