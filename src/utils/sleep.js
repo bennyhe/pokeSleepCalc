@@ -152,12 +152,12 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 特殊宝可梦使用熏香，也只能出1只
-  if (spacialPokemons.list.includes(useIncensePokemonId)) {
+  if (spacialPokemons.list.includes(+useIncensePokemonId)) {
     // 如果存在ban的宝可梦列表则合并
     if (get('banPokes', extraSleepStyleOptions, 1)) {
-      extraSleepStyleOptions.banPokes.push(+useIncensePokemonId)
+      extraSleepStyleOptions.banPokes = extraSleepStyleOptions.banPokes.concat([...spacialPokemons.list])
     } else {
-      extraSleepStyleOptions.banPokes = [+useIncensePokemonId]
+      extraSleepStyleOptions.banPokes = [...spacialPokemons.list]
     }
     // console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
   }
@@ -266,16 +266,17 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         // console.log('抽到特殊宝可梦', useSleepList[rdmIndex].pokeId)
         orgSleepList = orgSleepList.filter(
           item =>
-            item.pokeId !== useSleepList[rdmIndex].pokeId
+            !spacialPokemons.list.includes(item.pokeId)
         )
         // 类型非无症状的活动无症状
         if (isActRandom && +curUnLockSleepType !== 999) {
           orgSleepListByActType = orgSleepListByActType.filter(
             item =>
-              item.pokeId !== useSleepList[rdmIndex].pokeId
+              !spacialPokemons.list.includes(item.pokeId)
           )
         }
-        spacialPokemons.isGet[useSleepList[rdmIndex].pokeId] = true
+        spacialPokemons.isGet[spacialPokemons.list[0]] = true
+        spacialPokemons.isGet[spacialPokemons.list[1]] = true
       }
       res.push({
         ...rdmRes,
