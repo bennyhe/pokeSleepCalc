@@ -3,7 +3,7 @@ import { ref, watch, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
-import CptDialog from '../components/Dialog/index.vue'
+import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import {
   get,
   sortInObjectOptions,
@@ -33,13 +33,6 @@ import {
   skillOptionsSkillPer,
   levelOptions
 } from '../config/helpSpeed.js'
-import {
-  BERRY_TYPES,
-  FOOD_TYPES,
-  POKE_TYPES,
-  SKILL_TYPES,
-  SUBSKILLS_NAMES
-} from '../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -902,12 +895,6 @@ const handleClickFilterPokes = (typeKey, val) => {
     FILTER_OBJECT.value[typeKey].push(val)
   }
 }
-const closeDialogCB2 = () => {
-  ElMessage({
-    message: '查找宝可梦成功！',
-    type: 'success'
-  })
-}
 
 const getTeamCurEnergy = () => {
   let energy = 0
@@ -1333,7 +1320,7 @@ watch(helpSpeedCalcForm.value, val => {
       <ul class="cpt-select-list cpt-select-list--berry">
         <template
           v-for="(mapItem, key) in BERRY_TYPES"
-          v-bind:key="`berry_${t(`BERRY_TYPES.${key}`)}`"
+          v-bind:key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
         >
           <li
             class="cpt-select-list__item"
@@ -1711,212 +1698,11 @@ watch(helpSpeedCalcForm.value, val => {
     <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
     <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
   </div>
-  <CptDialog
+  <CptDialogFilterPoke
     :isShow="isShowDialog"
     v-bind:key="dialogId"
-    :closeCallBack="closeDialogCB2"
-  >
-    <div class="dialog-filter">
-      <h3><SvgIcon type="filter" />查找盒子里的宝可梦</h3>
-      <el-form label-width="60">
-        <el-form-item>
-          <el-checkbox v-model="FILTER_OBJECT.isShiny">
-            {{ $t("PROP.shiny") }}
-          </el-checkbox>
-        </el-form-item>
-        <el-form-item label="类型">
-          <ul class="cpt-select-list cpt-select-list--txt">
-            <template
-              v-for="(mapItem, key) in POKE_TYPES"
-              v-bind:key="`berry_${t(`POKE_TYPES.${key}`)}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('pokeTypes', +key)"
-                :class="{ cur: FILTER_OBJECT.pokeTypes.includes(+key) }"
-              >
-                <div class="cpt-select-list__name">
-                  {{ t(`POKE_TYPES.${key}`) }}
-                </div>
-              </li>
-            </template>
-          </ul>
-        </el-form-item>
-        <el-form-item label="树果">
-          <ul class="cpt-select-list cpt-select-list--berry">
-            <template
-              v-for="(mapItem, key) in BERRY_TYPES"
-              v-bind:key="`berry_${t(`BERRY_TYPES.${key}`)}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('berrys', +key)"
-                :class="{ cur: FILTER_OBJECT.berrys.includes(+key) }"
-              >
-                <div class="cpt-select-list__name">
-                  {{ t(`BERRY_TYPES.${key}`) }}
-                  <div>
-                    <div class="cpt-food cpt-food--s berry">
-                      <div class="cpt-food__item">
-                        <img
-                          v-lazy="`./img/berry/${+key}.png`"
-                          :alt="$t(`BERRY_TYPES.${+key}`)"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </template>
-          </ul>
-        </el-form-item>
-        <el-form-item label="食材">
-          <ul
-            class="cpt-select-list cpt-select-list--berry cpt-select-list--food"
-          >
-            <template
-              v-for="(mapItem, key) in FOOD_TYPES"
-              v-bind:key="`f_${t(`FOOD_TYPES.${key}`)}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('foods', +key)"
-                :class="{ cur: FILTER_OBJECT.foods.includes(+key) }"
-              >
-                <div class="cpt-select-list__name">
-                  {{ t(`FOOD_TYPES.${key}`) }}
-                  <div>
-                    <div class="cpt-food cpt-food--s berry">
-                      <div class="cpt-food__item">
-                        <img
-                          v-lazy="`./img/food/${+key}.png`"
-                          :alt="$t(`FOOD_TYPES.${+key}`)"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </template></ul
-        ></el-form-item>
-        <el-form-item label="主技能">
-          <ul class="cpt-select-list cpt-select-list--txt">
-            <template
-              v-for="(mapItem, key) in SKILL_TYPES"
-              v-bind:key="`st_${t(`SKILL_TYPES.${key}`)}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('mainSkills', +key)"
-                :class="{ cur: FILTER_OBJECT.mainSkills.includes(+key) }"
-              >
-                <div class="cpt-select-list__name">
-                  {{ t(`SKILL_TYPES.${key}`) }}
-                </div>
-              </li>
-            </template>
-          </ul></el-form-item
-        >
-        <el-form-item label="副技能">
-          <ul class="cpt-select-list cpt-select-list--txt">
-            <template
-              v-for="skillItem in skillOptionsExtra2"
-              v-bind:key="`sst_${skillItem.label}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('subSkills', skillItem.label)"
-                :class="{
-                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
-                }"
-              >
-                <div class="cpt-select-list__name">
-                  <span class="cpt-skill cpt-skill--3">{{
-                    $t(skillItem.txt)
-                  }}</span>
-                </div>
-              </li>
-            </template>
-            <li
-              class="cpt-select-list__item"
-              @click="
-                handleClickFilterPokes('subSkills', skillOptionsExtra[0].label)
-              "
-              :class="{
-                cur: FILTER_OBJECT.subSkills.includes(
-                  skillOptionsExtra[0].label
-                ),
-              }"
-            >
-              <div class="cpt-select-list__name">
-                <span class="cpt-skill cpt-skill--3">{{
-                  $t(skillOptionsExtra[0].txt)
-                }}</span>
-              </div>
-            </li>
-            <template
-              v-for="skillItem in skillOptionsHelpSpeed"
-              v-bind:key="`sst_${skillItem.label}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('subSkills', skillItem.label)"
-                :class="{
-                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
-                }"
-              >
-                <div class="cpt-select-list__name">
-                  <span
-                    class="cpt-skill"
-                    :class="`cpt-skill--${skillItem.rare}`"
-                    >{{ $t(skillItem.txt) }}</span
-                  >
-                </div>
-              </li>
-            </template>
-            <template
-              v-for="skillItem in skillOptionsFoodPer"
-              v-bind:key="`sst_${skillItem.label}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('subSkills', skillItem.label)"
-                :class="{
-                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
-                }"
-              >
-                <div class="cpt-select-list__name">
-                  <span
-                    class="cpt-skill"
-                    :class="`cpt-skill--${skillItem.rare}`"
-                    >{{ $t(skillItem.txt) }}</span
-                  >
-                </div>
-              </li>
-            </template>
-            <template
-              v-for="skillItem in skillOptionsSkillPer"
-              v-bind:key="`sst_${skillItem.label}`"
-            >
-              <li
-                class="cpt-select-list__item"
-                @click="handleClickFilterPokes('subSkills', skillItem.label)"
-                :class="{
-                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
-                }"
-              >
-                <div class="cpt-select-list__name">
-                  <span
-                    class="cpt-skill"
-                    :class="`cpt-skill--${skillItem.rare}`"
-                    >{{ $t(skillItem.txt) }}</span
-                  >
-                </div>
-              </li>
-            </template>
-          </ul>
-        </el-form-item>
-      </el-form>
-    </div>
-  </CptDialog>
+    :filterObj="FILTER_OBJECT"
+    :handleClickFilterPokes="handleClickFilterPokes"
+    :showKey="['isShiny', 'pokeType', 'berryType', 'foodType', 'mainSkill', 'subSkill']"
+  />
 </template>
