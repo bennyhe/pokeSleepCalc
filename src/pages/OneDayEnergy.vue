@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
+import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import { sortInObjectOptions } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
@@ -39,12 +40,6 @@ for (const key in BERRY_TYPES) {
 // console.log('created')
 onMounted(() => {
   // console.log('onMounted')
-  // for (const key in BERRY_ENERGY) {
-  //   if (Object.hasOwnProperty.call(BERRY_ENERGY, key)) {
-  //     const element = BERRY_ENERGY[key]
-  //     console.log(t(`BERRY_TYPES.${key}`), `${element.energy[0].energy}~${element.energy[element.energy.length - 1].energy}`)
-  //   }
-  // }
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = { ...pokedex[key] }
@@ -70,7 +65,7 @@ onMounted(() => {
           const is2n = (arrFTKey + 1) % 2 === 0
           pageData.value.resRankArr.push({
             ...pokeItem,
-            id: pokeItem.id,
+            pokemonId: pokeItem.id,
             nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
               pokeItem,
@@ -90,7 +85,7 @@ onMounted(() => {
           const is2n = (arrFTKey + 1) % 2 === 0
           pageData.value.resRankArr.push({
             ...pokeItem,
-            id: pokeItem.id,
+            pokemonId: pokeItem.id,
             nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
               pokeItem,
@@ -122,18 +117,55 @@ const getChangeOptionsAfterData = () => {
   //   )
   // } else {
   const newRes = []
+  const isUseFilter = true
   pageData.value.orgResRankArr.forEach(pokeItem => {
-    newRes.push({
-      ...pokeItem,
-      ...getOneDayEnergy(
-        pokeItem,
-        pageData.value.lv,
-        pokeItem.useFoods,
-        pokeItem.nameExtra.indexOf('S') > -1,
-        newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType),
-        +pageData.value.areaBonus
-      )
-    })
+    let addIn = true
+    if (isUseFilter) {
+      if (FILTER_OBJECT.value.pokeTypes.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.pokeTypes.includes(
+            pokedex[pokeItem.pokemonId].pokeType
+          )
+      }
+      if (FILTER_OBJECT.value.berrys.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.berrys.includes(
+            pokedex[pokeItem.pokemonId].berryType
+          )
+      }
+      if (
+        FILTER_OBJECT.value.foods.length > 0 &&
+        pokedex[pokeItem.pokemonId].food
+      ) {
+        const useFoods = []
+        pokeItem.useFoods.forEach(sf => {
+          useFoods.push(pokedex[pokeItem.pokemonId].food.type[sf])
+        })
+        addIn = addIn && containsAny(FILTER_OBJECT.value.foods, useFoods)
+      }
+      if (FILTER_OBJECT.value.mainSkills.length > 0) {
+        addIn =
+          addIn &&
+          FILTER_OBJECT.value.mainSkills.includes(
+            pokedex[pokeItem.pokemonId].skillType
+          )
+      }
+    }
+    if (addIn) {
+      newRes.push({
+        ...pokeItem,
+        ...getOneDayEnergy(
+          pokeItem,
+          pageData.value.lv,
+          pokeItem.useFoods,
+          pokeItem.nameExtra.indexOf('S') > -1,
+          newGameMap[pageData.value.curMap].berry.includes(pokeItem.berryType),
+          +pageData.value.areaBonus
+        )
+      })
+    }
   })
   pageData.value.resRankArr = sortInObjectOptions(newRes, ['oneDayEnergy'])
   // }
@@ -145,6 +177,22 @@ const handleClickChangeMap = id => {
   getChangeOptionsAfterData()
 }
 const handleChangeBonus = () => {
+  getChangeOptionsAfterData()
+}
+const FILTER_OBJECT = ref({
+  pokeTypes: [],
+  berrys: [],
+  foods: [],
+  mainSkills: []
+})
+const handleClickFilterPokes = (typeKey, val) => {
+  if (FILTER_OBJECT.value[typeKey].includes(val)) {
+    FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
+      item => item !== val
+    )
+  } else {
+    FILTER_OBJECT.value[typeKey].push(val)
+  }
   getChangeOptionsAfterData()
 }
 
@@ -255,6 +303,11 @@ const handleChangeBonus = () => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
+  <CptDialogFilterPoke
+    :filterObj="FILTER_OBJECT"
+    :handleClickFilterPokes="handleClickFilterPokes"
+    :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill']"
+  />
     <div class="mod-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>
       <p>* {{ $t("TIPS.energy2") }}</p>
@@ -288,7 +341,7 @@ const handleChangeBonus = () => {
             (pageData.curPageIndex - 1) * pageData.pageSize + pageData.pageSize
         "
         v-bind:key="`area${pageData.curMap}_${
-          pokeItem.id
+          pokeItem.pokemonId
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
