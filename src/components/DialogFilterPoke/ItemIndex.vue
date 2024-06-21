@@ -24,26 +24,26 @@ import {
 const props = defineProps({
   showKey: {
     type: Array,
-    default: ()=>{
+    default: () => {
       return ['isShiny', 'pokeType', 'berryType', 'foodType', 'mainSkill']
     }
   },
   filterObj: {
     type: Object
   },
-  isShowDialog: {
-    type: Boolean
-  },
-  dialogId: {
-    type: [String, Number]
-  },
   handleClickFilterPokes: {
     type: Function
   }
 })
-const FILTER_OBJECT = computed(()=>{
+const FILTER_OBJECT = computed(() => {
   return props.filterObj
 })
+const isShowDialog = ref(false)
+const dialogId = ref(false)
+const handleClickFilter = () => {
+  isShowDialog.value = true
+  dialogId.value = `filterdialog_${Math.random()}`
+}
 const closeDialogCB2 = () => {
   ElMessage({
     message: '查找宝可梦成功！',
@@ -52,6 +52,9 @@ const closeDialogCB2 = () => {
 }
 </script>
 <template>
+  <el-button color="#626aef" size="small" plain @click="handleClickFilter()"
+    ><SvgIcon type="filter" />筛选</el-button
+  >
   <CptDialog
     :isShow="isShowDialog"
     v-bind:key="dialogId"
@@ -60,14 +63,15 @@ const closeDialogCB2 = () => {
     <div class="dialog-filter">
       <h3><SvgIcon type="filter" />筛选宝可梦</h3>
       <el-form label-width="60">
-        <el-form-item v-if="showKey &&
-        showKey.includes('isShiny')">
+        <el-form-item v-if="showKey && showKey.includes('isShiny')">
           <el-checkbox v-model="FILTER_OBJECT.isShiny">
             {{ $t("PROP.shiny") }}
           </el-checkbox>
         </el-form-item>
-        <el-form-item label="类型" v-if="showKey &&
-        showKey.includes('pokeType')">
+        <el-form-item
+          label="类型"
+          v-if="showKey && showKey.includes('pokeType')"
+        >
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="(mapItem, key) in POKE_TYPES"
@@ -85,8 +89,10 @@ const closeDialogCB2 = () => {
             </template>
           </ul>
         </el-form-item>
-        <el-form-item label="树果" v-if="showKey &&
-        showKey.includes('berryType')">
+        <el-form-item
+          label="树果"
+          v-if="showKey && showKey.includes('berryType')"
+        >
           <ul class="cpt-select-list cpt-select-list--berry">
             <template
               v-for="(mapItem, key) in BERRY_TYPES"
@@ -114,8 +120,10 @@ const closeDialogCB2 = () => {
             </template>
           </ul>
         </el-form-item>
-        <el-form-item label="食材" v-if="showKey &&
-        showKey.includes('foodType')">
+        <el-form-item
+          label="食材"
+          v-if="showKey && showKey.includes('foodType')"
+        >
           <ul
             class="cpt-select-list cpt-select-list--berry cpt-select-list--food"
           >
@@ -144,8 +152,10 @@ const closeDialogCB2 = () => {
               </li>
             </template></ul
         ></el-form-item>
-        <el-form-item label="主技能" v-if="showKey &&
-        showKey.includes('mainSkill')">
+        <el-form-item
+          label="主技能"
+          v-if="showKey && showKey.includes('mainSkill')"
+        >
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="(mapItem, key) in SKILL_TYPES"
@@ -163,8 +173,10 @@ const closeDialogCB2 = () => {
             </template>
           </ul></el-form-item
         >
-        <el-form-item label="副技能" v-if="showKey &&
-        showKey.includes('subSkill')">
+        <el-form-item
+          label="副技能"
+          v-if="showKey && showKey.includes('subSkill')"
+        >
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="skillItem in skillOptionsExtra2"

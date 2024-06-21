@@ -880,12 +880,6 @@ const FILTER_OBJECT = ref({
   subSkills: [],
   isShiny: false
 })
-const isShowDialog = ref(false)
-const dialogId = ref(false)
-const handleClickFilter = () => {
-  isShowDialog.value = true
-  dialogId.value = `filterdialog_${Math.random()}`
-}
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {
     FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
@@ -1519,9 +1513,18 @@ watch(helpSpeedCalcForm.value, val => {
           ><SvgIcon type="upload" />导入数据</el-button
         >
       </el-popover>
-      <el-button color="#626aef" size="small" plain @click="handleClickFilter()"
-        ><SvgIcon type="filter" />筛选</el-button
-      >
+      <CptDialogFilterPoke
+        :filterObj="FILTER_OBJECT"
+        :handleClickFilterPokes="handleClickFilterPokes"
+        :showKey="[
+          'isShiny',
+          'pokeType',
+          'berryType',
+          'foodType',
+          'mainSkill',
+          'subSkill',
+        ]"
+      />
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemons.list.length > 0"
@@ -1698,11 +1701,4 @@ watch(helpSpeedCalcForm.value, val => {
     <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
     <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
   </div>
-  <CptDialogFilterPoke
-    :isShow="isShowDialog"
-    v-bind:key="dialogId"
-    :filterObj="FILTER_OBJECT"
-    :handleClickFilterPokes="handleClickFilterPokes"
-    :showKey="['isShiny', 'pokeType', 'berryType', 'foodType', 'mainSkill', 'subSkill']"
-  />
 </template>
