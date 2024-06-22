@@ -641,9 +641,6 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.useFoods = [0, 0, 0]
   setTargetListByHelp()
 }
-function containsAny(a, b) {
-  return b.some(item => a.includes(item))
-}
 const getBoxCurEnergy = (dataList, isUseFilter) => {
   let resRankArr = []
   dataList.forEach(upItem => {

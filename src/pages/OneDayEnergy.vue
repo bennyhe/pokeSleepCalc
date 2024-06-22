@@ -137,13 +137,10 @@ const getChangeOptionsAfterData = () => {
       }
       if (
         FILTER_OBJECT.value.foods.length > 0 &&
-        pokedex[pokeItem.pokemonId].food
+        pokeItem.useFoods,
+        pokeItem.useFoods.length > 0
       ) {
-        const useFoods = []
-        pokeItem.useFoods.forEach(sf => {
-          useFoods.push(pokedex[pokeItem.pokemonId].food.type[sf])
-        })
-        addIn = addIn && containsAny(FILTER_OBJECT.value.foods, useFoods)
+        addIn = addIn && containsAny(FILTER_OBJECT.value.foods, pokeItem.useFoods)
       }
       if (FILTER_OBJECT.value.mainSkills.length > 0) {
         addIn =
@@ -303,11 +300,11 @@ const handleClickFilterPokes = (typeKey, val) => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
-  <CptDialogFilterPoke
-    :filterObj="FILTER_OBJECT"
-    :handleClickFilterPokes="handleClickFilterPokes"
-    :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill']"
-  />
+    <CptDialogFilterPoke
+      :filterObj="FILTER_OBJECT"
+      :handleClickFilterPokes="handleClickFilterPokes"
+      :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill']"
+    />
     <div class="mod-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>
       <p>* {{ $t("TIPS.energy2") }}</p>
