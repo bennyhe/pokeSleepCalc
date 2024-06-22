@@ -325,3 +325,7 @@ export function calcPositions(sleepArr, width, height) {
     }
   })
 }
+
+export function containsAny(a, b) {
+  return b.some(item => a.includes(item))
+}
