@@ -110,15 +110,21 @@ onMounted(() => {
   )
 })
 
-const getChangeOptionsAfterData = () => {
+const FILTER_OBJECT = ref({
+  pokeTypes: [],
+  berrys: [],
+  foods: [],
+  mainSkills: []
+})
+const getChangeOptionsAfterData = isUseFilter => {
   // if (pageData.value.curMap === 0) {
   //   pageData.value.resRankArr = JSON.parse(
   //     JSON.stringify(pageData.value.orgResRankArr)
   //   )
   // } else {
   const newRes = []
-  const isUseFilter = true
   pageData.value.orgResRankArr.forEach(pokeItem => {
+    // console.log(pokeItem)
     let addIn = true
     if (isUseFilter) {
       if (FILTER_OBJECT.value.pokeTypes.length > 0) {
@@ -137,7 +143,7 @@ const getChangeOptionsAfterData = () => {
       }
       if (
         FILTER_OBJECT.value.foods.length > 0 &&
-        pokeItem.useFoods,
+        pokeItem.useFoods &&
         pokeItem.useFoods.length > 0
       ) {
         addIn = addIn && containsAny(FILTER_OBJECT.value.foods, pokeItem.useFoods)
@@ -176,12 +182,6 @@ const handleClickChangeMap = id => {
 const handleChangeBonus = () => {
   getChangeOptionsAfterData()
 }
-const FILTER_OBJECT = ref({
-  pokeTypes: [],
-  berrys: [],
-  foods: [],
-  mainSkills: []
-})
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {
     FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
@@ -190,7 +190,7 @@ const handleClickFilterPokes = (typeKey, val) => {
   } else {
     FILTER_OBJECT.value[typeKey].push(val)
   }
-  getChangeOptionsAfterData()
+  getChangeOptionsAfterData(true)
 }
 
 // const handleClickSlider = () => {
