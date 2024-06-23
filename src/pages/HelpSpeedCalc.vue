@@ -22,6 +22,7 @@ import {
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
+import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
@@ -870,17 +871,9 @@ const handleClickAutoTeam = () => {
   }
 }
 
-const orgResetObject = {
-  pokeTypes: [],
-  berrys: [],
-  foods: [],
-  mainSkills: [],
-  subSkills: [],
-  isShiny: false
-}
-const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
+const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObjectInBox)))
 const handleClickFilterReset = () => {
-  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
+  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObjectInBox))
 }
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {

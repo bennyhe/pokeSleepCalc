@@ -6,6 +6,7 @@ import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import { sortInObjectOptions, containsAny } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
+import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { BERRY_TYPES, FOOD_TYPES } from '../config/valKey.js'
 
@@ -110,12 +111,6 @@ onMounted(() => {
   )
 })
 
-const orgResetObject = {
-  pokeTypes: [],
-  berrys: [],
-  foods: [],
-  mainSkills: []
-}
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
 const handleClickFilterReset = () => {
   FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
