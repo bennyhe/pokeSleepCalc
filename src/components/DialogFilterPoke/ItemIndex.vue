@@ -8,6 +8,7 @@ import {
   FOOD_TYPES,
   POKE_TYPES,
   SKILL_TYPES,
+  SLEEP_TYPES,
   SUBSKILLS_NAMES
 } from '../../config/valKey.js'
 import {
@@ -61,7 +62,7 @@ const closeDialogCB2 = () => {
   })
 }
 const handleClickReset = () => {
-  if(props.handleClickFilterReset) {
+  if (props.handleClickFilterReset) {
     props.handleClickFilterReset()
   }
 }
@@ -79,7 +80,9 @@ const handleClickReset = () => {
       <SvgIcon type="filter" />筛选宝可梦
       <div class="m-dialog__title-extra">
         <el-button
-          v-if="handleClickFilterReset && showKey && showKey.includes('resetBtn')"
+          v-if="
+            handleClickFilterReset && showKey && showKey.includes('resetBtn')
+          "
           color="#2e317c"
           plain
           @click="handleClickReset()"
@@ -110,6 +113,30 @@ const handleClickReset = () => {
               >
                 <div class="cpt-select-list__name">
                   {{ $t(`POKE_TYPES.${key}`) }}
+                </div>
+              </li>
+            </template>
+          </ul>
+        </el-form-item>
+        <el-form-item
+          label="睡眠类型"
+          v-if="showKey && showKey.includes('sleepType')"
+        >
+          <ul class="cpt-select-list cpt-select-list--txt">
+            <template
+              v-for="(mapItem, key) in SLEEP_TYPES"
+              v-bind:key="`st_${$t(`SLEEP_TYPES.${key}`)}`"
+            >
+              <li
+                v-if="+key !== 999"
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('sleepTypes', +key)"
+                :class="{ cur: FILTER_OBJECT.sleepTypes.includes(+key) }"
+              >
+                <div class="cpt-select-list__name">
+                  <div class="i i-sleeptype" :class="`i i-sleeptype--${key}`">
+                    {{ $t(`SLEEP_TYPES.${key}`) }}
+                  </div>
                 </div>
               </li>
             </template>

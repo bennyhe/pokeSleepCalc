@@ -9,6 +9,10 @@ export const orgResetObjectInBox = {
   subSkills: [],
   isShiny: false
 }
+export const orgResetObjectInPokedex = {
+  ...resetObj,
+  sleepTypes: []
+}
 export const orgResetObject = {
   ...resetObj
 }

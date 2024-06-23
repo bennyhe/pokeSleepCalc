@@ -6,7 +6,7 @@ import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import { FOOD_TYPES } from '../config/valKey.js'
-import { orgResetObject } from '../config/filterDialog.js'
+import { orgResetObjectInPokedex } from '../config/filterDialog.js'
 import {
   get,
   sortInObjectOptions,
@@ -255,9 +255,9 @@ const fnGetBy = filterType => {
   curFilter.value = filterType
 }
 
-const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
+const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObjectInPokedex)))
 const handleClickFilterReset = () => {
-  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
+  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObjectInPokedex))
 }
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {
@@ -279,6 +279,11 @@ const getAfterFilterPoke = () => {
         if (FILTER_OBJECT.value.pokeTypes.length > 0) {
           addIn =
             addIn && FILTER_OBJECT.value.pokeTypes.includes(pokeItem.pokeType)
+        }
+        if (FILTER_OBJECT.value.sleepTypes.length > 0) {
+          addIn =
+            addIn &&
+            FILTER_OBJECT.value.sleepTypes.includes(pokeItem.sleepType)
         }
         if (FILTER_OBJECT.value.berrys.length > 0) {
           addIn =
@@ -342,6 +347,7 @@ onMounted(() => {
           'pokeType',
           'berryType',
           'foodType',
+          'sleepType',
           'mainSkill',
           'resetBtn',
         ]"
