@@ -2,9 +2,11 @@
 import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
+import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import { FOOD_TYPES } from '../config/valKey.js'
+import { orgResetObject } from '../config/filterDialog.js'
 import {
   get,
   sortInObjectOptions,
@@ -253,16 +255,68 @@ const fnGetBy = filterType => {
   curFilter.value = filterType
 }
 
+const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
+const handleClickFilterReset = () => {
+  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
+}
+const handleClickFilterPokes = (typeKey, val) => {
+  if (FILTER_OBJECT.value[typeKey].includes(val)) {
+    FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
+      item => item !== val
+    )
+  } else {
+    FILTER_OBJECT.value[typeKey].push(val)
+  }
+}
+const getAfterFilterPoke = () => {
+  const newRes = []
+  const isUseFilter = true
+  for (const key in pokedex) {
+    if (Object.hasOwnProperty.call(pokedex, key)) {
+      const pokeItem = pokedex[key]
+      let addIn = true
+      if (isUseFilter) {
+        if (FILTER_OBJECT.value.pokeTypes.length > 0) {
+          addIn =
+            addIn && FILTER_OBJECT.value.pokeTypes.includes(pokeItem.pokeType)
+        }
+        if (FILTER_OBJECT.value.berrys.length > 0) {
+          addIn =
+            addIn && FILTER_OBJECT.value.berrys.includes(pokeItem.berryType)
+        }
+        if (
+          FILTER_OBJECT.value.foods.length > 0 &&
+          pokeItem.food &&
+          pokeItem.food.type
+        ) {
+          addIn =
+            addIn && containsAny(FILTER_OBJECT.value.foods, pokeItem.food.type)
+        }
+        if (FILTER_OBJECT.value.mainSkills.length > 0) {
+          addIn =
+            addIn &&
+            FILTER_OBJECT.value.mainSkills.includes(pokeItem.skillType)
+        }
+      }
+      if (addIn) {
+        newRes.push(pokeItem)
+      }
+    }
+  }
+  return newRes
+}
+
 onMounted(() => {
   initFilterGroup() // 初始化索引
 })
 </script>
 <template>
   <h2>
-    {{$t('PAGE_TITLE.pokedex')}}<span class="extra">({{ pokedexLength }}{{$t(`OPTIONS.one`)}})</span>
+    {{ $t("PAGE_TITLE.pokedex")
+    }}<span class="extra">({{ pokedexLength }}{{ $t(`OPTIONS.one`) }})</span>
   </h2>
   <div class="page-inner">
-    <el-radio-group v-model="curFilter">
+    <el-radio-group :class="{ mb3: curFilter === 'all' }" v-model="curFilter">
       <el-radio-button label="all" @click="fnGetBy('all')">ALL</el-radio-button>
       <el-radio-button label="helpSpeed" @click="fnGetBy('helpSpeed')"
         >帮速↓</el-radio-button
@@ -280,6 +334,20 @@ onMounted(() => {
         >睡眠类型↓</el-radio-button
       >
     </el-radio-group>
+    <p v-if="curFilter === 'all'">
+      <CptDialogFilterPoke
+        :filterObj="FILTER_OBJECT"
+        :handleClickFilterPokes="handleClickFilterPokes"
+        :showKey="[
+          'pokeType',
+          'berryType',
+          'foodType',
+          'mainSkill',
+          'resetBtn',
+        ]"
+        :handleClickFilterReset="handleClickFilterReset"
+      />
+    </p>
   </div>
   <div class="pokedex-list">
     <template v-if="curFilter !== 'all'">
@@ -291,7 +359,7 @@ onMounted(() => {
         <h3>
           {{ resItem.title }}
           <span class="extra"
-            >({{ resItem.list.length }}{{$t(`OPTIONS.one`)}} /
+            >({{ resItem.list.length }}{{ $t(`OPTIONS.one`) }} /
             {{ getPercent(resItem.list.length, pokedexLength, 2) }}%)</span
           >
         </h3>
@@ -299,9 +367,8 @@ onMounted(() => {
           <template v-if="curFilter === 'foodType'">
             <div class="cpt-foodmenu-list">
               <h3>
-                {{$t('PROP.with')}}{{$t('PROP.recipes')}}<span class="extra"
-                  >({{ resItem.menuList.length }}个)</span
-                >
+                {{ $t("PROP.with") }}{{ $t("PROP.recipes")
+                }}<span class="extra">({{ resItem.menuList.length }}个)</span>
               </h3>
               <div class="cpt-foodmenu-scroll cpt-foodmenu-scroll--singlerow">
                 <CptFoodmenu
@@ -319,7 +386,8 @@ onMounted(() => {
               <h4>
                 Lv.{{ resItem[`level${levelKey}List`].subTitle }}
                 <span class="extra"
-                  >({{ resItem[`level${levelKey}List`].subList.length }}{{$t(`OPTIONS.one`)}}
+                  >({{ resItem[`level${levelKey}List`].subList.length
+                  }}{{ $t(`OPTIONS.one`) }}
                   <template
                     v-if="resItem[`level${levelKey}List`].subList.length > 0"
                   >
@@ -372,65 +440,73 @@ onMounted(() => {
       </div>
     </template>
     <!-- S 全图鉴 -->
-    <div class="poke-tb" v-else>
-      <div
-        class="poke-tb__item"
-        v-for="(pokemonsItem, pokemonKey) in pokedex"
-        v-bind:key="pokemonsItem.name"
-      >
-        <CptPoke :pokeId="+pokemonKey" :showKey="getShowKeyVal(pokemonKey)" />
-        <ul
-          class="cpt-select-list"
-          v-for="(mapItem, mapKey) in gameMap"
-          v-bind:key="mapItem.id"
+    <template v-else>
+      <div class="poke-tb" v-if="getAfterFilterPoke().length > 0">
+        <div
+          class="poke-tb__item"
+          v-for="pokemonsItem in getAfterFilterPoke()"
+          v-bind:key="pokemonsItem.name"
         >
-          <li
-            class="cpt-select-list__item cur"
-            v-if="gameMapPokemons[mapKey].allPokemons.includes(+pokemonKey)"
+          <CptPoke
+            :pokeId="+pokemonsItem.id"
+            :showKey="getShowKeyVal(pokemonsItem.id)"
+          />
+          <ul
+            class="cpt-select-list"
+            v-for="(mapItem, mapKey) in gameMap"
+            v-bind:key="mapItem.id"
           >
-            <div class="cpt-select-list__name">
-              {{ $t(`ILAND.${mapItem.id}`) }}
-              <p>
-                <img
-                  class="icon"
-                  v-lazy="
-                    `./img/ui/${getStageLevelPicId(
-                      gameMap[mapKey].levelList[
-                        gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                          +pokemonKey
-                        ]
-                      ].name
-                    )}.png`
-                  "
-                />{{
-                  $t(
-                    `LEVEL_TITLE.${
-                      gameMap[mapKey].levelList[
-                        gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                          +pokemonKey
-                        ]
-                      ].nameId
-                    }`
-                  )
-                }}{{
-                  gameMap[mapKey].levelList[
-                    gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                      +pokemonKey
-                    ]
-                  ].nameIndex
-                }}
-              </p>
-            </div>
-            <img
-              v-if="mapItem.pic"
-              class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
-              :alt="mapItem.name"
-            />
-          </li>
-        </ul>
+            <li
+              class="cpt-select-list__item cur"
+              v-if="
+                gameMapPokemons[mapKey].allPokemons.includes(+pokemonsItem.id)
+              "
+            >
+              <div class="cpt-select-list__name">
+                {{ $t(`ILAND.${mapItem.id}`) }}
+                <p>
+                  <img
+                    class="icon"
+                    v-lazy="
+                      `./img/ui/${getStageLevelPicId(
+                        gameMap[mapKey].levelList[
+                          gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                            +pokemonsItem.id
+                          ]
+                        ].name
+                      )}.png`
+                    "
+                  />{{
+                    $t(
+                      `LEVEL_TITLE.${
+                        gameMap[mapKey].levelList[
+                          gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                            +pokemonsItem.id
+                          ]
+                        ].nameId
+                      }`
+                    )
+                  }}{{
+                    gameMap[mapKey].levelList[
+                      gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                        +pokemonsItem.id
+                      ]
+                    ].nameIndex
+                  }}
+                </p>
+              </div>
+              <img
+                v-if="mapItem.pic"
+                class="cpt-select-list__bg"
+                v-lazy="`./img/ui/${mapItem.pic}.png`"
+                :alt="mapItem.name"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- E 全图鉴 -->
-    </div>
+      <div class="cpt-empty" v-else>暂无宝可梦</div>
+    </template>
+    <!-- E 全图鉴 -->
   </div>
 </template>
