@@ -23,6 +23,30 @@
     z-index: 98;
   }
 
+  &__title {
+    color: #626aef;
+    position: relative;
+    line-height: 32px;
+    padding-left: 8px;
+    margin-bottom: 3px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background-color: #626aef;
+    }
+
+    &-extra {
+      position: absolute;
+      right: 0;
+      top: 0
+    }
+  }
+
   &__bd {
     background: #fff;
     width: 616px;

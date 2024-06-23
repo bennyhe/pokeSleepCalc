@@ -870,14 +870,18 @@ const handleClickAutoTeam = () => {
   }
 }
 
-const FILTER_OBJECT = ref({
+const orgResetObject = {
   pokeTypes: [],
   berrys: [],
   foods: [],
   mainSkills: [],
   subSkills: [],
   isShiny: false
-})
+}
+const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
+const handleClickFilterReset = () => {
+  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
+}
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {
     FILTER_OBJECT.value[typeKey] = FILTER_OBJECT.value[typeKey].filter(
@@ -1521,7 +1525,9 @@ watch(helpSpeedCalcForm.value, val => {
           'foodType',
           'mainSkill',
           'subSkill',
+          'resetBtn',
         ]"
+        :handleClickFilterReset="handleClickFilterReset"
       />
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"

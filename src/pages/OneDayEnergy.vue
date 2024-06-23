@@ -110,12 +110,17 @@ onMounted(() => {
   )
 })
 
-const FILTER_OBJECT = ref({
+const orgResetObject = {
   pokeTypes: [],
   berrys: [],
   foods: [],
   mainSkills: []
-})
+}
+const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
+const handleClickFilterReset = () => {
+  FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObject))
+  getChangeOptionsAfterData()
+}
 const getChangeOptionsAfterData = () => {
   // if (pageData.value.curMap === 0) {
   //   pageData.value.resRankArr = JSON.parse(
@@ -305,7 +310,8 @@ const handleClickFilterPokes = (typeKey, val) => {
     <CptDialogFilterPoke
       :filterObj="FILTER_OBJECT"
       :handleClickFilterPokes="handleClickFilterPokes"
-      :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill']"
+      :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill', 'resetBtn']"
+      :handleClickFilterReset="handleClickFilterReset"
     />
     <div class="mod-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>

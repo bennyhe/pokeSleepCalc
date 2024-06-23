@@ -25,13 +25,23 @@ const props = defineProps({
   showKey: {
     type: Array,
     default: () => {
-      return ['isShiny', 'pokeType', 'berryType', 'foodType', 'mainSkill']
+      return [
+        'isShiny',
+        'pokeType',
+        'berryType',
+        'foodType',
+        'mainSkill',
+        'resetBtn'
+      ]
     }
   },
   filterObj: {
     type: Object
   },
   handleClickFilterPokes: {
+    type: Function
+  },
+  handleClickFilterReset: {
     type: Function
   }
 })
@@ -46,9 +56,14 @@ const handleClickFilter = () => {
 }
 const closeDialogCB2 = () => {
   ElMessage({
-    message: '查找宝可梦成功！',
+    message: '筛选宝可梦成功！',
     type: 'success'
   })
+}
+const handleClickReset = () => {
+  if(props.handleClickFilterReset) {
+    props.handleClickFilterReset()
+  }
 }
 </script>
 <template>
@@ -60,8 +75,19 @@ const closeDialogCB2 = () => {
     v-bind:key="dialogId"
     :closeCallBack="closeDialogCB2"
   >
+    <h3 class="m-dialog__title">
+      <SvgIcon type="filter" />筛选宝可梦
+      <div class="m-dialog__title-extra">
+        <el-button
+          v-if="handleClickFilterReset && showKey && showKey.includes('resetBtn')"
+          color="#2e317c"
+          plain
+          @click="handleClickReset()"
+          >RESET</el-button
+        >
+      </div>
+    </h3>
     <div class="dialog-filter">
-      <h3><SvgIcon type="filter" />筛选宝可梦</h3>
       <el-form label-width="60">
         <el-form-item v-if="showKey && showKey.includes('isShiny')">
           <el-checkbox v-model="FILTER_OBJECT.isShiny">
