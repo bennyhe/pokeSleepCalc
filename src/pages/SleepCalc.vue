@@ -12,6 +12,7 @@ import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_SLEEPCALC } from '../config/nav.js'
+import { ACT_LIST } from '../config/act.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
@@ -21,6 +22,7 @@ import {
   checkListInLastGet
 } from '../utils/sleep.js'
 import {
+  get,
   toHMInLang,
   getNum,
   getNumberInMap,
@@ -277,6 +279,18 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+const nowAct = ref({})
+const findActNow = () => {
+  const now = new Date().getTime()
+  ACT_LIST.forEach(actItem => {
+    if (now >= actItem.startTime && now <= actItem.endTime) {
+      nowAct.value = actItem
+    }
+  })
+}
+findActNow()
+console.log(nowAct)
+
 /* 抽取睡姿 */
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   let banPokes = []
@@ -398,7 +412,14 @@ const handleClickSleepMoreTimes = () => {
       getTimes,
       {
         banPokes,
-        isActRandom: userData.value.isActRandom
+        isActRandom: userData.value.isActRandom,upIdsSmall: {
+          upType: 'small',
+          ids: nowAct.value.smallUp || []
+        },
+        upIdsMid: {
+          upType: 'mid',
+          ids: nowAct.value.midUp || []
+        }
       },
       getRandomHopeCb
     )
@@ -1207,6 +1228,52 @@ onMounted(() => {
               </div>
             </el-alert>
           </p>
+          <template v-if="!nowAct.notArea.includes(userData.curMap)">
+            <p class="mb3" v-if="get('smallUp', nowAct, 1)">
+              {{nowAct.name}}-小UP:
+              <template
+                v-for="pokeId in nowAct.smallUp"
+                v-bind:key="`smallUp_${pokeId}`"
+              >
+                <span
+                  class="cpt-avatar"
+                  v-if="
+                    gameMapPokemons[userData.curMap].allPokemons.includes(
+                      pokeId
+                    )
+                  "
+                >
+                  <img
+                    class="cpt-avatar__pic"
+                    v-lazy="`./img/pokedex/${pokeId}.png`"
+                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
+                  />
+                </span>
+              </template>
+            </p>
+            <p class="mb3" v-if="get('midUp', nowAct, 1)">
+              {{nowAct.name}}-中UP:
+              <template
+                v-for="pokeId in nowAct.midUp"
+                v-bind:key="`midUp_${pokeId}`"
+              >
+                <span
+                  class="cpt-avatar"
+                  v-if="
+                    gameMapPokemons[userData.curMap].allPokemons.includes(
+                      pokeId
+                    )
+                  "
+                >
+                  <img
+                    class="cpt-avatar__pic"
+                    v-lazy="`./img/pokedex/${pokeId}.png`"
+                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
+                  />
+                </span>
+              </template>
+            </p>
+          </template>
           <el-button
             class="el-button-sp"
             type="success"

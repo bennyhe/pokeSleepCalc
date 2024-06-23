@@ -309,6 +309,7 @@ const getAfterFilterPoke = () => {
       }
     }
   }
+  console.log(newRes.map(item => item.id))
   return newRes
 }
 
