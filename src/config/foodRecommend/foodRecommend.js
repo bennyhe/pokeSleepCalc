@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1713871766304,
-  appVer: '1.5.1',
+  updateTime: 1719111746331,
+  appVer: '1.8',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -102,6 +102,11 @@ export const foodRecommend = {
       evoLine: [764],
       needFood: [[16], [16, 11], [16, 11]],
       desc: '除非真的去不了5岛又急需玉米才抓他，需至少2食材概率起步否则痛不欲生，等上修。玉米不如5岛熊，姜不如大班或者喷火龙。'
+    },
+    {
+      evoLine: [845],
+      needFood: [[10], [10], [10]],
+      desc: '白板30产油基本跟蛙持平，不过食材率不如蛙高，技能太优秀了，非要土豆的话不如隆隆岩和大食花。'
     }
   ]
 }
