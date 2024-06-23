@@ -312,7 +312,10 @@ const handleClickFilterPokes = (typeKey, val) => {
       <p>* {{ $t("TIPS.energy2") }}</p>
     </div>
   </div>
-  <div class="cpt-pagination">
+  <div
+    class="cpt-pagination"
+    v-if="pageData.resRankArr.length / pageData.pageSize > 1"
+  >
     <el-pagination
       layout="prev, pager, next"
       :total="pageData.resRankArr.length"
@@ -348,7 +351,10 @@ const handleClickFilterPokes = (typeKey, val) => {
       />
     </template>
   </div>
-  <div class="cpt-pagination">
+  <div
+    class="cpt-pagination"
+    v-if="pageData.resRankArr.length / pageData.pageSize > 1"
+  >
     <el-pagination
       layout="prev, pager, next"
       :total="pageData.resRankArr.length"
