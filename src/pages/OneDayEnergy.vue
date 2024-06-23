@@ -324,7 +324,7 @@ const handleClickFilterPokes = (typeKey, val) => {
       v-model:current-page="pageData.curPageIndex"
     />
   </div>
-  <div class="poke-tb">
+  <div class="poke-tb" v-if="pageData.resRankArr.length > 0">
     <template v-for="(pokeItem, pokeKey) in pageData.resRankArr">
       <CptEnergyItem
         :pokeItem="pokeItem"
@@ -352,6 +352,7 @@ const handleClickFilterPokes = (typeKey, val) => {
       />
     </template>
   </div>
+  <div class="cpt-empty" v-else>暂无宝可梦</div>
   <div
     class="cpt-pagination"
     v-if="pageData.resRankArr.length / pageData.pageSize > 1"
