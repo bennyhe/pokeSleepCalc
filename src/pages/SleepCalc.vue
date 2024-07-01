@@ -1228,7 +1228,7 @@ onMounted(() => {
               </div>
             </el-alert>
           </p>
-          <template v-if="!nowAct.notArea.includes(userData.curMap)">
+          <template v-if="nowAct && nowAct.notArea && !nowAct.notArea.includes(userData.curMap)">
             <p class="mb3" v-if="get('smallUp', nowAct, 1)">
               {{nowAct.name}}-小UP:
               <template
