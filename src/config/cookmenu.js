@@ -226,11 +226,11 @@ export const COOKMENU = {
     'from': [
       {
         'id': 15,
-        'num': 15
+        'num': 24
       },
       {
         'id': 7,
-        'num': 9
+        'num': 12
       },
       {
         'id': 1,
@@ -241,8 +241,8 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 6159,
-    'menuPercent': 25
+    'baseEnergy': 9445
+    // 'menuPercent': 25
   },
   '1014': {
     // 日照炸肉排咖哩
@@ -448,15 +448,15 @@ export const COOKMENU = {
     'from': [
       {
         'id': 15,
-        'num': 10
+        'num': 15
       },
       {
         'id': 12,
-        'num': 6
+        'num': 9
       }
     ],
-    'baseEnergy': 1843,
-    'menuPercent': 11
+    'baseEnergy': 3113
+    // 'menuPercent': 11
   },
   '2006': {
     // 蠻力豪邁沙拉
@@ -630,7 +630,7 @@ export const COOKMENU = {
       },
       {
         'id': 15,
-        'num': 15
+        'num': 19
       },
       {
         'id': 2,
@@ -641,8 +641,8 @@ export const COOKMENU = {
         'num': 11
       }
     ],
-    'baseEnergy': 10095,
-    'menuPercent': 35
+    'baseEnergy': 11659
+    // 'menuPercent': 35
   },
   '2016': {
     // 熱風豆腐沙拉
@@ -1018,19 +1018,19 @@ export const COOKMENU = {
     'from': [
       {
         'id': 10,
-        'num': 9
+        'num': 12
       },
       {
         'id': 15,
-        'num': 6
+        'num': 16
       },
       {
         'id': 13,
         'num': 7
       }
     ],
-    'baseEnergy': 3213,
-    'menuPercent': 17
+    'baseEnergy': 5547
+    // 'menuPercent': 17
   },
   '3017': {
     // 大爆炸爆米花

@@ -36,7 +36,7 @@ const props = defineProps({
     <p class="cpt-foodmenu__bs">
       <img class="icon" v-lazy="`./img/ui/energy.png`" />
       {{ props.menuItem.baseEnergy }}
-      (+{{ props.menuItem.menuPercent }}%)
+      <template v-if="props.menuItem.menuPercent">(+{{ props.menuItem.menuPercent }}%)</template>
     </p>
     <img
       class="cpt-foodmenu__bg"

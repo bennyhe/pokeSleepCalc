@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-07-05
+1. update [食谱(app v1.9.0)预更新](https://www.pokemonsleep.net/news/313532383930353332323332363931373133/)
+
 ## 24-07-01
 1. fix 部分睡姿名称错误问题
 
