@@ -1,6 +1,10 @@
 const markdownText = `
 # 更新日志
 
+## 24-07-07
+1. add 抽取睡姿-熏香允许清除选项
+2. fix 修复部分语言下的视觉错误
+
 ## 24-07-05
 1. update [食谱(app v1.9.0)预更新](https://www.pokemonsleep.net/news/313532383930353332323332363931373133/)
 

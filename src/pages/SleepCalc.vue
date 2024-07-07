@@ -1115,6 +1115,7 @@ onMounted(() => {
               v-model="userData.useIncensePokemonId"
               placeholder="请选择宝可梦熏香"
               filterable
+              clearable
             >
               <el-option :label="$t('OPTIONS.nouse')" value="">
                 {{ $t("OPTIONS.nouse") }}
