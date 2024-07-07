@@ -1920,6 +1920,17 @@ h3 {
     .radiogroup--level .el-radio-button__inner {
       padding: 5px;
     }
+
+    .el-btn-s {
+      .el-button {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+
+      .el-button+.el-button {
+        margin-left: 5px;
+      }
+    }
   }
 
   .pokedex-list {

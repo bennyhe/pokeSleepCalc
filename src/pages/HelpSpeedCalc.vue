@@ -1471,7 +1471,7 @@ watch(helpSpeedCalcForm.value, val => {
         </template>
       </el-select>
     </el-form-item>
-    <el-form-item>
+    <el-form-item class="el-btn-s">
       <el-button
         size="small"
         color="#fdb43b"
