@@ -230,11 +230,11 @@ export const COOKMENU = {
       },
       {
         'id': 7,
-        'num': 12
+        'num': 9
       },
       {
         'id': 1,
-        'num': 9
+        'num': 12
       },
       {
         'id': 2,
