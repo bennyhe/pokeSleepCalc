@@ -20,10 +20,25 @@ export default {
     'getWithout': '寝顔抽選の抜去',
     'detail': 'の詳細',
     'restart': 'RESTART',
-    'noHas': 'ない'
+    'noHas': 'ない',
+    'calcRes': '計算結果'
+  },
+  'BTN': {
+    'filter': '検索',
+    'close': '閉じる',
+    'getSpoBefore': 'クリックで',
+    'getSpoMid': 'を研究する',
+    'getSpoAfter': '種)総'
+  },
+  'DIALOG_TITLE': {
+    'filter': 'ポケモンを検索'
   },
   'PLACEHOLDER': {
-    'energy': 'エナジーを入力してください'
+    'energy': 'エナジーを入力してください',
+    'contrast': '比較したいポケモンを選択してください',
+    'ilandLevel': '評価を選択してください',
+    'incense': 'おこうを選択してください',
+    'sleepstyle': '寝顔を選択してください'
   },
   'SHORT_SKILL': {
     'berrys': 'きのみS'
@@ -71,7 +86,11 @@ export default {
     'tipsNoRes': '抽選結果はゲーム内の結果のそのものではないので、あくまでも参考です。',
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
     'tipsUseTickets1': 'いいキャップチケット（第1回目寝）はおまけ１匹、おこうり使いもおまけ１匹。',
-    'tipsUseTickets2': 'いいキャップチケットとおこうり使いは計算範囲外。'
+    'tipsUseTickets2': 'いいキャップチケットとおこうり使いは計算範囲外。',
+
+    'formLabelAllSpo': '現在の睡眠総',
+    'formLabelnoUseSpo': '残り',
+    'formLabelPercent': '有効スコア'
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': 'おてつだいスピード関係のサブスキルによるおてつだい時間短縮効果の上限は35％となっている。'

@@ -747,7 +747,7 @@ onMounted(() => {
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"
-            placeholder="请选择卡比兽级别"
+            :placeholder="$t('PLACEHOLDER.ilandLevel')"
             class="m-2"
             @change="handleClickChangeStage()"
           >
@@ -1113,7 +1113,7 @@ onMounted(() => {
           <el-form-item :label="$t('PROP.incense')">
             <el-select
               v-model="userData.useIncensePokemonId"
-              placeholder="请选择宝可梦熏香"
+              :placeholder="$t('PLACEHOLDER.incense')"
               filterable
               clearable
             >
@@ -1708,7 +1708,7 @@ onMounted(() => {
           type="success"
           plain
           @click="setNewSleepStyleList()"
-          >点击获取用来研究「<img
+          >{{$t('BTN.getSpoBefore')}}「<img
             class="icon"
             v-lazy="
               `./img/ui/${getStageLevelPicId(
@@ -1725,12 +1725,12 @@ onMounted(() => {
           }}{{
             gameMap[userData.curMap].levelList[userData.curStageIndex]
               .nameIndex
-          }}」({{
+          }}」{{$t('BTN.getSpoMid')}}({{
             getNumberInMap(
               getScore(randomSleepStyle.sleepPoint),
               gameMap[userData.curMap].scoreList
             )
-          }}种)总SPO</el-button
+          }}{{$t('BTN.getSpoAfter')}}SPO</el-button
         >
         <ul class="spo-calc-list">
           <template
@@ -1742,7 +1742,7 @@ onMounted(() => {
                 key + 1
               }}</i>
               <el-select
-                placeholder="请选择宝可梦睡姿"
+                :placeholder="$t('PLACEHOLDER.sleepstyle')"
                 filterable
                 v-model="sleepStyleAny.list[key]"
                 class="el-select-sleepstyle mr3"
@@ -1819,16 +1819,16 @@ onMounted(() => {
           </template>
         </ul>
         <p>
-          当前睡眠总SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
+          {{$t('PAGE_SLEEPCALC.formLabelAllSpo')}}SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
         </p>
         <p>
-          剩余SPO:<span class="sptime" v-if="sleepStyleAny.curSPO > 0">{{
+          {{$t('PAGE_SLEEPCALC.formLabelnoUseSpo')}}SPO:<span class="sptime" v-if="sleepStyleAny.curSPO > 0">{{
             getAfterClacSPO()
           }}</span
           ><span class="sptime" v-else>0</span>
         </p>
         <p v-if="getAfterClacSPO() >= 0 && sleepStyleAny.curSPO > 0">
-          有效分数:<span class="sptime">{{
+          {{$t('PAGE_SLEEPCALC.formLabelPercent')}}:<span class="sptime">{{
             getPercent(
               sleepStyleAny.curSPO - getAfterClacSPO(),
               sleepStyleAny.curSPO,

@@ -69,7 +69,7 @@ const handleClickReset = () => {
 </script>
 <template>
   <el-button color="#626aef" size="small" plain @click="handleClickFilter()"
-    ><SvgIcon type="filter" />筛选</el-button
+    ><SvgIcon type="filter" />{{ $t("BTN.filter") }}</el-button
   >
   <CptDialog
     :isShow="isShowDialog"
@@ -77,7 +77,7 @@ const handleClickReset = () => {
     :closeCallBack="closeDialogCB2"
   >
     <h3 class="m-dialog__title">
-      <SvgIcon type="filter" />筛选宝可梦
+      <SvgIcon type="filter" />{{ $t("DIALOG_TITLE.filter") }}
       <div class="m-dialog__title-extra">
         <el-button
           v-if="

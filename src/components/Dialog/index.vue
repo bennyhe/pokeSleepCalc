@@ -8,14 +8,16 @@
         'm-dialog--alert': isAlert,
       }"
     >
-      <i class="i i-close m-dialog__close" @click="handleClickClose()"></i>
+      <i class="i i-close m-dialog__close" @click="handleClickClose()" :title="$t('BTN.close')"></i>
       <div class="m-dialog__inner">
         <div class="m-dialog__bd">
           <div class="m-dialog__info">
             <slot />
           </div>
           <div class="btn-wrap">
-            <span class="btn btn-m" @click="handleClickClose()">关闭</span>
+            <span class="btn btn-m" @click="handleClickClose()">{{
+              $t("BTN.close")
+            }}</span>
           </div>
         </div>
       </div>
@@ -25,7 +27,6 @@
 </template>
 <script>
 import { defineComponent, ref } from 'vue'
-// import {} from "../../utils/index.js"
 
 export default defineComponent({
   name: 'CptDialog',

@@ -231,7 +231,7 @@ const handleChangeActUp = () => {
         </el-radio-group>
       </div>
     </el-form-item>
-    <el-form-item label="计算结果">
+    <el-form-item :label="$t('OPTIONS.calcRes')">
       <ul>
         <li>
           <img class="icon" v-lazy="`./img/ui/exp.png`" />

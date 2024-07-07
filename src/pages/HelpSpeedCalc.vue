@@ -1154,7 +1154,7 @@ watch(helpSpeedCalcForm.value, val => {
         ><SvgIcon type="team" />加入队伍</el-button
       >
     </el-form-item>
-    <el-form-item label="计算结果">
+    <el-form-item :label="$t('OPTIONS.calcRes')">
       <ul>
         <li>
           Lv.{{ helpSpeedCalcForm.level }}:
@@ -1353,7 +1353,7 @@ watch(helpSpeedCalcForm.value, val => {
         style="--el-switch-on-color: #ffaf00"
       />
     </el-form-item>
-    <el-form-item label="时间">
+    <el-form-item label="持续时间">
       <el-radio-group
         v-model="helpSpeedCalcForm.calcTime"
         @change="handleClickTime()"
@@ -1410,7 +1410,7 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
       <el-select
         v-model="helpSpeedCalcForm.contrastPoke"
-        placeholder="请选择要对比的宝可梦"
+        :placeholder="$t('PLACEHOLDER.contrast')"
         filterable
         clearable
         class="mb3"

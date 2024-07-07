@@ -19,10 +19,25 @@ export default {
     'getWithout': '抽取去除',
     'detail': '详情',
     'restart': '从头再来',
-    'noHas': '无'
+    'noHas': '无',
+    'calcRes': '计算结果'
+  },
+  'BTN': {
+    'filter': '筛选',
+    'close': '关闭',
+    'getSpoBefore': '点击获取用来研究',
+    'getSpoMid': '',
+    'getSpoAfter': '种)总'
+  },
+  'DIALOG_TITLE': {
+    'filter': '筛选宝可梦'
   },
   'PLACEHOLDER': {
-    'energy': '请输入当前能量'
+    'energy': '请输入当前能量',
+    'contrast': '请选择要对比的宝可梦',
+    'ilandLevel': '请选择级别',
+    'incense': '请选择宝可梦熏香',
+    'sleepstyle': '请选择宝可梦睡姿'
   },
   'SHORT_SKILL': {
     'berrys': '树果S'
@@ -70,7 +85,11 @@ export default {
     'tipsNoRes': '抽取结果不代表游戏内结果，仅作为参考。',
     'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。',
     'tipsUseTickets1': '使用露营券（每天第一觉）可额外加1只，熏香可额外加1只。',
-    'tipsUseTickets2': '使用露营券&熏香不在计算范围内。'
+    'tipsUseTickets2': '使用露营券&熏香不在计算范围内。',
+
+    'formLabelAllSpo': '当前睡眠总',
+    'formLabelnoUseSpo': '剩余',
+    'formLabelPercent': '有效分数'
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': '所有帮速的技能&性格加成累积不能超过35%。'
