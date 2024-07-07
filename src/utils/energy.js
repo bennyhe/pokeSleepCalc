@@ -104,7 +104,9 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     useFoods,
     oneDayBerryEnergy,
     oneDayFoodEnergy,
-    oneDayEnergy: oneDayBerryEnergy + oneDayFoodEnergy.allEnergy
+    oneDayEnergy: oneDayBerryEnergy + oneDayFoodEnergy.allEnergy,
+    oneDayFoodEnergyAll: oneDayFoodEnergy.allEnergy || 0,
+    oneDayHelpCountSkill: pokeItem.oneDayHelpCount.skill || 0
   }
 }
 

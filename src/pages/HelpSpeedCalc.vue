@@ -67,7 +67,8 @@ const helpSpeedCalcForm = ref({
   contrastPoke: null,
   isShiny: false,
   calcTime: 86400,
-  areaBonus: 0
+  areaBonus: 0,
+  rankSort: 'energy'
 })
 const gameMapNew = ref(JSON.parse(JSON.stringify(gameMap)))
 const subskillOn = computed(() => {
@@ -369,7 +370,7 @@ const getNature = pokemons => {
   return `${t('PROP.nature')}:${getNatureDetail(resTxt, t)}`
 }
 
-const getTargetPokemonEnergy = pokeId => {
+const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
   let resRankArr = []
   const pokeItem = { ...pokedex[pokeId] }
   pokeItem.isShiny = helpSpeedCalcForm.value.isShiny
@@ -580,7 +581,17 @@ const getTargetPokemonEnergy = pokeId => {
     addArrInOptions(tempExtra6, { ...tempPokeItem6, ...tempSCOptions6 })
   )
 
-  const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+  let sortArr = ['oneDayEnergy']
+  if(isUseRankSort) {
+    if(helpSpeedCalcForm.value.rankSort==='berry') {
+      sortArr = ['oneDayBerryEnergy', 'oneDayEnergy']
+    } else if(helpSpeedCalcForm.value.rankSort==='food') {
+      sortArr = ['oneDayFoodEnergyAll', 'oneDayEnergy']
+    } else if(helpSpeedCalcForm.value.rankSort==='skillCount') {
+      sortArr = ['oneDayHelpCountSkill', 'oneDayEnergy']
+    }
+  }
+  const res = sortInObjectOptions(resRankArr, sortArr, 'down')
 
   helpSpeedCalcForm.value.rankIndex = res.findIndex(
     item => item.extraDesc.indexOf('自选') > -1
@@ -642,7 +653,7 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.useFoods = [0, 0, 0]
   setTargetListByHelp()
 }
-const getBoxCurEnergy = (dataList, isUseFilter) => {
+const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
   let resRankArr = []
   dataList.forEach(upItem => {
     let addIn = true
@@ -711,7 +722,19 @@ const getBoxCurEnergy = (dataList, isUseFilter) => {
       )
     }
   })
-  const res = sortInObjectOptions(resRankArr, ['oneDayEnergy'], 'down')
+  
+  let sortArr = ['oneDayEnergy']
+  if(isUseRankSort) {
+    if(helpSpeedCalcForm.value.rankSort==='berry') {
+      sortArr = ['oneDayBerryEnergy', 'oneDayEnergy']
+    } else if(helpSpeedCalcForm.value.rankSort==='food') {
+      sortArr = ['oneDayFoodEnergyAll', 'oneDayEnergy']
+    } else if(helpSpeedCalcForm.value.rankSort==='skillCount') {
+      sortArr = ['oneDayHelpCountSkill', 'oneDayEnergy']
+    }
+  }
+  const res = sortInObjectOptions(resRankArr, sortArr, 'down')
+
   return res
 }
 const hanldeClickAddBox = () => {
@@ -913,6 +936,21 @@ const getTeamCurEnergyLevel = () => {
     )
   }
   return 0
+}
+
+const handleClickChangeRankSort = rankSort => {
+  helpSpeedCalcForm.value.rankSort = rankSort
+}
+const getNowUseRankSort = () => {
+  let txt = '总能量'
+  if(helpSpeedCalcForm.value.rankSort === 'berry') {
+    txt = '树果能量'
+  }else if(helpSpeedCalcForm.value.rankSort === 'food') {
+    txt = '食材能量'
+  }else if(helpSpeedCalcForm.value.rankSort === 'skillCount') {
+    txt = '技能次数'
+  }
+  return txt
 }
 
 onMounted(() => {
@@ -1400,7 +1438,7 @@ watch(helpSpeedCalcForm.value, val => {
         当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span>
       </div>
       <div style="width: 100%">
-        当前能量排位：第
+        当前{{getNowUseRankSort()}}排位：第
         <i
           class="i i-rank"
           :class="`i-rank--${helpSpeedCalcForm.rankIndex + 1}`"
@@ -1433,6 +1471,36 @@ watch(helpSpeedCalcForm.value, val => {
         </template>
       </el-select>
     </el-form-item>
+    <el-form-item>
+      <el-button
+        size="small"
+        color="#fdb43b"
+        :plain="helpSpeedCalcForm.rankSort !== 'energy'"
+        @click="handleClickChangeRankSort('energy')"
+        >总能量↓</el-button
+      >
+      <el-button
+        size="small"
+        color="#41ae3c"
+        :plain="helpSpeedCalcForm.rankSort !== 'berry'"
+        @click="handleClickChangeRankSort('berry')"
+        >树果能量↓</el-button
+      >
+      <el-button
+        size="small"
+        color="#fcc307"
+        :plain="helpSpeedCalcForm.rankSort !== 'food'"
+        @click="handleClickChangeRankSort('food')"
+        >食材能量↓</el-button
+      >
+      <el-button
+        size="small"
+        color="#5cb3cc"
+        :plain="helpSpeedCalcForm.rankSort !== 'skillCount'"
+        @click="handleClickChangeRankSort('skillCount')"
+        >技能次数↓</el-button
+      >
+    </el-form-item>
   </el-form>
   <div class="page-inner">
     <div class="poke-tb poke-tb--xscorll mb3" v-if="navData.navIndex === 0">
@@ -1453,7 +1521,8 @@ watch(helpSpeedCalcForm.value, val => {
           contrast: pokeItem.extraDesc.indexOf('对比') > -1,
         }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
-          helpSpeedCalcForm.pokemonId
+          helpSpeedCalcForm.pokemonId,
+          true
         )"
         v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
@@ -1541,6 +1610,7 @@ watch(helpSpeedCalcForm.value, val => {
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userPokemons.list,
+            true,
             true
           )"
           v-bind:key="`${pokeItem.dataId}`"
@@ -1660,7 +1730,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
           ]"
-          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userTeam.list)"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userTeam.list, false, true)"
           v-bind:key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
