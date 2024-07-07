@@ -412,7 +412,8 @@ const handleClickSleepMoreTimes = () => {
       getTimes,
       {
         banPokes,
-        isActRandom: userData.value.isActRandom,upIdsSmall: {
+        isActRandom: userData.value.isActRandom,
+        upIdsSmall: {
           upType: 'small',
           ids: nowAct.value.smallUp || []
         },
@@ -1229,9 +1230,15 @@ onMounted(() => {
               </div>
             </el-alert>
           </p>
-          <template v-if="nowAct && nowAct.notArea && !nowAct.notArea.includes(userData.curMap)">
+          <template
+            v-if="
+              nowAct &&
+              nowAct.notArea &&
+              !nowAct.notArea.includes(userData.curMap)
+            "
+          >
             <p class="mb3" v-if="get('smallUp', nowAct, 1)">
-              {{nowAct.name}}-小UP:
+              {{ nowAct.name }}-小UP:
               <template
                 v-for="pokeId in nowAct.smallUp"
                 v-bind:key="`smallUp_${pokeId}`"
@@ -1253,7 +1260,7 @@ onMounted(() => {
               </template>
             </p>
             <p class="mb3" v-if="get('midUp', nowAct, 1)">
-              {{nowAct.name}}-中UP:
+              {{ nowAct.name }}-中UP:
               <template
                 v-for="pokeId in nowAct.midUp"
                 v-bind:key="`midUp_${pokeId}`"
@@ -1708,7 +1715,7 @@ onMounted(() => {
           type="success"
           plain
           @click="setNewSleepStyleList()"
-          >{{$t('BTN.getSpoBefore')}}「<img
+          >{{ $t("BTN.getSpoBefore") }}「<img
             class="icon"
             v-lazy="
               `./img/ui/${getStageLevelPicId(
@@ -1725,12 +1732,12 @@ onMounted(() => {
           }}{{
             gameMap[userData.curMap].levelList[userData.curStageIndex]
               .nameIndex
-          }}」{{$t('BTN.getSpoMid')}}({{
+          }}」{{ $t("BTN.getSpoMid") }}({{
             getNumberInMap(
               getScore(randomSleepStyle.sleepPoint),
               gameMap[userData.curMap].scoreList
             )
-          }}{{$t('BTN.getSpoAfter')}}SPO</el-button
+          }}{{ $t("BTN.getSpoAfter") }}SPO</el-button
         >
         <ul class="spo-calc-list">
           <template
@@ -1819,16 +1826,19 @@ onMounted(() => {
           </template>
         </ul>
         <p>
-          {{$t('PAGE_SLEEPCALC.formLabelAllSpo')}}SPO:<span class="sptime">{{ sleepStyleAny.curSPO }}</span>
+          {{ $t("PAGE_SLEEPCALC.formLabelAllSpo") }}SPO:<span class="sptime">{{
+            sleepStyleAny.curSPO
+          }}</span>
         </p>
         <p>
-          {{$t('PAGE_SLEEPCALC.formLabelnoUseSpo')}}SPO:<span class="sptime" v-if="sleepStyleAny.curSPO > 0">{{
-            getAfterClacSPO()
-          }}</span
+          {{ $t("PAGE_SLEEPCALC.formLabelnoUseSpo") }}SPO:<span
+            class="sptime"
+            v-if="sleepStyleAny.curSPO > 0"
+            >{{ getAfterClacSPO() }}</span
           ><span class="sptime" v-else>0</span>
         </p>
         <p v-if="getAfterClacSPO() >= 0 && sleepStyleAny.curSPO > 0">
-          {{$t('PAGE_SLEEPCALC.formLabelPercent')}}:<span class="sptime">{{
+          {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
             getPercent(
               sleepStyleAny.curSPO - getAfterClacSPO(),
               sleepStyleAny.curSPO,
