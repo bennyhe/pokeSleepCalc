@@ -1,5 +1,5 @@
 export const areaBonusMax = 60
-export const mapSplitVer = '2.4.9'
+export const mapSplitVer = '2.5'
 export const gameMap = [
   {
     // name: '萌绿之岛',
@@ -2044,7 +2044,7 @@ export const gameMap = [
     id: 'lake',
     pic: 'map5',
     berry: [4, 18, 6],
-    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153381 },
+    scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153430 },
       { catchNum: 4, startscore: 3153540, endscore: 7730385 },
       { catchNum: 5, startscore: 7730448, endscore: 16659775 },
       { catchNum: 6, startscore: 16659818, endscore: 30491709 },
