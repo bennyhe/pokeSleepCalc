@@ -626,6 +626,42 @@ onMounted(() => {
 //   sleepStyleAny.value.curSPO,
 //   getAfterClacSPO()
 // )
+
+const getQuickChangeSleepPoint = () => {
+  const arr = []
+  const max = getSleepCatchNum(99)
+  if (userData.value.CurEnergy > 0) {
+    for (let i = 1; i <= max; i++) {
+      if (i >= 3) {
+        const timeScore = Math.ceil(
+          gameMap[userData.value.curMap].scoreList[i - 3].startscore /
+            userData.value.CurEnergy /
+            userData.value.times
+        )
+        if (timeScore > 17) {
+          arr.push({
+            txt: i,
+            timeScore: timeScore
+          })
+        }
+      }
+    }
+  }
+  if(arr.filter(item=>item.timeScore === 18).length===0){
+    arr.push({
+      txt: getNumberInMap(getScore(18), gameMap[userData.value.curMap].scoreList),
+      timeScore: 18
+    })
+  }
+  arr.push({
+    txt: getNumberInMap(
+      getScore(100),
+      gameMap[userData.value.curMap].scoreList
+    ),
+    timeScore: 100
+  })
+  return sortInObjectOptions(arr, ['timeScore'], 'up')
+}
 </script>
 
 <template>
@@ -1063,15 +1099,24 @@ onMounted(() => {
             :max="100"
           />
         </div>
+        <div class="mt3" style="width: 100%">
+          <el-radio-group
+            v-if="userData.CurEnergy > 0 && getNumberInMap(getScore(100), gameMap[userData.curMap].scoreList) > 3"
+            v-model="randomSleepStyle.sleepPoint"
+            size="small"
+            fill="#4caf50"
+          >
+            <template
+              v-for="(cItem, cKey) in getQuickChangeSleepPoint()"
+              v-bind:key="cKey"
+            >
+              <el-radio-button :label="cItem.timeScore">
+                {{ cItem.timeScore }}分-{{ cItem.txt }}{{$t('OPTIONS.one')}}
+              </el-radio-button>
+            </template>
+          </el-radio-group>
+        </div>
       </el-form-item>
-      <!-- <el-form-item v-if="getSleepCatchNum(randomSleepStyle.sleepPoint) > 3">
-            按<el-input-number
-              v-model="userData.cutNum"
-              :min="4"
-              :max="getSleepCatchNum(randomSleepStyle.sleepPoint)"
-              :step="1"
-            />只选择分数
-          </el-form-item> -->
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableSleepTime')">
         <span class="sptime">{{
           toHMInLang(
