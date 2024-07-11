@@ -43,7 +43,10 @@ const evoLine = [
   [453, 454],
   [459, 460],
   [759, 760],
-  [37, 38]
+  [37, 38],
+  [906, 907, 908],
+  [909, 910, 911],
+  [912, 913, 914]
 ]
 const pokedex = {
   1: {
@@ -2412,6 +2415,114 @@ const pokedex = {
       }
     }
   },
+  906: {
+    id: 906,
+    // name: '新葉喵',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 11,
+    pokeType: 2,
+    helpSpeed: 4600,
+    berryType: 4
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  907: {
+    id: 907,
+    // name: '蒂蕾喵',
+    friendship: 12,
+    sleepType: 1,
+    skillType: 11,
+    pokeType: 2,
+    helpSpeed: 3500,
+    berryType: 4
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  908: {
+    id: 908,
+    // name: '魔幻假面喵',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 11,
+    pokeType: 2,
+    helpSpeed: 2600,
+    berryType: 17
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  909: {
+    id: 909,
+    // name: '呆火鱷',
+    friendship: 5,
+    sleepType: 2,
+    skillType: 7,
+    pokeType: 2,
+    helpSpeed: 4200,
+    berryType: 10
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  910: {
+    id: 910,
+    // name: '炙燙鱷',
+    friendship: 12,
+    sleepType: 2,
+    skillType: 7,
+    pokeType: 2,
+    helpSpeed: 3100,
+    berryType: 10
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  911: {
+    id: 911,
+    // name: '骨紋巨聲鱷',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 7,
+    pokeType: 2,
+    helpSpeed: 2700,
+    berryType: 8
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  912: {
+    id: 912,
+    // name: '潤水鴨',
+    friendship: 5,
+    sleepType: 3,
+    skillType: 2,
+    pokeType: 2,
+    helpSpeed: 4600,
+    berryType: 1
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  913: {
+    id: 913,
+    // name: '湧躍鴨',
+    friendship: 12,
+    sleepType: 3,
+    skillType: 2,
+    pokeType: 2,
+    helpSpeed: 3600,
+    berryType: 1
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
+  914: {
+    id: 914,
+    // name: '狂歡浪舞鴨',
+    friendship: 20,
+    sleepType: 3,
+    skillType: 2,
+    pokeType: 2,
+    helpSpeed: 2600,
+    berryType: 18
+    // foodPer: 16.48,
+    // skillPer: 3.30,
+  },
   9001: {
     id: 9001,
     // name: '皮卡丘（萬聖節）',
@@ -2475,6 +2586,9 @@ const updatePoke = [{
 }, {
   time: '2024/06/1',
   pokemons: [845]
+}, {
+  time: '2024/07/1',
+  pokemons: [906, 907, 908, 909, 910, 911, 912, 913, 914]
 }]
 // console.log(pokedex)
 export {

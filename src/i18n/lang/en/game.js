@@ -360,6 +360,15 @@ export default {
     760: 'Bewear',
     764: 'Comfey',
     845: 'Cramorant',
+    906: 'Sprigatito',
+    907: 'Floragato',
+    908: 'Meowscarada',
+    909: 'Fuecoco',
+    910: 'Crocalor',
+    911: 'Skeledirge',
+    912: 'Quaxly',
+    913: 'Quaxwell',
+    914: 'Quaquaval',
     9001: 'Pikachu (Halloween)',
     9002: 'Pikachu (Festivo)'
   },
@@ -607,6 +616,17 @@ export default {
     241: '理理羽毛睡',
     242: '大吃特吃睡',
     243: '大口吞吞睡',
-    244: '居合斬睡'
+    244: '居合斬睡',
+    255: '揉揉踏踏睡',
+    256: '嬉鬧睡',
+    257: '鞠躬睡',
+    258: '魔術師睡',
+    259: '嚼嚼睡',
+    260: '心情超棒睡',
+    261: '抱著火球睡',
+    262: '撥髮睡',
+    263: '亂蓬蓬睡',
+    264: '髮亂亂睡',
+    265: '夢中起舞睡'
   }
 }

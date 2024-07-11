@@ -41,7 +41,7 @@ const props = defineProps({
 <template>
   <div
     class="cpt-pokemon cpt-pokemon--l"
-    v-if="pokeId"
+    v-if="pokeId && pokedex[pokeId]"
     :class="{ shiny: isShiny }"
   >
     <!-- #{{ pokeId }} -->

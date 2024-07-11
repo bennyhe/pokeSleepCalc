@@ -62,10 +62,10 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: false,
-  showBan: false,
-  banPokes: [],
-  showBanArea: []
+  onOffBan: true,
+  showBan: true,
+  banPokes: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+  showBanArea: [0, 1, 2, 4]
 })
 const userSleep = ref({
   count: 0,
@@ -1251,7 +1251,7 @@ const getQuickChangeSleepPoint = () => {
                     v-lazy="`./img/pokedex/${chItem}.png`"
                     :alt="$t(`POKEMON_NAME.${chItem}`)"
                   /> </span
-                >{{ $t(`POKEMON_NAME.${chItem}`) }}</template
+                ><template v-if="userData.banPokes.length<=3">{{ $t(`POKEMON_NAME.${chItem}`) }}</template></template
               ></el-checkbox
             >
           </el-form-item>
