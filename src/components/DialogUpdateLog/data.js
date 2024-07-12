@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-07-12
+1. update [食谱(app v1.9.0)更新](https://www.pokemonsleep.net/news/313532383930353332323332363931373133/)
+
 ## 24-07-11
 1. add #906-#914 9只宝可梦（图鉴&睡姿&期望）
 

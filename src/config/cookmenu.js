@@ -241,8 +241,8 @@ export const COOKMENU = {
         'num': 5
       }
     ],
-    'baseEnergy': 9445
-    // 'menuPercent': 25
+    'baseEnergy': 9445,
+    'menuPercent': 48
   },
   '1014': {
     // 日照炸肉排咖哩
@@ -455,8 +455,8 @@ export const COOKMENU = {
         'num': 9
       }
     ],
-    'baseEnergy': 3113
-    // 'menuPercent': 11
+    'baseEnergy': 3113,
+    'menuPercent': 25
   },
   '2006': {
     // 蠻力豪邁沙拉
@@ -641,8 +641,8 @@ export const COOKMENU = {
         'num': 11
       }
     ],
-    'baseEnergy': 11659
-    // 'menuPercent': 35
+    'baseEnergy': 11659,
+    'menuPercent': 48
   },
   '2016': {
     // 熱風豆腐沙拉
@@ -1029,8 +1029,8 @@ export const COOKMENU = {
         'num': 7
       }
     ],
-    'baseEnergy': 5547
-    // 'menuPercent': 17
+    'baseEnergy': 5547,
+    'menuPercent': 35
   },
   '3017': {
     // 大爆炸爆米花
