@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-07-14
 1. add 期望计算-一周年纪念嘉年华活动up
+2. update 移动端视觉样式
 
 ## 24-07-12
 1. update [食谱(app v1.9.0)更新](https://www.pokemonsleep.net/news/313532383930353332323332363931373133/)

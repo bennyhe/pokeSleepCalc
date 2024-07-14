@@ -1637,6 +1637,7 @@ h3 {
     color: #1c4f00;
     border: 1px solid #4caf50;
     padding: 0 5px;
+    margin-right: 6px;
 
     &__switch {
       display: inline-block;
@@ -1822,11 +1823,16 @@ h3 {
 
   .main {
     .el-form-item {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
 
       &__content {
         line-height: 28px;
       }
+    }
+
+    .el-radio {
+      height: 28px;
+      line-height: 28px;
     }
 
     .el-form-item--half-wrap {
