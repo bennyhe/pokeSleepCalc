@@ -12,7 +12,7 @@ import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_SLEEPCALC } from '../config/nav.js'
-import { ACT_LIST } from '../config/act.js'
+import { ACT_LIST, SLEEP_CALC_CONFIG } from '../config/act.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
@@ -62,10 +62,7 @@ const userData = ref({
   mapModel: false,
   shinyUp: false,
   useIncensePokemonId: '',
-  onOffBan: true,
-  showBan: true,
-  banPokes: [906, 907, 908, 909, 910, 911, 912, 913, 914],
-  showBanArea: [0, 1, 2, 4]
+  ...SLEEP_CALC_CONFIG
 })
 const userSleep = ref({
   count: 0,
@@ -647,9 +644,12 @@ const getQuickChangeSleepPoint = () => {
       }
     }
   }
-  if(arr.filter(item=>item.timeScore === 18).length===0){
+  if (arr.filter(item => item.timeScore === 18).length === 0) {
     arr.push({
-      txt: getNumberInMap(getScore(18), gameMap[userData.value.curMap].scoreList),
+      txt: getNumberInMap(
+        getScore(18),
+        gameMap[userData.value.curMap].scoreList
+      ),
       timeScore: 18
     })
   }
@@ -1101,7 +1101,13 @@ const getQuickChangeSleepPoint = () => {
         </div>
         <div class="mt3" style="width: 100%">
           <el-radio-group
-            v-if="userData.CurEnergy > 0 && getNumberInMap(getScore(100), gameMap[userData.curMap].scoreList) > 3"
+            v-if="
+              userData.CurEnergy > 0 &&
+              getNumberInMap(
+                getScore(100),
+                gameMap[userData.curMap].scoreList
+              ) > 3
+            "
             v-model="randomSleepStyle.sleepPoint"
             size="small"
             fill="#4caf50"
@@ -1111,7 +1117,7 @@ const getQuickChangeSleepPoint = () => {
               v-bind:key="cKey"
             >
               <el-radio-button :label="cItem.timeScore">
-                {{ cItem.timeScore }}分-{{ cItem.txt }}{{$t('OPTIONS.one')}}
+                {{ cItem.timeScore }}分-{{ cItem.txt }}{{ $t("OPTIONS.one") }}
               </el-radio-button>
             </template>
           </el-radio-group>
@@ -1251,7 +1257,9 @@ const getQuickChangeSleepPoint = () => {
                     v-lazy="`./img/pokedex/${chItem}.png`"
                     :alt="$t(`POKEMON_NAME.${chItem}`)"
                   /> </span
-                ><template v-if="userData.banPokes.length<=3">{{ $t(`POKEMON_NAME.${chItem}`) }}</template></template
+                ><template v-if="userData.banPokes.length <= 3">{{
+                  $t(`POKEMON_NAME.${chItem}`)
+                }}</template></template
               ></el-checkbox
             >
           </el-form-item>
@@ -1283,7 +1291,11 @@ const getQuickChangeSleepPoint = () => {
             "
           >
             <p class="mb3" v-if="get('smallUp', nowAct, 1)">
-              {{ nowAct.name }}-小UP:
+              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
+                nowAct.namejp
+              }}</template
+              ><template v-else>{{ nowAct.name }}</template
+              >-小UP:
               <template
                 v-for="pokeId in nowAct.smallUp"
                 v-bind:key="`smallUp_${pokeId}`"
@@ -1305,7 +1317,11 @@ const getQuickChangeSleepPoint = () => {
               </template>
             </p>
             <p class="mb3" v-if="get('midUp', nowAct, 1)">
-              {{ nowAct.name }}-中UP:
+              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
+                nowAct.namejp
+              }}</template
+              ><template v-else>{{ nowAct.name }}</template
+              >-中UP:
               <template
                 v-for="pokeId in nowAct.midUp"
                 v-bind:key="`midUp_${pokeId}`"

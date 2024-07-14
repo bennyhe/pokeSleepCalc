@@ -1,5 +1,6 @@
 const ACT_LIST = [{
   name: '夏日嘉年華',
+  namejp: 'サマーフェスティバル',
   startTime: 1718568000000,
   endTime: 1719172740000,
   notArea: [2],
@@ -27,5 +28,20 @@ const ACT_LIST = [{
     333,
     845
   ]
+}, {
+  name: '1週年紀念嘉年華',
+  namejp: '1周年記念フェスティバル',
+  startTime: 1720963486934,
+  endTime: 1721591940000,
+  notArea: [],
+  midUp: [
+    906, 909, 912
+  ]
 }]
-export { ACT_LIST }
+const SLEEP_CALC_CONFIG = {
+  onOffBan: false,
+  showBan: false,
+  banPokes: [],
+  showBanArea: []
+}
+export { ACT_LIST, SLEEP_CALC_CONFIG }
