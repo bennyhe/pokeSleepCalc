@@ -35,6 +35,7 @@ import {
   skillOptionsSkillPer,
   levelOptions
 } from '../config/helpSpeed.js'
+import { BERRY_TYPES } from '../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -582,12 +583,12 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
   )
 
   let sortArr = ['oneDayEnergy']
-  if(isUseRankSort) {
-    if(helpSpeedCalcForm.value.rankSort==='berry') {
+  if (isUseRankSort) {
+    if (helpSpeedCalcForm.value.rankSort === 'berry') {
       sortArr = ['oneDayBerryEnergy', 'oneDayEnergy']
-    } else if(helpSpeedCalcForm.value.rankSort==='food') {
+    } else if (helpSpeedCalcForm.value.rankSort === 'food') {
       sortArr = ['oneDayFoodEnergyAll', 'oneDayEnergy']
-    } else if(helpSpeedCalcForm.value.rankSort==='skillCount') {
+    } else if (helpSpeedCalcForm.value.rankSort === 'skillCount') {
       sortArr = ['oneDayHelpCountSkill', 'oneDayEnergy']
     }
   }
@@ -722,14 +723,14 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       )
     }
   })
-  
+
   let sortArr = ['oneDayEnergy']
-  if(isUseRankSort) {
-    if(helpSpeedCalcForm.value.rankSort==='berry') {
+  if (isUseRankSort) {
+    if (helpSpeedCalcForm.value.rankSort === 'berry') {
       sortArr = ['oneDayBerryEnergy', 'oneDayEnergy']
-    } else if(helpSpeedCalcForm.value.rankSort==='food') {
+    } else if (helpSpeedCalcForm.value.rankSort === 'food') {
       sortArr = ['oneDayFoodEnergyAll', 'oneDayEnergy']
-    } else if(helpSpeedCalcForm.value.rankSort==='skillCount') {
+    } else if (helpSpeedCalcForm.value.rankSort === 'skillCount') {
       sortArr = ['oneDayHelpCountSkill', 'oneDayEnergy']
     }
   }
@@ -943,11 +944,11 @@ const handleClickChangeRankSort = rankSort => {
 }
 const getNowUseRankSort = () => {
   let txt = '总能量'
-  if(helpSpeedCalcForm.value.rankSort === 'berry') {
+  if (helpSpeedCalcForm.value.rankSort === 'berry') {
     txt = '树果能量'
-  }else if(helpSpeedCalcForm.value.rankSort === 'food') {
+  } else if (helpSpeedCalcForm.value.rankSort === 'food') {
     txt = '食材能量'
-  }else if(helpSpeedCalcForm.value.rankSort === 'skillCount') {
+  } else if (helpSpeedCalcForm.value.rankSort === 'skillCount') {
     txt = '技能次数'
   }
   return txt
@@ -1340,33 +1341,34 @@ watch(helpSpeedCalcForm.value, val => {
           </li>
         </template>
       </ul>
-    </el-form-item>
-    <el-form-item
-      v-if="navData.navIndex !== 0 && helpSpeedCalcForm.curMap === 0"
-    >
-      <ul class="cpt-select-list cpt-select-list--berry">
-        <template
-          v-for="(mapItem, key) in BERRY_TYPES"
-          v-bind:key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
-        >
-          <li
-            class="cpt-select-list__item"
-            @click="handleClickChangeFMBerrys(+key)"
-            :class="{ cur: gameMapNew[0].berry.includes(+key) }"
+      <div
+        style="width: 100%"
+        v-if="navData.navIndex !== 0 && helpSpeedCalcForm.curMap === 0"
+      >
+        <ul class="cpt-select-list cpt-select-list--berry">
+          <template
+            v-for="(mapItem, key) in BERRY_TYPES"
+            v-bind:key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
           >
-            <div class="cpt-select-list__name">
-              <div class="cpt-food cpt-food--s berry">
-                <div class="cpt-food__item">
-                  <img
-                    v-lazy="`./img/berry/${+key}.png`"
-                    :alt="$t(`BERRY_TYPES.${+key}`)"
-                  />
+            <li
+              class="cpt-select-list__item"
+              @click="handleClickChangeFMBerrys(+key)"
+              :class="{ cur: gameMapNew[0].berry.includes(+key) }"
+            >
+              <div class="cpt-select-list__name">
+                <div class="cpt-food cpt-food--s berry">
+                  <div class="cpt-food__item">
+                    <img
+                      v-lazy="`./img/berry/${+key}.png`"
+                      :alt="$t(`BERRY_TYPES.${+key}`)"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-        </template>
-      </ul>
+            </li>
+          </template>
+        </ul>
+      </div>
     </el-form-item>
     <el-form-item :label="$t('PROP.areaBonus')">
       <div class="el-form-slider--bonus">
@@ -1438,7 +1440,7 @@ watch(helpSpeedCalcForm.value, val => {
         当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span>
       </div>
       <div style="width: 100%">
-        当前{{getNowUseRankSort()}}排位：第
+        当前{{ getNowUseRankSort() }}排位：第
         <i
           class="i i-rank"
           :class="`i-rank--${helpSpeedCalcForm.rankIndex + 1}`"
@@ -1730,7 +1732,11 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
           ]"
-          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(userTeam.list, false, true)"
+          v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
+            userTeam.list,
+            false,
+            true
+          )"
           v-bind:key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
