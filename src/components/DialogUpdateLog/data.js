@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 24-07-15
 1. update #906-#914 9只宝可梦
+2. update 活动up非up岛屿的计算
 2. fix 帮速计算-无法选择1岛果实的问题
 
 ## 24-07-14

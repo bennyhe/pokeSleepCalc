@@ -401,6 +401,22 @@ const handleClickSleepMoreTimes = () => {
     if (userData.value.onOffBan) {
       banPokes = userData.value.banPokes
     }
+    const upIdsSmall = {
+      upType: 'small',
+      ids: []
+    }
+    const upIdsMid = {
+      upType: 'mid',
+      ids: []
+    }
+    if (
+      nowAct.value &&
+      nowAct.value.notArea &&
+      !nowAct.value.notArea.includes(userData.value.curMap)
+    ) {
+      upIdsSmall.ids = nowAct.value.smallUp
+      upIdsMid.ids = nowAct.value.midUp
+    }
     getRandomHope(
       gameMap[userData.value.curMap],
       userData.value.curUnLockSleepType,
@@ -410,14 +426,8 @@ const handleClickSleepMoreTimes = () => {
       {
         banPokes,
         isActRandom: userData.value.isActRandom,
-        upIdsSmall: {
-          upType: 'small',
-          ids: nowAct.value.smallUp || []
-        },
-        upIdsMid: {
-          upType: 'mid',
-          ids: nowAct.value.midUp || []
-        }
+        upIdsSmall,
+        upIdsMid
       },
       getRandomHopeCb
     )

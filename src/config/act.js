@@ -33,7 +33,7 @@ const ACT_LIST = [{
   namejp: '1周年記念フェスティバル',
   startTime: 1720963486934,
   endTime: 1721591940000,
-  notArea: [],
+  notArea: [1,2,3,4],
   midUp: [
     906, 909, 912
   ]
