@@ -1,14 +1,10 @@
+import { map5ScoreList } from './scoreLine.js'
 export default {
   // name: '宝蓝湖畔',
   id: 'lake',
   pic: 'map5',
   berry: [4, 18, 6],
-  scoreList: [{ catchNum: 3, startscore: 0, endscore: 3153430 },
-    { catchNum: 4, startscore: 3153540, endscore: 7730385 },
-    { catchNum: 5, startscore: 7730448, endscore: 16659775 },
-    { catchNum: 6, startscore: 16659818, endscore: 30491709 },
-    { catchNum: 7, startscore: 30491710, endscore: 68664090 },
-    { catchNum: 8, startscore: 68664888 }],
+  scoreList: map5ScoreList,
   levelList: [
     {
       'name': '普通1',

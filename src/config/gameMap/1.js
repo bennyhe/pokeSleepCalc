@@ -1,14 +1,10 @@
+import { map1ScoreList } from './scoreLine.js'
 export default {
   // name: '萌绿之岛',
   id: 'green',
   pic: 'map1',
   berry: ['?', '?', '?'],
-  scoreList: [{ catchNum: 3, startscore: 0, endscore: 965230 },
-    { catchNum: 4, startscore: 965232, endscore: 2073694 },
-    { catchNum: 5, startscore: 2073695, endscore: 4626378 },
-    { catchNum: 6, startscore: 4626380, endscore: 8331415 },
-    { catchNum: 7, startscore: 8331417, endscore: 19563552 },
-    { catchNum: 8, startscore: 19563553 }],
+  scoreList: map1ScoreList,
   levelList: [
     {
       'name': '普通1',

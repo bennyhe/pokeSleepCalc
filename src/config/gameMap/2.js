@@ -1,14 +1,10 @@
+import { map2ScoreList } from './scoreLine.js'
 export default {
   // name: '天青沙滩',
   id: 'beach',
   pic: 'map2',
   berry: [1, 16, 12],
-  scoreList: [{ catchNum: 3, startscore: 0, endscore: 1574329 },
-    { catchNum: 4, startscore: 1574330, endscore: 3511233 },
-    { catchNum: 5, startscore: 3511234, endscore: 7162380 },
-    { catchNum: 6, startscore: 7162381, endscore: 13488262 },
-    { catchNum: 7, startscore: 13488264, endscore: 30491709 },
-    { catchNum: 8, startscore: 30491710 }],
+  scoreList: map2ScoreList,
   levelList: [
     {
       'name': '普通1',

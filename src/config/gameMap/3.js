@@ -1,14 +1,10 @@
+import { map3ScoreList } from './scoreLine.js'
 export default {
   // name: '灰褐洞窟',
   id: 'hole',
   pic: 'map3',
   berry: [10, 15, 14],
-  scoreList: [{ catchNum: 3, startscore: 0, endscore: 1829446 },
-    { catchNum: 4, startscore: 1829448, endscore: 4626378 },
-    { catchNum: 5, startscore: 4626380, endscore: 9935822 },
-    { catchNum: 6, startscore: 9935824, endscore: 19563552 },
-    { catchNum: 7, startscore: 19563553, endscore: 43706481 },
-    { catchNum: 8, startscore: 43706487 }],
+  scoreList: map3ScoreList,
   levelList: [
     {
       'name': '普通1',
