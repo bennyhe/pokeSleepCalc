@@ -1808,6 +1808,28 @@ h3 {
   }
 }
 
+.pokemon-food-calc {
+  .all-food {
+    .cpt-food__item {
+      width: 28px * 2;
+
+      img {
+        height: 28px * 2;
+      }
+    }
+    .cpt-food__count {
+      font-size: 14px;
+      position: static;
+      width: 100%;
+      border: none;
+    }
+    .extra {
+      font-size: 12px;
+      opacity: .7;
+    }
+  }
+}
+
 // 移动端适配
 @media screen and (max-width: 660px) {
 

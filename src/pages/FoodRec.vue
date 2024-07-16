@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import {
@@ -9,10 +10,39 @@ import {
 import { COOKMENU } from '../config/cookmenu.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
-import { POKE_TYPES, COOK_TYPES, MENU_TYPES } from '../config/valKey.js'
+import {
+  POKE_TYPES,
+  COOK_TYPES,
+  MENU_TYPES,
+  FOOD_TYPES,
+  FOOD_ENERGY
+} from '../config/valKey.js'
+import { getDecimalNumber } from '../utils/index.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
+
+const foodConfig = ref({
+  pokemonType: 1,
+  list: [null, null, null],
+  count: [0, 0, 0],
+  countOrg: [0, 0, 0]
+})
+const handleChangeFood = () => {
+  foodConfig.value.count[0] = foodConfig.value.pokemonType === 1 ? 2 : 1 // 食材型基础2,非食材型基础1
+  foodConfig.value.countOrg[0] = foodConfig.value.count[0]
+  foodConfig.value.countOrg[1] =
+    (FOOD_ENERGY[foodConfig.value.list[0]] * foodConfig.value.count[0] * 2.25) /
+    FOOD_ENERGY[foodConfig.value.list[1]]
+  foodConfig.value.countOrg[2] =
+    (FOOD_ENERGY[foodConfig.value.list[0]] *
+      foodConfig.value.count[0] *
+      2.25 *
+      1.6) /
+    FOOD_ENERGY[foodConfig.value.list[2]]
+  foodConfig.value.count[1] = Math.round(foodConfig.value.countOrg[1])
+  foodConfig.value.count[2] = Math.round(foodConfig.value.countOrg[2])
+}
 
 const nFoodRecommend = { ...foodRecommend }
 nFoodRecommend.list.forEach(pokeItem => {
@@ -66,6 +96,70 @@ for (const cookTypeKey in COOK_TYPES) {
         </template>
       </div>
     </template>
+  </div>
+  <h2>宝可梦面板食材数量模拟</h2>
+  <div class="page-inner pokemon-food-calc">
+    <el-radio-group
+      v-model="foodConfig.pokemonType"
+      @change="handleChangeFood()"
+    >
+      <el-radio :label="1">{{ $t(`POKE_TYPES.2`) }}</el-radio>
+      <el-radio :label="0"
+        >{{ $t(`POKE_TYPES.1`) }} & {{ $t(`POKE_TYPES.3`) }}</el-radio
+      >
+    </el-radio-group>
+    <div class="mt3">
+      <template v-for="(foodItem, foodKey) in [0, 30, 60]" v-bind:key="foodKey">
+        <el-select
+          v-model="foodConfig.list[foodKey]"
+          clearable
+          filterable
+          :placeholder="`Lv.${foodItem}`"
+          @change="handleChangeFood()"
+        >
+          <template
+            v-for="(mapItem, key) in FOOD_TYPES"
+            v-bind:key="`f_${$t(`FOOD_TYPES.${key}`)}`"
+          >
+            <el-option
+              :label="`Lv.${foodItem}-${$t(`FOOD_TYPES.${key}`)}`"
+              :value="key"
+            >
+              <img
+                class="icon"
+                v-lazy="`./img/food/${+key}.png`"
+                :alt="$t(`FOOD_TYPES.${+key}`)"
+              />
+              {{ $t(`FOOD_TYPES.${key}`) }}
+            </el-option>
+          </template>
+        </el-select>
+      </template>
+    </div>
+    <div class="mt3" v-if="foodConfig.count[0] > 0">
+      <div class="cpt-food all-food">
+        <template
+          v-for="(foodVal, key) in foodConfig.list"
+          v-bind:key="`f_${$t(`FOOD_TYPES.${foodVal}`)}`"
+        >
+          <div
+            class="cpt-food__item cur"
+            v-if="foodConfig.count[key] > 0"
+          >
+            <img
+              v-lazy="`./img/food/${+foodVal}.png`"
+              :alt="$t(`FOOD_TYPES.${+foodVal}`)"
+            />
+            <p class="cpt-food__count">
+              X{{ foodConfig.count[key]
+              }}<span class="extra" v-if="key > 0"
+                >({{ getDecimalNumber(foodConfig.countOrg[key], 3) }})</span
+              >
+            </p>
+          </div>
+        </template>
+      </div>
+    </div>
   </div>
   <h2>食材宝可梦推荐</h2>
   <div class="page-inner mod-tips">
