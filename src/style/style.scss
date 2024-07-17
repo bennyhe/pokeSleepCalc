@@ -786,7 +786,7 @@ h4 {
     background-color: rgba($color: #fff, $alpha: .8);
     border: 1px solid #ccc;
     color: #349963;
-    width: 12px;
+    min-width: 12px;
     height: 12px;
     line-height: 12px;
     border-radius: 100%;
