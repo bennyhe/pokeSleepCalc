@@ -2462,7 +2462,7 @@ const pokedex = {
     pokeType: 2,
     helpSpeed: 2600,
     berryType: 17,
-    foodPer: 18.99,
+    foodPer: 19.00,
     skillPer: 2.20
   },
   909: {
@@ -2524,7 +2524,7 @@ const pokedex = {
     pokeType: 2,
     helpSpeed: 4600,
     berryType: 1,
-    foodPer: 26.10,
+    foodPer: 26.11,
     skillPer: 2.79,
     food: {
       type: [15, 1, 10],
@@ -2550,8 +2550,8 @@ const pokedex = {
     pokeType: 2,
     helpSpeed: 3600,
     berryType: 1,
-    foodPer: 25.90,
-    skillPer: 2.70
+    foodPer: 25.92,
+    skillPer: 2.69
   },
   914: {
     id: 914,
@@ -2563,7 +2563,7 @@ const pokedex = {
     helpSpeed: 2600,
     berryType: 18,
     foodPer: 23.23,
-    skillPer: 2.40
+    skillPer: 2.4
   },
   9001: {
     id: 9001,
