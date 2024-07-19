@@ -38,65 +38,93 @@ const pageData = ref({
 const getTimes = 4000
 const targetPokeId = 280
 const testData = ref([])
+const getRes = (curAllScore, allPoint) => {
+  return getRandomHope(
+    gameMap[pageData.value.curMap],
+    +pageData.value.mapSleepType,
+    allPoint,
+    getLevelIndexByEnergy(
+      gameMap[pageData.value.curMap].levelList,
+      curAllScore
+    ),
+    getTimes,
+    {
+      isActRandom: pageData.value.isActRandom,
+      banPokes: pageData.value.banPokes,
+      upIdsMid: pageData.value.upIdsMid,
+      upIdsSmall: pageData.value.upIdsSmall
+    }
+  )
+}
 // 0-10w 1000
 // 10w-50w 2000
 // 50w以上-400w 5000
 // 400w-500w 100000
-const handleClickGet = () => {
+const handleClickGet = type => {
   const basePoint = +pageData.value.minScore
   const startTime = new Date().getTime()
   const baseStarI = 0
   const targetRes = []
   let splitPoint = 1000
   testData.value = []
-  for (let i = baseStarI; i < baseStarI + 2000; i++) {
-    const curAllScore = basePoint + splitPoint
-    const allPoint = curAllScore * 100
-    const res = getRandomHope(
-      gameMap[pageData.value.curMap],
-      +pageData.value.mapSleepType,
-      allPoint,
-      getLevelIndexByEnergy(
-        gameMap[pageData.value.curMap].levelList,
-        curAllScore
-      ),
-      getTimes,
-      {
-        isActRandom: pageData.value.isActRandom,
-        banPokes: pageData.value.banPokes,
-        upIdsMid: pageData.value.upIdsMid,
-        upIdsSmall: pageData.value.upIdsSmall
+  if (type === 'quickLevel') {
+    console.log('quick start...', gameMap[pageData.value.curMap].levelList)
+    let k = 0
+    gameMap[pageData.value.curMap].levelList.forEach(item => {
+      const curAllScore = item.energy
+      const allPoint = curAllScore * 100
+      if (curAllScore <= +pageData.value.maxScore) {
+        const res = getRes(curAllScore, allPoint)
+        console.log(
+          k,
+          curAllScore,
+          allPoint,
+          `${(new Date().getTime() - startTime) / 1000}s`
+        )
+        const lastRes = {
+          basePoint: curAllScore,
+          allPoint,
+          res
+        }
+        targetRes.push(lastRes)
+        k++
       }
-    )
-    console.log(
-      i,
-      curAllScore,
-      allPoint,
-      `${(new Date().getTime() - startTime) / 1000}s`
-    )
-    const lastRes = {
-      basePoint: curAllScore,
-      allPoint,
-      res
-    }
-    targetRes.push(lastRes)
-    if (curAllScore >= +pageData.value.maxScore) {
-      break
-    }
-    if (basePoint + splitPoint > 4000000) {
-      splitPoint += 100000
-    } else if (
-      basePoint + splitPoint > 500000 &&
-      basePoint + splitPoint <= 4000000
-    ) {
-      splitPoint += 5000
-    } else if (
-      basePoint + splitPoint > 100000 &&
-      basePoint + splitPoint <= 500000
-    ) {
-      splitPoint += 2000
-    } else {
-      splitPoint += 1000
+    })
+  } else {
+    for (let i = baseStarI; i < baseStarI + 2000; i++) {
+      const curAllScore = basePoint + splitPoint
+      const allPoint = curAllScore * 100
+      const res = getRes(curAllScore, allPoint)
+      console.log(
+        i,
+        curAllScore,
+        allPoint,
+        `${(new Date().getTime() - startTime) / 1000}s`
+      )
+      const lastRes = {
+        basePoint: curAllScore,
+        allPoint,
+        res
+      }
+      targetRes.push(lastRes)
+      if (curAllScore >= +pageData.value.maxScore) {
+        break
+      }
+      if (basePoint + splitPoint > 4000000) {
+        splitPoint += 100000
+      } else if (
+        basePoint + splitPoint > 500000 &&
+        basePoint + splitPoint <= 4000000
+      ) {
+        splitPoint += 5000
+      } else if (
+        basePoint + splitPoint > 100000 &&
+        basePoint + splitPoint <= 500000
+      ) {
+        splitPoint += 2000
+      } else {
+        splitPoint += 1000
+      }
     }
   }
   testData.value = targetRes
@@ -298,7 +326,10 @@ const handleClickChangeMap = id => {
       </el-select>
     </el-form-item>
     <el-form-item>
-      <el-button @click="handleClickGet">计算结果</el-button>
+      <el-button @click="handleClickGet()">计算结果</el-button>
+      <el-button @click="handleClickGet('quickLevel')" type="success"
+        >按等级快速计算结果</el-button
+      >
     </el-form-item>
   </el-form>
   <h2>
@@ -330,7 +361,10 @@ const handleClickChangeMap = id => {
     </div>
   </div>
   <div class="hide">
-    <template v-for="gmItem in [gameMap[pageData.curMap]]" v-bind:key="gmItem.id">
+    <template
+      v-for="gmItem in [gameMap[pageData.curMap]]"
+      v-bind:key="gmItem.id"
+    >
       <h3>
         {{ gmItem.name }}
       </h3>
@@ -380,7 +414,7 @@ const handleClickChangeMap = id => {
             :showKey="['sleepType']"
           >
             <p v-if="sleepItem.id">
-              {{sleepItem.id }}
+              {{ sleepItem.id }}
             </p>
             <p v-if="SPO_DATA[sleepItem.id]">
               spoId: {{ SPO_DATA[sleepItem.id].id }}
