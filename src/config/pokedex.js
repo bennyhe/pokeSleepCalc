@@ -680,7 +680,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 14,
-    helpSpeed: 3800,
+    helpSpeed: 5700,
     foodPer: 28.06,
     skillPer: 5.19,
     food: {
@@ -2522,7 +2522,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 2,
     pokeType: 2,
-    helpSpeed: 4600,
+    helpSpeed: 4800,
     berryType: 1,
     foodPer: 26.11,
     skillPer: 2.79,
