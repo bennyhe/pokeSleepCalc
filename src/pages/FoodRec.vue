@@ -136,16 +136,20 @@ for (const cookTypeKey in COOK_TYPES) {
         </el-select>
       </template>
     </div>
-    <div class="mt3" v-if="foodConfig.count[0] > 0">
+    <div
+      class="mt3"
+      v-if="
+        foodConfig.list[0] !== null &&
+        foodConfig.list[0] !== '' &&
+        foodConfig.count[0] > 0
+      "
+    >
       <div class="cpt-food all-food">
         <template
           v-for="(foodVal, key) in foodConfig.list"
           v-bind:key="`f_${$t(`FOOD_TYPES.${foodVal}`)}`"
         >
-          <div
-            class="cpt-food__item cur"
-            v-if="foodConfig.count[key] > 0"
-          >
+          <div class="cpt-food__item cur" v-if="foodConfig.count[key] > 0">
             <img
               v-lazy="`./img/food/${+foodVal}.png`"
               :alt="$t(`FOOD_TYPES.${+foodVal}`)"
