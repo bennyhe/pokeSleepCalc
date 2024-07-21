@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1719111746331,
-  appVer: '1.8',
+  updateTime: 1721531458892,
+  appVer: '1.9',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -107,6 +107,21 @@ export const foodRecommend = {
       evoLine: [845],
       needFood: [[10], [10], [10]],
       desc: '白板30产油基本跟蛙持平，不过食材率不如蛙高，技能太优秀了，非要土豆的话不如隆隆岩和大食花。'
+    },
+    {
+      evoLine: [906, 907, 908],
+      needFood: [[4], [4], [4]],
+      desc: '双食材起步，其它不如奶龟。'
+    },
+    {
+      evoLine: [909, 910, 911],
+      needFood: [[5], [5], [5]],
+      desc: '游戏第一个基础食材为苹果的，自带高食材率和技能率。肠去左转找喷火龙和肠熊。伪自回准神。'
+    },
+    {
+      evoLine: [912, 913, 914],
+      needFood: [[15], [15, 1], [15, 1]],
+      desc: '抓aaa，abb，高食材率的产葱怪（60见真章），豆子跟隆隆石基本持平，目前豆子料理没啥用。'
     }
   ]
 }
