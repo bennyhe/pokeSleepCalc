@@ -692,61 +692,6 @@ const getQuickChangeSleepPoint = () => {
         >
       </el-radio-group>
     </div>
-    <!-- <div class="map-pokemons">
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 5.5em"></th>
-            <th
-              v-for="(gItem, gkey) in gameMapPokemons"
-              v-bind:key="`pomap_${gameMap[gkey].id}`"
-            >
-              {{ $t(`ILAND.${gameMap[gkey].id}`) }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <template
-            v-for="(ggItem, ggkey) in gameMap[0].levelList"
-            v-bind:key="ggItem.id"
-          >
-            <tr v-if="ggkey <= 24">
-              <td>
-                <img
-                  class="icon"
-                  v-lazy="`./img/ui/${getStageLevelPicId(ggItem.name)}.png`"
-                />
-                {{ $t(`LEVEL_TITLE.${ggItem.nameId}`) }}{{ ggItem.nameIndex }}
-              </td>
-              <td
-                class="map-pokemons__item"
-                v-for="(gItem, gkey) in gameMapPokemons"
-                v-bind:key="`pomap_${gameMap[gkey].id}`"
-              >
-                <template
-                  v-if="
-                    gItem.levelPokemons[ggkey] &&
-                    gItem.levelPokemons[ggkey].length > 0
-                  "
-                >
-                  <span
-                    class="cpt-avatar"
-                    v-for="pokeItem in gItem.levelPokemons[ggkey]"
-                    v-bind:key="`map_${stageKey}_${pokeItem}`"
-                  >
-                    <img
-                      class="cpt-avatar__pic"
-                      v-lazy="`./img/pokedex/${pokeItem}.png`"
-                      :alt="$t(`POKEMON_NAME.${pokeItem}`)"
-                    />
-                  </span>
-                </template>
-              </td>
-            </tr>
-          </template>
-        </tbody>
-      </table>
-    </div> -->
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->
       <el-form-item :label="$t('OPTIONS.formLableCurIland')">
@@ -787,6 +732,77 @@ const getQuickChangeSleepPoint = () => {
               :alt="mapItem.name"
             />
           </li>
+          <!-- <li class="cpt-select-list__item">
+            <el-popover
+              placement="bottom"
+              title="MAP"
+              trigger="click"
+              :width="360"
+              :key="`MAPPOKEMONS`"
+            >
+              <template #reference>
+                <el-button size="small">MAP</el-button>
+              </template>
+              <div class="map-pokemons">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width: 5.5em"></th>
+                      <th
+                        v-for="(gItem, gkey) in gameMapPokemons"
+                        v-bind:key="`pomap_${gameMap[gkey].id}`"
+                      >
+                        {{ $t(`ILAND.${gameMap[gkey].id}`) }}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template
+                      v-for="(ggItem, ggkey) in gameMap[0].levelList"
+                      v-bind:key="ggItem.id"
+                    >
+                      <tr v-if="ggkey <= 23">
+                        <td>
+                          <img
+                            class="icon"
+                            v-lazy="
+                              `./img/ui/${getStageLevelPicId(ggItem.name)}.png`
+                            "
+                          />
+                          {{ $t(`LEVEL_TITLE.${ggItem.nameId}`)
+                          }}{{ ggItem.nameIndex }}
+                        </td>
+                        <td
+                          class="map-pokemons__item"
+                          v-for="(gItem, gkey) in gameMapPokemons"
+                          v-bind:key="`pomap_${gameMap[gkey].id}`"
+                        >
+                          <template
+                            v-if="
+                              gItem.levelPokemons[ggkey] &&
+                              gItem.levelPokemons[ggkey].length > 0
+                            "
+                          >
+                            <span
+                              class="cpt-avatar"
+                              v-for="pokeItem in gItem.levelPokemons[ggkey]"
+                              v-bind:key="`map_${stageKey}_${pokeItem}`"
+                            >
+                              <img
+                                class="cpt-avatar__pic"
+                                v-lazy="`./img/pokedex/${pokeItem}.png`"
+                                :alt="$t(`POKEMON_NAME.${pokeItem}`)"
+                              />
+                            </span>
+                          </template>
+                        </td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+            </el-popover>
+          </li> -->
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->

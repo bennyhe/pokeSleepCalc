@@ -10,7 +10,7 @@ const markdownText = `
 1. *对于无独立经济来源的学生或未成人不推荐进行任何捐赠!!*
 
 # 爱发电捐赠&支持
-[去爱发电捐赠&支持(微信/支付宝/Paypal/Stripe)](https://afdian.net/a/pokesleepcalc)
+[去爱发电捐赠&支持(微信/支付宝/Paypal/Stripe)](https://afdian.com/a/pokesleepcalc)
 
 # 近期更新计划
 1. 队伍日产/周产

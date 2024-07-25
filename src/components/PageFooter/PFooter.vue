@@ -19,7 +19,7 @@ const handleClickShowSupport = () => {
 </script>
 <template>
   <div class="page-footer">
-    <p>工具建议&反馈以及交流(Pokemon sleep計算器研究交流室)QQ群：953956094</p>
+    <p>工具建议&反馈以及交流Discord筹建中</p>
     <p>
       <a href="https://github.com/bennyhe/pokeSleepCalc" target="_blank"
         >Github
@@ -29,7 +29,7 @@ const handleClickShowSupport = () => {
       <a href="javascript:;" @click="handleClickShowSupport()">捐赠支持须知</a>
     </p>
     <p>
-      <a href="https://afdian.net/a/pokesleepcalc" target="_blank">按月订阅支持(爱发电)(WX Pay/Ali Pay/Paypal/Stripe)</a>
+      <a href="https://afdian.com/a/pokesleepcalc" target="_blank">按月订阅支持(爱发电)(WX Pay/Ali Pay/Paypal/Stripe)</a>
     </p>
     <p>
       <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志</a>

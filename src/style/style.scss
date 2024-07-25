@@ -1359,14 +1359,15 @@ h3 {
   }
 }
 
-// .map-pokemons {
-//   &__item {
-//     border: 1px solid #d1d1d1;
-//   }
-//   table {
-//     width: 100%;
-//   }
-// }
+.map-pokemons {
+  overflow-x: auto;
+  &__item {
+    border: 1px solid #d1d1d1;
+  }
+  table {
+    width: 1280px
+  }
+}
 
 .catchpoke-list {
   overflow-y: auto;
