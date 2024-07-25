@@ -82,7 +82,8 @@ const getShinyPoke = isShinyUp => {
 }
 const spacialPokemons = {
   list: [243, 244], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 35, 36, 173, 845, 906, 907, 908, 909, 910, 911, 912, 913, 914], // 不进保底
+  noLastList: [243, 244, 35, 36, 173, 906, 907, 908, 909, 910, 911, 912, 913, 914], // 不进保底
+  probabilityLastList: [845], //概率进保底
   isGet: { // 露营券判断是否重复使用
     243: false,
     244: false
@@ -305,6 +306,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')
+    if (spacialPokemons.probabilityLastList.includes(lastList[0].pokeId) && (Math.random() < 0.8)) {
+      lastList = sortInObjectOptions(lastList.filter(item => item.pokeId !== lastList[0].pokeId), ['spo'], 'down')
+    }
     const lastMostSpo = lastList[0].spo
     lastList = lastList.filter(item => item.spo === lastMostSpo)
     if (lastList.length > 0) {
