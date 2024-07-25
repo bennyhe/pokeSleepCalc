@@ -39,7 +39,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   for (let y = 0; y < useFoods.length; y++) {
     for (let j = 0; j < helpFoodEnergy.useFoods.length; j++) {
       for (let k = j + 1; k < helpFoodEnergy.useFoods.length; k++) {
-        if (helpFoodEnergy.useFoods[j] === helpFoodEnergy.useFoods[k]) {
+        if (helpFoodEnergy.useFoods[j] === helpFoodEnergy.useFoods[k]) { // 如果是同一种食材就进行合并
           helpFoodEnergy.count[j] = helpFoodEnergy.count[j] + helpFoodEnergy.count[k]
 
           helpFoodEnergy.useFoods.splice(k, 1)

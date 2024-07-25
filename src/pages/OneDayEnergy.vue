@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
+import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import { sortInObjectOptions, containsAny } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
@@ -23,6 +24,11 @@ const pageData = ref({
   pageSize: 102,
   areaBonus: 60
 })
+const foodRankOpts = ref({
+  isMore: false,
+  max: 1
+})
+const foodResRank = ref({})
 newGameMap.push({
   id: 'none',
   berry: [8, 9, 2, 13, 3, 5]
@@ -105,10 +111,50 @@ onMounted(() => {
     pageData.value.resRankArr,
     ['oneDayEnergy']
   )
-  // console.log(pageData.value.orgResRankArr)
+  console.log(pageData.value.orgResRankArr)
   pageData.value.resRankArr = JSON.parse(
     JSON.stringify(pageData.value.orgResRankArr)
   )
+
+  const tempFoodResRank = {}
+  for (const foodKey in FOOD_TYPES) {
+    if (Object.hasOwnProperty.call(FOOD_TYPES, foodKey)) {
+      const foodName = FOOD_TYPES[foodKey]
+      if (!tempFoodResRank[foodKey]) {
+        tempFoodResRank[foodKey] = {
+          foodId: +foodKey,
+          rankList: []
+        }
+      }
+      pageData.value.orgResRankArr
+        .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
+        .forEach(pokeItem => {
+          if (pokeItem.useFoods.includes(+foodKey)) {
+            // console.log(foodKey, foodName, pokeItem.oneDayFoodEnergy.count[0])
+            tempFoodResRank[foodKey].rankList.push({
+              pokemonId: pokeItem.pokemonId,
+              oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,
+              useFoods: pokeItem.useFoods,
+              helpSpeed: pokeItem.helpSpeed,
+              FOODRANK_COUNT:
+                pokeItem.oneDayFoodEnergy.count[
+                  pokeItem.oneDayFoodEnergy.useFoods.indexOf(+foodKey)
+                ]
+            })
+          }
+        })
+    }
+  }
+  for (const rankKey in tempFoodResRank) {
+    if (Object.hasOwnProperty.call(tempFoodResRank, rankKey)) {
+      tempFoodResRank[rankKey].rankList = sortInObjectOptions(
+        tempFoodResRank[rankKey].rankList,
+        ['FOODRANK_COUNT']
+      )
+    }
+  }
+  foodResRank.value = tempFoodResRank
+  console.log(foodResRank.value)
 })
 
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
@@ -193,6 +239,15 @@ const handleClickFilterPokes = (typeKey, val) => {
     FILTER_OBJECT.value[typeKey].push(val)
   }
   getChangeOptionsAfterData()
+}
+
+const handleClickShowFoodRank = () => {
+  foodRankOpts.value.isMore = !foodRankOpts.value.isMore
+  if (foodRankOpts.value.isMore) {
+    foodRankOpts.value.max = 6
+  } else {
+    foodRankOpts.value.max = 1
+  }
 }
 
 // const handleClickSlider = () => {
@@ -313,6 +368,64 @@ const handleClickFilterPokes = (typeKey, val) => {
     <div class="mod-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>
       <p>* {{ $t("TIPS.energy2") }}</p>
+    </div>
+  </div>
+  <div class="foodrank">
+    <h3>
+      一天食材个数排行<el-button
+        size="small"
+        @click="handleClickShowFoodRank()"
+        :class="{ 'btn--show': foodRankOpts.isMore }"
+        >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
+      /></el-button>
+    </h3>
+    <div
+      class="foodrank__item"
+      v-for="foodItem in foodResRank"
+      v-bind:key="`food_rank_${foodItem.foodId}`"
+    >
+      <h4>
+        <img
+          class="icon"
+          v-lazy="`./img/food/${foodItem.foodId}.png`"
+          :alt="$t(`FOOD_TYPES.${foodItem.foodId}`)"
+        />
+        {{ $t(`FOOD_TYPES.${foodItem.foodId}`) }}
+      </h4>
+      <ul>
+        <template
+          v-for="(pokeItem, pokeKey) in foodItem.rankList.slice(0, 6)"
+          v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}`"
+        >
+          <li v-if="pokeKey < foodRankOpts.max">
+            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+              pokeKey + 1
+            }}</i>
+            <CptPoke
+              :pokeId="pokeItem.pokemonId"
+              :showKey="['foodPer', 'helpSpeed']"
+              :helpSpeed="pokeItem.helpSpeed"
+            />
+            <div class="cpt-food all-food">
+              <template
+                v-for="(sItemFoodId, sItemFoodKey) in pokeItem.oneDayFoodEnergy
+                  .useFoods"
+                v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}_sfood_${sItemFoodId}`"
+              >
+                <div class="cpt-food__item cur">
+                  <img
+                    v-lazy="`./img/food/${sItemFoodId}.png`"
+                    :alt="$t(`FOOD_TYPES.${sItemFoodId}`)"
+                  />
+                  <p class="cpt-food__count">
+                    X{{ pokeItem.oneDayFoodEnergy.count[sItemFoodKey] }}
+                  </p>
+                </div>
+              </template>
+            </div>
+          </li>
+        </template>
+      </ul>
     </div>
   </div>
   <div
