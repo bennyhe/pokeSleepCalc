@@ -127,7 +127,7 @@ const handleBlurLevel = () => {
           props.pokeItem.oneDayFoodEnergy.useFoods.length > 0
         "
       >
-        <div class="cpt-food cpt-food--s all-food">
+        <div class="cpt-food cpt-food--s all-food cpt-food--energy">
           <div
             class="cpt-food__item cur"
             v-for="(foodItem, foodKey) in props.pokeItem.oneDayFoodEnergy
@@ -235,7 +235,7 @@ const handleBlurLevel = () => {
             pokeItemAfterBonus.oneDayFoodEnergy.useFoods.length > 0
           "
         >
-          <div class="cpt-food cpt-food--s all-food">
+          <div class="cpt-food cpt-food--s all-food cpt-food--energy">
             <div
               class="cpt-food__item cur"
               v-for="(foodItem, foodKey) in pokeItemAfterBonus.oneDayFoodEnergy

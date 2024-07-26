@@ -418,7 +418,7 @@ const handleClickShowFoodRank = () => {
                     :alt="$t(`FOOD_TYPES.${sItemFoodId}`)"
                   />
                   <p class="cpt-food__count">
-                    X{{ pokeItem.oneDayFoodEnergy.count[sItemFoodKey] }}
+                    {{ pokeItem.oneDayFoodEnergy.count[sItemFoodKey] }}
                   </p>
                 </div>
               </template>

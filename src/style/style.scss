@@ -806,6 +806,13 @@ h4 {
       height: 20px;
     }
   }
+
+  &--energy {
+    .cpt-food__item {
+      width: 20px;
+      margin: 0 3px;
+    }
+  }
 }
 
 .food-list {

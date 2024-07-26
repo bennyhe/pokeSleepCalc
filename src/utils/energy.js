@@ -29,8 +29,11 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   }
   for (let i = 0; i < useFoods.length; i++) {
     helpFoodEnergy.count[i] =
-      Math.floor(pokeItem.oneDayHelpCount.food / useFoods.length) *
-      pokeItem.food.count[useFoods[i]].num[i]
+      getDecimalNumber(pokeItem.oneDayHelpCount.food / useFoods.length *
+        pokeItem.food.count[useFoods[i]].num[i], 1)
+    if (helpFoodEnergy.count[i] >= 100) {
+      helpFoodEnergy.count[i] = Math.floor(helpFoodEnergy.count[i])
+    }
     helpFoodEnergy.energy[i] =
       helpFoodEnergy.count[i] * FOOD_ENERGY[useFoods[i]]
     helpFoodEnergy.allEnergy += helpFoodEnergy.energy[i]
@@ -40,7 +43,10 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
     for (let j = 0; j < helpFoodEnergy.useFoods.length; j++) {
       for (let k = j + 1; k < helpFoodEnergy.useFoods.length; k++) {
         if (helpFoodEnergy.useFoods[j] === helpFoodEnergy.useFoods[k]) { // 如果是同一种食材就进行合并
-          helpFoodEnergy.count[j] = helpFoodEnergy.count[j] + helpFoodEnergy.count[k]
+          helpFoodEnergy.count[j] = getDecimalNumber(helpFoodEnergy.count[j] + helpFoodEnergy.count[k], 1)
+          if (helpFoodEnergy.count[j] >= 100) {
+            helpFoodEnergy.count[j] = Math.floor(helpFoodEnergy.count[j])
+          }
 
           helpFoodEnergy.useFoods.splice(k, 1)
           helpFoodEnergy.count.splice(k, 1)
@@ -77,16 +83,12 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
   if (skillPer > 0 && skillCount < 1) {
     skillCount = 1
   }
-  let foodCount = parseInt(
-    oneDayHelpCount.sum * (foodPer / 100)
-    , 10)
+  let foodCount = oneDayHelpCount.sum * (foodPer / 100)
   if (foodPer > 0 && foodCount < 1) {
     foodCount = 1
   }
   oneDayHelpCount.food = foodCount
-  oneDayHelpCount.berry =
-    oneDayHelpCount.sum - parseInt(skillCount, 10) - oneDayHelpCount.food
-
+  oneDayHelpCount.berry = oneDayHelpCount.sum - skillCount - oneDayHelpCount.food
   return oneDayHelpCount
 }
 export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus) => {
