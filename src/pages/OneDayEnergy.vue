@@ -4,7 +4,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
-import { sortInObjectOptions, containsAny } from '../utils/index.js'
+import { sortInObjectOptions, containsAny, getNum } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
@@ -24,11 +24,14 @@ const pageData = ref({
   pageSize: 102,
   areaBonus: 60
 })
-const foodRankOpts = ref({
-  isMore: false,
-  max: 1
+const rankOpts = ref({
+  foodIsMore: false,
+  foodMax: 1,
+  berryIsMore: false,
+  berryMax: 1
 })
 const foodResRank = ref({})
+const berryResRank = ref({})
 newGameMap.push({
   id: 'none',
   berry: [8, 9, 2, 13, 3, 5]
@@ -73,6 +76,7 @@ onMounted(() => {
           pageData.value.resRankArr.push({
             ...pokeItem,
             pokemonId: pokeItem.id,
+            isFirstPoke: arrFTKey === 0,
             nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
               pokeItem,
@@ -92,6 +96,7 @@ onMounted(() => {
           const is2n = (arrFTKey + 1) % 2 === 0
           pageData.value.resRankArr.push({
             ...pokeItem,
+            isFirstPoke: arrFTKey === 0,
             pokemonId: pokeItem.id,
             nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
             ...getOneDayEnergy(
@@ -119,7 +124,6 @@ onMounted(() => {
   const tempFoodResRank = {}
   for (const foodKey in FOOD_TYPES) {
     if (Object.hasOwnProperty.call(FOOD_TYPES, foodKey)) {
-      const foodName = FOOD_TYPES[foodKey]
       if (!tempFoodResRank[foodKey]) {
         tempFoodResRank[foodKey] = {
           foodId: +foodKey,
@@ -130,7 +134,7 @@ onMounted(() => {
         .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
         .forEach(pokeItem => {
           if (pokeItem.useFoods.includes(+foodKey)) {
-            // console.log(foodKey, foodName, pokeItem.oneDayFoodEnergy.count[0])
+            // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.oneDayFoodEnergy.count[0])
             tempFoodResRank[foodKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
               oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,
@@ -153,8 +157,41 @@ onMounted(() => {
       )
     }
   }
+  const tempBerryResRank = {}
+  for (const berryKey in BERRY_TYPES) {
+    if (Object.hasOwnProperty.call(BERRY_TYPES, berryKey)) {
+      if (!tempBerryResRank[berryKey]) {
+        tempBerryResRank[berryKey] = {
+          berryId: +berryKey,
+          rankList: []
+        }
+      }
+      pageData.value.orgResRankArr
+        .filter(pItem => pItem.isFirstPoke)
+        .forEach(pokeItem => {
+          if (+pokeItem.berryType === +berryKey) {
+            // console.log(berryKey, BERRY_TYPES[berryKey], pokeItem.oneDayFoodEnergy.count[0])
+            tempBerryResRank[berryKey].rankList.push({
+              pokemonId: pokeItem.pokemonId,
+              oneDayBerryEnergy: pokeItem.oneDayBerryEnergy,
+              helpSpeed: pokeItem.helpSpeed,
+              BERRYRANK_COUNT: pokeItem.oneDayBerryCount
+            })
+          }
+        })
+    }
+  }
+  for (const rankKey in tempBerryResRank) {
+    if (Object.hasOwnProperty.call(tempBerryResRank, rankKey)) {
+      tempBerryResRank[rankKey].rankList = sortInObjectOptions(
+        tempBerryResRank[rankKey].rankList,
+        ['BERRYRANK_COUNT']
+      )
+    }
+  }
   foodResRank.value = tempFoodResRank
-  console.log(foodResRank.value)
+  berryResRank.value = tempBerryResRank
+  console.log(foodResRank.value, berryResRank.value)
 })
 
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
@@ -241,12 +278,13 @@ const handleClickFilterPokes = (typeKey, val) => {
   getChangeOptionsAfterData()
 }
 
-const handleClickShowFoodRank = () => {
-  foodRankOpts.value.isMore = !foodRankOpts.value.isMore
-  if (foodRankOpts.value.isMore) {
-    foodRankOpts.value.max = 6
+const handleClickShowRank = (type, max) => {
+  max = max || 6
+  rankOpts.value[`${type}IsMore`] = !rankOpts.value[`${type}IsMore`]
+  if (rankOpts.value[`${type}IsMore`]) {
+    rankOpts.value[`${type}Max`] = max
   } else {
-    foodRankOpts.value.max = 1
+    rankOpts.value[`${type}Max`] = 1
   }
 }
 
@@ -370,17 +408,17 @@ const handleClickShowFoodRank = () => {
       <p>* {{ $t("TIPS.energy2") }}</p>
     </div>
   </div>
-  <div class="foodrank">
+  <div class="typerank">
     <h3>
       一天食材个数排行<el-button
         size="small"
-        @click="handleClickShowFoodRank()"
-        :class="{ 'btn--show': foodRankOpts.isMore }"
+        @click="handleClickShowRank('food')"
+        :class="{ 'btn--show': rankOpts.foodIsMore }"
         >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
       /></el-button>
     </h3>
     <div
-      class="foodrank__item"
+      class="typerank__item"
       v-for="foodItem in foodResRank"
       v-bind:key="`food_rank_${foodItem.foodId}`"
     >
@@ -397,13 +435,13 @@ const handleClickShowFoodRank = () => {
           v-for="(pokeItem, pokeKey) in foodItem.rankList.slice(0, 6)"
           v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}`"
         >
-          <li v-if="pokeKey < foodRankOpts.max">
+          <li v-if="pokeKey < rankOpts.foodMax">
             <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
               pokeKey + 1
             }}</i>
             <CptPoke
               :pokeId="pokeItem.pokemonId"
-              :showKey="['foodPer', 'helpSpeed']"
+              :showKey="['helpSpeedHM', 'foodPer']"
               :helpSpeed="pokeItem.helpSpeed"
             />
             <div class="cpt-food all-food">
@@ -423,6 +461,66 @@ const handleClickShowFoodRank = () => {
                 </div>
               </template>
             </div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+  <div class="typerank">
+    <h3>
+      一天树果个数排行<span class="cpt-skill cpt-skill--3">{{
+        $t("SHORT_SKILL.berrys")
+      }}</span
+      ><el-button
+        size="small"
+        @click="handleClickShowRank('berry', 3)"
+        :class="{ 'btn--show': rankOpts.berryIsMore }"
+        >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
+      /></el-button>
+    </h3>
+    <div
+      class="typerank__item"
+      v-for="berryItem in berryResRank"
+      v-bind:key="`food_rank_${berryItem.berryId}`"
+    >
+      <h4>
+        <img
+          class="icon"
+          v-lazy="`./img/berry/${berryItem.berryId}.png`"
+          :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
+        />
+        {{ $t(`BERRY_TYPES.${berryItem.berryId}`) }}
+      </h4>
+      <ul>
+        <template
+          v-for="(pokeItem, pokeKey) in berryItem.rankList.slice(0, 3)"
+          v-bind:key="`food_rank_item_${berryItem.berryId}_${pokeItem.pokemonId}`"
+        >
+          <li v-if="pokeKey < rankOpts.berryMax">
+            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+              pokeKey + 1
+            }}</i>
+            <CptPoke
+              :pokeId="pokeItem.pokemonId"
+              :showKey="['helpSpeedHM', 'foodPer', 'pokeType']"
+              :helpSpeed="pokeItem.helpSpeed"
+            />
+            <div class="cpt-food all-food">
+              <div class="cpt-food__item cur">
+                <img
+                  v-lazy="`./img/berry/${berryItem.berryId}.png`"
+                  :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
+                />
+                <p class="cpt-food__count">
+                  {{ pokeItem.BERRYRANK_COUNT }}
+                </p>
+              </div>
+            </div>
+            <span class="res">
+              <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                getNum(pokeItem.oneDayBerryEnergy)
+              }}
+            </span>
           </li>
         </template>
       </ul>

@@ -8,15 +8,15 @@ const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, 
   if (isDoubleBerry) {
     pokeType++
   }
-  let res = Math.floor(
-    pokeItem.oneDayHelpCount.berry *
-    (BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy *
-      pokeType)
-  )
+  const berryCount = getDecimalNumber(pokeItem.oneDayHelpCount.berry * pokeType, 1)
+  let res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
   if (isRightBerry) {
     res = res * 2
   }
-  return Math.floor(res * (1 + areaBonus / 100))
+  return {
+    berryCount,
+    berryEnergy: Math.floor(res * (1 + areaBonus / 100))
+  }
 }
 const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   areaBonus = areaBonus || 0
@@ -104,9 +104,10 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
   const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus)
   return {
     useFoods,
-    oneDayBerryEnergy,
+    oneDayBerryEnergy: oneDayBerryEnergy.berryEnergy,
+    oneDayBerryCount: oneDayBerryEnergy.berryCount,
     oneDayFoodEnergy,
-    oneDayEnergy: oneDayBerryEnergy + oneDayFoodEnergy.allEnergy,
+    oneDayEnergy: oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy,
     oneDayFoodEnergyAll: oneDayFoodEnergy.allEnergy || 0,
     oneDayHelpCountSkill: pokeItem.oneDayHelpCount.skill || 0
   }
