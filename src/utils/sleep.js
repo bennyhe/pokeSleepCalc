@@ -446,17 +446,22 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   getTimes = getTimes || 4000
   let orgList = []
+  const lastGetList = []
   for (let i = 0; i < getTimes; i++) {
+    const curGetRes = getRandomSleepStyle(
+      mapData,
+      curUnLockSleepType,
+      score,
+      curStageIndex,
+      extraSleepStyleOptions
+    )
     orgList = [
       ...orgList,
-      ...getRandomSleepStyle(
-        mapData,
-        curUnLockSleepType,
-        score,
-        curStageIndex,
-        extraSleepStyleOptions
-      )
+      ...curGetRes
     ]
+    if (!lastGetList.includes(curGetRes[curGetRes.length - 1].id)) {
+      lastGetList.push(curGetRes[curGetRes.length - 1].id)
+    }
   }
   const mergeRes = []
   orgList.forEach(item => {
@@ -506,7 +511,10 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
     callback(res)
   }
 
-  return res
+  return {
+    lastGetList,
+    res
+  }
   // console.log({
   //   res,
   //   orgList,

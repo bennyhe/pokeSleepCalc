@@ -65,6 +65,7 @@ const handleClickGet = type => {
   const startTime = new Date().getTime()
   const baseStarI = 0
   const targetRes = []
+  let lastGetList = []
   let splitPoint = 1000
   testData.value = []
   if (type === 'quickLevel') {
@@ -74,7 +75,9 @@ const handleClickGet = type => {
       const curAllScore = item.energy
       const allPoint = curAllScore * 100
       if (curAllScore <= +pageData.value.maxScore) {
-        const res = getRes(curAllScore, allPoint)
+        const randomRes = getRes(curAllScore, allPoint)
+        const res = randomRes.res
+        lastGetList = lastGetList.concat(randomRes.lastGetList)
         console.log(
           k,
           curAllScore,
@@ -94,7 +97,9 @@ const handleClickGet = type => {
     for (let i = baseStarI; i < baseStarI + 2000; i++) {
       const curAllScore = basePoint + splitPoint
       const allPoint = curAllScore * 100
-      const res = getRes(curAllScore, allPoint)
+      const randomRes = getRes(curAllScore, allPoint)
+      const res = randomRes.res
+      lastGetList = lastGetList.concat(randomRes.lastGetList)
       console.log(
         i,
         curAllScore,
@@ -128,7 +133,7 @@ const handleClickGet = type => {
     }
   }
   testData.value = targetRes
-  console.log(targetRes)
+  console.log(targetRes, lastGetList)
 }
 
 const handleClickChangeMap = id => {
