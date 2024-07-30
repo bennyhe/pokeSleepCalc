@@ -2,7 +2,7 @@
 import { defineProps, computed } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
-import { toHMInLang } from '../../utils/index.js'
+import { toHMInLang, get } from '../../utils/index.js'
 import { POKE_TYPES } from '../../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
@@ -24,6 +24,9 @@ const props = defineProps({
   skillPer: {
     type: [Number, String]
   },
+  useFood: {
+    type: [Array]
+  },
   showKey: {
     type: Array
   },
@@ -35,6 +38,14 @@ const props = defineProps({
     default: false
   }
 })
+const getFoodType = () => {
+  if(get('useFood', props, 1)) {
+    return props.useFood
+  }
+  if(get('food.type', pokedex[props.pokeId], 1)) {
+    return pokedex[props.pokeId].food.type
+  }
+}
 </script>
 
 
@@ -158,14 +169,13 @@ const props = defineProps({
     <div
       class="cpt-food cpt-food--s"
       v-if="
-        pokedex[pokeId].food &&
-        pokedex[pokeId].food.type &&
+        getFoodType().length > 0 &&
         props.showKey &&
         props.showKey.includes('food')
       "
     >
       <template
-        v-for="(allFoodItem, allKey) in pokedex[pokeId].food.type"
+        v-for="(allFoodItem, allKey) in getFoodType()"
         v-bind:key="allKey"
       >
         <div class="cpt-food__item">

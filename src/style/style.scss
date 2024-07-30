@@ -64,7 +64,9 @@ body {
 .mb3 {
   margin-bottom: 3px;
 }
-
+.mt3 {
+  margin-top: 3px;
+}
 .mr3 {
   margin-right: 3px;
 }
@@ -768,7 +770,7 @@ h4 {
   }
 
   &__item {
-    width: 28px;
+    width: 26px;
     text-align: center;
     font-size: 12px;
     position: relative;
@@ -776,7 +778,7 @@ h4 {
 
   img {
     width: 100%;
-    height: 28px
+    height: 26px
   }
 
   &__count {
@@ -1865,6 +1867,10 @@ h3 {
     padding: 3px;
     .cpt-pokemon {
       min-height: auto;
+
+      .cpt-food {
+        margin-right: -10px;
+      }
     }
     .cpt-pokemon__name {
       height: 14px;
@@ -1902,6 +1908,9 @@ h3 {
     .res {
       display: block;
     }
+  }
+  .typerank__foodres {
+    max-width: 57px;
   }
 
   .m-dialog {

@@ -19,7 +19,7 @@ const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
   resRankArr: [],
-  lv: 55,
+  lv: 60,
   curPageIndex: 1,
   pageSize: 102,
   areaBonus: 60
@@ -63,16 +63,24 @@ onMounted(() => {
         pokeItem.skillPer
       )
 
-      const tempFoodType = [
-        [0, 0],
-        [0, 0],
-        [0, 1],
-        [0, 1]
-      ]
-
       if (pokeItem.food) {
+        const tempFoodType = [
+          [0, 0, 0],
+          [0, 0, 1],
+          [0, 1, 0],
+          [0, 1, 1]
+        ]
+        if(pokeItem.food.type.length===3){
+          tempFoodType.push([0, 0, 2])
+          tempFoodType.push([0, 1, 2])
+        }
         tempFoodType.forEach((arrFTItem, arrFTKey) => {
           const is2n = (arrFTKey + 1) % 2 === 0
+          const useFood = [
+            pokeItem.food.type[arrFTItem[0]],
+            pokeItem.food.type[arrFTItem[1]],
+            pokeItem.food.type[arrFTItem[2]]
+          ]
           pageData.value.resRankArr.push({
             ...pokeItem,
             pokemonId: pokeItem.id,
@@ -81,10 +89,7 @@ onMounted(() => {
             ...getOneDayEnergy(
               pokeItem,
               pageData.value.lv,
-              [
-                pokeItem.food.type[arrFTItem[0]],
-                pokeItem.food.type[arrFTItem[1]]
-              ],
+              useFood,
               is2n ? true : false,
               false,
               +pageData.value.areaBonus
@@ -131,15 +136,16 @@ onMounted(() => {
         }
       }
       pageData.value.orgResRankArr
-        .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
+        // .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
         .forEach(pokeItem => {
           if (pokeItem.useFoods.includes(+foodKey)) {
-            // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.oneDayFoodEnergy.count[0])
+            console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
             tempFoodResRank[foodKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
               oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,
               useFoods: pokeItem.useFoods,
               helpSpeed: pokeItem.helpSpeed,
+              useFoodType: pokeItem.useFoods,
               FOODRANK_COUNT:
                 pokeItem.oneDayFoodEnergy.count[
                   pokeItem.oneDayFoodEnergy.useFoods.indexOf(+foodKey)
@@ -397,12 +403,6 @@ const handleClickShowRank = (type, max) => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
-    <CptDialogFilterPoke
-      :filterObj="FILTER_OBJECT"
-      :handleClickFilterPokes="handleClickFilterPokes"
-      :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill', 'resetBtn']"
-      :handleClickFilterReset="handleClickFilterReset"
-    />
     <div class="mod-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>
       <p>* {{ $t("TIPS.energy2") }}</p>
@@ -441,10 +441,11 @@ const handleClickShowRank = (type, max) => {
             }}</i>
             <CptPoke
               :pokeId="pokeItem.pokemonId"
-              :showKey="['helpSpeedHM', 'foodPer']"
+              :showKey="['helpSpeedHM', 'foodPer', 'food']"
+              :useFood="pokeItem.useFoodType"
               :helpSpeed="pokeItem.helpSpeed"
             />
-            <div class="cpt-food all-food">
+            <div class="cpt-food all-food typerank__foodres">
               <template
                 v-for="(sItemFoodId, sItemFoodKey) in pokeItem.oneDayFoodEnergy
                   .useFoods"
@@ -525,6 +526,14 @@ const handleClickShowRank = (type, max) => {
         </template>
       </ul>
     </div>
+  </div>
+  <div class="page-inner mt3">
+    <CptDialogFilterPoke
+      :filterObj="FILTER_OBJECT"
+      :handleClickFilterPokes="handleClickFilterPokes"
+      :showKey="['pokeType', 'berryType', 'foodType', 'mainSkill', 'resetBtn']"
+      :handleClickFilterReset="handleClickFilterReset"
+    />
   </div>
   <div
     class="cpt-pagination"
