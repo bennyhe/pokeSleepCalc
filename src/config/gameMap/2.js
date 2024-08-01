@@ -382,7 +382,7 @@ export default {
       'nameIndex': 8,
       'nameId': 4,
       'energy': 591424,
-      'sleepStyles': [,
+      'sleepStyles': [
         '845-id-3',
         '911-id-2',
         '914-id-2'
