@@ -3,6 +3,8 @@ const markdownText = `
 
 ## 24-08-01
 1. add 升级经验糖果计算-Lv.60
+2. update 食谱加成
+3. update 1岛睡姿
 
 ## 24-07-30
 1. add 一天树果能量排行页面-Lv.60
