@@ -35,8 +35,8 @@ const actType = {
 const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
 levelOptionsTo.push({
-  label: 55,
-  txt: 'Lv.55'
+  label: 60,
+  txt: 'Lv.60'
 })
 const getExp = (fromLevel, toLevel) => {
   const fromExp = Math.round(
@@ -57,8 +57,8 @@ const getRes = (fromLevel, toLevel, nature) => {
   toLevel = toLevel || candyCalcForm.value.toLevel
   nature = nature || candyCalcForm.value.nature
   // 最后一级处理
-  if (fromLevel === 54) {
-    toLevel = 55
+  if (fromLevel === 59) {
+    toLevel = 60
   }
   const exp = getExp(fromLevel, toLevel)
   const candys = Math.ceil(exp / getOnceCandyExp(nature))
@@ -184,12 +184,12 @@ const handleChangeActUp = () => {
     </div>
   </div>
   <el-form label-width="90px">
-    <el-form-item label="当前等级(Lv.1-54)">
+    <el-form-item label="当前等级(Lv.1-59)">
       <el-slider
         v-model="candyCalcForm.fromLevel"
         show-input
         :min="1"
-        :max="54"
+        :max="59"
       />
       <div style="width: 100%">
         <el-radio-group v-model="candyCalcForm.fromLevel" size="small">
@@ -205,19 +205,19 @@ const handleChangeActUp = () => {
     </el-form-item>
     <el-form-item
       :label="`目标等级${
-        candyCalcForm.fromLevel + 1 < 55
-          ? `(Lv.${candyCalcForm.fromLevel + 1}-55)`
+        candyCalcForm.fromLevel + 1 < 60
+          ? `(Lv.${candyCalcForm.fromLevel + 1}-60)`
           : ''
       }`"
     >
       <el-slider
-        v-if="candyCalcForm.fromLevel + 1 < 55"
+        v-if="candyCalcForm.fromLevel + 1 < 60"
         v-model="candyCalcForm.toLevel"
         show-input
         :min="candyCalcForm.fromLevel + 1"
-        :max="55"
+        :max="60"
       />
-      <template v-else>Lv.55</template>
+      <template v-else>Lv.60</template>
       <div style="width: 100%">
         <el-radio-group v-model="candyCalcForm.toLevel" size="small">
           <template v-for="cItem in levelOptionsTo" v-bind:key="cItem.label">

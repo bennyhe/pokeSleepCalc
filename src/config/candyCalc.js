@@ -53,7 +53,12 @@ export const LEVEL_EXP = [
   32917,
   34664,
   36610,
-  38805
+  38805,
+  41084,
+  43488,
+  46021,
+  48687,
+  51493
 ]
 export const SHARDS_CANDY = [
   0,
@@ -111,7 +116,13 @@ export const SHARDS_CANDY = [
   338,
   356,
   372,
-  391]
+  391,
+  437,
+  486,
+  538,
+  593,
+  651
+]
 export const NATURE_ONE_CANDY_EXP = {
   down: 21,
   normal: 25,
@@ -130,8 +141,8 @@ export const levelOptions = [{
   label: 50,
   txt: 'Lv.50'
 }, {
-  label: 54,
-  txt: 'Lv.54'
+  label: 59,
+  txt: 'Lv.59'
 }]
 export const POKEMON_TYPE = [{
   id: 'normal',
