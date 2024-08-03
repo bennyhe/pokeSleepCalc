@@ -121,7 +121,7 @@ onMounted(() => {
     pageData.value.resRankArr,
     ['oneDayEnergy']
   )
-  console.log(pageData.value.orgResRankArr)
+  // console.log(pageData.value.orgResRankArr)
   pageData.value.resRankArr = JSON.parse(
     JSON.stringify(pageData.value.orgResRankArr)
   )
@@ -139,7 +139,7 @@ onMounted(() => {
         // .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
         .forEach(pokeItem => {
           if (pokeItem.useFoods.includes(+foodKey)) {
-            console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
+            // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
             tempFoodResRank[foodKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
               oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,

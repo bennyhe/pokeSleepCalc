@@ -23,8 +23,8 @@ export const map4ScoreList = [{ catchNum: 3, startscore: 0, endscore: 2821379 },
   { catchNum: 7, startscore: 28772756, endscore: 65693394 },
   { catchNum: 8, startscore: 65693395 }]
 export const map5ScoreList = [{ catchNum: 3, startscore: 0, endscore: 3153519 },
-  { catchNum: 4, startscore: 3153520, endscore: 7730430 },
+  { catchNum: 4, startscore: 3153520, endscore: 7730433 },
   { catchNum: 5, startscore: 7730435, endscore: 16659805 },
   { catchNum: 6, startscore: 16659808, endscore: 30491709 },
-  { catchNum: 7, startscore: 30491710, endscore: 68664230 },
-  { catchNum: 8, startscore: 68664258 }]
+  { catchNum: 7, startscore: 30491710, endscore: 68664242 },
+  { catchNum: 8, startscore: 68664246 }]
