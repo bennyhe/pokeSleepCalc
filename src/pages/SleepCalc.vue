@@ -983,7 +983,7 @@ const getQuickChangeSleepPoint = () => {
                 ><CptProcss :score="100" />分，获得<span
                   class="spscore"
                   >{{ getNum(getScore(100)) }}</span
-                >+睡意之力，</span
+                >睡意之力，</span
               >掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力
             </p>
