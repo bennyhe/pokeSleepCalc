@@ -141,8 +141,8 @@ export const levelOptions = [{
   label: 50,
   txt: 'Lv.50'
 }, {
-  label: 59,
-  txt: 'Lv.59'
+  label: 55,
+  txt: 'Lv.55'
 }]
 export const POKEMON_TYPE = [{
   id: 'normal',
