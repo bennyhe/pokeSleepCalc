@@ -980,11 +980,11 @@ const getQuickChangeSleepPoint = () => {
                   >{{ getSleepCatchNum() }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss :score="100" />分，可获得至少<span
+                ><CptProcss :score="100" />分，获得<span
                   class="spscore"
                   >{{ getNum(getScore(100)) }}</span
-                >睡意之力，</span
-              >预计掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+                >+睡意之力，</span
+              >掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力
             </p>
           </el-form-item>
@@ -1022,17 +1022,17 @@ const getQuickChangeSleepPoint = () => {
                 >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
                 >，</span
               ><span class="mobile-br"
-                >约<CptProcss
+                ><CptProcss
                   :score="getFirstSleepScore()"
-                />分，可获得至少<span class="spscore"
+                />分，获得<span class="spscore"
                   >{{ getNum(getScore(getFirstSleepScore()))
                   }}<span class="spscore__extra"
                     >({{
                       getNum(getTargetStartScore(getFirstSleepScore()))
                     }})</span
                   ></span
-                >睡意之力，</span
-              >预计掉<span class="vigour">{{
+                >+睡意之力，</span
+              >掉<span class="vigour">{{
                 getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
               }}</span
               >点活力
@@ -1060,13 +1060,13 @@ const getQuickChangeSleepPoint = () => {
                   }}只</span
                 >，</span
               ><span class="mobile-br"
-                >约<CptProcss
+                ><CptProcss
                   :score="100 - getFirstSleepScore()"
-                />分，可获得至少<span class="spscore">{{
+                />分，获得<span class="spscore">{{
                   getNum(getScore(100 - getFirstSleepScore()))
                 }}</span
-                >睡意之力，</span
-              >预计掉<span class="vigour">{{
+                >+睡意之力，</span
+              >掉<span class="vigour">{{
                 getLostVigour(
                   toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
                 )

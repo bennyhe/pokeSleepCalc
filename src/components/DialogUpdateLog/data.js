@@ -1,6 +1,8 @@
 const markdownText = `
 # 更新日志
 
+## 24-08-03
+1. update 按只数拆分功能文案优化
 ## 24-08-01
 1. add 升级经验糖果计算-Lv.60
 2. update 食谱加成
