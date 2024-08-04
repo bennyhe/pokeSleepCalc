@@ -16,7 +16,8 @@ const candyCalcForm = ref({
   nature: 'normal',
   actUp: 'none',
   useShards: 1,
-  useExps: 1
+  useExps: 1,
+  levelUpExp: 0
 })
 const actType = {
   none: {
@@ -60,13 +61,23 @@ const getRes = (fromLevel, toLevel, nature) => {
   if (fromLevel === 59) {
     toLevel = 60
   }
-  const exp = getExp(fromLevel, toLevel)
+  if (!candyCalcForm.value.levelUpExp) {
+    candyCalcForm.value.levelUpExp = 0
+  }
+  const whitOutLevelUp =
+    candyCalcForm.value.levelUpExp > 0
+      ? getExp(fromLevel, fromLevel + 1) - candyCalcForm.value.levelUpExp
+      : 0
+  const exp = getExp(fromLevel, toLevel) - whitOutLevelUp
   const candys = Math.ceil(exp / getOnceCandyExp(nature))
   let shards = 0
   if (toLevel - fromLevel > 0) {
     let carryNextLevelExp = 0
     for (let i = fromLevel; i < toLevel; i++) {
-      const needExp = getExp(i, i + 1) - carryNextLevelExp
+      let needExp = getExp(i, i + 1) - carryNextLevelExp
+      if (i === fromLevel && candyCalcForm.value.levelUpExp > 0) {
+        needExp = candyCalcForm.value.levelUpExp
+      }
       const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature))
       carryNextLevelExp =
         useCandyNumCurLevel * getOnceCandyExp(nature) - needExp
@@ -184,6 +195,13 @@ const handleChangeActUp = () => {
     </div>
   </div>
   <el-form label-width="90px">
+    <el-form-item label="升级剩余EXP">
+      <el-input
+        v-model="candyCalcForm.levelUpExp"
+        style="width: 240px"
+        type="tel"
+      />
+    </el-form-item>
     <el-form-item label="当前等级(Lv.1-59)">
       <el-slider
         v-model="candyCalcForm.fromLevel"
