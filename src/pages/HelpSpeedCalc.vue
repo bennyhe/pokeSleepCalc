@@ -11,7 +11,8 @@ import {
   getNum,
   fnAccumulation,
   getStageLevelPicId,
-  containsAny
+  containsAny,
+  getDecimalNumber
 } from '../utils/index.js'
 import {
   getOneDayEnergy,
@@ -909,10 +910,9 @@ const handleClickFilterPokes = (typeKey, val) => {
   }
 }
 
-const getTeamCurEnergy = () => {
-  let energy = 0
+const getTeamAfterBonus = () => {
+  let afterBonusList = []
   if (userTeam.value.list.length > 0) {
-    const afterBonusList = []
     userTeam.value.list.forEach(pokeItem => {
       const skill = [...pokeItem.skill].filter(
         item => !(item.indexOf('hg') > -1)
@@ -922,10 +922,44 @@ const getTeamCurEnergy = () => {
         skill
       })
     })
-    const energyList = getBoxCurEnergy(afterBonusList)
+    afterBonusList = getBoxCurEnergy(afterBonusList)
+  }
+  return afterBonusList
+}
+
+const getTeamCurEnergy = () => {
+  let energy = 0
+  if (userTeam.value.list.length > 0) {
+    const energyList = getTeamAfterBonus()
     energy = fnAccumulation(energyList, 'oneDayEnergy')
   }
   return energy
+}
+
+const getTeamCurFoods = () => {
+  const foodRes = []
+  if (subskillOn.value.helpBonus.energyList.length > 0) {
+    subskillOn.value.helpBonus.energyList.forEach(pokeItem => {
+      if (get('oneDayFoodEnergy.useFoods', pokeItem, 1)) {
+        pokeItem.oneDayFoodEnergy.useFoods.forEach((foodId, foodKey) => {
+          const findFromResArr = foodRes.filter(
+            item => item.foodId === foodId
+          )
+          if (findFromResArr.length === 0) {
+            foodRes.push({
+              foodId: foodId,
+              count: pokeItem.oneDayFoodEnergy.count[foodKey]
+            })
+          } else {
+            findFromResArr[0].count += pokeItem.oneDayFoodEnergy.count[foodKey]
+          }
+        })
+      }
+      console.log(pokeItem)
+    })
+  }
+  console.log(foodRes)
+  return sortInObjectOptions(foodRes, ['count'], 'down')
 }
 
 const getTeamCurEnergyLevel = () => {
@@ -1695,6 +1729,27 @@ watch(helpSpeedCalcForm.value, val => {
           ><template v-if="subskillOn.helpBonus.count > 0"
             >(全队技能生效中)</template
           >
+        </el-col>
+      </el-row>
+      <el-row v-if="getTeamCurFoods().length > 0">
+        <el-col>
+          食材：
+          <div class="cpt-food all-food">
+            <template
+              v-for="foodItem in getTeamCurFoods()"
+              v-bind:key="`teamfood_${foodItem.foodId}`"
+            >
+              <div class="cpt-food__item cur">
+                <img
+                  v-lazy="`./img/food/${foodItem.foodId}.png`"
+                  :alt="$t(`FOOD_TYPES.${foodItem.foodId}`)"
+                />
+                <p class="cpt-food__count">
+                  {{ getDecimalNumber(foodItem.count, 1) }}
+                </p>
+              </div>
+            </template>
+          </div>
         </el-col>
       </el-row>
       <el-row v-if="subskillOn.helpBonus.count > 0">
