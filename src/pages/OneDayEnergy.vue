@@ -25,6 +25,7 @@ const pageData = ref({
   areaBonus: 60
 })
 const rankOpts = ref({
+  collapseActName: 'food',
   foodIsMore: false,
   foodMax: 1,
   berryIsMore: false,
@@ -70,7 +71,7 @@ onMounted(() => {
           [0, 1, 0],
           [0, 1, 1]
         ]
-        if(pokeItem.food.type.length===3){
+        if (pokeItem.food.type.length === 3) {
           tempFoodType.push([0, 0, 2])
           tempFoodType.push([0, 1, 2])
         }
@@ -409,123 +410,129 @@ const handleClickShowRank = (type, max) => {
     </div>
   </div>
   <div class="typerank">
-    <h3>
-      一天食材个数排行<el-button
-        size="small"
-        @click="handleClickShowRank('food')"
-        :class="{ 'btn--show': rankOpts.foodIsMore }"
-        >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
-      /></el-button>
-    </h3>
-    <div
-      class="typerank__item"
-      v-for="foodItem in foodResRank"
-      v-bind:key="`food_rank_${foodItem.foodId}`"
-    >
-      <h4>
-        <img
-          class="icon"
-          v-lazy="`./img/food/${foodItem.foodId}.png`"
-          :alt="$t(`FOOD_TYPES.${foodItem.foodId}`)"
-        />
-        {{ $t(`FOOD_TYPES.${foodItem.foodId}`) }}
-      </h4>
-      <ul>
-        <template
-          v-for="(pokeItem, pokeKey) in foodItem.rankList.slice(0, 6)"
-          v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}`"
-        >
-          <li v-if="pokeKey < rankOpts.foodMax">
-            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
-              pokeKey + 1
-            }}</i>
-            <CptPoke
-              :pokeId="pokeItem.pokemonId"
-              :showKey="['helpSpeedHM', 'foodPer', 'food']"
-              :useFood="pokeItem.useFoodType"
-              :helpSpeed="pokeItem.helpSpeed"
-            />
-            <div class="cpt-food all-food typerank__foodres">
+    <el-collapse accordion v-model="rankOpts.collapseActName">
+      <el-collapse-item name="food">
+        <template #title><h3>一天食材排行</h3> </template>
+        <el-button
+          class="typerank__morebtn"
+          size="small"
+          @click="handleClickShowRank('food')"
+          :class="{ 'btn--show': rankOpts.foodIsMore }"
+          >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
+        /></el-button>
+        <div>
+          <div
+            class="typerank__item"
+            v-for="foodItem in foodResRank"
+            v-bind:key="`food_rank_${foodItem.foodId}`"
+          >
+            <h4>
+              <img
+                class="icon"
+                v-lazy="`./img/food/${foodItem.foodId}.png`"
+                :alt="$t(`FOOD_TYPES.${foodItem.foodId}`)"
+              />
+              {{ $t(`FOOD_TYPES.${foodItem.foodId}`) }}
+            </h4>
+            <ul>
               <template
-                v-for="(sItemFoodId, sItemFoodKey) in pokeItem.oneDayFoodEnergy
-                  .useFoods"
-                v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}_sfood_${sItemFoodId}`"
+                v-for="(pokeItem, pokeKey) in foodItem.rankList.slice(0, 6)"
+                v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}`"
               >
-                <div class="cpt-food__item cur">
-                  <img
-                    v-lazy="`./img/food/${sItemFoodId}.png`"
-                    :alt="$t(`FOOD_TYPES.${sItemFoodId}`)"
+                <li v-if="pokeKey < rankOpts.foodMax">
+                  <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+                    pokeKey + 1
+                  }}</i>
+                  <CptPoke
+                    :pokeId="pokeItem.pokemonId"
+                    :showKey="['helpSpeedHM', 'foodPer', 'food']"
+                    :useFood="pokeItem.useFoodType"
+                    :helpSpeed="pokeItem.helpSpeed"
                   />
-                  <p class="cpt-food__count">
-                    {{ pokeItem.oneDayFoodEnergy.count[sItemFoodKey] }}
-                  </p>
-                </div>
+                  <div class="cpt-food all-food typerank__foodres">
+                    <template
+                      v-for="(sItemFoodId, sItemFoodKey) in pokeItem
+                        .oneDayFoodEnergy.useFoods"
+                      v-bind:key="`food_rank_item_${foodItem.foodId}_${pokeItem.pokemonId}_sfood_${sItemFoodId}`"
+                    >
+                      <div class="cpt-food__item cur">
+                        <img
+                          v-lazy="`./img/food/${sItemFoodId}.png`"
+                          :alt="$t(`FOOD_TYPES.${sItemFoodId}`)"
+                        />
+                        <p class="cpt-food__count">
+                          {{ pokeItem.oneDayFoodEnergy.count[sItemFoodKey] }}
+                        </p>
+                      </div>
+                    </template>
+                  </div>
+                </li>
               </template>
-            </div>
-          </li>
-        </template>
-      </ul>
-    </div>
-  </div>
-  <div class="typerank">
-    <h3>
-      一天树果个数排行<span class="cpt-skill cpt-skill--3">{{
-        $t("SHORT_SKILL.berrys")
-      }}</span
-      ><el-button
-        size="small"
-        @click="handleClickShowRank('berry', 3)"
-        :class="{ 'btn--show': rankOpts.berryIsMore }"
-        >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
-      /></el-button>
-    </h3>
-    <div
-      class="typerank__item"
-      v-for="berryItem in berryResRank"
-      v-bind:key="`food_rank_${berryItem.berryId}`"
-    >
-      <h4>
-        <img
-          class="icon"
-          v-lazy="`./img/berry/${berryItem.berryId}.png`"
-          :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
-        />
-        {{ $t(`BERRY_TYPES.${berryItem.berryId}`) }}
-      </h4>
-      <ul>
-        <template
-          v-for="(pokeItem, pokeKey) in berryItem.rankList.slice(0, 3)"
-          v-bind:key="`food_rank_item_${berryItem.berryId}_${pokeItem.pokemonId}`"
-        >
-          <li v-if="pokeKey < rankOpts.berryMax">
-            <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
-              pokeKey + 1
-            }}</i>
-            <CptPoke
-              :pokeId="pokeItem.pokemonId"
-              :showKey="['helpSpeedHM', 'foodPer', 'pokeType']"
-              :helpSpeed="pokeItem.helpSpeed"
-            />
-            <div class="cpt-food all-food">
-              <div class="cpt-food__item cur">
-                <img
-                  v-lazy="`./img/berry/${berryItem.berryId}.png`"
-                  :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
-                />
-                <p class="cpt-food__count">
-                  {{ pokeItem.BERRYRANK_COUNT }}
-                </p>
-              </div>
-            </div>
-            <span class="res">
-              <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-                getNum(pokeItem.oneDayBerryEnergy)
-              }}
-            </span>
-          </li>
-        </template>
-      </ul>
-    </div>
+            </ul>
+          </div>
+        </div>
+      </el-collapse-item>
+      <el-collapse-item name="berry">
+        <template #title>
+          <h3>一天树果排行</h3> </template
+        ><el-button
+          class="typerank__morebtn"
+          size="small"
+          @click="handleClickShowRank('berry', 3)"
+          :class="{ 'btn--show': rankOpts.berryIsMore }"
+          >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
+        /></el-button>
+        <div>
+          <div
+            class="typerank__item"
+            v-for="berryItem in berryResRank"
+            v-bind:key="`food_rank_${berryItem.berryId}`"
+          >
+            <h4>
+              <img
+                class="icon"
+                v-lazy="`./img/berry/${berryItem.berryId}.png`"
+                :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
+              />
+              {{ $t(`BERRY_TYPES.${berryItem.berryId}`) }}
+            </h4>
+            <ul>
+              <template
+                v-for="(pokeItem, pokeKey) in berryItem.rankList.slice(0, 3)"
+                v-bind:key="`food_rank_item_${berryItem.berryId}_${pokeItem.pokemonId}`"
+              >
+                <li v-if="pokeKey < rankOpts.berryMax">
+                  <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+                    pokeKey + 1
+                  }}</i>
+                  <CptPoke
+                    :pokeId="pokeItem.pokemonId"
+                    :showKey="['helpSpeedHM', 'foodPer', 'pokeType']"
+                    :helpSpeed="pokeItem.helpSpeed"
+                  />
+                  <div class="cpt-food all-food">
+                    <div class="cpt-food__item cur">
+                      <img
+                        v-lazy="`./img/berry/${berryItem.berryId}.png`"
+                        :alt="$t(`BERRY_TYPES.${berryItem.berryId}`)"
+                      />
+                      <p class="cpt-food__count">
+                        {{ pokeItem.BERRYRANK_COUNT }}
+                      </p>
+                    </div>
+                  </div>
+                  <span class="res">
+                    <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                      getNum(pokeItem.oneDayBerryEnergy)
+                    }}
+                  </span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </el-collapse-item>
+    </el-collapse>
   </div>
   <div class="page-inner mt3">
     <CptDialogFilterPoke

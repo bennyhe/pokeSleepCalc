@@ -59,6 +59,20 @@ body {
     padding: 3px;
     border-radius: 6px;
   }
+
+  .el-collapse {
+    --el-collapse-header-height: 34px;
+    &-item__header {
+      background-color: rgba($color: var(--el-collapse-header-bg-color), $alpha: .2);
+    }
+    &-item__wrap {
+      background: none;
+    }
+    &-item__content {
+      line-height: 1.5;
+      padding-bottom: 0;
+    }
+  }
 }
 
 .mb3 {
@@ -1848,15 +1862,11 @@ h3 {
 .typerank {
   h3 {
     padding: 3px 6px;
-
-    .cpt-skill {
-      margin: 0 2px;
-    }
-    .el-button {
-      padding: 8px;
-      padding-right: 8px;
-      margin-left: 6px;
-    }
+  }
+  &__morebtn {
+    padding: 8px;
+    padding-right: 8px;
+    margin-left: 6px;
   }
   &__item {
     display: inline-block;
