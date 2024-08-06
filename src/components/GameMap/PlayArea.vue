@@ -38,6 +38,10 @@ const pokeBall = [
     id: 2
   },
   {
+    // name: '高级沙布雷',
+    id: 5
+  },
+  {
     // name: '奖励沙布雷',
     id: 3
   },
@@ -219,7 +223,7 @@ const pokeBall = [
             :src="`./img/ui/sandslash${ballItem.id}.png`"
             :alt="ballItem.name"
           />
-          <p>{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>
+          <p class="lottery-map__pokeball-name">{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>
           <p>
             x <span class="sptime">{{ hasBall[ballItem.id] }}</span
             >

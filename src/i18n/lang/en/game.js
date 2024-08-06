@@ -24,7 +24,8 @@ export default {
     1: 'Poké Biscuit',
     2: 'Great Biscuit',
     3: 'Bonus Biscuit+',
-    4: 'Master Biscuit'
+    4: 'Master Biscuit',
+    5: 'Ultra Biscuit'
   },
   'ILAND': {
     'green': 'Greengrass Isle',
