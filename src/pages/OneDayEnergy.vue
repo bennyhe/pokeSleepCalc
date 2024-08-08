@@ -11,7 +11,7 @@ import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
-import { BERRY_TYPES, FOOD_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES, FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -24,17 +24,12 @@ const pageData = ref({
   lv: 60,
   curPageIndex: 1,
   pageSize: 102,
-  areaBonus: 60
-})
-const rankOpts = ref({
-  collapseActName: 'food',
-  foodIsMore: false,
-  foodMax: 1,
-  berryIsMore: false,
-  berryMax: 1
+  areaBonus: 60,
+  collapseActName: 'food'
 })
 const foodResRank = ref({})
 const berryResRank = ref({})
+const skillResRank = ref({})
 newGameMap.push({
   id: 'none',
   berry: [8, 9, 2, 13, 3, 5]
@@ -198,9 +193,42 @@ onMounted(() => {
       )
     }
   }
+  const tempSkillResRank = {}
+  for (const skillKey in SKILL_TYPES) {
+    if (Object.hasOwnProperty.call(SKILL_TYPES, skillKey)) {
+      if (!tempSkillResRank[skillKey]) {
+        tempSkillResRank[skillKey] = {
+          skillId: +skillKey,
+          rankList: []
+        }
+      }
+      pageData.value.orgResRankArr
+        .filter(pItem => pItem.isFirstPoke)
+        .forEach(pokeItem => {
+          console.log(skillKey, SKILL_TYPES[skillKey], pokeItem)
+          if (+pokeItem.skillType === +skillKey) {
+            tempSkillResRank[skillKey].rankList.push({
+              pokemonId: pokeItem.pokemonId,
+              helpSpeed: pokeItem.helpSpeed,
+              SKILLRANK_COUNT: pokeItem.oneDayHelpCountSkill
+            })
+          }
+        })
+    }
+  }
+  for (const rankKey in tempSkillResRank) {
+    if (Object.hasOwnProperty.call(tempSkillResRank, rankKey)) {
+      tempSkillResRank[rankKey].rankList = sortInObjectOptions(
+        tempSkillResRank[rankKey].rankList,
+        ['SKILLRANK_COUNT']
+      )
+    }
+  }
+
   foodResRank.value = tempFoodResRank
   berryResRank.value = tempBerryResRank
-  console.log(foodResRank.value, berryResRank.value)
+  skillResRank.value = tempSkillResRank
+  console.log(foodResRank.value, berryResRank.value, skillResRank.value)
 })
 
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
@@ -412,7 +440,7 @@ const handleClickShowRank = (type, max) => {
     </div>
   </div>
   <div class="typerank">
-    <el-collapse accordion v-model="rankOpts.collapseActName">
+    <el-collapse accordion v-model="pageData.collapseActName">
       <el-collapse-item name="food">
         <template #title><h3>一天食材排行</h3> </template>
         <CptTypeRank :dataList="foodResRank" showType="food" :showMax="6" />
@@ -420,6 +448,10 @@ const handleClickShowRank = (type, max) => {
       <el-collapse-item name="berry">
         <template #title> <h3>一天树果排行</h3> </template>
         <CptTypeRank :dataList="berryResRank" showType="berry" :showMax="3" />
+      </el-collapse-item>
+      <el-collapse-item name="skill">
+        <template #title> <h3>一天技能排行</h3> </template>
+        <CptTypeRank :dataList="skillResRank" showType="skill" :showMax="3" />
       </el-collapse-item>
     </el-collapse>
   </div>
