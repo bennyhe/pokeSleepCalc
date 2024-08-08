@@ -205,7 +205,7 @@ onMounted(() => {
       pageData.value.orgResRankArr
         .filter(pItem => pItem.isFirstPoke)
         .forEach(pokeItem => {
-          console.log(skillKey, SKILL_TYPES[skillKey], pokeItem)
+          // console.log(skillKey, SKILL_TYPES[skillKey], pokeItem)
           if (+pokeItem.skillType === +skillKey) {
             tempSkillResRank[skillKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
@@ -228,7 +228,7 @@ onMounted(() => {
   foodResRank.value = tempFoodResRank
   berryResRank.value = tempBerryResRank
   skillResRank.value = tempSkillResRank
-  console.log(foodResRank.value, berryResRank.value, skillResRank.value)
+  // console.log(foodResRank.value, berryResRank.value, skillResRank.value)
 })
 
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))

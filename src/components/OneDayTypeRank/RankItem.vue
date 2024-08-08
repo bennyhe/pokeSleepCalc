@@ -58,7 +58,7 @@ const getCptPokeShowKey = () => {
   } else if (props.showType === 'food') {
     arr.push('foodPer', 'food')
   } else {
-    arr.push('skillPer')
+    arr.push('skillPer', 'pokeType')
   }
   return arr
 }
@@ -69,7 +69,7 @@ const getCptPokeShowKey = () => {
     class="typerank__morebtn"
     size="small"
     @click="handleClickShowRank(showType)"
-    :class="{ 'btn--show': rankOpts.foodIsMore }"
+    :class="{ 'btn--show': rankOpts[`${type}IsMore`] }"
     >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
   /></el-button>
   <div>
