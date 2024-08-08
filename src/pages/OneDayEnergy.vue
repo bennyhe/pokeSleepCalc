@@ -315,16 +315,6 @@ const handleClickFilterPokes = (typeKey, val) => {
   getChangeOptionsAfterData()
 }
 
-const handleClickShowRank = (type, max) => {
-  max = max || 6
-  rankOpts.value[`${type}IsMore`] = !rankOpts.value[`${type}IsMore`]
-  if (rankOpts.value[`${type}IsMore`]) {
-    rankOpts.value[`${type}Max`] = max
-  } else {
-    rankOpts.value[`${type}Max`] = 1
-  }
-}
-
 // const handleClickSlider = () => {
 //   getChangeOptionsAfterData()
 // }
@@ -451,7 +441,7 @@ const handleClickShowRank = (type, max) => {
       </el-collapse-item>
       <el-collapse-item name="skill">
         <template #title> <h3>一天技能排行</h3> </template>
-        <CptTypeRank :dataList="skillResRank" showType="skill" :showMax="3" />
+        <CptTypeRank :dataList="skillResRank" showType="skill" :showMax="5" />
       </el-collapse-item>
     </el-collapse>
   </div>
