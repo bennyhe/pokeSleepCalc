@@ -83,7 +83,7 @@ const getShinyPoke = isShinyUp => {
 const spacialPokemons = {
   list: [243, 244], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 35, 36, 173, 906, 907, 908, 909, 910, 911, 912, 913, 914], // 不进保底
-  probabilityLastList: [845], //概率进保底
+  probabilityLastList: [], //概率进保底
   isGet: { // 露营券判断是否重复使用
     243: false,
     244: false
