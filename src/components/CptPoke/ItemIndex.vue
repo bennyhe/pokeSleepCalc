@@ -45,6 +45,7 @@ const getFoodType = () => {
   if(get('food.type', pokedex[props.pokeId], 1)) {
     return pokedex[props.pokeId].food.type
   }
+  return []
 }
 </script>
 
