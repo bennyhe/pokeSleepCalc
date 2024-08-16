@@ -20,6 +20,7 @@ const evoLine = [
   [84, 85],
   [92, 93, 94],
   [95, 208],
+  [194, 195],
   [104, 105],
   [439, 122],
   [133, 134, 135, 136, 196, 197, 470, 471, 700],
@@ -1468,6 +1469,30 @@ const pokedex = {
     foodPer: 21.77,
     skillPer: 7.19
   },
+  194: {
+    id: 194,
+    // name: '烏波',
+    friendship: 5,
+    sleepType: 3,
+    skillType: 7,
+    pokeType: 2,
+    berryType: 1,
+    helpSpeed: 5900
+    // foodPer: 21.77,
+    // skillPer: 7.19
+  },
+  195: {
+    id: 195,
+    // name: '沼王',
+    friendship: 12,
+    sleepType: 3,
+    skillType: 7,
+    pokeType: 2,
+    berryType: 1,
+    helpSpeed: 3400
+    // foodPer: 21.77,
+    // skillPer: 7.19
+  },
   196: {
     id: 196,
     // name: '太陽伊布',
@@ -2631,6 +2656,9 @@ const updatePoke = [{
 }, {
   time: '2024/07/1',
   pokemons: [906, 907, 908, 909, 910, 911, 912, 913, 914]
+}, {
+  time: '2024/08/1',
+  pokemons: [194, 195]
 }]
 // console.log(pokedex)
 export {

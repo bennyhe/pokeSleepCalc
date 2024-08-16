@@ -310,6 +310,8 @@ export default {
     180: 'Flaaffy',
     181: 'Ampharos',
     185: 'Sudowoodo',
+    194: 'Wooper',
+    195: 'Quagsire',
     196: 'Espeon',
     197: 'Umbreon',
     199: 'Slowking',
@@ -628,6 +630,7 @@ export default {
     262: '撥髮睡',
     263: '亂蓬蓬睡',
     264: '髮亂亂睡',
-    265: '夢中起舞睡'
+    265: '夢中起舞睡',
+    266: '浮在泥上睡'
   }
 }
