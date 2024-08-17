@@ -873,9 +873,8 @@ const getQuickChangeSleepPoint = () => {
             <p>
               一回フル睡眠（<span class="sptime">8時間30分</span>）で、<span
                 class="mobile-br"
-                ><CptProcss :score="100" />睡眠スコアGet!、</span
-              ><span class="mobile-br"
-                ><span class="sptime">{{ getSleepCatchNum() }}匹</span
+                ><CptProcss :score="100" />Get!、<span class="sptime"
+                  >{{ getSleepCatchNum() }}匹</span
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
                 ><span class="spscore">{{ getNum(getScore(100)) }}</span
@@ -915,11 +914,9 @@ const getQuickChangeSleepPoint = () => {
                 toHMInLang(firstSleepTime(), "", localeLangId)
               }}</span
               >）で、<span class="mobile-br"
-                ><CptProcss
-                  :score="getFirstSleepScore()"
-                />睡眠スコアGet!、</span
-              ><span class="mobile-br"
-                ><span class="sptime">{{ userData.cutNum }}匹</span
+                ><CptProcss :score="getFirstSleepScore()" />Get!、<span
+                  class="sptime"
+                  >{{ userData.cutNum }}匹</span
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
                 ><span class="spscore"
@@ -950,11 +947,8 @@ const getQuickChangeSleepPoint = () => {
                 toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
               }}</span
               >）で、<span class="mobile-br"
-                ><CptProcss
-                  :score="100 - getFirstSleepScore()"
-                />睡眠スコアGet!、</span
-              ><span class="mobile-br"
-                ><span class="sptime"
+                ><CptProcss :score="100 - getFirstSleepScore()" />Get!、<span
+                  class="sptime"
                   >{{
                     getNumberInMap(
                       getScore(100 - getFirstSleepScore()),
@@ -983,9 +977,9 @@ const getQuickChangeSleepPoint = () => {
                   >{{ getSleepCatchNum() }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss :score="100" />分，获得<span
-                  class="spscore"
-                  >{{ getNum(getScore(100)) }}</span
+                ><CptProcss :score="100" />分，获得<span class="spscore">{{
+                  getNum(getScore(100))
+                }}</span
                 >睡意之力，</span
               >掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力
@@ -1025,9 +1019,8 @@ const getQuickChangeSleepPoint = () => {
                 >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss
-                  :score="getFirstSleepScore()"
-                />分，获得<span class="spscore"
+                ><CptProcss :score="getFirstSleepScore()" />分，获得<span
+                  class="spscore"
                   >{{ getNum(getScore(getFirstSleepScore()))
                   }}<span class="spscore__extra"
                     >({{
@@ -1063,11 +1056,9 @@ const getQuickChangeSleepPoint = () => {
                   }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss
-                  :score="100 - getFirstSleepScore()"
-                />分，获得<span class="spscore">{{
-                  getNum(getScore(100 - getFirstSleepScore()))
-                }}</span
+                ><CptProcss :score="100 - getFirstSleepScore()" />分，获得<span
+                  class="spscore"
+                  >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
                 >+睡意之力，</span
               >掉<span class="vigour">{{
                 getLostVigour(
