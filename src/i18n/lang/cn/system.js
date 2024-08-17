@@ -92,7 +92,7 @@ export default {
     'formLabelPercent': '有效分数'
   },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': '所有帮速的技能&性格加成累积不能超过35%。'
+    'tipsHS': '所有帮速的技能加成累积不能超过35%。'
   },
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',
