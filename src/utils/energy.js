@@ -75,19 +75,17 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
     berry: 0, // 其中食材的帮忙次数
     skill: 0 // 其中技能的帮忙次数
   }
-  let skillCount = getDecimalNumber(
-    oneDayHelpCount.sum * (skillPer / 100)
-    , 1)
+  let skillCount = getDecimalNumber(oneDayHelpCount.sum * (skillPer / 100), 1)
   oneDayHelpCount.skill = skillCount
   if (skillPer > 0 && skillCount < 1) {
     skillCount = 1
   }
-  let foodCount = oneDayHelpCount.sum * (foodPer / 100)
+  let foodCount = getDecimalNumber(oneDayHelpCount.sum * (foodPer / 100), 2)
   if (foodPer > 0 && foodCount < 1) {
     foodCount = 1
   }
   oneDayHelpCount.food = foodCount
-  oneDayHelpCount.berry = oneDayHelpCount.sum - skillCount - oneDayHelpCount.food
+  oneDayHelpCount.berry = getDecimalNumber(oneDayHelpCount.sum - skillCount - oneDayHelpCount.food, 2)
   return oneDayHelpCount
 }
 export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus) => {
