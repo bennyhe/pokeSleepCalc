@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 24-08-18
+1. update 帮速计算-能量-优化算法
+
 ## 24-08-17
 1. update 移动端视觉样式
 

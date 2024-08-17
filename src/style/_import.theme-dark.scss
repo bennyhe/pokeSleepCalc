@@ -1,0 +1,7 @@
+//暗夜模式下的css样式
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:url(./img/ui_dark/bg.png);
+    color: #f1f1f1;
+  }
+}
