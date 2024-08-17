@@ -61,9 +61,8 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
       helpFoodEnergy.allEnergy += item * (1 + areaBonus / 100)
       return item * (1 + areaBonus / 100)
     })
-    helpFoodEnergy.allEnergy = Math.floor(helpFoodEnergy.allEnergy)
   }
-  // console.log(helpFoodEnergy)
+  helpFoodEnergy.allEnergy = Math.floor(helpFoodEnergy.allEnergy)
   return helpFoodEnergy
 }
 export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
