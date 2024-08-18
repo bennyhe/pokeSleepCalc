@@ -1072,7 +1072,7 @@ const getQuickChangeSleepPoint = () => {
       </template>
     </el-form>
     <div class="page-inner" v-if="+navData.navIndex === 0">
-      <div class="mod-tips">
+      <div class="cpt-tips">
         <p>* {{ $t("PAGE_SLEEPCALC.tipsUseTickets1") }}</p>
         <p>* {{ $t("PAGE_SLEEPCALC.tipsUseTickets2") }}</p>
       </div>
@@ -1291,7 +1291,7 @@ const getQuickChangeSleepPoint = () => {
               type="warning"
               show-icon
             >
-              <div class="mod-tips">
+              <div class="cpt-tips">
                 <p>
                   *
                   {{ $t("PAGE_SLEEPCALC.tipsNoSupportBefore")
@@ -1414,7 +1414,7 @@ const getQuickChangeSleepPoint = () => {
             >
           </h3>
           <div
-            class="mod-tips"
+            class="cpt-tips"
             v-if="localeLangId === 'jp' && userSleep.count > 0"
           >
             <span class="sptime">{{ userSleep.count }}</span
@@ -1440,7 +1440,7 @@ const getQuickChangeSleepPoint = () => {
               >{{ $t("OPTIONS.restart") }}</el-button
             >
           </div>
-          <div class="mod-tips" v-else-if="userSleep.count > 0">
+          <div class="cpt-tips" v-else-if="userSleep.count > 0">
             你睡了<span class="sptime">{{ userSleep.count }}</span
             >次，遇到<span class="sptime">{{ userSleep.pokeSum }}</span
             >{{ $t(`OPTIONS.one`) }}宝可梦，其中遇到<span class="sptime">{{
@@ -1489,7 +1489,7 @@ const getQuickChangeSleepPoint = () => {
             </div>
           </div>
           <div
-            class="mod-tips"
+            class="cpt-tips"
             v-if="localeLangId === 'jp' && userData.mapModel"
           >
             ポケモンを<span class="sptime">{{
@@ -1509,7 +1509,7 @@ const getQuickChangeSleepPoint = () => {
               >BOX<svgIcon size="small" type="arrowDown"
             /></el-button>
           </div>
-          <div class="mod-tips" v-else-if="userData.mapModel">
+          <div class="cpt-tips" v-else-if="userData.mapModel">
             获得<span class="sptime">{{ catchPokeState.list.length }}</span
             >{{ $t(`OPTIONS.one`) }}宝可梦，其中<span class="sptime">{{
               catchPokeState.list.filter((cListItem) => cListItem.isShiny)
@@ -2004,7 +2004,7 @@ const getQuickChangeSleepPoint = () => {
     <h2>
       {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{
         $t(`PAGE_SLEEPCALC.titleCutNum`)
-      }}<span class="mod-tips extra">(v{{ mapSplitVer }})</span>
+      }}<span class="cpt-tips extra">(v{{ mapSplitVer }})</span>
     </h2>
     <ul class="cpt-list">
       <li

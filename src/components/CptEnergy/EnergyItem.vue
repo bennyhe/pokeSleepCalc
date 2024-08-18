@@ -431,7 +431,7 @@ const handleBlurLevel = () => {
               >
             </el-checkbox-group>
           </div>
-          <div class="mod-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
+          <div class="cpt-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
         </div>
         <h4>{{ $t("PROP.nature") }}</h4>
         <div>

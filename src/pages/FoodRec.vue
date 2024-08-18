@@ -166,7 +166,7 @@ for (const cookTypeKey in COOK_TYPES) {
     </div>
   </div>
   <h2>食材宝可梦推荐</h2>
-  <div class="page-inner mod-tips">
+  <div class="page-inner cpt-tips">
     <p>创建时间：{{ formatTime(nFoodRecommend.creatTime) }}</p>
     <p>最后更新：{{ formatTime(nFoodRecommend.updateTime) }}</p>
     <p>本文基于app v{{ nFoodRecommend.appVer }}</p>
@@ -177,7 +177,7 @@ for (const cookTypeKey in COOK_TYPES) {
   </div>
   <ul class="cpt-list food-list">
     <li v-for="(pokeItem, pokeKey) in nFoodRecommend.list" v-bind:key="pokeKey">
-      <p class="mod-tips">
+      <p class="cpt-tips">
         {{ $t(`POKE_TYPES.${pokedex[pokeItem.evoLine[0]].pokeType}`) }}
       </p>
       <CptPoke

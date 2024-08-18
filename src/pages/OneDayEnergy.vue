@@ -427,7 +427,7 @@ const handleClickFilterPokes = (typeKey, val) => {
     </el-form-item>
   </el-form>
   <div class="page-inner">
-    <div class="mod-tips">
+    <div class="cpt-tips">
       <p>* {{ $t("TIPS.energy1") }}</p>
       <p>* {{ $t("TIPS.energy2") }}</p>
     </div>

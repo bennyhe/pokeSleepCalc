@@ -411,7 +411,7 @@ onMounted(() => {
                 </span>
               </h4>
               <div
-                class="mod-tips"
+                class="cpt-tips"
                 v-if="resItem[`level${levelKey}List`].subList.length === 0"
               >
                 无

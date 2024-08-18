@@ -1,6 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+
+import { useDark, useToggle } from '@vueuse/core'
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+
 import { getUrlQuery } from './utils/index.js'
 import PageFooter from './components/PageFooter/PFooter.vue'
 import SvgIcon from './components/SvgIcon/IconItem.vue'
@@ -33,6 +38,8 @@ const handleClickChangeLang = () => {
   location.reload()
 }
 
+const isDarkSwitch = ref(isDark.value)
+
 onMounted(() => {
   // console.log('组件已经挂载')
   if (getUrlQuery('p') !== undefined) {
@@ -42,18 +49,29 @@ onMounted(() => {
 </script>
 <template>
   <div class="main" :class="`lang-${sellang}`">
-    <span class="select select-lang">
-      Language: {{ $t("lang") }}
-      <select v-model="sellang" @change="handleClickChangeLang()">
-        <option
-          :value="item.id"
-          v-for="(item, index) in NAV_LANG"
-          v-bind:key="index"
-        >
-          {{ item.name }}
-        </option>
-      </select>
-    </span>
+    <div class="select-lang">
+      <el-switch
+        v-model="isDarkSwitch"
+        @change="toggleDark()"
+        inline-prompt
+        active-text="D"
+        inactive-text="L"
+        style="margin-right: 2px"
+      >
+      </el-switch>
+      <span class="select">
+        Lang: {{ $t("lang") }}
+        <select v-model="sellang" @change="handleClickChangeLang()">
+          <option
+            :value="item.id"
+            v-for="(item, index) in NAV_LANG"
+            v-bind:key="index"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </span>
+    </div>
     <div class="page-item" :class="{ cur: +navData.navIndex === 0 }">
       <PageSleepCalc />
     </div>

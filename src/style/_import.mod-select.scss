@@ -52,14 +52,15 @@
   .select{
     background: #303134;
     color: #aaadb2;
+    border-color: #5a5a5a;
   }
-  .search{
-    &-select{
-      background: none;
-      color: #ff92b1;
-    }
-    &-result{
-      background: rgba(#f4f4f4, .9)
-    }
-  }
+  // .search{
+  //   &-select{
+  //     background: none;
+  //     color: #ff92b1;
+  //   }
+  //   &-result{
+  //     background: rgba(#f4f4f4, .9)
+  //   }
+  // }
 }

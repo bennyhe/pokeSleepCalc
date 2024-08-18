@@ -8,11 +8,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="mod-process">
+  <div class="cpt-process">
     <div
-      class="mod-process__val"
+      class="cpt-process__val"
       :style="`transform:translateY(${100 - props.score}%)`"
     ></div>
-    <div class="mod-process__info">{{ props.score }}</div>
+    <div class="cpt-process__info">{{ props.score }}</div>
   </div>
 </template>

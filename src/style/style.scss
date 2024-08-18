@@ -3,16 +3,25 @@
 @import "./_import.mod-nav.scss";
 @import "./_import.mod-btn.scss";
 @import "./_import.mod-select.scss";
+@import "./_import.theme-dark.scss";
 
 body {
   color: #333;
   background: #f1f1f1 url(../img/ui/bg.png);
+}
+html.dark {
+  body {
+    background-image: url(../img/ui_dark/bg.png);
+    background-color: #111;
+    color: #f1f1f1;
+  }
 }
 
 .select-lang {
   position: absolute;
   right: 3px;
   top: 2px;
+  z-index: 10
 }
 
 .page-inner {
@@ -185,7 +194,7 @@ h4 {
   }
 }
 
-.mod-tips {
+.cpt-tips {
   font-size: 12px;
   color: #9d9d9d;
   margin-top: 3px;
@@ -724,10 +733,10 @@ h4 {
   }
 }
 
-.mod-process {
+.cpt-process {
   display: inline-block;
   vertical-align: middle;
-  border: 4px solid #d1d1d1;
+  border: 3px solid #d1d1d1;
   width: 28px;
   height: 28px;
   border-radius: 100%;
@@ -2074,4 +2083,3 @@ h3 {
     }
   }
 }
-// @import "_import.theme-dark.scss";

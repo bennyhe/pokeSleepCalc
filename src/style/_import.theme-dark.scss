@@ -1,7 +1,74 @@
 //暗夜模式下的css样式
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image:url(./img/ui_dark/bg.png);
-    color: #f1f1f1;
+html.dark {
+  h2 {
+    color: lighten(#6d8aa0, 10%)
+  }
+
+  .page-sleepcalc .act-random {
+    color: #4caf50;
+  }
+
+  .poke-tb__item {
+    border-color: #323232;
+    background-color: rgba($color: #1f1f1f, $alpha: .7);
+    box-shadow: 1px 1px 1px #585757;
+  }
+
+  .nav li.cur {
+    color: #f7f3ce;
+    background-color: #2c4973;
+  }
+
+  .cpt-pokemon {
+    color: lighten(#5f5f5f, 30%)
+  }
+
+  .cpt-pokemon__name,
+  .sleeplist .extra-desc .cpt-pokemon__name {
+    color: #f1f1f1
+  }
+
+  .cpt-pokemon .berry--hl {
+    color: #ffc794;
+  }
+
+  .cpt-food {
+    border-color: #222;
+  }
+
+  .cpt-food__count {
+    background-color: rgba(#000, 0.8);
+    border-color: rgba($color: #ccc, $alpha: 30%);
+  }
+
+  .cpt-process {
+    background-color: rgb(108 108 108 / 80%);
+  }
+  .cpt-process__val {
+    background-color: rgba($color: darken(#9df8ff, 50%), $alpha: .9);
+  }
+
+  .i-sleeptype {
+    &--1 {
+
+      background-color: lighten(darken(#ffec6f, 10%), 12%);
+    }
+
+    &--2 {
+      background-color: lighten(darken(#85fbff, 10%), 12%);
+    }
+
+    &--3 {
+      background-color: lighten(darken(#4488fb, 10%), 12%);
+    }
+  }
+  
+  .poke-tb .extra-desc {
+    border-top-color: #a7a7a7
+  }
+
+  .cpt-foodmenu__bs,
+  .page-footer {
+    color: #a7a7a7
   }
 }

@@ -1204,7 +1204,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
         </el-checkbox-group>
       </div>
-      <div class="mod-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
+      <div class="cpt-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
     </el-form-item>
     <el-form-item :label="$t('PROP.nature')">
       <el-select filterable v-model="helpSpeedCalcForm.character">
@@ -1823,7 +1823,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div class="cpt-empty" v-else>暂无宝可梦</div>
     </div>
   </div>
-  <div class="page-inner mod-tips">
+  <div class="page-inner cpt-tips">
     <p>* {{ $t("TIPS.energy1") }}</p>
     <p>* {{ $t("TIPS.energy2") }}</p>
     <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
