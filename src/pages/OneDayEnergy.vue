@@ -73,25 +73,28 @@ onMounted(() => {
           tempFoodType.push([0, 1, 2])
         }
         tempFoodType.forEach((arrFTItem, arrFTKey) => {
-          const is2n = (arrFTKey + 1) % 2 === 0
           const useFood = [
             pokeItem.food.type[arrFTItem[0]],
             pokeItem.food.type[arrFTItem[1]],
             pokeItem.food.type[arrFTItem[2]]
-          ]
-          pageData.value.resRankArr.push({
-            ...pokeItem,
-            pokemonId: pokeItem.id,
-            isFirstPoke: arrFTKey === 0,
-            nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
-            ...getOneDayEnergy(
-              pokeItem,
-              pageData.value.lv,
-              useFood,
-              is2n ? true : false,
-              false,
-              +pageData.value.areaBonus
-            )
+          ];
+          [0, 1].forEach((oddItem, oddKey) => {
+            const is2n = (oddKey + 1) % 2 === 0
+            pageData.value.resRankArr.push({
+              ...pokeItem,
+              pokemonId: pokeItem.id,
+              isFirstPokeFood: oddKey === 0,
+              isFirstPoke: oddKey === 0 && arrFTKey === 0,
+              nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
+              ...getOneDayEnergy(
+                pokeItem,
+                pageData.value.lv,
+                useFood,
+                is2n ? true : false,
+                false,
+                +pageData.value.areaBonus
+              )
+            })
           })
         })
       } else {
@@ -134,7 +137,7 @@ onMounted(() => {
         }
       }
       pageData.value.orgResRankArr
-        // .filter(pItem => pItem.nameExtra !== t('SHORT_SKILL.berrys'))
+        .filter(pItem => pItem.isFirstPokeFood)
         .forEach(pokeItem => {
           if (pokeItem.useFoods.includes(+foodKey)) {
             // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
