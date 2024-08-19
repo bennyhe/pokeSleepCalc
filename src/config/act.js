@@ -1,8 +1,8 @@
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [194, 195],
-  showBanArea: [0, 1, 2]
+  onOffBan: false,
+  showBan: false,
+  banPokes: [],
+  showBanArea: []
 }
 export const ACT_LIST = [{
   name: '夏日嘉年華',

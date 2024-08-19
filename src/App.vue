@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { Sunny, Moon } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 
 import { useDark, useToggle } from '@vueuse/core'
@@ -49,14 +50,18 @@ onMounted(() => {
 </script>
 <template>
   <div class="main" :class="`lang-${sellang}`">
-    <div class="select-lang">
+    <div class="select-lang" v-if="navData.navIndex !== '0383a0134484d5bd'">
       <el-switch
         v-model="isDarkSwitch"
         @change="toggleDark()"
         inline-prompt
-        active-text="D"
-        inactive-text="L"
-        style="margin-right: 2px"
+        :active-action-icon="Moon"
+        :inactive-action-icon="Sunny"
+        style="
+          --el-switch-on-color: #303134;
+          --el-switch-off-color: #4b4b4b;
+          margin-right: 2px;
+        "
       >
       </el-switch>
       <span class="select">
