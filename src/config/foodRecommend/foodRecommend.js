@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1721531458892,
-  appVer: '1.9',
+  updateTime: 1724067572635,
+  appVer: '1.10.1',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -122,6 +122,11 @@ export const foodRecommend = {
       evoLine: [912, 913, 914],
       needFood: [[15], [15, 1], [15, 1]],
       desc: '抓aaa，abb，高食材率的产葱怪（60见真章），豆子跟隆隆石基本持平，目前豆子料理没啥用。'
+    },
+    {
+      evoLine: [194, 195],
+      needFood: [[2], [2], [2]],
+      desc: '伟大无需解释，蘑菇真神。'
     }
   ]
 }

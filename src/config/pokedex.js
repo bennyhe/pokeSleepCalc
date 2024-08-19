@@ -1477,9 +1477,23 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 1,
-    helpSpeed: 5900
-    // foodPer: 21.77,
-    // skillPer: 7.19
+    helpSpeed: 5900,
+    foodPer: 20.1,
+    skillPer: 3.8,
+    food: {
+      type: [2, 4, 7],
+      count: {
+        2: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 6, 10]
+        },
+        7: {
+          num: [0, 0, 12]
+        }
+      }
+    }
   },
   195: {
     id: 195,
@@ -1489,9 +1503,9 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 1,
-    helpSpeed: 3400
-    // foodPer: 21.77,
-    // skillPer: 7.19
+    helpSpeed: 3400,
+    foodPer: 19,
+    skillPer: 3.2
   },
   196: {
     id: 196,
