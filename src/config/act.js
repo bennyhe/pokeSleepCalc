@@ -1,8 +1,8 @@
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [],
-  showBanArea: []
+  onOffBan: true,
+  showBan: true,
+  banPokes: [245],
+  showBanArea: [0, 1, 4]
 }
 export const ACT_LIST = [{
   name: '夏日嘉年華',
@@ -33,6 +33,6 @@ export const ACT_LIST = [{
   namejp: 'みずタイプウィーク',
   startTime: 1724011200000,
   endTime: 1724615940000,
-  notArea: [3,4,5],
+  notArea: [3, 4, 5],
   midUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913]
 }]

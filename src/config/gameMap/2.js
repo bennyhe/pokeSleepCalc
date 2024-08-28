@@ -369,7 +369,8 @@ export default {
         '134-id-2',
         '160-id-2',
         '199-id-2',
-        '36-id-4'
+        '36-id-4',
+        '245-id-1'
       ]
     },
     {
@@ -413,7 +414,8 @@ export default {
       'nameId': 4,
       'energy': 735875,
       'sleepStyles': [
-        '36-id-3'
+        '36-id-3',
+        '245-id-2'
       ]
     },
     {
@@ -464,7 +466,9 @@ export default {
       'nameIndex': 16,
       'nameId': 4,
       'energy': 1709820,
-      'sleepStyles': []
+      'sleepStyles': [
+        '245-id-3'
+      ]
     },
     {
       'name': '大师17',

@@ -1709,6 +1709,32 @@ const pokedex = {
       }
     }
   },
+  245: {
+    id: 245,
+    // name: '水君',
+    friendship: 30,
+    sleepType: 3,
+    skillType: 15,
+    pokeType: 3,
+    berryType: 1,
+    helpSpeed: 2700
+    // foodPer: 18.62,
+    // skillPer: 2.30,
+    // food: {
+    //   type: [10, 12, 2],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     12: {
+    //       num: [0, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
   246: {
     id: 246,
     // name: '幼基拉斯',
@@ -2673,6 +2699,9 @@ const updatePoke = [{
 }, {
   time: '2024/08/1',
   pokemons: [194, 195]
+}, {
+  time: '2024/09/1',
+  pokemons: [245]
 }]
 // console.log(pokedex)
 export {

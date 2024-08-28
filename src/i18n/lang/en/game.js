@@ -323,6 +323,7 @@ export default {
     229: 'Houndoom',
     243: 'Raikou',
     244: 'Entei',
+    245: 'Suicune',
     246: 'Larvitar',
     247: 'Pupitar',
     248: 'Tyranitar',
@@ -631,6 +632,7 @@ export default {
     263: '亂蓬蓬睡',
     264: '髮亂亂睡',
     265: '夢中起舞睡',
-    266: '浮在泥上睡'
+    266: '浮在泥上睡',
+    267: '北風睡'
   }
 }
