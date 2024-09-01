@@ -377,6 +377,10 @@ const CARDS = [
 @import "./style/rgGame.scss";
 
 // debug styles
+.rg-card {
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
 .rg-card--14 {
   margin-right: 200px;
 }

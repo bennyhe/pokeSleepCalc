@@ -12,18 +12,31 @@
   line-height: 1;
   padding: 3px;
   box-sizing: border-box;
+  position: relative;
 
-  img {
-    max-width: 100%;
+  &__pic {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: -1;
+    opacity: .7;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &-number {
+    width: 16px;
+    text-align: center;
   }
 
   &--spade {
-    color: #333;
+    color: #2b1216;
   }
 
   &--heart,
   &--diamond {
-    color: red;
+    color: #c02c38;
   }
 
   &--2,
@@ -35,15 +48,8 @@
   &--8,
   &--9,
   &--10 {
-    &.rg-card--heart,
-    &.rg-card--diamond {
-      // .rg-card-txt {
-      //   color: red;
-      // }
-    }
     .rg-card-txt {
-      // color: #333;
-      font-size: 3vw;
+      font-size: 28px;
       text-align: center;
     }
   }
@@ -102,19 +108,12 @@
   &--12,
   &--13 {
     .rg-card__pic{
-      disp
-    }
-    &.rg-card--heart,
-    &.rg-card--diamond {
-      .rg-card-txt {
-        color: red;
-      }
+      display: none;
     }
     .rg-card-txt {
       border: 1px dashed #333;
       background-clip: border-box;
       background-position: right bottom;
-      color: #333;
       font-size: 36px;
       display: block;
       padding-top: 10px;
@@ -125,9 +124,13 @@
   }
 
   &--14 {
+    .rg-card__pic{
+      display: none;
+    }
     .rg-card-txt {
-      font-size: 10vw;
+      font-size: 120px;
       background-size: 100% auto;
+      color: transparent;
     }
   }
 
@@ -145,7 +148,6 @@
     background-size: 80% auto;
     background-repeat: no-repeat;
     background-position: center center;
-    color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
