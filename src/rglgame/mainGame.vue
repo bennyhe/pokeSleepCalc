@@ -2,13 +2,6 @@
 import RgCard from './components/PokemonCard/CardItem.vue'
 const CARDS = [
   {
-    cid: 'spade1',
-    pokeId: 245,
-    sortId: 1,
-    val: 10,
-    txt: 'A'
-  },
-  {
     cid: 'spade2',
     pokeId: 94,
     sortId: 2,
@@ -87,15 +80,15 @@ const CARDS = [
   },
   {
     cid: 'spade13',
-    pokeId: 94,
+    pokeId: 199,
     sortId: 13,
     val: 10,
     txt: 'K'
   },
   {
-    cid: 'heart1',
-    pokeId: 244,
-    sortId: 1,
+    cid: 'spade1',
+    pokeId: 245,
+    sortId: 14,
     val: 10,
     txt: 'A'
   },
@@ -184,9 +177,9 @@ const CARDS = [
     txt: 'K'
   },
   {
-    cid: 'club1',
-    pokeId: 243,
-    sortId: 1,
+    cid: 'heart1',
+    pokeId: 244,
+    sortId: 14,
     val: 10,
     txt: 'A'
   },
@@ -275,9 +268,9 @@ const CARDS = [
     txt: 'K'
   },
   {
-    cid: 'diamond1',
-    pokeId: 149,
-    sortId: 1,
+    cid: 'club1',
+    pokeId: 243,
+    sortId: 14,
     val: 10,
     txt: 'A'
   },
@@ -364,6 +357,13 @@ const CARDS = [
     sortId: 13,
     val: 10,
     txt: 'K'
+  },
+  {
+    cid: 'diamond1',
+    pokeId: 149,
+    sortId: 14,
+    val: 10,
+    txt: 'A'
   }
 ]
 </script>
@@ -375,4 +375,9 @@ const CARDS = [
 
 <style lang="scss">
 @import "./style/rgGame.scss";
+
+// debug styles
+.rg-card--14 {
+  margin-right: 200px;
+}
 </style>  

@@ -10,7 +10,7 @@ const getSuit = cid => {
     return '♠'
   } else if (cid.indexOf('heart') > -1) {
     return '♥'
-  } else if (cid.indexOf('diamond') > -1) {
+  } else if (cid.indexOf('club') > -1) {
     return '♣'
   }
   return '♦'
@@ -19,11 +19,28 @@ const getSuit = cid => {
 <template>
   <div
     class="rg-card"
-    :class="[`rg-card--${dataSource.cid.replace(/\d+/g, '')}`]"
+    :class="[
+      `rg-card--${dataSource.cid.replace(/\d+/g, '')}`,
+      `rg-card--${dataSource.sortId}`,
+    ]"
     v-if="dataSource && dataSource.cid"
   >
     <div class="rg-card-number">
-      {{ getSuit(dataSource.cid) }} {{ dataSource.txt }}
+      <p>{{ dataSource.txt }}</p>
+      {{ getSuit(dataSource.cid) }}
+    </div>
+    <div
+      class="rg-card-txt"
+      :style="`background-image: url(${`./img/pokedex/${
+        dataSource.isShiny ? 'shiny/' : ''
+      }${dataSource.pokeId}.png`})`"
+    >
+      <template v-if="dataSource.sortId<=10">
+        <span class="rg-card-txt__item" v-for="item in dataSource.sortId" v-bind:key="item">
+          {{ getSuit(dataSource.cid) }}
+        </span>
+      </template>
+      <template v-else>{{ getSuit(dataSource.cid) }}</template>
     </div>
     <div class="rg-card__pic">
       <img

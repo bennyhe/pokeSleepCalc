@@ -1,6 +1,7 @@
 .rg-game {
   padding-top: 40px;
 }
+
 .rg-card {
   display: inline-block;
   vertical-align: middle;
@@ -8,6 +9,9 @@
   height: 120px;
   border: 1px solid #333;
   border-radius: 4px;
+  line-height: 1;
+  padding: 3px;
+  box-sizing: border-box;
 
   img {
     max-width: 100%;
@@ -20,5 +24,131 @@
   &--heart,
   &--diamond {
     color: red;
+  }
+
+  &--2,
+  &--3,
+  &--4,
+  &--5,
+  &--6,
+  &--7,
+  &--8,
+  &--9,
+  &--10 {
+    &.rg-card--heart,
+    &.rg-card--diamond {
+      // .rg-card-txt {
+      //   color: red;
+      // }
+    }
+    .rg-card-txt {
+      // color: #333;
+      font-size: 3vw;
+      text-align: center;
+    }
+  }
+
+  &--2,
+  &--3 {
+    .rg-card-txt__item {
+      display: block;
+    }
+  }
+
+  &--4,
+  &--5,
+  &--6,
+  &--7,
+  &--8,
+  &--9,
+  &--10 {
+    .rg-card-txt {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .rg-card-txt__item {
+      width: 50%
+    }
+  }
+  &--7,
+  &--8,
+  &--9,
+  &--10 {
+    .rg-card-txt {
+      line-height: .5;
+    }
+  }
+  &--5,
+  &--7,
+  &--9,
+  &--10 {
+    .rg-card-txt__item:nth-child(3) {
+      width: 100%
+    }
+  }
+  &--8 {
+    .rg-card-txt__item:nth-child(3),
+    .rg-card-txt__item:nth-child(6) {
+      width: 100%
+    }
+  }
+  &--10 {
+    .rg-card-txt__item:nth-child(8) {
+      width: 100%
+    }
+  }
+
+  &--11,
+  &--12,
+  &--13 {
+    .rg-card__pic{
+      disp
+    }
+    &.rg-card--heart,
+    &.rg-card--diamond {
+      .rg-card-txt {
+        color: red;
+      }
+    }
+    .rg-card-txt {
+      border: 1px dashed #333;
+      background-clip: border-box;
+      background-position: right bottom;
+      color: #333;
+      font-size: 36px;
+      display: block;
+      padding-top: 10px;
+      padding-left: 3px;
+      box-sizing: border-box;
+      border-radius: 3px;
+    }
+  }
+
+  &--14 {
+    .rg-card-txt {
+      font-size: 10vw;
+      background-size: 100% auto;
+    }
+  }
+
+  &-number {
+    p {
+      margin-bottom: -3px;
+    }
+  }
+  
+
+  &-txt {
+    width: 100%;
+    height: 80px;
+    background-clip: text;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
