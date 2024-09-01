@@ -12,4 +12,13 @@
   img {
     max-width: 100%;
   }
+
+  &--spade {
+    color: #333;
+  }
+
+  &--heart,
+  &--diamond {
+    color: red;
+  }
 }

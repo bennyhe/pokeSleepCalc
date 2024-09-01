@@ -2,91 +2,364 @@
 import RgCard from './components/PokemonCard/CardItem.vue'
 const CARDS = [
   {
-    cid: 's1',
-    pokeId: 94,
+    cid: 'spade1',
+    pokeId: 245,
     sortId: 1,
     val: 10,
     txt: 'A'
   },
   {
-    cid: 's2',
+    cid: 'spade2',
     pokeId: 94,
     sortId: 2,
     val: 2,
     txt: '2'
   },
   {
-    cid: 's3',
+    cid: 'spade3',
     pokeId: 94,
     sortId: 3,
     val: 3,
     txt: '3'
   },
   {
-    cid: 's4',
+    cid: 'spade4',
     pokeId: 94,
     sortId: 4,
     val: 4,
     txt: '4'
   },
   {
-    cid: 's5',
+    cid: 'spade5',
     pokeId: 94,
     sortId: 5,
     val: 5,
     txt: '5'
   },
   {
-    cid: 's6',
+    cid: 'spade6',
     pokeId: 94,
     sortId: 6,
     val: 6,
     txt: '6'
   },
   {
-    cid: 's7',
+    cid: 'spade7',
     pokeId: 94,
     sortId: 7,
     val: 7,
     txt: '7'
   },
   {
-    cid: 's8',
+    cid: 'spade8',
     pokeId: 94,
     sortId: 8,
     val: 8,
     txt: '8'
   },
   {
-    cid: 's9',
+    cid: 'spade9',
     pokeId: 94,
     sortId: 9,
     val: 9,
     txt: '9'
   },
   {
-    cid: 's10',
+    cid: 'spade10',
     pokeId: 94,
     sortId: 10,
     val: 10,
     txt: '10'
   },
   {
-    cid: 's11',
+    cid: 'spade11',
     pokeId: 94,
     sortId: 11,
     val: 10,
     txt: 'J'
   },
   {
-    cid: 's12',
+    cid: 'spade12',
     pokeId: 94,
     sortId: 12,
     val: 10,
     txt: 'Q'
   },
   {
-    cid: 's13',
+    cid: 'spade13',
+    pokeId: 94,
+    sortId: 13,
+    val: 10,
+    txt: 'K'
+  },
+  {
+    cid: 'heart1',
+    pokeId: 244,
+    sortId: 1,
+    val: 10,
+    txt: 'A'
+  },
+  {
+    cid: 'heart2',
+    pokeId: 94,
+    sortId: 2,
+    val: 2,
+    txt: '2'
+  },
+  {
+    cid: 'heart3',
+    pokeId: 94,
+    sortId: 3,
+    val: 3,
+    txt: '3'
+  },
+  {
+    cid: 'heart4',
+    pokeId: 94,
+    sortId: 4,
+    val: 4,
+    txt: '4'
+  },
+  {
+    cid: 'heart5',
+    pokeId: 94,
+    sortId: 5,
+    val: 5,
+    txt: '5'
+  },
+  {
+    cid: 'heart6',
+    pokeId: 94,
+    sortId: 6,
+    val: 6,
+    txt: '6'
+  },
+  {
+    cid: 'heart7',
+    pokeId: 94,
+    sortId: 7,
+    val: 7,
+    txt: '7'
+  },
+  {
+    cid: 'heart8',
+    pokeId: 94,
+    sortId: 8,
+    val: 8,
+    txt: '8'
+  },
+  {
+    cid: 'heart9',
+    pokeId: 94,
+    sortId: 9,
+    val: 9,
+    txt: '9'
+  },
+  {
+    cid: 'heart10',
+    pokeId: 94,
+    sortId: 10,
+    val: 10,
+    txt: '10'
+  },
+  {
+    cid: 'heart11',
+    pokeId: 94,
+    sortId: 11,
+    val: 10,
+    txt: 'J'
+  },
+  {
+    cid: 'heart12',
+    pokeId: 94,
+    sortId: 12,
+    val: 10,
+    txt: 'Q'
+  },
+  {
+    cid: 'heart13',
+    pokeId: 94,
+    sortId: 13,
+    val: 10,
+    txt: 'K'
+  },
+  {
+    cid: 'club1',
+    pokeId: 243,
+    sortId: 1,
+    val: 10,
+    txt: 'A'
+  },
+  {
+    cid: 'club2',
+    pokeId: 94,
+    sortId: 2,
+    val: 2,
+    txt: '2'
+  },
+  {
+    cid: 'club3',
+    pokeId: 94,
+    sortId: 3,
+    val: 3,
+    txt: '3'
+  },
+  {
+    cid: 'club4',
+    pokeId: 94,
+    sortId: 4,
+    val: 4,
+    txt: '4'
+  },
+  {
+    cid: 'club5',
+    pokeId: 94,
+    sortId: 5,
+    val: 5,
+    txt: '5'
+  },
+  {
+    cid: 'club6',
+    pokeId: 94,
+    sortId: 6,
+    val: 6,
+    txt: '6'
+  },
+  {
+    cid: 'club7',
+    pokeId: 94,
+    sortId: 7,
+    val: 7,
+    txt: '7'
+  },
+  {
+    cid: 'club8',
+    pokeId: 94,
+    sortId: 8,
+    val: 8,
+    txt: '8'
+  },
+  {
+    cid: 'club9',
+    pokeId: 94,
+    sortId: 9,
+    val: 9,
+    txt: '9'
+  },
+  {
+    cid: 'club10',
+    pokeId: 94,
+    sortId: 10,
+    val: 10,
+    txt: '10'
+  },
+  {
+    cid: 'club11',
+    pokeId: 94,
+    sortId: 11,
+    val: 10,
+    txt: 'J'
+  },
+  {
+    cid: 'club12',
+    pokeId: 94,
+    sortId: 12,
+    val: 10,
+    txt: 'Q'
+  },
+  {
+    cid: 'club13',
+    pokeId: 94,
+    sortId: 13,
+    val: 10,
+    txt: 'K'
+  },
+  {
+    cid: 'diamond1',
+    pokeId: 149,
+    sortId: 1,
+    val: 10,
+    txt: 'A'
+  },
+  {
+    cid: 'diamond2',
+    pokeId: 94,
+    sortId: 2,
+    val: 2,
+    txt: '2'
+  },
+  {
+    cid: 'diamond3',
+    pokeId: 94,
+    sortId: 3,
+    val: 3,
+    txt: '3'
+  },
+  {
+    cid: 'diamond4',
+    pokeId: 94,
+    sortId: 4,
+    val: 4,
+    txt: '4'
+  },
+  {
+    cid: 'diamond5',
+    pokeId: 94,
+    sortId: 5,
+    val: 5,
+    txt: '5'
+  },
+  {
+    cid: 'diamond6',
+    pokeId: 94,
+    sortId: 6,
+    val: 6,
+    txt: '6'
+  },
+  {
+    cid: 'diamond7',
+    pokeId: 94,
+    sortId: 7,
+    val: 7,
+    txt: '7'
+  },
+  {
+    cid: 'diamond8',
+    pokeId: 94,
+    sortId: 8,
+    val: 8,
+    txt: '8'
+  },
+  {
+    cid: 'diamond9',
+    pokeId: 94,
+    sortId: 9,
+    val: 9,
+    txt: '9'
+  },
+  {
+    cid: 'diamond10',
+    pokeId: 94,
+    sortId: 10,
+    val: 10,
+    txt: '10'
+  },
+  {
+    cid: 'diamond11',
+    pokeId: 94,
+    sortId: 11,
+    val: 10,
+    txt: 'J'
+  },
+  {
+    cid: 'diamond12',
+    pokeId: 94,
+    sortId: 12,
+    val: 10,
+    txt: 'Q'
+  },
+  {
+    cid: 'diamond13',
     pokeId: 94,
     sortId: 13,
     val: 10,
@@ -101,5 +374,5 @@ const CARDS = [
 </template>
 
 <style lang="scss">
-@import "./style/main.scss";
+@import "./style/rgGame.scss";
 </style>  
