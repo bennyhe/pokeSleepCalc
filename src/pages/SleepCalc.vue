@@ -291,7 +291,10 @@ console.log(nowAct)
 /* 抽取睡姿 */
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   let banPokes = []
-  if (userData.value.onOffBan) {
+  if (
+    userData.value.onOffBan &&
+    userData.value.showBanArea.includes(userData.value.curMap)
+  ) {
     banPokes = userData.value.banPokes
   }
   const res = getRandomSleepStyle(
@@ -399,7 +402,10 @@ const handleClickSleepMoreTimes = () => {
     console.log('start clac more times...')
     userData.value.isMoreCalcLoading = true
     let banPokes = []
-    if (userData.value.onOffBan) {
+    if (
+      userData.value.onOffBan &&
+      userData.value.showBanArea.includes(userData.value.curMap)
+    ) {
       banPokes = userData.value.banPokes
     }
     const upIdsSmall = {
