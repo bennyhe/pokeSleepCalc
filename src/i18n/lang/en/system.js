@@ -18,8 +18,10 @@ export default {
     'lastGet': 'Last get',
     'getWithout': 'Without',
     'detail': 'Detail',
+    'detail2': 'Detail',
     'restart': 'RESTART',
-    'noHas': '没有',
+    'noHas': '无',
+    'noHasPokemons': '暂无宝可梦',
     'calcRes': '计算结果'
   },
   'BTN': {

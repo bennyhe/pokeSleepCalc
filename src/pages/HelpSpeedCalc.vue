@@ -1671,12 +1671,12 @@ watch(helpSpeedCalcForm.value, val => {
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
       </div>
-      <div class="cpt-empty" v-else>暂无宝可梦</div>
+      <div class="cpt-empty" v-else>{{$t('OPTIONS.noHasPokemons')}}</div>
       <div
         class="cpt-empty"
         v-if="getBoxCurEnergy(userPokemons.list, true).length === 0"
       >
-        暂无宝可梦
+        {{$t('OPTIONS.noHasPokemons')}}
       </div>
     </div>
     <div v-if="navData.navIndex === 2">
@@ -1820,7 +1820,7 @@ watch(helpSpeedCalcForm.value, val => {
           ></i>
         </CptEnergyItem>
       </div>
-      <div class="cpt-empty" v-else>暂无宝可梦</div>
+      <div class="cpt-empty" v-else>{{$t('OPTIONS.noHasPokemons')}}</div>
     </div>
   </div>
   <div class="page-inner cpt-tips">

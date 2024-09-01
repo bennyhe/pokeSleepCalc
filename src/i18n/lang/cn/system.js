@@ -18,8 +18,10 @@ export default {
     'lastGet': '最后一抽',
     'getWithout': '抽取去除',
     'detail': '详情',
+    'detail2': '详情',
     'restart': '从头再来',
     'noHas': '无',
+    'noHasPokemons': '暂无宝可梦',
     'calcRes': '计算结果'
   },
   'BTN': {

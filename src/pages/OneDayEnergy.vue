@@ -4,7 +4,7 @@ import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
-import CptTypeRank from '../components/OneDayTypeRank/RankItem.vue'
+import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
 import { sortInObjectOptions, containsAny, getNum } from '../utils/index.js'
 import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
@@ -436,15 +436,15 @@ const handleClickFilterPokes = (typeKey, val) => {
     <el-collapse accordion v-model="pageData.collapseActName">
       <el-collapse-item name="food">
         <template #title><h3>一天食材排行</h3> </template>
-        <CptTypeRank :dataList="foodResRank" showType="food" :showMax="6" />
+        <CptTypeRankItem :dataList="foodResRank" showType="food" :showMax="6" />
       </el-collapse-item>
       <el-collapse-item name="berry">
         <template #title> <h3>一天树果排行</h3> </template>
-        <CptTypeRank :dataList="berryResRank" showType="berry" :showMax="3" />
+        <CptTypeRankItem :dataList="berryResRank" showType="berry" :showMax="3" />
       </el-collapse-item>
       <el-collapse-item name="skill">
         <template #title> <h3>一天技能排行</h3> </template>
-        <CptTypeRank :dataList="skillResRank" showType="skill" :showMax="5" />
+        <CptTypeRankItem :dataList="skillResRank" showType="skill" :showMax="5" />
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -495,7 +495,7 @@ const handleClickFilterPokes = (typeKey, val) => {
       />
     </template>
   </div>
-  <div class="cpt-empty" v-else>暂无宝可梦</div>
+  <div class="cpt-empty" v-else>{{ $t("OPTIONS.noHasPokemons") }}</div>
   <div
     class="cpt-pagination"
     v-if="pageData.resRankArr.length / pageData.pageSize > 1"

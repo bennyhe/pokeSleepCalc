@@ -414,7 +414,7 @@ onMounted(() => {
                 class="cpt-tips"
                 v-if="resItem[`level${levelKey}List`].subList.length === 0"
               >
-                无
+                {{ $t("OPTIONS.noHas") }}
               </div>
               <div class="poke-tb__sublist" v-else>
                 <div
@@ -513,7 +513,7 @@ onMounted(() => {
           </ul>
         </div>
       </div>
-      <div class="cpt-empty" v-else>暂无宝可梦</div>
+      <div class="cpt-empty" v-else>{{ $t("OPTIONS.noHasPokemons") }}</div>
     </template>
     <!-- E 全图鉴 -->
   </div>

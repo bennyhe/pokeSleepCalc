@@ -70,7 +70,7 @@ const getCptPokeShowKey = () => {
     size="small"
     @click="handleClickShowRank(showType)"
     :class="{ 'btn--show': rankOpts[`${type}IsMore`] }"
-    >{{ $t("OPTIONS.detail") }}<svgIcon size="small" type="arrowDown"
+    >{{ $t("OPTIONS.detail2") }}<svgIcon size="small" type="arrowDown"
   /></el-button>
   <div>
     <template

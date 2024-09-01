@@ -19,8 +19,10 @@ export default {
     'lastGet': '最終枠',
     'getWithout': '寝顔抽選の抜去',
     'detail': 'の詳細',
+    'detail2': '詳細',
     'restart': 'RESTART',
     'noHas': 'ない',
+    'noHasPokemons': '見つからなかったよ。ほかの条件で探してみよう。',
     'calcRes': '計算結果'
   },
   'BTN': {
