@@ -1,0 +1,15 @@
+.rg-game {
+  padding-top: 40px;
+}
+.rg-card {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 120px;
+  border: 1px solid #333;
+  border-radius: 4px;
+
+  img {
+    max-width: 100%;
+  }
+}
