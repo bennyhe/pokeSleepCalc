@@ -128,8 +128,10 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   const res = []
   const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
 
-  spacialPokemons.isGet[243] = false //重置
-  spacialPokemons.isGet[244] = false //重置
+
+  spacialPokemons.list.forEach(id => {
+    spacialPokemons.isGet[id] = false //重置
+  })
 
   let cathPokeCount = getNumberInMap(
     score,
