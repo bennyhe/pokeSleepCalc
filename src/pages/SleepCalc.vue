@@ -71,7 +71,8 @@ const userSleep = ref({
   pokeSum: 0,
   showDetailShiny: false,
   isFirst243: true,
-  isFirst244: true
+  isFirst244: true,
+  isFirst245: true
 })
 const pageData = ref({
   showMoreMathExp: false
@@ -317,6 +318,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     sleepItem.iv = getRandomIV(sleepItem.pokeId, {
       isFirst243: userSleep.value.isFirst243,
       isFirst244: userSleep.value.isFirst244,
+      isFirst245: userSleep.value.isFirst245,
       lockSkillCount: userData.value.lockSkillCount
     })
     if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
@@ -324,6 +326,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     if (userSleep.value.isFirst244 && sleepItem.pokeId === 244) {
       userSleep.value.isFirst244 = false
+    }
+    if (userSleep.value.isFirst245 && sleepItem.pokeId === 245) {
+      userSleep.value.isFirst245 = false
     }
 
     let isCurPokeMapLock = 0
@@ -340,6 +345,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
       isFirst243: userSleep.value.isFirst243,
       isFirst244: userSleep.value.isFirst244,
+      isFirst245: userSleep.value.isFirst245,
       lockSkillCount: isCurPokeMapLock
     })
 
