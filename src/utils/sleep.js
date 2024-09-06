@@ -169,7 +169,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     orgSleepList = orgSleepList.filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
-    // 如果是活动无症状
+    // 如果是活动随机类型
     if (isActRandom) {
       orgSleepListByActType = orgSleepListByActType.filter(
         item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
@@ -188,8 +188,15 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     orgSleepList,
     orgSleepList.length * 10 < 1000 ? 1000 : orgSleepList.length * 10
   )
-  // 如果是活动无症状
+  // 如果是活动随机类型
   if (isActRandom) {
+    // 部分宝可梦权重
+    if (get('upIdsMid.ids', extraSleepStyleOptions, 1)) {
+      orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsMid)
+    }
+    if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
+      orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsSmall)
+    }
     orgSleepListByActType = getRandomArr(
       orgSleepListByActType,
       orgSleepListByActType.length * 10 < 1000 ? 1000 : orgSleepListByActType.length * 10
@@ -203,7 +210,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     'up'
   )[0]
   let spoZeroPokeByType = {}
-  // 类型非无症状的活动无症状
+  // 类型非无症状的活动随机类型
   if (isActRandom && +curUnLockSleepType !== 999) {
     spoZeroPokeByType = sortInObjectOptions(
       orgSleepListByActType,
@@ -223,7 +230,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     sleepList = getRandomArr(sleepList, sleepList.length * 10)
 
     let sleepListByActRandom = []
-    // 类型非无症状的活动无症状
+    // 类型非无症状的活动随机类型
     if (isActRandom && +curUnLockSleepType !== 999) {
       sleepListByActRandom = orgSleepListByActType.filter(
         item =>
@@ -238,7 +245,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
         // extra: 'SPO<2' //debug
       }
-      // 类型非无症状的活动无症状
+      // 类型非无症状的活动随机类型
       if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
         pushZero = {
           ...spoZeroPokeByType,
@@ -250,7 +257,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       curSpo = 1
     } else {
       let useSleepList = [...sleepList]
-      // 类型非无症状的活动无症状
+      // 类型非无症状的活动随机类型
       if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
         useSleepList = [...sleepListByActRandom]
       }
@@ -271,7 +278,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
           item =>
             !spacialPokemons.list.includes(item.pokeId)
         )
-        // 类型非无症状的活动无症状
+        // 类型非无症状的活动随机类型
         if (isActRandom && +curUnLockSleepType !== 999) {
           orgSleepListByActType = orgSleepListByActType.filter(
             item =>
