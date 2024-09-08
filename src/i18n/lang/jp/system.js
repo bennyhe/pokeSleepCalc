@@ -82,9 +82,9 @@ export default {
     'btnSleepMoreTime': 'クリックで期待値を計算する({0}回寝，おこうといいキャンプチケットが含まず)',
 
     // 'tipsTitle': 'ームのバージョン1.4.0では多くの寝顔関連の内容が更新されたため、寝顔抽選機能が期待通りの結果をもたらさないことがあります。',
-    // 'tipsNoSupportBefore': '寝顔取り出しは',
-    // 'tipsNoSupportMid': '寝る日Up、イベントUP及びライコなどの特殊ポケモンが持つ極め低い確率',
-    // 'tipsNoSupportAfter': 'に対応しません。',
+    'tipsNoSupportBefore': '寝顔取り出しは',
+    'tipsNoSupportMid': 'びライコなどの特殊ポケモンが持つ極め低い確率',
+    'tipsNoSupportAfter': 'に対応しません。',
     'tipsNoRes': '抽選結果はゲーム内の結果のそのものではないので、あくまでも参考です。',
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
     'tipsUseTickets1': 'いいキャップチケット（第1回目寝）はおまけ１匹、おこうり使いもおまけ１匹。',

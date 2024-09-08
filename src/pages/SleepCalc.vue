@@ -1310,6 +1310,12 @@ const getQuickChangeSleepPoint = () => {
               show-icon
             >
               <div class="cpt-tips">
+                <p>
+                  *
+                  {{ $t("PAGE_SLEEPCALC.tipsNoSupportBefore")
+                  }}<em>{{ $t("PAGE_SLEEPCALC.tipsNoSupportMid") }}</em
+                  >{{ $t("PAGE_SLEEPCALC.tipsNoSupportAfter") }}
+                </p>
                 <p>* {{ $t("PAGE_SLEEPCALC.tipsShiny") }}</p>
               </div>
             </el-alert>
