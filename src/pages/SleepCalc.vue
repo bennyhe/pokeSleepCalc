@@ -1305,18 +1305,11 @@ const getQuickChangeSleepPoint = () => {
         <div class="page-inner mb3">
           <p class="mb3">
             <el-alert
-              :title="$t('PAGE_SLEEPCALC.tipsTitle')"
+              :title="$t('PAGE_SLEEPCALC.tipsNoRes')"
               type="warning"
               show-icon
             >
               <div class="cpt-tips">
-                <p>
-                  *
-                  {{ $t("PAGE_SLEEPCALC.tipsNoSupportBefore")
-                  }}<em>{{ $t("PAGE_SLEEPCALC.tipsNoSupportMid") }}</em
-                  >{{ $t("PAGE_SLEEPCALC.tipsNoSupportAfter") }}
-                </p>
-                <p>* {{ $t("PAGE_SLEEPCALC.tipsNoRes") }}</p>
                 <p>* {{ $t("PAGE_SLEEPCALC.tipsShiny") }}</p>
               </div>
             </el-alert>
