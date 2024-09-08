@@ -1,8 +1,8 @@
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [245],
-  showBanArea: [1, 4]
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 不展示区域
 }
 export const ACT_LIST = [{
   name: '夏日嘉年華',
@@ -42,5 +42,13 @@ export const ACT_LIST = [{
   startTime: 1725220800000,
   endTime: 1725825540000,
   notArea: [],
-  midUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
+  smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
+},
+{
+  name: '水君研究',
+  namejp: 'スイクンリサーチイベント',
+  startTime: 1725825600000,
+  endTime: 1726430399000,
+  notArea: [],
+  smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
 }]
