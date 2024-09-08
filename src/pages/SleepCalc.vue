@@ -422,6 +422,10 @@ const handleClickSleepMoreTimes = () => {
       upType: 'mid',
       ids: []
     }
+    const upIdsLarge = {
+      upType: 'large',
+      ids: []
+    }
     if (
       nowAct.value &&
       nowAct.value.notArea &&
@@ -429,6 +433,7 @@ const handleClickSleepMoreTimes = () => {
     ) {
       upIdsSmall.ids = nowAct.value.smallUp
       upIdsMid.ids = nowAct.value.midUp
+      upIdsLarge.ids = nowAct.value.largeUp
     }
     getRandomHope(
       gameMap[userData.value.curMap],
@@ -440,7 +445,8 @@ const handleClickSleepMoreTimes = () => {
         banPokes,
         isActRandom: userData.value.isActRandom,
         upIdsSmall,
-        upIdsMid
+        upIdsMid,
+        upIdsLarge
       },
       getRandomHopeCb
     )
@@ -1356,6 +1362,32 @@ const getQuickChangeSleepPoint = () => {
               >-中UP:
               <template
                 v-for="pokeId in nowAct.midUp"
+                v-bind:key="`midUp_${pokeId}`"
+              >
+                <span
+                  class="cpt-avatar"
+                  v-if="
+                    gameMapPokemons[userData.curMap].allPokemons.includes(
+                      pokeId
+                    )
+                  "
+                >
+                  <img
+                    class="cpt-avatar__pic"
+                    v-lazy="`./img/pokedex/${pokeId}.png`"
+                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
+                  />
+                </span>
+              </template>
+            </p>
+            <p class="mb3" v-if="get('largeUp', nowAct, 1)">
+              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
+                nowAct.namejp
+              }}</template
+              ><template v-else>{{ nowAct.name }}</template
+              >-大UP:
+              <template
+                v-for="pokeId in nowAct.largeUp"
                 v-bind:key="`midUp_${pokeId}`"
               >
                 <span

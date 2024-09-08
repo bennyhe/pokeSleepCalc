@@ -184,6 +184,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
     orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
   }
+  if (get('upIdsLarge.ids', extraSleepStyleOptions, 1)) {
+    orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsLarge)
+  }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
   orgSleepList = getRandomArr(
     orgSleepList,
@@ -197,6 +200,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     }
     if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
       orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsSmall)
+    }
+    if (get('upIdsLarge.ids', extraSleepStyleOptions, 1)) {
+      orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsLarge)
     }
     orgSleepListByActType = getRandomArr(
       orgSleepListByActType,

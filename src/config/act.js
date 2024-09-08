@@ -53,7 +53,7 @@ export const ACT_LIST = [{
   endTime: 1725825540000,
   notArea: [],
   smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245],
-  largeUp: [35, 36, 173]
+  largeUp: []
 },
 {
   name: '水君研究',

@@ -27,11 +27,15 @@ const pageData = ref({
   isActRandom: false,
   upIdsSmall: {
     upType: 'small',
-    ids: []
+    ids: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
   },
   upIdsMid: {
     upType: 'mid',
-    ids: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
+    ids: []
+  },
+  upIdsLarge: {
+    upType: 'large',
+    ids: [35, 36, 173]
   }
 })
 
@@ -52,6 +56,7 @@ const getRes = (curAllScore, allPoint) => {
       isActRandom: pageData.value.isActRandom,
       banPokes: pageData.value.banPokes,
       upIdsMid: pageData.value.upIdsMid,
+      upIdsLarge: pageData.value.upIdsLarge,
       upIdsSmall: pageData.value.upIdsSmall
     }
   )
@@ -255,6 +260,32 @@ const handleClickChangeMap = id => {
     <el-form-item label="去除宝可梦">
       <el-select
         v-model="pageData.banPokes"
+        placeholder="请选择要去除的宝可梦"
+        filterable
+        clearable
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+      >
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+              v-bind:key="pokeItem.id"
+            />
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+          </el-option>
+        </template>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="大UP">
+      <el-select
+        v-model="pageData.upIdsLarge.ids"
         placeholder="请选择要去除的宝可梦"
         filterable
         clearable
