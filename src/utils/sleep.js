@@ -1,5 +1,6 @@
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SPO_DATA, SPONEW_TO_SPOOLD } from '../config/spo.js'
+import { SLEEP_CALC_POKEMONS, SLEEP_CALC_UP } from '../config/act.js'
 import { pokedex } from '../config/pokedex.js'
 import {
   sortInObjectOptions,
@@ -81,9 +82,7 @@ const getShinyPoke = isShinyUp => {
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
 const spacialPokemons = {
-  list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 194, 195], // 不进保底
-  probabilityLastList: [], //概率进保底
+  ...SLEEP_CALC_POKEMONS,
   isGet: { // 露营券判断是否重复使用
     243: false,
     244: false,
@@ -95,9 +94,11 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
   if (options === undefined) {
     return orgSleepList
   }
-  let upCoefficient = 4 // 默认small
+  let upCoefficient = SLEEP_CALC_UP.small // 默认small
   if (options.upType === 'mid') {
-    upCoefficient = 6
+    upCoefficient = SLEEP_CALC_UP.mid
+  } else if (options.upType === 'large') {
+    upCoefficient = SLEEP_CALC_UP.large
   }
   if (options.ids && options.ids.length > 0) {
     const needUseSleepStyles = orgSleepList.filter(item => options.ids.includes(item.pokeId))

@@ -1,3 +1,13 @@
+export const SLEEP_CALC_POKEMONS = {
+  list: [243, 244, 245], // 特殊宝可梦列表，只能一个
+  noLastList: [243, 244, 245, 35, 36, 173, 194, 195], // 不进保底
+  probabilityLastList: [] //概率进保底
+}
+export const SLEEP_CALC_UP = {
+  small: 4,
+  mid: 6,
+  large: 9
+}
 export const SLEEP_CALC_CONFIG = {
   onOffBan: false,
   showBan: false,
@@ -42,7 +52,8 @@ export const ACT_LIST = [{
   startTime: 1725220800000,
   endTime: 1725825540000,
   notArea: [],
-  smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
+  smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245],
+  largeUp: [35, 36, 173]
 },
 {
   name: '水君研究',
