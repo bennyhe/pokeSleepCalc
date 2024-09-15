@@ -1828,7 +1828,7 @@ const getQuickChangeSleepPoint = () => {
       <div class="page-inner mb3">
         <p class="mb3">
           <el-alert
-            :title="$t('PAGE_SLEEPCALC.tipsTitle')"
+            :title="$t('PAGE_SLEEPCALC.tipsNoRes')"
             type="warning"
             show-icon
           >
