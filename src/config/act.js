@@ -58,24 +58,24 @@ export const ACT_LIST = [
   {
     name: '好眠日',
     namejp: '満月の前後の日',
-    startTime: 1726430400000,
-    endTime: 1726516799000,
+    startTime: 1726516800000,
+    endTime: 1726603199000,
     notArea: [],
     midUp: [35, 36, 173]
   },
   {
     name: '满月日',
     namejp: '満月の日',
-    startTime: 1726516800000,
-    endTime: 1726603199000,
+    startTime: 1726603200000,
+    endTime: 1726689599000,
     notArea: [],
     largeUp: [35, 36, 173]
   },
   {
     name: '好眠日',
     namejp: '満月の前後の日',
-    startTime: 1726603200000,
-    endTime: 1726689599000,
+    startTime: 1726689600000,
+    endTime: 1726775999000,
     notArea: [],
     midUp: [35, 36, 173]
   }
