@@ -28,3 +28,4 @@ export const map5ScoreList = [{ catchNum: 3, startscore: 0, endscore: 3153519 },
   { catchNum: 6, startscore: 16659808, endscore: 30491709 },
   { catchNum: 7, startscore: 30491710, endscore: 68664242 },
   { catchNum: 8, startscore: 68664246 }]
+export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 10000000 }]

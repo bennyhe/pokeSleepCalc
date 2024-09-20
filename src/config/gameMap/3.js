@@ -214,7 +214,7 @@ export default {
     {
       'name': '高级1',
       'nameIndex': 1,
-      'nameId': '3',
+      'nameId': 3,
       'energy': 174869,
       'sleepStyles': [
         '75-id-4',
@@ -236,7 +236,7 @@ export default {
     {
       'name': '高级2',
       'nameIndex': 2,
-      'nameId': '3',
+      'nameId': 3,
       'energy': 206538,
       'sleepStyles': [
         '302-id-4',
@@ -252,7 +252,7 @@ export default {
     {
       'name': '高级3',
       'nameIndex': 3,
-      'nameId': '3',
+      'nameId': 3,
       'energy': 240961,
       'sleepStyles': [
         '40-id-1',
@@ -264,7 +264,7 @@ export default {
     {
       'name': '高级4',
       'nameIndex': 4,
-      'nameId': '3',
+      'nameId': 3,
       'energy': 278826,
       'sleepStyles': [
         '75-id-3',
@@ -275,7 +275,7 @@ export default {
     {
       'name': '高级5',
       'nameIndex': 5,
-      'nameId': '3',
+      'nameId': 3,
       'energy': 320478,
       'sleepStyles': [
         '5-id-3',
