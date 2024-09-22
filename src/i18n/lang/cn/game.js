@@ -33,6 +33,7 @@ export default {
     'hole': '灰褐洞窟',
     'snow': '白花雪原',
     'lake': '宝蓝湖畔',
+    'plant': '黃金舊發電廠',
     'none': '未适正树果'
   },
   'LEVEL_TITLE': {

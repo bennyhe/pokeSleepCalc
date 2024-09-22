@@ -33,6 +33,7 @@ export default {
     'hole': 'トープ洞窟',
     'snow': 'ウノハナ雪原',
     'lake': 'ラピスラズリ湖畔',
+    'plant': 'ゴールド旧発電所',
     'none': 'Other Area'
   },
   'LEVEL_TITLE': {

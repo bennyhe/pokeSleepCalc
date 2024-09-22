@@ -33,6 +33,7 @@ export default {
     'hole': 'Taupe Hollow',
     'snow': 'Snowdrop Tundra',
     'lake': 'Carmine Volcano',
+    'plant': 'Old Gold Power Plant',
     'none': 'Other Area'
   },
   'LEVEL_TITLE': {

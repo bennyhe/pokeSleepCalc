@@ -82,7 +82,7 @@ export default {
 
     // 'tipsTitle': '游戏v1.4.0更新了大量对睡姿相关内容，请注意该功能可能不符合期望结果。',
     'tipsNoSupportBefore': '抽取睡姿不支持',
-    'tipsNoSupportMid': '雷公等特殊宝可梦自带的极低概率',
+    'tipsNoSupportMid': '【企画】发现宝可梦睡姿周（睡眠研究时，尚未发现的宝可梦睡姿出现机率提升）、雷公等特殊宝可梦自带的极低概率',
     'tipsNoSupportAfter': '等特殊情况。',
     'tipsNoRes': '抽取结果不代表游戏内结果，仅作为参考。',
     'tipsShiny': '抽取结果的闪率并不是游戏内的闪率。',
