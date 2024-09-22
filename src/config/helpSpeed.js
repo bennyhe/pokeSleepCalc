@@ -182,7 +182,7 @@ export const levelOptions = [{
   txt: 'Lv.50'
 }, {
   label: 55,
-  txt: 'Lv.55(上限)'
+  txt: 'Lv.55'
 }, {
   label: 60,
   txt: 'Lv.60(3食)'
