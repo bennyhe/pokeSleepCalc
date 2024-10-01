@@ -27,7 +27,7 @@ const pageData = ref({
   isActRandom: false,
   upIdsSmall: {
     upType: 'small',
-    ids: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
+    ids: []
   },
   upIdsMid: {
     upType: 'mid',
@@ -35,20 +35,22 @@ const pageData = ref({
   },
   upIdsLarge: {
     upType: 'large',
-    ids: [35, 36, 173]
+    ids: []
   }
 })
 
 const getTimes = 4000
 const targetPokeId = 280
 const testData = ref([])
-const getRes = (curAllScore, allPoint) => {
+const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
+  mapSleepType = mapSleepType || +pageData.value.mapSleepType
+  mapId = mapId || pageData.value.curMap
   return getRandomHope(
-    gameMap[pageData.value.curMap],
-    +pageData.value.mapSleepType,
+    gameMap[mapId],
+    mapSleepType,
     allPoint,
     getLevelIndexByEnergy(
-      gameMap[pageData.value.curMap].levelList,
+      gameMap[mapId].levelList,
       curAllScore
     ),
     getTimes,
@@ -57,7 +59,8 @@ const getRes = (curAllScore, allPoint) => {
       banPokes: pageData.value.banPokes,
       upIdsMid: pageData.value.upIdsMid,
       upIdsLarge: pageData.value.upIdsLarge,
-      upIdsSmall: pageData.value.upIdsSmall
+      upIdsSmall: pageData.value.upIdsSmall,
+      isNoMoreData: true
     }
   )
 }
@@ -76,7 +79,7 @@ const handleClickGet = type => {
   if (type === 'quickLevel') {
     console.log('quick start...', gameMap[pageData.value.curMap].levelList)
     let k = 0
-    gameMap[pageData.value.curMap].levelList.forEach(item => {
+    gameMap[pageData.value.curMap].levelList.forEach((item, mapIndex) => {
       const curAllScore = item.energy
       const allPoint = curAllScore * 100
       if (curAllScore <= +pageData.value.maxScore) {
@@ -98,7 +101,38 @@ const handleClickGet = type => {
         k++
       }
     })
-  } else {
+  } else if (type === 'mapInMaster20') {
+    let k = 0
+    for (const st in SLEEP_TYPES) {
+      if (Object.hasOwnProperty.call(SLEEP_TYPES, st)) {
+        // console.log(+st, SLEEP_TYPES[st])
+        gameMap.forEach((gmItem,gmKey)=>{
+          const curAllScore =  gameMap[gmKey].levelList[gameMap[gmKey].levelList.length - 1].energy
+          const allPoint = curAllScore * 100
+          const randomRes = getRes(curAllScore, allPoint, gmKey, +st)
+          const res = randomRes.res
+          console.log(randomRes.res)
+          lastGetList = lastGetList.concat(randomRes.lastGetList)
+          console.log(
+            k,
+            gmItem.id,
+            curAllScore,
+            allPoint,
+            `${(new Date().getTime() - startTime) / 1000}s`,
+            +st,
+            SLEEP_TYPES[st]
+          )
+          const lastRes = {
+            basePoint: curAllScore,
+            allPoint,
+            res
+          }
+          targetRes.push(lastRes)
+          k++
+        })
+      }
+    }
+  }else {
     for (let i = baseStarI; i < baseStarI + 2000; i++) {
       const curAllScore = basePoint + splitPoint
       const allPoint = curAllScore * 100
@@ -364,7 +398,10 @@ const handleClickChangeMap = id => {
     <el-form-item>
       <el-button @click="handleClickGet()">计算结果</el-button>
       <el-button @click="handleClickGet('quickLevel')" type="success"
-        >按等级快速计算结果</el-button
+        >按等级快速计算</el-button
+      >
+      <el-button @click="handleClickGet('mapInMaster20')" type="warning"
+        >各类型大师20</el-button
       >
     </el-form-item>
   </el-form>

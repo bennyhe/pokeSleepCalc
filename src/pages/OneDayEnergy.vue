@@ -32,7 +32,7 @@ const berryResRank = ref({})
 const skillResRank = ref({})
 newGameMap.push({
   id: 'none',
-  berry: [8, 9, 2, 13, 3, 5]
+  berry: [9, 3, 5]
 })
 
 for (const key in BERRY_TYPES) {

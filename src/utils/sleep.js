@@ -502,26 +502,33 @@ export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex,
       resItem => resItem.pokeId === item.pokeId
     )
     if (!findTargetResItem) {
-      res.push({
+      const resItem = {
         pokeId: item.pokeId,
-        list: [item],
         count: item.count,
         shardsSum: item.count * item.shards,
         expSum: item.count * item.exp,
         candysSum: item.count * item.candys
-      })
+      }
+      if (!extraSleepStyleOptions.isNoMoreData) {
+        resItem.list = [item]
+      }
+      res.push(resItem)
     } else {
       // console.log(res)
-      findTargetResItem.list.push(item)
+      if (!extraSleepStyleOptions.isNoMoreData) {
+        findTargetResItem.list.push(item)
+      }
       findTargetResItem.count += item.count
       findTargetResItem.shardsSum += item.count * item.shards
       findTargetResItem.expSum += item.count * item.exp
       findTargetResItem.candysSum += item.count * item.candys
     }
   })
-  res.forEach(item => {
-    item.list = sortInObjectOptions(item.list, ['count'], 'down')
-  })
+  if (!extraSleepStyleOptions.isNoMoreData) {
+    res.forEach(item => {
+      item.list = sortInObjectOptions(item.list, ['count'], 'down')
+    })
+  }
   res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
 
   if (callback) {
