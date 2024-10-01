@@ -349,6 +349,52 @@ export const COOKMENU = {
     'baseEnergy': 13690,
     'menuPercent': 48
   },
+  '1019': {
+    // 迷昏拳辣味咖哩
+    'id': 1019,
+    'type': 1,
+    'from': [
+      {
+        'id': 17,
+        'num': 11
+      },
+      {
+        'id': 6,
+        'num': 11
+      },
+      {
+        'id': 9,
+        'num': 11
+      }
+    ],
+    'baseEnergy': 5702,
+    'menuPercent': 35
+  },
+  '1020': {
+    // 覺醒力量濃湯
+    'id': 1020,
+    'type': 1,
+    'from': [
+      {
+        'id': 15,
+        'num': 28
+      },
+      {
+        'id': 12,
+        'num': 25
+      },
+      {
+        'id': 2,
+        'num': 23
+      },
+      {
+        'id': 17,
+        'num': 16
+      }
+    ],
+    'baseEnergy': 19061,
+    'menuPercent': 61
+  },
   '2000': {
     // 拌拌沙拉
     'id': 2000,
@@ -723,6 +769,56 @@ export const COOKMENU = {
     ],
     'baseEnergy': 2785,
     'menuPercent': 25
+  },
+  '2020': {
+    // 十字切碎丁沙拉
+    'id': 2020,
+    'type': 2,
+    'from': [
+      {
+        'id': 3,
+        'num': 20
+      },
+      {
+        'id': 7,
+        'num': 15
+      },
+      {
+        'id': 16,
+        'num': 11
+      },
+      {
+        'id': 12,
+        'num': 10
+      }
+    ],
+    'baseEnergy': 8755,
+    'menuPercent': 35
+  },
+  '2021': {
+    // 不服輸咖啡沙拉
+    'id': 2021,
+    'type': 2,
+    'from': [
+      {
+        'id': 17,
+        'num': 28
+      },
+      {
+        'id': 7,
+        'num': 28
+      },
+      {
+        'id': 10,
+        'num': 22
+      },
+      {
+        'id': 4,
+        'num': 22
+      }
+    ],
+    'baseEnergy': 20218,
+    'menuPercent': 61
   },
   '3000': {
     // 拌拌果汁
@@ -1111,5 +1207,42 @@ export const COOKMENU = {
     }],
     'baseEnergy': 13834,
     'menuPercent': 48
+  },
+  '3021': {
+    // 早起咖啡凍
+    'id': 3021,
+    'type': 3,
+    'from': [{
+      'id': 17,
+      'num': 16
+    }, {
+      'id': 8,
+      'num': 14
+    }, {
+      'id': 9,
+      'num': 12
+    }],
+    'baseEnergy': 6793,
+    'menuPercent': 35
+  },
+  '3022': {
+    // 電光香料可樂
+    'id': 3022,
+    'type': 3,
+    'from': [{
+      'id': 5,
+      'num': 35
+    }, {
+      'id': 11,
+      'num': 20
+    }, {
+      'id': 1,
+      'num': 20
+    }, {
+      'id': 17,
+      'num': 12
+    }],
+    'baseEnergy': 17494,
+    'menuPercent': 61
   }
 }

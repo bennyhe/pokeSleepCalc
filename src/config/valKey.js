@@ -50,7 +50,7 @@ export const FOOD_ENERGY = {
   14: 342,
   15: 100,
   16: 140,
-  16: 153
+  17: 153
 }
 export const MENU_TYPES = {
   1000: '拌拌咖哩',

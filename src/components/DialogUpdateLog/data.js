@@ -1,6 +1,11 @@
 const markdownText = `
 # 更新日志
 
+## 24-10-01
+1. add 6岛数据
+2. add 9只宝可梦
+3. add 6个新食谱
+
 ## 24-09-22
 1. update 文案提示
 
