@@ -433,7 +433,7 @@ const handleClickChangeMap = id => {
       </div>
     </div>
   </div>
-  <div class="hide">
+  <div class="hi de">
     <template
       v-for="gmItem in [gameMap[pageData.curMap]]"
       v-bind:key="gmItem.id"

@@ -228,15 +228,18 @@ const getAfterClacSPO = () => {
 }
 
 const getNextScoreDiff = () => {
-  return (
-    parseInt(
-      (gameMap[userData.value.curMap].scoreList[getSleepCatchNum() - 2]
-        .startscore -
-        getScore(100)) /
-        100 /
-        userData.value.times
-    ) + 1
-  )
+  if (gameMap[userData.value.curMap].scoreList[getSleepCatchNum() - 2]) {
+    return (
+      parseInt(
+        (gameMap[userData.value.curMap].scoreList[getSleepCatchNum() - 2]
+          .startscore -
+          getScore(100)) /
+          100 /
+          userData.value.times
+      ) + 1
+    )
+  }
+  return 3
 }
 
 // 获取对应树果的宝可梦们

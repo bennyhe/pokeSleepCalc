@@ -47,7 +47,10 @@ const evoLine = [
   [37, 38],
   [906, 907, 908],
   [909, 910, 911],
-  [912, 913, 914]
+  [912, 913, 914],
+  [304, 305, 306],
+  [403, 404, 405],
+  [736, 737, 738]
 ]
 const pokedex = {
   1: {
@@ -1911,6 +1914,52 @@ const pokedex = {
       }
     }
   },
+  304: {
+    id: 304,
+    // name: '可可多拉',
+    friendship: 5,
+    sleepType: 3,
+    skillType: 7,
+    pokeType: 2,
+    berryType: 2,
+    helpSpeed: 5700
+    // foodPer: 18.87,
+    // skillPer: 6.79,
+    // food: {
+    //   type: [10, 2, 13],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 2, 3]
+    //     },
+    //     13: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
+  305: {
+    id: 305,
+    // name: '可多拉',
+    friendship: 12,
+    sleepType: 3,
+    skillType: 7,
+    pokeType: 2,
+    berryType: 2,
+    helpSpeed: 4200
+  },
+  306: {
+    id: 306,
+    // name: '波士可多拉',
+    friendship: 20,
+    sleepType: 3,
+    skillType: 7,
+    pokeType: 2,
+    berryType: 2,
+    helpSpeed: 3000
+  },
   316: {
     id: 316,
     // name: '溶食獸',
@@ -2128,6 +2177,52 @@ const pokedex = {
     berryType: 7,
     foodPer: 22.32,
     skillPer: 2.20
+  },
+  403: {
+    id: 403,
+    // name: '小貓怪',
+    friendship: 5,
+    sleepType: 2,
+    skillType: 11,
+    pokeType: 2,
+    berryType: 13,
+    helpSpeed: 4400
+    // foodPer: 18.87,
+    // skillPer: 6.79,
+    // food: {
+    //   type: [10, 2, 13],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 2, 3]
+    //     },
+    //     13: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
+  404: {
+    id: 404,
+    // name: '勒克貓',
+    friendship: 12,
+    sleepType: 2,
+    skillType: 11,
+    pokeType: 2,
+    berryType: 13,
+    helpSpeed: 3200
+  },
+  405: {
+    id: 405,
+    // name: '倫琴貓',
+    friendship: 20,
+    sleepType: 2,
+    skillType: 11,
+    pokeType: 2,
+    berryType: 13,
+    helpSpeed: 2400
   },
   438: {
     id: 438,
@@ -2389,6 +2484,52 @@ const pokedex = {
         }
       }
     }
+  },
+  736: {
+    id: 736,
+    // name: '強顎雞母蟲',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 9,
+    helpSpeed: 4600
+    // foodPer: 18.87,
+    // skillPer: 6.79,
+    // food: {
+    //   type: [10, 2, 13],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 2, 3]
+    //     },
+    //     13: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
+  737: {
+    id: 737,
+    // name: '蟲電寶',
+    friendship: 12,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 9,
+    helpSpeed: 3300
+  },
+  738: {
+    id: 738,
+    // name: '鍬農炮蟲',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 9,
+    helpSpeed: 2800
   },
   759: {
     id: 759,
@@ -2702,6 +2843,9 @@ const updatePoke = [{
 }, {
   time: '2024/09/1',
   pokemons: [245]
+}, {
+  time: '2024/10/1',
+  pokemons: [304, 305, 306, 403, 404, 405, 736, 737, 738]
 }]
 // console.log(pokedex)
 export {

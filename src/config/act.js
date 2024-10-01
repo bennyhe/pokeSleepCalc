@@ -9,10 +9,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 不展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [304, 403, 736], // ban 宝可梦id
+  showBanArea: [0] // 展示区域
 }
 export const ACT_LIST = [
   // {
@@ -63,20 +63,20 @@ export const ACT_LIST = [
   //   notArea: [],
   //   midUp: [35, 36, 173]
   // },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1726603200000,
-    endTime: 1726689599000,
-    notArea: [],
-    largeUp: [35, 36, 173]
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1726689600000,
-    endTime: 1726775999000,
-    notArea: [],
-    midUp: [35, 36, 173]
-  }
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1726603200000,
+  //   endTime: 1726689599000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1726689600000,
+  //   endTime: 1726775999000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173]
+  // }
 ]

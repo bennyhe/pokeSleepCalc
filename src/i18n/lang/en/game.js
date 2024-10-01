@@ -165,7 +165,8 @@ export default {
     13: 'Soothing Cacao',
     14: 'Slowpoke Tail',
     15: 'Greengrass Soybeans',
-    16: 'Greengrass Corn'
+    16: 'Greengrass Corn',
+    17: 'Rousing Coffee'
   },
   'MENU_TYPES': {
     1000: 'Mixed Curry',
@@ -187,6 +188,8 @@ export default {
     1016: '“Bulk Up” Bean Curry',
     1017: '“Limber” Corn Stew',
     1018: '“Inferno” Corn Keema Curry',
+    1019: '“Dizzy Punch” Spicy Curry',
+    1020: '“Hidden Power” Perk-Up Stew',
     2000: 'Mixed Salad',
     2001: 'Slowpoke Tail Pepper Salad',
     2002: '“Spore” Mushroom Salad',
@@ -207,6 +210,8 @@ export default {
     2017: 'Greengrass Salad',
     2018: '“Calm Mind” Fruit Salad',
     2019: '“Fury Attack” Corn Salad',
+    2020: '“Cross Chop” Salad',
+    2021: '“Defiant” Coffee-Dressed Salad',
     3000: 'Mixed Juice',
     3001: '“Fluffy” Sweet Potatoes',
     3002: '“Steadfast” Ginger Cookies',
@@ -227,7 +232,9 @@ export default {
     3017: '“Explosion” Popcorn',
     3018: '“Teatime” Corn Scones',
     3019: '“Petal Dance” Chocolate Tart',
-    3020: '“Flower Gift” Macarons'
+    3020: '“Flower Gift” Macarons',
+    3021: '“Early Bird” Coffee Jelly',
+    3022: '“Zing Zap” Spiced Cola'
   },
   'POKEMON_NAME': {
     1: 'Bulbasaur',
@@ -375,7 +382,16 @@ export default {
     913: 'Quaxwell',
     914: 'Quaquaval',
     9001: 'Pikachu (Halloween)',
-    9002: 'Pikachu (Festivo)'
+    9002: 'Pikachu (Festivo)',
+    304: 'Aron',
+    305: 'Lairon',
+    306: 'Aggron',
+    403: 'Shinx',
+    404: 'Luxio',
+    405: 'Luxray',
+    736: 'Grubbin',
+    737: 'Charjabug',
+    738: 'Vikavolt'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -634,6 +650,15 @@ export default {
     264: '髮亂亂睡',
     265: '夢中起舞睡',
     266: '浮在泥上睡',
-    267: '北風睡'
+    267: '北風睡',
+    268: '拉拉舒展睡',
+    269: '吃鐵睡',
+    270: '電光睡',
+    271: '縮縮舒展睡',
+    272: '前翹後翹睡',
+    273: '埋埋睡',
+    274: '懸停睡',
+    275: '肚子發電睡',
+    276: '耿鬼睡'
   }
 }
