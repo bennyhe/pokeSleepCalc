@@ -24,7 +24,7 @@ const pageData = ref({
   lv: 60,
   curPageIndex: 1,
   pageSize: 102,
-  areaBonus: 60,
+  areaBonus: areaBonusMax,
   collapseActName: 'food'
 })
 const foodResRank = ref({})

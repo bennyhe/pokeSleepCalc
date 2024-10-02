@@ -5,7 +5,7 @@ import map4 from './gameMap/4.js'
 import map5 from './gameMap/5.js'
 import map6 from './gameMap/6.js'
 
-export const areaBonusMax = 60
+export const areaBonusMax = 75
 export const mapSplitVer = '2.5.2'
 export const gameMap = [
   map1,
