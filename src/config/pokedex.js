@@ -1948,7 +1948,9 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 2,
-    helpSpeed: 4200
+    helpSpeed: 4200,
+    foodPer: 27.7,
+    skillPer: 4.8
   },
   306: {
     id: 306,
@@ -2212,7 +2214,9 @@ const pokedex = {
     skillType: 11,
     pokeType: 2,
     berryType: 13,
-    helpSpeed: 3200
+    helpSpeed: 3200,
+    foodPer: 18.2,
+    skillPer: 1.8
   },
   405: {
     id: 405,
@@ -2519,7 +2523,9 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 9,
-    helpSpeed: 3300
+    helpSpeed: 3300,
+    foodPer: 15.4,
+    skillPer: 2.8
   },
   738: {
     id: 738,
@@ -2529,7 +2535,9 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 9,
-    helpSpeed: 2800
+    helpSpeed: 2800,
+    foodPer: 19.4,
+    skillPer: 5.1
   },
   759: {
     id: 759,
