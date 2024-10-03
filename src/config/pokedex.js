@@ -1922,23 +1922,23 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 2,
-    helpSpeed: 5700
-    // foodPer: 18.87,
-    // skillPer: 6.79,
-    // food: {
-    //   type: [10, 2, 13],
-    //   count: {
-    //     10: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 2, 3]
-    //     },
-    //     13: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    helpSpeed: 5700,
+    foodPer: 27.3,
+    skillPer: 4.6,
+    food: {
+      type: [7, 17, 15],
+      count: {
+        7: {
+          num: [2, 5, 7]
+        },
+        17: {
+          num: [0, 3, 5]
+        },
+        15: {
+          num: [0, 0, 7]
+        }
+      }
+    }
   },
   305: {
     id: 305,
@@ -2186,23 +2186,23 @@ const pokedex = {
     skillType: 11,
     pokeType: 2,
     berryType: 13,
-    helpSpeed: 4400
-    // foodPer: 18.87,
-    // skillPer: 6.79,
-    // food: {
-    //   type: [10, 2, 13],
-    //   count: {
-    //     10: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 2, 3]
-    //     },
-    //     13: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    helpSpeed: 4400,
+    foodPer: 18.1,
+    skillPer: 1.8,
+    food: {
+      type: [12, 10, 17],
+      count: {
+        12: {
+          num: [2, 5, 7]
+        },
+        10: {
+          num: [0, 4, 7]
+        },
+        17: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   404: {
     id: 404,
@@ -2493,23 +2493,23 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 9,
-    helpSpeed: 4600
-    // foodPer: 18.87,
-    // skillPer: 6.79,
-    // food: {
-    //   type: [10, 2, 13],
-    //   count: {
-    //     10: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 2, 3]
-    //     },
-    //     13: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    helpSpeed: 4600,
+    foodPer: 15.5,
+    skillPer: 2.9,
+    food: {
+      type: [17, 2, 9],
+      count: {
+        17: {
+          num: [2, 5, 7]
+        },
+        2: {
+          num: [0, 4, 7]
+        },
+        9: {
+          num: [0, 0, 11]
+        }
+      }
+    }
   },
   737: {
     id: 737,
@@ -2524,7 +2524,7 @@ const pokedex = {
   738: {
     id: 738,
     // name: '鍬農炮蟲',
-    friendship: 20,
+    friendship: 22,
     sleepType: 1,
     skillType: 1,
     pokeType: 2,
