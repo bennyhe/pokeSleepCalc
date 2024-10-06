@@ -27,7 +27,7 @@ const pageData = ref({
   isActRandom: false,
   upIdsSmall: {
     upType: 'small',
-    ids: []
+    ids: [304, 305, 306, 403, 404, 405, 736, 737, 738]
   },
   upIdsMid: {
     upType: 'mid',

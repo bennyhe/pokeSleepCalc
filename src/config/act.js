@@ -1,6 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 194, 195], // 不进保底
+  noLastList: [243, 244, 245, 35, 36, 173, 194, 195, 304, 305, 306, 403, 404, 405, 736, 737, 738], // 不进保底
   probabilityLastList: [] //概率进保底
 }
 export const SLEEP_CALC_UP = {
@@ -78,5 +78,13 @@ export const ACT_LIST = [
   //   endTime: 1726775999000,
   //   notArea: [],
   //   midUp: [35, 36, 173]
-  // }
+  // },
+  {
+    name: '黃金舊發電廠登場企畫',
+    namejp: 'ゴールド旧発電所登場キャンペーン',
+    startTime: 1728244800000,
+    endTime: 1729454399000,
+    notArea: [1, 2, 3, 4],
+    smallUp: [304, 305, 306, 403, 404, 405, 736, 737, 738]
+  }
 ]
