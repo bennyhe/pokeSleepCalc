@@ -31,6 +31,6 @@ export const map5ScoreList = [{ catchNum: 3, startscore: 0, endscore: 3153519 },
 export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 5977200 },
   { catchNum: 4, startscore: 6056666, endscore: 14310100 },
   { catchNum: 5, startscore: 14363859, endscore: 30491700 },
-  { catchNum: 6, startscore: 30491900, endscore: 49831300 },
-  { catchNum: 7, startscore: 49983200, endscore: 96637014 },
-  { catchNum: 8, startscore: 98447000 }]
+  { catchNum: 6, startscore: 30491900, endscore: 49886280 },
+  { catchNum: 7, startscore: 49918886, endscore: 97324200 },
+  { catchNum: 8, startscore: 97395900 }]
