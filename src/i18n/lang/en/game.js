@@ -88,7 +88,8 @@ export default {
     12: 'Type Boost S',
     13: 'Metronome',
     14: 'Tasty Chance S',
-    15: 'Helper Boost'
+    15: 'Helper Boost',
+    16: 'Stockpile (Charge Strength S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -389,6 +390,8 @@ export default {
     403: 'Shinx',
     404: 'Luxio',
     405: 'Luxray',
+    425: 'Drifloon',
+    426: 'Drifblim',
     736: 'Grubbin',
     737: 'Charjabug',
     738: 'Vikavolt'
@@ -659,6 +662,9 @@ export default {
     273: '埋埋睡',
     274: '懸停睡',
     275: '肚子發電睡',
-    276: '耿鬼睡'
+    276: '耿鬼睡',
+    277: '旋轉睡',
+    278: '連哄帶睡',
+    279: '大旋轉睡'
   }
 }

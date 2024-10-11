@@ -155,7 +155,8 @@ export const SKILL_TYPES = {
   12: '屬性加速S',
   13: '揮指',
   14: '料理成功S',
-  15: '幫手加速（属性）'
+  15: '幫手加速（属性）',
+  16: '蓄力（能量填充S）'
 }
 export const SUBSKILLS_NAMES = {
   1: '樹果數量S',
