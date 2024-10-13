@@ -188,9 +188,23 @@ const handleClickChangeMap = id => {
 //   }
 // }
 // console.log(newArr.sort((a, b) =>a - b))
+const dateTime1 = ref('')
+const defaultTime1 = [
+  new Date(2000, 1, 1, 3, 59, 59),
+  new Date(2000, 2, 1, 4, 0, 0)
+]
 </script>
 
 <template>
+  {{ new Date(dateTime1[0]).getTime() }}
+  {{ new Date(dateTime1[1]).getTime() }}
+  <el-date-picker
+      v-model="dateTime1"
+      type="datetimerange"
+      start-placeholder="Start Date"
+      end-placeholder="End Date"
+      :default-time="defaultTime1"
+    />
   <el-form label-width="90px">
     <!-- S 当前岛屿 -->
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
