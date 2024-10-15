@@ -61,7 +61,7 @@ export const ACT_LIST = [
     startTime: 1728244800000,
     endTime: 1729454399000,
     notArea: [1, 2, 3, 4],
-    smallUp: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426]
+    smallUp: [304, 403, 736, 425]
   },
   {
     name: '黃金舊發電廠登場企畫&好眠日',
@@ -69,7 +69,7 @@ export const ACT_LIST = [
     startTime: 1729022399000,
     endTime: 1729108800000,
     notArea: [],
-    smallUp: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426],
+    smallUp: [304, 403, 736, 425],
     midUp: [35, 36, 173]
   },
   {
@@ -78,7 +78,7 @@ export const ACT_LIST = [
     startTime: 1729108799000,
     endTime: 1729195200000,
     notArea: [],
-    smallUp: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426],
+    smallUp: [304, 403, 736, 425],
     largeUp: [35, 36, 173]
   },
   {
@@ -87,7 +87,7 @@ export const ACT_LIST = [
     startTime: 1729195199000,
     endTime: 1729281600000,
     notArea: [],
-    smallUp: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426],
+    smallUp: [304, 403, 736, 425],
     midUp: [35, 36, 173]
   }
 ]
