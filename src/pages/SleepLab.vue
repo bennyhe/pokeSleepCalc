@@ -190,8 +190,8 @@ const handleClickChangeMap = id => {
 // console.log(newArr.sort((a, b) =>a - b))
 const dateTime1 = ref('')
 const defaultTime1 = [
-  new Date(2000, 1, 1, 3, 59, 59),
-  new Date(2000, 2, 1, 4, 0, 0)
+  new Date(2000, 1, 1, 4, 0, 0),
+  new Date(2000, 2, 1, 3, 59, 59)
 ]
 </script>
 
