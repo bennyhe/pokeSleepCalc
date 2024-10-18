@@ -873,18 +873,30 @@ const getQuickChangeSleepPoint = () => {
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
-          <el-radio :label="1.5">{{ $t("OPTIONS.sleepDay") }}*1.5倍</el-radio>
-          <el-radio :label="2">{{ $t("OPTIONS.fullMoon") }}*2倍</el-radio>
+          <el-radio :label="1.5"
+            ><SvgIcon type="moonNight" size="mid" />{{
+              $t("OPTIONS.sleepDay")
+            }}*1.5倍</el-radio
+          >
+          <el-radio :label="2"
+            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.4" />{{
+              $t("OPTIONS.fullMoon")
+            }}*2倍</el-radio
+          >
           <el-radio :label="2.5"
-            >{{ $t("OPTIONS.fullMoon") }}*2.5倍({{
-              $t("OPTIONS.Wed")
-            }})</el-radio
+            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.6" />{{
+              $t("OPTIONS.fullMoon")
+            }}*2.5倍({{ $t("OPTIONS.Wed") }})</el-radio
           >
           <el-radio :label="3"
-            >{{ $t("OPTIONS.fullMoon") }}*3倍({{ $t("OPTIONS.Tue") }})</el-radio
+            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.8" />{{
+              $t("OPTIONS.fullMoon")
+            }}*3倍({{ $t("OPTIONS.Tue") }})</el-radio
           >
           <el-radio :label="4"
-            >{{ $t("OPTIONS.fullMoon") }}*4倍({{ $t("OPTIONS.Mon") }})</el-radio
+            ><SvgIcon type="moonFull" size="mid" />{{
+              $t("OPTIONS.fullMoon")
+            }}*4倍({{ $t("OPTIONS.Mon") }})</el-radio
           >
         </el-radio-group>
       </el-form-item>

@@ -78,6 +78,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 5. [https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/](https://www.veryicon.com/icons/commerce-shopping/basic-editing-data-user-shopping-science/)
 6. [https://www.veryicon.com/icons/miscellaneous/huihon_iconfont/box-51.html](https://www.veryicon.com/icons/miscellaneous/huihon_iconfont/box-51.html)
 7. [https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html](https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html)
+8. [https://www.veryicon.com/icons/weather/weather-icon-18/night-20.html](https://www.veryicon.com/icons/weather/weather-icon-18/night-20.html)
+9. [https://www.veryicon.com/icons/weather/weather-icon-18/full-moon-7.html](https://www.veryicon.com/icons/weather/weather-icon-18/full-moon-7.html)
 
 ## Github提交规范约束
 1. feat: 提交新功能
