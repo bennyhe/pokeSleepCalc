@@ -173,10 +173,10 @@ const handleClickChangeStage = stageItem => {
 const getScore = point => {
   return userData.value.CurEnergy * point * userData.value.times
 }
-const getFirstSleepScore = () => {
+const getFirstSleepScore = cutNum => {
+  cutNum = cutNum || userData.value.cutNum
   let res =
-    gameMap[userData.value.curMap].scoreList[userData.value.cutNum - 3]
-      .startscore /
+    gameMap[userData.value.curMap].scoreList[cutNum - 3].startscore /
     userData.value.CurEnergy /
     userData.value.times
   // 有小数位就进1
@@ -921,6 +921,45 @@ const getQuickChangeSleepPoint = () => {
               :max="getSleepCatchNum(99)"
               :step="1"
             />匹で分割睡眠
+            <div
+              class="mt3"
+              style="width: 100%"
+              v-if="
+                userData.CurEnergy > 0 &&
+                getNumberInMap(
+                  getScore(100),
+                  gameMap[userData.curMap].scoreList
+                ) > 3
+              "
+            >
+              <el-radio-group
+                v-model="userData.cutNum"
+                size="small"
+                fill="#4caf50"
+              >
+                <template
+                  v-for="(cItem, cKey) in getSleepCatchNum(99)"
+                  v-bind:key="cKey"
+                >
+                  <template v-if="cKey >= 3">
+                    <el-radio-button :label="cItem">
+                      {{
+                        cItem +
+                        getNumberInMap(
+                          getScore(100 - getFirstSleepScore(cItem)),
+                          gameMap[userData.curMap].scoreList
+                        )
+                      }}{{ $t("OPTIONS.one") }}({{ cItem }}+{{
+                        getNumberInMap(
+                          getScore(100 - getFirstSleepScore(cItem)),
+                          gameMap[userData.curMap].scoreList
+                        )
+                      }})
+                    </el-radio-button>
+                  </template>
+                </template>
+              </el-radio-group>
+            </div>
           </el-form-item>
           <el-form-item
             label="第1回目寝"
@@ -1023,6 +1062,45 @@ const getQuickChangeSleepPoint = () => {
               :max="getSleepCatchNum(99)"
               :step="1"
             />只拆分睡眠
+            <div
+              class="mt3"
+              style="width: 100%"
+              v-if="
+                userData.CurEnergy > 0 &&
+                getNumberInMap(
+                  getScore(100),
+                  gameMap[userData.curMap].scoreList
+                ) > 3
+              "
+            >
+              <el-radio-group
+                v-model="userData.cutNum"
+                size="small"
+                fill="#4caf50"
+              >
+                <template
+                  v-for="(cItem, cKey) in getSleepCatchNum(99)"
+                  v-bind:key="cKey"
+                >
+                  <template v-if="cKey >= 3">
+                    <el-radio-button :label="cItem">
+                      {{
+                        cItem +
+                        getNumberInMap(
+                          getScore(100 - getFirstSleepScore(cItem)),
+                          gameMap[userData.curMap].scoreList
+                        )
+                      }}{{ $t("OPTIONS.one") }}({{ cItem }}+{{
+                        getNumberInMap(
+                          getScore(100 - getFirstSleepScore(cItem)),
+                          gameMap[userData.curMap].scoreList
+                        )
+                      }})
+                    </el-radio-button>
+                  </template>
+                </template>
+              </el-radio-group>
+            </div>
           </el-form-item>
           <el-form-item
             label="第1觉"
