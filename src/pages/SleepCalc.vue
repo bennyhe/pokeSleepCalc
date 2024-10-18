@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, computed, ref } from 'vue'
+import { Place } from '@element-plus/icons-vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -718,7 +719,87 @@ const getQuickChangeSleepPoint = () => {
     </div>
     <el-form label-width="90px">
       <!-- S 当前岛屿 -->
-      <el-form-item :label="$t('OPTIONS.formLableCurIland')">
+      <el-form-item>
+        <template #label
+          ><el-popover
+            placement="bottom"
+            :title="`${$t(
+              `ILAND.${gameMap[userData.curMap].id}`
+            )} UNLOCK POKEMONS`"
+            trigger="click"
+            :width="360"
+            :key="`MAPPOKEMONS`"
+          >
+            <template #reference>
+              <div>
+                <el-icon size="16" style="vertical-align: middle"
+                  ><Place /></el-icon
+                >{{ $t("OPTIONS.formLableCurIland") }}
+              </div>
+            </template>
+            <div
+              class="map-pokemons"
+              v-bind:key="`pomap_${gameMap[userData.curMap].id}`"
+            >
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 5.5em"></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template
+                    v-for="(levelVal, levelKey) in gameMap[0].levelList"
+                    v-bind:key="levelVal.id"
+                  >
+                    <tr v-if="levelKey <= 23">
+                      <td>
+                        <img
+                          class="icon"
+                          v-lazy="
+                            `./img/ui/${getStageLevelPicId(levelVal.name)}.png`
+                          "
+                        />
+                        {{ $t(`LEVEL_TITLE.${levelVal.nameId}`)
+                        }}{{ levelVal.nameIndex }}
+                      </td>
+                      <td
+                        class="map-pokemons__item"
+                        v-bind:key="`pomap_${
+                          gameMapPokemons[userData.curMap].id
+                        }`"
+                      >
+                        <template
+                          v-if="
+                            gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ] &&
+                            gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ].length > 0
+                          "
+                        >
+                          <span
+                            class="cpt-avatar"
+                            v-for="pokeItem in gameMapPokemons[userData.curMap]
+                              .levelPokemons[levelKey]"
+                            v-bind:key="`map_${levelKey}_${pokeItem}`"
+                          >
+                            <img
+                              class="cpt-avatar__pic"
+                              v-lazy="`./img/pokedex/${pokeItem}.png`"
+                              :alt="$t(`POKEMON_NAME.${pokeItem}`)"
+                            />
+                          </span>
+                        </template>
+                      </td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
+            </div> </el-popover
+        ></template>
         <ul class="cpt-select-list cpt-select-list--iland">
           <li
             class="cpt-select-list__item"
@@ -756,77 +837,6 @@ const getQuickChangeSleepPoint = () => {
               :alt="mapItem.name"
             />
           </li>
-          <!-- <li class="cpt-select-list__item">
-            <el-popover
-              placement="bottom"
-              title="MAP"
-              trigger="click"
-              :width="360"
-              :key="`MAPPOKEMONS`"
-            >
-              <template #reference>
-                <el-button size="small">MAP</el-button>
-              </template>
-              <div class="map-pokemons">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style="width: 5.5em"></th>
-                      <th
-                        v-for="(gItem, gkey) in gameMapPokemons"
-                        v-bind:key="`pomap_${gameMap[gkey].id}`"
-                      >
-                        {{ $t(`ILAND.${gameMap[gkey].id}`) }}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <template
-                      v-for="(ggItem, ggkey) in gameMap[0].levelList"
-                      v-bind:key="ggItem.id"
-                    >
-                      <tr v-if="ggkey <= 23">
-                        <td>
-                          <img
-                            class="icon"
-                            v-lazy="
-                              `./img/ui/${getStageLevelPicId(ggItem.name)}.png`
-                            "
-                          />
-                          {{ $t(`LEVEL_TITLE.${ggItem.nameId}`)
-                          }}{{ ggItem.nameIndex }}
-                        </td>
-                        <td
-                          class="map-pokemons__item"
-                          v-for="(gItem, gkey) in gameMapPokemons"
-                          v-bind:key="`pomap_${gameMap[gkey].id}`"
-                        >
-                          <template
-                            v-if="
-                              gItem.levelPokemons[ggkey] &&
-                              gItem.levelPokemons[ggkey].length > 0
-                            "
-                          >
-                            <span
-                              class="cpt-avatar"
-                              v-for="pokeItem in gItem.levelPokemons[ggkey]"
-                              v-bind:key="`map_${stageKey}_${pokeItem}`"
-                            >
-                              <img
-                                class="cpt-avatar__pic"
-                                v-lazy="`./img/pokedex/${pokeItem}.png`"
-                                :alt="$t(`POKEMON_NAME.${pokeItem}`)"
-                              />
-                            </span>
-                          </template>
-                        </td>
-                      </tr>
-                    </template>
-                  </tbody>
-                </table>
-              </div>
-            </el-popover>
-          </li> -->
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->

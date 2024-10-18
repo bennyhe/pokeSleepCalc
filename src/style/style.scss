@@ -1395,11 +1395,14 @@ h3 {
 
 .map-pokemons {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
   &__item {
-    border: 1px solid #d1d1d1;
+    border: 1px dashed rgba($color: #d1d1d1, $alpha: .5);
   }
-  table {
-    width: 1280px
+
+  tbody td {
+    padding: 2px;
   }
 }
 
