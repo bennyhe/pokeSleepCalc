@@ -32,7 +32,8 @@ import {
   sortInObjectOptions,
   getDecimalNumber,
   getRandomArr,
-  calcPositions
+  calcPositions,
+  fnAccumulation
 } from '../utils/index.js'
 import { feedSandslash, getRandomIV } from '../utils/game.js'
 
@@ -73,7 +74,15 @@ const userSleep = ref({
   showDetailShiny: false,
   isFirst243: true,
   isFirst244: true,
-  isFirst245: true
+  isFirst245: true,
+  accumulation: {
+    exp: 0,
+    shards: 0
+  },
+  accumulationMulti: {
+    exp: 0,
+    shards: 0
+  }
 })
 const pageData = ref({
   showMoreMathExp: false
@@ -367,7 +376,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
   })
   calcPositions(res)
-  // console.log(res)
+  userSleep.value.accumulation = {
+    exp: fnAccumulation(res, 'exp'),
+    shards: fnAccumulation(res, 'shards')
+  }
   catchPokeState.value.eatTimes = {} //重置吃饱判定
   catchPokeState.value.hasBall = {
     ...catchPokeState.value.hasBall,
@@ -397,7 +409,7 @@ const getSleepStyle = () => {
 
 const getTimes = 4000
 const hopeList = ref([])
-const getRandomHopeWithMultiCb = res => {
+const getRandomHopeWithMultiCb = (res, acc) => {
   // setAndGetRandomSleepStyle(
   //   getScore(randomSleepStyle.value.sleepPoint),
   //   userData.value.curStageIndex
@@ -405,6 +417,7 @@ const getRandomHopeWithMultiCb = res => {
   console.log(res)
   userData.value.isMoreCalcLoading = false
   hopeList.value = res
+  userSleep.value.accumulationMulti = acc
 }
 
 const handleClickSleepMoreTimes = () => {
@@ -1556,7 +1569,7 @@ const getQuickChangeSleepPoint = () => {
                 ) +
                 (userData.useIncensePokemonId ? 1 : 0) +
                 (userData.isUseTicket ? 1 : 0)
-              }}种)</span
+              }}种, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{userSleep.accumulation.exp}}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{userSleep.accumulation.shards}})</span
             >
           </h3>
           <div
@@ -1841,6 +1854,10 @@ const getQuickChangeSleepPoint = () => {
                     getNum(getScore(randomSleepStyle.sleepPoint))
                   }}</span
                   >分)
+                  <p>
+                    <img class="icon" v-lazy="`./img/ui/exp.png`" /><span class="sptime">{{getDecimalNumber(userSleep.accumulationMulti.exp / getTimes, 2)}}</span>
+                    <img class="icon" v-lazy="`./img/ui/shards.png`" /><span class="sptime">{{getDecimalNumber(userSleep.accumulationMulti.shards / getTimes, 2)}}</span>
+                  </p>
                 </div>
               </div>
               <div class="poke-tb poke-tb--4000 poke-tb--xscorll">

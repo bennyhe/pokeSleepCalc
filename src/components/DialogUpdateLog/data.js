@@ -2,7 +2,8 @@ const markdownText = `
 # 更新日志
 
 ## 24-10-20
-1. update 视觉样式
+1. add 睡姿抽取-显示研究exp和梦碎
+2. update 视觉样式
 
 ## 24-10-18
 1. add 睡眠计算-当前地图的快速指南

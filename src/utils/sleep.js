@@ -6,7 +6,8 @@ import {
   sortInObjectOptions,
   getRandomArr,
   getNumberInMap,
-  get
+  get,
+  fnAccumulation
 } from '../utils/index.js'
 export function getUnLockSleeps(levelList, curStageIndex) {
   let unLockSleeps = []
@@ -464,6 +465,10 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
   getTimes = getTimes || 4000
   let orgList = []
   const lastGetList = []
+  const acc = {
+    exp: 0,
+    shards: 0
+  }
   for (let i = 0; i < getTimes; i++) {
     const curGetRes = getRandomSleepStyle(
       mapData,
@@ -476,6 +481,10 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
       ...orgList,
       ...curGetRes
     ]
+    if (!extraSleepStyleOptions.isNoMoreData) {
+      acc.exp = acc.exp += fnAccumulation(curGetRes, 'exp')
+      acc.shards = acc.shards += fnAccumulation(curGetRes, 'shards')
+    }
     if (!lastGetList.includes(curGetRes[curGetRes.length - 1].id)) {
       lastGetList.push(curGetRes[curGetRes.length - 1].id)
     }
@@ -531,13 +540,15 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
   }
   res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
 
+  // console.log(acc)
   if (callback) {
-    callback(res)
+    callback(res, acc)
   }
 
   return {
     lastGetList,
-    res
+    res,
+    acc
   }
   // console.log({
   //   res,
