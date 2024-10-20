@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { Place } from '@element-plus/icons-vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
@@ -325,9 +326,16 @@ const handleClickFilterPokes = (typeKey, val) => {
 
 <template>
   <h2>{{ $t("PAGE_TITLE.onedayenergy", [pageData.lv]) }}</h2>
-  <el-form label-width="82px">
+  <el-form label-width="4.5em">
     <!-- S 当前岛屿 -->
-    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
+    <el-form-item>
+      <template #label>
+        <div>
+          <el-icon size="16" style="vertical-align: middle"
+            ><Place /></el-icon
+          >{{ $t("OPTIONS.formLableCurIland") }}
+        </div>
+      </template>
       <ul class="cpt-select-list cpt-select-list--iland">
         <template v-for="(mapItem, mapIndex) in newGameMap">
           <li

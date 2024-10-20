@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
+import { Place } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
@@ -1329,7 +1330,13 @@ watch(helpSpeedCalcForm.value, val => {
         </template>
       </ul>
     </el-form-item>
-    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
+    <el-form-item>
+      <template #label>
+        <div>
+          <el-icon size="16" style="vertical-align: middle"><Place /></el-icon
+          >{{ $t("OPTIONS.formLableCurIland") }}
+        </div>
+      </template>
       <el-switch
         v-if="navData.navIndex === 0"
         v-model="helpSpeedCalcForm.isRightBerry"
@@ -1671,12 +1678,12 @@ watch(helpSpeedCalcForm.value, val => {
           <i class="i i-close" @click="handleClickDelPoke(pokeItem.dataId)"></i>
         </CptEnergyItem>
       </div>
-      <div class="cpt-empty" v-else>{{$t('OPTIONS.noHasPokemons')}}</div>
+      <div class="cpt-empty" v-else>{{ $t("OPTIONS.noHasPokemons") }}</div>
       <div
         class="cpt-empty"
         v-if="getBoxCurEnergy(userPokemons.list, true).length === 0"
       >
-        {{$t('OPTIONS.noHasPokemons')}}
+        {{ $t("OPTIONS.noHasPokemons") }}
       </div>
     </div>
     <div v-if="navData.navIndex === 2">
@@ -1820,7 +1827,7 @@ watch(helpSpeedCalcForm.value, val => {
           ></i>
         </CptEnergyItem>
       </div>
-      <div class="cpt-empty" v-else>{{$t('OPTIONS.noHasPokemons')}}</div>
+      <div class="cpt-empty" v-else>{{ $t("OPTIONS.noHasPokemons") }}</div>
     </div>
   </div>
   <div class="page-inner cpt-tips">
