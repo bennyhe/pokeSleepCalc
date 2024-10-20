@@ -17,7 +17,7 @@ import { ACT_LIST, SLEEP_CALC_CONFIG } from '../config/act.js'
 import {
   getUnLockSleeps,
   getRandomSleepStyle,
-  getRandomHope,
+  getRandomHopeWithMulti,
   getLevelIndexByEnergy,
   getSPOById,
   checkListInLastGet
@@ -397,12 +397,12 @@ const getSleepStyle = () => {
 
 const getTimes = 4000
 const hopeList = ref([])
-const getRandomHopeCb = res => {
+const getRandomHopeWithMultiCb = res => {
   // setAndGetRandomSleepStyle(
   //   getScore(randomSleepStyle.value.sleepPoint),
   //   userData.value.curStageIndex
   // )
-  // console.log(res)
+  console.log(res)
   userData.value.isMoreCalcLoading = false
   hopeList.value = res
 }
@@ -439,7 +439,7 @@ const handleClickSleepMoreTimes = () => {
       upIdsMid.ids = nowAct.value.midUp
       upIdsLarge.ids = nowAct.value.largeUp
     }
-    getRandomHope(
+    getRandomHopeWithMulti(
       gameMap[userData.value.curMap],
       userData.value.curUnLockSleepType,
       getScore(randomSleepStyle.value.sleepPoint),
@@ -452,7 +452,7 @@ const handleClickSleepMoreTimes = () => {
         upIdsMid,
         upIdsLarge
       },
-      getRandomHopeCb
+      getRandomHopeWithMultiCb
     )
   }
 }

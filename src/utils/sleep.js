@@ -460,7 +460,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 }
 
 // x次期望分析
-export function getRandomHope(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
+export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   getTimes = getTimes || 4000
   let orgList = []
   const lastGetList = []

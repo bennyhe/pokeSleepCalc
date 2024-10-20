@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import {
-  getRandomHope,
+  getRandomHopeWithMulti,
   getLevelIndexByEnergy,
   getSPOById
 } from '../utils/sleep.js'
@@ -45,7 +45,7 @@ const testData = ref([])
 const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType
   mapId = mapId || pageData.value.curMap
-  return getRandomHope(
+  return getRandomHopeWithMulti(
     gameMap[mapId],
     mapSleepType,
     allPoint,
