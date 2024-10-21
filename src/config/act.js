@@ -1,6 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 194, 195, 304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426], // 不进保底
+  noLastList: [243, 244, 245, 35, 36, 173, 304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426], // 不进保底
   probabilityLastList: [] //概率进保底
 }
 export const SLEEP_CALC_UP = {
@@ -9,10 +9,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [9001], // ban 宝可梦id
+  showBanArea: [0] // 展示区域
 }
 export const ACT_LIST = [
   // {
@@ -55,39 +55,39 @@ export const ACT_LIST = [
   //   notArea: [],
   //   smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
   // },
-  {
-    name: '黃金舊發電廠登場企畫&好眠日',
-    namejp: 'ゴールド旧発電所登場キャンペーン&満月の前後の日',
-    startTime: 1729022400000,
-    endTime: 1729108799000,
-    notArea: [],
-    smallUp: [304, 403, 736, 425],
-    midUp: [35, 36, 173]
-  },
-  {
-    name: '黃金舊發電廠登場企畫&满月日',
-    namejp: '黃金舊發電廠登場企畫ゴールド旧発電所登場キャンペーン&満月の日',
-    startTime: 1729108800000,
-    endTime: 1729195199000,
-    notArea: [],
-    smallUp: [304, 403, 736, 425],
-    largeUp: [35, 36, 173]
-  },
-  {
-    name: '黃金舊發電廠登場企畫&好眠日',
-    namejp: '黃金舊發電廠登場企畫ゴールド旧発電所登場キャンペーン&満月の前後の日',
-    startTime: 1729195200000,
-    endTime: 1729281599000,
-    notArea: [],
-    smallUp: [304, 403, 736, 425],
-    midUp: [35, 36, 173]
-  },
-  {
-    name: '黃金舊發電廠登場企畫',
-    namejp: 'ゴールド旧発電所登場キャンペーン',
-    startTime: 1729281600000,
-    endTime: 1729454399000,
-    notArea: [1, 2, 3, 4],
-    smallUp: [304, 403, 736, 425]
-  }
+  // {
+  //   name: '黃金舊發電廠登場企畫&好眠日',
+  //   namejp: 'ゴールド旧発電所登場キャンペーン&満月の前後の日',
+  //   startTime: 1729022400000,
+  //   endTime: 1729108799000,
+  //   notArea: [],
+  //   smallUp: [304, 403, 736, 425],
+  //   midUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '黃金舊發電廠登場企畫&满月日',
+  //   namejp: '黃金舊發電廠登場企畫ゴールド旧発電所登場キャンペーン&満月の日',
+  //   startTime: 1729108800000,
+  //   endTime: 1729195199000,
+  //   notArea: [],
+  //   smallUp: [304, 403, 736, 425],
+  //   largeUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '黃金舊發電廠登場企畫&好眠日',
+  //   namejp: '黃金舊發電廠登場企畫ゴールド旧発電所登場キャンペーン&満月の前後の日',
+  //   startTime: 1729195200000,
+  //   endTime: 1729281599000,
+  //   notArea: [],
+  //   smallUp: [304, 403, 736, 425],
+  //   midUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '黃金舊發電廠登場企畫',
+  //   namejp: 'ゴールド旧発電所登場キャンペーン',
+  //   startTime: 1729281600000,
+  //   endTime: 1729454399000,
+  //   notArea: [1, 2, 3, 4],
+  //   smallUp: [304, 403, 736, 425]
+  // }
 ]
