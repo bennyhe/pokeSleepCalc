@@ -1400,22 +1400,24 @@ const getQuickChangeSleepPoint = () => {
               userData.showBanArea.includes(userData.curMap) && userData.showBan
             "
           >
-            <el-checkbox v-model="userData.onOffBan" size="small"
-              >{{ $t("OPTIONS.getWithout")
-              }}<template
-                v-for="chItem in userData.banPokes"
-                v-bind:key="`ban${chItem}`"
-                ><span class="cpt-avatar">
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${chItem}.png`"
-                    :alt="$t(`POKEMON_NAME.${chItem}`)"
-                  /> </span
-                ><template v-if="userData.banPokes.length <= 3">{{
-                  $t(`POKEMON_NAME.${chItem}`)
-                }}</template></template
-              ></el-checkbox
-            >
+            <div class="act-random">
+              <el-checkbox v-model="userData.onOffBan" size="small"
+                >{{ $t("OPTIONS.getWithout")
+                }}<template
+                  v-for="chItem in userData.banPokes"
+                  v-bind:key="`ban${chItem}`"
+                  ><span class="cpt-avatar">
+                    <img
+                      class="cpt-avatar__pic"
+                      v-lazy="`./img/pokedex/${chItem}.png`"
+                      :alt="$t(`POKEMON_NAME.${chItem}`)"
+                    /> </span
+                  ><template v-if="userData.banPokes.length <= 3">{{
+                    $t(`POKEMON_NAME.${chItem}`)
+                  }}</template></template
+                ></el-checkbox
+              >
+            </div>
           </el-form-item>
         </el-form>
         <div class="page-inner mb3">
@@ -1569,7 +1571,11 @@ const getQuickChangeSleepPoint = () => {
                 ) +
                 (userData.useIncensePokemonId ? 1 : 0) +
                 (userData.isUseTicket ? 1 : 0)
-              }}种, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{userSleep.accumulation.exp}}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{userSleep.accumulation.shards}})</span
+              }}种, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
+                userSleep.accumulation.exp
+              }}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{
+                userSleep.accumulation.shards
+              }})</span
             >
           </h3>
           <div
@@ -1855,8 +1861,24 @@ const getQuickChangeSleepPoint = () => {
                   }}</span
                   >分)
                   <p>
-                    <img class="icon" v-lazy="`./img/ui/exp.png`" /><span class="sptime">{{getDecimalNumber(userSleep.accumulationMulti.exp / getTimes, 2)}}</span>
-                    <img class="icon" v-lazy="`./img/ui/shards.png`" /><span class="sptime">{{getDecimalNumber(userSleep.accumulationMulti.shards / getTimes, 2)}}</span>
+                    <img class="icon" v-lazy="`./img/ui/exp.png`" /><span
+                      class="sptime"
+                      >{{
+                        getDecimalNumber(
+                          userSleep.accumulationMulti.exp / getTimes,
+                          2
+                        )
+                      }}</span
+                    >
+                    <img class="icon" v-lazy="`./img/ui/shards.png`" /><span
+                      class="sptime"
+                      >{{
+                        getDecimalNumber(
+                          userSleep.accumulationMulti.shards / getTimes,
+                          2
+                        )
+                      }}</span
+                    >
                   </p>
                 </div>
               </div>

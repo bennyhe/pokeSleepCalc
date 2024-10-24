@@ -1,6 +1,6 @@
 import { map6ScoreList } from './scoreLine.js'
 export default {
-  // name: '宝蓝湖畔',
+  // name: '黃金舊發電廠',
   id: 'plant',
   pic: 'map6',
   berry: [13, 2, 8],
@@ -201,7 +201,8 @@ export default {
         '403-id-3',
         '404-id-2',
         '304-id-3',
-        '305-id-2'
+        '305-id-2',
+        '778-id-1'
       ]
     },
     {
@@ -264,7 +265,8 @@ export default {
       'energy': 810696,
       'sleepStyles': [
         '181-id-2',
-        '208-id-1'
+        '208-id-1',
+        '778-id-2'
       ]
     },
     {
@@ -282,7 +284,8 @@ export default {
         '910-id-3',
         '911-id-1',
         '913-id-3',
-        '914-id-1'
+        '914-id-1',
+        '778-id-4'
       ]
     },
     {
@@ -354,7 +357,8 @@ export default {
         '181-id-3',
         '908-id-4',
         '914-id-4',
-        '405-id-2'
+        '405-id-2',
+        '778-id-3'
       ]
     },
     {

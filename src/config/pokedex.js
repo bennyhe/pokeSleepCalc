@@ -1528,7 +1528,7 @@ const pokedex = {
     // name: '月亮伊布',
     friendship: 20,
     sleepType: 1,
-    skillType: 7,
+    skillType: 18,
     pokeType: 3,
     berryType: 17,
     helpSpeed: 3200,
@@ -2646,6 +2646,33 @@ const pokedex = {
       }
     }
   },
+  778: {
+    id: 778,
+    // name: '謎擬Ｑ',
+    friendship: 16,
+    sleepType: 1,
+    skillType: 17,
+    pokeType: 3,
+    berryType: 8,
+    helpSpeed: 2500,
+    berryType: 8
+    // foodPer: 13.90,
+    // skillPer: 2.20,
+    // food: {
+    //   type: [16, 11, 13],
+    //   count: {
+    //     16: {
+    //       num: [2, 5, 7]
+    //     },
+    //     11: {
+    //       num: [0, 6, 9]
+    //     },
+    //     13: {
+    //       num: [0, 0, 7]
+    //     }
+    //   }
+    // }
+  },
   845: {
     id: 845,
     // name: '古月鳥',
@@ -2830,7 +2857,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 13,
-    helpSpeed: 2600,
+    helpSpeed: 2500,
     berryType: 13,
     foodPer: 21.80,
     skillPer: 2.80
@@ -2896,7 +2923,7 @@ const updatePoke = [{
   pokemons: [245]
 }, {
   time: '2024/10/1',
-  pokemons: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426]
+  pokemons: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426, 778]
 }]
 // console.log(pokedex)
 export {

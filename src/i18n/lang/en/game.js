@@ -89,7 +89,9 @@ export default {
     13: 'Metronome',
     14: 'Tasty Chance S',
     15: 'Helper Boost',
-    16: 'Stockpile (Charge Strength S)'
+    16: 'Stockpile (Charge Strength S)',
+    17: 'Disguise (Berry Burst)',
+    18: 'Moonlight (Charge Energy S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -394,7 +396,8 @@ export default {
     426: 'Drifblim',
     736: 'Grubbin',
     737: 'Charjabug',
-    738: 'Vikavolt'
+    738: 'Vikavolt',
+    778: 'Mimikyu'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -665,6 +668,9 @@ export default {
     276: '耿鬼睡',
     277: '旋轉睡',
     278: '連哄帶睡',
-    279: '大旋轉睡'
+    279: '大旋轉睡',
+    280: '想窩起來睡',
+    281: '現形睡',
+    282: '仿效睡'
   }
 }
