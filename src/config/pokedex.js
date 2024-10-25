@@ -1533,7 +1533,7 @@ const pokedex = {
     berryType: 17,
     helpSpeed: 3200,
     foodPer: 21.90,
-    skillPer: 14.10
+    skillPer: 10.10
   },
   199: {
     id: 199,
@@ -1628,12 +1628,12 @@ const pokedex = {
     // name: '戴魯比',
     friendship: 5,
     sleepType: 1,
-    skillType: 1,
+    skillType: 2,
     pokeType: 1,
     berryType: 17,
     helpSpeed: 4900,
     foodPer: 20.10,
-    skillPer: 4.40,
+    skillPer: 3.70,
     food: {
       type: [6, 11, 1],
       count: {
@@ -1654,12 +1654,12 @@ const pokedex = {
     // name: '黑魯加',
     friendship: 12,
     sleepType: 1,
-    skillType: 1,
+    skillType: 2,
     pokeType: 1,
     berryType: 17,
     helpSpeed: 3300,
     foodPer: 20.30,
-    skillPer: 4.60
+    skillPer: 4
   },
   243: {
     id: 243,
