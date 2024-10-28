@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, computed, ref } from 'vue'
-import { Place } from '@element-plus/icons-vue'
+import { InfoFilled } from '@element-plus/icons-vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -745,9 +745,10 @@ const getQuickChangeSleepPoint = () => {
           >
             <template #reference>
               <div>
+                {{ $t("OPTIONS.formLableCurIland") }}
                 <el-icon size="16" style="vertical-align: middle"
-                  ><Place /></el-icon
-                >{{ $t("OPTIONS.formLableCurIland") }}
+                  ><InfoFilled
+                /></el-icon>
               </div>
             </template>
             <div
@@ -795,14 +796,30 @@ const getQuickChangeSleepPoint = () => {
                         >
                           <span
                             class="cpt-avatar"
-                            v-for="pokeItem in gameMapPokemons[userData.curMap]
+                            v-for="pokeId in gameMapPokemons[userData.curMap]
                               .levelPokemons[levelKey]"
-                            v-bind:key="`map_${levelKey}_${pokeItem}`"
+                            v-bind:key="`map_${levelKey}_${pokeId}`"
+                            :class="{
+                              'cpt-avatar--tl':
+                                get(
+                                  `timelimitPokemons[${
+                                    gameMap[userData.curMap].id
+                                  }]`,
+                                  nowAct,
+                                  1
+                                ) &&
+                                get(
+                                  `timelimitPokemons[${
+                                    gameMap[userData.curMap].id
+                                  }]`,
+                                  nowAct
+                                ).includes(pokeId),
+                            }"
                           >
                             <img
                               class="cpt-avatar__pic"
-                              v-lazy="`./img/pokedex/${pokeItem}.png`"
-                              :alt="$t(`POKEMON_NAME.${pokeItem}`)"
+                              v-lazy="`./img/pokedex/${pokeId}.png`"
+                              :alt="$t(`POKEMON_NAME.${pokeId}`)"
                             />
                           </span>
                         </template>
@@ -2166,6 +2183,17 @@ const getQuickChangeSleepPoint = () => {
                 :showKey="['sleepType']"
                 :curMap="userData.curMap"
                 :mapLevel="userData.curStageIndex"
+                :isShowTag="
+                  get(
+                    `timelimitPokemons[${gameMap[userData.curMap].id}]`,
+                    nowAct,
+                    1
+                  ) &&
+                  get(
+                    `timelimitPokemons[${gameMap[userData.curMap].id}]`,
+                    nowAct
+                  ).includes(sleepItem.pokeId)
+                "
               />
             </div>
           </template>
@@ -2181,6 +2209,17 @@ const getQuickChangeSleepPoint = () => {
               :sleepItem="sleepItem"
               :showKey="['sleepType']"
               :curMap="userData.curMap"
+              :isShowTag="
+                get(
+                  `timelimitPokemons[${gameMap[userData.curMap].id}]`,
+                  nowAct,
+                  1
+                ) &&
+                get(
+                  `timelimitPokemons[${gameMap[userData.curMap].id}]`,
+                  nowAct
+                ).includes(sleepItem.pokeId)
+              "
             />
           </div>
         </template>

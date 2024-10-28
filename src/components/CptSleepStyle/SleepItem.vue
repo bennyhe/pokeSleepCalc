@@ -31,6 +31,14 @@ const props = defineProps({
   showCptPoke: {
     type: [Boolean],
     default: true
+  },
+  isShowTag: {
+    type: [Boolean],
+    default: false
+  },
+  tagText: {
+    type: [String],
+    default: ''
   }
 })
 </script>
@@ -43,6 +51,9 @@ const props = defineProps({
       :showKey="showKey"
       :isShiny="sleepItem.isShiny"
     />
+    <div class="poke-tb__tag" v-if="isShowTag">
+      {{ tagText || $t("OPTIONS.timelimit") }}
+    </div>
     <div class="extra-desc">
       <p>
         <span class="star">{{ sleepItem.star }}✩</span>

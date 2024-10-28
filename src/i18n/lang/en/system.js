@@ -22,7 +22,8 @@ export default {
     'restart': 'RESTART',
     'noHas': '无',
     'noHasPokemons': '暂无宝可梦',
-    'calcRes': '计算结果'
+    'calcRes': '计算结果',
+    'timelimit': '活动限定'
   },
   'BTN': {
     'filter': 'FILTER',

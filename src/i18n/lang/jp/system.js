@@ -23,7 +23,8 @@ export default {
     'restart': 'RESTART',
     'noHas': 'ない',
     'noHasPokemons': '見つからなかったよ。ほかの条件で探してみよう。',
-    'calcRes': '計算結果'
+    'calcRes': '計算結果',
+    'timelimit': '期間限定'
   },
   'BTN': {
     'filter': '検索',
