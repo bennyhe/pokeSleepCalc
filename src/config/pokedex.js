@@ -2655,23 +2655,23 @@ const pokedex = {
     pokeType: 3,
     berryType: 8,
     helpSpeed: 2500,
-    berryType: 8
-    // foodPer: 13.90,
-    // skillPer: 2.20,
-    // food: {
-    //   type: [16, 11, 13],
-    //   count: {
-    //     16: {
-    //       num: [2, 5, 7]
-    //     },
-    //     11: {
-    //       num: [0, 6, 9]
-    //     },
-    //     13: {
-    //       num: [0, 0, 7]
-    //     }
-    //   }
-    // }
+    berryType: 8,
+    foodPer: 15.30,
+    skillPer: 3.30,
+    food: {
+      type: [5, 17, 2],
+      count: {
+        5: {
+          num: [1, 2, 4]
+        },
+        17: {
+          num: [0, 1, 2]
+        },
+        2: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   845: {
     id: 845,
