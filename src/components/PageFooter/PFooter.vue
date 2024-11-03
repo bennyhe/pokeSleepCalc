@@ -19,7 +19,7 @@ const handleClickShowSupport = () => {
 </script>
 <template>
   <div class="page-footer">
-    <p>工具建议&反馈以及交流Discord筹建中</p>
+    <!-- <p>工具建议&反馈以及交流Discord筹建中</p> -->
     <p>
       <a href="https://github.com/bennyhe/pokeSleepCalc" target="_blank"
         >Github
