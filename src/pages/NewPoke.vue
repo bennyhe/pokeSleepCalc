@@ -19,12 +19,12 @@ const getShowKeyVal = pokemonsItem => {
       // showKey.push('berry')
     } else if (res.pokeType === 2) {
       // 食材型
-      showKey.push('food')
+      showKey.push('food', 'foodPer')
     } 
-    // else if (res.pokeType === 3) {
-    //   // 技能型
-    //   showKey.push('skillType')
-    // }
+    else if (res.pokeType === 3) {
+      // 技能型
+      showKey.push('skillPer')
+    }
   }
   // console.log(showKey)
   return showKey
