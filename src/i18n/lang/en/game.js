@@ -74,12 +74,12 @@ export default {
     18: '櫻子果'
   },
   'SKILL_TYPES': {
-    1: 'Charge Strength S',
+    1: 'Charge Strength S(X)',
     2: 'Charge Strength M',
-    3: 'Dream Shard Magnet S',
+    3: 'Dream Shard Magnet S(X)',
     4: 'Energizing Cheer S',
-    5: 'Charge Strength S',
-    6: 'Dream Shard Magnet S',
+    5: 'Charge Strength S(X~Y)',
+    6: 'Dream Shard Magnet S(X~Y)',
     7: 'Charge Energy S',
     8: 'Energy for Everyone S',
     9: 'Extra Helpful S',
