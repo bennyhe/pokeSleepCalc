@@ -93,6 +93,7 @@ export const ACT_LIST = [
     notArea: [1, 2, 3, 4, 5],
     midUp: [92, 93, 94, 353, 354, 425, 426, 911],
     largeUp: [778, 9001],
+    // randomGetPercent: 30,
     timelimitPokemons: {
       'green': [426, 94, 911, 9001]
     }
