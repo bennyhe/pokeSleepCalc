@@ -50,19 +50,19 @@ export const ACT_LIST = [
   //   notArea: [],
   //   smallUp: [7, 8, 9, 54, 55, 79, 80, 134, 158, 159, 160, 194, 195, 199, 912, 913, 245]
   // }
-  {
-    name: '萬聖節2024：糖果倍增研究',
-    namejp: 'ハロウィン2024：ダブルアメリサーチ',
-    startTime: 1730059200000,
-    endTime: 1730663999000,
-    notArea: [1, 2, 3, 4, 5],
-    midUp: [92, 93, 94, 353, 354, 425, 426, 911],
-    largeUp: [778, 9001],
-    // randomGetPercent: 30,
-    timelimitPokemons: {
-      'green': [426, 94, 911, 9001]
-    }
-  },
+  // {
+  //   name: '萬聖節2024：糖果倍增研究',
+  //   namejp: 'ハロウィン2024：ダブルアメリサーチ',
+  //   startTime: 1730059200000,
+  //   endTime: 1730663999000,
+  //   notArea: [1, 2, 3, 4, 5],
+  //   midUp: [92, 93, 94, 353, 354, 425, 426, 911],
+  //   largeUp: [778, 9001],
+  //   // randomGetPercent: 30,
+  //   timelimitPokemons: {
+  //     'green': [426, 94, 911, 9001]
+  //   }
+  // },
   {
     name: '好眠日',
     namejp: '満月の前後の日',
