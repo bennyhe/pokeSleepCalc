@@ -69,7 +69,6 @@ export const ACT_LIST = [
     startTime: 1731614400000,
     endTime: 1731700799000,
     notArea: [],
-    smallUp: [304, 403, 736, 425],
     midUp: [35, 36, 173]
   },
   {
@@ -78,7 +77,6 @@ export const ACT_LIST = [
     startTime: 1731700800000,
     endTime: 1731787199000,
     notArea: [],
-    smallUp: [304, 403, 736, 425],
     largeUp: [35, 36, 173]
   },
   {
@@ -87,7 +85,6 @@ export const ACT_LIST = [
     startTime: 1731787200000,
     endTime: 1731873599000,
     notArea: [],
-    smallUp: [304, 403, 736, 425],
     midUp: [35, 36, 173]
   }
 ]
