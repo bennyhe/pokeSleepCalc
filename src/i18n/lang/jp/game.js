@@ -19,7 +19,8 @@ export default {
     'areaBonus': 'フィールドボーナス',
     'whistle': 'おてつだいホイッスル',
     'level': '評価',
-    'energy': 'エナジー'
+    'energy': 'エナジー',
+    'dpr': 'ねむけパワー'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

@@ -18,7 +18,8 @@ export default {
     'areaBonus': '营地加成',
     'whistle': '哨子',
     'level': '级别',
-    'energy': '能量'
+    'energy': '能量',
+    'dpr': '睡意之力'
   },
   'BALL_TYPES': {
     1:'宝可沙布雷',

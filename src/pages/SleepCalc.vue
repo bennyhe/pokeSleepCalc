@@ -77,11 +77,15 @@ const userSleep = ref({
   isFirst245: true,
   accumulation: {
     exp: 0,
-    shards: 0
+    shards: 0,
+    spo: 0,
+    spoValidity: 0
   },
   accumulationMulti: {
     exp: 0,
-    shards: 0
+    shards: 0,
+    spo: 0,
+    spoValidity: 0
   }
 })
 const pageData = ref({
@@ -377,8 +381,28 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   })
   calcPositions(res)
   userSleep.value.accumulation = {
+    ...userSleep.value.accumulation,
     exp: fnAccumulation(res, 'exp'),
-    shards: fnAccumulation(res, 'shards')
+    shards: fnAccumulation(res, 'shards'),
+    spo: fnAccumulation(res, 'spo'),
+    spoValidity: 0
+  }
+  if (
+    +userData.value.CurEnergy > 0 &&
+    getScore(randomSleepStyle.value.sleepPoint) > 38000
+  ) {
+    let accLength = res.length
+    if (userData.value.useIncensePokemonId) {
+      accLength -= 1
+    }
+    if (userData.value.isUseTicket) {
+      accLength -= 1
+    }
+    userSleep.value.accumulation.spoValidity = getPercent(
+      fnAccumulation(res.slice(0, accLength), 'spo'),
+      Math.floor(getScore(randomSleepStyle.value.sleepPoint) / 38000),
+      0
+    )
   }
   catchPokeState.value.eatTimes = {} //重置吃饱判定
   catchPokeState.value.hasBall = {
@@ -919,17 +943,17 @@ const getQuickChangeSleepPoint = () => {
             }}*1.5倍</el-radio
           >
           <el-radio :label="2"
-            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.4" />{{
+            ><SvgIcon type="moonFull" size="mid" :style="'opacity: 0.4'" />{{
               $t("OPTIONS.fullMoon")
             }}*2倍</el-radio
           >
           <el-radio :label="2.5"
-            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.6" />{{
+            ><SvgIcon type="moonFull" size="mid" :style="'opacity: 0.6'" />{{
               $t("OPTIONS.fullMoon")
             }}*2.5倍({{ $t("OPTIONS.Wed") }})</el-radio
           >
           <el-radio :label="3"
-            ><SvgIcon type="moonFull" size="mid" style="opacity: 0.8" />{{
+            ><SvgIcon type="moonFull" size="mid" :style="'opacity: 0.8'" />{{
               $t("OPTIONS.fullMoon")
             }}*3倍({{ $t("OPTIONS.Tue") }})</el-radio
           >
@@ -951,7 +975,7 @@ const getQuickChangeSleepPoint = () => {
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
                 ><span class="spscore">{{ getNum(getScore(100)) }}</span
-                >のねむけパワー獲得、</span
+                >の{{ $t("PROP.dpr") }}獲得、</span
               >約<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >げんき消費。
             </p>
@@ -1038,7 +1062,7 @@ const getQuickChangeSleepPoint = () => {
                       getNum(getTargetStartScore(getFirstSleepScore()))
                     }})</span
                   ></span
-                >のねむけパワー獲得、</span
+                >の{{ $t("PROP.dpr") }}獲得、</span
               >
               約<span class="vigour">{{
                 getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
@@ -1072,7 +1096,7 @@ const getQuickChangeSleepPoint = () => {
                 ><span class="spscore">{{
                   getNum(getScore(100 - getFirstSleepScore()))
                 }}</span
-                >のねむけパワー獲得、</span
+                >の{{ $t("PROP.dpr") }}獲得、</span
               >約<span class="vigour">{{
                 getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
               }}</span
@@ -1092,7 +1116,7 @@ const getQuickChangeSleepPoint = () => {
                 ><CptProcss :score="100" />分，获得<span class="spscore">{{
                   getNum(getScore(100))
                 }}</span
-                >睡意之力，</span
+                >{{ $t("PROP.dpr") }}</span
               >掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力
             </p>
@@ -1178,7 +1202,7 @@ const getQuickChangeSleepPoint = () => {
                       getNum(getTargetStartScore(getFirstSleepScore()))
                     }})</span
                   ></span
-                >+睡意之力，</span
+                >+{{ $t("PROP.dpr") }}</span
               >掉<span class="vigour">{{
                 getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
               }}</span
@@ -1210,7 +1234,7 @@ const getQuickChangeSleepPoint = () => {
                 ><CptProcss :score="100 - getFirstSleepScore()" />分，获得<span
                   class="spscore"
                   >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
-                >+睡意之力，</span
+                >+{{ $t("PROP.dpr") }}</span
               >掉<span class="vigour">{{
                 getLostVigour(
                   toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
@@ -1595,6 +1619,13 @@ const getQuickChangeSleepPoint = () => {
               }})</span
             >
           </h3>
+          <p style="font-size: 12px;" v-if="getScore(randomSleepStyle.sleepPoint) > 38000">
+            <template v-if="localeLangId === 'jp'"
+              >{{ $t("PROP.dpr") }}の有効性</template
+            ><template v-else>有效的{{ $t("PROP.dpr") }}: </template
+            ><span class="sptime">{{ userSleep.accumulation.spoValidity }}</span
+            >%
+          </p>
           <div
             class="cpt-tips"
             v-if="localeLangId === 'jp' && userSleep.count > 0"

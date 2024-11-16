@@ -18,7 +18,8 @@ export default {
     'areaBonus': 'Area bonus',
     'whistle': 'Whistle',
     'level': '評価',
-    'energy': 'エナジー'
+    'energy': 'エナジー',
+    'dpr': '睡意之力'
   },
   'BALL_TYPES': {
     1: 'Poké Biscuit',
