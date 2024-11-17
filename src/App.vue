@@ -18,6 +18,7 @@ import PageHelpSpeedCalc from './pages/HelpSpeedCalc.vue'
 import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import PageSleepLab from './pages/SleepLab.vue'
 import PageCandyCalc from './pages/CandyCalc.vue'
+import PageMasterRes from './pages/MasterRes.vue'
 
 import { updatePoke } from './config/pokedex.js'
 import { NAV_LANG, NAV_PAGE } from './config/nav.js'
@@ -123,6 +124,9 @@ onMounted(() => {
     </div>
     <div class="page-item cur" v-if="navData.navIndex === '0383a0134484d5bd'">
       <PageSleepLab />
+    </div>
+    <div class="page-item cur" v-if="navData.navIndex === 'master20'">
+      <PageMasterRes />
     </div>
     <PageFooter />
     <nav class="nav">

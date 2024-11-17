@@ -88,8 +88,8 @@ export const ACT_LIST = [
     midUp: [35, 36, 173]
   },
   {
-    name: 'イーブイウィーク2024',
-    namejp: '伊布週2024',
+    name: '伊布週2024',
+    namejp: 'イーブイウィーク2024',
     startTime: 1731873600000,
     endTime: 1732391999000,
     notArea: [],
