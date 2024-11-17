@@ -92,7 +92,7 @@ export default {
 
     'formLabelAllSpo': '当前睡眠总',
     'formLabelnoUseSpo': '剩余',
-    'formLabelPercent': '有效分数'
+    'formLabelPercent': '有效的睡意之力'
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': '所有帮速的技能&性格加成累积不能超过35%。'

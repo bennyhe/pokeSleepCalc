@@ -93,7 +93,7 @@ export default {
 
     'formLabelAllSpo': '現在の睡眠総',
     'formLabelnoUseSpo': '残り',
-    'formLabelPercent': '有効スコア'
+    'formLabelPercent': 'ねむけパワーの有効性'
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。'

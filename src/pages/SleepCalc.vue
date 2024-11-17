@@ -1620,10 +1620,7 @@ const getQuickChangeSleepPoint = () => {
             >
           </h3>
           <p style="font-size: 12px;" v-if="getScore(randomSleepStyle.sleepPoint) > 38000">
-            <template v-if="localeLangId === 'jp'"
-              >{{ $t("PROP.dpr") }}の有効性</template
-            ><template v-else>有效的{{ $t("PROP.dpr") }}: </template
-            ><span class="sptime">{{ userSleep.accumulation.spoValidity }}</span
+            {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{ userSleep.accumulation.spoValidity }}</span
             >%
           </p>
           <div
