@@ -31,27 +31,15 @@ const pageData = ref({
   },
   upIdsMid: {
     upType: 'mid',
-    ids: [
-      92,
-      93,
-      94,
-      353,
-      354,
-      425,
-      426,
-      911
-    ]
+    ids: [134, 135, 136, 196, 197, 470, 471, 700]
   },
   upIdsLarge: {
     upType: 'large',
-    ids: [
-      778,9001
-    ]
+    ids: [133]
   }
 })
 
 const getTimes = 4000
-const targetPokeId = 280
 const testData = ref([])
 const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType
@@ -60,10 +48,7 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
     gameMap[mapId],
     mapSleepType,
     allPoint,
-    getLevelIndexByEnergy(
-      gameMap[mapId].levelList,
-      curAllScore
-    ),
+    getLevelIndexByEnergy(gameMap[mapId].levelList, curAllScore),
     getTimes,
     {
       isActRandom: pageData.value.isActRandom,
@@ -117,8 +102,10 @@ const handleClickGet = type => {
     for (const st in SLEEP_TYPES) {
       if (Object.hasOwnProperty.call(SLEEP_TYPES, st)) {
         // console.log(+st, SLEEP_TYPES[st])
-        gameMap.forEach((gmItem,gmKey)=>{
-          const curAllScore =  gameMap[gmKey].levelList[gameMap[gmKey].levelList.length - 1].energy
+        gameMap.forEach((gmItem, gmKey) => {
+          const curAllScore =
+            gameMap[gmKey].levelList[gameMap[gmKey].levelList.length - 1]
+              .energy
           const allPoint = curAllScore * 100
           const randomRes = getRes(curAllScore, allPoint, gmKey, +st)
           const res = randomRes.res
@@ -143,7 +130,7 @@ const handleClickGet = type => {
         })
       }
     }
-  }else {
+  } else {
     for (let i = baseStarI; i < baseStarI + 2000; i++) {
       const curAllScore = basePoint + splitPoint
       const allPoint = curAllScore * 100
@@ -204,18 +191,26 @@ const defaultTime1 = [
   new Date(2000, 1, 1, 4, 0, 0),
   new Date(2000, 2, 1, 3, 59, 59)
 ]
+
+const handleChangeUps = () => {
+  console.log(
+    pageData.value.upIdsLarge.ids,
+    pageData.value.upIdsMid.ids,
+    pageData.value.upIdsSmall.ids
+  )
+}
 </script>
 
 <template>
   {{ new Date(dateTime1[0]).getTime() }}
   {{ new Date(dateTime1[1]).getTime() }}
   <el-date-picker
-      v-model="dateTime1"
-      type="datetimerange"
-      start-placeholder="Start Date"
-      end-placeholder="End Date"
-      :default-time="defaultTime1"
-    />
+    v-model="dateTime1"
+    type="datetimerange"
+    start-placeholder="Start Date"
+    end-placeholder="End Date"
+    :default-time="defaultTime1"
+  />
   <el-form label-width="90px">
     <!-- S 当前岛屿 -->
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
@@ -345,7 +340,8 @@ const defaultTime1 = [
     <el-form-item label="大UP">
       <el-select
         v-model="pageData.upIdsLarge.ids"
-        placeholder="请选择要去除的宝可梦"
+        placeholder="大UP"
+        @change="handleChangeUps"
         filterable
         clearable
         multiple
@@ -371,7 +367,8 @@ const defaultTime1 = [
     <el-form-item label="中UP">
       <el-select
         v-model="pageData.upIdsMid.ids"
-        placeholder="请选择要去除的宝可梦"
+        placeholder="中UP"
+        @change="handleChangeUps"
         filterable
         clearable
         multiple
@@ -397,7 +394,8 @@ const defaultTime1 = [
     <el-form-item label="小UP">
       <el-select
         v-model="pageData.upIdsSmall.ids"
-        placeholder="请选择要去除的宝可梦"
+        placeholder="小UP"
+        @change="handleChangeUps"
         filterable
         clearable
         multiple

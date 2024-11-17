@@ -1,6 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426], // 不进保底
+  noLastList: [243, 244, 245, 35, 36, 173, 304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426, 778], // 不进保底
   probabilityLastList: [] //概率进保底
 }
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -86,5 +86,14 @@ export const ACT_LIST = [
     endTime: 1731873599000,
     notArea: [],
     midUp: [35, 36, 173]
+  },
+  {
+    name: 'イーブイウィーク2024',
+    namejp: '伊布週2024',
+    startTime: 1731873600000,
+    endTime: 1732391999000,
+    notArea: [],
+    largeUp: [133],
+    midUp: [134, 135, 136, 196, 197, 470, 471, 700]
   }
 ]
