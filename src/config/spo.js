@@ -1,4 +1,4 @@
-
+export const SPO38000 = 38000
 export const SPONEW_TO_SPOOLD = {
   1: 2,
   2: 8,

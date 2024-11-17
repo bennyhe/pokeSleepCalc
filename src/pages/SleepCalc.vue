@@ -13,6 +13,7 @@ import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_SLEEPCALC } from '../config/nav.js'
+import { SPO38000 } from '../config/spo.js'
 import { ACT_LIST, SLEEP_CALC_CONFIG } from '../config/act.js'
 import {
   getUnLockSleeps,
@@ -20,7 +21,8 @@ import {
   getRandomHopeWithMulti,
   getLevelIndexByEnergy,
   getSPOById,
-  checkListInLastGet
+  checkListInLastGet,
+  getSPOByScore
 } from '../utils/sleep.js'
 import {
   get,
@@ -31,7 +33,6 @@ import {
   getPercent,
   sortInObjectOptions,
   getDecimalNumber,
-  getRandomArr,
   calcPositions,
   fnAccumulation
 } from '../utils/index.js'
@@ -226,9 +227,7 @@ const setNewSleepStyleList = () => {
     getScore(randomSleepStyle.value.sleepPoint),
     gameMap[userData.value.curMap].scoreList
   )
-  sleepStyleAny.value.curSPO = Math.floor(
-    getScore(randomSleepStyle.value.sleepPoint) / 38000
-  )
+  sleepStyleAny.value.curSPO = getSPOByScore(getScore(randomSleepStyle.value.sleepPoint))
 }
 
 const getAfterClacSPO = () => {
@@ -389,7 +388,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   }
   if (
     +userData.value.CurEnergy > 0 &&
-    getScore(randomSleepStyle.value.sleepPoint) > 38000
+    getScore(randomSleepStyle.value.sleepPoint) > SPO38000
   ) {
     let accLength = res.length
     if (userData.value.useIncensePokemonId) {
@@ -400,7 +399,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     userSleep.value.accumulation.spoValidity = getPercent(
       fnAccumulation(res.slice(0, accLength), 'spo'),
-      Math.floor(getScore(randomSleepStyle.value.sleepPoint) / 38000),
+      getSPOByScore(getScore(randomSleepStyle.value.sleepPoint)),
       0
     )
   }
@@ -1619,7 +1618,7 @@ const getQuickChangeSleepPoint = () => {
               }})</span
             >
           </h3>
-          <p style="font-size: 12px;" v-if="getScore(randomSleepStyle.sleepPoint) > 38000">
+          <p style="font-size: 12px;" v-if="getScore(randomSleepStyle.sleepPoint) > SPO38000">
             {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{ userSleep.accumulation.spoValidity }}</span
             >%
           </p>

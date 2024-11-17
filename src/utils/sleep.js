@@ -1,5 +1,5 @@
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SPO_DATA, SPONEW_TO_SPOOLD } from '../config/spo.js'
+import { SPO_DATA, SPONEW_TO_SPOOLD, SPO38000 } from '../config/spo.js'
 import { SLEEP_CALC_POKEMONS, SLEEP_CALC_UP } from '../config/act.js'
 import { pokedex } from '../config/pokedex.js'
 import {
@@ -138,7 +138,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     score,
     mapData.scoreList
   )
-  let curSpo = Math.floor(score / 38000)
+  let curSpo = getSPOByScore(score)
   let orgSleepList = getUnLockSleeps(
     mapData.levelList,
     curStageIndex
@@ -343,7 +343,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 使用熏香 / 露营券 公用参数
-  const useOptionsCurSpo = Math.floor(score / 38000)
+  const useOptionsCurSpo = getSPOByScore(score)
   let targetPokemonAllSleep = []
   // console.log(isSleepOnStomach)
   if (useIncensePokemonId || get('isUseTicket', extraSleepStyleOptions)) {
@@ -648,4 +648,8 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
     }
   })
   return isLastGetArr
+}
+
+export function getSPOByScore(score) {
+  return Math.floor(score / SPO38000)
 }
