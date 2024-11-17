@@ -137,41 +137,43 @@ const handleClickChangeMap = id => {
         </template>
       </div>
     </template>
-    <h4>
-      <img
-        class="icon"
-        v-lazy="`./img/ui/${getStageLevelPicId('大师20')}.png`"
-      />
-      大师20-{{ masterRes.level20.extraTime.name }}
-    </h4>
-    <template
-      v-for="(tdItem, tdKey) in masterRes.level20.extraTime.list.slice(
-        pageData.curMap + sleepTypeToIndex[cKey] * 6,
-        pageData.curMap + sleepTypeToIndex[cKey] * 6 + 1
-      )"
-      v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
-    >
-      <h3>
-        <img class="icon" v-lazy="`./img/ui/energy.png`" />
-        {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
-        <span class="extra"
-          >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
-        >
-      </h3>
-      <div
-        class="cpt-avatar"
-        v-for="(hopeItem, hopeKey) in tdItem.res"
-        v-bind:key="hopeItem.pokeId"
+    <template v-if="pageData.curMap === 5">
+      <h4>
+        <img
+          class="icon"
+          v-lazy="`./img/ui/${getStageLevelPicId('大师20')}.png`"
+        />
+        大师20-{{ masterRes.level20.extraTime.name }}
+      </h4>
+      <template
+        v-for="(tdItem, tdKey) in masterRes.level20.extraTime.list.slice(
+          pageData.curMap + sleepTypeToIndex[cKey] * 6,
+          pageData.curMap + sleepTypeToIndex[cKey] * 6 + 1
+        )"
+        v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
-        <template v-if="hopeKey < showMax.num">
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-          />
-          <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-        </template>
-      </div>
+        <h3>
+          <img class="icon" v-lazy="`./img/ui/energy.png`" />
+          {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
+          <span class="extra"
+            >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
+          >
+        </h3>
+        <div
+          class="cpt-avatar"
+          v-for="(hopeItem, hopeKey) in tdItem.res"
+          v-bind:key="hopeItem.pokeId"
+        >
+          <template v-if="hopeKey < showMax.num">
+            <img
+              class="cpt-avatar__pic"
+              v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
+              :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
+            />
+            <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+          </template>
+        </div>
+      </template>
     </template>
   </div>
 </template>
