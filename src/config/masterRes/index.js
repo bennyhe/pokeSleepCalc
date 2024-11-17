@@ -1,5 +1,6 @@
 import peaceTimeList from './peaceTime.js'
 import actTimeList from './actTime.js'
+import extraTimeList from './extraTime.js'
 
 export const masterRes = {
   level20: {
@@ -12,6 +13,12 @@ export const masterRes = {
       startTime: 1731873600000,
       endTime: 1732391999000,
       list: actTimeList
+    },
+    extraTime: {
+      name: '伊布週2024(6岛3只进保底)',
+      startTime: 1731873600000,
+      endTime: 1732391999000,
+      list: extraTimeList
     }
   }
 }
