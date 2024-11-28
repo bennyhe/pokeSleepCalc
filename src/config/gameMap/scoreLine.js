@@ -28,9 +28,9 @@ export const map5ScoreList = [{ catchNum: 3, startscore: 0, endscore: 3153519 },
   { catchNum: 6, startscore: 16659808, endscore: 30491709 },
   { catchNum: 7, startscore: 30491710, endscore: 68664242 },
   { catchNum: 8, startscore: 68664245 }]
-export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6003426 },
-  { catchNum: 4, startscore: 6012320, endscore: 14339412 },
-  { catchNum: 5, startscore: 14350575, endscore: 30491700 },
-  { catchNum: 6, startscore: 30491900, endscore: 49911500 },
-  { catchNum: 7, startscore: 49915500, endscore: 97324200 },
-  { catchNum: 8, startscore: 97395900 }]
+export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6009350 },
+  { catchNum: 4, startscore: 6010340, endscore: 14339724 },
+  { catchNum: 5, startscore: 14339775, endscore: 30491702 },
+  { catchNum: 6, startscore: 30491720, endscore: 49915400 },
+  { catchNum: 7, startscore: 49915500, endscore: 97371580 },
+  { catchNum: 8, startscore: 97371700 }]
