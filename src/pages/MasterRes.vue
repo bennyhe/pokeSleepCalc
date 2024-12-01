@@ -30,7 +30,7 @@ const handleClickChangeMap = id => {
 <template>
   <h2>Mater 20 Results</h2>
   <div class="page-inner cpt-tips">
-    <p>最后更新：{{ formatTime(1731811757726) }}</p>
+    <p>最后更新：{{ formatTime(masterRes.updateTime) }}</p>
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
   </div>
   <el-form label-width="90px">

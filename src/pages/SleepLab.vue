@@ -31,11 +31,11 @@ const pageData = ref({
   },
   upIdsMid: {
     upType: 'mid',
-    ids: [134, 135, 136, 196, 197, 470, 471, 700]
+    ids: []
   },
   upIdsLarge: {
     upType: 'large',
-    ids: [133]
+    ids: []
   }
 })
 
