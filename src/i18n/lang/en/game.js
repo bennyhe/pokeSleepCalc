@@ -398,7 +398,9 @@ export default {
     736: 'Grubbin',
     737: 'Charjabug',
     738: 'Vikavolt',
-    778: 'Mimikyu'
+    778: 'Mimikyu',
+    215: 'Sneasel',
+    461: 'Weavile'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -672,6 +674,7 @@ export default {
     279: '大旋轉睡',
     280: '想窩起來睡',
     281: '現形睡',
-    282: '仿效睡'
+    282: '仿效睡',
+    283: '挑釁睡'
   }
 }

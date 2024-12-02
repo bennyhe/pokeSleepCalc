@@ -78,7 +78,10 @@ const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
     resList.push(resItem)
     orgList.push(pokeItem[keyVel])
   }
-  resList.find(item => item[keyVel] === pokeItem[keyVel]).list.push(pokeItem)
+  const res = resList.find(item => item[keyVel] === pokeItem[keyVel])
+  if(res && res.list) {
+    res.list.push(pokeItem)
+  }
 }
 
 const initFilterGroup = () => {

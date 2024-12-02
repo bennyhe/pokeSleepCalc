@@ -163,9 +163,11 @@ const initFilterGroup = () => {
         })
         byHelpSpeedOrgList.push(pokedexItem.helpSpeed)
       }
-      byHelpSpeedResIn
-        .find(item => item.helpSpeed === pokedexItem.helpSpeed)
-        .list.push(pokedexItem)
+      if (pokedexItem.helpSpeed) {
+        byHelpSpeedResIn
+          .find(item => item.helpSpeed === pokedexItem.helpSpeed)
+          .list.push(pokedexItem)
+      }
     }
   }
   byHelpSpeedResIn.forEach(item => {

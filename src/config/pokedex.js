@@ -51,7 +51,8 @@ const evoLine = [
   [304, 305, 306],
   [403, 404, 405],
   [736, 737, 738],
-  [425, 426]
+  [425, 426],
+  [215, 461]
 ]
 const pokedex = {
   1: {
@@ -1597,6 +1598,32 @@ const pokedex = {
       }
     }
   },
+  215: {
+    id: 215,
+    // name: '狃拉',
+    friendship: 16,
+    sleepType: 1,
+    // skillType: 10,
+    // pokeType: 3,
+    berryType: 17
+    // helpSpeed: 2400,
+    // foodPer: 15.80,
+    // skillPer: 4.70,
+    // food: {
+    //   type: [9, 2, 7],
+    //   count: {
+    //     9: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     7: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
   225: {
     id: 225,
     // name: '信使鳥',
@@ -2434,6 +2461,18 @@ const pokedex = {
     foodPer: 25,
     skillPer: 4.40
   },
+  461: {
+    id: 461,
+    // name: '瑪狃拉',
+    friendship: 20,
+    sleepType: 1,
+    // skillType: 10,
+    // pokeType: 3,
+    berryType: 17
+    // helpSpeed: 2400,
+    // foodPer: 15.80,
+    // skillPer: 4.70
+  },
   462: {
     id: 462,
     // name: '自爆磁怪',
@@ -2924,6 +2963,9 @@ const updatePoke = [{
 }, {
   time: '2024/10/1',
   pokemons: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426, 778]
+},{
+  time: '2024/12/1',
+  pokemons: [215, 461]
 }]
 // console.log(pokedex)
 export {
