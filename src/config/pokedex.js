@@ -1603,26 +1603,26 @@ const pokedex = {
     // name: '狃拉',
     friendship: 16,
     sleepType: 1,
-    // skillType: 10,
-    // pokeType: 3,
-    berryType: 17
-    // helpSpeed: 2400,
-    // foodPer: 15.80,
-    // skillPer: 4.70,
-    // food: {
-    //   type: [9, 2, 7],
-    //   count: {
-    //     9: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     7: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    skillType: 14,
+    pokeType: 1,
+    berryType: 17,
+    helpSpeed: 3200,
+    foodPer: 25.50,
+    skillPer: 1.90,
+    food: {
+      type: [7, 3, 15],
+      count: {
+        7: {
+          num: [1, 2, 4]
+        },
+        3: {
+          num: [0, 2, 3]
+        },
+        15: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   225: {
     id: 225,
@@ -2466,12 +2466,12 @@ const pokedex = {
     // name: '瑪狃拉',
     friendship: 20,
     sleepType: 1,
-    // skillType: 10,
-    // pokeType: 3,
-    berryType: 17
-    // helpSpeed: 2400,
-    // foodPer: 15.80,
-    // skillPer: 4.70
+    skillType: 14,
+    pokeType: 1,
+    berryType: 17,
+    helpSpeed: 2700,
+    foodPer: 25.2,
+    skillPer: 1.8
   },
   462: {
     id: 462,
