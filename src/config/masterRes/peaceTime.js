@@ -5,276 +5,276 @@ export default [
     'res': [
       {
         'pokeId': 3,
-        'count': 4573,
-        'shardsSum': 24290037,
-        'expSum': 13493612,
-        'candysSum': 53228
-      },
-      {
-        'pokeId': 12,
-        'count': 1053,
-        'shardsSum': 2752874,
-        'expSum': 1529286,
-        'candysSum': 10793
-      },
-      {
-        'pokeId': 11,
-        'count': 1035,
-        'shardsSum': 423684,
-        'expSum': 392327,
-        'candysSum': 7577
-      },
-      {
-        'pokeId': 127,
-        'count': 1023,
-        'shardsSum': 2635284,
-        'expSum': 1017312,
-        'candysSum': 8580
+        'count': 4582,
+        'shardsSum': 24359825,
+        'expSum': 13532363,
+        'candysSum': 53359
       },
       {
         'pokeId': 908,
-        'count': 1007,
-        'shardsSum': 7927746,
-        'expSum': 5612013,
-        'candysSum': 10795
+        'count': 1033,
+        'shardsSum': 8106572,
+        'expSum': 5738599,
+        'candysSum': 11057
+      },
+      {
+        'pokeId': 11,
+        'count': 1021,
+        'shardsSum': 400733,
+        'expSum': 371044,
+        'candysSum': 7395
+      },
+      {
+        'pokeId': 12,
+        'count': 1015,
+        'shardsSum': 2755987,
+        'expSum': 1531031,
+        'candysSum': 10534
+      },
+      {
+        'pokeId': 127,
+        'count': 1011,
+        'shardsSum': 2491361,
+        'expSum': 961733,
+        'candysSum': 8405
       },
       {
         'pokeId': 214,
-        'count': 969,
-        'shardsSum': 2008912,
-        'expSum': 1115942,
-        'candysSum': 8057
-      },
-      {
-        'pokeId': 71,
-        'count': 745,
-        'shardsSum': 1460090,
-        'expSum': 811110,
-        'candysSum': 7177
-      },
-      {
-        'pokeId': 225,
-        'count': 738,
-        'shardsSum': 1942620,
-        'expSum': 919000,
-        'candysSum': 5688
-      },
-      {
-        'pokeId': 453,
-        'count': 737,
-        'shardsSum': 178436,
-        'expSum': 99297,
-        'candysSum': 3399
-      },
-      {
-        'pokeId': 154,
-        'count': 731,
-        'shardsSum': 1940750,
-        'expSum': 1078104,
-        'candysSum': 7041
-      },
-      {
-        'pokeId': 470,
-        'count': 728,
-        'shardsSum': 2105507,
-        'expSum': 812791,
-        'candysSum': 6269
-      },
-      {
-        'pokeId': 1,
-        'count': 723,
-        'shardsSum': 243171,
-        'expSum': 114745,
-        'candysSum': 3298
-      },
-      {
-        'pokeId': 906,
-        'count': 708,
-        'shardsSum': 690150,
-        'expSum': 382532,
-        'candysSum': 3204
-      },
-      {
-        'pokeId': 57,
-        'count': 703,
-        'shardsSum': 555441,
-        'expSum': 262728,
-        'candysSum': 4557
-      },
-      {
-        'pokeId': 69,
-        'count': 698,
-        'shardsSum': 159359,
-        'expSum': 88677,
-        'candysSum': 3239
-      },
-      {
-        'pokeId': 24,
-        'count': 697,
-        'shardsSum': 641887,
-        'expSum': 247709,
-        'candysSum': 4588
-      },
-      {
-        'pokeId': 359,
-        'count': 696,
-        'shardsSum': 1112186,
-        'expSum': 526439,
-        'candysSum': 5245
-      },
-      {
-        'pokeId': 54,
-        'count': 695,
-        'shardsSum': 132660,
-        'expSum': 73895,
-        'candysSum': 3151
-      },
-      {
-        'pokeId': 288,
-        'count': 694,
-        'shardsSum': 526282,
-        'expSum': 343196,
-        'candysSum': 4656
-      },
-      {
-        'pokeId': 152,
-        'count': 689,
-        'shardsSum': 232926,
-        'expSum': 109913,
-        'candysSum': 3164
-      },
-      {
-        'pokeId': 228,
-        'count': 685,
-        'shardsSum': 193315,
-        'expSum': 91414,
-        'candysSum': 3153
-      },
-      {
-        'pokeId': 215,
-        'count': 684,
-        'shardsSum': 1859119,
-        'expSum': 941621,
-        'candysSum': 5202
-      },
-      {
-        'pokeId': 70,
-        'count': 684,
-        'shardsSum': 356520,
-        'expSum': 197952,
-        'candysSum': 4480
-      },
-      {
-        'pokeId': 2,
-        'count': 681,
-        'shardsSum': 618177,
-        'expSum': 292426,
-        'candysSum': 4539
-      },
-      {
-        'pokeId': 354,
-        'count': 680,
-        'shardsSum': 783246,
-        'expSum': 370434,
-        'candysSum': 4432
+        'count': 982,
+        'shardsSum': 2058811,
+        'expSum': 1143671,
+        'candysSum': 8150
       },
       {
         'pokeId': 907,
-        'count': 679,
-        'shardsSum': 1024652,
-        'expSum': 725397,
-        'candysSum': 4443
+        'count': 755,
+        'shardsSum': 1174426,
+        'expSum': 831437,
+        'candysSum': 4978
       },
       {
-        'pokeId': 317,
-        'count': 678,
-        'shardsSum': 395796,
-        'expSum': 366774,
-        'candysSum': 4451
+        'pokeId': 70,
+        'count': 745,
+        'shardsSum': 432166,
+        'expSum': 239992,
+        'candysSum': 4953
       },
       {
-        'pokeId': 23,
-        'count': 675,
-        'shardsSum': 165250,
-        'expSum': 63861,
-        'candysSum': 3152
-      },
-      {
-        'pokeId': 153,
-        'count': 673,
-        'shardsSum': 590437,
-        'expSum': 279286,
-        'candysSum': 4483
-      },
-      {
-        'pokeId': 56,
-        'count': 669,
-        'shardsSum': 200055,
-        'expSum': 77141,
-        'candysSum': 3082
+        'pokeId': 359,
+        'count': 738,
+        'shardsSum': 1220241,
+        'expSum': 577599,
+        'candysSum': 5634
       },
       {
         'pokeId': 316,
-        'count': 667,
-        'shardsSum': 120732,
-        'expSum': 111842,
-        'candysSum': 3129
+        'count': 735,
+        'shardsSum': 116347,
+        'expSum': 107777,
+        'candysSum': 3340
+      },
+      {
+        'pokeId': 23,
+        'count': 735,
+        'shardsSum': 175854,
+        'expSum': 67956,
+        'candysSum': 3408
+      },
+      {
+        'pokeId': 152,
+        'count': 716,
+        'shardsSum': 257418,
+        'expSum': 121489,
+        'candysSum': 3327
+      },
+      {
+        'pokeId': 453,
+        'count': 709,
+        'shardsSum': 179479,
+        'expSum': 99873,
+        'candysSum': 3297
+      },
+      {
+        'pokeId': 228,
+        'count': 707,
+        'shardsSum': 217504,
+        'expSum': 102858,
+        'candysSum': 3290
+      },
+      {
+        'pokeId': 57,
+        'count': 705,
+        'shardsSum': 587036,
+        'expSum': 277674,
+        'candysSum': 4634
+      },
+      {
+        'pokeId': 470,
+        'count': 704,
+        'shardsSum': 2059923,
+        'expSum': 795209,
+        'candysSum': 6053
+      },
+      {
+        'pokeId': 354,
+        'count': 703,
+        'shardsSum': 863688,
+        'expSum': 408473,
+        'candysSum': 4680
       },
       {
         'pokeId': 778,
-        'count': 663,
-        'shardsSum': 3363430,
-        'expSum': 1446364,
-        'candysSum': 5099
+        'count': 697,
+        'shardsSum': 3578662,
+        'expSum': 1538909,
+        'candysSum': 5382
       },
       {
-        'pokeId': 454,
-        'count': 649,
-        'shardsSum': 552497,
-        'expSum': 306834,
-        'candysSum': 4333
+        'pokeId': 154,
+        'count': 691,
+        'shardsSum': 1882216,
+        'expSum': 1045594,
+        'candysSum': 6683
       },
       {
         'pokeId': 197,
-        'count': 640,
-        'shardsSum': 1437964,
-        'expSum': 937774,
-        'candysSum': 5504
+        'count': 684,
+        'shardsSum': 1597310,
+        'expSum': 1041699,
+        'candysSum': 5924
+      },
+      {
+        'pokeId': 2,
+        'count': 680,
+        'shardsSum': 624100,
+        'expSum': 295236,
+        'candysSum': 4528
+      },
+      {
+        'pokeId': 215,
+        'count': 676,
+        'shardsSum': 1827231,
+        'expSum': 925467,
+        'candysSum': 5156
+      },
+      {
+        'pokeId': 1,
+        'count': 675,
+        'shardsSum': 229275,
+        'expSum': 108191,
+        'candysSum': 3092
+      },
+      {
+        'pokeId': 317,
+        'count': 671,
+        'shardsSum': 421000,
+        'expSum': 390098,
+        'candysSum': 4524
+      },
+      {
+        'pokeId': 906,
+        'count': 670,
+        'shardsSum': 648099,
+        'expSum': 359222,
+        'candysSum': 3038
+      },
+      {
+        'pokeId': 288,
+        'count': 669,
+        'shardsSum': 465215,
+        'expSum': 303362,
+        'candysSum': 4413
+      },
+      {
+        'pokeId': 153,
+        'count': 669,
+        'shardsSum': 542768,
+        'expSum': 256738,
+        'candysSum': 4358
+      },
+      {
+        'pokeId': 24,
+        'count': 669,
+        'shardsSum': 641802,
+        'expSum': 247662,
+        'candysSum': 4410
+      },
+      {
+        'pokeId': 54,
+        'count': 659,
+        'shardsSum': 130589,
+        'expSum': 72741,
+        'candysSum': 3039
+      },
+      {
+        'pokeId': 56,
+        'count': 658,
+        'shardsSum': 174482,
+        'expSum': 67262,
+        'candysSum': 2953
+      },
+      {
+        'pokeId': 454,
+        'count': 656,
+        'shardsSum': 553351,
+        'expSum': 307308,
+        'candysSum': 4373
+      },
+      {
+        'pokeId': 71,
+        'count': 656,
+        'shardsSum': 1236472,
+        'expSum': 686880,
+        'candysSum': 6260
+      },
+      {
+        'pokeId': 69,
+        'count': 649,
+        'shardsSum': 147128,
+        'expSum': 81869,
+        'candysSum': 2989
+      },
+      {
+        'pokeId': 225,
+        'count': 645,
+        'shardsSum': 1619410,
+        'expSum': 766077,
+        'candysSum': 4892
       },
       {
         'pokeId': 10,
-        'count': 629,
-        'shardsSum': 101197,
-        'expSum': 93653,
-        'candysSum': 2956
-      },
-      {
-        'pokeId': 93,
-        'count': 601,
-        'shardsSum': 224148,
-        'expSum': 74716,
-        'candysSum': 3619
+        'count': 645,
+        'shardsSum': 95276,
+        'expSum': 88172,
+        'candysSum': 2972
       },
       {
         'pokeId': 92,
-        'count': 583,
-        'shardsSum': 70817,
-        'expSum': 23800,
-        'candysSum': 2375
+        'count': 631,
+        'shardsSum': 71966,
+        'expSum': 24199,
+        'candysSum': 2521
       },
       {
         'pokeId': 425,
-        'count': 574,
-        'shardsSum': 274276,
-        'expSum': 298309,
-        'candysSum': 2304
+        'count': 599,
+        'shardsSum': 288051,
+        'expSum': 313307,
+        'candysSum': 2411
       },
       {
         'pokeId': 353,
-        'count': 564,
-        'shardsSum': 54250,
-        'expSum': 25884,
-        'candysSum': 2240
+        'count': 587,
+        'shardsSum': 61161,
+        'expSum': 29188,
+        'candysSum': 2389
+      },
+      {
+        'pokeId': 93,
+        'count': 568,
+        'shardsSum': 202638,
+        'expSum': 67546,
+        'candysSum': 3370
       }
     ]
   },
@@ -284,108 +284,108 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 5819,
-        'shardsSum': 45131178,
-        'expSum': 47956649,
-        'candysSum': 66992
-      },
-      {
-        'pokeId': 57,
-        'count': 1941,
-        'shardsSum': 2543308,
-        'expSum': 1203079,
-        'candysSum': 14314
-      },
-      {
-        'pokeId': 214,
-        'count': 1926,
-        'shardsSum': 4145784,
-        'expSum': 2303007,
-        'candysSum': 16129
-      },
-      {
-        'pokeId': 23,
-        'count': 1902,
-        'shardsSum': 728161,
-        'expSum': 281394,
-        'candysSum': 10101
-      },
-      {
-        'pokeId': 70,
-        'count': 1901,
-        'shardsSum': 1555905,
-        'expSum': 864039,
-        'candysSum': 13973
-      },
-      {
-        'pokeId': 453,
-        'count': 1890,
-        'shardsSum': 744919,
-        'expSum': 414399,
-        'candysSum': 10086
-      },
-      {
-        'pokeId': 69,
-        'count': 1873,
-        'shardsSum': 725162,
-        'expSum': 403063,
-        'candysSum': 10243
+        'count': 5832,
+        'shardsSum': 45150374,
+        'expSum': 47977030,
+        'candysSum': 67047
       },
       {
         'pokeId': 152,
-        'count': 1865,
-        'shardsSum': 1047140,
-        'expSum': 495170,
-        'candysSum': 10059
+        'count': 1943,
+        'shardsSum': 1074112,
+        'expSum': 507929,
+        'candysSum': 10422
+      },
+      {
+        'pokeId': 69,
+        'count': 1942,
+        'shardsSum': 698167,
+        'expSum': 388085,
+        'candysSum': 10341
+      },
+      {
+        'pokeId': 214,
+        'count': 1910,
+        'shardsSum': 4206804,
+        'expSum': 2336926,
+        'candysSum': 16092
+      },
+      {
+        'pokeId': 56,
+        'count': 1907,
+        'shardsSum': 894341,
+        'expSum': 344935,
+        'candysSum': 10252
+      },
+      {
+        'pokeId': 10,
+        'count': 1892,
+        'shardsSum': 468204,
+        'expSum': 433762,
+        'candysSum': 10134
+      },
+      {
+        'pokeId': 127,
+        'count': 1882,
+        'shardsSum': 4752840,
+        'expSum': 1834765,
+        'candysSum': 15722
+      },
+      {
+        'pokeId': 70,
+        'count': 1881,
+        'shardsSum': 1597667,
+        'expSum': 887265,
+        'candysSum': 13942
       },
       {
         'pokeId': 316,
         'count': 1860,
-        'shardsSum': 525088,
-        'expSum': 486626,
-        'candysSum': 10102
-      },
-      {
-        'pokeId': 10,
-        'count': 1856,
-        'shardsSum': 453161,
-        'expSum': 419822,
-        'candysSum': 9881
-      },
-      {
-        'pokeId': 56,
-        'count': 1850,
-        'shardsSum': 870452,
-        'expSum': 335715,
-        'candysSum': 9884
-      },
-      {
-        'pokeId': 127,
-        'count': 1846,
-        'shardsSum': 4637699,
-        'expSum': 1790309,
-        'candysSum': 15411
+        'shardsSum': 523409,
+        'expSum': 485078,
+        'candysSum': 10065
       },
       {
         'pokeId': 54,
-        'count': 1841,
-        'shardsSum': 617920,
-        'expSum': 344147,
-        'candysSum': 9902
+        'count': 1859,
+        'shardsSum': 615325,
+        'expSum': 342713,
+        'candysSum': 9946
       },
       {
         'pokeId': 24,
-        'count': 1827,
-        'shardsSum': 2557621,
-        'expSum': 987168,
-        'candysSum': 13377
+        'count': 1825,
+        'shardsSum': 2696841,
+        'expSum': 1040943,
+        'candysSum': 13626
+      },
+      {
+        'pokeId': 23,
+        'count': 1825,
+        'shardsSum': 743277,
+        'expSum': 287256,
+        'candysSum': 9935
+      },
+      {
+        'pokeId': 57,
+        'count': 1819,
+        'shardsSum': 2420442,
+        'expSum': 1144947,
+        'candysSum': 13512
+      },
+      {
+        'pokeId': 453,
+        'count': 1813,
+        'shardsSum': 722800,
+        'expSum': 402093,
+        'candysSum': 9766
       },
       {
         'pokeId': 454,
-        'count': 1803,
-        'shardsSum': 2206056,
-        'expSum': 1225130,
-        'candysSum': 13340
+        'count': 1810,
+        'shardsSum': 2164460,
+        'expSum': 1202028,
+        'candysSum': 13297
       }
     ]
   },
@@ -395,122 +395,122 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 5367,
-        'shardsSum': 43436795,
-        'expSum': 46156125,
-        'candysSum': 62446
+        'count': 5298,
+        'shardsSum': 43095101,
+        'expSum': 45793036,
+        'candysSum': 61725
       },
       {
         'pokeId': 94,
-        'count': 1803,
-        'shardsSum': 8709632,
-        'expSum': 2903666,
-        'candysSum': 18987
-      },
-      {
-        'pokeId': 316,
-        'count': 1777,
-        'shardsSum': 503659,
-        'expSum': 466771,
-        'candysSum': 9652
-      },
-      {
-        'pokeId': 302,
-        'count': 1764,
-        'shardsSum': 3742318,
-        'expSum': 1444761,
-        'candysSum': 14728
-      },
-      {
-        'pokeId': 229,
-        'count': 1749,
-        'shardsSum': 2633246,
-        'expSum': 1246602,
-        'candysSum': 12901
+        'count': 1875,
+        'shardsSum': 9080997,
+        'expSum': 3027458,
+        'candysSum': 19777
       },
       {
         'pokeId': 248,
-        'count': 1716,
-        'shardsSum': 13459699,
-        'expSum': 7477526,
-        'candysSum': 17856
-      },
-      {
-        'pokeId': 228,
-        'count': 1716,
-        'shardsSum': 818670,
-        'expSum': 387373,
-        'candysSum': 9263
-      },
-      {
-        'pokeId': 317,
-        'count': 1706,
-        'shardsSum': 1558329,
-        'expSum': 1443578,
-        'candysSum': 12628
-      },
-      {
-        'pokeId': 24,
-        'count': 1699,
-        'shardsSum': 2469595,
-        'expSum': 953195,
-        'candysSum': 12568
-      },
-      {
-        'pokeId': 23,
-        'count': 1688,
-        'shardsSum': 688205,
-        'expSum': 265965,
-        'candysSum': 9179
-      },
-      {
-        'pokeId': 197,
-        'count': 1675,
-        'shardsSum': 5477458,
-        'expSum': 3572026,
-        'candysSum': 15820
-      },
-      {
-        'pokeId': 454,
-        'count': 1669,
-        'shardsSum': 2031482,
-        'expSum': 1128186,
-        'candysSum': 12295
+        'count': 1772,
+        'shardsSum': 13842966,
+        'expSum': 7690451,
+        'candysSum': 18437
       },
       {
         'pokeId': 354,
-        'count': 1663,
-        'shardsSum': 3076101,
-        'expSum': 1455400,
-        'candysSum': 12301
+        'count': 1732,
+        'shardsSum': 3132735,
+        'expSum': 1482197,
+        'candysSum': 12710
+      },
+      {
+        'pokeId': 454,
+        'count': 1726,
+        'shardsSum': 2182226,
+        'expSum': 1211904,
+        'candysSum': 12905
+      },
+      {
+        'pokeId': 23,
+        'count': 1712,
+        'shardsSum': 675596,
+        'expSum': 261102,
+        'candysSum': 9224
+      },
+      {
+        'pokeId': 229,
+        'count': 1710,
+        'shardsSum': 2744950,
+        'expSum': 1299423,
+        'candysSum': 12882
+      },
+      {
+        'pokeId': 302,
+        'count': 1708,
+        'shardsSum': 3742687,
+        'expSum': 1444860,
+        'candysSum': 14451
+      },
+      {
+        'pokeId': 24,
+        'count': 1706,
+        'shardsSum': 2509016,
+        'expSum': 968424,
+        'candysSum': 12684
       },
       {
         'pokeId': 453,
-        'count': 1636,
-        'shardsSum': 677488,
-        'expSum': 376875,
-        'candysSum': 8875
+        'count': 1697,
+        'shardsSum': 687984,
+        'expSum': 382719,
+        'candysSum': 9141
+      },
+      {
+        'pokeId': 317,
+        'count': 1677,
+        'shardsSum': 1537508,
+        'expSum': 1424276,
+        'candysSum': 12406
+      },
+      {
+        'pokeId': 228,
+        'count': 1677,
+        'shardsSum': 826839,
+        'expSum': 391247,
+        'candysSum': 9198
+      },
+      {
+        'pokeId': 197,
+        'count': 1677,
+        'shardsSum': 5587990,
+        'expSum': 3644106,
+        'candysSum': 15953
+      },
+      {
+        'pokeId': 316,
+        'count': 1675,
+        'shardsSum': 453772,
+        'expSum': 420533,
+        'candysSum': 8963
       },
       {
         'pokeId': 92,
-        'count': 1469,
-        'shardsSum': 559222,
-        'expSum': 186897,
-        'candysSum': 7395
-      },
-      {
-        'pokeId': 353,
-        'count': 1458,
-        'shardsSum': 465816,
-        'expSum': 220852,
-        'candysSum': 7266
+        'count': 1497,
+        'shardsSum': 581079,
+        'expSum': 194192,
+        'candysSum': 7569
       },
       {
         'pokeId': 93,
-        'count': 1445,
-        'shardsSum': 1330770,
-        'expSum': 443419,
-        'candysSum': 10225
+        'count': 1456,
+        'shardsSum': 1302398,
+        'expSum': 433969,
+        'candysSum': 10234
+      },
+      {
+        'pokeId': 353,
+        'count': 1405,
+        'shardsSum': 457406,
+        'expSum': 216854,
+        'candysSum': 7041
       }
     ]
   },
@@ -520,115 +520,115 @@ export default [
     'res': [
       {
         'pokeId': 225,
-        'count': 5758,
-        'shardsSum': 29416501,
-        'expSum': 13922397,
-        'candysSum': 55243
-      },
-      {
-        'pokeId': 215,
-        'count': 1890,
-        'shardsSum': 7189009,
-        'expSum': 3640845,
-        'candysSum': 15842
-      },
-      {
-        'pokeId': 359,
-        'count': 1842,
-        'shardsSum': 4353162,
-        'expSum': 2060096,
-        'candysSum': 15488
-      },
-      {
-        'pokeId': 461,
-        'count': 1806,
-        'shardsSum': 17265018,
-        'expSum': 11026584,
-        'candysSum': 16968
-      },
-      {
-        'pokeId': 54,
-        'count': 1797,
-        'shardsSum': 600345,
-        'expSum': 334349,
-        'candysSum': 9652
-      },
-      {
-        'pokeId': 56,
-        'count': 1786,
-        'shardsSum': 868611,
-        'expSum': 335033,
-        'candysSum': 9729
+        'count': 5648,
+        'shardsSum': 29172139,
+        'expSum': 13806798,
+        'candysSum': 54433
       },
       {
         'pokeId': 454,
-        'count': 1785,
-        'shardsSum': 2204247,
-        'expSum': 1224134,
-        'candysSum': 13292
-      },
-      {
-        'pokeId': 317,
-        'count': 1776,
-        'shardsSum': 1674113,
-        'expSum': 1550783,
-        'candysSum': 13233
-      },
-      {
-        'pokeId': 316,
-        'count': 1770,
-        'shardsSum': 499741,
-        'expSum': 463137,
-        'candysSum': 9605
-      },
-      {
-        'pokeId': 453,
-        'count': 1762,
-        'shardsSum': 697277,
-        'expSum': 387894,
-        'candysSum': 9404
-      },
-      {
-        'pokeId': 288,
-        'count': 1745,
-        'shardsSum': 1790631,
-        'expSum': 1168168,
-        'candysSum': 12808
-      },
-      {
-        'pokeId': 57,
-        'count': 1740,
-        'shardsSum': 2264606,
-        'expSum': 1071261,
-        'candysSum': 12782
+        'count': 1866,
+        'shardsSum': 2318442,
+        'expSum': 1287548,
+        'candysSum': 13849
       },
       {
         'pokeId': 334,
-        'count': 1738,
-        'shardsSum': 2608019,
-        'expSum': 1448931,
-        'candysSum': 12845
+        'count': 1844,
+        'shardsSum': 2793356,
+        'expSum': 1551897,
+        'candysSum': 13675
+      },
+      {
+        'pokeId': 56,
+        'count': 1819,
+        'shardsSum': 902892,
+        'expSum': 348264,
+        'candysSum': 9946
+      },
+      {
+        'pokeId': 359,
+        'count': 1811,
+        'shardsSum': 4419149,
+        'expSum': 2091295,
+        'candysSum': 15363
+      },
+      {
+        'pokeId': 57,
+        'count': 1801,
+        'shardsSum': 2329689,
+        'expSum': 1102019,
+        'candysSum': 13251
+      },
+      {
+        'pokeId': 288,
+        'count': 1797,
+        'shardsSum': 1911701,
+        'expSum': 1247156,
+        'candysSum': 13311
+      },
+      {
+        'pokeId': 316,
+        'count': 1796,
+        'shardsSum': 526560,
+        'expSum': 487983,
+        'candysSum': 9812
+      },
+      {
+        'pokeId': 317,
+        'count': 1772,
+        'shardsSum': 1634748,
+        'expSum': 1514356,
+        'candysSum': 13122
       },
       {
         'pokeId': 69,
-        'count': 1728,
-        'shardsSum': 664229,
-        'expSum': 369211,
-        'candysSum': 9440
+        'count': 1770,
+        'shardsSum': 642179,
+        'expSum': 356965,
+        'candysSum': 9461
       },
       {
-        'pokeId': 93,
-        'count': 1548,
-        'shardsSum': 1393744,
-        'expSum': 464405,
-        'candysSum': 10892
+        'pokeId': 453,
+        'count': 1760,
+        'shardsSum': 729780,
+        'expSum': 405966,
+        'candysSum': 9586
+      },
+      {
+        'pokeId': 461,
+        'count': 1752,
+        'shardsSum': 16476971,
+        'expSum': 10523248,
+        'candysSum': 16357
+      },
+      {
+        'pokeId': 215,
+        'count': 1734,
+        'shardsSum': 6611781,
+        'expSum': 3348517,
+        'candysSum': 14522
+      },
+      {
+        'pokeId': 54,
+        'count': 1694,
+        'shardsSum': 572906,
+        'expSum': 319080,
+        'candysSum': 9143
       },
       {
         'pokeId': 92,
-        'count': 1529,
-        'shardsSum': 605320,
-        'expSum': 202283,
-        'candysSum': 7795
+        'count': 1591,
+        'shardsSum': 584312,
+        'expSum': 195301,
+        'candysSum': 7933
+      },
+      {
+        'pokeId': 93,
+        'count': 1545,
+        'shardsSum': 1400964,
+        'expSum': 466807,
+        'candysSum': 10843
       }
     ]
   },
@@ -638,150 +638,150 @@ export default [
     'res': [
       {
         'pokeId': 149,
-        'count': 5274,
-        'shardsSum': 70646095,
-        'expSum': 39248123,
-        'candysSum': 61489
-      },
-      {
-        'pokeId': 148,
-        'count': 1402,
-        'shardsSum': 3182911,
-        'expSum': 1506188,
-        'candysSum': 10368
-      },
-      {
-        'pokeId': 1,
-        'count': 1390,
-        'shardsSum': 770905,
-        'expSum': 364539,
-        'candysSum': 7483
-      },
-      {
-        'pokeId': 3,
-        'count': 1388,
-        'shardsSum': 5055320,
-        'expSum': 2809987,
-        'candysSum': 14370
-      },
-      {
-        'pokeId': 153,
-        'count': 1381,
-        'shardsSum': 1877364,
-        'expSum': 888074,
-        'candysSum': 10302
-      },
-      {
-        'pokeId': 2,
-        'count': 1361,
-        'shardsSum': 1697487,
-        'expSum': 802948,
-        'candysSum': 9927
-      },
-      {
-        'pokeId': 907,
-        'count': 1359,
-        'shardsSum': 3317212,
-        'expSum': 2348559,
-        'candysSum': 10006
-      },
-      {
-        'pokeId': 154,
-        'count': 1357,
-        'shardsSum': 4996109,
-        'expSum': 2775353,
-        'candysSum': 14073
-      },
-      {
-        'pokeId': 334,
-        'count': 1352,
-        'shardsSum': 1916511,
-        'expSum': 1064754,
-        'candysSum': 9840
-      },
-      {
-        'pokeId': 57,
-        'count': 1347,
-        'shardsSum': 1768764,
-        'expSum': 836665,
-        'candysSum': 10002
+        'count': 5265,
+        'shardsSum': 70853403,
+        'expSum': 39363288,
+        'candysSum': 61491
       },
       {
         'pokeId': 908,
-        'count': 1346,
-        'shardsSum': 9053300,
-        'expSum': 6408869,
-        'candysSum': 13981
-      },
-      {
-        'pokeId': 71,
-        'count': 1341,
-        'shardsSum': 3610290,
-        'expSum': 2005607,
-        'candysSum': 13858
+        'count': 1414,
+        'shardsSum': 9947510,
+        'expSum': 7041840,
+        'candysSum': 14802
       },
       {
         'pokeId': 906,
-        'count': 1335,
-        'shardsSum': 2231920,
-        'expSum': 1237027,
-        'candysSum': 7120
+        'count': 1377,
+        'shardsSum': 2299525,
+        'expSum': 1274492,
+        'candysSum': 7363
       },
       {
         'pokeId': 152,
-        'count': 1329,
-        'shardsSum': 730650,
-        'expSum': 345474,
-        'candysSum': 7057
-      },
-      {
-        'pokeId': 56,
-        'count': 1323,
-        'shardsSum': 615483,
-        'expSum': 237386,
-        'candysSum': 7073
-      },
-      {
-        'pokeId': 69,
-        'count': 1319,
-        'shardsSum': 476824,
-        'expSum': 265051,
-        'candysSum': 7055
-      },
-      {
-        'pokeId': 147,
-        'count': 1307,
-        'shardsSum': 1756544,
-        'expSum': 831252,
-        'candysSum': 7153
-      },
-      {
-        'pokeId': 23,
-        'count': 1301,
-        'shardsSum': 514456,
-        'expSum': 198806,
-        'candysSum': 6979
-      },
-      {
-        'pokeId': 470,
-        'count': 1273,
-        'shardsSum': 5101919,
-        'expSum': 1969492,
-        'candysSum': 11877
+        'count': 1376,
+        'shardsSum': 747040,
+        'expSum': 353247,
+        'candysSum': 7337
       },
       {
         'pokeId': 70,
-        'count': 1259,
-        'shardsSum': 1036623,
-        'expSum': 575685,
-        'candysSum': 9243
+        'count': 1372,
+        'shardsSum': 1189617,
+        'expSum': 660677,
+        'candysSum': 10203
+      },
+      {
+        'pokeId': 57,
+        'count': 1369,
+        'shardsSum': 1772581,
+        'expSum': 838509,
+        'candysSum': 10045
+      },
+      {
+        'pokeId': 334,
+        'count': 1362,
+        'shardsSum': 1934700,
+        'expSum': 1074863,
+        'candysSum': 9913
+      },
+      {
+        'pokeId': 147,
+        'count': 1359,
+        'shardsSum': 1760548,
+        'expSum': 833148,
+        'candysSum': 7315
+      },
+      {
+        'pokeId': 3,
+        'count': 1358,
+        'shardsSum': 5136310,
+        'expSum': 2855017,
+        'candysSum': 14225
       },
       {
         'pokeId': 54,
-        'count': 1256,
-        'shardsSum': 421264,
-        'expSum': 234620,
-        'candysSum': 6779
+        'count': 1342,
+        'shardsSum': 455435,
+        'expSum': 253634,
+        'candysSum': 7242
+      },
+      {
+        'pokeId': 23,
+        'count': 1335,
+        'shardsSum': 514702,
+        'expSum': 198909,
+        'candysSum': 7115
+      },
+      {
+        'pokeId': 153,
+        'count': 1333,
+        'shardsSum': 1707667,
+        'expSum': 807796,
+        'candysSum': 9757
+      },
+      {
+        'pokeId': 56,
+        'count': 1330,
+        'shardsSum': 592784,
+        'expSum': 228616,
+        'candysSum': 7020
+      },
+      {
+        'pokeId': 148,
+        'count': 1327,
+        'shardsSum': 2958850,
+        'expSum': 1400150,
+        'candysSum': 9750
+      },
+      {
+        'pokeId': 907,
+        'count': 1319,
+        'shardsSum': 3273884,
+        'expSum': 2317873,
+        'candysSum': 9741
+      },
+      {
+        'pokeId': 69,
+        'count': 1311,
+        'shardsSum': 458139,
+        'expSum': 254674,
+        'candysSum': 6948
+      },
+      {
+        'pokeId': 154,
+        'count': 1308,
+        'shardsSum': 4417702,
+        'expSum': 2454007,
+        'candysSum': 13319
+      },
+      {
+        'pokeId': 470,
+        'count': 1291,
+        'shardsSum': 5277386,
+        'expSum': 2037218,
+        'candysSum': 12132
+      },
+      {
+        'pokeId': 1,
+        'count': 1290,
+        'shardsSum': 722224,
+        'expSum': 341516,
+        'candysSum': 6948
+      },
+      {
+        'pokeId': 71,
+        'count': 1289,
+        'shardsSum': 3584267,
+        'expSum': 1991152,
+        'candysSum': 13433
+      },
+      {
+        'pokeId': 2,
+        'count': 1273,
+        'shardsSum': 1693889,
+        'expSum': 801280,
+        'candysSum': 9431
       }
     ]
   },
@@ -791,143 +791,143 @@ export default [
     'res': [
       {
         'pokeId': 738,
-        'count': 5242,
-        'shardsSum': 88155585,
-        'expSum': 55498675,
-        'candysSum': 61235
-      },
-      {
-        'pokeId': 908,
-        'count': 1599,
-        'shardsSum': 12017385,
-        'expSum': 8507092,
-        'candysSum': 17038
+        'count': 5198,
+        'shardsSum': 87635698,
+        'expSum': 55171376,
+        'candysSum': 60782
       },
       {
         'pokeId': 778,
-        'count': 1538,
-        'shardsSum': 12268689,
-        'expSum': 5275322,
-        'candysSum': 12911
-      },
-      {
-        'pokeId': 737,
-        'count': 1498,
-        'shardsSum': 6024429,
-        'expSum': 3847028,
-        'candysSum': 11078
-      },
-      {
-        'pokeId': 23,
-        'count': 1494,
-        'shardsSum': 618113,
-        'expSum': 238851,
-        'candysSum': 8117
-      },
-      {
-        'pokeId': 10,
-        'count': 1462,
-        'shardsSum': 370706,
-        'expSum': 343394,
-        'candysSum': 7868
-      },
-      {
-        'pokeId': 94,
-        'count': 1458,
-        'shardsSum': 6849910,
-        'expSum': 2283664,
-        'candysSum': 15216
+        'count': 1531,
+        'shardsSum': 13796454,
+        'expSum': 5932120,
+        'candysSum': 13210
       },
       {
         'pokeId': 911,
-        'count': 1454,
-        'shardsSum': 7461016,
-        'expSum': 7928250,
-        'candysSum': 15012
-      },
-      {
-        'pokeId': 12,
-        'count': 1451,
-        'shardsSum': 4145745,
-        'expSum': 2303044,
-        'candysSum': 15177
-      },
-      {
-        'pokeId': 907,
-        'count': 1449,
-        'shardsSum': 3634335,
-        'expSum': 2573076,
-        'candysSum': 10743
-      },
-      {
-        'pokeId': 24,
-        'count': 1447,
-        'shardsSum': 2056831,
-        'expSum': 793885,
-        'candysSum': 10652
-      },
-      {
-        'pokeId': 11,
-        'count': 1442,
-        'shardsSum': 633910,
-        'expSum': 587026,
-        'candysSum': 10718
+        'count': 1526,
+        'shardsSum': 8264777,
+        'expSum': 8782322,
+        'candysSum': 15942
       },
       {
         'pokeId': 906,
-        'count': 1441,
-        'shardsSum': 2594240,
-        'expSum': 1437820,
-        'candysSum': 7939
+        'count': 1512,
+        'shardsSum': 2687065,
+        'expSum': 1489271,
+        'candysSum': 8278
       },
       {
-        'pokeId': 736,
-        'count': 1416,
-        'shardsSum': 2472850,
-        'expSum': 1556348,
-        'candysSum': 7669
+        'pokeId': 11,
+        'count': 1500,
+        'shardsSum': 648785,
+        'expSum': 600775,
+        'candysSum': 11120
       },
       {
         'pokeId': 354,
-        'count': 1388,
-        'shardsSum': 2630721,
-        'expSum': 1244681,
-        'candysSum': 10333
+        'count': 1489,
+        'shardsSum': 2787351,
+        'expSum': 1318808,
+        'candysSum': 11018
+      },
+      {
+        'pokeId': 94,
+        'count': 1489,
+        'shardsSum': 7025611,
+        'expSum': 2342220,
+        'candysSum': 15557
+      },
+      {
+        'pokeId': 736,
+        'count': 1483,
+        'shardsSum': 2542433,
+        'expSum': 1600129,
+        'candysSum': 8027
+      },
+      {
+        'pokeId': 24,
+        'count': 1469,
+        'shardsSum': 2109878,
+        'expSum': 814356,
+        'candysSum': 10836
+      },
+      {
+        'pokeId': 12,
+        'count': 1448,
+        'shardsSum': 4136409,
+        'expSum': 2297866,
+        'candysSum': 15162
+      },
+      {
+        'pokeId': 737,
+        'count': 1444,
+        'shardsSum': 5840032,
+        'expSum': 3729276,
+        'candysSum': 10700
+      },
+      {
+        'pokeId': 23,
+        'count': 1430,
+        'shardsSum': 601237,
+        'expSum': 232343,
+        'candysSum': 7838
+      },
+      {
+        'pokeId': 908,
+        'count': 1428,
+        'shardsSum': 10020358,
+        'expSum': 7093419,
+        'candysSum': 14949
+      },
+      {
+        'pokeId': 907,
+        'count': 1420,
+        'shardsSum': 3644401,
+        'expSum': 2580173,
+        'candysSum': 10551
+      },
+      {
+        'pokeId': 10,
+        'count': 1419,
+        'shardsSum': 379987,
+        'expSum': 352015,
+        'candysSum': 7780
       },
       {
         'pokeId': 353,
-        'count': 1291,
-        'shardsSum': 433808,
-        'expSum': 205658,
-        'candysSum': 6543
+        'count': 1322,
+        'shardsSum': 441466,
+        'expSum': 209276,
+        'candysSum': 6666
       },
       {
         'pokeId': 425,
-        'count': 1244,
-        'shardsSum': 1874028,
-        'expSum': 2049462,
-        'candysSum': 6224
+        'count': 1268,
+        'shardsSum': 1851318,
+        'expSum': 2024462,
+        'candysSum': 6308
       },
       {
         'pokeId': 92,
-        'count': 1239,
-        'shardsSum': 490254,
-        'expSum': 163831,
-        'candysSum': 6305
+        'count': 1255,
+        'shardsSum': 462998,
+        'expSum': 154751,
+        'candysSum': 6233
       },
       {
         'pokeId': 93,
-        'count': 1225,
-        'shardsSum': 1122866,
-        'expSum': 374146,
-        'candysSum': 8677
+        'count': 1191,
+        'shardsSum': 1042406,
+        'expSum': 347339,
+        'candysSum': 8315
       },
       {
         'pokeId': 426,
-        'count': 1222,
-        'shardsSum': 7011177,
-        'expSum': 7678966,
-        'candysSum': 8580
+        'count': 1178,
+        'shardsSum': 6754017,
+        'expSum': 7397300,
+        'candysSum': 8324
       }
     ]
   },
@@ -937,297 +937,297 @@ export default [
     'res': [
       {
         'pokeId': 468,
-        'count': 4131,
-        'shardsSum': 25444898,
-        'expSum': 14136560,
-        'candysSum': 48028
+        'count': 4085,
+        'shardsSum': 25227999,
+        'expSum': 14016040,
+        'candysSum': 47516
       },
       {
         'pokeId': 132,
-        'count': 1142,
-        'shardsSum': 2646609,
-        'expSum': 1470200,
-        'candysSum': 10211
-      },
-      {
-        'pokeId': 26,
-        'count': 954,
-        'shardsSum': 3056178,
-        'expSum': 1182206,
-        'candysSum': 9860
-      },
-      {
-        'pokeId': 6,
-        'count': 940,
-        'shardsSum': 3638791,
-        'expSum': 1722089,
-        'candysSum': 9731
+        'count': 1171,
+        'shardsSum': 2660832,
+        'expSum': 1478087,
+        'candysSum': 10426
       },
       {
         'pokeId': 289,
-        'count': 939,
-        'shardsSum': 4374153,
-        'expSum': 4050577,
-        'candysSum': 10155
+        'count': 984,
+        'shardsSum': 4479108,
+        'expSum': 4147769,
+        'candysSum': 10617
       },
       {
         'pokeId': 52,
-        'count': 884,
-        'shardsSum': 372804,
-        'expSum': 176399,
-        'candysSum': 4598
+        'count': 959,
+        'shardsSum': 445155,
+        'expSum': 210638,
+        'candysSum': 5169
       },
       {
         'pokeId': 53,
-        'count': 872,
-        'shardsSum': 1108019,
-        'expSum': 524128,
-        'candysSum': 6371
+        'count': 945,
+        'shardsSum': 1192207,
+        'expSum': 563955,
+        'candysSum': 6883
+      },
+      {
+        'pokeId': 26,
+        'count': 924,
+        'shardsSum': 3229995,
+        'expSum': 1248761,
+        'candysSum': 9791
       },
       {
         'pokeId': 115,
-        'count': 848,
-        'shardsSum': 1502694,
-        'expSum': 1391622,
-        'candysSum': 7023
+        'count': 921,
+        'shardsSum': 1644668,
+        'expSum': 1523109,
+        'candysSum': 7660
       },
       {
-        'pokeId': 700,
-        'count': 836,
-        'shardsSum': 2552516,
-        'expSum': 1664564,
-        'candysSum': 7770
+        'pokeId': 6,
+        'count': 890,
+        'shardsSum': 3401840,
+        'expSum': 1609946,
+        'candysSum': 9164
       },
       {
         'pokeId': 135,
-        'count': 832,
-        'shardsSum': 3315623,
-        'expSum': 1279919,
-        'candysSum': 7764
+        'count': 870,
+        'shardsSum': 3412360,
+        'expSum': 1317257,
+        'candysSum': 8088
       },
       {
-        'pokeId': 155,
-        'count': 684,
-        'shardsSum': 259527,
-        'expSum': 100313,
-        'candysSum': 3181
-      },
-      {
-        'pokeId': 909,
-        'count': 683,
-        'shardsSum': 393069,
-        'expSum': 498932,
-        'candysSum': 3071
-      },
-      {
-        'pokeId': 19,
-        'count': 655,
-        'shardsSum': 160718,
-        'expSum': 53791,
-        'candysSum': 2971
-      },
-      {
-        'pokeId': 202,
-        'count': 653,
-        'shardsSum': 162693,
-        'expSum': 150520,
-        'candysSum': 3640
-      },
-      {
-        'pokeId': 79,
-        'count': 639,
-        'shardsSum': 117077,
-        'expSum': 108498,
-        'candysSum': 2972
-      },
-      {
-        'pokeId': 36,
-        'count': 637,
-        'shardsSum': 1337963,
-        'expSum': 1069529,
-        'candysSum': 6112
-      },
-      {
-        'pokeId': 20,
-        'count': 634,
-        'shardsSum': 415897,
-        'expSum': 160708,
-        'candysSum': 4201
-      },
-      {
-        'pokeId': 58,
-        'count': 633,
-        'shardsSum': 163626,
-        'expSum': 90855,
-        'candysSum': 2888
-      },
-      {
-        'pokeId': 25,
-        'count': 633,
-        'shardsSum': 217760,
-        'expSum': 72601,
-        'candysSum': 3602
-      },
-      {
-        'pokeId': 180,
-        'count': 632,
-        'shardsSum': 308096,
-        'expSum': 200813,
-        'candysSum': 4132
-      },
-      {
-        'pokeId': 764,
-        'count': 629,
-        'shardsSum': 1850152,
-        'expSum': 616712,
-        'candysSum': 4815
-      },
-      {
-        'pokeId': 38,
-        'count': 625,
-        'shardsSum': 1196277,
-        'expSum': 566115,
-        'candysSum': 5297
-      },
-      {
-        'pokeId': 179,
-        'count': 624,
-        'shardsSum': 115521,
-        'expSum': 92479,
-        'candysSum': 2935
-      },
-      {
-        'pokeId': 39,
-        'count': 622,
-        'shardsSum': 138012,
-        'expSum': 127829,
-        'candysSum': 3475
-      },
-      {
-        'pokeId': 35,
-        'count': 616,
-        'shardsSum': 219386,
-        'expSum': 202929,
-        'candysSum': 3575
-      },
-      {
-        'pokeId': 243,
-        'count': 615,
-        'shardsSum': 8417280,
-        'expSum': 2344311,
-        'candysSum': 7232
-      },
-      {
-        'pokeId': 176,
-        'count': 612,
-        'shardsSum': 379074,
-        'expSum': 179352,
-        'candysSum': 3372
+        'pokeId': 700,
+        'count': 842,
+        'shardsSum': 2573667,
+        'expSum': 1678355,
+        'candysSum': 7808
       },
       {
         'pokeId': 287,
-        'count': 611,
-        'shardsSum': 126493,
-        'expSum': 117214,
-        'candysSum': 2890
+        'count': 677,
+        'shardsSum': 112512,
+        'expSum': 104263,
+        'candysSum': 3054
       },
       {
-        'pokeId': 4,
-        'count': 607,
-        'shardsSum': 250884,
-        'expSum': 96960,
-        'candysSum': 2875
+        'pokeId': 19,
+        'count': 677,
+        'shardsSum': 163030,
+        'expSum': 54569,
+        'candysSum': 3041
       },
       {
-        'pokeId': 702,
-        'count': 605,
-        'shardsSum': 1302257,
-        'expSum': 723438,
-        'candysSum': 4604
+        'pokeId': 202,
+        'count': 675,
+        'shardsSum': 189889,
+        'expSum': 175722,
+        'candysSum': 3842
       },
       {
-        'pokeId': 5,
-        'count': 605,
-        'shardsSum': 540645,
-        'expSum': 255746,
-        'candysSum': 4023
+        'pokeId': 39,
+        'count': 669,
+        'shardsSum': 162486,
+        'expSum': 150462,
+        'candysSum': 3831
       },
       {
-        'pokeId': 136,
-        'count': 604,
-        'shardsSum': 1833714,
-        'expSum': 707891,
-        'candysSum': 5226
-      },
-      {
-        'pokeId': 37,
-        'count': 603,
-        'shardsSum': 484108,
-        'expSum': 187127,
-        'candysSum': 2821
-      },
-      {
-        'pokeId': 156,
-        'count': 602,
-        'shardsSum': 504160,
-        'expSum': 238488,
-        'candysSum': 3928
-      },
-      {
-        'pokeId': 40,
-        'count': 602,
-        'shardsSum': 527645,
-        'expSum': 488512,
-        'candysSum': 5786
-      },
-      {
-        'pokeId': 196,
-        'count': 598,
-        'shardsSum': 1781206,
-        'expSum': 687612,
-        'candysSum': 5166
-      },
-      {
-        'pokeId': 133,
-        'count': 597,
-        'shardsSum': 182711,
-        'expSum': 101759,
-        'candysSum': 2717
-      },
-      {
-        'pokeId': 244,
-        'count': 587,
-        'shardsSum': 7317057,
-        'expSum': 2622134,
-        'candysSum': 6844
+        'pokeId': 909,
+        'count': 653,
+        'shardsSum': 364825,
+        'expSum': 463075,
+        'candysSum': 2914
       },
       {
         'pokeId': 80,
-        'count': 558,
-        'shardsSum': 394606,
-        'expSum': 264645,
-        'candysSum': 3655
+        'count': 647,
+        'shardsSum': 494797,
+        'expSum': 331717,
+        'candysSum': 4336
+      },
+      {
+        'pokeId': 180,
+        'count': 637,
+        'shardsSum': 338855,
+        'expSum': 220871,
+        'candysSum': 4243
+      },
+      {
+        'pokeId': 133,
+        'count': 637,
+        'shardsSum': 211781,
+        'expSum': 117931,
+        'candysSum': 2963
+      },
+      {
+        'pokeId': 79,
+        'count': 634,
+        'shardsSum': 101303,
+        'expSum': 93877,
+        'candysSum': 2840
+      },
+      {
+        'pokeId': 37,
+        'count': 630,
+        'shardsSum': 464917,
+        'expSum': 179727,
+        'candysSum': 2862
+      },
+      {
+        'pokeId': 176,
+        'count': 623,
+        'shardsSum': 418134,
+        'expSum': 197841,
+        'candysSum': 3529
+      },
+      {
+        'pokeId': 179,
+        'count': 617,
+        'shardsSum': 112226,
+        'expSum': 89839,
+        'candysSum': 2901
+      },
+      {
+        'pokeId': 136,
+        'count': 616,
+        'shardsSum': 1812395,
+        'expSum': 699655,
+        'candysSum': 5301
+      },
+      {
+        'pokeId': 243,
+        'count': 614,
+        'shardsSum': 8249920,
+        'expSum': 2283668,
+        'candysSum': 7186
+      },
+      {
+        'pokeId': 20,
+        'count': 613,
+        'shardsSum': 409858,
+        'expSum': 158370,
+        'candysSum': 4060
+      },
+      {
+        'pokeId': 4,
+        'count': 609,
+        'shardsSum': 216747,
+        'expSum': 83761,
+        'candysSum': 2750
+      },
+      {
+        'pokeId': 38,
+        'count': 602,
+        'shardsSum': 1216399,
+        'expSum': 575635,
+        'candysSum': 5159
+      },
+      {
+        'pokeId': 5,
+        'count': 601,
+        'shardsSum': 553109,
+        'expSum': 261642,
+        'candysSum': 4031
+      },
+      {
+        'pokeId': 155,
+        'count': 600,
+        'shardsSum': 225906,
+        'expSum': 87286,
+        'candysSum': 2726
+      },
+      {
+        'pokeId': 25,
+        'count': 596,
+        'shardsSum': 192841,
+        'expSum': 64307,
+        'candysSum': 3325
+      },
+      {
+        'pokeId': 58,
+        'count': 593,
+        'shardsSum': 161628,
+        'expSum': 89741,
+        'candysSum': 2761
       },
       {
         'pokeId': 157,
-        'count': 547,
-        'shardsSum': 1494112,
-        'expSum': 707076,
-        'candysSum': 5196
+        'count': 592,
+        'shardsSum': 1755220,
+        'expSum': 830652,
+        'candysSum': 5724
       },
       {
-        'pokeId': 50,
-        'count': 538,
-        'shardsSum': 49400,
-        'expSum': 16646,
-        'candysSum': 2174
+        'pokeId': 702,
+        'count': 591,
+        'shardsSum': 1349295,
+        'expSum': 749571,
+        'candysSum': 4556
+      },
+      {
+        'pokeId': 196,
+        'count': 590,
+        'shardsSum': 1761830,
+        'expSum': 680115,
+        'candysSum': 5130
+      },
+      {
+        'pokeId': 35,
+        'count': 584,
+        'shardsSum': 165859,
+        'expSum': 153387,
+        'candysSum': 3224
+      },
+      {
+        'pokeId': 244,
+        'count': 581,
+        'shardsSum': 7583475,
+        'expSum': 2748022,
+        'candysSum': 6818
+      },
+      {
+        'pokeId': 764,
+        'count': 570,
+        'shardsSum': 1709362,
+        'expSum': 569775,
+        'candysSum': 4391
+      },
+      {
+        'pokeId': 40,
+        'count': 570,
+        'shardsSum': 473910,
+        'expSum': 438750,
+        'candysSum': 5482
+      },
+      {
+        'pokeId': 156,
+        'count': 564,
+        'shardsSum': 469611,
+        'expSum': 222142,
+        'candysSum': 3681
+      },
+      {
+        'pokeId': 36,
+        'count': 548,
+        'shardsSum': 1159856,
+        'expSum': 927168,
+        'candysSum': 5228
       },
       {
         'pokeId': 51,
-        'count': 532,
-        'shardsSum': 278046,
-        'expSum': 92945,
-        'candysSum': 3174
+        'count': 506,
+        'shardsSum': 272144,
+        'expSum': 90970,
+        'candysSum': 3050
+      },
+      {
+        'pokeId': 50,
+        'count': 493,
+        'shardsSum': 40772,
+        'expSum': 13755,
+        'candysSum': 1927
       }
     ]
   },
@@ -1237,136 +1237,136 @@ export default [
     'res': [
       {
         'pokeId': 199,
-        'count': 5488,
-        'shardsSum': 30220089,
-        'expSum': 19706484,
-        'candysSum': 58592
+        'count': 5436,
+        'shardsSum': 29939702,
+        'expSum': 19523636,
+        'candysSum': 58031
       },
       {
         'pokeId': 132,
-        'count': 1894,
-        'shardsSum': 4364610,
-        'expSum': 2424540,
-        'candysSum': 16932
-      },
-      {
-        'pokeId': 19,
-        'count': 1531,
-        'shardsSum': 630776,
-        'expSum': 210471,
-        'candysSum': 8188
+        'count': 1882,
+        'shardsSum': 4259554,
+        'expSum': 2366177,
+        'candysSum': 16743
       },
       {
         'pokeId': 25,
-        'count': 1513,
-        'shardsSum': 849625,
-        'expSum': 283598,
-        'candysSum': 9257
-      },
-      {
-        'pokeId': 115,
-        'count': 1498,
-        'shardsSum': 2803610,
-        'expSum': 2596378,
-        'candysSum': 12638
-      },
-      {
-        'pokeId': 909,
-        'count': 1497,
-        'shardsSum': 1585672,
-        'expSum': 2012916,
-        'candysSum': 8147
-      },
-      {
-        'pokeId': 40,
-        'count': 1492,
-        'shardsSum': 1908506,
-        'expSum': 1767103,
-        'candysSum': 15502
-      },
-      {
-        'pokeId': 910,
-        'count': 1467,
-        'shardsSum': 2895601,
-        'expSum': 3077019,
-        'candysSum': 10886
-      },
-      {
-        'pokeId': 35,
-        'count': 1465,
-        'shardsSum': 767903,
-        'expSum': 710644,
-        'candysSum': 9472
+        'count': 1545,
+        'shardsSum': 839674,
+        'expSum': 280265,
+        'candysSum': 9394
       },
       {
         'pokeId': 764,
-        'count': 1458,
-        'shardsSum': 6074535,
-        'expSum': 2024979,
-        'candysSum': 12228
-      },
-      {
-        'pokeId': 80,
-        'count': 1457,
-        'shardsSum': 1556484,
-        'expSum': 1029358,
-        'candysSum': 10656
-      },
-      {
-        'pokeId': 122,
-        'count': 1451,
-        'shardsSum': 2288398,
-        'expSum': 763372,
-        'candysSum': 10891
-      },
-      {
-        'pokeId': 133,
-        'count': 1440,
-        'shardsSum': 731370,
-        'expSum': 406630,
-        'candysSum': 7673
-      },
-      {
-        'pokeId': 20,
-        'count': 1437,
-        'shardsSum': 1470078,
-        'expSum': 567880,
-        'candysSum': 10668
-      },
-      {
-        'pokeId': 79,
-        'count': 1436,
-        'shardsSum': 411648,
-        'expSum': 381110,
-        'candysSum': 7579
+        'count': 1518,
+        'shardsSum': 6389388,
+        'expSum': 2129973,
+        'candysSum': 12727
       },
       {
         'pokeId': 39,
-        'count': 1426,
-        'shardsSum': 508085,
-        'expSum': 470325,
-        'candysSum': 9092
+        'count': 1500,
+        'shardsSum': 534445,
+        'expSum': 494768,
+        'candysSum': 9518
+      },
+      {
+        'pokeId': 133,
+        'count': 1491,
+        'shardsSum': 775518,
+        'expSum': 431127,
+        'candysSum': 8051
+      },
+      {
+        'pokeId': 19,
+        'count': 1483,
+        'shardsSum': 617898,
+        'expSum': 206167,
+        'candysSum': 7999
+      },
+      {
+        'pokeId': 79,
+        'count': 1482,
+        'shardsSum': 448331,
+        'expSum': 415100,
+        'candysSum': 8021
+      },
+      {
+        'pokeId': 910,
+        'count': 1473,
+        'shardsSum': 2834694,
+        'expSum': 3012291,
+        'candysSum': 10839
+      },
+      {
+        'pokeId': 40,
+        'count': 1455,
+        'shardsSum': 1818999,
+        'expSum': 1684220,
+        'candysSum': 15021
+      },
+      {
+        'pokeId': 20,
+        'count': 1453,
+        'shardsSum': 1487722,
+        'expSum': 574696,
+        'candysSum': 10792
+      },
+      {
+        'pokeId': 122,
+        'count': 1446,
+        'shardsSum': 2206232,
+        'expSum': 735972,
+        'candysSum': 10690
+      },
+      {
+        'pokeId': 909,
+        'count': 1443,
+        'shardsSum': 1483071,
+        'expSum': 1882663,
+        'candysSum': 7764
+      },
+      {
+        'pokeId': 35,
+        'count': 1430,
+        'shardsSum': 727610,
+        'expSum': 673355,
+        'candysSum': 9160
       },
       {
         'pokeId': 58,
-        'count': 1393,
-        'shardsSum': 587618,
-        'expSum': 326343,
-        'candysSum': 7403
+        'count': 1417,
+        'shardsSum': 615229,
+        'expSum': 341668,
+        'candysSum': 7642
+      },
+      {
+        'pokeId': 115,
+        'count': 1412,
+        'shardsSum': 2609287,
+        'expSum': 2416423,
+        'candysSum': 11827
       },
       {
         'pokeId': 36,
-        'count': 1385,
-        'shardsSum': 4208916,
-        'expSum': 3364865,
-        'candysSum': 14396
+        'count': 1411,
+        'shardsSum': 4186902,
+        'expSum': 3347234,
+        'candysSum': 14613
+      },
+      {
+        'pokeId': 80,
+        'count': 1394,
+        'shardsSum': 1529411,
+        'expSum': 1011217,
+        'candysSum': 10286
       },
       {
         'pokeId': 50,
-        'count': 1272,
-        'shardsSum': 378382,
-        'expSum': 126286,
-        'candysSum': 6272
+        'count': 1329,
+        'shardsSum': 431664,
+        'expSum': 144019,
+        'candysSum': 6731
       }
     ]
   },
@@ -1376,185 +1376,185 @@ export default [
     'res': [
       {
         'pokeId': 59,
-        'count': 4901,
-        'shardsSum': 30047758,
-        'expSum': 16691060,
-        'candysSum': 52771
-      },
-      {
-        'pokeId': 909,
-        'count': 1169,
-        'shardsSum': 1227797,
-        'expSum': 1558616,
-        'candysSum': 6345
-      },
-      {
-        'pokeId': 155,
-        'count': 1154,
-        'shardsSum': 727000,
-        'expSum': 280809,
-        'candysSum': 6272
-      },
-      {
-        'pokeId': 4,
-        'count': 1153,
-        'shardsSum': 737075,
-        'expSum': 284702,
-        'candysSum': 6308
-      },
-      {
-        'pokeId': 136,
-        'count': 1152,
-        'shardsSum': 4713372,
-        'expSum': 1819500,
-        'candysSum': 10822
-      },
-      {
-        'pokeId': 35,
-        'count': 1142,
-        'shardsSum': 599786,
-        'expSum': 555078,
-        'candysSum': 7353
-      },
-      {
-        'pokeId': 19,
-        'count': 1130,
-        'shardsSum': 494978,
-        'expSum': 165146,
-        'candysSum': 6159
-      },
-      {
-        'pokeId': 20,
-        'count': 1128,
-        'shardsSum': 1124783,
-        'expSum': 434504,
-        'candysSum': 8339
-      },
-      {
-        'pokeId': 196,
-        'count': 1124,
-        'shardsSum': 4556162,
-        'expSum': 1758819,
-        'candysSum': 10519
-      },
-      {
-        'pokeId': 5,
-        'count': 1124,
-        'shardsSum': 1508897,
-        'expSum': 713768,
-        'candysSum': 8351
-      },
-      {
-        'pokeId': 157,
-        'count': 1120,
-        'shardsSum': 4508863,
-        'expSum': 2133863,
-        'candysSum': 11687
-      },
-      {
-        'pokeId': 6,
-        'count': 1116,
-        'shardsSum': 4443300,
-        'expSum': 2102830,
-        'candysSum': 11584
-      },
-      {
-        'pokeId': 202,
-        'count': 1108,
-        'shardsSum': 463286,
-        'expSum': 429027,
-        'candysSum': 7012
-      },
-      {
-        'pokeId': 38,
-        'count': 1106,
-        'shardsSum': 3340999,
-        'expSum': 1581055,
-        'candysSum': 10346
+        'count': 4888,
+        'shardsSum': 29806820,
+        'expSum': 16557207,
+        'candysSum': 52536
       },
       {
         'pokeId': 37,
-        'count': 1094,
-        'shardsSum': 1281890,
-        'expSum': 495331,
-        'candysSum': 5827
+        'count': 1161,
+        'shardsSum': 1439991,
+        'expSum': 556375,
+        'candysSum': 6296
       },
       {
-        'pokeId': 156,
-        'count': 1090,
-        'shardsSum': 1403603,
-        'expSum': 663954,
-        'candysSum': 7991
-      },
-      {
-        'pokeId': 132,
-        'count': 1086,
-        'shardsSum': 2391350,
-        'expSum': 1328455,
-        'candysSum': 9479
-      },
-      {
-        'pokeId': 36,
-        'count': 1072,
-        'shardsSum': 3179263,
-        'expSum': 2541682,
-        'candysSum': 11082
-      },
-      {
-        'pokeId': 39,
-        'count': 1071,
-        'shardsSum': 367225,
-        'expSum': 339974,
-        'candysSum': 6716
-      },
-      {
-        'pokeId': 133,
-        'count': 1056,
-        'shardsSum': 569106,
-        'expSum': 316385,
-        'candysSum': 5769
-      },
-      {
-        'pokeId': 58,
-        'count': 1045,
-        'shardsSum': 445332,
-        'expSum': 247321,
-        'candysSum': 5580
+        'pokeId': 4,
+        'count': 1159,
+        'shardsSum': 733087,
+        'expSum': 283164,
+        'candysSum': 6322
       },
       {
         'pokeId': 910,
-        'count': 1040,
-        'shardsSum': 2040466,
-        'expSum': 2168310,
-        'candysSum': 7719
+        'count': 1126,
+        'shardsSum': 2223048,
+        'expSum': 2362331,
+        'candysSum': 8369
+      },
+      {
+        'pokeId': 133,
+        'count': 1126,
+        'shardsSum': 605613,
+        'expSum': 336680,
+        'candysSum': 6135
+      },
+      {
+        'pokeId': 5,
+        'count': 1121,
+        'shardsSum': 1486216,
+        'expSum': 703043,
+        'candysSum': 8296
+      },
+      {
+        'pokeId': 20,
+        'count': 1117,
+        'shardsSum': 1112438,
+        'expSum': 429734,
+        'candysSum': 8240
       },
       {
         'pokeId': 40,
-        'count': 1000,
-        'shardsSum': 1317759,
-        'expSum': 1220129,
-        'candysSum': 10457
+        'count': 1114,
+        'shardsSum': 1418179,
+        'expSum': 1313090,
+        'candysSum': 11559
       },
       {
-        'pokeId': 51,
-        'count': 968,
-        'shardsSum': 1174044,
-        'expSum': 391780,
-        'candysSum': 6796
+        'pokeId': 36,
+        'count': 1110,
+        'shardsSum': 3426017,
+        'expSum': 2738960,
+        'candysSum': 11612
+      },
+      {
+        'pokeId': 6,
+        'count': 1108,
+        'shardsSum': 4494044,
+        'expSum': 2126850,
+        'candysSum': 11572
+      },
+      {
+        'pokeId': 35,
+        'count': 1106,
+        'shardsSum': 557347,
+        'expSum': 515788,
+        'candysSum': 7028
+      },
+      {
+        'pokeId': 909,
+        'count': 1101,
+        'shardsSum': 1168508,
+        'expSum': 1483324,
+        'candysSum': 5971
+      },
+      {
+        'pokeId': 39,
+        'count': 1099,
+        'shardsSum': 393363,
+        'expSum': 364128,
+        'candysSum': 7014
+      },
+      {
+        'pokeId': 196,
+        'count': 1097,
+        'shardsSum': 4490743,
+        'expSum': 1733562,
+        'candysSum': 10295
+      },
+      {
+        'pokeId': 58,
+        'count': 1097,
+        'shardsSum': 482135,
+        'expSum': 267762,
+        'candysSum': 5923
+      },
+      {
+        'pokeId': 136,
+        'count': 1096,
+        'shardsSum': 4334504,
+        'expSum': 1673232,
+        'candysSum': 10214
+      },
+      {
+        'pokeId': 132,
+        'count': 1095,
+        'shardsSum': 2421433,
+        'expSum': 1345168,
+        'candysSum': 9568
+      },
+      {
+        'pokeId': 155,
+        'count': 1094,
+        'shardsSum': 715139,
+        'expSum': 276227,
+        'candysSum': 6039
+      },
+      {
+        'pokeId': 157,
+        'count': 1091,
+        'shardsSum': 4417994,
+        'expSum': 2090858,
+        'candysSum': 11390
+      },
+      {
+        'pokeId': 202,
+        'count': 1087,
+        'shardsSum': 460240,
+        'expSum': 426199,
+        'candysSum': 6909
+      },
+      {
+        'pokeId': 38,
+        'count': 1081,
+        'shardsSum': 3312502,
+        'expSum': 1567572,
+        'candysSum': 10166
+      },
+      {
+        'pokeId': 156,
+        'count': 1065,
+        'shardsSum': 1403260,
+        'expSum': 663800,
+        'candysSum': 7864
+      },
+      {
+        'pokeId': 19,
+        'count': 1055,
+        'shardsSum': 439546,
+        'expSum': 146675,
+        'candysSum': 5663
       },
       {
         'pokeId': 50,
-        'count': 951,
-        'shardsSum': 295329,
-        'expSum': 98554,
-        'candysSum': 4793
+        'count': 992,
+        'shardsSum': 304303,
+        'expSum': 101551,
+        'candysSum': 4954
+      },
+      {
+        'pokeId': 51,
+        'count': 982,
+        'shardsSum': 1191470,
+        'expSum': 397607,
+        'candysSum': 6936
       },
       {
         'pokeId': 244,
-        'count': 900,
-        'shardsSum': 13204608,
-        'expSum': 4913940,
-        'candysSum': 10770
+        'count': 832,
+        'shardsSum': 12304564,
+        'expSum': 4588524,
+        'candysSum': 9978
       }
     ]
   },
@@ -1564,115 +1564,115 @@ export default [
     'res': [
       {
         'pokeId': 289,
-        'count': 5738,
-        'shardsSum': 31124063,
-        'expSum': 28820264,
-        'candysSum': 66424
-      },
-      {
-        'pokeId': 39,
-        'count': 1885,
-        'shardsSum': 696951,
-        'expSum': 645144,
-        'candysSum': 12150
-      },
-      {
-        'pokeId': 179,
-        'count': 1869,
-        'shardsSum': 488514,
-        'expSum': 391058,
-        'candysSum': 9894
-      },
-      {
-        'pokeId': 36,
-        'count': 1814,
-        'shardsSum': 5386269,
-        'expSum': 4306097,
-        'candysSum': 18761
-      },
-      {
-        'pokeId': 19,
-        'count': 1812,
-        'shardsSum': 772729,
-        'expSum': 257829,
-        'candysSum': 9790
-      },
-      {
-        'pokeId': 287,
-        'count': 1808,
-        'shardsSum': 544804,
-        'expSum': 504400,
-        'candysSum': 9727
-      },
-      {
-        'pokeId': 20,
-        'count': 1798,
-        'shardsSum': 1823698,
-        'expSum': 704490,
-        'candysSum': 13378
-      },
-      {
-        'pokeId': 133,
-        'count': 1786,
-        'shardsSum': 910571,
-        'expSum': 506251,
-        'candysSum': 9591
-      },
-      {
-        'pokeId': 79,
-        'count': 1783,
-        'shardsSum': 519991,
-        'expSum': 481402,
-        'candysSum': 9490
-      },
-      {
-        'pokeId': 181,
-        'count': 1781,
-        'shardsSum': 4781021,
-        'expSum': 2655976,
-        'candysSum': 18389
-      },
-      {
-        'pokeId': 35,
-        'count': 1774,
-        'shardsSum': 888840,
-        'expSum': 822552,
-        'candysSum': 11316
-      },
-      {
-        'pokeId': 176,
-        'count': 1754,
-        'shardsSum': 1763739,
-        'expSum': 834511,
-        'candysSum': 11327
-      },
-      {
-        'pokeId': 202,
-        'count': 1725,
-        'shardsSum': 709767,
-        'expSum': 657187,
-        'candysSum': 10942
+        'count': 5740,
+        'shardsSum': 31256548,
+        'expSum': 28942929,
+        'candysSum': 66539
       },
       {
         'pokeId': 80,
-        'count': 1721,
-        'shardsSum': 1950123,
-        'expSum': 1288865,
-        'candysSum': 12834
+        'count': 1869,
+        'shardsSum': 2021094,
+        'expSum': 1334770,
+        'candysSum': 13674
+      },
+      {
+        'pokeId': 19,
+        'count': 1841,
+        'shardsSum': 754876,
+        'expSum': 251875,
+        'candysSum': 9853
+      },
+      {
+        'pokeId': 181,
+        'count': 1821,
+        'shardsSum': 5188337,
+        'expSum': 2882238,
+        'candysSum': 19061
+      },
+      {
+        'pokeId': 39,
+        'count': 1806,
+        'shardsSum': 635398,
+        'expSum': 588180,
+        'candysSum': 11470
+      },
+      {
+        'pokeId': 133,
+        'count': 1796,
+        'shardsSum': 878231,
+        'expSum': 488284,
+        'candysSum': 9453
+      },
+      {
+        'pokeId': 36,
+        'count': 1794,
+        'shardsSum': 5364281,
+        'expSum': 4288511,
+        'candysSum': 18623
+      },
+      {
+        'pokeId': 287,
+        'count': 1776,
+        'shardsSum': 536956,
+        'expSum': 497133,
+        'candysSum': 9564
+      },
+      {
+        'pokeId': 179,
+        'count': 1776,
+        'shardsSum': 488073,
+        'expSum': 390686,
+        'candysSum': 9548
+      },
+      {
+        'pokeId': 202,
+        'count': 1758,
+        'shardsSum': 702430,
+        'expSum': 650429,
+        'candysSum': 10999
+      },
+      {
+        'pokeId': 35,
+        'count': 1756,
+        'shardsSum': 869362,
+        'expSum': 804532,
+        'candysSum': 11149
       },
       {
         'pokeId': 180,
-        'count': 1683,
-        'shardsSum': 1304368,
-        'expSum': 850632,
-        'candysSum': 12440
+        'count': 1745,
+        'shardsSum': 1330730,
+        'expSum': 867826,
+        'candysSum': 12783
+      },
+      {
+        'pokeId': 79,
+        'count': 1743,
+        'shardsSum': 514996,
+        'expSum': 476799,
+        'candysSum': 9340
+      },
+      {
+        'pokeId': 176,
+        'count': 1739,
+        'shardsSum': 1696616,
+        'expSum': 802737,
+        'candysSum': 11069
+      },
+      {
+        'pokeId': 20,
+        'count': 1738,
+        'shardsSum': 1736215,
+        'expSum': 670698,
+        'candysSum': 12835
       },
       {
         'pokeId': 132,
-        'count': 1269,
-        'shardsSum': 1666135,
-        'expSum': 925515,
-        'candysSum': 9763
+        'count': 1302,
+        'shardsSum': 1702427,
+        'expSum': 945667,
+        'candysSum': 10028
       }
     ]
   },
@@ -1682,129 +1682,129 @@ export default [
     'res': [
       {
         'pokeId': 282,
-        'count': 5554,
-        'shardsSum': 45586499,
-        'expSum': 17597866,
-        'candysSum': 64622
+        'count': 5585,
+        'shardsSum': 45935966,
+        'expSum': 17732767,
+        'candysSum': 65013
       },
       {
         'pokeId': 132,
-        'count': 1943,
-        'shardsSum': 4661289,
-        'expSum': 2589366,
-        'candysSum': 17574
-      },
-      {
-        'pokeId': 80,
-        'count': 1595,
-        'shardsSum': 1776408,
-        'expSum': 1173410,
-        'candysSum': 11802
-      },
-      {
-        'pokeId': 202,
-        'count': 1588,
-        'shardsSum': 671524,
-        'expSum': 621781,
-        'candysSum': 10176
-      },
-      {
-        'pokeId': 35,
-        'count': 1580,
-        'shardsSum': 791899,
-        'expSum': 732831,
-        'candysSum': 10107
-      },
-      {
-        'pokeId': 39,
-        'count': 1563,
-        'shardsSum': 529324,
-        'expSum': 489977,
-        'candysSum': 9842
-      },
-      {
-        'pokeId': 196,
-        'count': 1552,
-        'shardsSum': 6266975,
-        'expSum': 2419225,
-        'candysSum': 14536
+        'count': 2006,
+        'shardsSum': 4601380,
+        'expSum': 2556061,
+        'candysSum': 17923
       },
       {
         'pokeId': 281,
-        'count': 1547,
-        'shardsSum': 3490919,
-        'expSum': 1651896,
-        'candysSum': 11372
+        'count': 1589,
+        'shardsSum': 3664750,
+        'expSum': 1734192,
+        'candysSum': 11785
       },
       {
-        'pokeId': 53,
-        'count': 1534,
-        'shardsSum': 1969110,
-        'expSum': 931455,
-        'candysSum': 11268
+        'pokeId': 35,
+        'count': 1573,
+        'shardsSum': 793834,
+        'expSum': 734627,
+        'candysSum': 10062
       },
       {
-        'pokeId': 280,
-        'count': 1524,
-        'shardsSum': 1740019,
-        'expSum': 823423,
-        'candysSum': 8287
+        'pokeId': 196,
+        'count': 1569,
+        'shardsSum': 6122285,
+        'expSum': 2363355,
+        'candysSum': 14575
       },
       {
-        'pokeId': 79,
-        'count': 1523,
-        'shardsSum': 444921,
-        'expSum': 411918,
-        'candysSum': 8143
-      },
-      {
-        'pokeId': 25,
-        'count': 1520,
-        'shardsSum': 822478,
-        'expSum': 274511,
-        'candysSum': 9253
-      },
-      {
-        'pokeId': 764,
-        'count': 1508,
-        'shardsSum': 6300735,
-        'expSum': 2100373,
-        'candysSum': 12668
-      },
-      {
-        'pokeId': 36,
-        'count': 1507,
-        'shardsSum': 4537820,
-        'expSum': 3627782,
-        'candysSum': 15691
+        'pokeId': 39,
+        'count': 1550,
+        'shardsSum': 541370,
+        'expSum': 501111,
+        'candysSum': 9851
       },
       {
         'pokeId': 176,
-        'count': 1505,
-        'shardsSum': 1493927,
-        'expSum': 706826,
-        'candysSum': 9610
+        'count': 1545,
+        'shardsSum': 1548646,
+        'expSum': 732739,
+        'candysSum': 9963
+      },
+      {
+        'pokeId': 280,
+        'count': 1534,
+        'shardsSum': 1704018,
+        'expSum': 806402,
+        'candysSum': 8234
+      },
+      {
+        'pokeId': 702,
+        'count': 1526,
+        'shardsSum': 4795226,
+        'expSum': 2663945,
+        'candysSum': 12810
       },
       {
         'pokeId': 133,
-        'count': 1505,
-        'shardsSum': 796954,
-        'expSum': 443047,
-        'candysSum': 8139
+        'count': 1524,
+        'shardsSum': 761958,
+        'expSum': 423621,
+        'candysSum': 8119
+      },
+      {
+        'pokeId': 79,
+        'count': 1514,
+        'shardsSum': 463283,
+        'expSum': 428943,
+        'candysSum': 8196
+      },
+      {
+        'pokeId': 53,
+        'count': 1512,
+        'shardsSum': 2011294,
+        'expSum': 951412,
+        'candysSum': 11212
+      },
+      {
+        'pokeId': 202,
+        'count': 1510,
+        'shardsSum': 622271,
+        'expSum': 576166,
+        'candysSum': 9581
+      },
+      {
+        'pokeId': 36,
+        'count': 1509,
+        'shardsSum': 4599018,
+        'expSum': 3676738,
+        'candysSum': 15707
+      },
+      {
+        'pokeId': 80,
+        'count': 1500,
+        'shardsSum': 1615265,
+        'expSum': 1066960,
+        'candysSum': 10955
+      },
+      {
+        'pokeId': 25,
+        'count': 1487,
+        'shardsSum': 807138,
+        'expSum': 269397,
+        'candysSum': 9056
+      },
+      {
+        'pokeId': 764,
+        'count': 1485,
+        'shardsSum': 6298897,
+        'expSum': 2099784,
+        'candysSum': 12516
       },
       {
         'pokeId': 52,
         'count': 1482,
-        'shardsSum': 703169,
-        'expSum': 332721,
-        'candysSum': 8032
-      },
-      {
-        'pokeId': 702,
-        'count': 1470,
-        'shardsSum': 4753093,
-        'expSum': 2640539,
-        'candysSum': 12429
+        'shardsSum': 701532,
+        'expSum': 331947,
+        'candysSum': 7997
       }
     ]
   },
@@ -1814,143 +1814,143 @@ export default [
     'res': [
       {
         'pokeId': 405,
-        'count': 5311,
-        'shardsSum': 75696845,
-        'expSum': 47654160,
-        'candysSum': 62289
+        'count': 5347,
+        'shardsSum': 75908087,
+        'expSum': 47787114,
+        'candysSum': 62639
       },
       {
         'pokeId': 132,
-        'count': 1977,
-        'shardsSum': 8358598,
-        'expSum': 5060043,
-        'candysSum': 17962
-      },
-      {
-        'pokeId': 403,
-        'count': 1495,
-        'shardsSum': 2579023,
-        'expSum': 1623153,
-        'candysSum': 8073
-      },
-      {
-        'pokeId': 26,
-        'count': 1472,
-        'shardsSum': 4938463,
-        'expSum': 1909703,
-        'candysSum': 15413
-      },
-      {
-        'pokeId': 909,
-        'count': 1464,
-        'shardsSum': 1518781,
-        'expSum': 1927993,
-        'candysSum': 7901
-      },
-      {
-        'pokeId': 181,
-        'count': 1430,
-        'shardsSum': 4036223,
-        'expSum': 2242220,
-        'candysSum': 14950
-      },
-      {
-        'pokeId': 404,
-        'count': 1426,
-        'shardsSum': 6220461,
-        'expSum': 3915695,
-        'candysSum': 10612
-      },
-      {
-        'pokeId': 25,
-        'count': 1418,
-        'shardsSum': 792136,
-        'expSum': 264380,
-        'candysSum': 8698
+        'count': 1877,
+        'shardsSum': 7576575,
+        'expSum': 4579769,
+        'candysSum': 16870
       },
       {
         'pokeId': 35,
-        'count': 1414,
-        'shardsSum': 722972,
-        'expSum': 669055,
-        'candysSum': 9067
+        'count': 1475,
+        'shardsSum': 740334,
+        'expSum': 685107,
+        'candysSum': 9391
       },
       {
-        'pokeId': 36,
-        'count': 1398,
-        'shardsSum': 4305923,
-        'expSum': 3442425,
-        'candysSum': 14593
+        'pokeId': 181,
+        'count': 1469,
+        'shardsSum': 4061522,
+        'expSum': 2256280,
+        'candysSum': 15293
       },
       {
-        'pokeId': 133,
-        'count': 1397,
-        'shardsSum': 753603,
-        'expSum': 418923,
-        'candysSum': 7617
-      },
-      {
-        'pokeId': 180,
-        'count': 1390,
-        'shardsSum': 1093383,
-        'expSum': 713053,
-        'candysSum': 10278
-      },
-      {
-        'pokeId': 702,
-        'count': 1388,
-        'shardsSum': 4295261,
-        'expSum': 2386185,
-        'candysSum': 11557
-      },
-      {
-        'pokeId': 179,
-        'count': 1387,
-        'shardsSum': 381676,
-        'expSum': 305520,
-        'candysSum': 7448
-      },
-      {
-        'pokeId': 122,
-        'count': 1377,
-        'shardsSum': 2145960,
-        'expSum': 715851,
-        'candysSum': 10250
-      },
-      {
-        'pokeId': 135,
-        'count': 1375,
-        'shardsSum': 5742012,
-        'expSum': 2216586,
-        'candysSum': 12991
+        'pokeId': 909,
+        'count': 1435,
+        'shardsSum': 1487043,
+        'expSum': 1887704,
+        'candysSum': 7747
       },
       {
         'pokeId': 910,
-        'count': 1358,
-        'shardsSum': 2633525,
-        'expSum': 2798523,
-        'candysSum': 10031
+        'count': 1428,
+        'shardsSum': 2717215,
+        'expSum': 2887449,
+        'candysSum': 10460
+      },
+      {
+        'pokeId': 404,
+        'count': 1427,
+        'shardsSum': 6007716,
+        'expSum': 3781765,
+        'candysSum': 10493
+      },
+      {
+        'pokeId': 702,
+        'count': 1426,
+        'shardsSum': 4624346,
+        'expSum': 2569011,
+        'candysSum': 12048
+      },
+      {
+        'pokeId': 179,
+        'count': 1426,
+        'shardsSum': 386117,
+        'expSum': 309077,
+        'candysSum': 7625
+      },
+      {
+        'pokeId': 403,
+        'count': 1419,
+        'shardsSum': 2397219,
+        'expSum': 1508705,
+        'candysSum': 7669
+      },
+      {
+        'pokeId': 180,
+        'count': 1408,
+        'shardsSum': 1133826,
+        'expSum': 739418,
+        'candysSum': 10517
+      },
+      {
+        'pokeId': 25,
+        'count': 1407,
+        'shardsSum': 760360,
+        'expSum': 253775,
+        'candysSum': 8558
+      },
+      {
+        'pokeId': 36,
+        'count': 1402,
+        'shardsSum': 4300554,
+        'expSum': 3438112,
+        'candysSum': 14632
+      },
+      {
+        'pokeId': 26,
+        'count': 1386,
+        'shardsSum': 4521558,
+        'expSum': 1748785,
+        'candysSum': 14395
+      },
+      {
+        'pokeId': 135,
+        'count': 1376,
+        'shardsSum': 5734678,
+        'expSum': 2213770,
+        'candysSum': 12963
+      },
+      {
+        'pokeId': 133,
+        'count': 1362,
+        'shardsSum': 729575,
+        'expSum': 405633,
+        'candysSum': 7438
+      },
+      {
+        'pokeId': 122,
+        'count': 1351,
+        'shardsSum': 2083092,
+        'expSum': 694883,
+        'candysSum': 10012
       },
       {
         'pokeId': 51,
-        'count': 1230,
-        'shardsSum': 1467840,
-        'expSum': 489828,
-        'candysSum': 8590
+        'count': 1286,
+        'shardsSum': 1513946,
+        'expSum': 505225,
+        'candysSum': 8956
       },
       {
         'pokeId': 50,
-        'count': 1228,
-        'shardsSum': 377731,
-        'expSum': 126055,
-        'candysSum': 6150
+        'count': 1202,
+        'shardsSum': 385650,
+        'expSum': 128672,
+        'candysSum': 6054
       },
       {
         'pokeId': 243,
-        'count': 1065,
-        'shardsSum': 16281461,
-        'expSum': 4596469,
-        'candysSum': 12764
+        'count': 1091,
+        'shardsSum': 16400924,
+        'expSum': 4620871,
+        'candysSum': 13036
       }
     ]
   },
@@ -1960,234 +1960,234 @@ export default [
     'res': [
       {
         'pokeId': 845,
-        'count': 4892,
-        'shardsSum': 30979055,
-        'expSum': 14660197,
-        'candysSum': 47268
+        'count': 4902,
+        'shardsSum': 30856094,
+        'expSum': 14602004,
+        'candysSum': 47275
       },
       {
         'pokeId': 9,
-        'count': 1166,
-        'shardsSum': 4550190,
-        'expSum': 2153415,
-        'candysSum': 12070
+        'count': 1159,
+        'shardsSum': 4514485,
+        'expSum': 2136513,
+        'candysSum': 11949
       },
       {
         'pokeId': 363,
-        'count': 1147,
-        'shardsSum': 342801,
-        'expSum': 317382,
-        'candysSum': 6170
+        'count': 1128,
+        'shardsSum': 322134,
+        'expSum': 298223,
+        'candysSum': 5962
       },
       {
         'pokeId': 82,
-        'count': 1052,
-        'shardsSum': 1307572,
-        'expSum': 436324,
-        'candysSum': 7432
-      },
-      {
-        'pokeId': 81,
-        'count': 1040,
-        'shardsSum': 358794,
-        'expSum': 119824,
-        'candysSum': 5232
+        'count': 1044,
+        'shardsSum': 1287066,
+        'expSum': 429489,
+        'candysSum': 7370
       },
       {
         'pokeId': 462,
-        'count': 1014,
-        'shardsSum': 3969873,
-        'expSum': 1532282,
-        'candysSum': 10106
+        'count': 1038,
+        'shardsSum': 3931083,
+        'expSum': 1517306,
+        'candysSum': 10278
       },
       {
-        'pokeId': 175,
-        'count': 857,
-        'shardsSum': 285093,
-        'expSum': 134522,
-        'candysSum': 3883
-      },
-      {
-        'pokeId': 246,
-        'count': 843,
-        'shardsSum': 290254,
-        'expSum': 161385,
-        'candysSum': 3785
-      },
-      {
-        'pokeId': 195,
-        'count': 833,
-        'shardsSum': 1418810,
-        'expSum': 1551678,
-        'candysSum': 5517
-      },
-      {
-        'pokeId': 75,
-        'count': 832,
-        'shardsSum': 518869,
-        'expSum': 245569,
-        'candysSum': 5544
-      },
-      {
-        'pokeId': 245,
-        'count': 830,
-        'shardsSum': 11250750,
-        'expSum': 4830110,
-        'candysSum': 9790
-      },
-      {
-        'pokeId': 912,
-        'count': 828,
-        'shardsSum': 770720,
-        'expSum': 537102,
-        'candysSum': 3815
-      },
-      {
-        'pokeId': 447,
-        'count': 828,
-        'shardsSum': 250040,
-        'expSum': 118242,
-        'candysSum': 3868
-      },
-      {
-        'pokeId': 333,
-        'count': 827,
-        'shardsSum': 189721,
-        'expSum': 89828,
-        'candysSum': 3755
-      },
-      {
-        'pokeId': 104,
-        'count': 827,
-        'shardsSum': 187525,
-        'expSum': 104361,
-        'candysSum': 3742
-      },
-      {
-        'pokeId': 85,
-        'count': 827,
-        'shardsSum': 567450,
-        'expSum': 219258,
-        'candysSum': 5496
-      },
-      {
-        'pokeId': 74,
-        'count': 821,
-        'shardsSum': 194453,
-        'expSum': 75119,
-        'candysSum': 3753
-      },
-      {
-        'pokeId': 7,
-        'count': 810,
-        'shardsSum': 302760,
-        'expSum': 142902,
-        'candysSum': 3804
-      },
-      {
-        'pokeId': 185,
-        'count': 807,
-        'shardsSum': 287970,
-        'expSum': 160023,
-        'candysSum': 4539
-      },
-      {
-        'pokeId': 174,
-        'count': 807,
-        'shardsSum': 132948,
-        'expSum': 123033,
-        'candysSum': 3777
-      },
-      {
-        'pokeId': 360,
-        'count': 801,
-        'shardsSum': 125164,
-        'expSum': 115828,
-        'candysSum': 3700
+        'pokeId': 81,
+        'count': 1015,
+        'shardsSum': 361411,
+        'expSum': 120703,
+        'candysSum': 5119
       },
       {
         'pokeId': 172,
-        'count': 797,
-        'shardsSum': 183901,
-        'expSum': 61566,
-        'candysSum': 3634
+        'count': 853,
+        'shardsSum': 227747,
+        'expSum': 76200,
+        'candysSum': 4028
       },
       {
-        'pokeId': 158,
-        'count': 790,
-        'shardsSum': 259279,
-        'expSum': 144378,
-        'candysSum': 3653
+        'pokeId': 333,
+        'count': 849,
+        'shardsSum': 214140,
+        'expSum': 101388,
+        'candysSum': 3966
       },
       {
-        'pokeId': 438,
-        'count': 789,
-        'shardsSum': 158490,
-        'expSum': 88273,
-        'candysSum': 3619
+        'pokeId': 104,
+        'count': 848,
+        'shardsSum': 223444,
+        'expSum': 124332,
+        'candysSum': 3946
       },
       {
-        'pokeId': 194,
-        'count': 789,
-        'shardsSum': 453220,
-        'expSum': 493978,
-        'candysSum': 3636
+        'pokeId': 185,
+        'count': 843,
+        'shardsSum': 294919,
+        'expSum': 163885,
+        'candysSum': 4726
       },
       {
-        'pokeId': 84,
-        'count': 785,
-        'shardsSum': 198223,
-        'expSum': 66336,
-        'candysSum': 3624
+        'pokeId': 447,
+        'count': 838,
+        'shardsSum': 244342,
+        'expSum': 115546,
+        'candysSum': 3870
       },
       {
-        'pokeId': 160,
-        'count': 784,
-        'shardsSum': 2085476,
-        'expSum': 1158501,
-        'candysSum': 7554
+        'pokeId': 75,
+        'count': 830,
+        'shardsSum': 526452,
+        'expSum': 249164,
+        'candysSum': 5530
       },
       {
-        'pokeId': 8,
-        'count': 784,
-        'shardsSum': 671962,
-        'expSum': 317856,
-        'candysSum': 5170
-      },
-      {
-        'pokeId': 134,
-        'count': 780,
-        'shardsSum': 1433328,
-        'expSum': 1327054,
-        'candysSum': 6684
-      },
-      {
-        'pokeId': 471,
-        'count': 764,
-        'shardsSum': 2263863,
-        'expSum': 873935,
-        'candysSum': 6593
-      },
-      {
-        'pokeId': 173,
-        'count': 764,
-        'shardsSum': 188244,
-        'expSum': 174269,
-        'candysSum': 3549
+        'pokeId': 175,
+        'count': 829,
+        'shardsSum': 282963,
+        'expSum': 133527,
+        'candysSum': 3798
       },
       {
         'pokeId': 159,
-        'count': 750,
-        'shardsSum': 564624,
-        'expSum': 313564,
-        'candysSum': 4888
+        'count': 827,
+        'shardsSum': 676735,
+        'expSum': 375830,
+        'candysSum': 5507
+      },
+      {
+        'pokeId': 8,
+        'count': 826,
+        'shardsSum': 748427,
+        'expSum': 354046,
+        'candysSum': 5489
+      },
+      {
+        'pokeId': 360,
+        'count': 817,
+        'shardsSum': 129782,
+        'expSum': 120103,
+        'candysSum': 3797
+      },
+      {
+        'pokeId': 160,
+        'count': 808,
+        'shardsSum': 2103132,
+        'expSum': 1168292,
+        'candysSum': 7780
+      },
+      {
+        'pokeId': 194,
+        'count': 807,
+        'shardsSum': 415700,
+        'expSum': 452795,
+        'candysSum': 3602
+      },
+      {
+        'pokeId': 158,
+        'count': 807,
+        'shardsSum': 256206,
+        'expSum': 142701,
+        'candysSum': 3738
       },
       {
         'pokeId': 105,
-        'count': 735,
-        'shardsSum': 574545,
-        'expSum': 271871,
-        'candysSum': 4905
+        'count': 804,
+        'shardsSum': 584763,
+        'expSum': 276706,
+        'candysSum': 5277
+      },
+      {
+        'pokeId': 7,
+        'count': 804,
+        'shardsSum': 267879,
+        'expSum': 126402,
+        'candysSum': 3686
+      },
+      {
+        'pokeId': 245,
+        'count': 797,
+        'shardsSum': 10624168,
+        'expSum': 4542136,
+        'candysSum': 9378
+      },
+      {
+        'pokeId': 85,
+        'count': 797,
+        'shardsSum': 510069,
+        'expSum': 197102,
+        'candysSum': 5259
+      },
+      {
+        'pokeId': 134,
+        'count': 796,
+        'shardsSum': 1584948,
+        'expSum': 1467456,
+        'candysSum': 6932
+      },
+      {
+        'pokeId': 912,
+        'count': 793,
+        'shardsSum': 762406,
+        'expSum': 531307,
+        'candysSum': 3683
+      },
+      {
+        'pokeId': 195,
+        'count': 785,
+        'shardsSum': 1357431,
+        'expSum': 1484543,
+        'candysSum': 5261
+      },
+      {
+        'pokeId': 84,
+        'count': 779,
+        'shardsSum': 213868,
+        'expSum': 71549,
+        'candysSum': 3661
+      },
+      {
+        'pokeId': 471,
+        'count': 776,
+        'shardsSum': 2197423,
+        'expSum': 848276,
+        'candysSum': 6645
+      },
+      {
+        'pokeId': 438,
+        'count': 772,
+        'shardsSum': 157722,
+        'expSum': 87848,
+        'candysSum': 3582
+      },
+      {
+        'pokeId': 173,
+        'count': 772,
+        'shardsSum': 190188,
+        'expSum': 176065,
+        'candysSum': 3597
+      },
+      {
+        'pokeId': 74,
+        'count': 772,
+        'shardsSum': 181081,
+        'expSum': 69952,
+        'candysSum': 3519
+      },
+      {
+        'pokeId': 174,
+        'count': 744,
+        'shardsSum': 115894,
+        'expSum': 107254,
+        'candysSum': 3472
+      },
+      {
+        'pokeId': 246,
+        'count': 741,
+        'shardsSum': 293346,
+        'expSum': 163092,
+        'candysSum': 3462
       }
     ]
   },
@@ -2197,150 +2197,150 @@ export default [
     'res': [
       {
         'pokeId': 914,
-        'count': 4435,
-        'shardsSum': 45401107,
-        'expSum': 31649232,
-        'candysSum': 51304
+        'count': 4369,
+        'shardsSum': 45302688,
+        'expSum': 31580618,
+        'candysSum': 50691
       },
       {
         'pokeId': 845,
-        'count': 1843,
-        'shardsSum': 9144589,
-        'expSum': 4327464,
-        'candysSum': 16352
+        'count': 1862,
+        'shardsSum': 9237609,
+        'expSum': 4371484,
+        'candysSum': 16515
       },
       {
         'pokeId': 912,
-        'count': 1509,
-        'shardsSum': 2412104,
-        'expSum': 1681620,
-        'candysSum': 8316
+        'count': 1512,
+        'shardsSum': 2396358,
+        'expSum': 1670665,
+        'candysSum': 8287
       },
       {
         'pokeId': 185,
-        'count': 1432,
-        'shardsSum': 810263,
-        'expSum': 450241,
-        'candysSum': 9146
-      },
-      {
-        'pokeId': 158,
-        'count': 1428,
-        'shardsSum': 730151,
-        'expSum': 405898,
-        'candysSum': 7615
+        'count': 1431,
+        'shardsSum': 788303,
+        'expSum': 438041,
+        'candysSum': 9068
       },
       {
         'pokeId': 913,
-        'count': 1426,
-        'shardsSum': 3594363,
-        'expSum': 2505586,
-        'candysSum': 10546
-      },
-      {
-        'pokeId': 174,
-        'count': 1421,
-        'shardsSum': 350067,
-        'expSum': 324300,
-        'candysSum': 7605
-      },
-      {
-        'pokeId': 7,
-        'count': 1389,
-        'shardsSum': 753107,
-        'expSum': 356120,
-        'candysSum': 7369
-      },
-      {
-        'pokeId': 194,
-        'count': 1385,
-        'shardsSum': 1325030,
-        'expSum': 1447107,
-        'candysSum': 7414
-      },
-      {
-        'pokeId': 9,
-        'count': 1382,
-        'shardsSum': 5346145,
-        'expSum': 2530102,
-        'candysSum': 14241
-      },
-      {
-        'pokeId': 439,
-        'count': 1372,
-        'shardsSum': 742960,
-        'expSum': 247976,
-        'candysSum': 7370
-      },
-      {
-        'pokeId': 363,
-        'count': 1368,
-        'shardsSum': 404148,
-        'expSum': 374190,
-        'candysSum': 7352
-      },
-      {
-        'pokeId': 160,
-        'count': 1366,
-        'shardsSum': 5077870,
-        'expSum': 2820749,
-        'candysSum': 14235
-      },
-      {
-        'pokeId': 134,
-        'count': 1358,
-        'shardsSum': 3473070,
-        'expSum': 3215429,
-        'candysSum': 12715
-      },
-      {
-        'pokeId': 8,
-        'count': 1349,
-        'shardsSum': 1773573,
-        'expSum': 838979,
-        'candysSum': 9939
-      },
-      {
-        'pokeId': 173,
-        'count': 1346,
-        'shardsSum': 497097,
-        'expSum': 460180,
-        'candysSum': 7105
-      },
-      {
-        'pokeId': 438,
-        'count': 1335,
-        'shardsSum': 462403,
-        'expSum': 257491,
-        'candysSum': 7225
+        'count': 1417,
+        'shardsSum': 3508266,
+        'expSum': 2445572,
+        'candysSum': 10413
       },
       {
         'pokeId': 159,
-        'count': 1332,
-        'shardsSum': 1605192,
-        'expSum': 891440,
-        'candysSum': 9800
-      },
-      {
-        'pokeId': 195,
-        'count': 1310,
-        'shardsSum': 3242724,
-        'expSum': 3548758,
-        'candysSum': 9638
+        'count': 1414,
+        'shardsSum': 1646372,
+        'expSum': 914308,
+        'candysSum': 10303
       },
       {
         'pokeId': 55,
-        'count': 1304,
-        'shardsSum': 1549735,
-        'expSum': 860644,
-        'candysSum': 9558
+        'count': 1401,
+        'shardsSum': 1618026,
+        'expSum': 898566,
+        'candysSum': 10184
+      },
+      {
+        'pokeId': 195,
+        'count': 1386,
+        'shardsSum': 3343606,
+        'expSum': 3659000,
+        'candysSum': 10126
+      },
+      {
+        'pokeId': 8,
+        'count': 1385,
+        'shardsSum': 1868207,
+        'expSum': 883737,
+        'candysSum': 10313
+      },
+      {
+        'pokeId': 7,
+        'count': 1383,
+        'shardsSum': 757010,
+        'expSum': 357980,
+        'candysSum': 7347
+      },
+      {
+        'pokeId': 158,
+        'count': 1380,
+        'shardsSum': 685573,
+        'expSum': 381169,
+        'candysSum': 7302
+      },
+      {
+        'pokeId': 439,
+        'count': 1376,
+        'shardsSum': 756562,
+        'expSum': 252515,
+        'candysSum': 7416
+      },
+      {
+        'pokeId': 174,
+        'count': 1364,
+        'shardsSum': 332863,
+        'expSum': 308374,
+        'candysSum': 7255
+      },
+      {
+        'pokeId': 9,
+        'count': 1359,
+        'shardsSum': 5331701,
+        'expSum': 2523273,
+        'candysSum': 14081
+      },
+      {
+        'pokeId': 363,
+        'count': 1357,
+        'shardsSum': 402908,
+        'expSum': 373027,
+        'candysSum': 7251
+      },
+      {
+        'pokeId': 134,
+        'count': 1354,
+        'shardsSum': 3551340,
+        'expSum': 3287893,
+        'candysSum': 12747
+      },
+      {
+        'pokeId': 438,
+        'count': 1350,
+        'shardsSum': 462722,
+        'expSum': 257694,
+        'candysSum': 7302
+      },
+      {
+        'pokeId': 194,
+        'count': 1348,
+        'shardsSum': 1284225,
+        'expSum': 1402514,
+        'candysSum': 7198
+      },
+      {
+        'pokeId': 173,
+        'count': 1332,
+        'shardsSum': 514729,
+        'expSum': 476507,
+        'candysSum': 7169
+      },
+      {
+        'pokeId': 160,
+        'count': 1279,
+        'shardsSum': 4595211,
+        'expSum': 2552646,
+        'candysSum': 13177
       },
       {
         'pokeId': 245,
-        'count': 910,
-        'shardsSum': 12142080,
-        'expSum': 5193673,
-        'candysSum': 10718
+        'count': 941,
+        'shardsSum': 13163094,
+        'expSum': 5696812,
+        'candysSum': 11168
       }
     ]
   },
@@ -2350,115 +2350,115 @@ export default [
     'res': [
       {
         'pokeId': 208,
-        'count': 5514,
-        'shardsSum': 55519875,
-        'expSum': 26276074,
-        'candysSum': 57556
-      },
-      {
-        'pokeId': 195,
-        'count': 1860,
-        'shardsSum': 4818252,
-        'expSum': 5273346,
-        'candysSum': 13874
-      },
-      {
-        'pokeId': 173,
-        'count': 1830,
-        'shardsSum': 721262,
-        'expSum': 667719,
-        'candysSum': 9902
-      },
-      {
-        'pokeId': 175,
-        'count': 1825,
-        'shardsSum': 1059218,
-        'expSum': 500882,
-        'candysSum': 9911
-      },
-      {
-        'pokeId': 247,
-        'count': 1816,
-        'shardsSum': 2497533,
-        'expSum': 1387266,
-        'candysSum': 13385
-      },
-      {
-        'pokeId': 360,
-        'count': 1814,
-        'shardsSum': 478734,
-        'expSum': 443518,
-        'candysSum': 9912
-      },
-      {
-        'pokeId': 194,
-        'count': 1791,
-        'shardsSum': 1744695,
-        'expSum': 1905546,
-        'candysSum': 9644
-      },
-      {
-        'pokeId': 105,
-        'count': 1791,
-        'shardsSum': 2083475,
-        'expSum': 985972,
-        'candysSum': 13251
-      },
-      {
-        'pokeId': 74,
-        'count': 1787,
-        'shardsSum': 710382,
-        'expSum': 274538,
-        'candysSum': 9637
-      },
-      {
-        'pokeId': 174,
-        'count': 1771,
-        'shardsSum': 440281,
-        'expSum': 407884,
-        'candysSum': 9475
+        'count': 5563,
+        'shardsSum': 56099286,
+        'expSum': 26550296,
+        'candysSum': 58103
       },
       {
         'pokeId': 104,
-        'count': 1751,
-        'shardsSum': 723825,
-        'expSum': 402654,
-        'candysSum': 9533
+        'count': 1830,
+        'shardsSum': 749357,
+        'expSum': 416859,
+        'candysSum': 9913
+      },
+      {
+        'pokeId': 74,
+        'count': 1828,
+        'shardsSum': 729355,
+        'expSum': 281865,
+        'candysSum': 9861
+      },
+      {
+        'pokeId': 247,
+        'count': 1820,
+        'shardsSum': 2660380,
+        'expSum': 1477686,
+        'candysSum': 13619
       },
       {
         'pokeId': 76,
-        'count': 1739,
-        'shardsSum': 6589978,
-        'expSum': 3663156,
-        'candysSum': 18190
-      },
-      {
-        'pokeId': 75,
-        'count': 1735,
-        'shardsSum': 1627768,
-        'expSum': 770460,
-        'candysSum': 12911
-      },
-      {
-        'pokeId': 246,
-        'count': 1731,
-        'shardsSum': 1059668,
-        'expSum': 589007,
-        'candysSum': 9296
+        'count': 1817,
+        'shardsSum': 6685980,
+        'expSum': 3716338,
+        'candysSum': 18856
       },
       {
         'pokeId': 447,
-        'count': 1693,
-        'shardsSum': 823230,
-        'expSum': 389533,
-        'candysSum': 9232
+        'count': 1811,
+        'shardsSum': 864728,
+        'expSum': 409168,
+        'candysSum': 9813
+      },
+      {
+        'pokeId': 194,
+        'count': 1799,
+        'shardsSum': 1755500,
+        'expSum': 1917351,
+        'candysSum': 9649
+      },
+      {
+        'pokeId': 246,
+        'count': 1786,
+        'shardsSum': 1111160,
+        'expSum': 617637,
+        'candysSum': 9700
+      },
+      {
+        'pokeId': 360,
+        'count': 1780,
+        'shardsSum': 470697,
+        'expSum': 436050,
+        'candysSum': 9729
+      },
+      {
+        'pokeId': 175,
+        'count': 1760,
+        'shardsSum': 975591,
+        'expSum': 461318,
+        'candysSum': 9410
+      },
+      {
+        'pokeId': 174,
+        'count': 1759,
+        'shardsSum': 447647,
+        'expSum': 414693,
+        'candysSum': 9494
+      },
+      {
+        'pokeId': 75,
+        'count': 1758,
+        'shardsSum': 1654443,
+        'expSum': 783084,
+        'candysSum': 13080
+      },
+      {
+        'pokeId': 173,
+        'count': 1746,
+        'shardsSum': 696071,
+        'expSum': 644411,
+        'candysSum': 9450
+      },
+      {
+        'pokeId': 195,
+        'count': 1711,
+        'shardsSum': 4396120,
+        'expSum': 4811294,
+        'candysSum': 12725
+      },
+      {
+        'pokeId': 105,
+        'count': 1671,
+        'shardsSum': 1925546,
+        'expSum': 911225,
+        'candysSum': 12305
       },
       {
         'pokeId': 95,
-        'count': 1552,
-        'shardsSum': 4033275,
-        'expSum': 1344268,
-        'candysSum': 12484
+        'count': 1561,
+        'shardsSum': 3909326,
+        'expSum': 1302974,
+        'candysSum': 12406
       }
     ]
   },
@@ -2468,115 +2468,115 @@ export default [
     'res': [
       {
         'pokeId': 845,
-        'count': 5770,
-        'shardsSum': 36159340,
-        'expSum': 17111663,
-        'candysSum': 55418
-      },
-      {
-        'pokeId': 448,
-        'count': 1856,
-        'shardsSum': 7684775,
-        'expSum': 2966545,
-        'candysSum': 17503
-      },
-      {
-        'pokeId': 365,
-        'count': 1836,
-        'shardsSum': 4207785,
-        'expSum': 3363525,
-        'candysSum': 19131
-      },
-      {
-        'pokeId': 363,
-        'count': 1792,
-        'shardsSum': 519023,
-        'expSum': 480537,
-        'candysSum': 9499
-      },
-      {
-        'pokeId': 360,
-        'count': 1786,
-        'shardsSum': 451993,
-        'expSum': 418727,
-        'candysSum': 9550
-      },
-      {
-        'pokeId': 471,
-        'count': 1779,
-        'shardsSum': 7171229,
-        'expSum': 2768300,
-        'candysSum': 16635
-      },
-      {
-        'pokeId': 364,
-        'count': 1776,
-        'shardsSum': 1631548,
-        'expSum': 1511388,
-        'candysSum': 13132
-      },
-      {
-        'pokeId': 447,
-        'count': 1769,
-        'shardsSum': 811283,
-        'expSum': 383876,
-        'candysSum': 9420
-      },
-      {
-        'pokeId': 459,
-        'count': 1762,
-        'shardsSum': 858904,
-        'expSum': 477544,
-        'candysSum': 9291
-      },
-      {
-        'pokeId': 175,
-        'count': 1757,
-        'shardsSum': 975470,
-        'expSum': 461255,
-        'candysSum': 9392
-      },
-      {
-        'pokeId': 105,
-        'count': 1741,
-        'shardsSum': 1984971,
-        'expSum': 939375,
-        'candysSum': 12845
-      },
-      {
-        'pokeId': 74,
-        'count': 1730,
-        'shardsSum': 685197,
-        'expSum': 264813,
-        'candysSum': 9333
+        'count': 5813,
+        'shardsSum': 36461936,
+        'expSum': 17254862,
+        'candysSum': 55863
       },
       {
         'pokeId': 173,
-        'count': 1711,
-        'shardsSum': 658081,
-        'expSum': 609209,
-        'candysSum': 9192
+        'count': 1806,
+        'shardsSum': 708042,
+        'expSum': 655472,
+        'candysSum': 9766
       },
       {
-        'pokeId': 333,
-        'count': 1709,
-        'shardsSum': 693679,
-        'expSum': 328365,
-        'candysSum': 9280
+        'pokeId': 364,
+        'count': 1799,
+        'shardsSum': 1589076,
+        'expSum': 1472097,
+        'candysSum': 13150
+      },
+      {
+        'pokeId': 105,
+        'count': 1797,
+        'shardsSum': 2094939,
+        'expSum': 991406,
+        'candysSum': 13309
+      },
+      {
+        'pokeId': 175,
+        'count': 1796,
+        'shardsSum': 995372,
+        'expSum': 470692,
+        'candysSum': 9654
+      },
+      {
+        'pokeId': 459,
+        'count': 1795,
+        'shardsSum': 919274,
+        'expSum': 511070,
+        'candysSum': 9601
+      },
+      {
+        'pokeId': 360,
+        'count': 1775,
+        'shardsSum': 443592,
+        'expSum': 410963,
+        'candysSum': 9555
+      },
+      {
+        'pokeId': 448,
+        'count': 1758,
+        'shardsSum': 7187061,
+        'expSum': 2774431,
+        'candysSum': 16483
+      },
+      {
+        'pokeId': 365,
+        'count': 1747,
+        'shardsSum': 3877469,
+        'expSum': 3099462,
+        'candysSum': 18075
       },
       {
         'pokeId': 104,
-        'count': 1664,
-        'shardsSum': 680121,
-        'expSum': 378345,
-        'candysSum': 9025
+        'count': 1732,
+        'shardsSum': 695780,
+        'expSum': 387057,
+        'candysSum': 9280
+      },
+      {
+        'pokeId': 333,
+        'count': 1729,
+        'shardsSum': 680768,
+        'expSum': 322257,
+        'candysSum': 9287
+      },
+      {
+        'pokeId': 74,
+        'count': 1729,
+        'shardsSum': 699084,
+        'expSum': 270144,
+        'candysSum': 9328
+      },
+      {
+        'pokeId': 471,
+        'count': 1727,
+        'shardsSum': 7187194,
+        'expSum': 2774498,
+        'candysSum': 16250
+      },
+      {
+        'pokeId': 447,
+        'count': 1725,
+        'shardsSum': 850931,
+        'expSum': 402645,
+        'candysSum': 9445
+      },
+      {
+        'pokeId': 363,
+        'count': 1715,
+        'shardsSum': 527689,
+        'expSum': 488558,
+        'candysSum': 9315
       },
       {
         'pokeId': 460,
-        'count': 1562,
-        'shardsSum': 2748835,
-        'expSum': 1793027,
-        'candysSum': 10964
+        'count': 1557,
+        'shardsSum': 2656812,
+        'expSum': 1733015,
+        'candysSum': 10817
       }
     ]
   },
@@ -2586,143 +2586,143 @@ export default [
     'res': [
       {
         'pokeId': 914,
-        'count': 5192,
-        'shardsSum': 54614754,
-        'expSum': 38072020,
-        'candysSum': 60528
+        'count': 5172,
+        'shardsSum': 54445004,
+        'expSum': 37953630,
+        'candysSum': 60355
       },
       {
         'pokeId': 9,
-        'count': 1523,
-        'shardsSum': 6362901,
-        'expSum': 3011309,
-        'candysSum': 16029
-      },
-      {
-        'pokeId': 175,
-        'count': 1519,
-        'shardsSum': 810391,
-        'expSum': 383174,
-        'candysSum': 8039
+        'count': 1544,
+        'shardsSum': 6162295,
+        'expSum': 2916362,
+        'candysSum': 16063
       },
       {
         'pokeId': 475,
-        'count': 1504,
-        'shardsSum': 12725647,
-        'expSum': 4913094,
-        'candysSum': 15789
-      },
-      {
-        'pokeId': 333,
-        'count': 1476,
-        'shardsSum': 605428,
-        'expSum': 286588,
-        'candysSum': 8042
-      },
-      {
-        'pokeId': 360,
-        'count': 1466,
-        'shardsSum': 382960,
-        'expSum': 354783,
-        'candysSum': 8011
-      },
-      {
-        'pokeId': 172,
-        'count': 1452,
-        'shardsSum': 578499,
-        'expSum': 193035,
-        'candysSum': 7712
-      },
-      {
-        'pokeId': 760,
-        'count': 1431,
-        'shardsSum': 2872912,
-        'expSum': 2660332,
-        'candysSum': 10757
-      },
-      {
-        'pokeId': 912,
-        'count': 1423,
-        'shardsSum': 2063530,
-        'expSum': 1438563,
-        'candysSum': 7566
-      },
-      {
-        'pokeId': 185,
-        'count': 1421,
-        'shardsSum': 783015,
-        'expSum': 435095,
-        'candysSum': 9023
-      },
-      {
-        'pokeId': 7,
-        'count': 1410,
-        'shardsSum': 795009,
-        'expSum': 375933,
-        'candysSum': 7611
+        'count': 1515,
+        'shardsSum': 12579500,
+        'expSum': 4856673,
+        'candysSum': 15812
       },
       {
         'pokeId': 447,
-        'count': 1409,
-        'shardsSum': 658023,
-        'expSum': 311347,
-        'candysSum': 7507
+        'count': 1465,
+        'shardsSum': 727596,
+        'expSum': 344289,
+        'candysSum': 8035
       },
       {
         'pokeId': 85,
-        'count': 1409,
-        'shardsSum': 1382058,
-        'expSum': 533892,
-        'candysSum': 10344
+        'count': 1464,
+        'shardsSum': 1443255,
+        'expSum': 557534,
+        'candysSum': 10791
       },
       {
-        'pokeId': 174,
-        'count': 1388,
-        'shardsSum': 350712,
-        'expSum': 324917,
-        'candysSum': 7485
+        'pokeId': 7,
+        'count': 1460,
+        'shardsSum': 811024,
+        'expSum': 383519,
+        'candysSum': 7845
       },
       {
-        'pokeId': 173,
-        'count': 1388,
-        'shardsSum': 523117,
-        'expSum': 484255,
-        'candysSum': 7400
+        'pokeId': 760,
+        'count': 1447,
+        'shardsSum': 2882252,
+        'expSum': 2668997,
+        'candysSum': 10806
+      },
+      {
+        'pokeId': 172,
+        'count': 1447,
+        'shardsSum': 597147,
+        'expSum': 199252,
+        'candysSum': 7741
       },
       {
         'pokeId': 84,
-        'count': 1385,
-        'shardsSum': 598636,
-        'expSum': 199725,
-        'candysSum': 7510
+        'count': 1445,
+        'shardsSum': 637019,
+        'expSum': 212528,
+        'candysSum': 7884
       },
       {
         'pokeId': 8,
-        'count': 1380,
-        'shardsSum': 1819778,
-        'expSum': 860813,
-        'candysSum': 10208
+        'count': 1434,
+        'shardsSum': 1870038,
+        'expSum': 884615,
+        'candysSum': 10524
       },
       {
-        'pokeId': 913,
-        'count': 1374,
-        'shardsSum': 3409451,
-        'expSum': 2376687,
-        'candysSum': 10100
+        'pokeId': 912,
+        'count': 1432,
+        'shardsSum': 2085800,
+        'expSum': 1454102,
+        'candysSum': 7616
+      },
+      {
+        'pokeId': 360,
+        'count': 1423,
+        'shardsSum': 362886,
+        'expSum': 336209,
+        'candysSum': 7695
+      },
+      {
+        'pokeId': 174,
+        'count': 1418,
+        'shardsSum': 353753,
+        'expSum': 327750,
+        'candysSum': 7625
+      },
+      {
+        'pokeId': 173,
+        'count': 1414,
+        'shardsSum': 566511,
+        'expSum': 524468,
+        'candysSum': 7697
       },
       {
         'pokeId': 759,
-        'count': 1354,
-        'shardsSum': 1271477,
-        'expSum': 1016296,
-        'candysSum': 7291
+        'count': 1409,
+        'shardsSum': 1269323,
+        'expSum': 1014528,
+        'candysSum': 7445
+      },
+      {
+        'pokeId': 913,
+        'count': 1388,
+        'shardsSum': 3498288,
+        'expSum': 2438613,
+        'candysSum': 10269
+      },
+      {
+        'pokeId': 175,
+        'count': 1366,
+        'shardsSum': 749988,
+        'expSum': 354627,
+        'candysSum': 7293
+      },
+      {
+        'pokeId': 333,
+        'count': 1348,
+        'shardsSum': 527457,
+        'expSum': 249683,
+        'candysSum': 7218
+      },
+      {
+        'pokeId': 185,
+        'count': 1348,
+        'shardsSum': 747034,
+        'expSum': 415110,
+        'candysSum': 8536
       },
       {
         'pokeId': 245,
-        'count': 1096,
-        'shardsSum': 15633514,
-        'expSum': 6797524,
-        'candysSum': 13050
+        'count': 1061,
+        'shardsSum': 15231474,
+        'expSum': 6637040,
+        'candysSum': 12676
       }
     ]
   },
@@ -2732,122 +2732,122 @@ export default [
     'res': [
       {
         'pokeId': 306,
-        'count': 5655,
-        'shardsSum': 91964418,
-        'expSum': 46568981,
-        'candysSum': 65952
-      },
-      {
-        'pokeId': 914,
-        'count': 1781,
-        'shardsSum': 12705319,
-        'expSum': 8857562,
-        'candysSum': 18691
-      },
-      {
-        'pokeId': 173,
-        'count': 1776,
-        'shardsSum': 714461,
-        'expSum': 661442,
-        'candysSum': 9666
-      },
-      {
-        'pokeId': 74,
-        'count': 1761,
-        'shardsSum': 708455,
-        'expSum': 273769,
-        'candysSum': 9491
-      },
-      {
-        'pokeId': 172,
-        'count': 1759,
-        'shardsSum': 769670,
-        'expSum': 256789,
-        'candysSum': 9610
-      },
-      {
-        'pokeId': 194,
-        'count': 1746,
-        'shardsSum': 1808510,
-        'expSum': 1975625,
-        'candysSum': 9605
-      },
-      {
-        'pokeId': 439,
-        'count': 1740,
-        'shardsSum': 966400,
-        'expSum': 322544,
-        'candysSum': 9408
-      },
-      {
-        'pokeId': 75,
-        'count': 1737,
-        'shardsSum': 1619603,
-        'expSum': 766589,
-        'candysSum': 12914
-      },
-      {
-        'pokeId': 305,
-        'count': 1734,
-        'shardsSum': 5160698,
-        'expSum': 3295185,
-        'candysSum': 12965
-      },
-      {
-        'pokeId': 912,
-        'count': 1728,
-        'shardsSum': 2596876,
-        'expSum': 1810360,
-        'candysSum': 9307
+        'count': 5740,
+        'shardsSum': 93012982,
+        'expSum': 47099964,
+        'candysSum': 66835
       },
       {
         'pokeId': 913,
-        'count': 1726,
-        'shardsSum': 4414842,
-        'expSum': 3077528,
-        'candysSum': 12830
-      },
-      {
-        'pokeId': 304,
-        'count': 1708,
-        'shardsSum': 3420886,
-        'expSum': 2152708,
-        'candysSum': 9317
+        'count': 1793,
+        'shardsSum': 4683845,
+        'expSum': 3265037,
+        'candysSum': 13394
       },
       {
         'pokeId': 195,
-        'count': 1673,
-        'shardsSum': 4254824,
-        'expSum': 4656652,
-        'candysSum': 12353
+        'count': 1792,
+        'shardsSum': 4645396,
+        'expSum': 5084188,
+        'candysSum': 13358
       },
       {
-        'pokeId': 462,
-        'count': 1513,
-        'shardsSum': 6077534,
-        'expSum': 2345798,
-        'candysSum': 15170
+        'pokeId': 914,
+        'count': 1783,
+        'shardsSum': 12330371,
+        'expSum': 8596183,
+        'candysSum': 18557
       },
       {
-        'pokeId': 82,
-        'count': 1507,
-        'shardsSum': 1808202,
-        'expSum': 603404,
-        'candysSum': 10537
+        'pokeId': 305,
+        'count': 1761,
+        'shardsSum': 5075562,
+        'expSum': 3240780,
+        'candysSum': 13002
+      },
+      {
+        'pokeId': 173,
+        'count': 1755,
+        'shardsSum': 718853,
+        'expSum': 665542,
+        'candysSum': 9568
+      },
+      {
+        'pokeId': 172,
+        'count': 1754,
+        'shardsSum': 759858,
+        'expSum': 253518,
+        'candysSum': 9537
+      },
+      {
+        'pokeId': 912,
+        'count': 1751,
+        'shardsSum': 2631768,
+        'expSum': 1834706,
+        'candysSum': 9407
+      },
+      {
+        'pokeId': 194,
+        'count': 1721,
+        'shardsSum': 1752715,
+        'expSum': 1914599,
+        'candysSum': 9387
+      },
+      {
+        'pokeId': 75,
+        'count': 1711,
+        'shardsSum': 1579325,
+        'expSum': 747523,
+        'candysSum': 12684
+      },
+      {
+        'pokeId': 304,
+        'count': 1667,
+        'shardsSum': 3326722,
+        'expSum': 2093443,
+        'candysSum': 9148
+      },
+      {
+        'pokeId': 74,
+        'count': 1660,
+        'shardsSum': 679222,
+        'expSum': 262456,
+        'candysSum': 8969
+      },
+      {
+        'pokeId': 439,
+        'count': 1655,
+        'shardsSum': 938957,
+        'expSum': 313390,
+        'candysSum': 9012
       },
       {
         'pokeId': 81,
-        'count': 1501,
-        'shardsSum': 503546,
-        'expSum': 168183,
-        'candysSum': 7451
+        'count': 1508,
+        'shardsSum': 505816,
+        'expSum': 168936,
+        'candysSum': 7504
+      },
+      {
+        'pokeId': 462,
+        'count': 1484,
+        'shardsSum': 6136195,
+        'expSum': 2368449,
+        'candysSum': 15002
+      },
+      {
+        'pokeId': 82,
+        'count': 1456,
+        'shardsSum': 1720514,
+        'expSum': 574145,
+        'candysSum': 10110
       },
       {
         'pokeId': 208,
-        'count': 955,
-        'shardsSum': 3516811,
-        'expSum': 1664398,
-        'candysSum': 7661
+        'count': 1009,
+        'shardsSum': 3674023,
+        'expSum': 1738788,
+        'candysSum': 8059
       }
     ]
   },
@@ -2857,801 +2857,801 @@ export default [
     'res': [
       {
         'pokeId': 468,
-        'count': 3732,
-        'shardsSum': 24254103,
-        'expSum': 13474934,
-        'candysSum': 44210
+        'count': 3723,
+        'shardsSum': 24143985,
+        'expSum': 13413765,
+        'candysSum': 44079
       },
       {
         'pokeId': 908,
-        'count': 528,
-        'shardsSum': 5560904,
-        'expSum': 3936472,
-        'candysSum': 6120
+        'count': 560,
+        'shardsSum': 5778304,
+        'expSum': 4090374,
+        'candysSum': 6458
       },
       {
         'pokeId': 132,
-        'count': 423,
-        'shardsSum': 943873,
-        'expSum': 524321,
-        'candysSum': 3739
-      },
-      {
-        'pokeId': 115,
-        'count': 358,
-        'shardsSum': 659774,
-        'expSum': 611012,
-        'candysSum': 3002
-      },
-      {
-        'pokeId': 52,
-        'count': 353,
-        'shardsSum': 141551,
-        'expSum': 66976,
-        'candysSum': 1821
-      },
-      {
-        'pokeId': 700,
-        'count': 347,
-        'shardsSum': 1039340,
-        'expSum': 677774,
-        'candysSum': 3215
-      },
-      {
-        'pokeId': 135,
-        'count': 346,
-        'shardsSum': 1487024,
-        'expSum': 574036,
-        'candysSum': 3295
-      },
-      {
-        'pokeId': 3,
-        'count': 345,
-        'shardsSum': 1298255,
-        'expSum': 721545,
-        'candysSum': 3605
-      },
-      {
-        'pokeId': 845,
-        'count': 341,
-        'shardsSum': 1359283,
-        'expSum': 643247,
-        'candysSum': 2845
-      },
-      {
-        'pokeId': 127,
-        'count': 338,
-        'shardsSum': 844003,
-        'expSum': 325814,
-        'candysSum': 2813
-      },
-      {
-        'pokeId': 9,
-        'count': 329,
-        'shardsSum': 1324857,
-        'expSum': 627000,
-        'candysSum': 3421
-      },
-      {
-        'pokeId': 6,
-        'count': 328,
-        'shardsSum': 1293581,
-        'expSum': 612200,
-        'candysSum': 3417
-      },
-      {
-        'pokeId': 214,
-        'count': 325,
-        'shardsSum': 652007,
-        'expSum': 362183,
-        'candysSum': 2679
-      },
-      {
-        'pokeId': 53,
-        'count': 321,
-        'shardsSum': 408340,
-        'expSum': 193154,
-        'candysSum': 2356
-      },
-      {
-        'pokeId': 26,
-        'count': 320,
-        'shardsSum': 988961,
-        'expSum': 382625,
-        'candysSum': 3277
-      },
-      {
-        'pokeId': 12,
-        'count': 305,
-        'shardsSum': 836997,
-        'expSum': 464969,
-        'candysSum': 3158
-      },
-      {
-        'pokeId': 462,
-        'count': 290,
-        'shardsSum': 1179682,
-        'expSum': 455333,
-        'candysSum': 2920
+        'count': 418,
+        'shardsSum': 960146,
+        'expSum': 533363,
+        'candysSum': 3729
       },
       {
         'pokeId': 11,
-        'count': 290,
-        'shardsSum': 120438,
-        'expSum': 111522,
-        'candysSum': 2132
+        'count': 395,
+        'shardsSum': 167479,
+        'expSum': 155079,
+        'candysSum': 2929
       },
       {
-        'pokeId': 81,
-        'count': 285,
-        'shardsSum': 103215,
-        'expSum': 34465,
-        'candysSum': 1465
+        'pokeId': 127,
+        'count': 353,
+        'shardsSum': 885620,
+        'expSum': 341871,
+        'candysSum': 2954
+      },
+      {
+        'pokeId': 135,
+        'count': 351,
+        'shardsSum': 1485001,
+        'expSum': 573243,
+        'candysSum': 3345
+      },
+      {
+        'pokeId': 9,
+        'count': 346,
+        'shardsSum': 1311491,
+        'expSum': 620673,
+        'candysSum': 3559
+      },
+      {
+        'pokeId': 845,
+        'count': 342,
+        'shardsSum': 1351737,
+        'expSum': 639675,
+        'candysSum': 2844
+      },
+      {
+        'pokeId': 52,
+        'count': 337,
+        'shardsSum': 146353,
+        'expSum': 69255,
+        'candysSum': 1769
+      },
+      {
+        'pokeId': 115,
+        'count': 335,
+        'shardsSum': 590464,
+        'expSum': 546823,
+        'candysSum': 2771
+      },
+      {
+        'pokeId': 700,
+        'count': 321,
+        'shardsSum': 998591,
+        'expSum': 651198,
+        'candysSum': 3001
+      },
+      {
+        'pokeId': 12,
+        'count': 321,
+        'shardsSum': 814129,
+        'expSum': 452273,
+        'candysSum': 3278
+      },
+      {
+        'pokeId': 3,
+        'count': 320,
+        'shardsSum': 1122977,
+        'expSum': 624095,
+        'candysSum': 3289
+      },
+      {
+        'pokeId': 26,
+        'count': 314,
+        'shardsSum': 921534,
+        'expSum': 356605,
+        'candysSum': 3182
       },
       {
         'pokeId': 363,
-        'count': 281,
-        'shardsSum': 76780,
-        'expSum': 71078,
-        'candysSum': 1461
+        'count': 313,
+        'shardsSum': 91850,
+        'expSum': 85025,
+        'candysSum': 1669
+      },
+      {
+        'pokeId': 53,
+        'count': 311,
+        'shardsSum': 378326,
+        'expSum': 178953,
+        'candysSum': 2252
       },
       {
         'pokeId': 82,
-        'count': 278,
-        'shardsSum': 332360,
-        'expSum': 110908,
-        'candysSum': 1934
+        'count': 308,
+        'shardsSum': 338634,
+        'expSum': 113017,
+        'candysSum': 2106
+      },
+      {
+        'pokeId': 214,
+        'count': 305,
+        'shardsSum': 686041,
+        'expSum': 381099,
+        'candysSum': 2597
+      },
+      {
+        'pokeId': 462,
+        'count': 301,
+        'shardsSum': 1152038,
+        'expSum': 444660,
+        'candysSum': 2986
+      },
+      {
+        'pokeId': 6,
+        'count': 299,
+        'shardsSum': 1105862,
+        'expSum': 523356,
+        'candysSum': 3054
       },
       {
         'pokeId': 19,
-        'count': 269,
-        'shardsSum': 59875,
-        'expSum': 20048,
-        'candysSum': 1192
+        'count': 296,
+        'shardsSum': 78034,
+        'expSum': 26110,
+        'candysSum': 1378
       },
       {
-        'pokeId': 172,
-        'count': 267,
-        'shardsSum': 77532,
-        'expSum': 25933,
-        'candysSum': 1269
-      },
-      {
-        'pokeId': 155,
-        'count': 260,
-        'shardsSum': 101977,
-        'expSum': 39413,
-        'candysSum': 1215
-      },
-      {
-        'pokeId': 37,
-        'count': 260,
-        'shardsSum': 185137,
-        'expSum': 71579,
-        'candysSum': 1179
-      },
-      {
-        'pokeId': 289,
-        'count': 258,
-        'shardsSum': 841960,
-        'expSum': 779709,
-        'candysSum': 2573
-      },
-      {
-        'pokeId': 8,
-        'count': 257,
-        'shardsSum': 222481,
-        'expSum': 105232,
-        'candysSum': 1717
-      },
-      {
-        'pokeId': 54,
-        'count': 256,
-        'shardsSum': 48185,
-        'expSum': 26842,
-        'candysSum': 1161
-      },
-      {
-        'pokeId': 243,
-        'count': 254,
-        'shardsSum': 3423376,
-        'expSum': 954614,
-        'candysSum': 2984
-      },
-      {
-        'pokeId': 156,
-        'count': 254,
-        'shardsSum': 212632,
-        'expSum': 100590,
-        'candysSum': 1642
-      },
-      {
-        'pokeId': 152,
-        'count': 254,
-        'shardsSum': 88473,
-        'expSum': 41752,
-        'candysSum': 1178
-      },
-      {
-        'pokeId': 907,
-        'count': 253,
-        'shardsSum': 449376,
-        'expSum': 318139,
-        'candysSum': 1713
-      },
-      {
-        'pokeId': 179,
-        'count': 252,
-        'shardsSum': 47422,
-        'expSum': 37958,
-        'candysSum': 1198
-      },
-      {
-        'pokeId': 38,
-        'count': 251,
-        'shardsSum': 423808,
-        'expSum': 200564,
-        'candysSum': 2088
-      },
-      {
-        'pokeId': 58,
-        'count': 250,
-        'shardsSum': 78024,
-        'expSum': 43330,
-        'candysSum': 1190
-      },
-      {
-        'pokeId': 909,
-        'count': 249,
-        'shardsSum': 165003,
-        'expSum': 209459,
-        'candysSum': 1170
-      },
-      {
-        'pokeId': 134,
-        'count': 249,
-        'shardsSum': 450747,
-        'expSum': 417322,
-        'candysSum': 2134
-      },
-      {
-        'pokeId': 153,
-        'count': 248,
-        'shardsSum': 238906,
-        'expSum': 113018,
-        'candysSum': 1672
-      },
-      {
-        'pokeId': 85,
-        'count': 247,
-        'shardsSum': 144027,
-        'expSum': 55658,
-        'candysSum': 1581
-      },
-      {
-        'pokeId': 202,
-        'count': 246,
-        'shardsSum': 69106,
-        'expSum': 63933,
-        'candysSum': 1418
-      },
-      {
-        'pokeId': 160,
-        'count': 246,
-        'shardsSum': 624391,
-        'expSum': 346849,
-        'candysSum': 2357
-      },
-      {
-        'pokeId': 39,
-        'count': 246,
-        'shardsSum': 48276,
-        'expSum': 44712,
-        'candysSum': 1350
-      },
-      {
-        'pokeId': 35,
-        'count': 245,
-        'shardsSum': 80794,
-        'expSum': 74732,
-        'candysSum': 1386
-      },
-      {
-        'pokeId': 25,
-        'count': 245,
-        'shardsSum': 79135,
-        'expSum': 26390,
+        'pokeId': 81,
+        'count': 271,
+        'shardsSum': 93428,
+        'expSum': 31201,
         'candysSum': 1365
       },
       {
-        'pokeId': 69,
-        'count': 244,
-        'shardsSum': 49103,
-        'expSum': 27329,
-        'candysSum': 1094
+        'pokeId': 244,
+        'count': 265,
+        'shardsSum': 3257959,
+        'expSum': 1160670,
+        'candysSum': 3072
       },
       {
-        'pokeId': 470,
-        'count': 241,
-        'shardsSum': 620730,
-        'expSum': 239613,
-        'candysSum': 2036
+        'pokeId': 289,
+        'count': 261,
+        'shardsSum': 855479,
+        'expSum': 792230,
+        'candysSum': 2596
       },
       {
-        'pokeId': 245,
-        'count': 241,
-        'shardsSum': 2954744,
-        'expSum': 1233831,
-        'candysSum': 2792
+        'pokeId': 243,
+        'count': 261,
+        'shardsSum': 3778368,
+        'expSum': 1062327,
+        'candysSum': 3102
+      },
+      {
+        'pokeId': 316,
+        'count': 260,
+        'shardsSum': 46366,
+        'expSum': 42951,
+        'candysSum': 1210
+      },
+      {
+        'pokeId': 35,
+        'count': 260,
+        'shardsSum': 87160,
+        'expSum': 80625,
+        'candysSum': 1465
+      },
+      {
+        'pokeId': 54,
+        'count': 259,
+        'shardsSum': 42390,
+        'expSum': 23623,
+        'candysSum': 1145
       },
       {
         'pokeId': 57,
-        'count': 240,
-        'shardsSum': 223074,
-        'expSum': 105528,
-        'candysSum': 1602
+        'count': 257,
+        'shardsSum': 208483,
+        'expSum': 98618,
+        'candysSum': 1669
       },
       {
-        'pokeId': 246,
-        'count': 239,
-        'shardsSum': 96302,
-        'expSum': 53536,
-        'candysSum': 1104
+        'pokeId': 195,
+        'count': 254,
+        'shardsSum': 384583,
+        'expSum': 420448,
+        'candysSum': 1663
       },
       {
-        'pokeId': 225,
-        'count': 239,
-        'shardsSum': 567468,
-        'expSum': 268437,
-        'candysSum': 1783
+        'pokeId': 20,
+        'count': 254,
+        'shardsSum': 138869,
+        'expSum': 53670,
+        'candysSum': 1625
       },
       {
-        'pokeId': 185,
-        'count': 239,
-        'shardsSum': 85074,
-        'expSum': 47275,
-        'candysSum': 1344
+        'pokeId': 360,
+        'count': 250,
+        'shardsSum': 40217,
+        'expSum': 37216,
+        'candysSum': 1151
       },
       {
-        'pokeId': 176,
-        'count': 239,
-        'shardsSum': 138386,
-        'expSum': 65475,
-        'candysSum': 1295
+        'pokeId': 354,
+        'count': 247,
+        'shardsSum': 291462,
+        'expSum': 137851,
+        'candysSum': 1607
       },
       {
-        'pokeId': 70,
-        'count': 239,
-        'shardsSum': 160630,
-        'expSum': 89204,
-        'candysSum': 1648
-      },
-      {
-        'pokeId': 40,
-        'count': 239,
-        'shardsSum': 209940,
-        'expSum': 194369,
-        'candysSum': 2300
-      },
-      {
-        'pokeId': 197,
-        'count': 238,
-        'shardsSum': 541114,
-        'expSum': 352891,
-        'candysSum': 2048
-      },
-      {
-        'pokeId': 454,
-        'count': 237,
-        'shardsSum': 202395,
-        'expSum': 112402,
-        'candysSum': 1587
-      },
-      {
-        'pokeId': 359,
-        'count': 237,
-        'shardsSum': 357387,
-        'expSum': 169176,
-        'candysSum': 1782
-      },
-      {
-        'pokeId': 228,
-        'count': 237,
-        'shardsSum': 69905,
-        'expSum': 33057,
-        'candysSum': 1105
-      },
-      {
-        'pokeId': 157,
-        'count': 237,
-        'shardsSum': 690585,
-        'expSum': 326817,
-        'candysSum': 2289
+        'pokeId': 909,
+        'count': 246,
+        'shardsSum': 154239,
+        'expSum': 195792,
+        'candysSum': 1140
       },
       {
         'pokeId': 778,
-        'count': 236,
-        'shardsSum': 1281587,
-        'expSum': 551103,
-        'candysSum': 1828
+        'count': 246,
+        'shardsSum': 1247512,
+        'expSum': 536463,
+        'candysSum': 1893
       },
       {
-        'pokeId': 447,
-        'count': 236,
-        'shardsSum': 71350,
-        'expSum': 33741,
-        'candysSum': 1100
+        'pokeId': 317,
+        'count': 246,
+        'shardsSum': 140226,
+        'expSum': 129948,
+        'candysSum': 1605
       },
       {
-        'pokeId': 287,
-        'count': 236,
-        'shardsSum': 51954,
-        'expSum': 48138,
-        'candysSum': 1113
+        'pokeId': 38,
+        'count': 246,
+        'shardsSum': 527609,
+        'expSum': 249677,
+        'candysSum': 2129
       },
       {
-        'pokeId': 105,
-        'count': 236,
-        'shardsSum': 196492,
-        'expSum': 92976,
-        'candysSum': 1593
+        'pokeId': 225,
+        'count': 245,
+        'shardsSum': 557754,
+        'expSum': 263836,
+        'candysSum': 1822
       },
       {
-        'pokeId': 912,
+        'pokeId': 156,
+        'count': 243,
+        'shardsSum': 219290,
+        'expSum': 103732,
+        'candysSum': 1622
+      },
+      {
+        'pokeId': 104,
+        'count': 243,
+        'shardsSum': 53231,
+        'expSum': 29625,
+        'candysSum': 1090
+      },
+      {
+        'pokeId': 69,
+        'count': 242,
+        'shardsSum': 51724,
+        'expSum': 28786,
+        'candysSum': 1108
+      },
+      {
+        'pokeId': 58,
+        'count': 242,
+        'shardsSum': 61096,
+        'expSum': 33922,
+        'candysSum': 1103
+      },
+      {
+        'pokeId': 10,
+        'count': 242,
+        'shardsSum': 38356,
+        'expSum': 35492,
+        'candysSum': 1096
+      },
+      {
+        'pokeId': 153,
+        'count': 241,
+        'shardsSum': 230406,
+        'expSum': 109000,
+        'candysSum': 1614
+      },
+      {
+        'pokeId': 74,
+        'count': 241,
+        'shardsSum': 57931,
+        'expSum': 22378,
+        'candysSum': 1103
+      },
+      {
+        'pokeId': 39,
+        'count': 241,
+        'shardsSum': 60525,
+        'expSum': 56049,
+        'candysSum': 1386
+      },
+      {
+        'pokeId': 333,
+        'count': 240,
+        'shardsSum': 59361,
+        'expSum': 28105,
+        'candysSum': 1112
+      },
+      {
+        'pokeId': 85,
+        'count': 240,
+        'shardsSum': 175138,
+        'expSum': 67670,
+        'candysSum': 1630
+      },
+      {
+        'pokeId': 36,
+        'count': 240,
+        'shardsSum': 562701,
+        'expSum': 449819,
+        'candysSum': 2347
+      },
+      {
+        'pokeId': 133,
+        'count': 239,
+        'shardsSum': 92987,
+        'expSum': 51762,
+        'candysSum': 1156
+      },
+      {
+        'pokeId': 158,
+        'count': 238,
+        'shardsSum': 88537,
+        'expSum': 49287,
+        'candysSum': 1134
+      },
+      {
+        'pokeId': 175,
+        'count': 237,
+        'shardsSum': 90927,
+        'expSum': 42920,
+        'candysSum': 1121
+      },
+      {
+        'pokeId': 159,
+        'count': 237,
+        'shardsSum': 181749,
+        'expSum': 100934,
+        'candysSum': 1535
+      },
+      {
+        'pokeId': 136,
+        'count': 237,
+        'shardsSum': 714564,
+        'expSum': 275848,
+        'candysSum': 2054
+      },
+      {
+        'pokeId': 174,
+        'count': 236,
+        'shardsSum': 37698,
+        'expSum': 34888,
+        'candysSum': 1110
+      },
+      {
+        'pokeId': 154,
         'count': 235,
-        'shardsSum': 188886,
-        'expSum': 131633,
-        'candysSum': 1047
+        'shardsSum': 666062,
+        'expSum': 370005,
+        'candysSum': 2295
       },
       {
-        'pokeId': 196,
+        'pokeId': 37,
+        'count': 235,
+        'shardsSum': 174133,
+        'expSum': 67322,
+        'candysSum': 1082
+      },
+      {
+        'pokeId': 24,
+        'count': 235,
+        'shardsSum': 268349,
+        'expSum': 103552,
+        'candysSum': 1601
+      },
+      {
+        'pokeId': 359,
         'count': 234,
-        'shardsSum': 686664,
-        'expSum': 265077,
-        'candysSum': 2016
+        'shardsSum': 350973,
+        'expSum': 166137,
+        'candysSum': 1752
+      },
+      {
+        'pokeId': 179,
+        'count': 234,
+        'shardsSum': 41847,
+        'expSum': 33495,
+        'candysSum': 1107
+      },
+      {
+        'pokeId': 157,
+        'count': 234,
+        'shardsSum': 608650,
+        'expSum': 288038,
+        'candysSum': 2214
+      },
+      {
+        'pokeId': 134,
+        'count': 234,
+        'shardsSum': 396864,
+        'expSum': 367435,
+        'candysSum': 1969
       },
       {
         'pokeId': 80,
         'count': 234,
-        'shardsSum': 172418,
-        'expSum': 115659,
-        'candysSum': 1553
-      },
-      {
-        'pokeId': 79,
-        'count': 234,
-        'shardsSum': 40085,
-        'expSum': 37143,
-        'candysSum': 1049
-      },
-      {
-        'pokeId': 74,
-        'count': 234,
-        'shardsSum': 50635,
-        'expSum': 19563,
-        'candysSum': 1053
+        'shardsSum': 184294,
+        'expSum': 123603,
+        'candysSum': 1585
       },
       {
         'pokeId': 56,
         'count': 234,
-        'shardsSum': 77762,
-        'expSum': 29992,
-        'candysSum': 1110
-      },
-      {
-        'pokeId': 1,
-        'count': 234,
-        'shardsSum': 72555,
-        'expSum': 34229,
-        'candysSum': 1053
-      },
-      {
-        'pokeId': 764,
-        'count': 233,
-        'shardsSum': 640596,
-        'expSum': 213533,
-        'candysSum': 1756
-      },
-      {
-        'pokeId': 194,
-        'count': 233,
-        'shardsSum': 133380,
-        'expSum': 145372,
-        'candysSum': 1072
-      },
-      {
-        'pokeId': 104,
-        'count': 233,
-        'shardsSum': 54949,
-        'expSum': 30579,
-        'candysSum': 1066
-      },
-      {
-        'pokeId': 133,
-        'count': 232,
-        'shardsSum': 68741,
-        'expSum': 38281,
-        'candysSum': 1038
-      },
-      {
-        'pokeId': 453,
-        'count': 231,
-        'shardsSum': 52619,
-        'expSum': 29283,
-        'candysSum': 1039
-      },
-      {
-        'pokeId': 36,
-        'count': 230,
-        'shardsSum': 526483,
-        'expSum': 420865,
-        'candysSum': 2237
-      },
-      {
-        'pokeId': 23,
-        'count': 230,
-        'shardsSum': 57943,
-        'expSum': 22394,
-        'candysSum': 1085
-      },
-      {
-        'pokeId': 20,
-        'count': 230,
-        'shardsSum': 158292,
-        'expSum': 61162,
-        'candysSum': 1524
-      },
-      {
-        'pokeId': 7,
-        'count': 230,
-        'shardsSum': 79656,
-        'expSum': 37591,
-        'candysSum': 1075
-      },
-      {
-        'pokeId': 317,
-        'count': 229,
-        'shardsSum': 134111,
-        'expSum': 124277,
-        'candysSum': 1507
-      },
-      {
-        'pokeId': 180,
-        'count': 229,
-        'shardsSum': 113104,
-        'expSum': 73709,
-        'candysSum': 1524
-      },
-      {
-        'pokeId': 154,
-        'count': 229,
-        'shardsSum': 677365,
-        'expSum': 376291,
-        'candysSum': 2246
-      },
-      {
-        'pokeId': 71,
-        'count': 229,
-        'shardsSum': 477414,
-        'expSum': 265214,
-        'candysSum': 2235
-      },
-      {
-        'pokeId': 471,
-        'count': 228,
-        'shardsSum': 663503,
-        'expSum': 256138,
-        'candysSum': 1957
-      },
-      {
-        'pokeId': 5,
-        'count': 227,
-        'shardsSum': 185121,
-        'expSum': 87566,
-        'candysSum': 1479
-      },
-      {
-        'pokeId': 2,
-        'count': 227,
-        'shardsSum': 198200,
-        'expSum': 93750,
-        'candysSum': 1514
-      },
-      {
-        'pokeId': 438,
-        'count': 226,
-        'shardsSum': 53437,
-        'expSum': 29756,
-        'candysSum': 1094
-      },
-      {
-        'pokeId': 360,
-        'count': 226,
-        'shardsSum': 34004,
-        'expSum': 31468,
-        'candysSum': 1040
-      },
-      {
-        'pokeId': 333,
-        'count': 226,
-        'shardsSum': 64805,
-        'expSum': 30682,
-        'candysSum': 1099
-      },
-      {
-        'pokeId': 24,
-        'count': 226,
-        'shardsSum': 195514,
-        'expSum': 75441,
-        'candysSum': 1455
-      },
-      {
-        'pokeId': 173,
-        'count': 225,
-        'shardsSum': 59931,
-        'expSum': 55484,
-        'candysSum': 1072
-      },
-      {
-        'pokeId': 702,
-        'count': 224,
-        'shardsSum': 436950,
-        'expSum': 242737,
-        'candysSum': 1678
-      },
-      {
-        'pokeId': 159,
-        'count': 224,
-        'shardsSum': 173029,
-        'expSum': 96092,
-        'candysSum': 1467
-      },
-      {
-        'pokeId': 136,
-        'count': 224,
-        'shardsSum': 564876,
-        'expSum': 218059,
-        'candysSum': 1872
-      },
-      {
-        'pokeId': 354,
-        'count': 223,
-        'shardsSum': 269253,
-        'expSum': 127344,
-        'candysSum': 1468
-      },
-      {
-        'pokeId': 906,
-        'count': 221,
-        'shardsSum': 219427,
-        'expSum': 121621,
-        'candysSum': 1010
-      },
-      {
-        'pokeId': 84,
-        'count': 221,
-        'shardsSum': 49987,
-        'expSum': 16736,
-        'candysSum': 988
-      },
-      {
-        'pokeId': 10,
-        'count': 220,
-        'shardsSum': 41395,
-        'expSum': 38310,
-        'candysSum': 1075
-      },
-      {
-        'pokeId': 316,
-        'count': 219,
-        'shardsSum': 40463,
-        'expSum': 37483,
-        'candysSum': 1028
-      },
-      {
-        'pokeId': 158,
-        'count': 218,
-        'shardsSum': 63236,
-        'expSum': 35229,
-        'candysSum': 989
-      },
-      {
-        'pokeId': 174,
-        'count': 217,
-        'shardsSum': 31340,
-        'expSum': 29002,
-        'candysSum': 986
-      },
-      {
-        'pokeId': 215,
-        'count': 215,
-        'shardsSum': 504867,
-        'expSum': 255723,
-        'candysSum': 1591
+        'shardsSum': 67434,
+        'expSum': 26002,
+        'candysSum': 1079
       },
       {
         'pokeId': 288,
-        'count': 214,
-        'shardsSum': 147958,
-        'expSum': 96482,
-        'candysSum': 1409
+        'count': 233,
+        'shardsSum': 166427,
+        'expSum': 108526,
+        'candysSum': 1547
+      },
+      {
+        'pokeId': 245,
+        'count': 233,
+        'shardsSum': 2877242,
+        'expSum': 1204800,
+        'candysSum': 2708
+      },
+      {
+        'pokeId': 155,
+        'count': 233,
+        'shardsSum': 96775,
+        'expSum': 37397,
+        'candysSum': 1098
+      },
+      {
+        'pokeId': 84,
+        'count': 233,
+        'shardsSum': 47764,
+        'expSum': 15999,
+        'candysSum': 1023
       },
       {
         'pokeId': 75,
-        'count': 212,
-        'shardsSum': 124363,
-        'expSum': 58861,
-        'candysSum': 1390
+        'count': 232,
+        'shardsSum': 136881,
+        'expSum': 64781,
+        'candysSum': 1536
+      },
+      {
+        'pokeId': 471,
+        'count': 231,
+        'shardsSum': 635739,
+        'expSum': 245417,
+        'candysSum': 1963
+      },
+      {
+        'pokeId': 185,
+        'count': 230,
+        'shardsSum': 84983,
+        'expSum': 47220,
+        'candysSum': 1319
+      },
+      {
+        'pokeId': 25,
+        'count': 230,
+        'shardsSum': 84776,
+        'expSum': 28270,
+        'candysSum': 1316
+      },
+      {
+        'pokeId': 907,
+        'count': 229,
+        'shardsSum': 335927,
+        'expSum': 237812,
+        'candysSum': 1483
+      },
+      {
+        'pokeId': 906,
+        'count': 229,
+        'shardsSum': 235945,
+        'expSum': 130775,
+        'candysSum': 1059
+      },
+      {
+        'pokeId': 453,
+        'count': 229,
+        'shardsSum': 48076,
+        'expSum': 26757,
+        'candysSum': 1011
+      },
+      {
+        'pokeId': 160,
+        'count': 229,
+        'shardsSum': 553674,
+        'expSum': 307571,
+        'candysSum': 2161
+      },
+      {
+        'pokeId': 8,
+        'count': 229,
+        'shardsSum': 218793,
+        'expSum': 103496,
+        'candysSum': 1557
+      },
+      {
+        'pokeId': 702,
+        'count': 228,
+        'shardsSum': 476829,
+        'expSum': 264891,
+        'candysSum': 1727
+      },
+      {
+        'pokeId': 71,
+        'count': 228,
+        'shardsSum': 470957,
+        'expSum': 261619,
+        'candysSum': 2203
+      },
+      {
+        'pokeId': 7,
+        'count': 228,
+        'shardsSum': 81657,
+        'expSum': 38538,
+        'candysSum': 1062
+      },
+      {
+        'pokeId': 1,
+        'count': 228,
+        'shardsSum': 85596,
+        'expSum': 40402,
+        'candysSum': 1082
+      },
+      {
+        'pokeId': 764,
+        'count': 226,
+        'shardsSum': 688682,
+        'expSum': 229552,
+        'candysSum': 1752
+      },
+      {
+        'pokeId': 454,
+        'count': 226,
+        'shardsSum': 198314,
+        'expSum': 110136,
+        'candysSum': 1524
+      },
+      {
+        'pokeId': 228,
+        'count': 226,
+        'shardsSum': 74288,
+        'expSum': 35132,
+        'candysSum': 1068
+      },
+      {
+        'pokeId': 194,
+        'count': 226,
+        'shardsSum': 141920,
+        'expSum': 154753,
+        'candysSum': 1042
       },
       {
         'pokeId': 4,
+        'count': 226,
+        'shardsSum': 71777,
+        'expSum': 27735,
+        'candysSum': 985
+      },
+      {
+        'pokeId': 912,
+        'count': 225,
+        'shardsSum': 196454,
+        'expSum': 136907,
+        'candysSum': 1023
+      },
+      {
+        'pokeId': 447,
+        'count': 225,
+        'shardsSum': 76469,
+        'expSum': 36164,
+        'candysSum': 1071
+      },
+      {
+        'pokeId': 246,
+        'count': 225,
+        'shardsSum': 77278,
+        'expSum': 42968,
+        'candysSum': 1011
+      },
+      {
+        'pokeId': 202,
+        'count': 225,
+        'shardsSum': 63015,
+        'expSum': 58326,
+        'candysSum': 1266
+      },
+      {
+        'pokeId': 180,
+        'count': 225,
+        'shardsSum': 104764,
+        'expSum': 68271,
+        'candysSum': 1480
+      },
+      {
+        'pokeId': 23,
+        'count': 225,
+        'shardsSum': 47266,
+        'expSum': 18258,
+        'candysSum': 1000
+      },
+      {
+        'pokeId': 287,
+        'count': 223,
+        'shardsSum': 44043,
+        'expSum': 40812,
+        'candysSum': 1041
+      },
+      {
+        'pokeId': 79,
+        'count': 223,
+        'shardsSum': 36514,
+        'expSum': 33839,
+        'candysSum': 1012
+      },
+      {
+        'pokeId': 2,
+        'count': 222,
+        'shardsSum': 191839,
+        'expSum': 90746,
+        'candysSum': 1465
+      },
+      {
+        'pokeId': 152,
+        'count': 218,
+        'shardsSum': 65916,
+        'expSum': 31095,
+        'candysSum': 983
+      },
+      {
+        'pokeId': 196,
+        'count': 216,
+        'shardsSum': 591631,
+        'expSum': 228381,
+        'candysSum': 1849
+      },
+      {
+        'pokeId': 70,
+        'count': 216,
+        'shardsSum': 106064,
+        'expSum': 58896,
+        'candysSum': 1387
+      },
+      {
+        'pokeId': 470,
+        'count': 215,
+        'shardsSum': 655338,
+        'expSum': 252987,
+        'candysSum': 1864
+      },
+      {
+        'pokeId': 176,
+        'count': 214,
+        'shardsSum': 143501,
+        'expSum': 67899,
+        'candysSum': 1215
+      },
+      {
+        'pokeId': 40,
+        'count': 214,
+        'shardsSum': 188538,
+        'expSum': 174556,
+        'candysSum': 2055
+      },
+      {
+        'pokeId': 5,
+        'count': 213,
+        'shardsSum': 213891,
+        'expSum': 101184,
+        'candysSum': 1455
+      },
+      {
+        'pokeId': 438,
         'count': 212,
-        'shardsSum': 82303,
-        'expSum': 31799,
-        'candysSum': 969
+        'shardsSum': 41298,
+        'expSum': 23000,
+        'candysSum': 952
       },
       {
-        'pokeId': 244,
+        'pokeId': 197,
+        'count': 212,
+        'shardsSum': 523524,
+        'expSum': 341423,
+        'candysSum': 1859
+      },
+      {
+        'pokeId': 173,
         'count': 207,
-        'shardsSum': 2692155,
-        'expSum': 974284,
-        'candysSum': 2426
-      },
-      {
-        'pokeId': 195,
-        'count': 202,
-        'shardsSum': 343346,
-        'expSum': 375470,
-        'candysSum': 1358
-      },
-      {
-        'pokeId': 175,
-        'count': 198,
-        'shardsSum': 63276,
-        'expSum': 29854,
-        'candysSum': 896
-      },
-      {
-        'pokeId': 93,
-        'count': 191,
-        'shardsSum': 71760,
-        'expSum': 23920,
-        'candysSum': 1153
-      },
-      {
-        'pokeId': 92,
-        'count': 182,
-        'shardsSum': 19705,
-        'expSum': 6629,
-        'candysSum': 716
-      },
-      {
-        'pokeId': 51,
-        'count': 180,
-        'shardsSum': 93604,
-        'expSum': 31290,
-        'candysSum': 1072
+        'shardsSum': 48213,
+        'expSum': 44630,
+        'candysSum': 952
       },
       {
         'pokeId': 50,
-        'count': 180,
-        'shardsSum': 14916,
-        'expSum': 5032,
-        'candysSum': 704
+        'count': 206,
+        'shardsSum': 18748,
+        'expSum': 6318,
+        'candysSum': 830
       },
       {
-        'pokeId': 425,
-        'count': 173,
-        'shardsSum': 82827,
-        'expSum': 90086,
-        'candysSum': 695
+        'pokeId': 215,
+        'count': 204,
+        'shardsSum': 550942,
+        'expSum': 279049,
+        'candysSum': 1537
+      },
+      {
+        'pokeId': 105,
+        'count': 203,
+        'shardsSum': 138616,
+        'expSum': 65589,
+        'candysSum': 1307
+      },
+      {
+        'pokeId': 172,
+        'count': 201,
+        'shardsSum': 62829,
+        'expSum': 21010,
+        'candysSum': 958
+      },
+      {
+        'pokeId': 92,
+        'count': 200,
+        'shardsSum': 24790,
+        'expSum': 8330,
+        'candysSum': 820
       },
       {
         'pokeId': 353,
-        'count': 166,
-        'shardsSum': 15862,
-        'expSum': 7568,
-        'candysSum': 658
+        'count': 194,
+        'shardsSum': 20413,
+        'expSum': 9742,
+        'candysSum': 792
+      },
+      {
+        'pokeId': 51,
+        'count': 193,
+        'shardsSum': 99766,
+        'expSum': 33350,
+        'candysSum': 1147
+      },
+      {
+        'pokeId': 93,
+        'count': 170,
+        'shardsSum': 66756,
+        'expSum': 22252,
+        'candysSum': 1042
+      },
+      {
+        'pokeId': 425,
+        'count': 147,
+        'shardsSum': 73803,
+        'expSum': 80301,
+        'candysSum': 603
       }
     ]
   },
@@ -3661,388 +3661,388 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 4058,
-        'shardsSum': 35409895,
-        'expSum': 37626604,
-        'candysSum': 48380
+        'count': 4080,
+        'shardsSum': 35671416,
+        'expSum': 37904498,
+        'candysSum': 48685
       },
       {
         'pokeId': 845,
-        'count': 768,
-        'shardsSum': 3835539,
-        'expSum': 1815079,
-        'candysSum': 6831
+        'count': 733,
+        'shardsSum': 3829501,
+        'expSum': 1812224,
+        'candysSum': 6613
       },
       {
         'pokeId': 132,
-        'count': 671,
-        'shardsSum': 1579072,
-        'expSum': 877178,
-        'candysSum': 6033
-      },
-      {
-        'pokeId': 909,
-        'count': 568,
-        'shardsSum': 578673,
-        'expSum': 734594,
-        'candysSum': 3064
-      },
-      {
-        'pokeId': 9,
-        'count': 555,
-        'shardsSum': 2057919,
-        'expSum': 973923,
-        'candysSum': 5667
-      },
-      {
-        'pokeId': 39,
-        'count': 554,
-        'shardsSum': 182181,
-        'expSum': 168636,
-        'candysSum': 3465
-      },
-      {
-        'pokeId': 158,
-        'count': 551,
-        'shardsSum': 271943,
-        'expSum': 151207,
-        'candysSum': 2911
-      },
-      {
-        'pokeId': 173,
-        'count': 547,
-        'shardsSum': 208913,
-        'expSum': 193398,
-        'candysSum': 2928
-      },
-      {
-        'pokeId': 133,
-        'count': 545,
-        'shardsSum': 275027,
-        'expSum': 152902,
-        'candysSum': 2909
+        'count': 718,
+        'shardsSum': 1618281,
+        'expSum': 898956,
+        'candysSum': 6371
       },
       {
         'pokeId': 454,
-        'count': 540,
-        'shardsSum': 663369,
-        'expSum': 368404,
-        'candysSum': 3999
-      },
-      {
-        'pokeId': 194,
-        'count': 539,
-        'shardsSum': 512850,
-        'expSum': 560083,
-        'candysSum': 2886
-      },
-      {
-        'pokeId': 20,
-        'count': 536,
-        'shardsSum': 560309,
-        'expSum': 216440,
-        'candysSum': 4001
-      },
-      {
-        'pokeId': 913,
-        'count': 535,
-        'shardsSum': 1366898,
-        'expSum': 952847,
-        'candysSum': 3977
-      },
-      {
-        'pokeId': 195,
-        'count': 535,
-        'shardsSum': 1241766,
-        'expSum': 1358795,
-        'candysSum': 3878
-      },
-      {
-        'pokeId': 54,
-        'count': 534,
-        'shardsSum': 189438,
-        'expSum': 105494,
-        'candysSum': 2937
-      },
-      {
-        'pokeId': 10,
-        'count': 533,
-        'shardsSum': 129928,
-        'expSum': 120365,
-        'candysSum': 2857
-      },
-      {
-        'pokeId': 70,
-        'count': 531,
-        'shardsSum': 443714,
-        'expSum': 246408,
-        'candysSum': 3928
-      },
-      {
-        'pokeId': 25,
-        'count': 531,
-        'shardsSum': 286915,
-        'expSum': 95771,
-        'candysSum': 3214
-      },
-      {
-        'pokeId': 127,
-        'count': 527,
-        'shardsSum': 1323137,
-        'expSum': 510770,
-        'candysSum': 4407
-      },
-      {
-        'pokeId': 453,
-        'count': 524,
-        'shardsSum': 212128,
-        'expSum': 118005,
-        'candysSum': 2824
-      },
-      {
-        'pokeId': 152,
-        'count': 522,
-        'shardsSum': 302023,
-        'expSum': 142839,
-        'candysSum': 2845
-      },
-      {
-        'pokeId': 122,
-        'count': 521,
-        'shardsSum': 776538,
-        'expSum': 259054,
-        'candysSum': 3839
-      },
-      {
-        'pokeId': 19,
-        'count': 519,
-        'shardsSum': 223000,
-        'expSum': 74403,
-        'candysSum': 2828
-      },
-      {
-        'pokeId': 363,
-        'count': 518,
-        'shardsSum': 158080,
-        'expSum': 146366,
-        'candysSum': 2822
-      },
-      {
-        'pokeId': 23,
-        'count': 518,
-        'shardsSum': 196246,
-        'expSum': 75841,
-        'candysSum': 2746
-      },
-      {
-        'pokeId': 55,
-        'count': 514,
-        'shardsSum': 664163,
-        'expSum': 368844,
-        'candysSum': 3855
-      },
-      {
-        'pokeId': 56,
-        'count': 513,
-        'shardsSum': 259193,
-        'expSum': 99977,
-        'candysSum': 2817
-      },
-      {
-        'pokeId': 910,
-        'count': 510,
-        'shardsSum': 1056421,
-        'expSum': 1122613,
-        'candysSum': 3851
-      },
-      {
-        'pokeId': 764,
-        'count': 508,
-        'shardsSum': 2026949,
-        'expSum': 675701,
-        'candysSum': 4210
-      },
-      {
-        'pokeId': 439,
-        'count': 507,
-        'shardsSum': 272457,
-        'expSum': 90948,
-        'candysSum': 2716
-      },
-      {
-        'pokeId': 115,
-        'count': 507,
-        'shardsSum': 914070,
-        'expSum': 846509,
-        'candysSum': 4217
-      },
-      {
-        'pokeId': 159,
-        'count': 505,
-        'shardsSum': 575456,
-        'expSum': 319578,
-        'candysSum': 3667
-      },
-      {
-        'pokeId': 134,
-        'count': 504,
-        'shardsSum': 1247744,
-        'expSum': 1155177,
-        'candysSum': 4663
+        'count': 573,
+        'shardsSum': 713088,
+        'expSum': 396014,
+        'candysSum': 4271
       },
       {
         'pokeId': 58,
-        'count': 503,
-        'shardsSum': 211015,
-        'expSum': 117192,
-        'candysSum': 2662
+        'count': 561,
+        'shardsSum': 237119,
+        'expSum': 131682,
+        'candysSum': 3003
       },
       {
-        'pokeId': 914,
-        'count': 501,
-        'shardsSum': 3285497,
-        'expSum': 2290526,
-        'candysSum': 5153
+        'pokeId': 39,
+        'count': 551,
+        'shardsSum': 190446,
+        'expSum': 176270,
+        'candysSum': 3508
       },
       {
-        'pokeId': 8,
-        'count': 501,
-        'shardsSum': 661348,
-        'expSum': 312844,
-        'candysSum': 3706
+        'pokeId': 909,
+        'count': 549,
+        'shardsSum': 601552,
+        'expSum': 763631,
+        'candysSum': 3020
       },
       {
-        'pokeId': 199,
-        'count': 499,
-        'shardsSum': 1889903,
-        'expSum': 1232413,
-        'candysSum': 4695
+        'pokeId': 25,
+        'count': 546,
+        'shardsSum': 275656,
+        'expSum': 92009,
+        'candysSum': 3265
       },
       {
-        'pokeId': 35,
-        'count': 497,
-        'shardsSum': 260936,
-        'expSum': 241481,
-        'candysSum': 3225
+        'pokeId': 122,
+        'count': 544,
+        'shardsSum': 840842,
+        'expSum': 280487,
+        'candysSum': 4026
       },
       {
-        'pokeId': 69,
-        'count': 496,
-        'shardsSum': 180449,
-        'expSum': 100307,
-        'candysSum': 2666
+        'pokeId': 115,
+        'count': 543,
+        'shardsSum': 1047220,
+        'expSum': 969811,
+        'candysSum': 4616
       },
       {
-        'pokeId': 160,
-        'count': 495,
-        'shardsSum': 1876959,
-        'expSum': 1042655,
-        'candysSum': 5170
+        'pokeId': 152,
+        'count': 537,
+        'shardsSum': 306575,
+        'expSum': 144981,
+        'candysSum': 2900
       },
       {
-        'pokeId': 912,
-        'count': 490,
-        'shardsSum': 734746,
-        'expSum': 512231,
-        'candysSum': 2635
+        'pokeId': 19,
+        'count': 536,
+        'shardsSum': 229610,
+        'expSum': 76610,
+        'candysSum': 2892
+      },
+      {
+        'pokeId': 56,
+        'count': 532,
+        'shardsSum': 239759,
+        'expSum': 92465,
+        'candysSum': 2811
       },
       {
         'pokeId': 57,
-        'count': 490,
-        'shardsSum': 636672,
-        'expSum': 301168,
-        'candysSum': 3606
+        'count': 531,
+        'shardsSum': 705234,
+        'expSum': 333606,
+        'candysSum': 3930
       },
       {
-        'pokeId': 36,
-        'count': 490,
-        'shardsSum': 1492823,
-        'expSum': 1193449,
-        'candysSum': 5117
+        'pokeId': 913,
+        'count': 526,
+        'shardsSum': 1278424,
+        'expSum': 891175,
+        'candysSum': 3847
       },
       {
-        'pokeId': 7,
-        'count': 488,
-        'shardsSum': 278678,
-        'expSum': 131775,
-        'candysSum': 2657
+        'pokeId': 133,
+        'count': 525,
+        'shardsSum': 258046,
+        'expSum': 143472,
+        'candysSum': 2766
       },
       {
-        'pokeId': 214,
-        'count': 487,
-        'shardsSum': 1091918,
-        'expSum': 606579,
-        'candysSum': 4114
-      },
-      {
-        'pokeId': 80,
-        'count': 487,
-        'shardsSum': 546681,
-        'expSum': 361265,
-        'candysSum': 3618
-      },
-      {
-        'pokeId': 185,
-        'count': 483,
-        'shardsSum': 275208,
-        'expSum': 152927,
-        'candysSum': 3085
-      },
-      {
-        'pokeId': 24,
-        'count': 482,
-        'shardsSum': 749283,
-        'expSum': 289191,
-        'candysSum': 3612
+        'pokeId': 363,
+        'count': 524,
+        'shardsSum': 158502,
+        'expSum': 146751,
+        'candysSum': 2822
       },
       {
         'pokeId': 79,
-        'count': 477,
-        'shardsSum': 136810,
-        'expSum': 126658,
-        'candysSum': 2546
+        'count': 524,
+        'shardsSum': 163512,
+        'expSum': 151382,
+        'candysSum': 2869
       },
       {
-        'pokeId': 40,
-        'count': 477,
-        'shardsSum': 598728,
-        'expSum': 554365,
-        'candysSum': 4938
+        'pokeId': 9,
+        'count': 522,
+        'shardsSum': 2083600,
+        'expSum': 986083,
+        'candysSum': 5432
+      },
+      {
+        'pokeId': 80,
+        'count': 521,
+        'shardsSum': 575137,
+        'expSum': 379781,
+        'candysSum': 3832
+      },
+      {
+        'pokeId': 54,
+        'count': 519,
+        'shardsSum': 160421,
+        'expSum': 89365,
+        'candysSum': 2744
       },
       {
         'pokeId': 438,
-        'count': 476,
-        'shardsSum': 160268,
-        'expSum': 89258,
-        'candysSum': 2558
+        'count': 516,
+        'shardsSum': 175023,
+        'expSum': 97478,
+        'candysSum': 2804
       },
       {
-        'pokeId': 316,
-        'count': 474,
-        'shardsSum': 122523,
-        'expSum': 113544,
-        'candysSum': 2493
+        'pokeId': 214,
+        'count': 515,
+        'shardsSum': 1144306,
+        'expSum': 635679,
+        'candysSum': 4342
+      },
+      {
+        'pokeId': 195,
+        'count': 513,
+        'shardsSum': 1212632,
+        'expSum': 1326989,
+        'candysSum': 3712
+      },
+      {
+        'pokeId': 160,
+        'count': 513,
+        'shardsSum': 1900756,
+        'expSum': 1055862,
+        'candysSum': 5348
+      },
+      {
+        'pokeId': 159,
+        'count': 513,
+        'shardsSum': 635049,
+        'expSum': 352674,
+        'candysSum': 3789
+      },
+      {
+        'pokeId': 70,
+        'count': 511,
+        'shardsSum': 421080,
+        'expSum': 233838,
+        'candysSum': 3764
+      },
+      {
+        'pokeId': 23,
+        'count': 511,
+        'shardsSum': 202126,
+        'expSum': 78110,
+        'candysSum': 2743
+      },
+      {
+        'pokeId': 69,
+        'count': 506,
+        'shardsSum': 175217,
+        'expSum': 97405,
+        'candysSum': 2648
+      },
+      {
+        'pokeId': 55,
+        'count': 506,
+        'shardsSum': 599782,
+        'expSum': 333088,
+        'candysSum': 3723
+      },
+      {
+        'pokeId': 10,
+        'count': 505,
+        'shardsSum': 127537,
+        'expSum': 118149,
+        'candysSum': 2692
+      },
+      {
+        'pokeId': 35,
+        'count': 504,
+        'shardsSum': 263586,
+        'expSum': 243934,
+        'candysSum': 3256
+      },
+      {
+        'pokeId': 24,
+        'count': 504,
+        'shardsSum': 712671,
+        'expSum': 275085,
+        'candysSum': 3726
+      },
+      {
+        'pokeId': 194,
+        'count': 503,
+        'shardsSum': 462070,
+        'expSum': 504578,
+        'candysSum': 2673
+      },
+      {
+        'pokeId': 127,
+        'count': 502,
+        'shardsSum': 1279608,
+        'expSum': 493970,
+        'candysSum': 4204
+      },
+      {
+        'pokeId': 7,
+        'count': 501,
+        'shardsSum': 277361,
+        'expSum': 131154,
+        'candysSum': 2677
+      },
+      {
+        'pokeId': 453,
+        'count': 500,
+        'shardsSum': 216137,
+        'expSum': 120231,
+        'candysSum': 2763
       },
       {
         'pokeId': 174,
-        'count': 468,
-        'shardsSum': 125342,
-        'expSum': 116131,
-        'candysSum': 2561
+        'count': 500,
+        'shardsSum': 119501,
+        'expSum': 110713,
+        'candysSum': 2648
+      },
+      {
+        'pokeId': 316,
+        'count': 499,
+        'shardsSum': 142594,
+        'expSum': 132151,
+        'candysSum': 2713
+      },
+      {
+        'pokeId': 36,
+        'count': 499,
+        'shardsSum': 1479176,
+        'expSum': 1182534,
+        'candysSum': 5169
+      },
+      {
+        'pokeId': 914,
+        'count': 498,
+        'shardsSum': 3267910,
+        'expSum': 2278255,
+        'candysSum': 5128
+      },
+      {
+        'pokeId': 20,
+        'count': 495,
+        'shardsSum': 470802,
+        'expSum': 181876,
+        'candysSum': 3612
+      },
+      {
+        'pokeId': 910,
+        'count': 494,
+        'shardsSum': 933104,
+        'expSum': 991569,
+        'candysSum': 3644
+      },
+      {
+        'pokeId': 912,
+        'count': 493,
+        'shardsSum': 745794,
+        'expSum': 519929,
+        'candysSum': 2654
+      },
+      {
+        'pokeId': 8,
+        'count': 491,
+        'shardsSum': 620182,
+        'expSum': 293366,
+        'candysSum': 3586
+      },
+      {
+        'pokeId': 764,
+        'count': 489,
+        'shardsSum': 2096669,
+        'expSum': 698933,
+        'candysSum': 4141
+      },
+      {
+        'pokeId': 185,
+        'count': 489,
+        'shardsSum': 269050,
+        'expSum': 149500,
+        'candysSum': 3112
+      },
+      {
+        'pokeId': 439,
+        'count': 487,
+        'shardsSum': 273114,
+        'expSum': 91146,
+        'candysSum': 2659
+      },
+      {
+        'pokeId': 40,
+        'count': 487,
+        'shardsSum': 631805,
+        'expSum': 584996,
+        'candysSum': 5075
+      },
+      {
+        'pokeId': 199,
+        'count': 486,
+        'shardsSum': 1862573,
+        'expSum': 1214588,
+        'candysSum': 4590
+      },
+      {
+        'pokeId': 134,
+        'count': 485,
+        'shardsSum': 1275629,
+        'expSum': 1181002,
+        'candysSum': 4582
+      },
+      {
+        'pokeId': 158,
+        'count': 484,
+        'shardsSum': 261031,
+        'expSum': 145101,
+        'candysSum': 2635
+      },
+      {
+        'pokeId': 173,
+        'count': 477,
+        'shardsSum': 198495,
+        'expSum': 183768,
+        'candysSum': 2628
       },
       {
         'pokeId': 50,
-        'count': 464,
-        'shardsSum': 148179,
-        'expSum': 49439,
-        'candysSum': 2316
+        'count': 441,
+        'shardsSum': 131552,
+        'expSum': 43903,
+        'candysSum': 2153
       },
       {
         'pokeId': 245,
-        'count': 427,
-        'shardsSum': 6004598,
-        'expSum': 2602881,
-        'candysSum': 5078
+        'count': 388,
+        'shardsSum': 5621052,
+        'expSum': 2452914,
+        'candysSum': 4632
       }
     ]
   },
@@ -4052,416 +4052,416 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 4228,
-        'shardsSum': 37335082,
-        'expSum': 39672310,
-        'candysSum': 50586
+        'count': 4234,
+        'shardsSum': 37384002,
+        'expSum': 39724296,
+        'candysSum': 50675
       },
       {
         'pokeId': 195,
-        'count': 561,
-        'shardsSum': 1536022,
-        'expSum': 1681255,
-        'candysSum': 4244
-      },
-      {
-        'pokeId': 5,
-        'count': 543,
-        'shardsSum': 697628,
-        'expSum': 330010,
-        'candysSum': 3962
-      },
-      {
-        'pokeId': 909,
-        'count': 525,
-        'shardsSum': 548975,
-        'expSum': 696900,
-        'candysSum': 2857
+        'count': 604,
+        'shardsSum': 1626297,
+        'expSum': 1779987,
+        'candysSum': 4571
       },
       {
         'pokeId': 248,
-        'count': 520,
-        'shardsSum': 4226335,
-        'expSum': 2347958,
-        'candysSum': 5472
+        'count': 563,
+        'shardsSum': 4292087,
+        'expSum': 2384474,
+        'candysSum': 5824
       },
       {
-        'pokeId': 24,
-        'count': 520,
-        'shardsSum': 782340,
-        'expSum': 301970,
-        'candysSum': 3898
-      },
-      {
-        'pokeId': 173,
-        'count': 515,
-        'shardsSum': 198884,
-        'expSum': 184122,
-        'candysSum': 2755
-      },
-      {
-        'pokeId': 196,
-        'count': 511,
-        'shardsSum': 2105276,
-        'expSum': 812705,
-        'candysSum': 4802
-      },
-      {
-        'pokeId': 37,
-        'count': 509,
-        'shardsSum': 659924,
-        'expSum': 254969,
-        'candysSum': 2817
+        'pokeId': 174,
+        'count': 534,
+        'shardsSum': 137860,
+        'expSum': 127705,
+        'candysSum': 2881
       },
       {
         'pokeId': 136,
+        'count': 530,
+        'shardsSum': 2238398,
+        'expSum': 864097,
+        'candysSum': 5007
+      },
+      {
+        'pokeId': 24,
+        'count': 521,
+        'shardsSum': 715800,
+        'expSum': 276269,
+        'candysSum': 3781
+      },
+      {
+        'pokeId': 155,
+        'count': 519,
+        'shardsSum': 336863,
+        'expSum': 130121,
+        'candysSum': 2848
+      },
+      {
+        'pokeId': 35,
+        'count': 514,
+        'shardsSum': 259698,
+        'expSum': 240336,
+        'candysSum': 3278
+      },
+      {
+        'pokeId': 40,
+        'count': 513,
+        'shardsSum': 633489,
+        'expSum': 586554,
+        'candysSum': 5271
+      },
+      {
+        'pokeId': 228,
+        'count': 511,
+        'shardsSum': 254917,
+        'expSum': 120620,
+        'candysSum': 2799
+      },
+      {
+        'pokeId': 246,
+        'count': 510,
+        'shardsSum': 302693,
+        'expSum': 168250,
+        'candysSum': 2703
+      },
+      {
+        'pokeId': 105,
         'count': 507,
-        'shardsSum': 2048421,
-        'expSum': 790749,
-        'candysSum': 4743
+        'shardsSum': 580038,
+        'expSum': 274510,
+        'candysSum': 3761
       },
       {
         'pokeId': 197,
         'count': 506,
-        'shardsSum': 1682050,
-        'expSum': 1096907,
-        'candysSum': 4825
-      },
-      {
-        'pokeId': 39,
-        'count': 506,
-        'shardsSum': 194668,
-        'expSum': 180194,
-        'candysSum': 3299
-      },
-      {
-        'pokeId': 229,
-        'count': 505,
-        'shardsSum': 756888,
-        'expSum': 358320,
-        'candysSum': 3717
-      },
-      {
-        'pokeId': 23,
-        'count': 504,
-        'shardsSum': 206673,
-        'expSum': 79866,
-        'candysSum': 2736
-      },
-      {
-        'pokeId': 157,
-        'count': 501,
-        'shardsSum': 2190332,
-        'expSum': 1036603,
-        'candysSum': 5352
+        'shardsSum': 1535824,
+        'expSum': 1001555,
+        'candysSum': 4690
       },
       {
         'pokeId': 6,
-        'count': 501,
-        'shardsSum': 2015032,
-        'expSum': 953632,
-        'candysSum': 5216
+        'count': 505,
+        'shardsSum': 2051932,
+        'expSum': 971097,
+        'candysSum': 5280
       },
       {
-        'pokeId': 74,
+        'pokeId': 317,
+        'count': 500,
+        'shardsSum': 461583,
+        'expSum': 427585,
+        'candysSum': 3701
+      },
+      {
+        'pokeId': 76,
         'count': 499,
-        'shardsSum': 194614,
-        'expSum': 75209,
-        'candysSum': 2669
+        'shardsSum': 1852563,
+        'expSum': 1029771,
+        'candysSum': 5187
       },
       {
-        'pokeId': 20,
-        'count': 498,
-        'shardsSum': 465238,
-        'expSum': 179728,
-        'candysSum': 3610
+        'pokeId': 157,
+        'count': 496,
+        'shardsSum': 1995905,
+        'expSum': 944580,
+        'candysSum': 5161
       },
       {
-        'pokeId': 453,
-        'count': 497,
-        'shardsSum': 201702,
-        'expSum': 112206,
-        'candysSum': 2701
-      },
-      {
-        'pokeId': 447,
+        'pokeId': 247,
         'count': 495,
-        'shardsSum': 235313,
-        'expSum': 111348,
-        'candysSum': 2673
+        'shardsSum': 692576,
+        'expSum': 384690,
+        'candysSum': 3658
       },
       {
-        'pokeId': 59,
+        'pokeId': 38,
         'count': 495,
-        'shardsSum': 1989810,
-        'expSum': 1105376,
-        'candysSum': 4617
+        'shardsSum': 1551108,
+        'expSum': 734024,
+        'candysSum': 4673
       },
       {
-        'pokeId': 316,
-        'count': 491,
-        'shardsSum': 138293,
-        'expSum': 128165,
-        'candysSum': 2666
+        'pokeId': 302,
+        'count': 493,
+        'shardsSum': 1081884,
+        'expSum': 417654,
+        'candysSum': 4193
       },
       {
-        'pokeId': 194,
+        'pokeId': 909,
         'count': 491,
-        'shardsSum': 496690,
-        'expSum': 542546,
-        'candysSum': 2689
+        'shardsSum': 479066,
+        'expSum': 608123,
+        'candysSum': 2574
       },
       {
-        'pokeId': 4,
+        'pokeId': 229,
         'count': 491,
-        'shardsSum': 294371,
-        'expSum': 113696,
-        'candysSum': 2610
+        'shardsSum': 710319,
+        'expSum': 336282,
+        'candysSum': 3578
       },
       {
         'pokeId': 19,
         'count': 489,
-        'shardsSum': 206255,
-        'expSum': 68810,
-        'candysSum': 2641
+        'shardsSum': 210114,
+        'expSum': 70105,
+        'candysSum': 2645
       },
       {
-        'pokeId': 75,
-        'count': 486,
-        'shardsSum': 431583,
-        'expSum': 204278,
-        'candysSum': 3565
+        'pokeId': 453,
+        'count': 487,
+        'shardsSum': 199277,
+        'expSum': 110856,
+        'candysSum': 2647
       },
       {
-        'pokeId': 174,
-        'count': 485,
-        'shardsSum': 136122,
-        'expSum': 126095,
-        'candysSum': 2685
-      },
-      {
-        'pokeId': 302,
-        'count': 484,
-        'shardsSum': 1012863,
-        'expSum': 391026,
-        'candysSum': 4031
-      },
-      {
-        'pokeId': 202,
-        'count': 484,
-        'shardsSum': 203025,
-        'expSum': 187985,
-        'candysSum': 3095
+        'pokeId': 196,
+        'count': 487,
+        'shardsSum': 1977971,
+        'expSum': 763550,
+        'candysSum': 4572
       },
       {
         'pokeId': 175,
-        'count': 484,
-        'shardsSum': 284995,
-        'expSum': 134766,
-        'candysSum': 2634
-      },
-      {
-        'pokeId': 38,
-        'count': 484,
-        'shardsSum': 1522190,
-        'expSum': 720340,
-        'candysSum': 4575
-      },
-      {
-        'pokeId': 132,
-        'count': 483,
-        'shardsSum': 1049176,
-        'expSum': 582841,
-        'candysSum': 4204
-      },
-      {
-        'pokeId': 105,
-        'count': 479,
-        'shardsSum': 538731,
-        'expSum': 254941,
-        'candysSum': 3505
-      },
-      {
-        'pokeId': 155,
-        'count': 477,
-        'shardsSum': 289326,
-        'expSum': 111757,
-        'candysSum': 2561
-      },
-      {
-        'pokeId': 246,
-        'count': 476,
-        'shardsSum': 299487,
-        'expSum': 166467,
-        'candysSum': 2589
-      },
-      {
-        'pokeId': 133,
-        'count': 476,
-        'shardsSum': 254920,
-        'expSum': 141726,
-        'candysSum': 2597
-      },
-      {
-        'pokeId': 360,
-        'count': 475,
-        'shardsSum': 122067,
-        'expSum': 113087,
-        'candysSum': 2568
-      },
-      {
-        'pokeId': 228,
-        'count': 475,
-        'shardsSum': 214832,
-        'expSum': 101654,
-        'candysSum': 2542
-      },
-      {
-        'pokeId': 76,
-        'count': 475,
-        'shardsSum': 1794267,
-        'expSum': 997430,
-        'candysSum': 4961
-      },
-      {
-        'pokeId': 40,
-        'count': 474,
-        'shardsSum': 628633,
-        'expSum': 582054,
-        'candysSum': 4962
-      },
-      {
-        'pokeId': 94,
-        'count': 470,
-        'shardsSum': 2078343,
-        'expSum': 692901,
-        'candysSum': 4833
-      },
-      {
-        'pokeId': 104,
-        'count': 468,
-        'shardsSum': 181665,
-        'expSum': 101061,
-        'candysSum': 2483
+        'count': 485,
+        'shardsSum': 267008,
+        'expSum': 126251,
+        'candysSum': 2588
       },
       {
         'pokeId': 36,
-        'count': 467,
-        'shardsSum': 1424116,
-        'expSum': 1138524,
-        'candysSum': 4851
-      },
-      {
-        'pokeId': 58,
-        'count': 466,
-        'shardsSum': 214724,
-        'expSum': 119254,
-        'candysSum': 2556
-      },
-      {
-        'pokeId': 317,
-        'count': 465,
-        'shardsSum': 419035,
-        'expSum': 388175,
-        'candysSum': 3409
-      },
-      {
-        'pokeId': 156,
-        'count': 464,
-        'shardsSum': 664336,
-        'expSum': 314269,
-        'candysSum': 3508
+        'count': 485,
+        'shardsSum': 1366224,
+        'expSum': 1092224,
+        'candysSum': 4967
       },
       {
         'pokeId': 354,
-        'count': 462,
-        'shardsSum': 850137,
-        'expSum': 402233,
-        'candysSum': 3412
+        'count': 484,
+        'shardsSum': 949119,
+        'expSum': 449083,
+        'candysSum': 3629
       },
       {
-        'pokeId': 910,
-        'count': 458,
-        'shardsSum': 897408,
-        'expSum': 953634,
-        'candysSum': 3397
+        'pokeId': 59,
+        'count': 484,
+        'shardsSum': 2006964,
+        'expSum': 1114894,
+        'candysSum': 4555
       },
       {
-        'pokeId': 208,
-        'count': 458,
-        'shardsSum': 2954259,
-        'expSum': 1398164,
-        'candysSum': 4148
+        'pokeId': 23,
+        'count': 482,
+        'shardsSum': 197020,
+        'expSum': 76147,
+        'candysSum': 2635
+      },
+      {
+        'pokeId': 58,
+        'count': 481,
+        'shardsSum': 209149,
+        'expSum': 116156,
+        'candysSum': 2583
+      },
+      {
+        'pokeId': 447,
+        'count': 479,
+        'shardsSum': 233847,
+        'expSum': 110651,
+        'candysSum': 2612
+      },
+      {
+        'pokeId': 132,
+        'count': 478,
+        'shardsSum': 1063067,
+        'expSum': 590567,
+        'candysSum': 4168
+      },
+      {
+        'pokeId': 94,
+        'count': 477,
+        'shardsSum': 2404624,
+        'expSum': 801640,
+        'candysSum': 5087
+      },
+      {
+        'pokeId': 202,
+        'count': 476,
+        'shardsSum': 219522,
+        'expSum': 203263,
+        'candysSum': 3133
       },
       {
         'pokeId': 454,
+        'count': 474,
+        'shardsSum': 602277,
+        'expSum': 334476,
+        'candysSum': 3551
+      },
+      {
+        'pokeId': 37,
+        'count': 469,
+        'shardsSum': 588013,
+        'expSum': 227189,
+        'candysSum': 2552
+      },
+      {
+        'pokeId': 39,
+        'count': 468,
+        'shardsSum': 165895,
+        'expSum': 153564,
+        'candysSum': 2980
+      },
+      {
+        'pokeId': 104,
+        'count': 466,
+        'shardsSum': 195284,
+        'expSum': 108633,
+        'candysSum': 2552
+      },
+      {
+        'pokeId': 74,
+        'count': 465,
+        'shardsSum': 200053,
+        'expSum': 77318,
+        'candysSum': 2587
+      },
+      {
+        'pokeId': 20,
+        'count': 464,
+        'shardsSum': 475302,
+        'expSum': 183606,
+        'candysSum': 3450
+      },
+      {
+        'pokeId': 910,
+        'count': 462,
+        'shardsSum': 889180,
+        'expSum': 944892,
+        'candysSum': 3419
+      },
+      {
+        'pokeId': 173,
+        'count': 462,
+        'shardsSum': 188930,
+        'expSum': 174907,
+        'candysSum': 2542
+      },
+      {
+        'pokeId': 4,
+        'count': 462,
+        'shardsSum': 296046,
+        'expSum': 114345,
+        'candysSum': 2514
+      },
+      {
+        'pokeId': 360,
+        'count': 461,
+        'shardsSum': 119518,
+        'expSum': 110739,
+        'candysSum': 2509
+      },
+      {
+        'pokeId': 156,
+        'count': 455,
+        'shardsSum': 622776,
+        'expSum': 294591,
+        'candysSum': 3420
+      },
+      {
+        'pokeId': 5,
+        'count': 455,
+        'shardsSum': 601137,
+        'expSum': 284374,
+        'candysSum': 3345
+      },
+      {
+        'pokeId': 133,
         'count': 453,
-        'shardsSum': 551187,
-        'expSum': 306102,
-        'candysSum': 3356
+        'shardsSum': 221907,
+        'expSum': 123379,
+        'candysSum': 2387
       },
       {
-        'pokeId': 353,
-        'count': 428,
-        'shardsSum': 135602,
-        'expSum': 64296,
-        'candysSum': 2132
+        'pokeId': 75,
+        'count': 453,
+        'shardsSum': 383590,
+        'expSum': 181562,
+        'candysSum': 3296
       },
       {
-        'pokeId': 247,
-        'count': 427,
-        'shardsSum': 590056,
-        'expSum': 327744,
-        'candysSum': 3137
+        'pokeId': 194,
+        'count': 450,
+        'shardsSum': 445800,
+        'expSum': 486924,
+        'candysSum': 2438
       },
       {
         'pokeId': 92,
-        'count': 427,
-        'shardsSum': 149006,
-        'expSum': 49811,
-        'candysSum': 2101
+        'count': 440,
+        'shardsSum': 157060,
+        'expSum': 52500,
+        'candysSum': 2160
       },
       {
-        'pokeId': 93,
-        'count': 426,
-        'shardsSum': 374224,
-        'expSum': 124694,
-        'candysSum': 2966
-      },
-      {
-        'pokeId': 35,
-        'count': 425,
-        'shardsSum': 211022,
-        'expSum': 195284,
-        'candysSum': 2695
-      },
-      {
-        'pokeId': 95,
-        'count': 424,
-        'shardsSum': 1115625,
-        'expSum': 371836,
-        'candysSum': 3418
-      },
-      {
-        'pokeId': 51,
-        'count': 421,
-        'shardsSum': 499148,
-        'expSum': 166571,
-        'candysSum': 2937
+        'pokeId': 208,
+        'count': 439,
+        'shardsSum': 2758214,
+        'expSum': 1305386,
+        'candysSum': 3955
       },
       {
         'pokeId': 50,
-        'count': 399,
-        'shardsSum': 121501,
-        'expSum': 40546,
-        'candysSum': 1967
+        'count': 432,
+        'shardsSum': 135286,
+        'expSum': 45142,
+        'candysSum': 2156
+      },
+      {
+        'pokeId': 353,
+        'count': 431,
+        'shardsSum': 142884,
+        'expSum': 67734,
+        'candysSum': 2167
+      },
+      {
+        'pokeId': 95,
+        'count': 429,
+        'shardsSum': 1076519,
+        'expSum': 358802,
+        'candysSum': 3412
+      },
+      {
+        'pokeId': 316,
+        'count': 424,
+        'shardsSum': 109984,
+        'expSum': 101926,
+        'candysSum': 2230
+      },
+      {
+        'pokeId': 51,
+        'count': 407,
+        'shardsSum': 499596,
+        'expSum': 166711,
+        'candysSum': 2859
       },
       {
         'pokeId': 244,
-        'count': 387,
-        'shardsSum': 5446976,
-        'expSum': 2007409,
-        'candysSum': 4592
+        'count': 393,
+        'shardsSum': 5441088,
+        'expSum': 1998211,
+        'candysSum': 4652
+      },
+      {
+        'pokeId': 93,
+        'count': 381,
+        'shardsSum': 330554,
+        'expSum': 110143,
+        'candysSum': 2641
       }
     ]
   },
@@ -4471,339 +4471,339 @@ export default [
     'res': [
       {
         'pokeId': 289,
-        'count': 4607,
-        'shardsSum': 27098451,
-        'expSum': 25092421,
-        'candysSum': 54863
-      },
-      {
-        'pokeId': 36,
-        'count': 653,
-        'shardsSum': 2027449,
-        'expSum': 1620866,
-        'candysSum': 6835
-      },
-      {
-        'pokeId': 176,
-        'count': 642,
-        'shardsSum': 643483,
-        'expSum': 304459,
-        'candysSum': 4131
-      },
-      {
-        'pokeId': 447,
-        'count': 627,
-        'shardsSum': 314312,
-        'expSum': 148730,
-        'candysSum': 3432
-      },
-      {
-        'pokeId': 359,
-        'count': 618,
-        'shardsSum': 1484624,
-        'expSum': 702577,
-        'candysSum': 5223
-      },
-      {
-        'pokeId': 215,
-        'count': 618,
-        'shardsSum': 2251798,
-        'expSum': 1140425,
-        'candysSum': 5127
-      },
-      {
-        'pokeId': 79,
-        'count': 616,
-        'shardsSum': 201479,
-        'expSum': 186542,
-        'candysSum': 3437
-      },
-      {
-        'pokeId': 363,
-        'count': 614,
-        'shardsSum': 183578,
-        'expSum': 169970,
-        'candysSum': 3276
-      },
-      {
-        'pokeId': 180,
-        'count': 612,
-        'shardsSum': 484988,
-        'expSum': 316274,
-        'candysSum': 4546
-      },
-      {
-        'pokeId': 56,
-        'count': 611,
-        'shardsSum': 294636,
-        'expSum': 113640,
-        'candysSum': 3301
-      },
-      {
-        'pokeId': 287,
-        'count': 610,
-        'shardsSum': 171195,
-        'expSum': 158490,
-        'candysSum': 3223
-      },
-      {
-        'pokeId': 54,
-        'count': 610,
-        'shardsSum': 205751,
-        'expSum': 114582,
-        'candysSum': 3284
-      },
-      {
-        'pokeId': 448,
-        'count': 609,
-        'shardsSum': 2518716,
-        'expSum': 972297,
-        'candysSum': 5740
-      },
-      {
-        'pokeId': 317,
-        'count': 609,
-        'shardsSum': 573300,
-        'expSum': 531067,
-        'candysSum': 4531
-      },
-      {
-        'pokeId': 845,
-        'count': 602,
-        'shardsSum': 2456210,
-        'expSum': 1162337,
-        'candysSum': 5032
-      },
-      {
-        'pokeId': 19,
-        'count': 602,
-        'shardsSum': 254371,
-        'expSum': 84885,
-        'candysSum': 3238
-      },
-      {
-        'pokeId': 133,
-        'count': 601,
-        'shardsSum': 313311,
-        'expSum': 174167,
-        'candysSum': 3241
-      },
-      {
-        'pokeId': 173,
-        'count': 600,
-        'shardsSum': 229323,
-        'expSum': 212287,
-        'candysSum': 3227
-      },
-      {
-        'pokeId': 74,
-        'count': 600,
-        'shardsSum': 233977,
-        'expSum': 90423,
-        'candysSum': 3213
-      },
-      {
-        'pokeId': 334,
-        'count': 597,
-        'shardsSum': 877106,
-        'expSum': 487294,
-        'candysSum': 4392
-      },
-      {
-        'pokeId': 80,
-        'count': 596,
-        'shardsSum': 667091,
-        'expSum': 440580,
-        'candysSum': 4421
-      },
-      {
-        'pokeId': 454,
-        'count': 591,
-        'shardsSum': 750930,
-        'expSum': 417030,
-        'candysSum': 4424
-      },
-      {
-        'pokeId': 179,
-        'count': 588,
-        'shardsSum': 161599,
-        'expSum': 129347,
-        'candysSum': 3159
-      },
-      {
-        'pokeId': 35,
-        'count': 588,
-        'shardsSum': 292695,
-        'expSum': 270871,
-        'candysSum': 3735
-      },
-      {
-        'pokeId': 459,
-        'count': 587,
-        'shardsSum': 292538,
-        'expSum': 162650,
-        'candysSum': 3117
-      },
-      {
-        'pokeId': 69,
-        'count': 587,
-        'shardsSum': 223346,
-        'expSum': 124143,
-        'candysSum': 3188
-      },
-      {
-        'pokeId': 461,
-        'count': 586,
-        'shardsSum': 5846140,
-        'expSum': 3733751,
-        'candysSum': 5557
-      },
-      {
-        'pokeId': 225,
-        'count': 586,
-        'shardsSum': 1997573,
-        'expSum': 945231,
-        'candysSum': 4882
-      },
-      {
-        'pokeId': 288,
-        'count': 580,
-        'shardsSum': 629010,
-        'expSum': 410364,
-        'candysSum': 4323
+        'count': 4550,
+        'shardsSum': 26896426,
+        'expSum': 24905326,
+        'candysSum': 54296
       },
       {
         'pokeId': 175,
-        'count': 580,
-        'shardsSum': 344589,
-        'expSum': 162964,
-        'candysSum': 3180
+        'count': 642,
+        'shardsSum': 379546,
+        'expSum': 179496,
+        'candysSum': 3528
       },
       {
-        'pokeId': 360,
-        'count': 579,
-        'shardsSum': 144590,
-        'expSum': 133942,
-        'candysSum': 3092
+        'pokeId': 359,
+        'count': 634,
+        'shardsSum': 1501938,
+        'expSum': 710786,
+        'candysSum': 5342
       },
       {
-        'pokeId': 333,
-        'count': 579,
-        'shardsSum': 222041,
-        'expSum': 105109,
-        'candysSum': 3080
+        'pokeId': 288,
+        'count': 625,
+        'shardsSum': 649291,
+        'expSum': 423606,
+        'candysSum': 4637
       },
       {
-        'pokeId': 316,
-        'count': 579,
-        'shardsSum': 157178,
-        'expSum': 145664,
-        'candysSum': 3099
+        'pokeId': 176,
+        'count': 624,
+        'shardsSum': 592938,
+        'expSum': 280540,
+        'candysSum': 3928
       },
       {
-        'pokeId': 105,
-        'count': 573,
-        'shardsSum': 668424,
-        'expSum': 316323,
-        'candysSum': 4247
+        'pokeId': 54,
+        'count': 624,
+        'shardsSum': 209559,
+        'expSum': 116706,
+        'candysSum': 3354
+      },
+      {
+        'pokeId': 215,
+        'count': 621,
+        'shardsSum': 2428151,
+        'expSum': 1229718,
+        'candysSum': 5254
+      },
+      {
+        'pokeId': 317,
+        'count': 620,
+        'shardsSum': 546091,
+        'expSum': 505895,
+        'candysSum': 4519
+      },
+      {
+        'pokeId': 202,
+        'count': 615,
+        'shardsSum': 240354,
+        'expSum': 222559,
+        'candysSum': 3829
+      },
+      {
+        'pokeId': 74,
+        'count': 615,
+        'shardsSum': 245264,
+        'expSum': 94807,
+        'candysSum': 3359
+      },
+      {
+        'pokeId': 334,
+        'count': 610,
+        'shardsSum': 886753,
+        'expSum': 492653,
+        'candysSum': 4462
+      },
+      {
+        'pokeId': 845,
+        'count': 605,
+        'shardsSum': 2509757,
+        'expSum': 1187679,
+        'candysSum': 5084
+      },
+      {
+        'pokeId': 173,
+        'count': 605,
+        'shardsSum': 241232,
+        'expSum': 223321,
+        'candysSum': 3291
+      },
+      {
+        'pokeId': 35,
+        'count': 605,
+        'shardsSum': 301012,
+        'expSum': 278562,
+        'candysSum': 3847
+      },
+      {
+        'pokeId': 365,
+        'count': 603,
+        'shardsSum': 1296252,
+        'expSum': 1036156,
+        'candysSum': 6192
+      },
+      {
+        'pokeId': 19,
+        'count': 603,
+        'shardsSum': 254244,
+        'expSum': 84837,
+        'candysSum': 3225
+      },
+      {
+        'pokeId': 461,
+        'count': 602,
+        'shardsSum': 5889519,
+        'expSum': 3761447,
+        'candysSum': 5682
+      },
+      {
+        'pokeId': 80,
+        'count': 601,
+        'shardsSum': 653209,
+        'expSum': 431881,
+        'candysSum': 4420
+      },
+      {
+        'pokeId': 471,
+        'count': 598,
+        'shardsSum': 2305654,
+        'expSum': 890055,
+        'candysSum': 5513
+      },
+      {
+        'pokeId': 459,
+        'count': 596,
+        'shardsSum': 324793,
+        'expSum': 180576,
+        'candysSum': 3267
+      },
+      {
+        'pokeId': 20,
+        'count': 595,
+        'shardsSum': 576624,
+        'expSum': 222756,
+        'candysSum': 4386
       },
       {
         'pokeId': 39,
-        'count': 572,
-        'shardsSum': 186888,
-        'expSum': 172975,
-        'candysSum': 3587
+        'count': 594,
+        'shardsSum': 228489,
+        'expSum': 211533,
+        'candysSum': 3840
+      },
+      {
+        'pokeId': 447,
+        'count': 593,
+        'shardsSum': 277833,
+        'expSum': 131459,
+        'candysSum': 3195
+      },
+      {
+        'pokeId': 104,
+        'count': 590,
+        'shardsSum': 260795,
+        'expSum': 145071,
+        'candysSum': 3281
+      },
+      {
+        'pokeId': 179,
+        'count': 589,
+        'shardsSum': 150634,
+        'expSum': 120591,
+        'candysSum': 3077
+      },
+      {
+        'pokeId': 56,
+        'count': 588,
+        'shardsSum': 301857,
+        'expSum': 116438,
+        'candysSum': 3237
+      },
+      {
+        'pokeId': 448,
+        'count': 587,
+        'shardsSum': 2380785,
+        'expSum': 919045,
+        'candysSum': 5508
+      },
+      {
+        'pokeId': 363,
+        'count': 585,
+        'shardsSum': 178817,
+        'expSum': 165555,
+        'candysSum': 3168
+      },
+      {
+        'pokeId': 316,
+        'count': 584,
+        'shardsSum': 167525,
+        'expSum': 155252,
+        'candysSum': 3173
+      },
+      {
+        'pokeId': 133,
+        'count': 584,
+        'shardsSum': 304679,
+        'expSum': 169390,
+        'candysSum': 3157
+      },
+      {
+        'pokeId': 360,
+        'count': 583,
+        'shardsSum': 151912,
+        'expSum': 140728,
+        'candysSum': 3160
+      },
+      {
+        'pokeId': 79,
+        'count': 579,
+        'shardsSum': 167853,
+        'expSum': 155407,
+        'candysSum': 3061
+      },
+      {
+        'pokeId': 57,
+        'count': 579,
+        'shardsSum': 750040,
+        'expSum': 354793,
+        'candysSum': 4258
+      },
+      {
+        'pokeId': 364,
+        'count': 578,
+        'shardsSum': 512449,
+        'expSum': 474724,
+        'candysSum': 4239
+      },
+      {
+        'pokeId': 69,
+        'count': 578,
+        'shardsSum': 221168,
+        'expSum': 122936,
+        'candysSum': 3141
+      },
+      {
+        'pokeId': 181,
+        'count': 575,
+        'shardsSum': 1607354,
+        'expSum': 892923,
+        'candysSum': 5994
+      },
+      {
+        'pokeId': 287,
+        'count': 574,
+        'shardsSum': 171479,
+        'expSum': 158749,
+        'candysSum': 3093
+      },
+      {
+        'pokeId': 180,
+        'count': 574,
+        'shardsSum': 445627,
+        'expSum': 290613,
+        'candysSum': 4235
       },
       {
         'pokeId': 453,
         'count': 571,
-        'shardsSum': 211323,
-        'expSum': 117564,
-        'candysSum': 2996
+        'shardsSum': 225427,
+        'expSum': 125406,
+        'candysSum': 3080
       },
       {
-        'pokeId': 471,
-        'count': 570,
-        'shardsSum': 2334936,
-        'expSum': 901351,
-        'candysSum': 5360
+        'pokeId': 454,
+        'count': 563,
+        'shardsSum': 681829,
+        'expSum': 378654,
+        'candysSum': 4145
       },
       {
-        'pokeId': 57,
-        'count': 567,
-        'shardsSum': 699894,
-        'expSum': 331075,
-        'candysSum': 4098
+        'pokeId': 225,
+        'count': 559,
+        'shardsSum': 1942004,
+        'expSum': 918945,
+        'candysSum': 4671
       },
       {
-        'pokeId': 104,
-        'count': 566,
-        'shardsSum': 223023,
-        'expSum': 124068,
-        'candysSum': 3027
+        'pokeId': 333,
+        'count': 555,
+        'shardsSum': 227275,
+        'expSum': 107582,
+        'candysSum': 3013
       },
       {
-        'pokeId': 365,
-        'count': 564,
-        'shardsSum': 1318220,
-        'expSum': 1053745,
-        'candysSum': 5939
+        'pokeId': 105,
+        'count': 549,
+        'shardsSum': 625676,
+        'expSum': 296091,
+        'candysSum': 4040
       },
       {
-        'pokeId': 181,
-        'count': 562,
-        'shardsSum': 1599205,
-        'expSum': 888395,
-        'candysSum': 5881
-      },
-      {
-        'pokeId': 92,
-        'count': 548,
-        'shardsSum': 218866,
-        'expSum': 73138,
-        'candysSum': 2808
-      },
-      {
-        'pokeId': 20,
-        'count': 538,
-        'shardsSum': 533989,
-        'expSum': 206282,
-        'candysSum': 3985
-      },
-      {
-        'pokeId': 364,
-        'count': 537,
-        'shardsSum': 499896,
-        'expSum': 463081,
-        'candysSum': 4009
-      },
-      {
-        'pokeId': 202,
-        'count': 536,
-        'shardsSum': 223465,
-        'expSum': 206928,
-        'candysSum': 3413
-      },
-      {
-        'pokeId': 93,
-        'count': 532,
-        'shardsSum': 484494,
-        'expSum': 161435,
-        'candysSum': 3734
+        'pokeId': 36,
+        'count': 526,
+        'shardsSum': 1541362,
+        'expSum': 1232255,
+        'candysSum': 5411
       },
       {
         'pokeId': 460,
-        'count': 495,
-        'shardsSum': 860937,
-        'expSum': 561577,
-        'candysSum': 3457
+        'count': 522,
+        'shardsSum': 867003,
+        'expSum': 565547,
+        'candysSum': 3604
+      },
+      {
+        'pokeId': 93,
+        'count': 512,
+        'shardsSum': 450356,
+        'expSum': 150063,
+        'candysSum': 3588
+      },
+      {
+        'pokeId': 92,
+        'count': 484,
+        'shardsSum': 177986,
+        'expSum': 59490,
+        'candysSum': 2400
       },
       {
         'pokeId': 132,
-        'count': 405,
-        'shardsSum': 599496,
-        'expSum': 333016,
-        'candysSum': 3201
+        'count': 452,
+        'shardsSum': 576857,
+        'expSum': 320432,
+        'candysSum': 3465
       }
     ]
   },
@@ -4813,416 +4813,416 @@ export default [
     'res': [
       {
         'pokeId': 149,
-        'count': 4332,
-        'shardsSum': 62284156,
-        'expSum': 34602493,
-        'candysSum': 51780
+        'count': 4297,
+        'shardsSum': 61738155,
+        'expSum': 34299147,
+        'candysSum': 51358
       },
       {
         'pokeId': 132,
-        'count': 651,
-        'shardsSum': 1474368,
-        'expSum': 819014,
-        'candysSum': 5779
-      },
-      {
-        'pokeId': 175,
-        'count': 532,
-        'shardsSum': 306249,
-        'expSum': 144822,
-        'candysSum': 2898
-      },
-      {
-        'pokeId': 133,
-        'count': 527,
-        'shardsSum': 265780,
-        'expSum': 147769,
-        'candysSum': 2817
-      },
-      {
-        'pokeId': 23,
-        'count': 523,
-        'shardsSum': 206997,
-        'expSum': 79986,
-        'candysSum': 2796
-      },
-      {
-        'pokeId': 475,
-        'count': 519,
-        'shardsSum': 4558746,
-        'expSum': 1760029,
-        'candysSum': 5508
-      },
-      {
-        'pokeId': 360,
-        'count': 516,
-        'shardsSum': 126968,
-        'expSum': 117624,
-        'candysSum': 2756
-      },
-      {
-        'pokeId': 56,
-        'count': 511,
-        'shardsSum': 236719,
-        'expSum': 91292,
-        'candysSum': 2728
-      },
-      {
-        'pokeId': 908,
-        'count': 510,
-        'shardsSum': 3507470,
-        'expSum': 2482950,
-        'candysSum': 5326
-      },
-      {
-        'pokeId': 147,
-        'count': 503,
-        'shardsSum': 637230,
-        'expSum': 301560,
-        'candysSum': 2680
-      },
-      {
-        'pokeId': 3,
-        'count': 501,
-        'shardsSum': 1838416,
-        'expSum': 1021854,
-        'candysSum': 5206
-      },
-      {
-        'pokeId': 764,
-        'count': 500,
-        'shardsSum': 2130255,
-        'expSum': 710129,
-        'candysSum': 4220
-      },
-      {
-        'pokeId': 85,
-        'count': 500,
-        'shardsSum': 496769,
-        'expSum': 191902,
-        'candysSum': 3689
-      },
-      {
-        'pokeId': 760,
-        'count': 495,
-        'shardsSum': 956909,
-        'expSum': 886099,
-        'candysSum': 3671
-      },
-      {
-        'pokeId': 702,
-        'count': 489,
-        'shardsSum': 1586830,
-        'expSum': 881551,
-        'candysSum': 4147
-      },
-      {
-        'pokeId': 80,
-        'count': 488,
-        'shardsSum': 550063,
-        'expSum': 363808,
-        'candysSum': 3649
-      },
-      {
-        'pokeId': 906,
-        'count': 485,
-        'shardsSum': 854007,
-        'expSum': 473322,
-        'candysSum': 2647
-      },
-      {
-        'pokeId': 54,
-        'count': 485,
-        'shardsSum': 154879,
-        'expSum': 86263,
-        'candysSum': 2566
-      },
-      {
-        'pokeId': 2,
-        'count': 485,
-        'shardsSum': 671125,
-        'expSum': 317477,
-        'candysSum': 3631
-      },
-      {
-        'pokeId': 69,
-        'count': 484,
-        'shardsSum': 186945,
-        'expSum': 103909,
-        'candysSum': 2649
-      },
-      {
-        'pokeId': 7,
-        'count': 484,
-        'shardsSum': 260538,
-        'expSum': 123198,
-        'candysSum': 2586
+        'count': 596,
+        'shardsSum': 1415384,
+        'expSum': 786242,
+        'candysSum': 5396
       },
       {
         'pokeId': 282,
-        'count': 480,
-        'shardsSum': 2839174,
-        'expSum': 1096016,
-        'candysSum': 5033
+        'count': 527,
+        'shardsSum': 3049716,
+        'expSum': 1177289,
+        'candysSum': 5504
       },
       {
-        'pokeId': 173,
-        'count': 480,
-        'shardsSum': 184422,
-        'expSum': 170745,
-        'candysSum': 2550
+        'pokeId': 908,
+        'count': 519,
+        'shardsSum': 3736246,
+        'expSum': 2644893,
+        'candysSum': 5477
       },
       {
-        'pokeId': 84,
-        'count': 480,
-        'shardsSum': 195450,
-        'expSum': 65214,
-        'candysSum': 2570
-      },
-      {
-        'pokeId': 333,
-        'count': 479,
-        'shardsSum': 209329,
-        'expSum': 99087,
-        'candysSum': 2674
-      },
-      {
-        'pokeId': 913,
-        'count': 477,
-        'shardsSum': 1253118,
-        'expSum': 873530,
-        'candysSum': 3580
-      },
-      {
-        'pokeId': 8,
-        'count': 477,
-        'shardsSum': 620020,
-        'expSum': 293300,
-        'candysSum': 3490
-      },
-      {
-        'pokeId': 57,
-        'count': 474,
-        'shardsSum': 622641,
-        'expSum': 294532,
-        'candysSum': 3501
-      },
-      {
-        'pokeId': 280,
-        'count': 473,
-        'shardsSum': 525940,
-        'expSum': 248897,
-        'candysSum': 2537
-      },
-      {
-        'pokeId': 447,
-        'count': 472,
-        'shardsSum': 203245,
-        'expSum': 96166,
-        'candysSum': 2464
-      },
-      {
-        'pokeId': 174,
-        'count': 471,
-        'shardsSum': 125477,
-        'expSum': 116252,
-        'candysSum': 2591
-      },
-      {
-        'pokeId': 196,
-        'count': 470,
-        'shardsSum': 1900489,
-        'expSum': 733641,
-        'candysSum': 4403
-      },
-      {
-        'pokeId': 79,
-        'count': 470,
-        'shardsSum': 136231,
-        'expSum': 126135,
-        'candysSum': 2519
-      },
-      {
-        'pokeId': 912,
-        'count': 467,
-        'shardsSum': 762162,
-        'expSum': 531353,
-        'candysSum': 2603
-      },
-      {
-        'pokeId': 1,
-        'count': 467,
-        'shardsSum': 256824,
-        'expSum': 121445,
-        'candysSum': 2512
-      },
-      {
-        'pokeId': 53,
-        'count': 466,
-        'shardsSum': 570420,
-        'expSum': 269823,
-        'candysSum': 3378
-      },
-      {
-        'pokeId': 9,
-        'count': 466,
-        'shardsSum': 1833915,
-        'expSum': 867915,
-        'candysSum': 4823
-      },
-      {
-        'pokeId': 907,
-        'count': 465,
-        'shardsSum': 1148114,
-        'expSum': 812847,
-        'candysSum': 3422
-      },
-      {
-        'pokeId': 71,
-        'count': 464,
-        'shardsSum': 1219569,
-        'expSum': 677502,
-        'candysSum': 4768
-      },
-      {
-        'pokeId': 914,
-        'count': 463,
-        'shardsSum': 2928977,
-        'expSum': 2041974,
-        'candysSum': 4707
-      },
-      {
-        'pokeId': 202,
-        'count': 463,
-        'shardsSum': 192586,
-        'expSum': 178328,
-        'candysSum': 2938
-      },
-      {
-        'pokeId': 153,
-        'count': 462,
-        'shardsSum': 606931,
-        'expSum': 287112,
-        'candysSum': 3391
-      },
-      {
-        'pokeId': 52,
-        'count': 462,
-        'shardsSum': 215305,
-        'expSum': 101878,
-        'candysSum': 2472
-      },
-      {
-        'pokeId': 25,
-        'count': 462,
-        'shardsSum': 227792,
-        'expSum': 76015,
-        'candysSum': 2775
-      },
-      {
-        'pokeId': 185,
-        'count': 461,
-        'shardsSum': 243657,
-        'expSum': 135399,
-        'candysSum': 2878
-      },
-      {
-        'pokeId': 176,
-        'count': 457,
-        'shardsSum': 471115,
-        'expSum': 222898,
-        'candysSum': 2954
-      },
-      {
-        'pokeId': 334,
-        'count': 456,
-        'shardsSum': 663184,
-        'expSum': 368443,
-        'candysSum': 3335
-      },
-      {
-        'pokeId': 39,
-        'count': 456,
-        'shardsSum': 155231,
-        'expSum': 143687,
-        'candysSum': 2880
+        'pokeId': 56,
+        'count': 514,
+        'shardsSum': 239773,
+        'expSum': 92481,
+        'candysSum': 2765
       },
       {
         'pokeId': 759,
-        'count': 455,
-        'shardsSum': 431918,
-        'expSum': 345216,
-        'candysSum': 2458
+        'count': 510,
+        'shardsSum': 473989,
+        'expSum': 378845,
+        'candysSum': 2728
+      },
+      {
+        'pokeId': 907,
+        'count': 502,
+        'shardsSum': 1224559,
+        'expSum': 866979,
+        'candysSum': 3698
+      },
+      {
+        'pokeId': 80,
+        'count': 502,
+        'shardsSum': 520143,
+        'expSum': 343804,
+        'candysSum': 3609
+      },
+      {
+        'pokeId': 9,
+        'count': 501,
+        'shardsSum': 2080885,
+        'expSum': 984801,
+        'candysSum': 5269
+      },
+      {
+        'pokeId': 280,
+        'count': 499,
+        'shardsSum': 559991,
+        'expSum': 265009,
+        'candysSum': 2690
+      },
+      {
+        'pokeId': 764,
+        'count': 498,
+        'shardsSum': 2040353,
+        'expSum': 680163,
+        'candysSum': 4162
       },
       {
         'pokeId': 152,
-        'count': 454,
-        'shardsSum': 251192,
-        'expSum': 118775,
-        'candysSum': 2421
+        'count': 498,
+        'shardsSum': 282692,
+        'expSum': 133675,
+        'candysSum': 2691
       },
       {
-        'pokeId': 148,
-        'count': 453,
-        'shardsSum': 1086004,
-        'expSum': 513890,
-        'candysSum': 3388
+        'pokeId': 906,
+        'count': 495,
+        'shardsSum': 818475,
+        'expSum': 453628,
+        'candysSum': 2655
       },
       {
-        'pokeId': 36,
-        'count': 453,
-        'shardsSum': 1356598,
-        'expSum': 1084549,
-        'candysSum': 4690
-      },
-      {
-        'pokeId': 35,
-        'count': 448,
-        'shardsSum': 213466,
-        'expSum': 197542,
-        'candysSum': 2821
-      },
-      {
-        'pokeId': 470,
-        'count': 444,
-        'shardsSum': 1828548,
-        'expSum': 705876,
-        'candysSum': 4172
-      },
-      {
-        'pokeId': 154,
-        'count': 444,
-        'shardsSum': 1655560,
-        'expSum': 919656,
-        'candysSum': 4633
-      },
-      {
-        'pokeId': 172,
-        'count': 442,
-        'shardsSum': 180115,
-        'expSum': 60099,
-        'candysSum': 2373
-      },
-      {
-        'pokeId': 281,
-        'count': 440,
-        'shardsSum': 933629,
-        'expSum': 441802,
-        'candysSum': 3181
+        'pokeId': 475,
+        'count': 495,
+        'shardsSum': 4226380,
+        'expSum': 1631717,
+        'candysSum': 5218
       },
       {
         'pokeId': 70,
-        'count': 428,
-        'shardsSum': 371523,
-        'expSum': 206327,
-        'candysSum': 3193
+        'count': 495,
+        'shardsSum': 442846,
+        'expSum': 245952,
+        'candysSum': 3707
+      },
+      {
+        'pokeId': 2,
+        'count': 495,
+        'shardsSum': 634419,
+        'expSum': 300101,
+        'candysSum': 3627
+      },
+      {
+        'pokeId': 333,
+        'count': 492,
+        'shardsSum': 194028,
+        'expSum': 91850,
+        'candysSum': 2656
+      },
+      {
+        'pokeId': 447,
+        'count': 490,
+        'shardsSum': 227227,
+        'expSum': 107519,
+        'candysSum': 2624
+      },
+      {
+        'pokeId': 175,
+        'count': 488,
+        'shardsSum': 275042,
+        'expSum': 130060,
+        'candysSum': 2636
+      },
+      {
+        'pokeId': 54,
+        'count': 488,
+        'shardsSum': 155588,
+        'expSum': 86652,
+        'candysSum': 2571
+      },
+      {
+        'pokeId': 202,
+        'count': 487,
+        'shardsSum': 212701,
+        'expSum': 196942,
+        'candysSum': 3162
+      },
+      {
+        'pokeId': 52,
+        'count': 487,
+        'shardsSum': 235249,
+        'expSum': 111312,
+        'candysSum': 2647
+      },
+      {
+        'pokeId': 153,
+        'count': 486,
+        'shardsSum': 647031,
+        'expSum': 306070,
+        'candysSum': 3609
+      },
+      {
+        'pokeId': 69,
+        'count': 486,
+        'shardsSum': 179410,
+        'expSum': 99724,
+        'candysSum': 2614
+      },
+      {
+        'pokeId': 84,
+        'count': 484,
+        'shardsSum': 207917,
+        'expSum': 69365,
+        'candysSum': 2632
+      },
+      {
+        'pokeId': 360,
+        'count': 482,
+        'shardsSum': 113672,
+        'expSum': 105315,
+        'candysSum': 2543
+      },
+      {
+        'pokeId': 913,
+        'count': 480,
+        'shardsSum': 1194756,
+        'expSum': 832851,
+        'candysSum': 3543
+      },
+      {
+        'pokeId': 147,
+        'count': 480,
+        'shardsSum': 647930,
+        'expSum': 306624,
+        'candysSum': 2633
+      },
+      {
+        'pokeId': 1,
+        'count': 479,
+        'shardsSum': 253406,
+        'expSum': 119812,
+        'candysSum': 2517
+      },
+      {
+        'pokeId': 23,
+        'count': 477,
+        'shardsSum': 188609,
+        'expSum': 72888,
+        'candysSum': 2563
+      },
+      {
+        'pokeId': 196,
+        'count': 476,
+        'shardsSum': 1965384,
+        'expSum': 758693,
+        'candysSum': 4488
+      },
+      {
+        'pokeId': 148,
+        'count': 476,
+        'shardsSum': 1045858,
+        'expSum': 494896,
+        'candysSum': 3465
+      },
+      {
+        'pokeId': 71,
+        'count': 476,
+        'shardsSum': 1282629,
+        'expSum': 712531,
+        'candysSum': 4917
+      },
+      {
+        'pokeId': 174,
+        'count': 475,
+        'shardsSum': 116363,
+        'expSum': 107800,
+        'candysSum': 2525
+      },
+      {
+        'pokeId': 760,
+        'count': 470,
+        'shardsSum': 896606,
+        'expSum': 830253,
+        'candysSum': 3481
+      },
+      {
+        'pokeId': 702,
+        'count': 469,
+        'shardsSum': 1443435,
+        'expSum': 801887,
+        'candysSum': 3914
+      },
+      {
+        'pokeId': 185,
+        'count': 469,
+        'shardsSum': 261401,
+        'expSum': 145248,
+        'candysSum': 3003
+      },
+      {
+        'pokeId': 3,
+        'count': 469,
+        'shardsSum': 1861527,
+        'expSum': 1034711,
+        'candysSum': 4982
+      },
+      {
+        'pokeId': 35,
+        'count': 468,
+        'shardsSum': 237424,
+        'expSum': 219715,
+        'candysSum': 3009
+      },
+      {
+        'pokeId': 172,
+        'count': 466,
+        'shardsSum': 187988,
+        'expSum': 62726,
+        'candysSum': 2464
+      },
+      {
+        'pokeId': 79,
+        'count': 465,
+        'shardsSum': 133572,
+        'expSum': 123661,
+        'candysSum': 2456
+      },
+      {
+        'pokeId': 334,
+        'count': 464,
+        'shardsSum': 657119,
+        'expSum': 365075,
+        'candysSum': 3377
+      },
+      {
+        'pokeId': 85,
+        'count': 464,
+        'shardsSum': 458963,
+        'expSum': 177298,
+        'candysSum': 3419
+      },
+      {
+        'pokeId': 39,
+        'count': 464,
+        'shardsSum': 162721,
+        'expSum': 150635,
+        'candysSum': 2939
+      },
+      {
+        'pokeId': 173,
+        'count': 463,
+        'shardsSum': 180322,
+        'expSum': 166930,
+        'candysSum': 2497
+      },
+      {
+        'pokeId': 281,
+        'count': 461,
+        'shardsSum': 1082842,
+        'expSum': 512416,
+        'candysSum': 3455
+      },
+      {
+        'pokeId': 914,
+        'count': 460,
+        'shardsSum': 3056411,
+        'expSum': 2130814,
+        'candysSum': 4754
+      },
+      {
+        'pokeId': 176,
+        'count': 458,
+        'shardsSum': 416007,
+        'expSum': 196829,
+        'candysSum': 2841
+      },
+      {
+        'pokeId': 25,
+        'count': 458,
+        'shardsSum': 245305,
+        'expSum': 81884,
+        'candysSum': 2762
+      },
+      {
+        'pokeId': 7,
+        'count': 458,
+        'shardsSum': 263497,
+        'expSum': 124604,
+        'candysSum': 2500
+      },
+      {
+        'pokeId': 8,
+        'count': 455,
+        'shardsSum': 617303,
+        'expSum': 292001,
+        'candysSum': 3407
+      },
+      {
+        'pokeId': 36,
+        'count': 452,
+        'shardsSum': 1322867,
+        'expSum': 1057575,
+        'candysSum': 4649
+      },
+      {
+        'pokeId': 154,
+        'count': 450,
+        'shardsSum': 1656695,
+        'expSum': 920295,
+        'candysSum': 4672
+      },
+      {
+        'pokeId': 57,
+        'count': 448,
+        'shardsSum': 596243,
+        'expSum': 282044,
+        'candysSum': 3329
+      },
+      {
+        'pokeId': 133,
+        'count': 443,
+        'shardsSum': 230726,
+        'expSum': 128271,
+        'candysSum': 2392
+      },
+      {
+        'pokeId': 912,
+        'count': 442,
+        'shardsSum': 709636,
+        'expSum': 494704,
+        'candysSum': 2438
+      },
+      {
+        'pokeId': 53,
+        'count': 434,
+        'shardsSum': 565151,
+        'expSum': 267337,
+        'candysSum': 3191
+      },
+      {
+        'pokeId': 470,
+        'count': 415,
+        'shardsSum': 1799640,
+        'expSum': 694717,
+        'candysSum': 3962
       },
       {
         'pokeId': 245,
-        'count': 379,
-        'shardsSum': 5646866,
-        'expSum': 2480451,
-        'candysSum': 4550
+        'count': 403,
+        'shardsSum': 5796772,
+        'expSum': 2525518,
+        'candysSum': 4806
       }
     ]
   },
@@ -5232,402 +5232,402 @@ export default [
     'res': [
       {
         'pokeId': 738,
-        'count': 4341,
-        'shardsSum': 78807883,
-        'expSum': 49613717,
-        'candysSum': 52009
+        'count': 4313,
+        'shardsSum': 78375351,
+        'expSum': 49341414,
+        'candysSum': 51695
       },
       {
         'pokeId': 132,
-        'count': 710,
-        'shardsSum': 2963155,
-        'expSum': 1790263,
-        'candysSum': 6451
-      },
-      {
-        'pokeId': 306,
-        'count': 559,
-        'shardsSum': 6785436,
-        'expSum': 3436121,
-        'candysSum': 6003
-      },
-      {
-        'pokeId': 439,
-        'count': 550,
-        'shardsSum': 302022,
-        'expSum': 100812,
-        'candysSum': 2946
-      },
-      {
-        'pokeId': 26,
-        'count': 549,
-        'shardsSum': 1714014,
-        'expSum': 663027,
-        'candysSum': 5649
-      },
-      {
-        'pokeId': 908,
-        'count': 548,
-        'shardsSum': 4076057,
-        'expSum': 2885434,
-        'candysSum': 5819
-      },
-      {
-        'pokeId': 172,
-        'count': 541,
-        'shardsSum': 233006,
-        'expSum': 77745,
-        'candysSum': 2945
-      },
-      {
-        'pokeId': 12,
-        'count': 541,
-        'shardsSum': 1511716,
-        'expSum': 839790,
-        'candysSum': 5631
-      },
-      {
-        'pokeId': 906,
-        'count': 536,
-        'shardsSum': 922738,
-        'expSum': 511420,
-        'candysSum': 2888
-      },
-      {
-        'pokeId': 403,
-        'count': 536,
-        'shardsSum': 961424,
-        'expSum': 605092,
-        'candysSum': 2933
-      },
-      {
-        'pokeId': 305,
-        'count': 535,
-        'shardsSum': 1594214,
-        'expSum': 1017933,
-        'candysSum': 4001
-      },
-      {
-        'pokeId': 10,
-        'count': 535,
-        'shardsSum': 136448,
-        'expSum': 126407,
-        'candysSum': 2867
-      },
-      {
-        'pokeId': 737,
-        'count': 532,
-        'shardsSum': 2079496,
-        'expSum': 1327902,
-        'candysSum': 3890
-      },
-      {
-        'pokeId': 180,
-        'count': 530,
-        'shardsSum': 410220,
-        'expSum': 267521,
-        'candysSum': 3913
-      },
-      {
-        'pokeId': 907,
-        'count': 526,
-        'shardsSum': 1382756,
-        'expSum': 978984,
-        'candysSum': 3957
+        'count': 660,
+        'shardsSum': 2709123,
+        'expSum': 1637469,
+        'candysSum': 5969
       },
       {
         'pokeId': 778,
-        'count': 525,
-        'shardsSum': 4253196,
-        'expSum': 1828795,
-        'candysSum': 4415
+        'count': 587,
+        'shardsSum': 5031441,
+        'expSum': 2163418,
+        'candysSum': 4995
       },
       {
-        'pokeId': 914,
-        'count': 517,
-        'shardsSum': 3416522,
-        'expSum': 2381873,
-        'candysSum': 5332
-      },
-      {
-        'pokeId': 23,
-        'count': 517,
-        'shardsSum': 215156,
-        'expSum': 83135,
-        'candysSum': 2804
-      },
-      {
-        'pokeId': 910,
-        'count': 516,
-        'shardsSum': 994101,
-        'expSum': 1056382,
-        'candysSum': 3795
-      },
-      {
-        'pokeId': 74,
-        'count': 514,
-        'shardsSum': 213118,
-        'expSum': 82357,
-        'candysSum': 2802
-      },
-      {
-        'pokeId': 405,
-        'count': 512,
-        'shardsSum': 4879316,
-        'expSum': 3071708,
-        'candysSum': 5363
-      },
-      {
-        'pokeId': 181,
-        'count': 512,
-        'shardsSum': 1433041,
-        'expSum': 796085,
-        'candysSum': 5331
-      },
-      {
-        'pokeId': 135,
-        'count': 512,
-        'shardsSum': 2116445,
-        'expSum': 817009,
-        'candysSum': 4828
-      },
-      {
-        'pokeId': 913,
-        'count': 509,
-        'shardsSum': 1282588,
-        'expSum': 894075,
-        'candysSum': 3766
-      },
-      {
-        'pokeId': 25,
-        'count': 506,
-        'shardsSum': 284337,
-        'expSum': 94899,
-        'candysSum': 3111
-      },
-      {
-        'pokeId': 94,
-        'count': 505,
-        'shardsSum': 2261607,
-        'expSum': 754010,
-        'candysSum': 5191
-      },
-      {
-        'pokeId': 122,
-        'count': 504,
-        'shardsSum': 719870,
-        'expSum': 240159,
-        'candysSum': 3662
-      },
-      {
-        'pokeId': 36,
-        'count': 504,
-        'shardsSum': 1595217,
-        'expSum': 1275314,
-        'candysSum': 5308
-      },
-      {
-        'pokeId': 75,
-        'count': 502,
-        'shardsSum': 485204,
-        'expSum': 229658,
-        'candysSum': 3771
-      },
-      {
-        'pokeId': 173,
-        'count': 500,
-        'shardsSum': 196558,
-        'expSum': 181970,
-        'candysSum': 2704
-      },
-      {
-        'pokeId': 912,
-        'count': 497,
-        'shardsSum': 722464,
-        'expSum': 503644,
-        'candysSum': 2645
-      },
-      {
-        'pokeId': 35,
-        'count': 497,
-        'shardsSum': 247135,
-        'expSum': 228703,
-        'candysSum': 3166
-      },
-      {
-        'pokeId': 736,
-        'count': 496,
-        'shardsSum': 883917,
-        'expSum': 556311,
-        'candysSum': 2712
-      },
-      {
-        'pokeId': 195,
-        'count': 495,
-        'shardsSum': 1220435,
-        'expSum': 1335612,
-        'candysSum': 3633
-      },
-      {
-        'pokeId': 133,
-        'count': 494,
-        'shardsSum': 282086,
-        'expSum': 156810,
-        'candysSum': 2738
-      },
-      {
-        'pokeId': 354,
-        'count': 493,
-        'shardsSum': 958266,
-        'expSum': 453389,
-        'candysSum': 3700
-      },
-      {
-        'pokeId': 24,
-        'count': 492,
-        'shardsSum': 712047,
-        'expSum': 274838,
-        'candysSum': 3649
-      },
-      {
-        'pokeId': 194,
-        'count': 489,
-        'shardsSum': 451955,
-        'expSum': 493538,
-        'candysSum': 2568
-      },
-      {
-        'pokeId': 909,
-        'count': 486,
-        'shardsSum': 537295,
-        'expSum': 682060,
-        'candysSum': 2684
-      },
-      {
-        'pokeId': 179,
-        'count': 476,
-        'shardsSum': 123638,
-        'expSum': 98976,
-        'candysSum': 2500
-      },
-      {
-        'pokeId': 702,
-        'count': 473,
-        'shardsSum': 1566359,
-        'expSum': 870177,
-        'candysSum': 4026
-      },
-      {
-        'pokeId': 911,
-        'count': 471,
-        'shardsSum': 2422841,
-        'expSum': 2574565,
-        'candysSum': 4860
+        'pokeId': 306,
+        'count': 580,
+        'shardsSum': 6915743,
+        'expSum': 3502116,
+        'candysSum': 6194
       },
       {
         'pokeId': 404,
-        'count': 468,
-        'shardsSum': 2122793,
-        'expSum': 1336273,
-        'candysSum': 3530
+        'count': 545,
+        'shardsSum': 2428441,
+        'expSum': 1528674,
+        'candysSum': 4084
       },
       {
-        'pokeId': 11,
-        'count': 465,
-        'shardsSum': 214989,
-        'expSum': 199103,
-        'candysSum': 3488
+        'pokeId': 906,
+        'count': 543,
+        'shardsSum': 951360,
+        'expSum': 527281,
+        'candysSum': 2952
       },
       {
-        'pokeId': 243,
-        'count': 458,
-        'shardsSum': 6983813,
-        'expSum': 1970644,
-        'candysSum': 5486
-      },
-      {
-        'pokeId': 92,
-        'count': 458,
-        'shardsSum': 167176,
-        'expSum': 55878,
-        'candysSum': 2286
+        'pokeId': 908,
+        'count': 540,
+        'shardsSum': 3802822,
+        'expSum': 2692021,
+        'candysSum': 5660
       },
       {
         'pokeId': 304,
-        'count': 452,
-        'shardsSum': 849024,
-        'expSum': 534267,
-        'candysSum': 2434
+        'count': 537,
+        'shardsSum': 1078170,
+        'expSum': 678474,
+        'candysSum': 2948
       },
       {
-        'pokeId': 81,
-        'count': 451,
-        'shardsSum': 158590,
-        'expSum': 52961,
-        'candysSum': 2285
+        'pokeId': 913,
+        'count': 532,
+        'shardsSum': 1396654,
+        'expSum': 973587,
+        'candysSum': 3995
       },
       {
-        'pokeId': 50,
-        'count': 433,
-        'shardsSum': 140647,
-        'expSum': 46926,
-        'candysSum': 2203
+        'pokeId': 405,
+        'count': 530,
+        'shardsSum': 5142528,
+        'expSum': 3237403,
+        'candysSum': 5587
+      },
+      {
+        'pokeId': 439,
+        'count': 527,
+        'shardsSum': 258605,
+        'expSum': 86317,
+        'candysSum': 2742
+      },
+      {
+        'pokeId': 912,
+        'count': 525,
+        'shardsSum': 839236,
+        'expSum': 585074,
+        'candysSum': 2889
+      },
+      {
+        'pokeId': 172,
+        'count': 524,
+        'shardsSum': 217672,
+        'expSum': 72626,
+        'candysSum': 2807
+      },
+      {
+        'pokeId': 135,
+        'count': 524,
+        'shardsSum': 2229998,
+        'expSum': 860850,
+        'candysSum': 4975
+      },
+      {
+        'pokeId': 12,
+        'count': 524,
+        'shardsSum': 1458299,
+        'expSum': 810119,
+        'candysSum': 5455
+      },
+      {
+        'pokeId': 907,
+        'count': 522,
+        'shardsSum': 1379315,
+        'expSum': 976539,
+        'candysSum': 3920
+      },
+      {
+        'pokeId': 736,
+        'count': 522,
+        'shardsSum': 832361,
+        'expSum': 523869,
+        'candysSum': 2751
+      },
+      {
+        'pokeId': 194,
+        'count': 521,
+        'shardsSum': 508025,
+        'expSum': 554868,
+        'candysSum': 2826
+      },
+      {
+        'pokeId': 74,
+        'count': 521,
+        'shardsSum': 220953,
+        'expSum': 85389,
+        'candysSum': 2871
+      },
+      {
+        'pokeId': 26,
+        'count': 521,
+        'shardsSum': 1709461,
+        'expSum': 661144,
+        'candysSum': 5419
+      },
+      {
+        'pokeId': 179,
+        'count': 520,
+        'shardsSum': 155200,
+        'expSum': 124218,
+        'candysSum': 2862
+      },
+      {
+        'pokeId': 11,
+        'count': 520,
+        'shardsSum': 216835,
+        'expSum': 200786,
+        'candysSum': 3821
+      },
+      {
+        'pokeId': 914,
+        'count': 516,
+        'shardsSum': 3649213,
+        'expSum': 2544076,
+        'candysSum': 5410
+      },
+      {
+        'pokeId': 122,
+        'count': 515,
+        'shardsSum': 764890,
+        'expSum': 255160,
+        'candysSum': 3761
+      },
+      {
+        'pokeId': 909,
+        'count': 514,
+        'shardsSum': 558346,
+        'expSum': 708788,
+        'candysSum': 2814
+      },
+      {
+        'pokeId': 24,
+        'count': 513,
+        'shardsSum': 770881,
+        'expSum': 297540,
+        'candysSum': 3831
+      },
+      {
+        'pokeId': 75,
+        'count': 512,
+        'shardsSum': 449356,
+        'expSum': 212683,
+        'candysSum': 3743
+      },
+      {
+        'pokeId': 23,
+        'count': 511,
+        'shardsSum': 210178,
+        'expSum': 81224,
+        'candysSum': 2783
+      },
+      {
+        'pokeId': 911,
+        'count': 506,
+        'shardsSum': 2691879,
+        'expSum': 2860450,
+        'candysSum': 5268
+      },
+      {
+        'pokeId': 702,
+        'count': 505,
+        'shardsSum': 1608986,
+        'expSum': 893859,
+        'candysSum': 4263
+      },
+      {
+        'pokeId': 305,
+        'count': 505,
+        'shardsSum': 1432851,
+        'expSum': 914884,
+        'candysSum': 3724
+      },
+      {
+        'pokeId': 354,
+        'count': 501,
+        'shardsSum': 1009197,
+        'expSum': 477488,
+        'candysSum': 3798
+      },
+      {
+        'pokeId': 10,
+        'count': 500,
+        'shardsSum': 127366,
+        'expSum': 117990,
+        'candysSum': 2716
+      },
+      {
+        'pokeId': 35,
+        'count': 498,
+        'shardsSum': 269796,
+        'expSum': 249683,
+        'candysSum': 3265
+      },
+      {
+        'pokeId': 180,
+        'count': 495,
+        'shardsSum': 394299,
+        'expSum': 257133,
+        'candysSum': 3686
+      },
+      {
+        'pokeId': 403,
+        'count': 494,
+        'shardsSum': 931423,
+        'expSum': 586215,
+        'candysSum': 2754
+      },
+      {
+        'pokeId': 910,
+        'count': 492,
+        'shardsSum': 919980,
+        'expSum': 977620,
+        'candysSum': 3606
+      },
+      {
+        'pokeId': 737,
+        'count': 492,
+        'shardsSum': 2069342,
+        'expSum': 1321432,
+        'candysSum': 3696
+      },
+      {
+        'pokeId': 181,
+        'count': 484,
+        'shardsSum': 1352617,
+        'expSum': 751409,
+        'candysSum': 5041
+      },
+      {
+        'pokeId': 173,
+        'count': 478,
+        'shardsSum': 196745,
+        'expSum': 182146,
+        'candysSum': 2636
+      },
+      {
+        'pokeId': 195,
+        'count': 476,
+        'shardsSum': 1151229,
+        'expSum': 1259837,
+        'candysSum': 3473
+      },
+      {
+        'pokeId': 94,
+        'count': 474,
+        'shardsSum': 2152004,
+        'expSum': 717460,
+        'candysSum': 4896
+      },
+      {
+        'pokeId': 92,
+        'count': 471,
+        'shardsSum': 163314,
+        'expSum': 54595,
+        'candysSum': 2297
+      },
+      {
+        'pokeId': 25,
+        'count': 471,
+        'shardsSum': 266052,
+        'expSum': 88797,
+        'candysSum': 2896
+      },
+      {
+        'pokeId': 133,
+        'count': 463,
+        'shardsSum': 239777,
+        'expSum': 133307,
+        'candysSum': 2490
       },
       {
         'pokeId': 82,
-        'count': 432,
-        'shardsSum': 508492,
-        'expSum': 169692,
-        'candysSum': 3012
+        'count': 454,
+        'shardsSum': 558304,
+        'expSum': 186296,
+        'candysSum': 3174
       },
       {
-        'pokeId': 51,
-        'count': 429,
-        'shardsSum': 491270,
-        'expSum': 163950,
-        'candysSum': 2967
-      },
-      {
-        'pokeId': 462,
-        'count': 427,
-        'shardsSum': 1641371,
-        'expSum': 633531,
-        'candysSum': 4236
-      },
-      {
-        'pokeId': 426,
-        'count': 426,
-        'shardsSum': 2400258,
-        'expSum': 2628834,
-        'candysSum': 2978
-      },
-      {
-        'pokeId': 353,
-        'count': 426,
-        'shardsSum': 141973,
-        'expSum': 67318,
-        'candysSum': 2168
+        'pokeId': 36,
+        'count': 451,
+        'shardsSum': 1385984,
+        'expSum': 1108040,
+        'candysSum': 4699
       },
       {
         'pokeId': 425,
-        'count': 419,
-        'shardsSum': 650280,
-        'expSum': 711208,
-        'candysSum': 2111
+        'count': 449,
+        'shardsSum': 695839,
+        'expSum': 761033,
+        'candysSum': 2257
+      },
+      {
+        'pokeId': 81,
+        'count': 446,
+        'shardsSum': 164726,
+        'expSum': 55010,
+        'candysSum': 2282
+      },
+      {
+        'pokeId': 51,
+        'count': 444,
+        'shardsSum': 518592,
+        'expSum': 173058,
+        'candysSum': 3068
+      },
+      {
+        'pokeId': 426,
+        'count': 431,
+        'shardsSum': 2388983,
+        'expSum': 2616451,
+        'candysSum': 2987
+      },
+      {
+        'pokeId': 50,
+        'count': 426,
+        'shardsSum': 129132,
+        'expSum': 43094,
+        'candysSum': 2104
+      },
+      {
+        'pokeId': 353,
+        'count': 412,
+        'shardsSum': 143313,
+        'expSum': 67938,
+        'candysSum': 2114
       },
       {
         'pokeId': 93,
-        'count': 399,
-        'shardsSum': 378398,
-        'expSum': 126083,
-        'candysSum': 2843
+        'count': 391,
+        'shardsSum': 357028,
+        'expSum': 118963,
+        'candysSum': 2749
+      },
+      {
+        'pokeId': 462,
+        'count': 390,
+        'shardsSum': 1537413,
+        'expSum': 593407,
+        'candysSum': 3890
+      },
+      {
+        'pokeId': 243,
+        'count': 383,
+        'shardsSum': 6233683,
+        'expSum': 1776461,
+        'candysSum': 4650
       },
       {
         'pokeId': 208,
-        'count': 274,
-        'shardsSum': 971110,
-        'expSum': 459584,
-        'candysSum': 2166
+        'count': 299,
+        'shardsSum': 1096844,
+        'expSum': 519101,
+        'candysSum': 2395
       }
     ]
   }

@@ -1,6 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 425, 426, 778], // 不进保底, 215,45
+  noLastList: [243, 244, 245, 35, 36, 173, 425, 426, 215, 461], // 不进保底
   probabilityLastList: [] //概率进保底
 }
 // export const SLEEP_TIMELIMIT_POKEMONS = {
