@@ -92,7 +92,9 @@ export default {
     15: 'Helper Boost',
     16: 'Stockpile (Charge Strength S)',
     17: 'Disguise (Berry Burst)',
-    18: 'Moonlight (Charge Energy S)'
+    18: 'Moonlight (Charge Energy S)',
+    19: 'Transform (Skill Copy)',
+    20: 'Mimic (Skill Copy)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',

@@ -327,7 +327,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 5,
-    helpSpeed: 3700,
+    helpSpeed: 3400,
     foodPer: 26.40,
     skillPer: 5.70
   },
@@ -981,7 +981,7 @@ const pokedex = {
     // name: '魔牆人偶',
     friendship: 12,
     sleepType: 2,
-    skillType: 1,
+    skillType: 20,
     pokeType: 2,
     berryType: 6,
     helpSpeed: 2800,
@@ -1019,7 +1019,7 @@ const pokedex = {
     // name: '百變怪',
     friendship: 16,
     sleepType: 2,
-    skillType: 5,
+    skillType: 19,
     pokeType: 2,
     berryType: 11,
     helpSpeed: 3500,
@@ -2329,7 +2329,7 @@ const pokedex = {
     // name: '魔尼尼',
     friendship: 5,
     sleepType: 3,
-    skillType: 1,
+    skillType: 20,
     pokeType: 2,
     berryType: 6,
     helpSpeed: 4300,
@@ -2668,8 +2668,8 @@ const pokedex = {
     pokeType: 2,
     helpSpeed: 2500,
     berryType: 12,
-    foodPer: 13.90,
-    skillPer: 2.20,
+    foodPer: 16.70,
+    skillPer: 3,
     food: {
       type: [16, 11, 13],
       count: {
@@ -2722,7 +2722,7 @@ const pokedex = {
     helpSpeed: 2700,
     berryType: 16,
     foodPer: 16.5,
-    skillPer: 3.30,
+    skillPer: 3.90,
     food: {
       type: [10, 4, 3],
       count: {
@@ -2909,7 +2909,7 @@ const pokedex = {
     skillType: 3,
     pokeType: 3,
     berryType: 13,
-    helpSpeed: 2600,
+    helpSpeed: 2500,
     foodPer: 13.1,
     skillPer: 4.20
   }
