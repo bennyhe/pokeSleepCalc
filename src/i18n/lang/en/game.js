@@ -402,7 +402,13 @@ export default {
     738: 'Vikavolt',
     778: 'Mimikyu',
     215: 'Sneasel',
-    461: 'Weavile'
+    461: 'Weavile',
+    921: 'Pawmi',
+    922: 'Pawmo',
+    923: 'Pawmot',
+    7006: 'Vulpix (Alolan Form)',
+    7007: 'Ninetales (Alolan Form)',
+    9004: 'Eevee (Holiday)'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -677,6 +683,11 @@ export default {
     280: '想窩起來睡',
     281: '現形睡',
     282: '仿效睡',
-    283: '挑釁睡'
+    283: '挑釁睡',
+    284: '擦擦肉球睡',
+    285: '夢中備戰睡',
+    286: '夢中押掌睡',
+    287: '細雪睡',
+    288: '尾巴裹裹睡'
   }
 }

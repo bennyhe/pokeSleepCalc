@@ -52,7 +52,8 @@ export default {
         '173-id-2',
         '35-id-1',
         '459-id-1',
-        '459-id-2'
+        '459-id-2',
+        '921-id-1'
       ]
     },
     {
@@ -66,7 +67,8 @@ export default {
         '317-id-1',
         '454-id-1',
         '447-id-2',
-        '364-id-1'
+        '364-id-1',
+        '7006-id-1'
       ]
     },
     {
@@ -100,7 +102,8 @@ export default {
       'nameId': 1,
       'energy': 57673,
       'sleepStyles': [
-        '132-id-1'
+        '132-id-1',
+        '921-id-2'
       ]
     },
     {
@@ -143,7 +146,9 @@ export default {
         '363-id-3',
         '363-id-4',
         '364-id-2',
-        '215-id-1'
+        '215-id-1',
+        '921-id-4',
+        '7006-id-2'
       ]
     },
     {
@@ -163,7 +168,9 @@ export default {
         '288-id-2',
         '334-id-1',
         '173-id-3',
-        '459-id-3'
+        '459-id-3',
+        '922-id-1',
+        '7006-id-4'
       ]
     },
     {
@@ -227,7 +234,9 @@ export default {
         '35-id-4',
         '459-id-4',
         '845-id-1',
-        '215-id-4'
+        '215-id-4',
+        '921-id-3',
+        '922-id-2'
       ]
     },
     {
@@ -247,7 +256,9 @@ export default {
         '364-id-3',
         '365-id-1',
         '225-id-2',
-        '460-id-1'
+        '460-id-1',
+        '922-id-4',
+        '7006-id-3'
       ]
     },
     {
@@ -311,7 +322,9 @@ export default {
         '448-id-4',
         '365-id-4',
         '36-id-2',
-        '461-id-1'
+        '461-id-1',
+        '922-id-3',
+        '7007-id-1'
       ]
     },
     {
@@ -329,7 +342,8 @@ export default {
       'nameId': 4,
       'energy': 811989,
       'sleepStyles': [
-        '471-id-2'
+        '471-id-2',
+        '923-id-1'
       ]
     },
     {
@@ -350,7 +364,8 @@ export default {
         '289-id-2',
         '36-id-4',
         '845-id-3',
-        '461-id-2'
+        '461-id-2',
+        '7007-id-2'
       ]
     },
     {
@@ -364,7 +379,8 @@ export default {
         '448-id-3',
         '365-id-3',
         '460-id-3',
-        '461-id-4'
+        '461-id-4',
+        '7007-id-4'
       ]
     },
     {
@@ -373,7 +389,8 @@ export default {
       'nameId': 4,
       'energy': 1286161,
       'sleepStyles': [
-        '36-id-3'
+        '36-id-3',
+        '923-id-2'
       ]
     },
     {
@@ -381,7 +398,9 @@ export default {
       'nameIndex': 9,
       'nameId': 4,
       'energy': 1435749,
-      'sleepStyles': []
+      'sleepStyles': [,
+        '923-id-4'
+      ]
     },
     {
       'name': '大师10',
@@ -406,7 +425,8 @@ export default {
       'energy': 1980400,
       'sleepStyles': [
         '289-id-3',
-        '461-id-3'
+        '461-id-3',
+        '7007-id-3'
       ]
     },
     {
@@ -421,7 +441,9 @@ export default {
       'nameIndex': 14,
       'nameId': 4,
       'energy': 2440325,
-      'sleepStyles': []
+      'sleepStyles': [
+        '923-id-3'
+      ]
     },
     {
       'name': '大师15',

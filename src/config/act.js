@@ -12,10 +12,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [921, 922, 923, 7006, 7007, 9004], // ban 宝可梦id
+  showBanArea: [0, 3, 5] // 展示区域
 }
 export const ACT_LIST = [
   // {
