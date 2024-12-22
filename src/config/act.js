@@ -4,7 +4,7 @@ export const SLEEP_CALC_POKEMONS = {
   probabilityLastList: [] //概率进保底
 }
 // export const SLEEP_TIMELIMIT_POKEMONS = {
-  
+
 // }
 export const SLEEP_CALC_UP = {
   small: 4,
@@ -12,10 +12,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [921, 922, 923, 7006, 7007, 9004], // ban 宝可梦id
-  showBanArea: [0, 3, 5] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const ACT_LIST = [
   // {
@@ -63,37 +63,50 @@ export const ACT_LIST = [
   //     'green': [426, 94, 911, 9001]
   //   }
   // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1731614400000,
+  //   endTime: 1731700799000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1731700800000,
+  //   endTime: 1731787199000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1731787200000,
+  //   endTime: 1731873599000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173]
+  // },
+  // {
+  //   name: '伊布週2024',
+  //   namejp: 'イーブイウィーク2024',
+  //   startTime: 1731873600000,
+  //   endTime: 1732391999000,
+  //   notArea: [],
+  //   largeUp: [133],
+  //   midUp: [134, 135, 136, 196, 197, 470, 471, 700]
+  // },
   {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1731614400000,
-    endTime: 1731700799000,
-    notArea: [],
-    midUp: [35, 36, 173]
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1731700800000,
-    endTime: 1731787199000,
-    notArea: [],
-    largeUp: [35, 36, 173]
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1731787200000,
-    endTime: 1731873599000,
-    notArea: [],
-    midUp: [35, 36, 173]
-  },
-  {
-    name: '伊布週2024',
-    namejp: 'イーブイウィーク2024',
-    startTime: 1731873600000,
-    endTime: 1732391999000,
-    notArea: [],
-    largeUp: [133],
-    midUp: [134, 135, 136, 196, 197, 470, 471, 700]
+    name: '佳節2024：夢之碎片倍增研究',
+    namejp: 'ホリデー2024：ダブルゆめのかけらリサーチ',
+    startTime: 1734877179000,
+    endTime: 1735415999000,
+    notArea: [1, 2, 3, 4, 5],
+    midUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
+    largeUp: [9002, 9004],
+    // randomGetPercent: 30,
+    timelimitPokemons: {
+      'green': [364, 365, 459, 460, 922, 923, 7006, 7007, 9002, 9004]
+    }
   }
 ]
