@@ -23,7 +23,7 @@ const evoLine = [
   [194, 195],
   [104, 105],
   [439, 122],
-  [133, 134, 135, 136, 196, 197, 470, 471, 700],
+  [133, 134, 135, 136, 196, 197, 470, 471, 700, 9004],
   [147, 148, 149],
   [152, 153, 154],
   [155, 156, 157],
@@ -2895,35 +2895,35 @@ const pokedex = {
     // name: '布撥',
     friendship: 5,
     sleepType: 2,
-    // skillType: 2,
-    // pokeType: 2,
-    // helpSpeed: 2600,
-    berryType: 13
-    // foodPer: 23.20,
-    // skillPer: 2.40,
-    // food: {
-    //   type: [15, 1, 10],
-    //   count: {
-    //     15: {
-    //       num: [2, 5, 7]
-    //     },
-    //     1: {
-    //       num: [0, 2, 4]
-    //     },
-    //     10: {
-    //       num: [0, 0, 6]
-    //     }
-    //   }
-    // }
+    skillType: 8,
+    pokeType: 3,
+    helpSpeed: 4600,
+    berryType: 13,
+    foodPer: 11.10,
+    skillPer: 3.60,
+    food: {
+      type: [13, 8, 3],
+      count: {
+        13: {
+          num: [1, 2, 3]
+        },
+        8: {
+          num: [0, 3, 6]
+        },
+        3: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   922: {
     id: 922,
     // name: '布土撥',
     friendship: 12,
     sleepType: 2,
-    // skillType: 2,
-    // pokeType: 2,
-    // helpSpeed: 2600,
+    skillType: 8,
+    pokeType: 3,
+    helpSpeed: 3300,
     berryType: 13
     // foodPer: 23.20,
     // skillPer: 2.40,
@@ -2933,76 +2933,50 @@ const pokedex = {
     // name: '巴布土撥',
     friendship: 22,
     sleepType: 2,
-    // skillType: 2,
-    // pokeType: 2,
+    skillType: 8,
+    pokeType: 3,
     // helpSpeed: 2600,
     berryType: 13
     // foodPer: 23.20,
     // skillPer: 2.40,
-  },
-  912: {
-    id: 912,
-    // name: '潤水鴨',
-    friendship: 5,
-    sleepType: 3,
-    skillType: 2,
-    pokeType: 2,
-    helpSpeed: 4800,
-    berryType: 1,
-    foodPer: 26.1,
-    skillPer: 2.80,
-    food: {
-      type: [15, 1, 10],
-      count: {
-        15: {
-          num: [2, 5, 7]
-        },
-        1: {
-          num: [0, 2, 4]
-        },
-        10: {
-          num: [0, 0, 6]
-        }
-      }
-    }
   },
   7006: {
     id: 7006,
     // name: '六尾（阿羅拉的樣子）',
     friendship: 5,
     sleepType: 3,
-    // skillType: 2,
-    // pokeType: 2,
-    // helpSpeed: 2600,
-    berryType: 7
-    // foodPer: 23.20,
-    // skillPer: 2.40,
-    // food: {
-    //   type: [15, 1, 10],
-    //   count: {
-    //     15: {
-    //       num: [2, 5, 7]
-    //     },
-    //     1: {
-    //       num: [0, 2, 4]
-    //     },
-    //     10: {
-    //       num: [0, 0, 6]
-    //     }
-    //   }
-    // }
+    skillType: 9,
+    pokeType: 1,
+    helpSpeed: 5600,
+    berryType: 7,
+    foodPer: 23,
+    skillPer: 2.80,
+    food: {
+      type: [15, 16, 4],
+      count: {
+        15: {
+          num: [1, 2, 4]
+        },
+        16: {
+          num: [0, 2, 3]
+        },
+        4: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   7007: {
     id: 7007,
     // name: '九尾（阿羅拉的樣子）',
     friendship: 20,
     sleepType: 3,
-    // skillType: 2,
-    // pokeType: 2,
-    // helpSpeed: 2600,
-    berryType: 7
-    // foodPer: 23.20,
-    // skillPer: 2.40,
+    skillType: 9,
+    pokeType: 1,
+    helpSpeed: 2900,
+    berryType: 7,
+    foodPer: 23.10,
+    skillPer: 2.80
   },
   9001: {
     id: 9001,
@@ -3034,26 +3008,12 @@ const pokedex = {
     // name: '伊布（佳節）',
     friendship: 5,
     sleepType: 2,
-    // skillType: 10,
-    // pokeType: 3,
-    berryType: 11
-    // helpSpeed: 3700,
-    // foodPer: 19.20,
-    // skillPer: 5.5,
-    // food: {
-    //   type: [8, 13, 7],
-    //   count: {
-    //     8: {
-    //       num: [1, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 1, 2]
-    //     },
-    //     7: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    skillType: 3,
+    pokeType: 1,
+    berryType: 11,
+    helpSpeed: 3100,
+    foodPer: 15.60,
+    skillPer: 3.2
   }
 }
 evoLine.forEach(evoItem => {
