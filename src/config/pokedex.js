@@ -2924,9 +2924,9 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     helpSpeed: 3300,
-    berryType: 13
-    // foodPer: 23.20,
-    // skillPer: 2.40,
+    berryType: 13,
+    foodPer: 10.90,
+    skillPer: 3.60
   },
   923: {
     id: 923,
@@ -2935,10 +2935,10 @@ const pokedex = {
     sleepType: 2,
     skillType: 8,
     pokeType: 3,
-    // helpSpeed: 2600,
-    berryType: 13
-    // foodPer: 23.20,
-    // skillPer: 2.40,
+    helpSpeed: 2400,
+    berryType: 13,
+    foodPer: 14.10,
+    skillPer: 3.90
   },
   7006: {
     id: 7006,
