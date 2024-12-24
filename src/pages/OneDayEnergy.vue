@@ -53,7 +53,7 @@ onMounted(() => {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = { ...pokedex[key] }
 
-      if(pokeItem.helpSpeed && pokeItem.foodPer){
+      if (pokeItem.helpSpeed && pokeItem.foodPer) {
         pokeItem.helpSpeed = Math.floor(
           pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
         )
@@ -142,7 +142,11 @@ onMounted(() => {
       pageData.value.orgResRankArr
         .filter(pItem => pItem.isFirstPokeFood)
         .forEach(pokeItem => {
-          if (pokeItem.helpSpeed && pokeItem.foodPer && pokeItem.useFoods.includes(+foodKey)) {
+          if (
+            pokeItem.helpSpeed &&
+            pokeItem.foodPer &&
+            pokeItem.useFoods.includes(+foodKey)
+          ) {
             // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
             tempFoodResRank[foodKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
@@ -179,7 +183,11 @@ onMounted(() => {
       pageData.value.orgResRankArr
         .filter(pItem => pItem.isFirstPoke)
         .forEach(pokeItem => {
-          if (pokeItem.helpSpeed && pokeItem.foodPer && +pokeItem.berryType === +berryKey) {
+          if (
+            pokeItem.helpSpeed &&
+            pokeItem.foodPer &&
+            +pokeItem.berryType === +berryKey
+          ) {
             // console.log(berryKey, BERRY_TYPES[berryKey], pokeItem.oneDayFoodEnergy.count[0])
             tempBerryResRank[berryKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
@@ -202,7 +210,7 @@ onMounted(() => {
   const tempSkillResRank = {}
   for (const skillKey in SKILL_TYPES) {
     if (Object.hasOwnProperty.call(SKILL_TYPES, skillKey)) {
-      if (!tempSkillResRank[skillKey]) {
+      if (!tempSkillResRank[skillKey] && +skillKey !== 20) {
         tempSkillResRank[skillKey] = {
           skillId: +skillKey,
           rankList: []
@@ -212,8 +220,14 @@ onMounted(() => {
         .filter(pItem => pItem.isFirstPoke)
         .forEach(pokeItem => {
           // console.log(skillKey, SKILL_TYPES[skillKey], pokeItem)
-          if (pokeItem.helpSpeed && pokeItem.foodPer && +pokeItem.skillType === +skillKey) {
-            tempSkillResRank[skillKey].rankList.push({
+          if (
+            pokeItem.helpSpeed &&
+            pokeItem.foodPer &&
+            +pokeItem.skillType === +skillKey
+          ) {
+            const nSkillKey =
+              +skillKey === 19 || +skillKey === 20 ? 19 : +skillKey
+            tempSkillResRank[nSkillKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
               helpSpeed: pokeItem.helpSpeed,
               SKILLRANK_COUNT: pokeItem.oneDayHelpCountSkill
@@ -333,8 +347,7 @@ const handleClickFilterPokes = (typeKey, val) => {
     <el-form-item>
       <template #label>
         <div>
-          <el-icon size="16" style="vertical-align: middle"
-            ><Place /></el-icon
+          <el-icon size="16" style="vertical-align: middle"><Place /></el-icon
           >{{ $t("OPTIONS.formLableCurIland") }}
         </div>
       </template>
@@ -450,11 +463,19 @@ const handleClickFilterPokes = (typeKey, val) => {
       </el-collapse-item>
       <el-collapse-item name="berry">
         <template #title> <h3>一天树果排行</h3> </template>
-        <CptTypeRankItem :dataList="berryResRank" showType="berry" :showMax="3" />
+        <CptTypeRankItem
+          :dataList="berryResRank"
+          showType="berry"
+          :showMax="3"
+        />
       </el-collapse-item>
       <el-collapse-item name="skill">
         <template #title> <h3>一天技能排行</h3> </template>
-        <CptTypeRankItem :dataList="skillResRank" showType="skill" :showMax="5" />
+        <CptTypeRankItem
+          :dataList="skillResRank"
+          showType="skill"
+          :showMax="5"
+        />
       </el-collapse-item>
     </el-collapse>
   </div>
