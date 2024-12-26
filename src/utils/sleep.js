@@ -343,7 +343,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 使用熏香 / 露营券 公用参数
-  const useOptionsCurSpo = getSPOByScore(score)
+  let useOptionsCurSpo = getSPOByScore(score)
   let targetPokemonAllSleep = []
   // console.log(isSleepOnStomach)
   if (useIncensePokemonId || get('isUseTicket', extraSleepStyleOptions)) {
@@ -415,37 +415,18 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       )
     }
 
-    //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-    if (useOptionsCurSpo < 2) {
-      res.push({
-        ...spoZeroPoke,
-        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
-        isUseTicket: true,
-        extra: `+${extraSleepStyleOptions.extraTextTicket}`
-        // extra: 'SPO<2' //debug
-      })
-    } else {
-      const resList = ticketSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
-      if (resList.length > 0) {
-        res.push({
-          ...resList[parseInt(
-            Math.floor(Math.random() * resList.length),
-            10
-          )],
-          isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
-          isUseTicket: true,
-          extra: `+${extraSleepStyleOptions.extraTextTicket}`
-        })
-      } else {
-        // 否则最低spo睡姿
-        res.push({
-          ...spoZeroPoke,
-          isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
-          isUseTicket: true,
-          extra: `+${extraSleepStyleOptions.extraTextTicket}`
-        })
-      }
-    }
+    // 露营券dpr最低为2
+    useOptionsCurSpo = useOptionsCurSpo <= 2 ? 2 : useOptionsCurSpo
+    const resList = ticketSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
+    res.push({
+      ...resList[parseInt(
+        Math.floor(Math.random() * resList.length),
+        10
+      )],
+      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
+      isUseTicket: true,
+      extra: `+${extraSleepStyleOptions.extraTextTicket}`
+    })
   }
 
   return res
