@@ -25,7 +25,7 @@ const actType = {
     useExps: 1
   },
   candyup: {
-    useShards: 6,
+    useShards: 5,
     useExps: 2
   },
   minicandyup: {
