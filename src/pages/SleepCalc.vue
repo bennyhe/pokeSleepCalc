@@ -293,17 +293,17 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
-const nowAct = ref({})
+const NOW_ACT = ref({})
 const findActNow = () => {
   const now = new Date().getTime()
   ACT_LIST.forEach(actItem => {
     if (now >= actItem.startTime && now <= actItem.endTime) {
-      nowAct.value = actItem
+      NOW_ACT.value = actItem
     }
   })
 }
 findActNow()
-console.log(nowAct)
+console.log(NOW_ACT)
 
 /* 抽取睡姿 */
 const setAndGetRandomSleepStyle = (score, curStageIndex) => {
@@ -326,7 +326,8 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isActRandom: userData.value.isActRandom,
       extraTextIncense: t('PROP.incense'),
       extraTextTicket: t('PROP.ticket'),
-      shinyUp: userData.value.shinyUp
+      shinyUp: userData.value.shinyUp,
+      actRandomNum: NOW_ACT.value.actRandomNum || 0.4
     }
   )
   // 随机个体
@@ -467,13 +468,13 @@ const handleClickSleepMoreTimes = () => {
       ids: []
     }
     if (
-      nowAct.value &&
-      nowAct.value.notArea &&
-      !nowAct.value.notArea.includes(userData.value.curMap)
+      NOW_ACT.value &&
+      NOW_ACT.value.notArea &&
+      !NOW_ACT.value.notArea.includes(userData.value.curMap)
     ) {
-      upIdsSmall.ids = nowAct.value.smallUp
-      upIdsMid.ids = nowAct.value.midUp
-      upIdsLarge.ids = nowAct.value.largeUp
+      upIdsSmall.ids = NOW_ACT.value.smallUp
+      upIdsMid.ids = NOW_ACT.value.midUp
+      upIdsLarge.ids = NOW_ACT.value.largeUp
     }
     getRandomHopeWithMulti(
       gameMap[userData.value.curMap],
@@ -486,7 +487,8 @@ const handleClickSleepMoreTimes = () => {
         isActRandom: userData.value.isActRandom,
         upIdsSmall,
         upIdsMid,
-        upIdsLarge
+        upIdsLarge,
+        actRandomNum: NOW_ACT.value.actRandomNum || 0.4
       },
       getRandomHopeWithMultiCb
     )
@@ -828,14 +830,14 @@ const getQuickChangeSleepPoint = () => {
                                   `timelimitPokemons[${
                                     gameMap[userData.curMap].id
                                   }]`,
-                                  nowAct,
+                                  NOW_ACT,
                                   1
                                 ) &&
                                 get(
                                   `timelimitPokemons[${
                                     gameMap[userData.curMap].id
                                   }]`,
-                                  nowAct
+                                  NOW_ACT
                                 ).includes(pokeId),
                             }"
                           >
@@ -1480,19 +1482,19 @@ const getQuickChangeSleepPoint = () => {
           </p>
           <template
             v-if="
-              nowAct &&
-              nowAct.notArea &&
-              !nowAct.notArea.includes(userData.curMap)
+              NOW_ACT &&
+              NOW_ACT.notArea &&
+              !NOW_ACT.notArea.includes(userData.curMap)
             "
           >
-            <p class="mb3" v-if="get('smallUp', nowAct, 1)">
-              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
-                nowAct.namejp
+            <p class="mb3" v-if="get('smallUp', NOW_ACT, 1)">
+              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
+                NOW_ACT.namejp
               }}</template
-              ><template v-else>{{ nowAct.name }}</template
+              ><template v-else>{{ NOW_ACT.name }}</template
               >-小UP:
               <template
-                v-for="pokeId in nowAct.smallUp"
+                v-for="pokeId in NOW_ACT.smallUp"
                 v-bind:key="`smallUp_${pokeId}`"
               >
                 <span
@@ -1511,14 +1513,14 @@ const getQuickChangeSleepPoint = () => {
                 </span>
               </template>
             </p>
-            <p class="mb3" v-if="get('midUp', nowAct, 1)">
-              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
-                nowAct.namejp
+            <p class="mb3" v-if="get('midUp', NOW_ACT, 1)">
+              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
+                NOW_ACT.namejp
               }}</template
-              ><template v-else>{{ nowAct.name }}</template
+              ><template v-else>{{ NOW_ACT.name }}</template
               >-中UP:
               <template
-                v-for="pokeId in nowAct.midUp"
+                v-for="pokeId in NOW_ACT.midUp"
                 v-bind:key="`midUp_${pokeId}`"
               >
                 <span
@@ -1537,14 +1539,14 @@ const getQuickChangeSleepPoint = () => {
                 </span>
               </template>
             </p>
-            <p class="mb3" v-if="get('largeUp', nowAct, 1)">
-              <template v-if="nowAct.namejp && localeLangId === 'jp'">{{
-                nowAct.namejp
+            <p class="mb3" v-if="get('largeUp', NOW_ACT, 1)">
+              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
+                NOW_ACT.namejp
               }}</template
-              ><template v-else>{{ nowAct.name }}</template
+              ><template v-else>{{ NOW_ACT.name }}</template
               >-大UP:
               <template
-                v-for="pokeId in nowAct.largeUp"
+                v-for="pokeId in NOW_ACT.largeUp"
                 v-bind:key="`midUp_${pokeId}`"
               >
                 <span
@@ -2213,12 +2215,12 @@ const getQuickChangeSleepPoint = () => {
                 :isShowTag="
                   get(
                     `timelimitPokemons[${gameMap[userData.curMap].id}]`,
-                    nowAct,
+                    NOW_ACT,
                     1
                   ) &&
                   get(
                     `timelimitPokemons[${gameMap[userData.curMap].id}]`,
-                    nowAct
+                    NOW_ACT
                   ).includes(sleepItem.pokeId)
                 "
               />
@@ -2239,12 +2241,12 @@ const getQuickChangeSleepPoint = () => {
               :isShowTag="
                 get(
                   `timelimitPokemons[${gameMap[userData.curMap].id}]`,
-                  nowAct,
+                  NOW_ACT,
                   1
                 ) &&
                 get(
                   `timelimitPokemons[${gameMap[userData.curMap].id}]`,
-                  nowAct
+                  NOW_ACT
                 ).includes(sleepItem.pokeId)
               "
             />

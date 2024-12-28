@@ -107,6 +107,7 @@ export const ACT_LIST = [
     // randomGetPercent: 30,
     timelimitPokemons: {
       'green': [364, 365, 459, 460, 922, 923, 7006, 7007, 9002, 9004]
-    }
+    },
+    actRandomNum: 0.3
   }
 ]
