@@ -227,7 +227,9 @@ const setNewSleepStyleList = () => {
     getScore(randomSleepStyle.value.sleepPoint),
     gameMap[userData.value.curMap].scoreList
   )
-  sleepStyleAny.value.curSPO = getSPOByScore(getScore(randomSleepStyle.value.sleepPoint))
+  sleepStyleAny.value.curSPO = getSPOByScore(
+    getScore(randomSleepStyle.value.sleepPoint)
+  )
 }
 
 const getAfterClacSPO = () => {
@@ -1275,7 +1277,10 @@ const getQuickChangeSleepPoint = () => {
       </el-form-item>
       <el-form-item>
         <div class="act-random">
-          {{ $t("PAGE_SLEEPCALC.formLableActRandom") }}
+          {{ $t("PAGE_SLEEPCALC.formLableActRandom")
+          }}<span class="act-random__num" v-if="NOW_ACT && NOW_ACT.actRandomNum"
+            >({{ (1 - NOW_ACT.actRandomNum) * 100 }}%)</span
+          >
           <span class="act-random__switch">
             <el-switch
               v-model="userData.isActRandom"
@@ -1620,8 +1625,13 @@ const getQuickChangeSleepPoint = () => {
               }})</span
             >
           </h3>
-          <p style="font-size: 12px;" v-if="getScore(randomSleepStyle.sleepPoint) > SPO38000">
-            {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{ userSleep.accumulation.spoValidity }}</span
+          <p
+            style="font-size: 12px"
+            v-if="getScore(randomSleepStyle.sleepPoint) > SPO38000"
+          >
+            {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
+              userSleep.accumulation.spoValidity
+            }}</span
             >%
           </p>
           <div

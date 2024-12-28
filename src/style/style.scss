@@ -1703,8 +1703,12 @@ h3 {
     color: #1c4f00;
     border: 1px solid #4caf50;
     padding: 0 5px;
-    margin-right: 6px;
+    margin-right: 3px;
     font-size: 13px;
+
+    &__num {
+      font-size: 11px;
+    }
 
     &__switch {
       display: inline-block;
