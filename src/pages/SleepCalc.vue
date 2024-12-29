@@ -1618,16 +1618,21 @@ const getQuickChangeSleepPoint = () => {
                 ) +
                 (userData.useIncensePokemonId ? 1 : 0) +
                 (userData.isUseTicket ? 1 : 0)
-              }}种, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
-                userSleep.accumulation.exp
-              }}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{
-                userSleep.accumulation.shards
-              }})</span
+              }}种<template v-if="get('exp', userSleep.accumulation)"
+                >, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
+                  userSleep.accumulation.exp
+                }}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{
+                  userSleep.accumulation.shards
+                }} </template
+              >)</span
             >
           </h3>
           <p
             style="font-size: 12px"
-            v-if="getScore(randomSleepStyle.sleepPoint) > SPO38000"
+            v-if="
+              get('spoValidity', userSleep.accumulation) &&
+              getScore(randomSleepStyle.sleepPoint) > SPO38000
+            "
           >
             {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
               userSleep.accumulation.spoValidity
