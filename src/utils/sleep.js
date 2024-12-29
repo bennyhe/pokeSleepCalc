@@ -129,7 +129,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     actRandomNum: 0.4,
     ...extraSleepStyleOptions // 合并参数
   }
-  console.log(extraSleepStyleOptions)
+  // console.log(extraSleepStyleOptions)
   const res = []
   const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
 
