@@ -100,7 +100,7 @@ export const ACT_LIST = [
     name: '佳節2024：夢之碎片倍增研究',
     namejp: 'ホリデー2024：ダブルゆめのかけらリサーチ',
     startTime: 1734877179000,
-    endTime: 1735415999000,
+    endTime: 1735473599999,
     notArea: [1, 2, 3, 4, 5],
     midUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
     largeUp: [9002, 9004],
@@ -113,8 +113,8 @@ export const ACT_LIST = [
   {
     name: '新年2025(第1週)',
     namejp: 'ニューイヤー2025(1週目)',
-    startTime: 1734877179000,
-    endTime: 1735415999000,
+    startTime: 1735473600000,
+    endTime: 1736107199000,
     notArea: [],
     smallUp: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845],
     timelimitPokemons: {
