@@ -25,6 +25,7 @@ const pageData = ref({
   minScore: '0',
   banPokes: [],
   isActRandom: false,
+  actRandomNum: 0.4,
   upIdsSmall: {
     upType: 'small',
     ids: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845]
@@ -56,7 +57,8 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
       upIdsMid: pageData.value.upIdsMid,
       upIdsLarge: pageData.value.upIdsLarge,
       upIdsSmall: pageData.value.upIdsSmall,
-      isNoMoreData: true
+      isNoMoreData: true,
+      actRandomNum: pageData.value.actRandomNum || 0.4
     }
   )
 }
@@ -310,6 +312,12 @@ const handleChangeUps = () => {
           />
         </span>
       </div>
+      <el-slider
+        v-model="pageData.actRandomNum"
+        show-input
+        :min="0.3"
+        :max="0.4"
+      />
     </el-form-item>
     <el-form-item label="去除宝可梦">
       <el-select
