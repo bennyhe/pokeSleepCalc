@@ -119,6 +119,7 @@ export const ACT_LIST = [
     smallUp: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845],
     timelimitPokemons: {
       'green': [147, 280, 759]
-    }
+    },
+    actRandomNum: 0.3
   }
 ]
