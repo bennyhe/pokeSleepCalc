@@ -28,7 +28,10 @@ const pageData = ref({
   actRandomNum: 0.4,
   upIdsSmall: {
     upType: 'small',
-    ids: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845]
+    ids: [
+      194, 195, 215, 304, 305, 306, 403, 404, 405, 425, 426, 461, 736, 737, 738,
+      778, 906, 907, 908, 909, 910, 911, 912, 913, 914
+    ]
   },
   upIdsMid: {
     upType: 'mid',
@@ -201,19 +204,56 @@ const handleChangeUps = () => {
     pageData.value.upIdsSmall.ids
   )
 }
+
+import i18n from '../i18n'
+const { t } = i18n.global
+const pokemonNames = ref('')
+const handleChangeInputPM = () => {
+  const res = []
+  if (pokemonNames.value.indexOf('、') > -1) {
+    const PMArr = pokemonNames.value.split('、')
+    for (const pId in pokedex) {
+      if (Object.prototype.hasOwnProperty.call(pokedex, pId)) {
+        const pItem = pokedex[pId]
+        PMArr.forEach(PMItem => {
+          if (t(`POKEMON_NAME.${pItem.id}`) === PMItem) {
+            res.push(pItem.id)
+          }
+        })
+      }
+    }
+    console.log(
+      PMArr.length === res.length,
+      PMArr.length,
+      res.length,
+      res.join(',')
+    )
+  }
+}
 </script>
 
 <template>
-  {{ new Date(dateTime1[0]).getTime() }}
-  {{ new Date(dateTime1[1]).getTime() }}
-  <el-date-picker
-    v-model="dateTime1"
-    type="datetimerange"
-    start-placeholder="Start Date"
-    end-placeholder="End Date"
-    :default-time="defaultTime1"
-  />
   <el-form label-width="90px">
+    <el-form-item>
+      {{ new Date(dateTime1[0]).getTime() }}
+      {{ new Date(dateTime1[1]).getTime() }}
+      <el-date-picker
+        v-model="dateTime1"
+        type="datetimerange"
+        start-placeholder="Start Date"
+        end-placeholder="End Date"
+        :default-time="defaultTime1"
+      />
+    </el-form-item>
+    <el-form-item>
+      <el-input
+        v-model="pokemonNames"
+        style="width: 100%"
+        :rows="2"
+        type="textarea"
+        @input="handleChangeInputPM"
+      />
+    </el-form-item>
     <!-- S 当前岛屿 -->
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <ul class="cpt-select-list">

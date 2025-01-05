@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '新年2025(第1週)',
+      name: '新年2025(第2週)',
       startTime: 1731873600000,
       endTime: 1732391999000,
       list: actTimeList
