@@ -62,31 +62,7 @@ export const ACT_LIST = [
   //   timelimitPokemons: {
   //     'green': [426, 94, 911, 9001]
   //   }
-  // },
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1731614400000,
-  //   endTime: 1731700799000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173]
-  // },
-  // {
-  //   name: '满月日',
-  //   namejp: '満月の日',
-  //   startTime: 1731700800000,
-  //   endTime: 1731787199000,
-  //   notArea: [],
-  //   largeUp: [35, 36, 173]
-  // },
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1731787200000,
-  //   endTime: 1731873599000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173]
-  // },
+  // }
   // {
   //   name: '伊布週2024',
   //   namejp: 'イーブイウィーク2024',
@@ -96,32 +72,32 @@ export const ACT_LIST = [
   //   largeUp: [133],
   //   midUp: [134, 135, 136, 196, 197, 470, 471, 700]
   // },
-  {
-    name: '佳節2024：夢之碎片倍增研究',
-    namejp: 'ホリデー2024：ダブルゆめのかけらリサーチ',
-    startTime: 1734877179000,
-    endTime: 1735473599999,
-    notArea: [1, 2, 3, 4, 5],
-    midUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
-    largeUp: [9002, 9004],
-    // randomGetPercent: 30,
-    timelimitPokemons: {
-      'green': [364, 365, 459, 460, 922, 923, 7006, 7007, 9002, 9004]
-    },
-    actRandomNum: 0.3
-  },
-  {
-    name: '新年2025(第1週)',
-    namejp: 'ニューイヤー2025(1週目)',
-    startTime: 1735473600000,
-    endTime: 1736107199000,
-    notArea: [],
-    smallUp: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845],
-    timelimitPokemons: {
-      'green': [147, 280, 759]
-    },
-    actRandomNum: 0.3
-  },
+  // {
+  //   name: '佳節2024：夢之碎片倍增研究',
+  //   namejp: 'ホリデー2024：ダブルゆめのかけらリサーチ',
+  //   startTime: 1734877179000,
+  //   endTime: 1735473599999,
+  //   notArea: [1, 2, 3, 4, 5],
+  //   midUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
+  //   largeUp: [9002, 9004],
+  //   // randomGetPercent: 30,
+  //   timelimitPokemons: {
+  //     'green': [364, 365, 459, 460, 922, 923, 7006, 7007, 9002, 9004]
+  //   },
+  //   actRandomNum: 0.3
+  // },
+  // {
+  //   name: '新年2025(第1週)',
+  //   namejp: 'ニューイヤー2025(1週目)',
+  //   startTime: 1735473600000,
+  //   endTime: 1736107199000,
+  //   notArea: [],
+  //   smallUp: [37, 38, 147, 148, 149, 280, 281, 282, 475, 702, 759, 760, 764, 845],
+  //   timelimitPokemons: {
+  //     'green': [147, 280, 759]
+  //   },
+  //   actRandomNum: 0.3
+  // },
   {
     name: '新年2025(第2週)',
     namejp: 'ニューイヤー2025(2週目)',
@@ -133,5 +109,32 @@ export const ACT_LIST = [
       'green': [304, 403, 736]
     },
     actRandomNum: 0.3
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1736712000000,
+    endTime: 1736798399000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1736798400000,
+    endTime: 1736884799000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 3
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1736884800000,
+    endTime: 1736971199000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
   }
 ]

@@ -301,6 +301,9 @@ const findActNow = () => {
   ACT_LIST.forEach(actItem => {
     if (now >= actItem.startTime && now <= actItem.endTime) {
       NOW_ACT.value = actItem
+      if(NOW_ACT.value.times) {
+        userData.value.times = NOW_ACT.value.times
+      }
     }
   })
 }
