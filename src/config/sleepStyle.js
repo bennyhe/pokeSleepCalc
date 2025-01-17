@@ -646,5 +646,13 @@ export const SLEEP_STYLE = {
   '9002-id-1': { pokeId: 9002, id: '9002-id-1', star: 1, sleepNameId: 35, exp: 11, shards: 27, candys: 4 },
   '9002-id-2': { pokeId: 9002, id: '9002-id-2', star: 2, sleepNameId: 38, exp: 82, shards: 242, candys: 6 },
   '9004-id-1': { pokeId: 9004, id: '9004-id-1', star: 1, sleepNameId: 35, exp: 27, shards: 75, candys: 3 },
-  '9004-id-2': { pokeId: 9004, id: '9004-id-2', star: 2, sleepNameId: 38, exp: 228, shards: 676, candys: 5 }
+  '9004-id-2': { pokeId: 9004, id: '9004-id-2', star: 2, sleepNameId: 38, exp: 228, shards: 676, candys: 5 },
+  '627-id-1': { pokeId: 627, id: '627-id-1', star: 1, sleepNameId: 191, exp: 109, shards: 120, candys: 3 },
+  '627-id-2': { pokeId: 627, id: '627-id-2', star: 2, sleepNameId: 289, exp: 477, shards: 515, candys: 5 },
+  '627-id-3': { pokeId: 627, id: '627-id-3', star: 3, sleepNameId: 290, exp: 2331, shards: 2504, candys: 7 },
+  '627-id-4': { pokeId: 627, id: '627-id-4', star: 4, sleepNameId: 4, exp: 3336, shards: 3581, candys: 8 },
+  '628-id-1': { pokeId: 628, id: '628-id-1', star: 1, sleepNameId: 191, exp: 602, shards: 649, candys: 5 },
+  '628-id-2': { pokeId: 628, id: '628-id-2', star: 2, sleepNameId: 289, exp: 1813, shards: 1948, candys: 7 },
+  '628-id-3': { pokeId: 628, id: '628-id-3', star: 3, sleepNameId: 241, exp: 5568, shards: 5976, candys: 9 },
+  '628-id-4': { pokeId: 628, id: '628-id-4', star: 4, sleepNameId: 4, exp: 8861, shards: 9509, candys: 10 }
 }

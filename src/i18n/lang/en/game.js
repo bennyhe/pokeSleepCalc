@@ -94,7 +94,8 @@ export default {
     17: 'Disguise (Berry Burst)',
     18: 'Moonlight (Charge Energy S)',
     19: 'Transform (Skill Copy)',
-    20: 'Mimic (Skill Copy)'
+    20: 'Mimic (Skill Copy)',
+    21: 'Berry Burst'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -408,7 +409,9 @@ export default {
     923: 'Pawmot',
     7006: 'Vulpix (Alolan Form)',
     7007: 'Ninetales (Alolan Form)',
-    9004: 'Eevee (Holiday)'
+    9004: 'Eevee (Holiday)',
+    627: 'Rufflet',
+    628: 'Braviary'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -688,6 +691,8 @@ export default {
     285: '夢中備戰睡',
     286: '夢中押掌睡',
     287: '細雪睡',
-    288: '尾巴裹裹睡'
+    288: '尾巴裹裹睡',
+    289: '振翅睡',
+    290: '驚哭睡'
   }
 }
