@@ -98,43 +98,43 @@ export const ACT_LIST = [
   //   },
   //   actRandomNum: 0.3
   // },
-  {
-    name: '新年2025(第2週)',
-    namejp: 'ニューイヤー2025(2週目)',
-    startTime: 1736078400000,
-    endTime: 1736625599000,
-    notArea: [],
-    smallUp: [194, 195, 215, 304, 305, 306, 403, 404, 405, 425, 426, 461, 736, 737, 738, 778, 906, 907, 908, 909, 910, 911, 912, 913, 914],
-    timelimitPokemons: {
-      'green': [304, 403, 736]
-    },
-    actRandomNum: 0.3
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1736712000000,
-    endTime: 1736798399000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1736798400000,
-    endTime: 1736884799000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    times: 3
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1736884800000,
-    endTime: 1736971199000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  }
+  // {
+  //   name: '新年2025(第2週)',
+  //   namejp: 'ニューイヤー2025(2週目)',
+  //   startTime: 1736078400000,
+  //   endTime: 1736625599000,
+  //   notArea: [],
+  //   smallUp: [194, 195, 215, 304, 305, 306, 403, 404, 405, 425, 426, 461, 736, 737, 738, 778, 906, 907, 908, 909, 910, 911, 912, 913, 914],
+  //   timelimitPokemons: {
+  //     'green': [304, 403, 736]
+  //   },
+  //   actRandomNum: 0.3
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1736712000000,
+  //   endTime: 1736798399000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // },
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1736798400000,
+  //   endTime: 1736884799000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173],
+  //   times: 3
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1736884800000,
+  //   endTime: 1736971199000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // }
 ]
