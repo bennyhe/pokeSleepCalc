@@ -301,7 +301,7 @@ const findActNow = () => {
   ACT_LIST.forEach(actItem => {
     if (now >= actItem.startTime && now <= actItem.endTime) {
       NOW_ACT.value = actItem
-      if(NOW_ACT.value.times) {
+      if (NOW_ACT.value.times) {
         userData.value.times = NOW_ACT.value.times
       }
     }
@@ -1521,7 +1521,15 @@ const getQuickChangeSleepPoint = () => {
                 </span>
               </template>
             </p>
-            <p class="mb3" v-if="get('midUp', NOW_ACT, 1)">
+            <p
+              class="mb3"
+              v-if="
+                get('midUp', NOW_ACT, 1) &&
+                get('midUp', NOW_ACT).filter((item) =>
+                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
+                ).length > 0
+              "
+            >
               <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
                 NOW_ACT.namejp
               }}</template

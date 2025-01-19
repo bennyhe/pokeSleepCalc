@@ -3,16 +3,16 @@ import actTimeList from './actTime.js'
 import extraTimeList from './extraTime.js'
 
 export const masterRes = {
-  updateTime: 1735472866529,
+  updateTime: 1737288054000,
   level20: {
     peaceTime: {
-      name: '平时-12.30+',
+      name: '平时-1.19+',
       list: peaceTimeList
     },
     actTime: {
-      name: '新年2025(第2週)',
-      startTime: 1731873600000,
-      endTime: 1732391999000,
+      name: '強化發動！技能週',
+      startTime: 1737288054000,
+      endTime: 1737835199000,
       list: actTimeList
     },
     extraTime: {
