@@ -2542,25 +2542,25 @@ const pokedex = {
     friendship: 5,
     sleepType: 3,
     skillType: 21,
-    // pokeType: 3,
-    berryType: 16
-    // helpSpeed: 2500,
-    // foodPer: 17.70,
-    // skillPer: 4.50,
-    // food: {
-    //   type: [5, 13, 16],
-    //   count: {
-    //     5: {
-    //       num: [1, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 1, 2]
-    //     },
-    //     16: {
-    //       num: [0, 0, 2]
-    //     }
-    //   }
-    // }
+    pokeType: 3,
+    berryType: 16,
+    helpSpeed: 3800,
+    foodPer: 17.70,
+    skillPer: 4.50,
+    food: {
+      type: [7, 16, 17],
+      count: {
+        7: {
+          num: [1, 2, 4]
+        },
+        16: {
+          num: [0, 2, 3]
+        },
+        17: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   628: {
     id: 628,
@@ -2568,11 +2568,11 @@ const pokedex = {
     friendship: 12,
     sleepType: 3,
     skillType: 21,
-    // pokeType: 3,
-    berryType: 16
-    // helpSpeed: 2500,
-    // foodPer: 17.70,
-    // skillPer: 4.50
+    pokeType: 3,
+    berryType: 16,
+    helpSpeed: 2400,
+    foodPer: 12.10,
+    skillPer: 3.20
   },
   700: {
     id: 700,

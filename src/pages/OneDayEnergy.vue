@@ -225,8 +225,12 @@ onMounted(() => {
             pokeItem.foodPer &&
             +pokeItem.skillType === +skillKey
           ) {
-            const nSkillKey =
-              +skillKey === 19 || +skillKey === 20 ? 19 : +skillKey
+            let nSkillKey = +skillKey
+            if(+skillKey === 19 || +skillKey === 20) {
+              nSkillKey = 19
+            }else if(+skillKey === 17 || +skillKey === 21) {
+              nSkillKey = 17
+            }
             tempSkillResRank[nSkillKey].rankList.push({
               pokemonId: pokeItem.pokemonId,
               helpSpeed: pokeItem.helpSpeed,

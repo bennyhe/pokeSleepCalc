@@ -88,15 +88,16 @@ const getCptPokeShowKey = () => {
             {{ getWithData(typeRankItem).name }}
           </template>
           <template v-else>
-            <template
-              v-if="
-                +typeRankItem.skillId !== 19 || +typeRankItem.skillId !== 19
-              "
-              >{{ $t(`SKILL_TYPES.${typeRankItem.skillId}`) }}</template
-            >
-            <template v-else
+            <template v-if="+typeRankItem.skillId === 19 || +typeRankItem.skillId === 20"
               >{{ $t(`SKILL_TYPES.19`) }}
               <p>{{ $t(`SKILL_TYPES.20`) }}</p></template
+            >
+            <template v-else-if="+typeRankItem.skillId === 17 || +typeRankItem.skillId === 21"
+              >{{ $t(`SKILL_TYPES.17`) }}
+              <p>{{ $t(`SKILL_TYPES.21`) }}</p></template
+            >
+            <template v-else
+              >{{ $t(`SKILL_TYPES.${typeRankItem.skillId}`) }}</template
             >
           </template>
         </h4>
