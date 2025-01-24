@@ -3,7 +3,7 @@ import actTimeList from './actTime.js'
 import extraTimeList from './extraTime.js'
 
 export const masterRes = {
-  updateTime: 1737288054000,
+  updateTime: 1737720992670,
   level20: {
     peaceTime: {
       name: '平时-1.19+',

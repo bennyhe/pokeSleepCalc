@@ -308,6 +308,9 @@ const findActNow = () => {
   })
 }
 findActNow()
+if(NOW_ACT.value.isActRandom) {
+  userData.value.isActRandom = NOW_ACT.value.isActRandom
+}
 console.log(NOW_ACT)
 
 /* 抽取睡姿 */
@@ -332,7 +335,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       extraTextIncense: t('PROP.incense'),
       extraTextTicket: t('PROP.ticket'),
       shinyUp: userData.value.shinyUp,
-      actRandomNum: NOW_ACT.value.actRandomNum || 0.4
+      actRandomNum: NOW_ACT.value.actRandomNum || 0.3
     }
   )
   // 随机个体
@@ -493,7 +496,7 @@ const handleClickSleepMoreTimes = () => {
         upIdsSmall,
         upIdsMid,
         upIdsLarge,
-        actRandomNum: NOW_ACT.value.actRandomNum || 0.4
+        actRandomNum: NOW_ACT.value.actRandomNum || 0.3
       },
       getRandomHopeWithMultiCb
     )

@@ -25,7 +25,7 @@ const pageData = ref({
   minScore: '0',
   banPokes: [],
   isActRandom: false,
-  actRandomNum: 0.4,
+  actRandomNum: 0.3,
   upIdsSmall: {
     upType: 'small',
     ids: [
@@ -60,7 +60,7 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
       upIdsLarge: pageData.value.upIdsLarge,
       upIdsSmall: pageData.value.upIdsSmall,
       isNoMoreData: true,
-      actRandomNum: pageData.value.actRandomNum || 0.4
+      actRandomNum: pageData.value.actRandomNum || 0.3
     }
   )
 }

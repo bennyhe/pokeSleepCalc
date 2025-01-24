@@ -126,7 +126,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     isUseTicket: false,
     isActRandom: false,
     shinyUp: false,
-    actRandomNum: 0.4,
+    actRandomNum: 0.3,
     ...extraSleepStyleOptions // 合并参数
   }
   // console.log(extraSleepStyleOptions)
