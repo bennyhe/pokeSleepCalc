@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 25-01-27
+1. fix 睡眠分析时计算错误
+
 ## 25-01-24
 1. update 数据配置
 

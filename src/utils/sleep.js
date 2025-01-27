@@ -615,7 +615,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
       if (curSpo >= 2) {
         let lastList = orgSleepList.filter(
           item =>
-            !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
+            // !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
             item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
         )
         lastList = sortInObjectOptions(lastList, ['spo'], 'down')
