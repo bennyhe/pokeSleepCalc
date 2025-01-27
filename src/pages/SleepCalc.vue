@@ -308,7 +308,7 @@ const findActNow = () => {
   })
 }
 findActNow()
-if(NOW_ACT.value.isActRandom) {
+if (NOW_ACT.value.isActRandom) {
   userData.value.isActRandom = NOW_ACT.value.isActRandom
 }
 console.log(NOW_ACT)

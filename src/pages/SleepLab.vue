@@ -15,6 +15,7 @@ import {
 import { SPO_DATA } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 
@@ -28,17 +29,15 @@ const pageData = ref({
   actRandomNum: 0.3,
   upIdsSmall: {
     upType: 'small',
-    ids: [
-      52, 54, 58, 79, 81, 133, 174, 175, 179, 214, 280, 302, 316, 360, 425, 438, 447, 702, 778, 921
-    ]
+    ids: LAB_CONFIG.upIdsSmallIds
   },
   upIdsMid: {
     upType: 'mid',
-    ids: [627, 628]
+    ids: LAB_CONFIG.upIdsMidIds
   },
   upIdsLarge: {
     upType: 'large',
-    ids: []
+    ids: LAB_CONFIG.upIdsLargeIds
   }
 })
 
@@ -357,6 +356,22 @@ const handleChangeInputPM = () => {
         :min="0.3"
         :max="0.4"
       />
+    </el-form-item>
+    <el-form-item label="不进保底">
+              <template
+                v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
+                v-bind:key="`midUp_${pokeId}`"
+              >
+                <span
+                  class="cpt-avatar"
+                >
+                  <img
+                    class="cpt-avatar__pic"
+                    v-lazy="`./img/pokedex/${pokeId}.png`"
+                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
+                  />
+                </span>
+              </template>
     </el-form-item>
     <el-form-item label="去除宝可梦">
       <el-select

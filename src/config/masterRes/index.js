@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '強化發動！技能週',
+      name: '平时-2.3+',
       startTime: 1737288054000,
       endTime: 1737835199000,
       list: actTimeList
