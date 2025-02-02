@@ -446,13 +446,18 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 
 // x次期望分析
 export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
+  const time = new Date().getTime()
   getTimes = getTimes || 4000
-  let orgList = []
-  const lastGetList = []
+  const orgList = []
+  const lastGetList = new Set()
   const acc = {
     exp: 0,
     shards: 0
   }
+
+  // 使用 Map 来保存唯一的ID，避免重复查找
+  const mergeResMap = new Map()
+
   for (let i = 0; i < getTimes; i++) {
     const curGetRes = getRandomSleepStyle(
       mapData,
@@ -461,39 +466,33 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
       curStageIndex,
       extraSleepStyleOptions
     )
-    orgList = [
-      ...orgList,
-      ...curGetRes
-    ]
+    orgList.push(...curGetRes)  // 扩展数组
+
     if (!extraSleepStyleOptions.isNoMoreData) {
-      acc.exp = acc.exp += fnAccumulation(curGetRes, 'exp')
-      acc.shards = acc.shards += fnAccumulation(curGetRes, 'shards')
+      acc.exp += fnAccumulation(curGetRes, 'exp')
+      acc.shards += fnAccumulation(curGetRes, 'shards')
     }
-    if (!lastGetList.includes(curGetRes[curGetRes.length - 1].id)) {
-      lastGetList.push(curGetRes[curGetRes.length - 1].id)
-    }
+
+    // 将唯一 ID 存入 Set，避免重复添加
+    const lastItemId = curGetRes[curGetRes.length - 1].id
+    lastGetList.add(lastItemId)
+
+    // 使用 Map 来合并相同 id 的项
+    curGetRes.forEach(item => {
+      const existingItem = mergeResMap.get(item.id)
+      if (existingItem) {
+        existingItem.count += 1
+      } else {
+        mergeResMap.set(item.id, { ...item, count: 1 })
+      }
+    })
   }
-  const mergeRes = []
-  orgList.forEach(item => {
-    const findTargetResItem = mergeRes.find(
-      resItem => resItem.id === item.id
-    )
-    if (!findTargetResItem) {
-      delete item.isShiny
-      mergeRes.push({
-        ...item,
-        count: 1
-      })
-    } else {
-      findTargetResItem.count++
-    }
-  })
-  let res = []
-  // 合并同个pokemon的数据
-  mergeRes.forEach(item => {
-    const findTargetResItem = res.find(
-      resItem => resItem.pokeId === item.pokeId
-    )
+
+  // 处理合并后的结果
+  const res = []
+  mergeResMap.forEach(item => {
+    const findTargetResItem = res.find(resItem => resItem.pokeId === item.pokeId)
+
     if (!findTargetResItem) {
       const resItem = {
         pokeId: item.pokeId,
@@ -522,8 +521,11 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
       item.list = sortInObjectOptions(item.list, ['count'], 'down')
     })
   }
-  res = sortInObjectOptions(res, ['count', 'pokeId'], 'down')
 
+  // 排序结果
+  res.sort((a, b) => b.count - a.count || a.pokeId - b.pokeId)
+
+  console.log((new Date().getTime() - time) / 1000)
   // console.log(acc)
   if (callback) {
     callback(res, acc)

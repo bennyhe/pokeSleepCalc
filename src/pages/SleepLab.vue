@@ -358,20 +358,18 @@ const handleChangeInputPM = () => {
       />
     </el-form-item>
     <el-form-item label="不进保底">
-              <template
-                v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
-                v-bind:key="`midUp_${pokeId}`"
-              >
-                <span
-                  class="cpt-avatar"
-                >
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${pokeId}.png`"
-                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
-                  />
-                </span>
-              </template>
+      <template
+        v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
+        v-bind:key="`midUp_${pokeId}`"
+      >
+        <span class="cpt-avatar">
+          <img
+            class="cpt-avatar__pic"
+            v-lazy="`./img/pokedex/${pokeId}.png`"
+            :alt="$t(`POKEMON_NAME.${pokeId}`)"
+          />
+        </span>
+      </template>
     </el-form-item>
     <el-form-item label="去除宝可梦">
       <el-select
@@ -518,7 +516,7 @@ const handleChangeInputPM = () => {
       </div>
     </div>
   </div>
-  <div class="hi de">
+  <div class="sleeplist hi de">
     <template
       v-for="gmItem in [gameMap[pageData.curMap]]"
       v-bind:key="gmItem.id"
