@@ -12,13 +12,14 @@ import {
   getNum,
   getStageLevelPicId
 } from '../utils/index.js'
-import { SPO_DATA } from '../config/spo.js'
+import { SPO_DATA, SPONEW_TO_SPOOLD, SPO38000 } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { NAV_SLEEPLAB } from '../config/nav.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
-import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 
+const navData = ref(NAV_SLEEPLAB)
 const pageData = ref({
   curMap: 0,
   mapSleepType: '1',
@@ -180,15 +181,6 @@ const handleClickChangeMap = id => {
   pageData.value.curMap = id
 }
 
-// const newArr = []
-// for (const key in SPO_DATA) {
-//   if (Object.hasOwnProperty.call(SPO_DATA, key)) {
-//     if(!newArr.includes(SPO_DATA[key].spo)){
-//       newArr.push(SPO_DATA[key].spo)
-//     }
-//   }
-// }
-// console.log(newArr.sort((a, b) =>a - b))
 const dateTime1 = ref('')
 const defaultTime1 = [
   new Date(2000, 1, 1, 4, 0, 0),
@@ -516,7 +508,16 @@ const handleChangeInputPM = () => {
       </div>
     </div>
   </div>
-  <div class="sleeplist hi de">
+  <el-radio-group
+    class="first-page-nav"
+    v-model="navData.navIndex"
+    fill="#41ae3c"
+  >
+    <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
+      <el-radio-button :label="cItem.value"> {{ cItem.name }}</el-radio-button>
+    </template>
+  </el-radio-group>
+  <div class="sleeplist" v-if="navData.navIndex === 0">
     <template
       v-for="gmItem in [gameMap[pageData.curMap]]"
       v-bind:key="gmItem.id"
@@ -541,34 +542,60 @@ const handleChangeInputPM = () => {
             v-if="SLEEP_STYLE[sleepId]"
             v-bind:key="sleepId"
           >
-            <CptPoke :pokeId="SLEEP_STYLE[sleepId].pokeId" />
-            <p>{{ SLEEP_STYLE[sleepId].id }}</p>
-            <p>{{ SLEEP_STYLE[sleepId].star }}星</p>
-            <div v-if="getSPOById(sleepId)">
-              <p>SPOID:{{ SPO_DATA[sleepId].id }}</p>
-              <p>SPO:{{ getSPOById(sleepId) }}</p>
-            </div>
-            <div v-else>没有spo</div>
-            <p>{{ SLEEP_STYLE[sleepId].exp }}</p>
-            <p>{{ SLEEP_STYLE[sleepId].shards }}</p>
-            <p>{{ SLEEP_STYLE[sleepId].candys }}</p>
+            <CptSleepStyle
+              :sleepItem="SLEEP_STYLE[sleepId]"
+              :showKey="['sleepType']"
+            >
+              <p v-if="SLEEP_STYLE[sleepId].id">
+                {{ SLEEP_STYLE[sleepId].id }}
+              </p>
+              <p v-if="SPO_DATA[SLEEP_STYLE[sleepId].id]">
+                spoId: {{ SPO_DATA[SLEEP_STYLE[sleepId].id].id }}
+              </p>
+              <p v-if="SPO_DATA[SLEEP_STYLE[sleepId].id]">
+                spo: {{ getSPOById(SLEEP_STYLE[sleepId].id) }}
+              </p>
+            </CptSleepStyle>
           </div>
         </template>
       </div>
     </template>
   </div>
-  <div class="poke-tb hide">
+  <div class="sleeplist" v-if="navData.navIndex === 1">
+    <div
+      class="poke-tb"
+      v-for="(spoNewItem, spoNewKey) in SPONEW_TO_SPOOLD"
+      v-bind:key="spoNewItem"
+    >
+      <h4>
+        {{ spoNewKey }}/{{ spoNewItem }}-<span class="extra">{{
+          getNum(spoNewItem * SPO38000)
+        }}</span>
+      </h4>
+      <template
+        v-for="(sleepItem, sleepKey) in SPO_DATA"
+        v-bind:key="`${sleepItem.pokeId}_${sleepItem.id}`"
+      >
+        <div class="poke-tb__item" v-if="getSPOById(sleepKey) === spoNewItem">
+          <CptSleepStyle
+            :sleepItem="SLEEP_STYLE[sleepKey]"
+            :showKey="['sleepType']"
+          >
+            <p>spoId: {{ sleepItem.id }}</p>
+            <p>spo: {{ getSPOById(sleepKey) }}</p>
+          </CptSleepStyle>
+        </div>
+      </template>
+    </div>
+  </div>
+  <div class="poke-tb" v-if="navData.navIndex === 2">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"
         v-bind:key="`${sleepItem.pokeId}_${sleepItem.id}`"
       >
         <div class="poke-tb__item" v-if="pokeItem.id === sleepItem.pokeId">
-          <CptSleepStyle
-            :showMapLevel="true"
-            :sleepItem="sleepItem"
-            :showKey="['sleepType']"
-          >
+          <CptSleepStyle :sleepItem="sleepItem" :showKey="['sleepType']">
             <p v-if="sleepItem.id">
               {{ sleepItem.id }}
             </p>

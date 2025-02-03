@@ -81,3 +81,20 @@ export const NAV_LANG = [
   //   name: 'English'
   // }
 ]
+export const NAV_SLEEPLAB = {
+  navList: [
+    {
+      name: '各岛睡姿',
+      value: 0
+    },
+    {
+      name: 'SPO睡姿',
+      value: 1
+    },
+    {
+      name: '全睡姿图鉴',
+      value: 2
+    }
+  ],
+  navIndex: 1
+}
