@@ -561,7 +561,7 @@ const handleChangeInputPM = () => {
       </div>
     </template>
   </div>
-  <div class="sleeplist" v-if="navData.navIndex === 1">
+  <div class="sleeplist" v-else-if="navData.navIndex === 1">
     <div
       class="poke-tb"
       v-for="(spoNewItem, spoNewKey) in SPONEW_TO_SPOOLD"
@@ -588,7 +588,7 @@ const handleChangeInputPM = () => {
       </template>
     </div>
   </div>
-  <div class="poke-tb" v-if="navData.navIndex === 2">
+  <div class="poke-tb" v-else-if="navData.navIndex === 2">
     <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"
