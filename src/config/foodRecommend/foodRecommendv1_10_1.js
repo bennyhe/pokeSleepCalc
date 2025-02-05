@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1738725056954,
-  appVer: '2.4.0',
+  updateTime: 1724067572635,
+  appVer: '1.10.1',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -127,21 +127,6 @@ export const foodRecommend = {
       evoLine: [194, 195],
       needFood: [[2], [2], [2]],
       desc: '伟大无需解释，蘑菇真神。'
-    },
-    {
-      evoLine: [304, 305, 306],
-      needFood: [[7], [7, 17], [7, 17]],
-      desc: '新肠手，咖啡豆副C位'
-    },
-    {
-      evoLine: [403, 404, 405],
-      needFood: [[12], [12, 10], [12, 10]],
-      desc: '新油手，凑合番茄手'
-    },
-    {
-      evoLine: [736, 737, 738],
-      needFood: [[17], [17, 2], [17, 2]],
-      desc: '咖啡主C位'
     }
   ]
 }

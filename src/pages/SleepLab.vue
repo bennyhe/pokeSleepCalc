@@ -44,15 +44,16 @@ const pageData = ref({
 
 const getTimes = 4000
 const testData = ref([])
-const getRes = (curAllScore, allPoint, mapId, mapSleepType) => {
+const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType
   mapId = mapId || pageData.value.curMap
+  getTimesInFun = getTimesInFun || getTimes
   return getRandomHopeWithMulti(
     gameMap[mapId],
     mapSleepType,
     allPoint,
     getLevelIndexByEnergy(gameMap[mapId].levelList, curAllScore),
-    getTimes,
+    getTimesInFun,
     {
       isActRandom: pageData.value.isActRandom,
       banPokes: pageData.value.banPokes,
