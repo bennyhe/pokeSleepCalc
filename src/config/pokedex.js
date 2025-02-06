@@ -55,7 +55,8 @@ const evoLine = [
   [215, 461],
   [921, 922, 923],
   [7006, 7007],
-  [627, 628]
+  [627, 628],
+  [980,7054]
 ]
 const pokedex = {
   1: {
@@ -2119,7 +2120,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 17,
-    helpSpeed: 3100,
+    helpSpeed: 2950,
     foodPer: 17.80,
     skillPer: 3.80,
     food: {
@@ -2979,6 +2980,18 @@ const pokedex = {
     foodPer: 14.10,
     skillPer: 3.90
   },
+  980: {
+    id: 980,
+    // name: '土王',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 9,
+    // pokeType: 1,
+    // helpSpeed: 2900,
+    berryType: 5
+    // foodPer: 23.20,
+    // skillPer: 2.80
+  },
   7006: {
     id: 7006,
     // name: '六尾（阿羅拉的樣子）',
@@ -3016,6 +3029,18 @@ const pokedex = {
     berryType: 7,
     foodPer: 23.20,
     skillPer: 2.80
+  },
+  7054: {
+    id: 7054,
+    // name: '烏波（帕底亞的樣子）',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 9,
+    // pokeType: 1,
+    // helpSpeed: 2900,
+    berryType: 5
+    // foodPer: 23.20,
+    // skillPer: 2.80
   },
   9001: {
     id: 9001,
@@ -3110,6 +3135,9 @@ const updatePoke = [{
 }, {
   time: '2025/01/1',
   pokemons: [627, 628]
+}, {
+  time: '2025/02/1',
+  pokemons: [980, 7054]
 }]
 // console.log(pokedex)
 export {

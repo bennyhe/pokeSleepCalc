@@ -654,5 +654,13 @@ export const SLEEP_STYLE = {
   '628-id-1': { pokeId: 628, id: '628-id-1', star: 1, sleepNameId: 191, exp: 602, shards: 649, candys: 5 },
   '628-id-2': { pokeId: 628, id: '628-id-2', star: 2, sleepNameId: 289, exp: 1813, shards: 1948, candys: 7 },
   '628-id-3': { pokeId: 628, id: '628-id-3', star: 3, sleepNameId: 241, exp: 5568, shards: 5976, candys: 9 },
-  '628-id-4': { pokeId: 628, id: '628-id-4', star: 4, sleepNameId: 4, exp: 8861, shards: 9509, candys: 10 }
+  '628-id-4': { pokeId: 628, id: '628-id-4', star: 4, sleepNameId: 4, exp: 8861, shards: 9509, candys: 10 },
+  '7054-id-1': { pokeId: 7054, id: '7054-id-1', star: 1, sleepNameId: 95, exp: 147, shards: 119, candys: 3 },
+  '7054-id-2': { pokeId: 7054, id: '7054-id-2', star: 2, sleepNameId: 57, exp: 493, shards: 390, candys: 5 },
+  '7054-id-3': { pokeId: 7054, id: '7054-id-3', star: 3, sleepNameId: 291, exp: 2303, shards: 1809, candys: 7 },
+  '7054-id-4': { pokeId: 7054, id: '7054-id-4', star: 4, sleepNameId: 4, exp: 3076, shards: 2415, candys: 8 },
+  '980-id-1': { pokeId: 980, id: '980-id-1', star: 1, sleepNameId: 139, exp: 669, shards: 528, candys: 5 },
+  '980-id-2': { pokeId: 980, id: '980-id-2', star: 2, sleepNameId: 17, exp: 1720, shards: 1352, candys: 7 },
+  '980-id-3': { pokeId: 980, id: '980-id-3', star: 3, sleepNameId: 291, exp: 5878, shards: 4611, candys: 9 },
+  '980-id-4': { pokeId: 980, id: '980-id-4', star: 4, sleepNameId: 4, exp: 7491, shards: 5875, candys: 10 }
 }

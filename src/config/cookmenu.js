@@ -1244,5 +1244,42 @@ export const COOKMENU = {
     }],
     'baseEnergy': 17494,
     'menuPercent': 61
+  },
+  '3023': {
+    // 破格玉米香提拉米蘇
+    'id': 3023,
+    'type': 3,
+    'from': [{
+      'id': 8,
+      'num': 12
+    }, {
+      'id': 16,
+      'num': 14
+    }, {
+      'id': 17,
+      'num': 14
+    }],
+    'baseEnergy': 7125,
+    'menuPercent': 35
+  },
+  '3024': {
+    // 土王閃電泡芙
+    'id': 3024,
+    'type': 3,
+    'from': [{
+      'id': 13,
+      'num': 30
+    }, {
+      'id': 8,
+      'num': 26
+    }, {
+      'id': 17,
+      'num': 24
+    }, {
+      'id': 9,
+      'num': 22
+    }],
+    'baseEnergy': 20885,
+    'menuPercent': 61
   }
 }

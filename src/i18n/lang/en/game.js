@@ -241,7 +241,9 @@ export default {
     3019: '“Petal Dance” Chocolate Tart',
     3020: '“Flower Gift” Macarons',
     3021: '“Early Bird” Coffee Jelly',
-    3022: '“Zing Zap” Spiced Cola'
+    3022: '“Zing Zap” Spiced Cola',
+    3023: '“Mold Breaker” Corn Tiramisu',
+    3024: 'Clodsire Éclair'
   },
   'POKEMON_NAME': {
     1: 'Bulbasaur',
@@ -411,7 +413,9 @@ export default {
     7007: 'Ninetales (Alolan Form)',
     9004: 'Eevee (Holiday)',
     627: 'Rufflet',
-    628: 'Braviary'
+    628: 'Braviary',
+    980: 'Clodsire',
+    7054: 'Wooper (Paldean Form)'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -693,6 +697,7 @@ export default {
     287: '細雪睡',
     288: '尾巴裹裹睡',
     289: '振翅睡',
-    290: '驚哭睡'
+    290: '驚哭睡',
+    291: '埋在泥中睡'
   }
 }
