@@ -79,7 +79,7 @@ const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
     orgList.push(pokeItem[keyVel])
   }
   const res = resList.find(item => item[keyVel] === pokeItem[keyVel])
-  if(res && res.list) {
+  if (res && res.list) {
     res.list.push(pokeItem)
   }
 }
@@ -462,57 +462,58 @@ onMounted(() => {
             :pokeId="+pokemonsItem.id"
             :showKey="getShowKeyVal(pokemonsItem.id)"
           />
-          <ul
-            class="cpt-select-list"
-            v-for="(mapItem, mapKey) in gameMap"
-            v-bind:key="mapItem.id"
-          >
-            <li
-              class="cpt-select-list__item cur"
-              v-if="
-                gameMapPokemons[mapKey].allPokemons.includes(+pokemonsItem.id)
-              "
+          <ul class="cpt-select-list">
+            <template
+              v-for="(mapItem, mapKey) in gameMap"
+              v-bind:key="mapItem.id"
             >
-              <div class="cpt-select-list__name">
-                {{ $t(`ILAND.${mapItem.id}`) }}
-                <p>
-                  <img
-                    class="icon"
-                    v-lazy="
-                      `./img/ui/${getStageLevelPicId(
-                        gameMap[mapKey].levelList[
-                          gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                            +pokemonsItem.id
-                          ]
-                        ].name
-                      )}.png`
-                    "
-                  />{{
-                    $t(
-                      `LEVEL_TITLE.${
-                        gameMap[mapKey].levelList[
-                          gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                            +pokemonsItem.id
-                          ]
-                        ].nameId
-                      }`
-                    )
-                  }}{{
-                    gameMap[mapKey].levelList[
-                      gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                        +pokemonsItem.id
-                      ]
-                    ].nameIndex
-                  }}
-                </p>
-              </div>
-              <img
-                v-if="mapItem.pic"
-                class="cpt-select-list__bg"
-                v-lazy="`./img/ui/${mapItem.pic}.png`"
-                :alt="mapItem.name"
-              />
-            </li>
+              <li
+                class="cpt-select-list__item cur"
+                v-if="
+                  gameMapPokemons[mapKey].allPokemons.includes(+pokemonsItem.id)
+                "
+              >
+                <div class="cpt-select-list__name">
+                  {{ $t(`ILAND.${mapItem.id}`) }}
+                  <p>
+                    <img
+                      class="icon"
+                      v-lazy="
+                        `./img/ui/${getStageLevelPicId(
+                          gameMap[mapKey].levelList[
+                            gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                              +pokemonsItem.id
+                            ]
+                          ].name
+                        )}.png`
+                      "
+                    />{{
+                      $t(
+                        `LEVEL_TITLE.${
+                          gameMap[mapKey].levelList[
+                            gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                              +pokemonsItem.id
+                            ]
+                          ].nameId
+                        }`
+                      )
+                    }}{{
+                      gameMap[mapKey].levelList[
+                        gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
+                          +pokemonsItem.id
+                        ]
+                      ].nameIndex
+                    }}
+                  </p>
+                </div>
+                <img
+                  v-if="mapItem.pic"
+                  class="cpt-select-list__bg"
+                  v-lazy="`./img/ui/${mapItem.pic}.png`"
+                  :alt="mapItem.name"
+                />
+              </li>
+            </template>
           </ul>
         </div>
       </div>

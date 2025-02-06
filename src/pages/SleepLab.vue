@@ -342,13 +342,13 @@ const handleChangeInputPM = () => {
             style="--el-switch-on-color: #ffaf00"
           />
         </span>
+        <el-input-number
+          v-if="pageData.isActRandom"
+          v-model="pageData.actRandomNum"
+          :min="0.3"
+          :max="0.4"
+        />
       </div>
-      <el-slider
-        v-model="pageData.actRandomNum"
-        show-input
-        :min="0.3"
-        :max="0.4"
-      />
     </el-form-item>
     <el-form-item label="不进保底">
       <template

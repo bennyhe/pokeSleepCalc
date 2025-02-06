@@ -52,6 +52,8 @@ export default defineConfig({
             return 'node_lib'
           } else if (id.includes('i18n')) {
             return 'lang'
+          } else if (id.includes('echart')) {
+            return 'lib_echart'
           } else if (id.includes('config/sleepStyle.js') || id.includes('config/pokedex.js') || id.includes('config/spo.js')) {
             return 'pokedex'
           } else if (id.includes('config/masterRes')) {

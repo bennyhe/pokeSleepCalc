@@ -19,6 +19,7 @@ import PageOneDayEnergy from './pages/OneDayEnergy.vue'
 import PageSleepLab from './pages/SleepLab.vue'
 import PageCandyCalc from './pages/CandyCalc.vue'
 import PageMasterRes from './pages/MasterRes.vue'
+import PageFindPm from './pages/FindPm.vue'
 
 import { updatePoke } from './config/pokedex.js'
 import { NAV_LANG, NAV_PAGE } from './config/nav.js'
@@ -127,6 +128,9 @@ onMounted(() => {
     </div>
     <div class="page-item cur" v-if="navData.navIndex === 'master20'">
       <PageMasterRes />
+    </div>
+    <div class="page-item cur page-findpm" v-if="navData.navIndex === 'findpm'">
+      <PageFindPm />
     </div>
     <PageFooter />
     <nav class="nav">

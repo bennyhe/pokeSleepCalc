@@ -1837,6 +1837,28 @@ h3 {
   }
 }
 
+.page-findpm {
+  .cpt-select-list {
+    &__item {
+      font-size: 12px;
+      width: 66px;
+    }
+
+    &.cur .cpt-select-list__name {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+  &__bg {
+    bottom: 0;
+    width: 150%;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+  }
+}
 // 多语言界面适配
 @import "./_import.lang.scss";
 
