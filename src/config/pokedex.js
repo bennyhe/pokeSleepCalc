@@ -56,7 +56,7 @@ const evoLine = [
   [921, 922, 923],
   [7006, 7007],
   [627, 628],
-  [980,7054]
+  [7054, 980]
 ]
 const pokedex = {
   1: {
@@ -3137,7 +3137,7 @@ const updatePoke = [{
   pokemons: [627, 628]
 }, {
   time: '2025/02/1',
-  pokemons: [980, 7054]
+  pokemons: [7054, 980]
 }]
 // console.log(pokedex)
 export {
