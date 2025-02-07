@@ -59,12 +59,16 @@ const pageData = ref({
   },
   pokemonId: 7006,
   chartShow: {
-    'green': false,
-    'beach': false,
-    'hole': false,
-    'snow': false,
-    'lake': false,
-    'plant': false
+    green: false,
+    beach: false,
+    hole: false,
+    snow: false,
+    lake: false,
+    plant: false,
+    st1: false,
+    st2: false,
+    st3: false,
+    st999: false
   }
 })
 
@@ -139,58 +143,65 @@ const handleClickGet = type => {
   const startTime = new Date().getTime()
   const targetRes = []
   let lastGetList = []
-  const splitPoint = 1000
   testData.value = []
-  if (type === 'allMap1') {
-  } else {
-    // allMap
-    console.log('quick start...', gameMap[pageData.value.curMap].levelList)
-    gameMap.forEach((mapItem, mapKey) => {
-      if (
-        gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
-      ) {
-        pageData.value.mapSleepType.forEach(sltItem => {
-          let k = 0
-          const iland = []
-          gameMap[pageData.value.curMap].levelList.forEach((item, mapIndex) => {
-            const curAllScore = item.energy
-            const allPoint = curAllScore * 100
-            if (curAllScore <= +pageData.value.maxScore) {
-              const randomRes = getRes(curAllScore, allPoint, mapKey, sltItem)
-              const res = randomRes.res
-              lastGetList = lastGetList.concat(randomRes.lastGetList)
-              console.log(
-                k,
-                curAllScore,
-                allPoint,
-                `${(new Date().getTime() - startTime) / 1000}s`
-              )
-              const lastRes = {
-                basePoint: curAllScore,
-                allPoint,
-                res
-              }
-              iland.push(lastRes)
-              k++
-            }
-          })
-          targetRes.push({
-            curMap: mapItem.id,
-            sleepType: sltItem,
-            res: iland
-          })
-        })
-      }
-    })
-  }
-  testData.value = targetRes
-
-  console.log(targetRes)
+  // allMap
+  console.log('quick start...', gameMap[pageData.value.curMap].levelList)
   gameMap.forEach((mapItem, mapKey) => {
     if (
       gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
     ) {
-      const chart_options = {
+      pageData.value.mapSleepType.forEach(sltItem => {
+        let k = 0
+        const iland = []
+        gameMap[pageData.value.curMap].levelList.forEach((item, mapIndex) => {
+          const curAllScore = item.energy
+          const allPoint = curAllScore * 100
+          if (curAllScore <= +pageData.value.maxScore) {
+            const randomRes = getRes(curAllScore, allPoint, mapKey, sltItem)
+            const res = randomRes.res
+            lastGetList = lastGetList.concat(randomRes.lastGetList)
+            console.log(
+              k,
+              curAllScore,
+              allPoint,
+              `${(new Date().getTime() - startTime) / 1000}s`
+            )
+            const lastRes = {
+              basePoint: curAllScore,
+              allPoint,
+              res
+            }
+            iland.push(lastRes)
+            k++
+          }
+        })
+        targetRes.push({
+          curMap: mapItem.id,
+          sleepType: sltItem,
+          res: iland
+        })
+      })
+    }
+  })
+  testData.value = targetRes
+
+  initChart(targetRes)
+
+  console.log(targetRes, lastGetList)
+}
+
+const initChart = targetRes => {
+  const stObject = {
+    st1: [],
+    st2: [],
+    st3: [],
+    st999: []
+  }
+  gameMap.forEach((mapItem, mapKey) => {
+    if (
+      gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
+    ) {
+      const chartMapOptions = {
         title: t(`ILAND.${mapItem.id}`),
         legendData: [],
         xAxis: [],
@@ -203,39 +214,47 @@ const handleClickGet = type => {
           // }
         ]
       }
-      const resInMap = targetRes.filter(item=>item.curMap === mapItem.id)
-      chart_options.legendData = resInMap.map(resInMapItem=>{
-        const onece = []
+      const resInMap = targetRes.filter(item => item.curMap === mapItem.id)
+      chartMapOptions.legendData = resInMap.map(resInMapItem => {
+        const onceData = []
 
-        chart_options.xAxis = resInMapItem.res.map(pointItem=>{
-
-          const curPokeRes = pointItem.res.find(pointSubItem=>+pointSubItem.pokeId === +pageData.value.pokemonId)
+        chartMapOptions.xAxis = resInMapItem.res.map(pointItem => {
+          const curPokeRes = pointItem.res.find(
+            pointSubItem => +pointSubItem.pokeId === +pageData.value.pokemonId
+          )
           let num = 0
-          if(curPokeRes && curPokeRes.count) {
+          if (curPokeRes && curPokeRes.count) {
             num = getDecimalNumber(curPokeRes.count / getTimes, 2)
           }
-          onece.push(num)
+          onceData.push(num)
           return getNum(pointItem.allPoint)
         })
-        console.log(t(`SLEEP_TYPES.${resInMapItem.sleepType}`), onece)
-        chart_options.series.push({
+        console.log(t(`SLEEP_TYPES.${resInMapItem.sleepType}`), onceData)
+        chartMapOptions.series.push({
           name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
-          data: onece
+          data: onceData
+        })
+        stObject[`st${resInMapItem.sleepType}`].push({
+          name: t(`ILAND.${mapItem.id}`),
+          type: 'line',
+          data: onceData
         })
         return t(`SLEEP_TYPES.${resInMapItem.sleepType}`)
       })
-      console.log(chart_options)
-      const myChart = echarts.init(document.getElementById(`echart_dom_${mapItem.id}_echart`))
-      myChart.setOption({
+      console.log(chartMapOptions)
+      const chartMap = echarts.init(
+        document.getElementById(`echart_dom_map_${mapItem.id}`)
+      )
+      chartMap.setOption({
         title: {
-          text: chart_options.title
+          text: chartMapOptions.title
         },
         tooltip: {
           trigger: 'axis'
         },
         legend: {
-          data: chart_options.legendData
+          data: chartMapOptions.legendData
         },
         grid: {
           left: '3%',
@@ -251,16 +270,56 @@ const handleClickGet = type => {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: chart_options.xAxis
+          data: chartMapOptions.xAxis
         },
         yAxis: {
           type: 'value'
         },
-        series: chart_options.series
+        series: chartMapOptions.series
       })
+
+      for (const stKey in stObject) {
+        if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
+          const stObjectItem = stObject[stKey]
+          const chartSt = echarts.init(
+            document.getElementById(`echart_dom_${stKey}`)
+          )
+          chartSt.setOption({
+            title: {
+              text: t(`SLEEP_TYPES.${stKey.replace('st', '')}`)
+            },
+            tooltip: {
+              trigger: 'axis'
+            },
+            legend: {
+              data: stObjectItem.map(item=>item.name)
+            },
+            grid: {
+              left: '3%',
+              right: '4%',
+              bottom: '3%',
+              containLabel: true
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: chartMapOptions.xAxis
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: stObjectItem
+          })
+        }
+      }
     }
   })
-  console.log(targetRes, lastGetList)
+  
 }
 
 const handleClickChangeMap = id => {
@@ -275,14 +334,18 @@ const handleChangeUps = () => {
   )
 }
 
-const handleChangePokemon = () => {
+const initState = () => {
   pageData.value.chartShow = {
-    'green': false,
-    'beach': false,
-    'hole': false,
-    'snow': false,
-    'lake': false,
-    'plant': false
+    green: false,
+    beach: false,
+    hole: false,
+    snow: false,
+    lake: false,
+    plant: false,
+    st1: false,
+    st2: false,
+    st3: false,
+    st999: false
   }
   gameMap.forEach((mapItem, mapKey) => {
     if (
@@ -295,26 +358,23 @@ const handleChangePokemon = () => {
     pokedex[pageData.value.pokemonId].sleepType.toString(),
     '999'
   ]
+  pageData.value.mapSleepType.forEach(mstItem=>{
+    pageData.value.chartShow[`st${mstItem}`] = true
+  })
 }
-pageData.value.chartShow = {
-  'green': false,
-  'beach': false,
-  'hole': false,
-  'snow': false,
-  'lake': false,
-  'plant': false
+const handleChangeSleepTypes = () => {
+  pageData.value.chartShow.st1= false
+  pageData.value.chartShow.st2= false
+  pageData.value.chartShow.st3= false
+  pageData.value.chartShow.st999= false
+  pageData.value.mapSleepType.forEach(mstItem=>{
+    pageData.value.chartShow[`st${mstItem}`] = true
+  })
 }
-gameMap.forEach((mapItem, mapKey) => {
-  if (
-    gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
-  ) {
-    pageData.value.chartShow[mapItem.id] = true
-  }
-})
-pageData.value.mapSleepType = [
-  pokedex[pageData.value.pokemonId].sleepType.toString(),
-  '999'
-]
+const handleChangePokemon = () => {
+  initState()
+}
+initState()
 </script>
 
 <template>
@@ -422,6 +482,7 @@ pageData.value.mapSleepType = [
           :label="cKey"
           v-for="(cItem, cKey) in SLEEP_TYPES"
           v-bind:key="cItem"
+          @change="handleChangeSleepTypes"
           ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
             {{ $t(`SLEEP_TYPES.${cKey}`) }}
           </div>
@@ -547,13 +608,21 @@ pageData.value.mapSleepType = [
       <el-button @click="handleClickGet('allMap')">计算结果</el-button>
     </el-form-item>
   </el-form>
+  <template v-for="(cItem, cKey) in SLEEP_TYPES" v-bind:key="`${cKey}-echart`">
+    <div
+      class="chart-item"
+      :class="{ hide: !pageData.chartShow[`st${cKey}`] }"
+      :id="`echart_dom_st${cKey}`"
+      style="height: 450px"
+    ></div>
+  </template>
   <template v-for="mapItem in gameMap" v-bind:key="`${mapItem.id}-echart`">
-      <div
-        class="chart-item"
-        :class="{'hide': !pageData.chartShow[mapItem.id]}"
-        :id="`echart_dom_${mapItem.id}_echart`"
-        style="height: 450px"
-      ></div>
+    <div
+      class="chart-item"
+      :class="{ hide: !pageData.chartShow[mapItem.id] }"
+      :id="`echart_dom_map_${mapItem.id}`"
+      style="height: 450px"
+    ></div>
   </template>
   <template
     v-for="iLandItem in testData"
