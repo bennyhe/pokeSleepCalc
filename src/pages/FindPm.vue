@@ -193,6 +193,9 @@ const handleClickGet = type => {
   console.log(targetRes, lastGetList)
 }
 
+const stXAxis = gameMap[0].levelList.map(
+  stageItem => t(`LEVEL_TITLE.${stageItem.nameId}`) + stageItem.nameIndex
+)
 const initChart = targetRes => {
   const stObject = {
     st1: [],
@@ -311,7 +314,7 @@ const initChart = targetRes => {
             xAxis: {
               type: 'category',
               boundaryGap: false,
-              data: chartMapOptions.xAxis
+              data: stXAxis
             },
             yAxis: {
               type: 'value'
@@ -537,7 +540,11 @@ initState()
           </el-option>
         </template>
       </el-select>
-        <CptAvatar :pokeId="pokeId" v-for="pokeId in pageData.noLastList" v-bind:key="`noLast_${pokeId}`"/>
+      <CptAvatar
+        :pokeId="pokeId"
+        v-for="pokeId in pageData.noLastList"
+        v-bind:key="`noLast_${pokeId}`"
+      />
     </el-form-item>
     <el-form-item label="大UP">
       <el-select
