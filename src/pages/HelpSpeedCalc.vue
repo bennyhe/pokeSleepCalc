@@ -5,6 +5,7 @@ import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import {
   get,
   sortInObjectOptions,
@@ -1033,17 +1034,11 @@ watch(helpSpeedCalcForm.value, val => {
         targetInList.sortIndex
       }}</i>
       {{ helpSpeedCalcForm.baseHelpSpeed }}s
-      <span
-        class="cpt-avatar"
+      <CptAvatar
+        :pokeId="pokeItem.id"
         v-for="pokeItem in targetInList.list"
         v-bind:key="pokeItem.id"
-      >
-        <img
-          class="cpt-avatar__pic"
-          v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-          :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-        />
-      </span>
+      />
     </el-form-item>
     <el-form-item
       :label="$t('PROP.food')"
@@ -1767,17 +1762,11 @@ watch(helpSpeedCalcForm.value, val => {
           $t("SUBSKILLS_NAMES.3")
         }}</span>
         * {{ subskillOn.helpBonus.count }}
-        <span
-          class="cpt-avatar"
+        <CptAvatar
+          :pokeId="pokeId"
           v-for="pokeId in subskillOn.helpBonus.list"
           v-bind:key="pokeId"
-        >
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${pokeId}`)"
-          />
-        </span>
+        />
       </el-row>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"

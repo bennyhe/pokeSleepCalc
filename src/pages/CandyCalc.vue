@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import {
   LEVEL_EXP,
   NATURE_ONE_CANDY_EXP,
@@ -107,17 +108,12 @@ const handleChangeActUp = () => {
           v-for="cItem in POKEMON_TYPE"
           v-bind:key="cItem.value"
         >
-          <span
-            class="cpt-avatar"
+          <CptAvatar
             v-for="pokeItem in cItem.sampleIds"
             v-bind:key="pokeItem"
-          >
-            <img
-              class="cpt-avatar__pic"
-              v-lazy="`./img/pokedex/${pokeItem}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem}`)"
-            /> </span
-          >{{ cItem.txt }}</el-radio-button
+            :pokeId="pokeItem"
+          />
+          {{ cItem.txt }}</el-radio-button
         >
       </el-radio-group>
     </el-form-item>

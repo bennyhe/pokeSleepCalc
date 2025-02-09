@@ -18,6 +18,7 @@ import { SLEEP_TYPES } from '../config/valKey.js'
 import { NAV_SLEEPLAB } from '../config/nav.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 
 const navData = ref(NAV_SLEEPLAB)
 const pageData = ref({
@@ -351,18 +352,11 @@ const handleChangeInputPM = () => {
       </div>
     </el-form-item>
     <el-form-item label="不进保底">
-      <template
+      <CptAvatar
         v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
-        v-bind:key="`midUp_${pokeId}`"
-      >
-        <span class="cpt-avatar">
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${pokeId}`)"
-          />
-        </span>
-      </template>
+        v-bind:key="`noLast_${pokeId}`"
+        :pokeId="pokeId"
+      />
     </el-form-item>
     <el-form-item label="去除宝可梦">
       <el-select
@@ -495,18 +489,13 @@ const handleChangeInputPM = () => {
       >
     </h3>
     <div class="page-inner">
-      <div
-        class="cpt-avatar"
+      <CptAvatar
         v-for="hopeItem in tdItem.res"
         v-bind:key="hopeItem.pokeId"
+        :pokeId="hopeItem.pokeId"
       >
-        <img
-          class="cpt-avatar__pic"
-          v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-          :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-        />
         <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-      </div>
+      </CptAvatar>
     </div>
   </div>
   <el-radio-group

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import {
@@ -292,7 +293,7 @@ const initChart = targetRes => {
               trigger: 'axis'
             },
             legend: {
-              data: stObjectItem.map(item=>item.name)
+              data: stObjectItem.map(item => item.name)
             },
             grid: {
               left: '3%',
@@ -319,7 +320,6 @@ const initChart = targetRes => {
       }
     }
   })
-  
 }
 
 const handleClickChangeMap = id => {
@@ -358,16 +358,16 @@ const initState = () => {
     pokedex[pageData.value.pokemonId].sleepType.toString(),
     '999'
   ]
-  pageData.value.mapSleepType.forEach(mstItem=>{
+  pageData.value.mapSleepType.forEach(mstItem => {
     pageData.value.chartShow[`st${mstItem}`] = true
   })
 }
 const handleChangeSleepTypes = () => {
-  pageData.value.chartShow.st1= false
-  pageData.value.chartShow.st2= false
-  pageData.value.chartShow.st3= false
-  pageData.value.chartShow.st999= false
-  pageData.value.mapSleepType.forEach(mstItem=>{
+  pageData.value.chartShow.st1 = false
+  pageData.value.chartShow.st2 = false
+  pageData.value.chartShow.st3 = false
+  pageData.value.chartShow.st999 = false
+  pageData.value.mapSleepType.forEach(mstItem => {
     pageData.value.chartShow[`st${mstItem}`] = true
   })
 }
@@ -512,15 +512,9 @@ initState()
     <el-form-item label="不进保底">
       <template
         v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
-        v-bind:key="`midUp_${pokeId}`"
+        v-bind:key="`noLast_${pokeId}`"
       >
-        <span class="cpt-avatar">
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${pokeId}`)"
-          />
-        </span>
+        <CptAvatar :pokeId="pokeId" />
       </template>
     </el-form-item>
     <el-form-item label="大UP">
@@ -645,18 +639,13 @@ initState()
         >
       </h3>
       <div class="page-inner">
-        <div
-          class="cpt-avatar"
+        <CptAvatar
           v-for="hopeItem in tdItem.res"
           v-bind:key="hopeItem.pokeId"
+          :pokeId="hopeItem.pokeId"
         >
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-          />
           <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-        </div>
+        </CptAvatar>
       </div>
     </div>
   </template>

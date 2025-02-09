@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, computed, ref } from 'vue'
 import { InfoFilled } from '@element-plus/icons-vue'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -827,8 +828,7 @@ const getQuickChangeSleepPoint = () => {
                             ].length > 0
                           "
                         >
-                          <span
-                            class="cpt-avatar"
+                          <CptAvatar
                             v-for="pokeId in gameMapPokemons[userData.curMap]
                               .levelPokemons[levelKey]"
                             v-bind:key="`map_${levelKey}_${pokeId}`"
@@ -848,13 +848,8 @@ const getQuickChangeSleepPoint = () => {
                                   NOW_ACT
                                 ).includes(pokeId),
                             }"
-                          >
-                            <img
-                              class="cpt-avatar__pic"
-                              v-lazy="`./img/pokedex/${pokeId}.png`"
-                              :alt="$t(`POKEMON_NAME.${pokeId}`)"
-                            />
-                          </span>
+                            :pokeId="pokeId"
+                          />
                         </template>
                       </td>
                     </tr>
@@ -1459,15 +1454,10 @@ const getQuickChangeSleepPoint = () => {
                 }}<template
                   v-for="chItem in userData.banPokes"
                   v-bind:key="`ban${chItem}`"
-                  ><span class="cpt-avatar">
-                    <img
-                      class="cpt-avatar__pic"
-                      v-lazy="`./img/pokedex/${chItem}.png`"
-                      :alt="$t(`POKEMON_NAME.${chItem}`)"
-                    /> </span
-                  ><template v-if="userData.banPokes.length <= 3">{{
-                    $t(`POKEMON_NAME.${chItem}`)
-                  }}</template></template
+                  ><CptAvatar :pokeId="chItem" /><template
+                    v-if="userData.banPokes.length <= 3"
+                    >{{ $t(`POKEMON_NAME.${chItem}`) }}</template
+                  ></template
                 ></el-checkbox
               >
             </div>
@@ -1508,20 +1498,14 @@ const getQuickChangeSleepPoint = () => {
                 v-for="pokeId in NOW_ACT.smallUp"
                 v-bind:key="`smallUp_${pokeId}`"
               >
-                <span
-                  class="cpt-avatar"
+                <CptAvatar
+                  :pokeId="pokeId"
                   v-if="
                     gameMapPokemons[userData.curMap].allPokemons.includes(
                       pokeId
                     )
                   "
-                >
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${pokeId}.png`"
-                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
-                  />
-                </span>
+                />
               </template>
             </p>
             <p
@@ -1542,20 +1526,14 @@ const getQuickChangeSleepPoint = () => {
                 v-for="pokeId in NOW_ACT.midUp"
                 v-bind:key="`midUp_${pokeId}`"
               >
-                <span
-                  class="cpt-avatar"
+                <CptAvatar
+                  :pokeId="pokeId"
                   v-if="
                     gameMapPokemons[userData.curMap].allPokemons.includes(
                       pokeId
                     )
                   "
-                >
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${pokeId}.png`"
-                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
-                  />
-                </span>
+                />
               </template>
             </p>
             <p class="mb3" v-if="get('largeUp', NOW_ACT, 1)">
@@ -1568,20 +1546,14 @@ const getQuickChangeSleepPoint = () => {
                 v-for="pokeId in NOW_ACT.largeUp"
                 v-bind:key="`midUp_${pokeId}`"
               >
-                <span
-                  class="cpt-avatar"
+                <CptAvatar
+                  :pokeId="pokeId"
                   v-if="
                     gameMapPokemons[userData.curMap].allPokemons.includes(
                       pokeId
                     )
                   "
-                >
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="`./img/pokedex/${pokeId}.png`"
-                    :alt="$t(`POKEMON_NAME.${pokeId}`)"
-                  />
-                </span>
+                />
               </template>
             </p>
           </template>
@@ -1959,16 +1931,11 @@ const getQuickChangeSleepPoint = () => {
               </div>
               <div class="poke-tb poke-tb--4000 poke-tb--xscorll">
                 <div class="page-inner">
-                  <div
-                    class="cpt-avatar"
+                  <CptAvatar
+                    :pokeId="hopeItem.pokeId"
                     v-for="hopeItem in hopeList"
                     v-bind:key="hopeItem.pokeId"
                   >
-                    <img
-                      class="cpt-avatar__pic"
-                      v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-                      :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-                    />
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp">
                       <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
@@ -1985,7 +1952,7 @@ const getQuickChangeSleepPoint = () => {
                         getDecimalNumber(hopeItem.candysSum / getTimes, 2)
                       }}
                     </p>
-                  </div>
+                  </CptAvatar>
                   <div>
                     <el-button
                       size="small"
@@ -2121,17 +2088,7 @@ const getQuickChangeSleepPoint = () => {
                 </template>
               </el-select>
               <template v-if="sleepStyleId">
-                <span class="cpt-avatar">
-                  <img
-                    class="cpt-avatar__pic"
-                    v-lazy="
-                      `./img/pokedex/${SLEEP_STYLE[sleepStyleId].pokeId}.png`
-                    "
-                    :alt="
-                      $t(`POKEMON_NAME.${SLEEP_STYLE[sleepStyleId].pokeId}`)
-                    "
-                  />
-                </span>
+                <CptAvatar :pokeId="SLEEP_STYLE[sleepStyleId].pokeId" />
                 <span
                   class="i i-sleeptype"
                   :class="`i i-sleeptype--${

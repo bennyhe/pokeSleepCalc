@@ -6,6 +6,7 @@ import {
   getDecimalNumber,
   getStageLevelPicId
 } from '../utils/index.js'
+import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
@@ -86,20 +87,14 @@ const handleClickChangeMap = id => {
           >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
         >
       </h3>
-      <div
-        class="cpt-avatar"
+      <template
         v-for="(hopeItem, hopeKey) in tdItem.res"
         v-bind:key="hopeItem.pokeId"
       >
-        <template v-if="hopeKey < showMax.num">
-          <img
-            class="cpt-avatar__pic"
-            v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-            :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-          />
+        <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
           <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-        </template>
-      </div>
+        </CptAvatar>
+      </template>
     </template>
     <template v-if="masterRes.level20.actTime.list.length > 0">
       <h4>
@@ -123,20 +118,14 @@ const handleClickChangeMap = id => {
             >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
           >
         </h3>
-        <div
-          class="cpt-avatar"
+        <template
           v-for="(hopeItem, hopeKey) in tdItem.res"
           v-bind:key="hopeItem.pokeId"
         >
-          <template v-if="hopeKey < showMax.num">
-            <img
-              class="cpt-avatar__pic"
-              v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-              :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-            />
+          <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
             <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-          </template>
-        </div>
+          </CptAvatar>
+        </template>
       </template>
     </template>
     <template
@@ -165,20 +154,14 @@ const handleClickChangeMap = id => {
             >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
           >
         </h3>
-        <div
-          class="cpt-avatar"
+        <template
           v-for="(hopeItem, hopeKey) in tdItem.res"
           v-bind:key="hopeItem.pokeId"
         >
-          <template v-if="hopeKey < showMax.num">
-            <img
-              class="cpt-avatar__pic"
-              v-lazy="`./img/pokedex/${hopeItem.pokeId}.png`"
-              :alt="$t(`POKEMON_NAME.${hopeItem.pokeId}`)"
-            />
+          <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
             <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-          </template>
-        </div>
+          </CptAvatar>
+        </template>
       </template>
     </template>
   </div>
