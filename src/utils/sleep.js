@@ -122,6 +122,7 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
 export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions) {
   extraSleepStyleOptions = {
     banPokes: [],
+    noLastPokes: [],
     useIncensePokemonId: '',
     isUseTicket: false,
     isActRandom: false,
@@ -169,6 +170,13 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     }
     // console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
   }
+  // 如果存在额外不进保底的宝可梦列表则合并
+  if (get('noLastPokes', extraSleepStyleOptions, 1)) {
+    extraSleepStyleOptions.noLastPokes = extraSleepStyleOptions.noLastPokes.concat([...spacialPokemons.noLastList])
+  } else {
+    extraSleepStyleOptions.noLastPokes = [...spacialPokemons.noLastList]
+  } 
+  // console.log(extraSleepStyleOptions.noLastPokes)
   // 如果存在去除宝可梦
   if (get('banPokes', extraSleepStyleOptions, 1)) {
     orgSleepList = orgSleepList.filter(
@@ -323,7 +331,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     // 保底计算
     let lastList = orgSleepList.filter(
       item =>
-        !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
+        !extraSleepStyleOptions.noLastPokes.includes(item.pokeId) && // 去除特殊宝可梦保底
         item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     lastList = sortInObjectOptions(lastList, ['spo'], 'down')

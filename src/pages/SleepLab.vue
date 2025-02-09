@@ -40,7 +40,8 @@ const pageData = ref({
   upIdsLarge: {
     upType: 'large',
     ids: LAB_CONFIG.upIdsLargeIds
-  }
+  },
+  noLastList: [...SLEEP_CALC_POKEMONS.noLastList, ...LAB_CONFIG.noLastList]
 })
 
 const getTimes = 4000
@@ -62,7 +63,8 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
       upIdsLarge: pageData.value.upIdsLarge,
       upIdsSmall: pageData.value.upIdsSmall,
       isNoMoreData: true,
-      actRandomNum: pageData.value.actRandomNum || 0.3
+      actRandomNum: pageData.value.actRandomNum || 0.3,
+      noLastPokes: pageData.value.noLastList
     }
   )
 }
@@ -352,10 +354,35 @@ const handleChangeInputPM = () => {
       </div>
     </el-form-item>
     <el-form-item label="不进保底">
+      <el-select
+        v-model="pageData.noLastList"
+        placeholder="不进保底"
+        @change="handleChangeUps"
+        filterable
+        clearable
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+      >
+        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+          <el-option
+            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
+            :value="pokeItem.id"
+          >
+            <img
+              class="icon"
+              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+              v-bind:key="pokeItem.id"
+            />
+            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+          </el-option>
+        </template>
+      </el-select>
       <CptAvatar
-        v-for="pokeId in SLEEP_CALC_POKEMONS.noLastList"
-        v-bind:key="`noLast_${pokeId}`"
         :pokeId="pokeId"
+        v-for="pokeId in pageData.noLastList"
+        v-bind:key="`noLast_${pokeId}`"
       />
     </el-form-item>
     <el-form-item label="去除宝可梦">
@@ -410,6 +437,11 @@ const handleChangeInputPM = () => {
           </el-option>
         </template>
       </el-select>
+      <CptAvatar
+        :pokeId="pokeId"
+        v-for="pokeId in pageData.upIdsLarge.ids"
+        :key="pokeId"
+      />
     </el-form-item>
     <el-form-item label="中UP">
       <el-select
@@ -437,6 +469,11 @@ const handleChangeInputPM = () => {
           </el-option>
         </template>
       </el-select>
+      <CptAvatar
+        :pokeId="pokeId"
+        v-for="pokeId in pageData.upIdsMid.ids"
+        :key="pokeId"
+      />
     </el-form-item>
     <el-form-item label="小UP">
       <el-select
@@ -464,6 +501,11 @@ const handleChangeInputPM = () => {
           </el-option>
         </template>
       </el-select>
+      <CptAvatar
+        :pokeId="pokeId"
+        v-for="pokeId in pageData.upIdsSmall.ids"
+        :key="pokeId"
+      />
     </el-form-item>
     <el-form-item>
       <el-button @click="handleClickGet()">计算结果</el-button>
