@@ -162,7 +162,8 @@ export const ACT_LIST = [
     endTime: 1739217599000,
     notArea: [],
     midUp: [980, 7054],
-    smallUp: [54, 127, 172, 280, 304, 359, 736, 778]
+    smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
+    isActRandom: true
   },
   {
     name: '好眠日&情人節2025',
@@ -172,7 +173,8 @@ export const ACT_LIST = [
     notArea: [],
     midUp: [35, 36, 173, 980, 7054],
     smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    times: 1.5
+    times: 1.5,
+    isActRandom: true
   },
   {
     name: '满月日&情人節2025',
@@ -183,7 +185,8 @@ export const ACT_LIST = [
     largeUp: [35, 36, 173],
     midUp: [980, 7054],
     smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    times: 2.5
+    times: 2.5,
+    isActRandom: true
   },
   {
     name: '好眠日&情人節2025',
@@ -193,7 +196,8 @@ export const ACT_LIST = [
     notArea: [],
     midUp: [35, 36, 173, 980, 7054],
     smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    times: 1.5
+    times: 1.5,
+    isActRandom: true
   },
   {
     name: '情人節2025',
@@ -202,6 +206,7 @@ export const ACT_LIST = [
     endTime: 1739735999000,
     notArea: [],
     midUp: [980, 7054],
-    smallUp: [54, 127, 172, 280, 304, 359, 736, 778]
+    smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
+    isActRandom: true
   }
 ]
