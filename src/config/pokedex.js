@@ -2985,12 +2985,12 @@ const pokedex = {
     // name: '土王',
     friendship: 12,
     sleepType: 1,
-    // skillType: 9,
-    // pokeType: 1,
-    // helpSpeed: 2900,
-    berryType: 5
-    // foodPer: 23.20,
-    // skillPer: 2.80
+    skillType: 7,
+    pokeType: 2,
+    helpSpeed: 3500,
+    berryType: 5,
+    foodPer: 20.80,
+    skillPer: 5.50
   },
   7006: {
     id: 7006,
@@ -3035,12 +3035,26 @@ const pokedex = {
     // name: '烏波（帕底亞的樣子）',
     friendship: 5,
     sleepType: 1,
-    // skillType: 9,
-    // pokeType: 1,
-    // helpSpeed: 2900,
-    berryType: 5
-    // foodPer: 23.20,
-    // skillPer: 2.80
+    skillType: 7,
+    pokeType: 2,
+    helpSpeed: 6400,
+    berryType: 5,
+    foodPer: 20.90,
+    skillPer: 5.60,
+    food: {
+      type: [13, 17, 4],
+      count: {
+        13: {
+          num: [2, 5, 7]
+        },
+        17: {
+          num: [0, 4, 7]
+        },
+        4: {
+          num: [0, 0, 9]
+        }
+      }
+    }
   },
   9001: {
     id: 9001,
