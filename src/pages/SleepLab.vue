@@ -612,10 +612,7 @@ const handleChangeInputPM = () => {
           <CptSleepStyle
             :sleepItem="SLEEP_STYLE[sleepKey]"
             :showKey="['sleepType']"
-          >
-            <p>spoId: {{ sleepItem.id }}</p>
-            <p>spo: {{ getSPOById(sleepKey) }}</p>
-          </CptSleepStyle>
+          />
         </div>
       </template>
     </div>
