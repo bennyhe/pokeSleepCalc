@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 25-02-14
+1. update 宝可梦数据配置
+
 ## 25-02-10
 1. update #980, #7054
 2. fix 萌绿的#980睡姿录入错误
@@ -30,7 +33,7 @@ const markdownText = `
 1. fix 睡眠分析时计算错误
 
 ## 25-01-24
-1. update 数据配置
+1. update 宝可梦数据配置
 
 ## 25-01-21
 1. update #627, #628数据
