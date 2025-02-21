@@ -87,37 +87,37 @@ export const ACT_LIST = [
   //   times: 1.5,
   //   isActRandom: true
   // },
-  {
-    name: '满月日&情人節2025',
-    namejp: '満月の日&バレンタイン2025',
-    startTime: 1739304000000,
-    endTime: 1739390399000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    midUp: [980, 7054],
-    smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    times: 2.5,
-    isActRandom: true
-  },
-  {
-    name: '好眠日&情人節2025',
-    namejp: '満月の前後の日&バレンタイン2025',
-    startTime: 1739390400000,
-    endTime: 1739476799000,
-    notArea: [],
-    midUp: [35, 36, 173, 980, 7054],
-    smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '情人節2025',
-    namejp: 'バレンタイン2025',
-    startTime: 1739476800000,
-    endTime: 1739735999000,
-    notArea: [],
-    midUp: [980, 7054],
-    smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-    isActRandom: true
-  }
+  // {
+  //   name: '满月日&情人節2025',
+  //   namejp: '満月の日&バレンタイン2025',
+  //   startTime: 1739304000000,
+  //   endTime: 1739390399000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173],
+  //   midUp: [980, 7054],
+  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
+  //   times: 2.5,
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '好眠日&情人節2025',
+  //   namejp: '満月の前後の日&バレンタイン2025',
+  //   startTime: 1739390400000,
+  //   endTime: 1739476799000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173, 980, 7054],
+  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
+  //   times: 1.5,
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '情人節2025',
+  //   namejp: 'バレンタイン2025',
+  //   startTime: 1739476800000,
+  //   endTime: 1739735999000,
+  //   notArea: [],
+  //   midUp: [980, 7054],
+  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
+  //   isActRandom: true
+  // }
 ]
