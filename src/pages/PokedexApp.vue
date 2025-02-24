@@ -238,7 +238,8 @@ const getShowKeyVal = pokemonsItem => {
     'skillPer',
     'fullFood',
     'sleepType',
-    'friendship'
+    'friendship',
+    'maxcarry'
   ]
   // if (pokedex[pokemonsItem] && get('pokeType', pokedex[pokemonsItem])) {
   //   const res = pokedex[pokemonsItem]

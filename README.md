@@ -80,6 +80,7 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 7. [https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html](https://www.veryicon.com/icons/commerce-shopping/e-commerce-icon-3/team-58.html)
 8. [https://www.veryicon.com/icons/weather/weather-icon-18/night-20.html](https://www.veryicon.com/icons/weather/weather-icon-18/night-20.html)
 9. [https://www.veryicon.com/icons/weather/weather-icon-18/full-moon-7.html](https://www.veryicon.com/icons/weather/weather-icon-18/full-moon-7.html)
+10. [https://veryicon.com/icons/miscellaneous/night-hunting/bag-79.html](https://veryicon.com/icons/miscellaneous/night-hunting/bag-79.html)
 
 ## Github提交规范约束
 1. feat: 提交新功能

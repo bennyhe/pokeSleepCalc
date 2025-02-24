@@ -18,6 +18,19 @@ const props = defineProps({
     <svg
       class="svg-icon"
       :class="size ? `svg-icon--${size}` : ''"
+      v-if="type === 'carry'"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1024 1024"
+      :style="style"
+    >
+      <path
+        fill="currentColor"
+        d="M896 320H768v-9c0-137-110-247-247-247h-16c-137 0-249 110-249 247v9H128L64 960h896l-64-640zm-576-9c0-101.4 83.6-183 185-183h16c101.4 0 183 81.6 183 183v9H320v-9zM135.6 896l49.8-512H256v72.6c-19.2 11-32 31.8-32 55.4 0 35.4 28.6 64 64 64s64-28.6 64-64c0-23.6-12.8-44.4-32-55.4V384h384v72.6c-19.2 11-32 31.8-32 55.4 0 35.4 28.6 64 64 64s64-28.6 64-64c0-23.6-12.8-44.4-32-55.4V384h70.8l49.8 512h-753z"
+      />
+    </svg>
+    <svg
+      class="svg-icon"
+      :class="size ? `svg-icon--${size}` : ''"
       v-if="type === 'edits'"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 1024"

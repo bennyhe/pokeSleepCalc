@@ -1554,6 +1554,7 @@ watch(helpSpeedCalcForm.value, val => {
           'pokeType',
           'foodPer',
           'skillPer',
+          'maxcarry'
         ]"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,

@@ -24,6 +24,9 @@ const props = defineProps({
   skillPer: {
     type: [Number, String]
   },
+  maxcarry: {
+    type: [Number, String]
+  },
   useFood: {
     type: [Array]
   },
@@ -74,17 +77,35 @@ const getFoodType = () => {
     >
       {{ $t(`SLEEP_TYPES.${pokedex[pokeId].sleepType}`) }}
     </div>
-    <p
-      v-if="
-        pokedex[pokeId].friendship &&
-        props.showKey &&
-        props.showKey.includes('friendship')
-      "
-      class="cpt-pokemon__friendship"
-    >
-      <SvgIcon type="love" size="small" />
-      {{ pokedex[pokeId].friendship }}
-    </p>
+    <div v-if="
+          (pokedex[pokeId].friendship &&
+          props.showKey &&
+          props.showKey.includes('friendship')) ||
+          (pokedex[pokeId].maxcarry &&
+          props.showKey &&
+          props.showKey.includes('maxcarry'))
+        ">
+      <span
+        v-if="
+          pokedex[pokeId].friendship &&
+          props.showKey &&
+          props.showKey.includes('friendship')
+        "
+        class="cpt-pokemon__friendship"
+      >
+        <SvgIcon type="love" size="small" />{{ pokedex[pokeId].friendship }}
+      </span>
+      <span
+        v-if="
+          pokedex[pokeId].maxcarry &&
+          props.showKey &&
+          props.showKey.includes('maxcarry')
+        "
+        class="cpt-pokemon__maxcarry"
+      >
+        <SvgIcon type="carry" size="small" />{{ pokedex[pokeId].maxcarry }}
+      </span>
+    </div>
     <p
       v-if="
         pokedex[pokeId].pokeType >= 0 &&

@@ -646,13 +646,23 @@ h4 {
     }
   }
 
-  &__friendship {
-    color: #f54445;
+  &__friendship,
+  &__maxcarry {
     line-height: 16px;
+    white-space: nowrap;
 
     .svg-icon {
       vertical-align: top;
     }
+  }
+  &__friendship{
+    color: #f54445;
+  }
+  &__maxcarry {
+    color: #5c4bf8;
+  }
+  &__friendship + &__maxcarry {
+    margin-left: 4px;
   }
 
   &.shiny {
