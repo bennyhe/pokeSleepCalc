@@ -184,7 +184,7 @@ for (const cookTypeKey in COOK_TYPES) {
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
         v-bind:key="pokemonsItem"
-        :showKey="['helpSpeed', 'foodPer', 'berry', 'skillType']"
+        :showKey="['helpSpeed', 'foodPer', 'berry', 'skillType', 'maxcarry']"
       />
       <div>
         <div
