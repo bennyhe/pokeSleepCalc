@@ -9,7 +9,9 @@ import {
   skillOptionsFoodPer,
   skillOptionsSkillPer,
   skillOptionsExtra2,
-  characterOptions
+  skillOptionsSkillCarry,
+  characterOptions,
+  skillOptionsTxt
 } from '../../config/helpSpeed.js'
 import { getNum, toHMInLang } from '../../utils/index.js'
 import { getNatureDetail } from '../../utils/energy.js'
@@ -82,6 +84,7 @@ const handleBlurLevel = () => {
       :helpSpeed="props.pokeItem.helpSpeed"
       :foodPer="props.pokeItem.foodPer"
       :skillPer="props.pokeItem.skillPer"
+      :maxcarry="props.pokeItem.maxcarry"
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
       :isShiny="props.pokeItem.isShiny"
@@ -194,6 +197,17 @@ const handleBlurLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsSkillPer"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--${skillItem.rare}`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+      <template
+        v-for="skillItem in skillOptionsSkillCarry"
         v-bind:key="skillItem.label"
       >
         <span
@@ -381,11 +395,10 @@ const handleBlurLevel = () => {
             >
               <el-checkbox-button
                 :label="skillItem.label"
-                v-for="skillItem in skillOptionsFoodPer"
+                v-for="(skillItem, skillKey) in skillOptionsFoodPer"
                 v-bind:key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-                  >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
-                  }}{{ skillItem.txtExtra }}</span
+                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
               >
             </el-checkbox-group>
@@ -402,11 +415,30 @@ const handleBlurLevel = () => {
             >
               <el-checkbox-button
                 :label="skillItem.label"
-                v-for="skillItem in skillOptionsSkillPer"
+                v-for="(skillItem, skillKey) in skillOptionsSkillPer"
                 v-bind:key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-                  >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
-                  }}{{ skillItem.txtExtra }}</span
+                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+        <h4>{{ $t(skillOptionsSkillCarry[0].txt).replace("S", "") }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsSkillCarry"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
               >
             </el-checkbox-group>

@@ -21,6 +21,7 @@ import {
   getOneDayHelpCount,
   getNewFoodPer,
   getNewSkillPer,
+  getNewMaxcarry,
   getNatureDetail
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
@@ -36,6 +37,8 @@ import {
   skillOptionsHelpSpeed,
   skillOptionsFoodPer,
   skillOptionsSkillPer,
+  skillOptionsSkillCarry,
+  skillOptionsTxt,
   levelOptions
 } from '../config/helpSpeed.js'
 import { BERRY_TYPES } from '../config/valKey.js'
@@ -63,7 +66,7 @@ const helpSpeedCalcForm = ref({
   level: 50, // Number
   isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
-  skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
+  skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5', 'cs', 'cm', 'cl']
   character: 'none', // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   useFoods: [0, 0, 0],
   rankIndex: 1,
@@ -389,6 +392,7 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
     helpSpeedCalcForm.value,
     pokeItem.skillPer
   )
+  pokeItem.maxcarry = getNewMaxcarry(helpSpeedCalcForm.value, pokeItem.maxcarry)
 
   resRankArr = resRankArr.concat(
     addArrInOptions(
@@ -485,7 +489,7 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
     },
     tempPokeItem2.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  tempPokeItem2.skillPer = getNewSkillPer(
     {
       ...tempSCOptions2
     },
@@ -508,7 +512,7 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
     },
     tempPokeItem3.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  tempPokeItem3.skillPer = getNewSkillPer(
     {
       ...tempSCOptions3
     },
@@ -531,7 +535,7 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
     },
     tempPokeItem4.foodPer
   )
-  pokeItem.skillPer = getNewSkillPer(
+  tempPokeItem4.skillPer = getNewSkillPer(
     {
       ...tempSCOptions4
     },
@@ -715,6 +719,7 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       )
       pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
       pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+      pokeItem.maxcarry = getNewMaxcarry(upItem, pokeItem.maxcarry)
       // console.log(pokeItem)
       resRankArr = resRankArr.concat(
         addArrInOptions(
@@ -1134,11 +1139,10 @@ watch(helpSpeedCalcForm.value, val => {
         >
           <el-checkbox-button
             :label="skillItem.label"
-            v-for="skillItem in skillOptionsHelpSpeed"
+            v-for="(skillItem, skillKey) in skillOptionsHelpSpeed"
             v-bind:key="skillItem.label"
             ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillItem.txtExtra.indexOf("7") > -1 ? "S" : "M"
-              }}{{ skillItem.txtExtra }}</span
+              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
             ></el-checkbox-button
           >
         </el-checkbox-group>
@@ -1154,11 +1158,10 @@ watch(helpSpeedCalcForm.value, val => {
         >
           <el-checkbox-button
             :label="skillItem.label"
-            v-for="skillItem in skillOptionsFoodPer"
+            v-for="(skillItem, skillKey) in skillOptionsFoodPer"
             v-bind:key="skillItem.label"
             ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
-              }}{{ skillItem.txtExtra }}</span
+              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
             ></el-checkbox-button
           >
         </el-checkbox-group>
@@ -1174,11 +1177,29 @@ watch(helpSpeedCalcForm.value, val => {
         >
           <el-checkbox-button
             :label="skillItem.label"
-            v-for="skillItem in skillOptionsSkillPer"
+            v-for="(skillItem, skillKey) in skillOptionsSkillPer"
             v-bind:key="skillItem.label"
             ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillItem.txtExtra.indexOf("18") > -1 ? "S" : "M"
-              }}{{ skillItem.txtExtra }}</span
+              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+            ></el-checkbox-button
+          >
+        </el-checkbox-group>
+      </div>
+    </el-form-item>
+    <el-form-item :label="$t(skillOptionsSkillCarry[0].txt).replace('S', '')">
+      <div style="width: 100%">
+        <el-checkbox-group
+          class="el-checkbox-group--inline"
+          v-model="helpSpeedCalcForm.skill"
+          :min="0"
+          :max="5"
+        >
+          <el-checkbox-button
+            :label="skillItem.label"
+            v-for="(skillItem, skillKey) in skillOptionsSkillCarry"
+            v-bind:key="skillItem.label"
+            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
             ></el-checkbox-button
           >
         </el-checkbox-group>
@@ -1554,7 +1575,7 @@ watch(helpSpeedCalcForm.value, val => {
           'pokeType',
           'foodPer',
           'skillPer',
-          'maxcarry'
+          'maxcarry',
         ]"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
@@ -1648,6 +1669,7 @@ watch(helpSpeedCalcForm.value, val => {
             'foodPer',
             'skillPer',
             'skillType',
+            'maxcarry'
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userPokemons.list,
@@ -1785,6 +1807,7 @@ watch(helpSpeedCalcForm.value, val => {
             'foodPer',
             'skillPer',
             'skillType',
+            'maxcarry'
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userTeam.list,

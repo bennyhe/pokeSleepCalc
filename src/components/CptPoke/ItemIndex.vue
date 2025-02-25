@@ -103,7 +103,7 @@ const getFoodType = () => {
         "
         class="cpt-pokemon__maxcarry"
       >
-        <SvgIcon type="carry" size="small" />{{ pokedex[pokeId].maxcarry }}
+        <SvgIcon type="carry" size="small" />{{ props.maxcarry || pokedex[pokeId].maxcarry }}
       </span>
     </div>
     <p

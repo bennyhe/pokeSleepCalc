@@ -19,6 +19,7 @@ import {
   skillOptionsHelpSpeed,
   skillOptionsFoodPer,
   skillOptionsSkillPer,
+  skillOptionsSkillCarry,
   levelOptions
 } from '../../config/helpSpeed.js'
 
@@ -308,6 +309,26 @@ const handleClickReset = () => {
             </template>
             <template
               v-for="skillItem in skillOptionsSkillPer"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span
+                    class="cpt-skill"
+                    :class="`cpt-skill--${skillItem.rare}`"
+                    >{{ $t(skillItem.txt) }}</span
+                  >
+                </div>
+              </li>
+            </template>
+            <template
+              v-for="skillItem in skillOptionsSkillCarry"
               v-bind:key="`sst_${skillItem.label}`"
             >
               <li

@@ -98,6 +98,22 @@ export const skillOptionsSkillPer = [{
   txtExtra: '(36%)',
   rare: 2
 }]
+export const skillOptionsSkillCarry = [{
+  label: 'cs',
+  txt: 'SUBSKILLS_NAMES.16',
+  txtExtra: '(6)',
+  rare: 1
+}, {
+  label: 'cm',
+  txt: 'SUBSKILLS_NAMES.11',
+  txtExtra: '(12)',
+  rare: 2
+}, {
+  label: 'cl',
+  txt: 'SUBSKILLS_NAMES.10',
+  txtExtra: '(18)',
+  rare: 2
+}]
 export const skillOptionsExtra = [{
   label: 'hg1',
   txt: 'SUBSKILLS_NAMES.3',
@@ -119,6 +135,7 @@ export const skillOptionsExtra = [{
   txt: 'SUBSKILLS_NAMES.3',
   txtExtra: '*5(25%)'
 }]
+export const skillOptionsTxt = ['S', 'M', 'L']
 export const characterOptions = [{
   label: 'none',
   txt: 'noHas' // (害羞、勤奮、坦率、浮躁、認真)

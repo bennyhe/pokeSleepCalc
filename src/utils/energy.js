@@ -150,6 +150,20 @@ export function getNewSkillPer(formData, skillPer) {
   )
 }
 
+export function getNewMaxcarry(formData, maxcarry) {
+  maxcarry = maxcarry || 0
+  if (formData.skill.includes('cs')) {
+    maxcarry += 6
+  }
+  if (formData.skill.includes('cm')) {
+    maxcarry += 12
+  }
+  if (formData.skill.includes('cl')) {
+    maxcarry += 18
+  }
+  return maxcarry
+}
+
 export function getNatureDetail(cItem, t) {
   let natureInfo = ''
   if (cItem.label === 'none') {
