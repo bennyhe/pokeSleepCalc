@@ -27,6 +27,9 @@ const props = defineProps({
   maxcarry: {
     type: [Number, String]
   },
+  evotimes: {
+    type: [Number, String]
+  },
   useFood: {
     type: [Array]
   },
@@ -83,7 +86,10 @@ const getFoodType = () => {
           props.showKey.includes('friendship')) ||
           (pokedex[pokeId].maxcarry &&
           props.showKey &&
-          props.showKey.includes('maxcarry'))
+          props.showKey.includes('maxcarry')) ||
+          ((props.evotimes!==undefined) &&
+          props.showKey &&
+          props.showKey.includes('evotimes') && pokedex[pokeId].evoLineKey > 0)
         ">
       <span
         v-if="
@@ -91,7 +97,7 @@ const getFoodType = () => {
           props.showKey &&
           props.showKey.includes('friendship')
         "
-        class="cpt-pokemon__friendship"
+        class="cpt-pokemon__withicon cpt-pokemon__friendship"
       >
         <SvgIcon type="love" size="small" />{{ pokedex[pokeId].friendship }}
       </span>
@@ -101,9 +107,20 @@ const getFoodType = () => {
           props.showKey &&
           props.showKey.includes('maxcarry')
         "
-        class="cpt-pokemon__maxcarry"
+        class="cpt-pokemon__withicon cpt-pokemon__maxcarry"
       >
         <SvgIcon type="carry" size="small" />{{ props.maxcarry || pokedex[pokeId].maxcarry }}
+      </span>
+      <span
+        v-if="
+          (props.evotimes!==undefined) &&
+          props.showKey &&
+          props.showKey.includes('evotimes') &&
+          pokedex[pokeId].evoLineKey > 0
+        "
+        class="cpt-pokemon__withicon cpt-pokemon__evotimes"
+      >
+        <SvgIcon type="evo" size="small" />{{ props.evotimes }}
       </span>
     </div>
     <p

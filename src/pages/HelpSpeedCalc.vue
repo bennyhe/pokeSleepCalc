@@ -77,7 +77,7 @@ const helpSpeedCalcForm = ref({
   calcTime: 86400,
   areaBonus: 0,
   rankSort: 'energy',
-  evoTimes: 0
+  evotimes: 0
 })
 const gameMapNew = ref(JSON.parse(JSON.stringify(gameMap)))
 const subskillOn = computed(() => {
@@ -265,7 +265,6 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
   const pokeLevel = pokeItem.level || helpSpeedCalcForm.value.level
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
   const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
-  const evoTimes = helpSpeedCalcForm.value.evoTimes
   const newPokeItem = { ...pokeItem }
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
@@ -341,7 +340,6 @@ const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
       nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
       extraDesc,
       pokeUseFoods,
-      evoTimes,
       ...getOneDayEnergy(
         newPokeItem,
         pokeLevel,
@@ -387,6 +385,7 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
   let resRankArr = []
   const pokeItem = { ...pokedex[pokeId] }
   pokeItem.isShiny = helpSpeedCalcForm.value.isShiny
+  pokeItem.evotimes = helpSpeedCalcForm.value.evotimes
   pokeItem.helpSpeed = getNewHelpSpeed(
     helpSpeedCalcForm.value,
     helpSpeedCalcForm.value.level
@@ -668,7 +667,7 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.baseHelpSpeed =
     pokedex[helpSpeedCalcForm.value.pokemonId].helpSpeed
   helpSpeedCalcForm.value.useFoods = [0, 0, 0]
-  helpSpeedCalcForm.value.evoTimes = 0
+  helpSpeedCalcForm.value.evotimes = 0
   setTargetListByHelp()
 }
 const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
@@ -762,6 +761,7 @@ const hanldeClickAddBox = () => {
     pokemonId: helpSpeedCalcForm.value.pokemonId,
     // baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
     isShiny: helpSpeedCalcForm.value.isShiny,
+    evotimes: helpSpeedCalcForm.value.evotimes,
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,
@@ -829,6 +829,7 @@ const handleClickAddCurPokemonTeam = pokemonItem => {
     pokemonId: pokemonItem.pokemonId,
     // baseHelpSpeed: pokemonItem.baseHelpSpeed,
     isShiny: pokemonItem.isShiny,
+    evotimes: pokemonItem.evotimes,
     level: pokemonItem.level,
     skill: [...pokemonItem.skill],
     character: pokemonItem.character,
@@ -846,6 +847,7 @@ const hanldeClickAddTeam = () => {
     pokemonId: helpSpeedCalcForm.value.pokemonId,
     // baseHelpSpeed: helpSpeedCalcForm.value.baseHelpSpeed,
     isShiny: helpSpeedCalcForm.value.isShiny,
+    evotimes: helpSpeedCalcForm.value.evotimes,
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,
@@ -896,6 +898,7 @@ const handleClickAutoTeam = () => {
         pokemonId: resList[i].pokemonId,
         // baseHelpSpeed: pokedex[resList[i].pokemonId].helpSpeed,
         isShiny: resList[i].isShiny,
+        evotimes: resList[i].evotimes,
         level: resList[i].level,
         skill: [...resList[i].skill],
         character: resList[i].character,
@@ -1244,7 +1247,7 @@ watch(helpSpeedCalcForm.value, val => {
         v-if="pokedex[helpSpeedCalcForm.pokemonId].evoLineKey > 0"
       >
         <el-form-item label="进化次数">
-          <el-radio-group size="small" v-model="helpSpeedCalcForm.evoTimes">
+          <el-radio-group size="small" v-model="helpSpeedCalcForm.evotimes">
             <el-radio-button
               :label="skillItem"
               v-for="skillItem in [0, 1, 2]"
@@ -1626,6 +1629,7 @@ watch(helpSpeedCalcForm.value, val => {
           'foodPer',
           'skillPer',
           'maxcarry',
+          'evotimes'
         ]"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
@@ -1720,6 +1724,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
             'maxcarry',
+            'evotimes'
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userPokemons.list,
@@ -1858,6 +1863,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
             'maxcarry',
+            'evotimes'
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userTeam.list,

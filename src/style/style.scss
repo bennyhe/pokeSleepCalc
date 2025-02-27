@@ -646,8 +646,7 @@ h4 {
     }
   }
 
-  &__friendship,
-  &__maxcarry {
+  &__withicon {
     line-height: 16px;
     white-space: nowrap;
 
@@ -661,7 +660,13 @@ h4 {
   &__maxcarry {
     color: #5c4bf8;
   }
-  &__friendship + &__maxcarry {
+  &__evotimes {
+    color: #0fa3a3;
+  }
+  &__friendship+&__maxcarry {
+    margin-left: 4px;
+  }
+  &__maxcarry + &__evotimes {
     margin-left: 4px;
   }
 

@@ -86,6 +86,7 @@ const handleBlurLevel = () => {
       :foodPer="props.pokeItem.foodPer"
       :skillPer="props.pokeItem.skillPer"
       :maxcarry="props.pokeItem.maxcarry"
+      :evotimes="props.pokeItem.evotimes"
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
       :isShiny="props.pokeItem.isShiny"
@@ -479,7 +480,7 @@ const handleBlurLevel = () => {
         </div>
         <h4 v-if="pokedex[editData.pokemonId].evoLineKey > 0">进化次数</h4>
         <div v-if="pokedex[editData.pokemonId].evoLineKey > 0">
-          <el-radio-group size="small" v-model="editData.evoTimes">
+          <el-radio-group size="small" v-model="editData.evotimes">
             <el-radio-button
               :label="skillItem"
               v-for="skillItem in [0, 1, 2]"
