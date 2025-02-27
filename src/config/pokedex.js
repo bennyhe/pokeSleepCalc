@@ -3264,13 +3264,24 @@ const pokedex = {
     skillPer: 3.20
   }
 }
-evoLine.forEach(evoItem => {
-  evoItem.forEach((pm, pmKey) => {
-    if (pmKey > 0) {
-      pokedex[pm].food = pokedex[evoItem[0]].food
+const initPokedex = () => {
+  for (const key in pokedex) {
+    if (Object.prototype.hasOwnProperty.call(pokedex, key)) {
+      pokedex[key].evoLineKey = 0
     }
+  }
+  evoLine.forEach(evoItem => {
+    evoItem.forEach((pm, pmKey) => {
+      if ((pm!== 9001) && (pm !== 9002) && (pm !== 9004)) {
+        pokedex[pm].evoLineKey = 1
+      }
+      if (pmKey > 0) {
+        pokedex[pm].food = pokedex[evoItem[0]].food
+      }
+    })
   })
-})
+}
+initPokedex()
 const updatePoke = [{
   time: '2023/8/1',
   pokemons: [439, 122]

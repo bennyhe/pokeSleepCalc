@@ -98,20 +98,31 @@ export const skillOptionsSkillPer = [{
   txtExtra: '(36%)',
   rare: 2
 }]
-export const skillOptionsSkillCarry = [{
+export const skillOptionsSkillLevel = [{
+  label: 'sls',
+  txt: 'SUBSKILLS_NAMES.13',
+  txtExtra: '(+1)',
+  rare: 2
+}, {
+  label: 'slm',
+  txt: 'SUBSKILLS_NAMES.6',
+  txtExtra: '(+2)',
+  rare: 3
+}]
+export const skillOptionsMaxcarry = [{
   label: 'cs',
   txt: 'SUBSKILLS_NAMES.16',
-  txtExtra: '(6)',
+  txtExtra: '(+6)',
   rare: 1
 }, {
   label: 'cm',
   txt: 'SUBSKILLS_NAMES.11',
-  txtExtra: '(12)',
+  txtExtra: '(+12)',
   rare: 2
 }, {
   label: 'cl',
   txt: 'SUBSKILLS_NAMES.10',
-  txtExtra: '(18)',
+  txtExtra: '(+18)',
   rare: 2
 }]
 export const skillOptionsExtra = [{

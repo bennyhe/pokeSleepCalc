@@ -19,7 +19,8 @@ import {
   skillOptionsHelpSpeed,
   skillOptionsFoodPer,
   skillOptionsSkillPer,
-  skillOptionsSkillCarry,
+  skillOptionsMaxcarry,
+  skillOptionsSkillLevel,
   levelOptions
 } from '../../config/helpSpeed.js'
 
@@ -228,7 +229,7 @@ const handleClickReset = () => {
           </ul></el-form-item
         >
         <el-form-item
-          label="副技能"
+          :label="$t('PROP.subSkill')"
           v-if="showKey && showKey.includes('subSkill')"
         >
           <ul class="cpt-select-list cpt-select-list--txt">
@@ -328,7 +329,27 @@ const handleClickReset = () => {
               </li>
             </template>
             <template
-              v-for="skillItem in skillOptionsSkillCarry"
+              v-for="skillItem in skillOptionsMaxcarry"
+              v-bind:key="`sst_${skillItem.label}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickFilterPokes('subSkills', skillItem.label)"
+                :class="{
+                  cur: FILTER_OBJECT.subSkills.includes(skillItem.label),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <span
+                    class="cpt-skill"
+                    :class="`cpt-skill--${skillItem.rare}`"
+                    >{{ $t(skillItem.txt) }}</span
+                  >
+                </div>
+              </li>
+            </template>
+            <template
+              v-for="skillItem in skillOptionsSkillLevel"
               v-bind:key="`sst_${skillItem.label}`"
             >
               <li

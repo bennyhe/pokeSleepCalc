@@ -9,7 +9,8 @@ import {
   skillOptionsFoodPer,
   skillOptionsSkillPer,
   skillOptionsExtra2,
-  skillOptionsSkillCarry,
+  skillOptionsMaxcarry,
+  skillOptionsSkillLevel,
   characterOptions,
   skillOptionsTxt
 } from '../../config/helpSpeed.js'
@@ -207,7 +208,18 @@ const handleBlurLevel = () => {
         >
       </template>
       <template
-        v-for="skillItem in skillOptionsSkillCarry"
+        v-for="skillItem in skillOptionsMaxcarry"
+        v-bind:key="skillItem.label"
+      >
+        <span
+          v-if="props.pokeItem.skill.includes(skillItem.label)"
+          class="cpt-skill"
+          :class="`cpt-skill--${skillItem.rare}`"
+          >{{ $t(`${skillItem.txt}`) }}</span
+        >
+      </template>
+      <template
+        v-for="skillItem in skillOptionsSkillLevel"
         v-bind:key="skillItem.label"
       >
         <span
@@ -278,6 +290,7 @@ const handleBlurLevel = () => {
         ><SvgIcon type="edits" />编辑</el-button
       >
     </div>
+    <!-- S 修改个体弹窗 -->
     <CptDialog
       :isShow="isShowDialog"
       v-bind:key="dialogId"
@@ -398,7 +411,7 @@ const handleBlurLevel = () => {
                 v-for="(skillItem, skillKey) in skillOptionsFoodPer"
                 v-bind:key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
               >
             </el-checkbox-group>
@@ -418,13 +431,13 @@ const handleBlurLevel = () => {
                 v-for="(skillItem, skillKey) in skillOptionsSkillPer"
                 v-bind:key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
               >
             </el-checkbox-group>
           </div>
         </div>
-        <h4>{{ $t(skillOptionsSkillCarry[0].txt).replace("S", "") }}</h4>
+        <h4>{{ $t(skillOptionsMaxcarry[0].txt).replace("S", "") }}</h4>
         <div>
           <div style="width: 100%">
             <el-checkbox-group
@@ -435,14 +448,45 @@ const handleBlurLevel = () => {
             >
               <el-checkbox-button
                 :label="skillItem.label"
-                v-for="(skillItem, skillKey) in skillOptionsSkillCarry"
+                v-for="(skillItem, skillKey) in skillOptionsMaxcarry"
                 v-bind:key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-                  >{{ skillOptionsTxt[skillKey]}}{{ skillItem.txtExtra }}</span
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
               >
             </el-checkbox-group>
           </div>
+        </div>
+        <h4>{{ $t(skillOptionsSkillLevel[0].txt).replace("S", "") }}</h4>
+        <div>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="editData.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsSkillLevel"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+        <h4 v-if="pokedex[editData.pokemonId].evoLineKey > 0">进化次数</h4>
+        <div v-if="pokedex[editData.pokemonId].evoLineKey > 0">
+          <el-radio-group size="small" v-model="editData.evoTimes">
+            <el-radio-button
+              :label="skillItem"
+              v-for="skillItem in [0, 1, 2]"
+              v-bind:key="skillItem.label"
+              >{{ skillItem }}</el-radio-button
+            >
+          </el-radio-group>
         </div>
         <h4>{{ $t(skillOptionsExtra[0].txt) }}</h4>
         <div>
@@ -481,6 +525,7 @@ const handleBlurLevel = () => {
         </div>
       </div>
     </CptDialog>
+    <!-- E 修改个体弹窗 -->
     <slot />
   </div>
 </template>
