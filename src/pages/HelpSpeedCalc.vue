@@ -392,7 +392,10 @@ const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
     helpSpeedCalcForm.value,
     pokeItem.skillPer
   )
-  pokeItem.maxcarry = getNewMaxcarry(helpSpeedCalcForm.value, pokeItem.maxcarry)
+  pokeItem.maxcarry = getNewMaxcarry(
+    helpSpeedCalcForm.value,
+    pokeItem.maxcarry
+  )
 
   resRankArr = resRankArr.concat(
     addArrInOptions(
@@ -1129,82 +1132,96 @@ watch(helpSpeedCalcForm.value, val => {
         </el-checkbox>
       </div>
     </el-form-item>
-    <el-form-item :label="$t(skillOptionsHelpSpeed[0].txt).replace('S', '')">
-      <div style="width: 100%">
-        <el-checkbox-group
-          class="el-checkbox-group--inline"
-          v-model="helpSpeedCalcForm.skill"
-          :min="0"
-          :max="5"
+    <div class="cpt-form-item-half-wrap">
+      <div class="cpt-form-item-half">
+        <el-form-item
+          :label="$t(skillOptionsHelpSpeed[0].txt).replace('S', '')"
         >
-          <el-checkbox-button
-            :label="skillItem.label"
-            v-for="(skillItem, skillKey) in skillOptionsHelpSpeed"
-            v-bind:key="skillItem.label"
-            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
-            ></el-checkbox-button
-          >
-        </el-checkbox-group>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="helpSpeedCalcForm.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsHelpSpeed"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </el-form-item>
       </div>
-    </el-form-item>
-    <el-form-item :label="$t(skillOptionsFoodPer[0].txt).replace('S', '')">
-      <div style="width: 100%">
-        <el-checkbox-group
-          class="el-checkbox-group--inline"
-          v-model="helpSpeedCalcForm.skill"
-          :min="0"
-          :max="5"
+      <div class="cpt-form-item-half">
+        <el-form-item :label="$t(skillOptionsFoodPer[0].txt).replace('S', '')">
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="helpSpeedCalcForm.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsFoodPer"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </el-form-item>
+      </div>
+      <div class="cpt-form-item-half">
+        <el-form-item :label="$t(skillOptionsSkillPer[0].txt).replace('S', '')">
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="helpSpeedCalcForm.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsSkillPer"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </el-form-item>
+      </div>
+      <div class="cpt-form-item-half">
+        <el-form-item
+          :label="$t(skillOptionsSkillCarry[0].txt).replace('S', '')"
         >
-          <el-checkbox-button
-            :label="skillItem.label"
-            v-for="(skillItem, skillKey) in skillOptionsFoodPer"
-            v-bind:key="skillItem.label"
-            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
-            ></el-checkbox-button
-          >
-        </el-checkbox-group>
+          <div style="width: 100%">
+            <el-checkbox-group
+              class="el-checkbox-group--inline"
+              v-model="helpSpeedCalcForm.skill"
+              :min="0"
+              :max="5"
+            >
+              <el-checkbox-button
+                :label="skillItem.label"
+                v-for="(skillItem, skillKey) in skillOptionsSkillCarry"
+                v-bind:key="skillItem.label"
+                ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
+                  >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
+                ></el-checkbox-button
+              >
+            </el-checkbox-group>
+          </div>
+        </el-form-item>
       </div>
-    </el-form-item>
-    <el-form-item :label="$t(skillOptionsSkillPer[0].txt).replace('S', '')">
-      <div style="width: 100%">
-        <el-checkbox-group
-          class="el-checkbox-group--inline"
-          v-model="helpSpeedCalcForm.skill"
-          :min="0"
-          :max="5"
-        >
-          <el-checkbox-button
-            :label="skillItem.label"
-            v-for="(skillItem, skillKey) in skillOptionsSkillPer"
-            v-bind:key="skillItem.label"
-            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
-            ></el-checkbox-button
-          >
-        </el-checkbox-group>
-      </div>
-    </el-form-item>
-    <el-form-item :label="$t(skillOptionsSkillCarry[0].txt).replace('S', '')">
-      <div style="width: 100%">
-        <el-checkbox-group
-          class="el-checkbox-group--inline"
-          v-model="helpSpeedCalcForm.skill"
-          :min="0"
-          :max="5"
-        >
-          <el-checkbox-button
-            :label="skillItem.label"
-            v-for="(skillItem, skillKey) in skillOptionsSkillCarry"
-            v-bind:key="skillItem.label"
-            ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
-              >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
-            ></el-checkbox-button
-          >
-        </el-checkbox-group>
-      </div>
-    </el-form-item>
+    </div>
     <el-form-item :label="$t(skillOptionsExtra[0].txt)">
       <div style="width: 100%">
         <el-checkbox-group
@@ -1669,7 +1686,7 @@ watch(helpSpeedCalcForm.value, val => {
             'foodPer',
             'skillPer',
             'skillType',
-            'maxcarry'
+            'maxcarry',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userPokemons.list,
@@ -1807,7 +1824,7 @@ watch(helpSpeedCalcForm.value, val => {
             'foodPer',
             'skillPer',
             'skillType',
-            'maxcarry'
+            'maxcarry',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userTeam.list,

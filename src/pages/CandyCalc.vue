@@ -167,8 +167,8 @@ const handleChangeActUp = () => {
     </el-form-item>
   </el-form>
   <div class="el-form-item__content">
-    <div class="el-form-item--half-wrap el-form-slider--bonus">
-      <div class="el-form-item--half">
+    <div class="cpt-form-item-half-wrap el-form-slider--bonus">
+      <div class="cpt-form-item-half">
         <div class="el-form-item__label">经验获取倍率</div>
         <el-slider
           size="small"
@@ -178,7 +178,7 @@ const handleChangeActUp = () => {
           :max="5"
         />
       </div>
-      <div class="el-form-item--half">
+      <div class="cpt-form-item-half">
         <div class="el-form-item__label">梦碎消耗倍率</div>
         <el-slider
           size="small"
