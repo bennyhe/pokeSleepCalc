@@ -1951,6 +1951,9 @@ h3 {
   h3 {
     padding: 3px 6px;
   }
+  h4 {
+    font-size: 13px;
+  }
   &__morebtn {
     padding: 8px;
     padding-right: 8px;
@@ -1972,6 +1975,10 @@ h3 {
     }
     .cpt-pokemon__name {
       height: 14px;
+
+      .spscore {
+        font-size: 14px;
+      }
     }
     .cpt-pokemon__pic {
       width: 28px;
@@ -2138,6 +2145,9 @@ h3 {
   }
 
   .page-helpcalc {
+    .typerank {
+      margin: 0 -8px;
+    }
     .cpt-form-item-half {
       width: 100%;
       max-width: auto;

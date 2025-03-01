@@ -118,7 +118,12 @@ const getCptPokeShowKey = () => {
                 :showKey="getCptPokeShowKey()"
                 :useFood="pokeItem.useFoodType"
                 :helpSpeed="pokeItem.helpSpeed"
-              />
+                :isShiny="pokeItem.isShiny"
+              >
+              <template v-slot:pokeNameAfter>
+                <span class="spscore"> Lv.{{ pokeItem.level }}</span>
+              </template>
+            </CptPoke>
               <div
                 class="cpt-food all-food typerank__foodres"
                 v-if="showType === 'food'"

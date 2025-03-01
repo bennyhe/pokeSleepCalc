@@ -8,7 +8,11 @@ import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
 import { sortInObjectOptions, containsAny, getNum } from '../utils/index.js'
-import { getOneDayEnergy, getOneDayHelpCount } from '../utils/energy.js'
+import {
+  getOneDayEnergy,
+  getOneDayHelpCount,
+  getRankPokemonsByTypes
+} from '../utils/energy.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
@@ -130,128 +134,14 @@ onMounted(() => {
     JSON.stringify(pageData.value.orgResRankArr)
   )
 
-  const tempFoodResRank = {}
-  for (const foodKey in FOOD_TYPES) {
-    if (Object.hasOwnProperty.call(FOOD_TYPES, foodKey)) {
-      if (!tempFoodResRank[foodKey]) {
-        tempFoodResRank[foodKey] = {
-          foodId: +foodKey,
-          rankList: []
-        }
-      }
-      pageData.value.orgResRankArr
-        .filter(pItem => pItem.isFirstPokeFood)
-        .forEach(pokeItem => {
-          if (
-            pokeItem.helpSpeed &&
-            pokeItem.foodPer &&
-            pokeItem.useFoods.includes(+foodKey)
-          ) {
-            // console.log(foodKey, FOOD_TYPES[foodKey], pokeItem.pokemonId, pokeItem.oneDayFoodEnergy)
-            tempFoodResRank[foodKey].rankList.push({
-              pokemonId: pokeItem.pokemonId,
-              oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,
-              useFoods: pokeItem.useFoods,
-              helpSpeed: pokeItem.helpSpeed,
-              useFoodType: pokeItem.useFoods,
-              FOODRANK_COUNT:
-                pokeItem.oneDayFoodEnergy.count[
-                  pokeItem.oneDayFoodEnergy.useFoods.indexOf(+foodKey)
-                ]
-            })
-          }
-        })
+  getRankPokemonsByTypes(
+    pageData.value.orgResRankArr.filter(pItem => pItem.isFirstPoke),
+    res => {
+      foodResRank.value = res.tempFoodResRank
+      berryResRank.value = res.tempBerryResRank
+      skillResRank.value = res.tempSkillResRank
     }
-  }
-  for (const rankKey in tempFoodResRank) {
-    if (Object.hasOwnProperty.call(tempFoodResRank, rankKey)) {
-      tempFoodResRank[rankKey].rankList = sortInObjectOptions(
-        tempFoodResRank[rankKey].rankList,
-        ['FOODRANK_COUNT']
-      )
-    }
-  }
-  const tempBerryResRank = {}
-  for (const berryKey in BERRY_TYPES) {
-    if (Object.hasOwnProperty.call(BERRY_TYPES, berryKey)) {
-      if (!tempBerryResRank[berryKey]) {
-        tempBerryResRank[berryKey] = {
-          berryId: +berryKey,
-          rankList: []
-        }
-      }
-      pageData.value.orgResRankArr
-        .filter(pItem => pItem.isFirstPoke)
-        .forEach(pokeItem => {
-          if (
-            pokeItem.helpSpeed &&
-            pokeItem.foodPer &&
-            +pokeItem.berryType === +berryKey
-          ) {
-            // console.log(berryKey, BERRY_TYPES[berryKey], pokeItem.oneDayFoodEnergy.count[0])
-            tempBerryResRank[berryKey].rankList.push({
-              pokemonId: pokeItem.pokemonId,
-              oneDayBerryEnergy: pokeItem.oneDayBerryEnergy,
-              helpSpeed: pokeItem.helpSpeed,
-              BERRYRANK_COUNT: pokeItem.oneDayBerryCount
-            })
-          }
-        })
-    }
-  }
-  for (const rankKey in tempBerryResRank) {
-    if (Object.hasOwnProperty.call(tempBerryResRank, rankKey)) {
-      tempBerryResRank[rankKey].rankList = sortInObjectOptions(
-        tempBerryResRank[rankKey].rankList,
-        ['BERRYRANK_COUNT']
-      )
-    }
-  }
-  const tempSkillResRank = {}
-  for (const skillKey in SKILL_TYPES) {
-    if (Object.hasOwnProperty.call(SKILL_TYPES, skillKey)) {
-      if (!tempSkillResRank[skillKey] && +skillKey !== 20) {
-        tempSkillResRank[skillKey] = {
-          skillId: +skillKey,
-          rankList: []
-        }
-      }
-      pageData.value.orgResRankArr
-        .filter(pItem => pItem.isFirstPoke)
-        .forEach(pokeItem => {
-          // console.log(skillKey, SKILL_TYPES[skillKey], pokeItem)
-          if (
-            pokeItem.helpSpeed &&
-            pokeItem.foodPer &&
-            +pokeItem.skillType === +skillKey
-          ) {
-            let nSkillKey = +skillKey
-            if(+skillKey === 19 || +skillKey === 20) {
-              nSkillKey = 19
-            }else if(+skillKey === 17 || +skillKey === 21) {
-              nSkillKey = 17
-            }
-            tempSkillResRank[nSkillKey].rankList.push({
-              pokemonId: pokeItem.pokemonId,
-              helpSpeed: pokeItem.helpSpeed,
-              SKILLRANK_COUNT: pokeItem.oneDayHelpCountSkill
-            })
-          }
-        })
-    }
-  }
-  for (const rankKey in tempSkillResRank) {
-    if (Object.hasOwnProperty.call(tempSkillResRank, rankKey)) {
-      tempSkillResRank[rankKey].rankList = sortInObjectOptions(
-        tempSkillResRank[rankKey].rankList,
-        ['SKILLRANK_COUNT']
-      )
-    }
-  }
-
-  foodResRank.value = tempFoodResRank
-  berryResRank.value = tempBerryResRank
-  skillResRank.value = tempSkillResRank
+  )
   // console.log(foodResRank.value, berryResRank.value, skillResRank.value)
 })
 

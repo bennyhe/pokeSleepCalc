@@ -260,6 +260,7 @@ const getFoodType = () => {
     <p class="cpt-pokemon__name">
       <span v-if="isShiny" class="sptime">{{ $t("PROP.shiny") }}</span>
       {{ $t(`POKEMON_NAME.${pokeId}`) }}
+      <slot name="pokeNameAfter"/>
     </p>
   </div>
 </template>

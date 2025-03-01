@@ -6,6 +6,7 @@ import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
+import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 import {
   get,
   sortInObjectOptions,
@@ -22,7 +23,8 @@ import {
   getNewFoodPer,
   getNewSkillPer,
   getNewMaxcarry,
-  getNatureDetail
+  getNatureDetail,
+  getRankPokemonsByTypes
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
@@ -42,7 +44,7 @@ import {
   skillOptionsTxt,
   levelOptions
 } from '../config/helpSpeed.js'
-import { BERRY_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES, FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -79,6 +81,12 @@ const helpSpeedCalcForm = ref({
   rankSort: 'energy',
   evotimes: 0
 })
+const pageData = ref({
+  collapseActName: 'food'
+})
+const foodResRank = ref({})
+const berryResRank = ref({})
+const skillResRank = ref({})
 const gameMapNew = ref(JSON.parse(JSON.stringify(gameMap)))
 const subskillOn = computed(() => {
   const teamSkill = {
@@ -1011,6 +1019,15 @@ const getNowUseRankSort = () => {
 onMounted(() => {
   byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
+
+  getRankPokemonsByTypes(
+    getBoxCurEnergy(userPokemons.value.list, true, true),
+    res => {
+      foodResRank.value = res.tempFoodResRank
+      berryResRank.value = res.tempBerryResRank
+      skillResRank.value = res.tempSkillResRank
+    }
+  )
 })
 watch(helpSpeedCalcForm.value, val => {
   if (!val.level) {
@@ -1201,9 +1218,7 @@ watch(helpSpeedCalcForm.value, val => {
         </el-form-item>
       </div>
       <div class="cpt-form-item-half">
-        <el-form-item
-          :label="$t(skillOptionsMaxcarry[0].txt).replace('S', '')"
-        >
+        <el-form-item :label="$t(skillOptionsMaxcarry[0].txt).replace('S', '')">
           <el-checkbox-group
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
@@ -1629,7 +1644,7 @@ watch(helpSpeedCalcForm.value, val => {
           'foodPer',
           'skillPer',
           'maxcarry',
-          'evotimes'
+          'evotimes',
         ]"
         :class="{
           cur: pokeItem.extraDesc.indexOf('自选') > -1,
@@ -1653,60 +1668,90 @@ watch(helpSpeedCalcForm.value, val => {
           {{ userPokemons.list.length }})</span
         >
       </h3>
-      <textarea
-        type="text"
-        ref="textareaBoxData"
-        class="textarea textarea--data"
-        v-model="saveBoxData"
-        readonly
-      ></textarea>
-      <el-button
-        type="success"
-        size="small"
-        plain
-        @click="handleClickCopyData()"
-        ><SvgIcon type="download" />导出数据到剪贴板</el-button
-      >
-      <el-popover
-        placement="bottom"
-        title="导入数据"
-        trigger="click"
-        :width="200"
-      >
-        <template #reference>
-          <el-button type="primary" size="small" plain
-            ><SvgIcon type="upload" />导入数据</el-button
-          >
-        </template>
-        <el-input
-          class="mb3"
-          v-model="uploadData"
-          style="width: 100%"
-          :rows="2"
-          type="textarea"
-        />
+      <div>
+        <textarea
+          type="text"
+          ref="textareaBoxData"
+          class="textarea textarea--data"
+          v-model="saveBoxData"
+          readonly
+        ></textarea>
         <el-button
-          type="primary"
+          type="success"
           size="small"
           plain
-          @click="handleClickUploadData()"
-          ><SvgIcon type="upload" />导入数据</el-button
+          @click="handleClickCopyData()"
+          ><SvgIcon type="download" />导出数据到剪贴板</el-button
         >
-      </el-popover>
-      <CptDialogFilterPoke
-        :filterObj="FILTER_OBJECT"
-        :handleClickFilterPokes="handleClickFilterPokes"
-        :showKey="[
-          'isShiny',
-          'pokeType',
-          'berryType',
-          'foodType',
-          'mainSkill',
-          'subSkill',
-          'resetBtn',
-        ]"
-        :handleClickFilterReset="handleClickFilterReset"
-      />
+        <el-popover
+          placement="bottom"
+          title="导入数据"
+          trigger="click"
+          :width="200"
+        >
+          <template #reference>
+            <el-button type="primary" size="small" plain
+              ><SvgIcon type="upload" />导入数据</el-button
+            >
+          </template>
+          <el-input
+            class="mb3"
+            v-model="uploadData"
+            style="width: 100%"
+            :rows="2"
+            type="textarea"
+          />
+          <el-button
+            type="primary"
+            size="small"
+            plain
+            @click="handleClickUploadData()"
+            ><SvgIcon type="upload" />导入数据</el-button
+          >
+        </el-popover>
+        <CptDialogFilterPoke
+          :filterObj="FILTER_OBJECT"
+          :handleClickFilterPokes="handleClickFilterPokes"
+          :showKey="[
+            'isShiny',
+            'pokeType',
+            'berryType',
+            'foodType',
+            'mainSkill',
+            'subSkill',
+            'resetBtn',
+          ]"
+          :handleClickFilterReset="handleClickFilterReset"
+        />
+      </div>
+      <div class="typerank">
+        <el-collapse accordion v-model="pageData.collapseActName">
+          <el-collapse-item name="food">
+            <template #title><h3>一天食材排行</h3> </template>
+            <CptTypeRankItem
+              :dataList="foodResRank"
+              showType="food"
+              :showMax="3"
+            />
+          </el-collapse-item>
+          <el-collapse-item name="berry">
+            <template #title> <h3>一天树果排行</h3> </template>
+            <CptTypeRankItem
+              :dataList="berryResRank"
+              showType="berry"
+              :showMax="3"
+            />
+          </el-collapse-item>
+          <el-collapse-item name="skill">
+            <template #title> <h3>一天技能排行</h3> </template>
+            <CptTypeRankItem
+              :dataList="skillResRank"
+              showType="skill"
+              :showMax="3"
+            />
+          </el-collapse-item>
+        </el-collapse>
+      </div>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemons.list.length > 0"
@@ -1724,7 +1769,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
             'maxcarry',
-            'evotimes'
+            'evotimes',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userPokemons.list,
@@ -1863,7 +1908,7 @@ watch(helpSpeedCalcForm.value, val => {
             'skillPer',
             'skillType',
             'maxcarry',
-            'evotimes'
+            'evotimes',
           ]"
           v-for="(pokeItem, pokeKey) in getBoxCurEnergy(
             userTeam.list,
