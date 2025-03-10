@@ -110,7 +110,7 @@ const getCptPokeShowKey = () => {
             v-bind:key="`type_rank_item_${showType}_${typeRankKey}_${pokeKey}`"
           >
             <li v-if="pokeKey < rankOpts[`${showType}Max`]">
-              <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`">{{
+              <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`" v-if="rankOpts[`${showType}IsMore`]">{{
                 pokeKey + 1
               }}</i>
               <CptPoke
@@ -121,7 +121,7 @@ const getCptPokeShowKey = () => {
                 :isShiny="pokeItem.isShiny"
               >
               <template v-slot:pokeNameAfter>
-                <span class="spscore"> Lv.{{ pokeItem.level }}</span>
+                <span class="spscore" v-if="pokeItem.level"> Lv.{{ pokeItem.level }}</span>
               </template>
             </CptPoke>
               <div

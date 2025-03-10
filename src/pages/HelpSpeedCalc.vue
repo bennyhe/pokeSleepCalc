@@ -783,6 +783,22 @@ const hanldeClickAddBox = () => {
     message: '成功添加到盒子！',
     type: 'success'
   })
+
+  fnUpdateRank() // 更新排行榜
+}
+
+/*
+ * 更新排行榜
+ */
+const fnUpdateRank = () => {
+  getRankPokemonsByTypes(
+    getBoxCurEnergy(userPokemons.value.list, true, true),
+    res => {
+      foodResRank.value = res.tempFoodResRank
+      // berryResRank.value = res.tempBerryResRank
+      skillResRank.value = res.tempSkillResRank
+    }
+  )
 }
 
 const closeDialogCB = () => {
@@ -791,6 +807,7 @@ const closeDialogCB = () => {
     message: '修改宝可梦成功！',
     type: 'success'
   })
+  fnUpdateRank() // 更新排行榜
 }
 const handleClickTime = () => {
   if (helpSpeedCalcForm.value.calcTime === 'threehours') {
@@ -810,6 +827,7 @@ const handleClickDelPoke = dataId => {
       message: '删除宝可梦成功！',
       type: 'success'
     })
+    fnUpdateRank() // 更新排行榜
   }
 }
 const handleClickCopyData = () => {
@@ -829,6 +847,7 @@ const handleClickUploadData = () => {
       message: '导入数据成功！',
       type: 'success'
     })
+    fnUpdateRank() // 更新排行榜
   }
 }
 const handleClickAddCurPokemonTeam = pokemonItem => {
@@ -1019,15 +1038,7 @@ const getNowUseRankSort = () => {
 onMounted(() => {
   byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
-
-  getRankPokemonsByTypes(
-    getBoxCurEnergy(userPokemons.value.list, true, true),
-    res => {
-      foodResRank.value = res.tempFoodResRank
-      berryResRank.value = res.tempBerryResRank
-      skillResRank.value = res.tempSkillResRank
-    }
-  )
+  fnUpdateRank() // 更新排行榜
 })
 watch(helpSpeedCalcForm.value, val => {
   if (!val.level) {
@@ -1731,14 +1742,6 @@ watch(helpSpeedCalcForm.value, val => {
             <CptTypeRankItem
               :dataList="foodResRank"
               showType="food"
-              :showMax="3"
-            />
-          </el-collapse-item>
-          <el-collapse-item name="berry">
-            <template #title> <h3>一天树果排行</h3> </template>
-            <CptTypeRankItem
-              :dataList="berryResRank"
-              showType="berry"
               :showMax="3"
             />
           </el-collapse-item>
