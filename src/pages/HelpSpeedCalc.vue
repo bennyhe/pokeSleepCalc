@@ -18,8 +18,6 @@ import {
   getDecimalNumber
 } from '../utils/index.js'
 import {
-  getOneDayEnergy,
-  getOneDayHelpCount,
   getNewFoodPer,
   getNewSkillPer,
   getNewMaxcarry,
@@ -27,6 +25,13 @@ import {
   getRankPokemonsByTypes
 } from '../utils/energy.js'
 import { getLevelIndexByEnergy } from '../utils/sleep.js'
+import {
+  addArrInOptions,
+  initFilterGroup,
+  getTargetPokemonEnergy,
+  getNature,
+  getNewHelpSpeed
+} from '../utils/helpcalc.js'
 import { gameMap, areaBonusMax } from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
@@ -156,48 +161,6 @@ const userPokemons = ref({
 const userTeam = ref({
   list: []
 })
-// 获取选择帮忙速度的宝可梦分组
-const initFilterGroup = () => {
-  let byHelpSpeedResIn = []
-  const byHelpSpeedOrgList = []
-  for (const pokeKey in pokedex) {
-    if (Object.hasOwnProperty.call(pokedex, pokeKey)) {
-      const pokedexItem = pokedex[pokeKey]
-
-      // 帮忙速度分类
-      if (
-        pokedexItem.helpSpeed &&
-        !byHelpSpeedOrgList.includes(pokedexItem.helpSpeed)
-      ) {
-        byHelpSpeedResIn.push({
-          id: pokedexItem.helpSpeed,
-          helpSpeed: pokedexItem.helpSpeed,
-          title: `${pokedexItem.helpSpeed}s`,
-          list: []
-        })
-        byHelpSpeedOrgList.push(pokedexItem.helpSpeed)
-      }
-      if (pokedexItem.helpSpeed) {
-        byHelpSpeedResIn
-          .find(item => item.helpSpeed === pokedexItem.helpSpeed)
-          .list.push(pokedexItem)
-      }
-    }
-  }
-  byHelpSpeedResIn.forEach(item => {
-    item.count = item.list.length
-    item.list = sortInObjectOptions(
-      [...item.list],
-      ['pokeType', 'berryType', 'id'],
-      'up'
-    )
-  })
-  byHelpSpeedResIn = sortInObjectOptions(byHelpSpeedResIn, ['helpSpeed'], 'up')
-  byHelpSpeedResIn.forEach((item, key) => {
-    item.sortIndex = key + 1
-  })
-  return byHelpSpeedResIn
-}
 
 const LS_NAME = 'myPokemonBox'
 const getLSBOX = localStorage.getItem(LS_NAME)
@@ -214,417 +177,6 @@ if (getLSAB) {
   helpSpeedCalcForm.value.areaBonus = +getLSAB
 }
 
-// 获取计算结果
-const getNewHelpSpeed = (formData, level) => {
-  // console.log(formData, level)
-  // formData: {
-  //   baseHelpSpeed, // Number
-  //   skill, // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-  //   character // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  // }
-  // 每级多0.2%
-  const levelUp = (level - 1) * 0.002
-  let basichelp = 0
-  let mainMuti = 0
-  if (formData.skill.includes('hs')) {
-    basichelp += 0.07
-  }
-  if (formData.skill.includes('hm')) {
-    basichelp += 0.14
-  }
-  if (formData.character.indexOf('hup') > -1) {
-    mainMuti = 0.1
-  }
-  if (formData.character.indexOf('hdown') > -1) {
-    mainMuti = -0.1
-  }
-  if (formData.skill.includes('hg1')) {
-    basichelp += 0.05
-  }
-  if (formData.skill.includes('hg2')) {
-    basichelp += 0.05 * 2
-  }
-  if (formData.skill.includes('hg3')) {
-    basichelp += 0.05 * 3
-  }
-  if (formData.skill.includes('hg4')) {
-    basichelp += 0.05 * 4
-  }
-  if (formData.skill.includes('hg5')) {
-    basichelp += 0.05 * 5
-  }
-  if (basichelp >= 0.35) {
-    // 所有帮速技能加起来不能大于35%
-    basichelp = 0.35
-  }
-  let res = Math.floor(
-    (Math.floor((1 - mainMuti) * (1 - basichelp) * (1 - levelUp) * 10000) /
-      10000) *
-      formData.baseHelpSpeed
-  )
-  if (helpSpeedCalcForm.value.isUseTicket) {
-    res = Math.floor(res / 1.2)
-  }
-  return res
-}
-
-const addArrInOptions = (extraDesc, pokeItem, isPlayer, isRightBerry) => {
-  isRightBerry = isRightBerry || helpSpeedCalcForm.value.isRightBerry
-  const pokeLevel = pokeItem.level || helpSpeedCalcForm.value.level
-  const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcForm.value.useFoods
-  const pokeUseSkill = pokeItem.skill || helpSpeedCalcForm.value.skill
-  const newPokeItem = { ...pokeItem }
-  newPokeItem.oneDayHelpCount = getOneDayHelpCount(
-    newPokeItem.helpSpeed,
-    newPokeItem.foodPer,
-    +helpSpeedCalcForm.value.calcTime === 10800 ? 0 : newPokeItem.skillPer,
-    helpSpeedCalcForm.value.calcTime
-  )
-
-  const resRankArr = []
-  let tempFoodType = [
-    [0, 0],
-    [0, 1]
-  ]
-  if (pokeLevel < 30) {
-    tempFoodType = [[0]]
-  } else if (pokeLevel >= 60) {
-    if (pokeItem.food.type.length === 3) {
-      tempFoodType = [
-        [0, 0, 0],
-        [0, 0, 1],
-        [0, 0, 2],
-        [0, 1, 0],
-        [0, 1, 1],
-        [0, 1, 2]
-      ]
-    } else {
-      tempFoodType = [
-        [0, 0, 0],
-        [0, 0, 1],
-        [0, 1, 0],
-        [0, 1, 1]
-      ]
-    }
-  }
-
-  if (isPlayer) {
-    tempFoodType = [[...pokeUseFoods]]
-    if (pokeLevel >= 30 && pokeLevel < 60) {
-      tempFoodType[0].splice(2, 1)
-    } else if (pokeLevel < 30) {
-      tempFoodType = [[0]]
-    }
-    // console.log(pokeUseFoods, tempFoodType)
-  } else {
-    const nArr = []
-    for (let i = 0; i < tempFoodType.length; i++) {
-      nArr.push(tempFoodType[i], tempFoodType[i])
-    }
-    tempFoodType = nArr
-  }
-
-  tempFoodType.forEach((arrFTItem, arrFTKey) => {
-    let is2n = (arrFTKey + 1) % 2 === 0
-    if (isPlayer) {
-      is2n = pokeUseSkill.includes('berrys')
-    }
-
-    let arrFood = []
-    if (newPokeItem.food) {
-      arrFood = [
-        newPokeItem.food.type[arrFTItem[0]],
-        newPokeItem.food.type[arrFTItem[1]]
-      ]
-      if (pokeLevel < 30) {
-        arrFood.splice(1, arrFood.length)
-      } else if (pokeLevel >= 60) {
-        arrFood.push(newPokeItem.food.type[arrFTItem[2]])
-      }
-    }
-    resRankArr.push({
-      ...newPokeItem,
-      id: newPokeItem.id,
-      nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
-      extraDesc,
-      pokeUseFoods,
-      ...getOneDayEnergy(
-        newPokeItem,
-        pokeLevel,
-        arrFood,
-        is2n ? true : false,
-        isRightBerry,
-        +helpSpeedCalcForm.value.areaBonus
-      )
-    })
-  })
-  return resRankArr
-}
-
-const getPlayerExtraDesc = pokemons => {
-  let extraDesc = '自选'
-  if (pokemons.skill.includes('hg1')) {
-    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*1`
-  }
-  if (pokemons.skill.includes('hg2')) {
-    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*2`
-  }
-  if (pokemons.skill.includes('hg3')) {
-    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*3`
-  }
-  if (pokemons.skill.includes('hg4')) {
-    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*4`
-  }
-  if (pokemons.skill.includes('hg5')) {
-    extraDesc += `\n${t('SUBSKILLS_NAMES.3')}*5`
-  }
-  extraDesc += `\n${getNature(pokemons)}`
-  return extraDesc
-}
-
-const getNature = pokemons => {
-  const resTxt = characterOptions.find(
-    item => item.label === pokemons.character
-  )
-  return `${t('PROP.nature')}:${getNatureDetail(resTxt, t)}`
-}
-
-const getTargetPokemonEnergy = (pokeId, isUseRankSort) => {
-  let resRankArr = []
-  const pokeItem = { ...pokedex[pokeId] }
-  pokeItem.isShiny = helpSpeedCalcForm.value.isShiny
-  pokeItem.evotimes = helpSpeedCalcForm.value.evotimes
-  pokeItem.helpSpeed = getNewHelpSpeed(
-    helpSpeedCalcForm.value,
-    helpSpeedCalcForm.value.level
-  )
-  pokeItem.foodPer = getNewFoodPer(helpSpeedCalcForm.value, pokeItem.foodPer)
-  pokeItem.skillPer = getNewSkillPer(
-    helpSpeedCalcForm.value,
-    pokeItem.skillPer
-  )
-  pokeItem.maxcarry = getNewMaxcarry(
-    helpSpeedCalcForm.value,
-    pokeItem.maxcarry
-  )
-
-  resRankArr = resRankArr.concat(
-    addArrInOptions(
-      getPlayerExtraDesc(helpSpeedCalcForm.value),
-      {
-        ...pokeItem,
-        skill: helpSpeedCalcForm.value.skill,
-        character: helpSpeedCalcForm.value.character
-      },
-      true
-    )
-  ) // 玩家自选
-
-  const hsDefaultOptions = {
-    skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-
-  if (helpSpeedCalcForm.value.contrastPoke) {
-    const tempPokeItem = { ...pokedex[helpSpeedCalcForm.value.contrastPoke] }
-    tempPokeItem.helpSpeed = getNewHelpSpeed(
-      {
-        baseHelpSpeed: tempPokeItem.helpSpeed,
-        ...hsDefaultOptions
-      },
-      helpSpeedCalcForm.value.level
-    )
-    resRankArr = resRankArr.concat(addArrInOptions('对比白板', tempPokeItem))
-  }
-
-  const tempPokeItem = { ...pokedex[pokeId] }
-  tempPokeItem.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem.helpSpeed,
-      ...hsDefaultOptions
-    },
-    helpSpeedCalcForm.value.level
-  )
-  resRankArr = resRankArr.concat(addArrInOptions('白板', tempPokeItem))
-
-  const tempPokeItem2 = { ...pokedex[pokeId] }
-  const tempSCOptions2 = {
-    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'hup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-  const tempPokeItem3 = { ...pokedex[pokeId] }
-  const tempSCOptions3 = {
-    skill: ['hs', 'hm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'hupfdown' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-  const tempPokeItem4 = { ...pokedex[pokeId] }
-  const tempSCOptions4 = {
-    skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'fup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-  const tempPokeItem5 = { ...pokedex[pokeId] }
-  const tempSCOptions5 = {
-    skill: ['ss', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-  const tempPokeItem6 = { ...pokedex[pokeId] }
-  const tempSCOptions6 = {
-    skill: ['hm', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
-    character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
-  }
-  let tempExtra2 = `${t('PROP.nature')}:帮↑`
-  let tempExtra3 = `${t('PROP.nature')}:${t('NATURE_NAMES.2')}`
-  let tempExtra4 = `${t('PROP.nature')}:食↑`
-  let tempExtra5 = `${t('PROP.nature')}:技↑`
-  let tempExtra6 = `${t('PROP.nature')}:技↑`
-  if (helpSpeedCalcForm.value.level < 50) {
-    tempSCOptions2.skill = ['fm']
-    tempSCOptions3.skill = ['hm']
-    tempSCOptions4.skill = ['fm']
-    tempSCOptions5.skill = ['sm']
-    tempSCOptions6.skill = ['hm']
-    tempExtra2 = `${t('PROP.nature')}:帮↑`
-    tempExtra3 = `${t('PROP.nature')}:${t('NATURE_NAMES.2')}`
-    tempExtra4 = `${t('PROP.nature')}:食↑`
-    tempExtra5 = `${t('PROP.nature')}:技↑`
-    tempExtra6 = `${t('PROP.nature')}:技↑`
-  }
-
-  tempPokeItem2.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem2.helpSpeed,
-      ...tempSCOptions2
-    },
-    helpSpeedCalcForm.value.level
-  )
-  tempPokeItem2.foodPer = getNewFoodPer(
-    {
-      ...tempSCOptions2
-    },
-    tempPokeItem2.foodPer
-  )
-  tempPokeItem2.skillPer = getNewSkillPer(
-    {
-      ...tempSCOptions2
-    },
-    tempPokeItem2.skillPer
-  )
-  resRankArr = resRankArr.concat(
-    addArrInOptions(tempExtra2, { ...tempPokeItem2, ...tempSCOptions2 })
-  )
-
-  tempPokeItem3.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem3.helpSpeed,
-      ...tempSCOptions3
-    },
-    helpSpeedCalcForm.value.level
-  )
-  tempPokeItem3.foodPer = getNewFoodPer(
-    {
-      ...tempSCOptions3
-    },
-    tempPokeItem3.foodPer
-  )
-  tempPokeItem3.skillPer = getNewSkillPer(
-    {
-      ...tempSCOptions3
-    },
-    tempPokeItem3.skillPer
-  )
-  resRankArr = resRankArr.concat(
-    addArrInOptions(tempExtra3, { ...tempPokeItem3, ...tempSCOptions3 })
-  )
-
-  tempPokeItem4.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem4.helpSpeed,
-      ...tempSCOptions4
-    },
-    helpSpeedCalcForm.value.level
-  )
-  tempPokeItem4.foodPer = getNewFoodPer(
-    {
-      ...tempSCOptions4
-    },
-    tempPokeItem4.foodPer
-  )
-  tempPokeItem4.skillPer = getNewSkillPer(
-    {
-      ...tempSCOptions4
-    },
-    tempPokeItem4.skillPer
-  )
-  resRankArr = resRankArr.concat(
-    addArrInOptions(tempExtra4, { ...tempPokeItem4, ...tempSCOptions4 })
-  )
-
-  tempPokeItem5.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem5.helpSpeed,
-      ...tempSCOptions5
-    },
-    helpSpeedCalcForm.value.level
-  )
-  tempPokeItem5.foodPer = getNewFoodPer(
-    {
-      ...tempSCOptions5
-    },
-    tempPokeItem5.foodPer
-  )
-  tempPokeItem5.skillPer = getNewSkillPer(
-    {
-      ...tempSCOptions5
-    },
-    tempPokeItem5.skillPer
-  )
-  resRankArr = resRankArr.concat(
-    addArrInOptions(tempExtra5, { ...tempPokeItem5, ...tempSCOptions5 })
-  )
-
-  tempPokeItem6.helpSpeed = getNewHelpSpeed(
-    {
-      baseHelpSpeed: tempPokeItem6.helpSpeed,
-      ...tempSCOptions6
-    },
-    helpSpeedCalcForm.value.level
-  )
-  tempPokeItem6.foodPer = getNewFoodPer(
-    {
-      ...tempSCOptions6
-    },
-    tempPokeItem6.foodPer
-  )
-  tempPokeItem6.skillPer = getNewSkillPer(
-    {
-      ...tempSCOptions6
-    },
-    tempPokeItem6.skillPer
-  )
-  resRankArr = resRankArr.concat(
-    addArrInOptions(tempExtra6, { ...tempPokeItem6, ...tempSCOptions6 })
-  )
-
-  let sortArr = ['oneDayEnergy']
-  if (isUseRankSort) {
-    if (helpSpeedCalcForm.value.rankSort === 'berry') {
-      sortArr = ['oneDayBerryEnergy', 'oneDayEnergy']
-    } else if (helpSpeedCalcForm.value.rankSort === 'food') {
-      sortArr = ['oneDayFoodEnergyAll', 'oneDayEnergy']
-    } else if (helpSpeedCalcForm.value.rankSort === 'skillCount') {
-      sortArr = ['oneDayHelpCountSkill', 'oneDayEnergy']
-    }
-  }
-  const res = sortInObjectOptions(resRankArr, sortArr, 'down')
-
-  helpSpeedCalcForm.value.rankIndex = res.findIndex(
-    item => item.extraDesc.indexOf('自选') > -1
-  )
-  helpSpeedCalcForm.value.resLength = res.length
-
-  return res
-}
-
 const getProcessMuti = formData => {
   return (
     getNewHelpSpeed(
@@ -633,7 +185,8 @@ const getProcessMuti = formData => {
         skill: ['none'],
         character: 'hdown'
       },
-      formData.level
+      formData.level,
+      helpSpeedCalcForm.value.isUseTicket
     ) -
     getNewHelpSpeed(
       {
@@ -641,20 +194,26 @@ const getProcessMuti = formData => {
         skill: ['hs', 'hm'],
         character: 'hup'
       },
-      formData.level
+      formData.level,
+      helpSpeedCalcForm.value.isUseTicket
     )
   )
 }
 const getProcessWidth = formData => {
   let res =
-    ((getNewHelpSpeed(formData, formData.level) -
+    ((getNewHelpSpeed(
+      formData,
+      formData.level,
+      helpSpeedCalcForm.value.isUseTicket
+    ) -
       getNewHelpSpeed(
         {
           baseHelpSpeed: formData.baseHelpSpeed,
           skill: ['none'],
           character: 'hdown'
         },
-        formData.level
+        formData.level,
+        helpSpeedCalcForm.value.isUseTicket
       )) /
       getProcessMuti(formData)) *
     -100
@@ -730,7 +289,8 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       }
       pokeItem.helpSpeed = getNewHelpSpeed(
         { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
-        upItem.level
+        upItem.level,
+        helpSpeedCalcForm.value.isUseTicket
       )
       pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
       pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
@@ -738,6 +298,7 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       // console.log(pokeItem)
       resRankArr = resRankArr.concat(
         addArrInOptions(
+          helpSpeedCalcForm.value,
           getNature(pokeItem),
           pokeItem,
           true,
@@ -795,7 +356,7 @@ const fnUpdateRank = () => {
     getBoxCurEnergy(userPokemons.value.list, true, true),
     res => {
       foodResRank.value = res.tempFoodResRank
-      // berryResRank.value = res.tempBerryResRank
+      berryResRank.value = res.tempBerryResRank
       skillResRank.value = res.tempSkillResRank
     }
   )
@@ -813,6 +374,10 @@ const handleClickTime = () => {
   if (helpSpeedCalcForm.value.calcTime === 'threehours') {
     helpSpeedCalcForm.value.isUseTicket = false
   }
+  fnUpdateRank() // 更新排行榜
+}
+const handleChangeUseTicket = () => {
+  fnUpdateRank() // 更新排行榜
 }
 const handleClickDelPoke = dataId => {
   const msg = '真的放生宝可梦?'
@@ -1002,10 +567,10 @@ const getTeamCurFoods = () => {
           }
         })
       }
-      console.log(pokeItem)
+      // console.log(pokeItem)
     })
   }
-  console.log(foodRes)
+  // console.log(foodRes)
   return sortInObjectOptions(foodRes, ['count'], 'down')
 }
 
@@ -1036,7 +601,7 @@ const getNowUseRankSort = () => {
 }
 
 onMounted(() => {
-  byHelpSpeedRes.value = initFilterGroup()
+  byHelpSpeedRes.value = initFilterGroup(pokedex)
   setTargetListByHelp()
   fnUpdateRank() // 更新排行榜
 })
@@ -1331,13 +896,21 @@ watch(helpSpeedCalcForm.value, val => {
           Lv.{{ helpSpeedCalcForm.level }}:
           <span class="sptime"
             >{{
-              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level)
+              getNewHelpSpeed(
+                helpSpeedCalcForm,
+                helpSpeedCalcForm.level,
+                helpSpeedCalcForm.isUseTicket
+              )
             }}s</span
           >
           /
           {{
             toHMInLang(
-              getNewHelpSpeed(helpSpeedCalcForm, helpSpeedCalcForm.level),
+              getNewHelpSpeed(
+                helpSpeedCalcForm,
+                helpSpeedCalcForm.level,
+                helpSpeedCalcForm.isUseTicket
+              ),
               "sec",
               localeLangId
             )
@@ -1357,7 +930,8 @@ watch(helpSpeedCalcForm.value, val => {
                 baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                 ...processItem,
               },
-              helpSpeedCalcForm.level
+              helpSpeedCalcForm.level,
+              helpSpeedCalcForm.isUseTicket
             ) -
               getNewHelpSpeed(
                 {
@@ -1365,7 +939,8 @@ watch(helpSpeedCalcForm.value, val => {
                   skill: ['none'],
                   character: 'hdown',
                 },
-                helpSpeedCalcForm.level
+                helpSpeedCalcForm.level,
+                helpSpeedCalcForm.isUseTicket
               )) /
               getProcessMuti(helpSpeedCalcForm)) *
             -100
@@ -1381,7 +956,8 @@ watch(helpSpeedCalcForm.value, val => {
                 baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                 ...processItem,
               },
-              helpSpeedCalcForm.level
+              helpSpeedCalcForm.level,
+              helpSpeedCalcForm.isUseTicket
             )
               ? 'cur'
               : '',
@@ -1395,7 +971,8 @@ watch(helpSpeedCalcForm.value, val => {
                   baseHelpSpeed: helpSpeedCalcForm.baseHelpSpeed,
                   ...processItem,
                 },
-                helpSpeedCalcForm.level
+                helpSpeedCalcForm.level,
+                helpSpeedCalcForm.isUseTicket
               )
             }}s
           </div>
@@ -1413,12 +990,22 @@ watch(helpSpeedCalcForm.value, val => {
           >
             Lv.{{ olItem }}:
             <span class="sptime"
-              >{{ getNewHelpSpeed(helpSpeedCalcForm, olItem) }}s</span
+              >{{
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  olItem,
+                  helpSpeedCalcForm.isUseTicket
+                )
+              }}s</span
             >
             /
             {{
               toHMInLang(
-                getNewHelpSpeed(helpSpeedCalcForm, olItem),
+                getNewHelpSpeed(
+                  helpSpeedCalcForm,
+                  olItem,
+                  helpSpeedCalcForm.isUseTicket
+                ),
                 "sec",
                 localeLangId
               )
@@ -1529,6 +1116,7 @@ watch(helpSpeedCalcForm.value, val => {
         :active-text="`${$t('OPTIONS.use')}(${$t('PROP.helpSpeed')}1.2倍)`"
         :inactive-text="$t('OPTIONS.nouse')"
         style="--el-switch-on-color: #ffaf00"
+        @change="handleChangeUseTicket()"
       />
     </el-form-item>
     <el-form-item label="持续时间">
@@ -1663,6 +1251,8 @@ watch(helpSpeedCalcForm.value, val => {
           contrast: pokeItem.extraDesc.indexOf('对比') > -1,
         }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
+          helpSpeedCalcForm,
+          pokedex,
           helpSpeedCalcForm.pokemonId,
           true
         )"
@@ -1738,15 +1328,59 @@ watch(helpSpeedCalcForm.value, val => {
       <div class="typerank">
         <el-collapse accordion v-model="pageData.collapseActName">
           <el-collapse-item name="food">
-            <template #title><h3>一天食材排行</h3> </template>
+            <template #title
+              ><h3>
+                {{
+                  calcTimeConfig.find(
+                    (ctcItem) => ctcItem.value === helpSpeedCalcForm.calcTime
+                  ).name
+                }}食材排行<span
+                  class="extra"
+                  v-if="helpSpeedCalcForm.isUseTicket"
+                  >{{ `${$t("OPTIONS.use")}${$t("PROP.ticket")}` }}</span
+                >
+              </h3>
+            </template>
             <CptTypeRankItem
               :dataList="foodResRank"
               showType="food"
               :showMax="3"
             />
           </el-collapse-item>
+          <el-collapse-item name="berry">
+            <template #title>
+              <h3>
+                {{
+                  calcTimeConfig.find(
+                    (ctcItem) => ctcItem.value === helpSpeedCalcForm.calcTime
+                  ).name
+                }}树果排行<span
+                  class="extra"
+                  v-if="helpSpeedCalcForm.isUseTicket"
+                  >{{ `${$t("OPTIONS.use")}${$t("PROP.ticket")}` }}</span
+                >
+              </h3>
+            </template>
+            <CptTypeRankItem
+              :dataList="berryResRank"
+              showType="berry"
+              :showMax="3"
+            />
+          </el-collapse-item>
           <el-collapse-item name="skill">
-            <template #title> <h3>一天技能排行</h3> </template>
+            <template #title>
+              <h3>
+                {{
+                  calcTimeConfig.find(
+                    (ctcItem) => ctcItem.value === helpSpeedCalcForm.calcTime
+                  ).name
+                }}技能排行<span
+                  class="extra"
+                  v-if="helpSpeedCalcForm.isUseTicket"
+                  >{{ `${$t("OPTIONS.use")}${$t("PROP.ticket")}` }}</span
+                >
+              </h3>
+            </template>
             <CptTypeRankItem
               :dataList="skillResRank"
               showType="skill"

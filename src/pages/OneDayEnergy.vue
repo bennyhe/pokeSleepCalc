@@ -352,11 +352,11 @@ const handleClickFilterPokes = (typeKey, val) => {
   <div class="typerank">
     <el-collapse accordion v-model="pageData.collapseActName">
       <el-collapse-item name="food">
-        <template #title><h3>一天食材排行</h3> </template>
+        <template #title><h3>一日食材排行</h3> </template>
         <CptTypeRankItem :dataList="foodResRank" showType="food" :showMax="6" />
       </el-collapse-item>
       <el-collapse-item name="berry">
-        <template #title> <h3>一天树果排行</h3> </template>
+        <template #title> <h3>一日树果排行</h3> </template>
         <CptTypeRankItem
           :dataList="berryResRank"
           showType="berry"
@@ -364,7 +364,7 @@ const handleClickFilterPokes = (typeKey, val) => {
         />
       </el-collapse-item>
       <el-collapse-item name="skill">
-        <template #title> <h3>一天技能排行</h3> </template>
+        <template #title> <h3>一日技能排行</h3> </template>
         <CptTypeRankItem
           :dataList="skillResRank"
           showType="skill"
