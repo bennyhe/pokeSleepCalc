@@ -243,6 +243,7 @@ export function getRankPokemonsByTypes(dataList, callback) {
           // console.log(berryKey, BERRY_TYPES[berryKey], pokeItem.oneDayFoodEnergy.count[0])
           tempBerryResRank[berryKey].rankList.push({
             pokemonId: pokeItem.pokemonId,
+            berryType: +pokeItem.berryType,
             oneDayBerryEnergy: pokeItem.oneDayBerryEnergy,
             helpSpeed: pokeItem.helpSpeed,
             BERRYRANK_COUNT: pokeItem.oneDayBerryCount,

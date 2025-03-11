@@ -389,7 +389,7 @@ const handleClickDelPoke = dataId => {
     saveBoxData.value = JSON.stringify(userPokemons.value.list)
     localStorage.setItem(LS_NAME, JSON.stringify(userPokemons.value.list))
     ElMessage({
-      message: '删除宝可梦成功！',
+      message: '放生宝可梦成功！',
       type: 'success'
     })
     fnUpdateRank() // 更新排行榜
@@ -459,6 +459,7 @@ const handleClickDelPokeInTeam = dataId => {
 }
 const handleClickChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
+  fnUpdateRank() // 更新排行榜
 }
 const handleClickChangeFMBerrys = berryId => {
   if (gameMapNew.value[0].berry.includes(berryId)) {
@@ -476,9 +477,12 @@ const handleClickChangeFMBerrys = berryId => {
   }
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
   // console.log(gameMapNew.value[0].berry)
+
+  fnUpdateRank() // 更新排行榜
 }
 const handleChangeAreaBonus = () => {
   localStorage.setItem('PSC_AB', helpSpeedCalcForm.value.areaBonus)
+  fnUpdateRank() // 更新排行榜
 }
 const handleClickAutoTeam = () => {
   userTeam.value.list = []
