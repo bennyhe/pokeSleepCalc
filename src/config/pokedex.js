@@ -56,7 +56,8 @@ const evoLine = [
   [921, 922, 923],
   [7006, 7007],
   [627, 628],
-  [7054, 980]
+  [7054, 980],
+  [517, 518]
 ]
 const pokedex = {
   1: {
@@ -2676,6 +2677,46 @@ const pokedex = {
     foodPer: 14.70,
     skillPer: 5.40
   },
+  517: {
+    id: 517,
+    // name: '食夢夢',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 9,
+    // pokeType: 3,
+    berryType: 6,
+    maxcarry: 12
+    // helpSpeed: 2400,
+    // foodPer: 14.70,
+    // skillPer: 5.40,
+    // food: {
+    //   type: [12, 3, 2],
+    //   count: {
+    //     12: {
+    //       num: [2, 5, 7]
+    //     },
+    //     3: {
+    //       num: [0, 4, 7]
+    //     },
+    //     2: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
+  518: {
+    id: 518,
+    // name: '夢夢蝕',
+    friendship: 20,
+    sleepType: 2,
+    // skillType: 9,
+    // pokeType: 3,
+    berryType: 6,
+    maxcarry: 23
+    // helpSpeed: 2400,
+    // foodPer: 14.70,
+    // skillPer: 5.40
+  },
   627: {
     id: 627,
     // name: '毛頭小鷹',
@@ -3333,6 +3374,9 @@ const updatePoke = [{
 }, {
   time: '2025/02/1',
   pokemons: [7054, 980]
+}, {
+  time: '2025/03/1',
+  pokemons: [517, 518]
 }]
 // console.log(pokedex)
 export {

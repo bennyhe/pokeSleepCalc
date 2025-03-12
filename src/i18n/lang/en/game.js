@@ -415,7 +415,9 @@ export default {
     627: 'Rufflet',
     628: 'Braviary',
     980: 'Clodsire',
-    7054: 'Wooper (Paldean Form)'
+    7054: 'Wooper (Paldean Form)',
+    517: 'Munna',
+    518: 'Musharna'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -698,6 +700,10 @@ export default {
     288: '尾巴裹裹睡',
     289: '振翅睡',
     290: '驚哭睡',
-    291: '埋在泥中睡'
+    291: '埋在泥中睡',
+    292: '夢之煙霧睡',
+    293: '飄飄滾滾睡',
+    294: '食夢睡',
+    295: '飄飄蹭蹭睡'
   }
 }

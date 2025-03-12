@@ -1,6 +1,7 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 627, 628 ,980, 7054
+  noLastList: [243, 244, 245, 35, 36, 173, 627, 628 ,980, 7054,
+    921, 922, 923, 7006, 7007
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -13,16 +14,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [517, 518], // ban 宝可梦id
+  showBanArea: [0, 4, 5] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [54, 127, 172, 280, 304, 359, 736, 778],
-  upIdsMidIds: [980, 7054],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [517, 518]
 }
 export const ACT_LIST = [
   //  {
@@ -120,4 +121,31 @@ export const ACT_LIST = [
   //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
   //   isActRandom: true
   // }
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1741809600000,
+    endTime: 1741895999000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1741896000000,
+    endTime: 1741982399000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 2
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1741982400000,
+    endTime: 1742068799000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  }
 ]
