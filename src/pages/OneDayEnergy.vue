@@ -135,9 +135,14 @@ onMounted(() => {
   )
 
   getRankPokemonsByTypes(
-    pageData.value.orgResRankArr.filter(pItem => pItem.isFirstPoke),
+    pageData.value.orgResRankArr.filter(pItem => pItem.isFirstPokeFood),
     res => {
       foodResRank.value = res.tempFoodResRank
+    }
+  )
+  getRankPokemonsByTypes(
+    pageData.value.orgResRankArr.filter(pItem => pItem.isFirstPoke),
+    res => {
       berryResRank.value = res.tempBerryResRank
       skillResRank.value = res.tempSkillResRank
     }
