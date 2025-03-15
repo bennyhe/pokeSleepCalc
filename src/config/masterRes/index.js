@@ -3,7 +3,7 @@ import actTimeList from './actTime.js'
 import extraTimeList from './extraTime.js'
 
 export const masterRes = {
-  updateTime: 1739196143732,
+  // updateTime: 1739196143732,
   level20: {
     peaceTime: {
       name: '平时-2.3+',
@@ -16,7 +16,7 @@ export const masterRes = {
       list: actTimeList
     },
     extraTime: {
-      name: '平时-6岛3只进保底',
+      name: '平时-超能力屬性週',
       // startTime: 1731873600000,
       // endTime: 1732391999000,
       list: extraTimeList

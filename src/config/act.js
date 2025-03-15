@@ -20,8 +20,8 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 4, 5] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [122, 196, 202, 280, 281, 282, 360, 439],
+  upIdsMidIds: [517, 518],
   upIdsLargeIds: [],
   noLastList: [517, 518]
 }
@@ -147,5 +147,15 @@ export const ACT_LIST = [
     notArea: [],
     midUp: [35, 36, 173],
     times: 1.5
+  },
+  {
+    name: '超能力屬性週',
+    namejp: 'エスパータイプウィーク',
+    startTime: 1742155200000,
+    endTime: 1742759999000,
+    notArea: [],
+    midUp: [517, 518],
+    smallUp: [122, 196, 202, 280, 281, 282, 360, 439],
+    isActRandom: true
   }
 ]
