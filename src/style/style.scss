@@ -9,6 +9,7 @@ body {
   color: #333;
   background: #f1f1f1 url(../img/ui/bg.png);
 }
+
 html.dark {
   body {
     background-image: url(../img/ui_dark/bg.png);
@@ -63,12 +64,15 @@ html.dark {
 
   .el-collapse {
     --el-collapse-header-height: 34px;
+
     &-item__header {
       background-color: rgba($color: var(--el-collapse-header-bg-color), $alpha: .2);
     }
+
     &-item__wrap {
       background: none;
     }
+
     &-item__content {
       line-height: 1.5;
       padding-bottom: 0;
@@ -79,9 +83,11 @@ html.dark {
 .mb3 {
   margin-bottom: 3px;
 }
+
 .mt3 {
   margin-top: 3px;
 }
+
 .mr3 {
   margin-right: 3px;
 }
@@ -319,12 +325,12 @@ h4 {
 
   &--txt {
     line-height: 1.5;
-    
+
     .cpt-select-list__item {
       font-size: 14px;
       width: 30%;
       min-width: 118px;
-      
+
     }
   }
 
@@ -345,11 +351,13 @@ h4 {
         .cpt-select-list__name {
           background: none;
         }
+
         background: linear-gradient(-45deg, #c1dfc4 0%, #deecdd 100%);
       }
     }
   }
 }
+
 .cpt-empty {
   padding: 20px 8px;
   text-align: center;
@@ -358,6 +366,7 @@ h4 {
   margin-top: 3px;
   line-height: 1.5;
 }
+
 .cpt-friendship {
   display: flex;
   align-items: center;
@@ -654,20 +663,46 @@ h4 {
       vertical-align: top;
     }
   }
-  &__friendship{
+
+  &__friendship {
     color: #f54445;
   }
+
   &__maxcarry {
     color: #5c4bf8;
   }
+
   &__evotimes {
     color: #0fa3a3;
   }
+
   &__friendship+&__maxcarry {
     margin-left: 4px;
   }
-  &__maxcarry + &__evotimes {
+
+  &__maxcarry+&__evotimes {
     margin-left: 4px;
+  }
+
+  &__skilltag {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid darken($ptSkill, 20%);
+    border-radius: 5px;
+
+    &-title {
+      display: inline-block;
+      background-color: darken($ptSkill, 20%);
+      height: 100%;
+      color: #f1f1f1;
+      padding: 0 2px;
+      margin-right: 3px;
+    }
+
+    &-info {
+      color: $ptSkill
+    }
   }
 
   &.shiny {
@@ -1125,6 +1160,7 @@ h4 {
     height: 18px;
     margin-top: -2px;
   }
+
   .svg-icon--small {
     width: 12px;
     height: 12px;
@@ -1431,6 +1467,7 @@ h3 {
   overflow-x: auto;
   overflow-y: auto;
   max-height: 400px;
+
   &__item {
     border: 1px dashed rgba($color: #d1d1d1, $alpha: .5);
   }
@@ -1737,11 +1774,12 @@ h3 {
 }
 
 .page-helpcalc {
-  .cpt-form-item-half{
+  .cpt-form-item-half {
     &-wrap {
       flex-wrap: wrap;
     }
   }
+
   .cpt-select-list--berry {
     .cpt-select-list__item {
       width: 28px;
@@ -1817,6 +1855,7 @@ h3 {
     width: 100px;
   }
 }
+
 .cpt-form-item-half {
   width: 50%;
   box-sizing: border-box;
@@ -1828,6 +1867,7 @@ h3 {
     box-sizing: border-box;
   }
 }
+
 .page-candycalc {
 
   .cpt-form-item-half {
@@ -1872,17 +1912,18 @@ h3 {
       background-color: rgba(0, 0, 0, 0.3);
     }
 
-  &__bg {
-    bottom: 0;
-    width: 150%;
-  }
+    &__bg {
+      bottom: 0;
+      width: 150%;
+    }
 
-  .icon {
-    width: 16px;
-    height: 16px;
-  }
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
   }
 }
+
 // 多语言界面适配
 @import "./_import.lang.scss";
 
@@ -1904,7 +1945,7 @@ h3 {
     text-align: right;
   }
 
-  .cpt-select-list__item{
+  .cpt-select-list__item {
     color: #d0d0d0;
     white-space: nowrap;
   }
@@ -1934,12 +1975,14 @@ h3 {
         height: 28px * 2;
       }
     }
+
     .cpt-food__count {
       font-size: 14px;
       position: static;
       width: 100%;
       border: none;
     }
+
     .extra {
       font-size: 12px;
       opacity: .7;
@@ -1951,14 +1994,17 @@ h3 {
   h3 {
     padding: 3px 6px;
   }
+
   h4 {
     font-size: 13px;
   }
+
   &__morebtn {
     padding: 8px;
     padding-right: 8px;
     margin-left: 6px;
   }
+
   &__item {
     display: inline-block;
     vertical-align: top;
@@ -1966,6 +2012,7 @@ h3 {
     box-sizing: border-box;
     border: 1px dashed rgba($color: $mainColor, $alpha: 20%);
     padding: 3px;
+
     .cpt-pokemon {
       min-height: auto;
 
@@ -1973,6 +2020,7 @@ h3 {
         margin-right: -10px;
       }
     }
+
     .cpt-pokemon__name {
       height: 14px;
 
@@ -1980,16 +2028,19 @@ h3 {
         font-size: 14px;
       }
     }
+
     .cpt-pokemon__pic {
       width: 28px;
       height: 28px;
       margin-left: auto;
       margin-right: auto;
     }
+
     .cpt-pokemon__foodper,
     .cpt-pokemon__name {
       white-space: nowrap;
     }
+
     .res {
       color: $primaryColor;
     }
@@ -2019,10 +2070,12 @@ h3 {
       display: block;
       margin: 0 auto;
     }
+
     .res {
       display: block;
     }
   }
+
   .typerank__foodres {
     max-width: 57px;
   }
@@ -2049,6 +2102,7 @@ h3 {
     .el-radio {
       height: 26px;
       margin-right: 24px;
+
       &__label {
         padding-left: 6px;
       }
@@ -2148,10 +2202,12 @@ h3 {
     .typerank {
       margin: 0 -8px;
     }
+
     .cpt-form-item-half {
       width: 100%;
       max-width: auto;
     }
+
     .radiogroup--level .el-radio-button__inner {
       padding: 5px;
     }

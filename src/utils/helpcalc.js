@@ -21,6 +21,7 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcFormData.useFoods
   const pokeUseSkill = pokeItem.skill || helpSpeedCalcFormData.skill
   const newPokeItem = { ...pokeItem }
+  newPokeItem.skilllevel = pokeItem.skilllevel || helpSpeedCalcFormData.skilllevel
   newPokeItem.oneDayHelpCount = getOneDayHelpCount(
     newPokeItem.helpSpeed,
     newPokeItem.foodPer,
@@ -237,6 +238,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   const pokeItem = { ...pokedex[pokeId] }
   pokeItem.isShiny = helpSpeedCalcFormData.isShiny
   pokeItem.evotimes = helpSpeedCalcFormData.evotimes
+  pokeItem.skilllevel = helpSpeedCalcFormData.skilllevel
   pokeItem.helpSpeed = getNewHelpSpeed(
     helpSpeedCalcFormData,
     helpSpeedCalcFormData.level

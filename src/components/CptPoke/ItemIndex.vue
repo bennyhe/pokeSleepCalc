@@ -3,7 +3,6 @@ import { defineProps, computed } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { toHMInLang, get } from '../../utils/index.js'
-import { POKE_TYPES } from '../../config/valKey.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()

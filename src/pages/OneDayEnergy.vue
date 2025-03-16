@@ -1,13 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { Place } from '@element-plus/icons-vue'
-import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
-import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
-import { sortInObjectOptions, containsAny, getNum } from '../utils/index.js'
+import { sortInObjectOptions, containsAny } from '../utils/index.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
@@ -16,7 +14,7 @@ import {
 import { gameMap, areaBonusMax } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
-import { BERRY_TYPES, FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
+import { BERRY_TYPES } from '../config/valKey.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -56,7 +54,7 @@ onMounted(() => {
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = { ...pokedex[key] }
-
+      pokeItem.skilllevel = pokeItem.skilllevel || 1
       if (pokeItem.helpSpeed && pokeItem.foodPer) {
         pokeItem.helpSpeed = Math.floor(
           pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)

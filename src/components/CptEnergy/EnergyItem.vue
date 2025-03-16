@@ -14,8 +14,8 @@ import {
   characterOptions,
   skillOptionsTxt
 } from '../../config/helpSpeed.js'
-import { getNum, toHMInLang } from '../../utils/index.js'
-import { getNatureDetail } from '../../utils/energy.js'
+import { getNum, toHMInLang, get } from '../../utils/index.js'
+import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
 import { pokedex } from '../../config/pokedex.js'
 
 import { useI18n } from 'vue-i18n'
@@ -71,6 +71,9 @@ const handleBlurLevel = () => {
     editData.value.level = 10
   }
 }
+const handleChangeSkillLevel = () => {
+  editData.value.skilllevel = getNewSkillLevel(editData.value)
+}
 </script>
 
 <template>
@@ -123,8 +126,20 @@ const handleBlurLevel = () => {
       <p class="cpt-pokemon__poketype2 xs">
         食{{ getNum(props.pokeItem.oneDayFoodEnergy.allEnergy) }}
       </p>
-      <p class="cpt-pokemon__poketype3 xs">
-        技{{ getNum(props.pokeItem.oneDayHelpCount.skill) }}次
+      <p
+        class="cpt-pokemon__poketype3 xs"
+      >
+        技{{ getNum(props.pokeItem.oneDaySkillEffects.value || 0) }}
+      </p>
+      <p class="cpt-pokemon__skilltag xs">
+        <span class="cpt-pokemon__skilltag-title">
+          技<template v-if="props.pokeItem.skilllevel"
+            >Lv.{{ getNum(props.pokeItem.skilllevel) }}</template
+          >
+        </span>
+        <span class="cpt-pokemon__skilltag-info"
+          >{{ getNum(props.pokeItem.oneDayHelpCount.skill) }}次</span
+        >
       </p>
       <div
         v-if="
@@ -466,6 +481,7 @@ const handleBlurLevel = () => {
               v-model="editData.skill"
               :min="0"
               :max="5"
+              @change="handleChangeSkillLevel()"
             >
               <el-checkbox-button
                 :label="skillItem.label"
@@ -480,10 +496,25 @@ const handleBlurLevel = () => {
         </div>
         <h4 v-if="pokedex[editData.pokemonId].evoLineKey > 0">进化次数</h4>
         <div v-if="pokedex[editData.pokemonId].evoLineKey > 0">
-          <el-radio-group size="small" v-model="editData.evotimes">
+          <el-radio-group
+            size="small"
+            v-model="editData.evotimes"
+            @change="handleChangeSkillLevel()"
+          >
             <el-radio-button
               :label="skillItem"
               v-for="skillItem in [0, 1, 2]"
+              v-bind:key="skillItem.label"
+              >{{ skillItem }}</el-radio-button
+            >
+          </el-radio-group>
+        </div>
+        <h4>技能等级</h4>
+        <div>
+          <el-radio-group size="small" v-model="editData.skilllevel">
+            <el-radio-button
+              :label="skillItem"
+              v-for="skillItem in [1, 2, 3, 4, 5, 6, 7]"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

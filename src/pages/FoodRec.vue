@@ -11,7 +11,6 @@ import { COOKMENU } from '../config/cookmenu.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
 import {
-  POKE_TYPES,
   COOK_TYPES,
   MENU_TYPES,
   FOOD_TYPES,

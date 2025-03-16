@@ -1,6 +1,8 @@
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
 import { BERRY_TYPES, FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
+import { skillEffects } from '../config/skillEffects.js'
+
 import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
 
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
@@ -66,6 +68,31 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   helpFoodEnergy.allEnergy = Math.floor(helpFoodEnergy.allEnergy)
   return helpFoodEnergy
 }
+const getOneDaySkillEffects = (pokeItem, areaBonus) => {
+  const canCalcSkillTypes = [1, 2, 5] // , 3, 6, 11, 14
+  const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
+  const pokeSkillType = +get('skillType', pokeItem)
+  const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
+  if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType])) {
+    let skillOnceEnergy = 0
+    const curSkillValue = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].value
+    if (Array.isArray(curSkillValue)) { // 区间则取平均值
+      skillOnceEnergy = curSkillValue.reduce((sum, current) => sum + current, 0) / curSkillValue.length
+    } else {
+      skillOnceEnergy = curSkillValue
+    }
+    let energy = pokeSkillCount * skillOnceEnergy
+    if(areaBonus) {
+      energy = energy * (1 + areaBonus / 100)
+    }
+    // console.log(pokeItem, areaBonus)
+    return {
+      type: 'energy',
+      value: Math.floor(energy)
+    }
+  }
+  return {}
+}
 export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
   foodPer = parseFloat(foodPer || 0)
   skillPer = parseFloat(skillPer || 0)
@@ -89,6 +116,16 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
   oneDayHelpCount.berry = getDecimalNumber(oneDayHelpCount.sum - skillCount - oneDayHelpCount.food, 2)
   return oneDayHelpCount
 }
+/**
+ * 获取宝可梦一天能量相关
+ * @param {*} pokeItem 
+ * @param {*} pokeLevel 
+ * @param {*} useFoods 
+ * @param {*} isDoubleBerry 
+ * @param {*} isRightBerry 
+ * @param {*} areaBonus 
+ * @returns 
+ */
 export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus) => {
   const level = pokeLevel || 50
   areaBonus = areaBonus || 0
@@ -100,14 +137,20 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     areaBonus
   )
   const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus)
+  const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, areaBonus)
+  let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
+  if (oneDaySkillEffects.type === 'energy') {
+    oneDayEnergy += oneDaySkillEffects.value
+  }
   return {
     useFoods,
     oneDayBerryEnergy: oneDayBerryEnergy.berryEnergy,
     oneDayBerryCount: oneDayBerryEnergy.berryCount,
     oneDayFoodEnergy,
-    oneDayEnergy: oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy,
+    oneDayEnergy,
     oneDayFoodEnergyAll: oneDayFoodEnergy.allEnergy || 0,
-    oneDayHelpCountSkill: pokeItem.oneDayHelpCount.skill || 0
+    oneDayHelpCountSkill: pokeItem.oneDayHelpCount.skill || 0,
+    oneDaySkillEffects
   }
 }
 
@@ -166,6 +209,20 @@ export function getNewMaxcarry(formData, maxcarry) {
     maxcarry += (formData.evotimes * 5)
   }
   return maxcarry
+}
+
+export function getNewSkillLevel(formData) {
+  let maxLevel = 1
+  if (formData.skill.includes('sls')) {
+    maxLevel += 1
+  }
+  if (formData.skill.includes('slm')) {
+    maxLevel += 2
+  }
+  if (formData.evotimes) {
+    maxLevel += formData.evotimes
+  }
+  return maxLevel
 }
 
 export function getNatureDetail(cItem, t) {
