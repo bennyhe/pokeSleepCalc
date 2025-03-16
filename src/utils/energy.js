@@ -162,7 +162,9 @@ export function getNewMaxcarry(formData, maxcarry) {
   if (formData.skill.includes('cl')) {
     maxcarry += 18
   }
-  maxcarry += (formData.evotimes * 5)
+  if (formData.evotimes) {
+    maxcarry += (formData.evotimes * 5)
+  }
   return maxcarry
 }
 
