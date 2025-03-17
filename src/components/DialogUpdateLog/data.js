@@ -2,7 +2,7 @@ const markdownText = `
 # 更新日志
 
 ## 25-03-17
-1. update #517, #518
+1. update 宝可梦517, #518
 
 ## 25-03-16
 1. add 活动配置
