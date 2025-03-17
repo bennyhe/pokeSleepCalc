@@ -2682,40 +2682,40 @@ const pokedex = {
     // name: '食夢夢',
     friendship: 5,
     sleepType: 2,
-    // skillType: 9,
-    // pokeType: 3,
+    skillType: 6,
+    pokeType: 1,
     berryType: 6,
-    maxcarry: 12
-    // helpSpeed: 2400,
-    // foodPer: 14.70,
-    // skillPer: 5.40,
-    // food: {
-    //   type: [12, 3, 2],
-    //   count: {
-    //     12: {
-    //       num: [2, 5, 7]
-    //     },
-    //     3: {
-    //       num: [0, 4, 7]
-    //     },
-    //     2: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    maxcarry: 12,
+    helpSpeed: 5700,
+    foodPer: 19.70,
+    skillPer: 4.30,
+    food: {
+      type: [8, 9, 17],
+      count: {
+        8: {
+          num: [1, 2, 4]
+        },
+        9: {
+          num: [0, 2, 3]
+        },
+        17: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   518: {
     id: 518,
     // name: '夢夢蝕',
     friendship: 20,
     sleepType: 2,
-    // skillType: 9,
-    // pokeType: 3,
+    skillType: 6,
+    pokeType: 1,
     berryType: 6,
-    maxcarry: 23
-    // helpSpeed: 2400,
-    // foodPer: 14.70,
-    // skillPer: 5.40
+    maxcarry: 23,
+    helpSpeed: 2800,
+    foodPer: 18.80,
+    skillPer: 4.10
   },
   627: {
     id: 627,

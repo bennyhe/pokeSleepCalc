@@ -14,10 +14,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [517, 518], // ban 宝可梦id
-  showBanArea: [0, 4, 5] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [122, 196, 202, 280, 281, 282, 360, 439],
@@ -121,33 +121,6 @@ export const ACT_LIST = [
   //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
   //   isActRandom: true
   // }
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1741809600000,
-    endTime: 1741895999000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1741896000000,
-    endTime: 1741982399000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    times: 2
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1741982400000,
-    endTime: 1742068799000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
   {
     name: '超能力屬性週',
     namejp: 'エスパータイプウィーク',
