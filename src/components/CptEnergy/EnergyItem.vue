@@ -312,7 +312,7 @@ const handleChangeSkillLevel = () => {
       v-bind:key="dialogId"
       :closeCallBack="props.closeDialogCB"
     >
-      <div class="page-helpcalc el-form" v-if="editData && editData.pokemonId">
+      <div class="dialog-editiv page-helpcalc el-form" v-if="editData && editData.pokemonId">
         <h3>
           编辑<span v-if="editData.isShiny" class="sptime">{{
             $t("PROP.shiny")

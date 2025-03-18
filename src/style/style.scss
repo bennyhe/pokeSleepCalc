@@ -690,6 +690,8 @@ h4 {
     white-space: nowrap;
     border: 1px solid darken($ptSkill, 20%);
     border-radius: 5px;
+    line-height: 16px;
+    height: 16px;
 
     &-title {
       display: inline-block;
@@ -2158,8 +2160,13 @@ h3 {
 
   .dialog-support,
   .dialog-update,
-  .dialog-filter {
+  .dialog-filter,
+  .dialog-editiv {
     max-height: vw(850);
+  }
+  .dialog-editiv {
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .cpt-foodmenu-scroll {
