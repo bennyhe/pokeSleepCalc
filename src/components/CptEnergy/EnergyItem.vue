@@ -126,10 +126,12 @@ const handleChangeSkillLevel = () => {
       <p class="cpt-pokemon__poketype2 xs">
         食{{ getNum(props.pokeItem.oneDayFoodEnergy.allEnergy) }}
       </p>
-      <p
-        class="cpt-pokemon__poketype3 xs"
-      >
-        技{{ getNum(props.pokeItem.oneDaySkillEffects.value || 0) }}
+      <p class="cpt-pokemon__poketype3 xs">
+        技<img
+          class="icon"
+          v-lazy="`./img/ui/shards.png`"
+          v-if="props.pokeItem.oneDaySkillEffects.type === 'shards'"
+        />{{ getNum(props.pokeItem.oneDaySkillEffects.value || 0) }}
       </p>
       <p class="cpt-pokemon__skilltag xs">
         <span class="cpt-pokemon__skilltag-title">
@@ -312,7 +314,10 @@ const handleChangeSkillLevel = () => {
       v-bind:key="dialogId"
       :closeCallBack="props.closeDialogCB"
     >
-      <div class="dialog-editiv page-helpcalc el-form" v-if="editData && editData.pokemonId">
+      <div
+        class="dialog-editiv page-helpcalc el-form"
+        v-if="editData && editData.pokemonId"
+      >
         <h3>
           编辑<span v-if="editData.isShiny" class="sptime">{{
             $t("PROP.shiny")

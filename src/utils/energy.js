@@ -68,8 +68,14 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   helpFoodEnergy.allEnergy = Math.floor(helpFoodEnergy.allEnergy)
   return helpFoodEnergy
 }
+/**
+ * 获取技能效果
+ * @param {Object} pokeItem 宝可梦数据
+ * @param {Number} areaBonus 岛屿加成
+ * @returns 
+ */
 const getOneDaySkillEffects = (pokeItem, areaBonus) => {
-  const canCalcSkillTypes = [1, 2, 5] // , 3, 6, 11, 14
+  const canCalcSkillTypes = [1, 2, 5, 3, 6] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -82,12 +88,16 @@ const getOneDaySkillEffects = (pokeItem, areaBonus) => {
       skillOnceEnergy = curSkillValue
     }
     let energy = pokeSkillCount * skillOnceEnergy
-    if(areaBonus) {
+    let type = 'energy'
+    if ([1, 2, 5].includes(pokeSkillType) && areaBonus) {
       energy = energy * (1 + areaBonus / 100)
+    }
+    if ([3, 6].includes(pokeSkillType)) {
+      type = 'shards'
     }
     // console.log(pokeItem, areaBonus)
     return {
-      type: 'energy',
+      type,
       value: Math.floor(energy)
     }
   }
