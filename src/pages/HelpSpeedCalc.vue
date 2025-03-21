@@ -522,6 +522,7 @@ const handleClickAutoTeam = () => {
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObjectInBox)))
 const handleClickFilterReset = () => {
   FILTER_OBJECT.value = JSON.parse(JSON.stringify(orgResetObjectInBox))
+  fnUpdateRank() // 更新排行榜
 }
 const handleClickFilterPokes = (typeKey, val) => {
   if (FILTER_OBJECT.value[typeKey].includes(val)) {
@@ -531,6 +532,7 @@ const handleClickFilterPokes = (typeKey, val) => {
   } else {
     FILTER_OBJECT.value[typeKey].push(val)
   }
+  fnUpdateRank() // 更新排行榜
 }
 
 const getTeamAfterBonus = () => {
