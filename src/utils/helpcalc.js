@@ -241,7 +241,8 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   pokeItem.skilllevel = helpSpeedCalcFormData.skilllevel
   pokeItem.helpSpeed = getNewHelpSpeed(
     helpSpeedCalcFormData,
-    helpSpeedCalcFormData.level
+    helpSpeedCalcFormData.level,
+    helpSpeedCalcFormData.isUseTicket
   )
   pokeItem.foodPer = getNewFoodPer(helpSpeedCalcFormData, pokeItem.foodPer)
   pokeItem.skillPer = getNewSkillPer(
