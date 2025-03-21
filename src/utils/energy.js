@@ -327,7 +327,7 @@ export function getRankPokemonsByTypes(dataList, callback) {
     if (Object.hasOwnProperty.call(tempBerryResRank, rankKey)) {
       tempBerryResRank[rankKey].rankList = sortInObjectOptions(
         tempBerryResRank[rankKey].rankList,
-        ['BERRYRANK_COUNT']
+        ['oneDayBerryEnergy', 'BERRYRANK_COUNT']
       )
     }
   }
