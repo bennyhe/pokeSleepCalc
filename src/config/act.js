@@ -1,7 +1,8 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 627, 628 ,980, 7054,
-    921, 922, 923, 7006, 7007
+    921, 922, 923, 7006, 7007,
+    517, 518
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -20,10 +21,10 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [122, 196, 202, 280, 281, 282, 360, 439],
-  upIdsMidIds: [517, 518],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
-  noLastList: [517, 518]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {
