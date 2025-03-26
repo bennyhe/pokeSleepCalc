@@ -182,7 +182,7 @@ export const getNewHelpSpeed = (formData, level, isUseTicket) => {
     mainMuti = 0.1
   }
   if (formData.character.indexOf('hdown') > -1) {
-    mainMuti = -0.1
+    mainMuti = -0.075
   }
   if (formData.skill.includes('hg1')) {
     basichelp += 0.05

@@ -164,7 +164,7 @@ export const characterOptions = [{
   useNatures: [11]
 }, {
   label: 'hdownfup',
-  txt: '(帮↓-10%食↑+20%)',
+  txt: '(帮↓-7.5%食↑+20%)',
   useNatures: [9]
 }, {
   label: 'hup',
@@ -180,7 +180,7 @@ export const characterOptions = [{
   useNatures: [2]
 }, {
   label: 'hdown',
-  txt: '(帮↓-10%)',
+  txt: '(帮↓-7.5%)',
   useNatures: [5, 17]
 }, {
   label: 'sup',
@@ -192,7 +192,7 @@ export const characterOptions = [{
   useNatures: [15]
 }, {
   label: 'hdownsup',
-  txt: '(技↑+20%帮↓-10%)',
+  txt: '(技↑+20%帮↓-7.5%)',
   useNatures: [13]
 }, {
   label: 'sdown',
