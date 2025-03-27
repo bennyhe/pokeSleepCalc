@@ -351,7 +351,8 @@ export default {
       'sleepStyles': [
         '471-id-2',
         '923-id-1',
-        '628-id-3'
+        '628-id-3',
+        '488-id-1'
       ]
     },
     {
@@ -398,7 +399,8 @@ export default {
       'energy': 1286161,
       'sleepStyles': [
         '36-id-3',
-        '923-id-2'
+        '923-id-2',
+        '488-id-2'
       ]
     },
     {
@@ -450,7 +452,8 @@ export default {
       'nameId': 4,
       'energy': 2440325,
       'sleepStyles': [
-        '923-id-3'
+        '923-id-3',
+        '488-id-3'
       ]
     },
     {

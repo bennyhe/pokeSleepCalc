@@ -1,8 +1,9 @@
 export const SLEEP_CALC_POKEMONS = {
-  list: [243, 244, 245], // 特殊宝可梦列表，只能一个
-  noLastList: [243, 244, 245, 35, 36, 173, 627, 628 ,980, 7054,
+  list: [243, 244, 245, 488], // 特殊宝可梦列表，只能一个
+  noLastList: [243, 244, 245, 35, 36, 173, 627, 628, 980, 7054,
     921, 922, 923, 7006, 7007,
     517, 518
+    // 488
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -15,10 +16,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [488], // ban 宝可梦id
+  showBanArea: [0, 1, 2, 3, 4, 5] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
@@ -122,14 +123,14 @@ export const ACT_LIST = [
   //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
   //   isActRandom: true
   // }
-  {
-    name: '超能力屬性週',
-    namejp: 'エスパータイプウィーク',
-    startTime: 1742155200000,
-    endTime: 1742759999000,
-    notArea: [],
-    midUp: [517, 518],
-    smallUp: [122, 196, 202, 280, 281, 282, 360, 439],
-    isActRandom: true
-  }
+  // {
+  //   name: '超能力屬性週',
+  //   namejp: 'エスパータイプウィーク',
+  //   startTime: 1742155200000,
+  //   endTime: 1742759999000,
+  //   notArea: [],
+  //   midUp: [517, 518],
+  //   smallUp: [122, 196, 202, 280, 281, 282, 360, 439],
+  //   isActRandom: true
+  // }
 ]

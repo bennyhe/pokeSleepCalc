@@ -2677,6 +2677,33 @@ const pokedex = {
     foodPer: 14.70,
     skillPer: 5.40
   },
+  488: {
+    id: 488,
+    // name: '克雷色利亞',
+    friendship: 30,
+    sleepType: 2,
+    skillType: 22,
+    // pokeType: 1,
+    berryType: 6,
+    maxcarry: 22
+    // helpSpeed: 5700,
+    // foodPer: 19.70,
+    // skillPer: 4.30,
+    // food: {
+    //   type: [8, 9, 17],
+    //   count: {
+    //     8: {
+    //       num: [1, 2, 4]
+    //     },
+    //     9: {
+    //       num: [0, 2, 3]
+    //     },
+    //     17: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   517: {
     id: 517,
     // name: '食夢夢',
@@ -3376,7 +3403,7 @@ const updatePoke = [{
   pokemons: [7054, 980]
 }, {
   time: '2025/03/1',
-  pokemons: [517, 518]
+  pokemons: [517, 518, 488]
 }]
 // console.log(pokedex)
 export {

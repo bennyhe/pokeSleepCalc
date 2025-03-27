@@ -37,7 +37,7 @@ export function feedSandslash(sleepItem, sandslashPower, eatTimes) {
 }
 
 export function getRandomIV(pokeId, options) {
-  const { isFirst243, isFirst244, isFirst245, lockSkillCount } = options
+  const { isFirst243, isFirst244, isFirst245, isFirst488,  lockSkillCount } = options
   let ivRes = {
     useFoods: [],
     natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1

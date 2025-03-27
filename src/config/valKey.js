@@ -163,7 +163,8 @@ export const SKILL_TYPES = {
   18: '月光（活力填充S）',
   19: '變身（技能複製）',
   20: '模仿（技能複製）',
-  21: '樹果遽增'
+  21: '樹果遽增',
+  22: '新月祈禱（活力全體療癒S）'
 }
 export const SUBSKILLS_NAMES = {
   1: '樹果數量S',

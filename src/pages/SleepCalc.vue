@@ -77,6 +77,7 @@ const userSleep = ref({
   isFirst243: true,
   isFirst244: true,
   isFirst245: true,
+  isFirst488: true,
   accumulation: {
     exp: 0,
     shards: 0,
@@ -345,6 +346,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isFirst243: userSleep.value.isFirst243,
       isFirst244: userSleep.value.isFirst244,
       isFirst245: userSleep.value.isFirst245,
+      isFirst488: userSleep.value.isFirst488,
       lockSkillCount: userData.value.lockSkillCount
     })
     if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
@@ -355,6 +357,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     if (userSleep.value.isFirst245 && sleepItem.pokeId === 245) {
       userSleep.value.isFirst245 = false
+    }
+    if (userSleep.value.isFirst488 && sleepItem.pokeId === 488) {
+      userSleep.value.isFirst488 = false
     }
 
     let isCurPokeMapLock = 0
@@ -372,6 +377,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isFirst243: userSleep.value.isFirst243,
       isFirst244: userSleep.value.isFirst244,
       isFirst245: userSleep.value.isFirst245,
+      isFirst488: userSleep.value.isFirst488,
       lockSkillCount: isCurPokeMapLock
     })
 

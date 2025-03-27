@@ -95,7 +95,8 @@ export default {
     18: 'Moonlight (Charge Energy S)',
     19: 'Transform (Skill Copy)',
     20: 'Mimic (Skill Copy)',
-    21: 'Berry Burst'
+    21: 'Berry Burst',
+    22: 'Lunar Blessing (Energy for Everyone S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -417,7 +418,8 @@ export default {
     980: 'Clodsire',
     7054: 'Wooper (Paldean Form)',
     517: 'Munna',
-    518: 'Musharna'
+    518: 'Musharna',
+    488: 'Cresselia'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -704,6 +706,7 @@ export default {
     292: '夢之煙霧睡',
     293: '飄飄滾滾睡',
     294: '食夢睡',
-    295: '飄飄蹭蹭睡'
+    295: '飄飄蹭蹭睡',
+    296: '新月祈禱睡'
   }
 }
