@@ -22,10 +22,10 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 1, 2, 3, 4, 5] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
+  upIdsSmallIds: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
   upIdsMidIds: [],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [488]
 }
 export const ACT_LIST = [
   //  {
@@ -133,4 +133,19 @@ export const ACT_LIST = [
   //   smallUp: [122, 196, 202, 280, 281, 282, 360, 439],
   //   isActRandom: true
   // }
+  {
+    name: '克雷色利亞VS達克萊伊',
+    namejp: 'クレセリアVSダークライ',
+    startTime: 1743364800000,
+    endTime: 1744574399000,
+    notArea: [],
+    smallUp: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
+    timelimitPokemons: {
+      'beach': [488],
+      'hole': [488],
+      'plant': [488]
+    },
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    isActRandom: true
+  }
 ]
