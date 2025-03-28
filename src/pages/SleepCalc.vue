@@ -947,6 +947,9 @@ const getQuickChangeSleepPoint = () => {
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
+          <el-radio :label="1.2"
+            ><CptAvatar pokeId="488" />*1.2倍</el-radio
+          >
           <el-radio :label="1.5"
             ><SvgIcon type="moonNight" size="mid" />{{
               $t("OPTIONS.sleepDay")
