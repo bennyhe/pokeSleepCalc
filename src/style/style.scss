@@ -714,7 +714,7 @@ h4 {
   }
 
   &__skill {
-    height: 24px;
+    min-height: 24px;
     line-height: 12px;
     color: darken($ptSkill, 20%);
     white-space: normal;
