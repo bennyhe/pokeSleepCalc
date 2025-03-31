@@ -1,6 +1,6 @@
 import { pokedex } from '../config/pokedex.js'
 import { SUB_SKILLS } from '../config/pokeSkill.js'
-import { POKE_243_IV } from '../config/lockIV.js'
+import { POKE_243_IV, POKE_488_IV } from '../config/lockIV.js'
 import {
   getRandomArr
 } from '../utils/index.js'
@@ -67,6 +67,11 @@ export function getRandomIV(pokeId, options) {
     ivRes = {
       ...ivRes,
       ...POKE_243_IV
+    }
+  } else if ((isFirst243 && pokeId === 488)) {
+    ivRes = {
+      ...ivRes,
+      ...POKE_488_IV
     }
   } else {
     ivRes.skills = getRandomPokeSkills(lockSkillCount)
