@@ -34,7 +34,7 @@ export const POKE_243_IV = {
   ]
 }
 export const POKE_488_IV = {
-  natureId: 24,
+  natureId: 22,
   skills: [
     {
       nameId: 2,
