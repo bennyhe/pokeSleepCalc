@@ -68,7 +68,7 @@ export function getRandomIV(pokeId, options) {
       ...ivRes,
       ...POKE_243_IV
     }
-  } else if ((isFirst243 && pokeId === 488)) {
+  } else if ((isFirst488 && pokeId === 488)) {
     ivRes = {
       ...ivRes,
       ...POKE_488_IV
