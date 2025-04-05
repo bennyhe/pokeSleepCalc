@@ -419,7 +419,8 @@ export default {
     7054: 'Wooper (Paldean Form)',
     517: 'Munna',
     518: 'Musharna',
-    488: 'Cresselia'
+    488: 'Cresselia',
+    491: 'Darkrai'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
