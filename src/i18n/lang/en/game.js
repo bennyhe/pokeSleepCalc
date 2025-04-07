@@ -52,7 +52,8 @@ export default {
   'POKE_TYPES': {
     1: 'Berries',
     2: 'Ingredients',
-    3: 'Skills'
+    3: 'Skills',
+    4: 'All'
   },
   'BERRY_TYPES': {
     1: '橙橙果',
@@ -96,7 +97,8 @@ export default {
     19: 'Transform (Skill Copy)',
     20: 'Mimic (Skill Copy)',
     21: 'Berry Burst',
-    22: 'Lunar Blessing (Energy for Everyone S)'
+    22: 'Lunar Blessing (Energy for Everyone S)',
+    23: 'Bad Dreams (Charge Strength M)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',

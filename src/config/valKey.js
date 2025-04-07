@@ -1,7 +1,8 @@
 export const POKE_TYPES = {
   1: '树果',
   2: '食材',
-  3: '技能'
+  3: '技能',
+  4: '全部'
 }
 export const SLEEP_TYPES = {
   999: '沒有特徵',
@@ -164,7 +165,8 @@ export const SKILL_TYPES = {
   19: '變身（技能複製）',
   20: '模仿（技能複製）',
   21: '樹果遽增',
-  22: '新月祈禱（活力全體療癒S）'
+  22: '新月祈禱（活力全體療癒S）',
+  23: '夢魘（能量填充M）'
 }
 export const SUBSKILLS_NAMES = {
   1: '樹果數量S',

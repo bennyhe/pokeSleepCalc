@@ -157,7 +157,7 @@ export const POKEMON_TYPE = [{
 }, {
   id: 'legendary',
   value: 1.8,
-  sampleIds: [243],
+  sampleIds: [243, 488],
   txt: '传说(1.8倍)'
 }, {
   id: 'mythical',

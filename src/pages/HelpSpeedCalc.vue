@@ -644,6 +644,7 @@ watch(helpSpeedCalcForm.value, val => {
               pokeItem.helpSpeed
             }s`"
             :value="pokeItem.id"
+            v-if="+pokeItem.id !== 491"
           >
             <img
               class="icon"

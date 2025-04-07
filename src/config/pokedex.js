@@ -2709,27 +2709,21 @@ const pokedex = {
     // name: '達克萊伊',
     friendship: 25,
     sleepType: 1,
-    // skillType: 22,
-    // pokeType: 3,
+    skillType: 23,
+    pokeType: 4,
     berryType: 17,
-    maxcarry: 28
-    // helpSpeed: 2300,
+    maxcarry: 28,
+    helpSpeed: 2900,
     // foodPer: 23.90,
     // skillPer: 4.10,
-    // food: {
-    //   type: [11, 13, 12],
-    //   count: {
-    //     11: {
-    //       num: [1, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 2, 3]
-    //     },
-    //     12: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    food: {
+      type: [7],
+      count: {
+        7: {
+          num: [2, 0, 0]
+        }
+      }
+    }
   },
   517: {
     id: 517,
