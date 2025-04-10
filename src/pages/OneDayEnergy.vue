@@ -65,24 +65,38 @@ onMounted(() => {
           pokeItem.skillPer
         )
 
-        if (pokeItem.food) {
-          const tempFoodType = [
+        if (pokeItem.food) { // 如果有食材排列
+          let tempFoodType = [ // 如果是两种食材宝可梦
             [0, 0, 0],
             [0, 0, 1],
             [0, 1, 0],
             [0, 1, 1]
           ]
-          if (pokeItem.food.type.length === 3) {
+          if (pokeItem.food.type.length === 3) { // 如果是三种食材宝可梦
             tempFoodType.push([0, 0, 2])
             tempFoodType.push([0, 1, 2])
           }
+          if(+pokeItem.id === 491) { // 未解锁30 60食材的噩梦神
+            tempFoodType = [
+              [0]
+            ]
+          }
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
-            const useFood = [
+            let useFood = [
               pokeItem.food.type[arrFTItem[0]],
               pokeItem.food.type[arrFTItem[1]],
               pokeItem.food.type[arrFTItem[2]]
-            ];
-            [0, 1].forEach((oddItem, oddKey) => {
+            ]
+            if(+pokeItem.id === 491) {
+              useFood = [
+                pokeItem.food.type[arrFTItem[0]]
+              ]
+            }
+            const isHasBerrys = [0]
+            if(+pokeItem.id !== 491) {
+              isHasBerrys.push(1)
+            }
+            isHasBerrys.forEach((oddItem, oddKey) => {
               const is2n = (oddKey + 1) % 2 === 0
               pageData.value.resRankArr.push({
                 ...pokeItem,
@@ -359,7 +373,7 @@ const handleClickFilterPokes = (typeKey, val) => {
         <CptTypeRankItem :dataList="foodResRank" showType="food" :showMax="6" />
       </el-collapse-item>
       <el-collapse-item name="berry">
-        <template #title> <h3>一日树果排行</h3> </template>
+        <template #title> <h3>一日树果排行(不含树果S)</h3> </template>
         <CptTypeRankItem
           :dataList="berryResRank"
           showType="berry"

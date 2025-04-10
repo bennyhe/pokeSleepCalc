@@ -7,7 +7,7 @@ import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
 
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
   areaBonus = areaBonus || 0
-  let pokeType = pokeItem.pokeType === 1 ? 2 : 1
+  let pokeType = [1, 4].includes(+pokeItem.pokeType) ? 2 : 1 // 树果型、全类型自带树果*2
   if (isDoubleBerry) {
     pokeType++
   }
@@ -30,6 +30,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
     energy: [],
     allEnergy: 0
   }
+  // const count = get('food.type', pokeItem).length || useFoods.length
   for (let i = 0; i < useFoods.length; i++) {
     helpFoodEnergy.count[i] =
       getDecimalNumber(pokeItem.oneDayHelpCount.food / useFoods.length *

@@ -2714,8 +2714,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 28,
     helpSpeed: 2900,
-    // foodPer: 23.90,
-    // skillPer: 4.10,
+    foodPer: 19.20,
+    skillPer: 2.30,
     food: {
       type: [7],
       count: {
