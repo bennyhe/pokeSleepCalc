@@ -136,7 +136,7 @@ export const ACT_LIST = [
     name: '克雷色利亞VS達克萊伊',
     namejp: 'クレセリアVSダークライ',
     startTime: 1743364800000,
-    endTime: 1744574399000,
+    endTime: 1744401599000,
     notArea: [],
     smallUp: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
     timelimitPokemons: {
@@ -144,7 +144,48 @@ export const ACT_LIST = [
       'hole': [488],
       'plant': [488]
     },
-    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    // actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
     isActRandom: true
+  },
+  {
+    name: '克雷色利亞VS達克萊伊&好眠日',
+    namejp: 'クレセリアVSダークライ&満月の前後の日',
+    startTime: 1744401600000,
+    endTime: 1744487999000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    smallUp: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
+    times: 1.5,
+    timelimitPokemons: {
+      'beach': [488],
+      'hole': [488],
+      'plant': [488]
+    },
+    isActRandom: true
+  },
+  {
+    name: '克雷色利亞VS達克萊伊&满月日',
+    namejp: 'クレセリアVSダークライ&満月の日',
+    startTime: 1744488000000,
+    endTime: 1744574399000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    smallUp: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
+    times: 2,
+    timelimitPokemons: {
+      'beach': [488],
+      'hole': [488],
+      'plant': [488]
+    },
+    isActRandom: true
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1744574400000,
+    endTime: 1744660799000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
   }
 ]
