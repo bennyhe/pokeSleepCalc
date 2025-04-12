@@ -39,21 +39,46 @@ const handleClickChangeMap = id => {
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <ul class="cpt-select-list">
         <li
-          class="cpt-select-list__item"
+          @click="handleClickChangeMap(mapIndex)"
           v-for="(mapItem, mapIndex) in gameMap"
           v-bind:key="mapItem.id"
-          :class="{ cur: pageData.curMap === mapIndex }"
-          @click="handleClickChangeMap(mapIndex)"
         >
-          <div class="cpt-select-list__name">
-            {{ $t(`ILAND.${mapItem.id}`) }}
+          <div
+            class="cpt-select-list__item"
+            :class="{ cur: pageData.curMap === mapIndex }"
+          >
+            <div class="cpt-select-list__name">
+              {{ $t(`ILAND.${mapItem.id}`) }}
+              <div></div>
+            </div>
+            <img
+              v-if="mapItem.pic"
+              class="cpt-select-list__bg"
+              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              :alt="mapItem.name"
+            />
           </div>
-          <img
-            v-if="mapItem.pic"
-            class="cpt-select-list__bg"
-            v-lazy="`./img/ui/${mapItem.pic}.png`"
-            :alt="mapItem.name"
-          />
+          <template
+            v-for="(cItem, cKey) in SLEEP_TYPES"
+            v-bind:key="`${mapItem.id}_${tdKey}_${cItem}`"
+          >
+            <template
+              v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
+                mapIndex + sleepTypeToIndex[cKey] * 6,
+                mapIndex + sleepTypeToIndex[cKey] * 6 + 1
+              )"
+              v-bind:key="`${mapItem.id}_${tdKey}`"
+            >
+              <template
+                v-for="hopeItem in tdItem.res.slice(0, 1)"
+                v-bind:key="hopeItem.pokeId"
+              >
+                <CptAvatar :pokeId="hopeItem.pokeId">
+                  <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+                </CptAvatar>
+              </template>
+            </template>
+          </template>
         </li>
       </ul>
     </el-form-item>
