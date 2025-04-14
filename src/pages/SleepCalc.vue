@@ -453,7 +453,7 @@ const getRandomHopeWithMultiCb = (res, acc) => {
   //   getScore(randomSleepStyle.value.sleepPoint),
   //   userData.value.curStageIndex
   // )
-  console.log(res)
+  console.log(res, acc)
   userData.value.isMoreCalcLoading = false
   hopeList.value = res
   userSleep.value.accumulationMulti = acc
@@ -1936,7 +1936,7 @@ const getQuickChangeSleepPoint = () => {
                       }}</span
                     >
                   </p>
-                  <p v-if="userSleep.accumulationMulti.spoValidity >= 0">
+                  <p v-if="userSleep.accumulationMulti.spoValidity > 0">
                     {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
                       getDecimalNumber(
                         userSleep.accumulationMulti.spoValidity / getTimes,

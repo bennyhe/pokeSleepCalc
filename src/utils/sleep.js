@@ -481,11 +481,13 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
     if (!extraSleepStyleOptions.isNoMoreData) {
       acc.exp += fnAccumulation(onceGetRes, 'exp')
       acc.shards += fnAccumulation(onceGetRes, 'shards')
-      acc.spoValidity += getPercent(
-        fnAccumulation(onceGetRes, 'spo'),
-        getSPOByScore(score),
-        0
-      )
+      if (score > SPO38000) {
+        acc.spoValidity += getPercent(
+          fnAccumulation(onceGetRes, 'spo'),
+          getSPOByScore(score),
+          0
+        )
+      }
     }
 
     // 将唯一 ID 存入 Set，避免重复添加
