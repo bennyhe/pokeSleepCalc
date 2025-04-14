@@ -275,6 +275,7 @@ export function getRankPokemonsByTypes(dataList, callback) {
             oneDayFoodEnergy: pokeItem.oneDayFoodEnergy,
             useFoods: pokeItem.useFoods,
             helpSpeed: pokeItem.helpSpeed,
+            foodPer: pokeItem.foodPer,
             useFoodType: pokeItem.useFoods,
             FOODRANK_COUNT:
               pokeItem.oneDayFoodEnergy.count[
@@ -359,7 +360,8 @@ export function getRankPokemonsByTypes(dataList, callback) {
             helpSpeed: pokeItem.helpSpeed,
             SKILLRANK_COUNT: pokeItem.oneDayHelpCountSkill,
             level: pokeItem.level,
-            isShiny: pokeItem.isShiny
+            isShiny: pokeItem.isShiny,
+            skillPer: pokeItem.skillPer
           })
         }
       })
