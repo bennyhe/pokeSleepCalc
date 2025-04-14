@@ -7,7 +7,8 @@ import {
   getRandomArr,
   getNumberInMap,
   get,
-  fnAccumulation
+  fnAccumulation,
+  getPercent
 } from '../utils/index.js'
 export function getUnLockSleeps(levelList, curStageIndex) {
   let unLockSleeps = []
@@ -460,33 +461,39 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
   const lastGetList = new Set()
   const acc = {
     exp: 0,
-    shards: 0
+    shards: 0,
+    spoValidity: 0
   }
 
   // 使用 Map 来保存唯一的ID，避免重复查找
   const mergeResMap = new Map()
 
   for (let i = 0; i < getTimes; i++) {
-    const curGetRes = getRandomSleepStyle(
+    const onceGetRes = getRandomSleepStyle(
       mapData,
       curUnLockSleepType,
       score,
       curStageIndex,
       extraSleepStyleOptions
     )
-    orgList.push(...curGetRes)  // 扩展数组
+    orgList.push(...onceGetRes)  // 扩展数组
 
     if (!extraSleepStyleOptions.isNoMoreData) {
-      acc.exp += fnAccumulation(curGetRes, 'exp')
-      acc.shards += fnAccumulation(curGetRes, 'shards')
+      acc.exp += fnAccumulation(onceGetRes, 'exp')
+      acc.shards += fnAccumulation(onceGetRes, 'shards')
+      acc.spoValidity += getPercent(
+        fnAccumulation(onceGetRes, 'spo'),
+        getSPOByScore(score),
+        0
+      )
     }
 
     // 将唯一 ID 存入 Set，避免重复添加
-    const lastItemId = curGetRes[curGetRes.length - 1].id
+    const lastItemId = onceGetRes[onceGetRes.length - 1].id
     lastGetList.add(lastItemId)
 
     // 使用 Map 来合并相同 id 的项
-    curGetRes.forEach(item => {
+    onceGetRes.forEach(item => {
       const existingItem = mergeResMap.get(item.id)
       if (existingItem) {
         existingItem.count += 1

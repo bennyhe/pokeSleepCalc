@@ -1936,6 +1936,15 @@ const getQuickChangeSleepPoint = () => {
                       }}</span
                     >
                   </p>
+                  <p v-if="userSleep.accumulationMulti.spoValidity >= 0">
+                    {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
+                      getDecimalNumber(
+                        userSleep.accumulationMulti.spoValidity / getTimes,
+                          2
+                        )
+                    }}</span
+                    >%
+                  </p>
                 </div>
               </div>
               <div class="poke-tb poke-tb--4000 poke-tb--xscorll">
