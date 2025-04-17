@@ -16,6 +16,7 @@ import {
 } from '../../config/helpSpeed.js'
 import { getNum, toHMInLang, get } from '../../utils/index.js'
 import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
+import { POKEMON_MAX_LEVEL, POKEMON_SKILLLEVEL } from '../../config/game.js'
 import { pokedex } from '../../config/pokedex.js'
 
 import { useI18n } from 'vue-i18n'
@@ -370,12 +371,12 @@ const handleChangeSkillLevel = () => {
             </el-radio-group>
           </div>
         </div>
-        <h4>当前等级(Lv.10-60)</h4>
+        <h4>当前等级(Lv.10-{{POKEMON_MAX_LEVEL}})</h4>
         <div>
           <el-input-number
             v-model="editData.level"
             :min="10"
-            :max="60"
+            :max="POKEMON_MAX_LEVEL"
             @blur="handleBlurLevel"
           />
         </div>
@@ -519,7 +520,7 @@ const handleChangeSkillLevel = () => {
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in [1, 2, 3, 4, 5, 6, 7, 8]"
+              v-for="skillItem in POKEMON_SKILLLEVEL"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

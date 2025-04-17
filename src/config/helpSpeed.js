@@ -209,9 +209,9 @@ export const levelOptions = [{
   label: 50,
   txt: 'Lv.50'
 }, {
-  label: 55,
-  txt: 'Lv.55'
-}, {
   label: 60,
   txt: 'Lv.60(3食)'
+}, {
+  label: 65,
+  txt: 'Lv.65'
 }]
