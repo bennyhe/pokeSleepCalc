@@ -33,7 +33,7 @@ import {
   getNature,
   getNewHelpSpeed
 } from '../utils/helpcalc.js'
-import { gameMap, areaBonusMax, POKEMON_SKILLLEVEL } from '../config/game.js'
+import { gameMap, areaBonusMax, POKEMON_SKILLLEVEL, POKEMON_MAX_LEVEL } from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -717,12 +717,12 @@ watch(helpSpeedCalcForm.value, val => {
         </el-radio-group>
       </div>
     </el-form-item>
-    <el-form-item label="当前等级(Lv.10-60)">
+    <el-form-item :label="`当前等级(Lv.10-${POKEMON_MAX_LEVEL})`">
       <el-slider
         v-model="helpSpeedCalcForm.level"
         show-input
         :min="10"
-        :max="60"
+        :max="POKEMON_MAX_LEVEL"
       />
       <div style="width: 100%">
         <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
