@@ -11,7 +11,7 @@ import {
   getOneDayHelpCount,
   getRankPokemonsByTypes
 } from '../utils/energy.js'
-import { gameMap, areaBonusMax } from '../config/game.js'
+import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { BERRY_TYPES } from '../config/valKey.js'
@@ -24,7 +24,7 @@ const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
   resRankArr: [],
-  lv: 60,
+  lv: POKEMON_MAX_LEVEL,
   curPageIndex: 1,
   pageSize: 102,
   areaBonus: areaBonusMax,

@@ -519,7 +519,7 @@ const handleChangeSkillLevel = () => {
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in [1, 2, 3, 4, 5, 6, 7]"
+              v-for="skillItem in [1, 2, 3, 4, 5, 6, 7, 8]"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
