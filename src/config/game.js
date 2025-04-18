@@ -7,7 +7,6 @@ import map6 from './gameMap/6.js'
 
 export const areaBonusMax = 75
 export const POKEMON_MAX_LEVEL = 65
-export const POKEMON_SKILLLEVEL = [1, 2, 3, 4, 5, 6, 7, 8]
 export const mapSplitVer = '2.5.7'
 export const gameMap = [
   map1,

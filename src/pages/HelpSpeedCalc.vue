@@ -31,9 +31,10 @@ import {
   initFilterGroup,
   getTargetPokemonEnergy,
   getNature,
-  getNewHelpSpeed
+  getNewHelpSpeed,
+  getSkillLevel
 } from '../utils/helpcalc.js'
-import { gameMap, areaBonusMax, POKEMON_SKILLLEVEL, POKEMON_MAX_LEVEL } from '../config/game.js'
+import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL } from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -877,7 +878,7 @@ watch(helpSpeedCalcForm.value, val => {
           <el-radio-group size="small" v-model="helpSpeedCalcForm.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in POKEMON_SKILLLEVEL"
+              v-for="skillItem in getSkillLevel(pokedex[helpSpeedCalcForm.pokemonId].skillType)"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

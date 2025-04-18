@@ -1,4 +1,3 @@
-
 export const allHelpType = [
   {
     title: '无技能\n性格:帮忙↓',

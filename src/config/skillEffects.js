@@ -132,6 +132,10 @@ export const skillEffects = {
       {
         level: 7,
         value: 1800
+      },
+      {
+        level: 7,
+        value: 2500
       }
     ]
   },
@@ -166,6 +170,10 @@ export const skillEffects = {
       {
         level: 7,
         value: [900, 3600]
+      },
+      {
+        level: 8,
+        value: [1150, 4600]
       }
     ]
   }

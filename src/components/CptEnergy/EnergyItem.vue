@@ -14,9 +14,12 @@ import {
   characterOptions,
   skillOptionsTxt
 } from '../../config/helpSpeed.js'
+import {
+  getSkillLevel
+} from '../../utils/helpcalc.js'
 import { getNum, toHMInLang, get } from '../../utils/index.js'
 import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
-import { POKEMON_MAX_LEVEL, POKEMON_SKILLLEVEL } from '../../config/game.js'
+import { POKEMON_MAX_LEVEL } from '../../config/game.js'
 import { pokedex } from '../../config/pokedex.js'
 
 import { useI18n } from 'vue-i18n'
@@ -520,7 +523,7 @@ const handleChangeSkillLevel = () => {
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in POKEMON_SKILLLEVEL"
+              v-for="skillItem in getSkillLevel(pokedex[editData.pokemonId].skillType)"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
