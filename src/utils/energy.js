@@ -76,7 +76,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
  * @returns 
  */
 const getOneDaySkillEffects = (pokeItem, areaBonus) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6] // , 11, 14
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -90,7 +90,7 @@ const getOneDaySkillEffects = (pokeItem, areaBonus) => {
     }
     let energy = pokeSkillCount * skillOnceEnergy
     let type = 'energy'
-    if ([1, 2, 5].includes(pokeSkillType) && areaBonus) {
+    if ([1, 2, 5, 23].includes(pokeSkillType) && areaBonus) {
       energy = energy * (1 + areaBonus / 100)
     }
     if ([3, 6].includes(pokeSkillType)) {

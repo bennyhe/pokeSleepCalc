@@ -71,8 +71,8 @@ const uploadData = ref('')
 const textareaBoxData = ref()
 const helpSpeedCalcForm = ref({
   curMap: 0,
-  pokemonId: 26,
-  baseHelpSpeed: 2200, // Number
+  pokemonId: 491,
+  baseHelpSpeed: 2900, // Number
   level: 50, // Number
   isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
@@ -645,7 +645,6 @@ watch(helpSpeedCalcForm.value, val => {
               pokeItem.helpSpeed
             }s`"
             :value="pokeItem.id"
-            v-if="+pokeItem.id !== 491"
           >
             <img
               class="icon"
@@ -748,7 +747,10 @@ watch(helpSpeedCalcForm.value, val => {
         </el-checkbox>
       </el-checkbox-group>
       <div style="margin-top: 3px; margin-left: 12px">
-        <el-checkbox v-model="helpSpeedCalcForm.isShiny">
+        <el-checkbox
+          v-model="helpSpeedCalcForm.isShiny"
+          :disabled="+helpSpeedCalcForm.id !== 491"
+        >
           {{ $t("PROP.shiny") }}
         </el-checkbox>
       </div>
@@ -878,7 +880,9 @@ watch(helpSpeedCalcForm.value, val => {
           <el-radio-group size="small" v-model="helpSpeedCalcForm.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in getSkillLevel(pokedex[helpSpeedCalcForm.pokemonId].skillType)"
+              v-for="skillItem in getSkillLevel(
+                pokedex[helpSpeedCalcForm.pokemonId].skillType
+              )"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

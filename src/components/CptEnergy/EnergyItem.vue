@@ -396,7 +396,7 @@ const handleChangeSkillLevel = () => {
             </el-checkbox>
           </el-checkbox-group>
           <div style="margin-top: 3px; margin-left: 12px">
-            <el-checkbox v-model="editData.isShiny">
+            <el-checkbox v-model="editData.isShiny"  :disabled="+editData.id!== 491">
               {{ $t("PROP.shiny") }}
             </el-checkbox>
           </div>

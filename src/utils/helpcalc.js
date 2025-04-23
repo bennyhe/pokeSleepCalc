@@ -72,6 +72,15 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
     tempFoodType = nArr
   }
 
+  if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
+    tempFoodType = [
+      [0]
+    ]
+    if (!isPlayer) {
+      tempFoodType.push([0])
+    }
+  }
+
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
     let is2n = (arrFTKey + 1) % 2 === 0
     if (isPlayer) {
@@ -88,6 +97,12 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
         arrFood.splice(1, arrFood.length)
       } else if (pokeLevel >= 60) {
         arrFood.push(newPokeItem.food.type[arrFTItem[2]])
+      }
+
+      if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
+        arrFood = [
+          newPokeItem.food.type[arrFTItem[0]]
+        ]
       }
     }
     resRankArr.push({
@@ -499,7 +514,10 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
 }
 
 export const getSkillLevel = pokeSkillType => {
-  const arrLevel = [1, 2, 3, 4, 5, 6, 7]
+  const arrLevel = [1, 2, 3, 4, 5, 6]
+  if (![23].includes(pokeSkillType)) {
+    arrLevel.push(7)
+  }
   if ([3, 6].includes(pokeSkillType)) {
     arrLevel.push(8)
   }
