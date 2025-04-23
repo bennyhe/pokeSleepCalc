@@ -71,8 +71,8 @@ const uploadData = ref('')
 const textareaBoxData = ref()
 const helpSpeedCalcForm = ref({
   curMap: 0,
-  pokemonId: 491,
-  baseHelpSpeed: 2900, // Number
+  pokemonId: 26,
+  baseHelpSpeed: 2200, // Number
   level: 50, // Number
   isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
