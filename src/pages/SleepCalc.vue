@@ -545,13 +545,11 @@ const handleClickShowMoreMathExp = () => {
   pageData.value.showMoreMathExp = !pageData.value.showMoreMathExp
 }
 const handleClickShinyClear = () => {
-  userSleep.value = {
-    count: 0,
-    pokeShinyCount: 0,
-    pokeShinyList: [],
-    pokeSum: 0,
-    showDetailShiny: false
-  }
+  userSleep.value.count = 0
+  userSleep.value.pokeShinyCount = 0
+  userSleep.value.pokeShinyList = []
+  userSleep.value.pokeSum = 0
+  userSleep.value.showDetailShiny = false
 }
 
 const catchPokeState = ref({
@@ -947,9 +945,7 @@ const getQuickChangeSleepPoint = () => {
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
-          <el-radio :label="1.2"
-            ><CptAvatar pokeId="488" />*1.2倍</el-radio
-          >
+          <el-radio :label="1.2"><CptAvatar pokeId="488" />*1.2倍</el-radio>
           <el-radio :label="1.5"
             ><SvgIcon type="moonNight" size="mid" />{{
               $t("OPTIONS.sleepDay")
@@ -1916,7 +1912,12 @@ const getQuickChangeSleepPoint = () => {
                     getNum(getScore(randomSleepStyle.sleepPoint))
                   }}</span
                   >分)
-                  <p>
+                  <p
+                    v-if="
+                      userSleep.accumulationMulti.exp &&
+                      userSleep.accumulationMulti.shards
+                    "
+                  >
                     <img class="icon" v-lazy="`./img/ui/exp.png`" /><span
                       class="sptime"
                       >{{
@@ -1937,12 +1938,14 @@ const getQuickChangeSleepPoint = () => {
                     >
                   </p>
                   <p v-if="userSleep.accumulationMulti.spoValidity > 0">
-                    {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
-                      getDecimalNumber(
-                        userSleep.accumulationMulti.spoValidity / getTimes,
+                    {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span
+                      class="sptime"
+                      >{{
+                        getDecimalNumber(
+                          userSleep.accumulationMulti.spoValidity / getTimes,
                           2
                         )
-                    }}</span
+                      }}</span
                     >%
                   </p>
                 </div>
