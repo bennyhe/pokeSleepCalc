@@ -40,8 +40,12 @@ const actType = {
   }
 }
 const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
+levelOptionsTo.splice(0, 1)
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
 levelOptionsTo.push({
+  label: 60,
+  txt: 'Lv.60'
+},{
   label: 65,
   txt: 'Lv.65'
 })
