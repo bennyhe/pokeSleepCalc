@@ -422,7 +422,10 @@ export default {
     517: 'Munna',
     518: 'Musharna',
     488: 'Cresselia',
-    491: 'Darkrai'
+    491: 'Darkrai',
+    113: 'Chansey',
+    242: 'Blissey',
+    440: 'Happiny'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -710,6 +713,9 @@ export default {
     293: '飄飄滾滾睡',
     294: '食夢睡',
     295: '飄飄蹭蹭睡',
-    296: '新月祈禱睡'
+    296: '新月祈禱睡',
+    297: '寶貝石頭睡',
+    298: '家家酒睡',
+    299: '寶貝蛋睡'
   }
 }

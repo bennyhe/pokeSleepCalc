@@ -15,16 +15,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [113, 242, 440], // ban 宝可梦id
+  showBanArea: [0, 1, 3] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [],
-  upIdsLargeIds: [],
-  noLastList: []
+  upIdsMidIds: [113, 242, 440],
+  upIdsLargeIds: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
+  noLastList: [113, 242, 440]
 }
 export const ACT_LIST = [
   //  {
@@ -67,84 +67,15 @@ export const ACT_LIST = [
   //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
-  // },
-  // {
-  //   name: '情人節2025',
-  //   namejp: 'バレンタイン2025',
-  //   startTime: 1739131200000,
-  //   endTime: 1739217599000,
-  //   notArea: [],
-  //   midUp: [980, 7054],
-  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-  //   isActRandom: true
-  // },
-  // {
-  //   name: '好眠日&情人節2025',
-  //   namejp: '満月の前後の日&バレンタイン2025',
-  //   startTime: 1739217600000,
-  //   endTime: 1739303999000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173, 980, 7054],
-  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-  //   times: 1.5,
-  //   isActRandom: true
-  // },
-  // {
-  //   name: '满月日&情人節2025',
-  //   namejp: '満月の日&バレンタイン2025',
-  //   startTime: 1739304000000,
-  //   endTime: 1739390399000,
-  //   notArea: [],
-  //   largeUp: [35, 36, 173],
-  //   midUp: [980, 7054],
-  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-  //   times: 2.5,
-  //   isActRandom: true
-  // },
-  // {
-  //   name: '好眠日&情人節2025',
-  //   namejp: '満月の前後の日&バレンタイン2025',
-  //   startTime: 1739390400000,
-  //   endTime: 1739476799000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173, 980, 7054],
-  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-  //   times: 1.5,
-  //   isActRandom: true
-  // },
-  // {
-  //   name: '情人節2025',
-  //   namejp: 'バレンタイン2025',
-  //   startTime: 1739476800000,
-  //   endTime: 1739735999000,
-  //   notArea: [],
-  //   midUp: [980, 7054],
-  //   smallUp: [54, 127, 172, 280, 304, 359, 736, 778],
-  //   isActRandom: true
   // }
-  // {
-  //   name: '超能力屬性週',
-  //   namejp: 'エスパータイプウィーク',
-  //   startTime: 1742155200000,
-  //   endTime: 1742759999000,
-  //   notArea: [],
-  //   midUp: [517, 518],
-  //   smallUp: [122, 196, 202, 280, 281, 282, 360, 439],
-  //   isActRandom: true
-  // }
-  // {
-  //   name: '克雷色利亞VS達克萊伊',
-  //   namejp: 'クレセリアVSダークライ',
-  //   startTime: 1743364800000,
-  //   endTime: 1744401599000,
-  //   notArea: [],
-  //   smallUp: [122, 196, 202, 280, 281, 282, 360, 439, 488, 517, 518],
-  //   timelimitPokemons: {
-  //     'beach': [488],
-  //     'hole': [488],
-  //     'plant': [488]
-  //   },
-  //   // actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-  //   isActRandom: true
-  // },
+  {
+    name: '春日嘉年華2025',
+    namejp: 'スプリングフェス2025',
+    startTime: 1746388800000,
+    endTime: 1746993599000,
+    notArea: [],
+    midUp: [113, 242, 440],
+    smallUp: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
+    isActRandom: true
+  }
 ]

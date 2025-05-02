@@ -57,7 +57,8 @@ const evoLine = [
   [7006, 7007],
   [627, 628],
   [7054, 980],
-  [517, 518]
+  [517, 518],
+  [440, 113, 242]
 ]
 const pokedex = {
   1: {
@@ -1007,6 +1008,19 @@ const pokedex = {
     foodPer: 22.50,
     skillPer: 4.50
   },
+  113: {
+    id: 113,
+    // name: '吉利蛋',
+    friendship: 16,
+    sleepType: 2,
+    // skillType: 10,
+    // pokeType: 2,
+    berryType: 11,
+    maxcarry: 15
+    // helpSpeed: 2650,
+    // foodPer: 22.20,
+    // skillPer: 1.70,
+  },
   115: {
     id: 115,
     // name: '袋獸',
@@ -1786,6 +1800,19 @@ const pokedex = {
     foodPer: 20.30,
     skillPer: 4.00
   },
+  242: {
+    id: 242,
+    // name: '幸福蛋',
+    friendship: 20,
+    sleepType: 2,
+    // skillType: 10,
+    // pokeType: 2,
+    berryType: 11,
+    maxcarry: 21
+    // helpSpeed: 2650,
+    // foodPer: 22.20,
+    // skillPer: 1.70,
+  },
   243: {
     id: 243,
     // name: '雷公',
@@ -2481,6 +2508,19 @@ const pokedex = {
         }
       }
     }
+  },
+  440: {
+    id: 440,
+    // name: '小福蛋',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 10,
+    // pokeType: 2,
+    berryType: 11,
+    maxcarry: 7
+    // helpSpeed: 2650,
+    // foodPer: 22.20,
+    // skillPer: 1.70,
   },
   447: {
     id: 447,
@@ -3424,7 +3464,13 @@ const updatePoke = [{
   pokemons: [7054, 980]
 }, {
   time: '2025/03/1',
-  pokemons: [517, 518, 488, 491]
+  pokemons: [517, 518, 488]
+}, {
+  time: '2025/04/1',
+  pokemons: [491]
+}, {
+  time: '2025/05/1',
+  pokemons: [440, 113, 242]
 }]
 // console.log(pokedex)
 export {
