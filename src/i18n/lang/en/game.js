@@ -222,6 +222,8 @@ export default {
     2019: '“Fury Attack” Corn Salad',
     2020: '“Cross Chop” Salad',
     2021: '“Defiant” Coffee-Dressed Salad',
+    2022: '“Petal Blizzard” Layered Salad',
+    2023: '“Apple Acid” Yogurt-Dressed Salad',
     3000: 'Mixed Juice',
     3001: '“Fluffy” Sweet Potatoes',
     3002: '“Steadfast” Ginger Cookies',

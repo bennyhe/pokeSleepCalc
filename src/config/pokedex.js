@@ -1013,13 +1013,13 @@ const pokedex = {
     // name: '吉利蛋',
     friendship: 16,
     sleepType: 2,
-    // skillType: 10,
-    // pokeType: 2,
+    skillType: 8,
+    pokeType: 2,
     berryType: 11,
-    maxcarry: 15
-    // helpSpeed: 2650,
-    // foodPer: 22.20,
-    // skillPer: 1.70,
+    maxcarry: 15,
+    helpSpeed: 3300,
+    foodPer: 23.60,
+    skillPer: 2.30
   },
   115: {
     id: 115,
@@ -1805,13 +1805,13 @@ const pokedex = {
     // name: '幸福蛋',
     friendship: 20,
     sleepType: 2,
-    // skillType: 10,
-    // pokeType: 2,
+    skillType: 8,
+    pokeType: 2,
     berryType: 11,
-    maxcarry: 21
-    // helpSpeed: 2650,
-    // foodPer: 22.20,
-    // skillPer: 1.70,
+    maxcarry: 21,
+    helpSpeed: 3100,
+    foodPer: 23.80,
+    skillPer: 2.30
   },
   243: {
     id: 243,
@@ -2514,13 +2514,27 @@ const pokedex = {
     // name: '小福蛋',
     friendship: 5,
     sleepType: 3,
-    // skillType: 10,
-    // pokeType: 2,
+    skillType: 8,
+    pokeType: 2,
     berryType: 11,
-    maxcarry: 7
-    // helpSpeed: 2650,
-    // foodPer: 22.20,
-    // skillPer: 1.70,
+    maxcarry: 7,
+    helpSpeed: 5400,
+    foodPer: 21,
+    skillPer: 1.30,
+    food: {
+      type: [3, 4, 9],
+      count: {
+        3: {
+          num: [2, 5, 7]
+        },
+        4: {
+          num: [0, 4, 7]
+        },
+        9: {
+          num: [0, 0, 8]
+        }
+      }
+    }
   },
   447: {
     id: 447,

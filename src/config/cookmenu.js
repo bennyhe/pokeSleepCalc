@@ -820,6 +820,56 @@ export const COOKMENU = {
     'baseEnergy': 20218,
     'menuPercent': 61
   },
+  '2022': {
+    // 落英繽紛含羞草蛋沙拉
+    'id': 2022,
+    'type': 2,
+    'from': [
+      {
+        'id': 3,
+        'num': 25
+      },
+      {
+        'id': 10,
+        'num': 17
+      },
+      {
+        'id': 4,
+        'num': 15
+      },
+      {
+        'id': 7,
+        'num': 12
+      }
+    ],
+    'baseEnergy': 11881,
+    'menuPercent': 48
+  },
+  '2023': {
+    // 蘋果酸優格沙拉
+    'id': 2023,
+    'type': 2,
+    'from': [
+      {
+        'id': 3,
+        'num': 35
+      },
+      {
+        'id': 5,
+        'num': 28
+      },
+      {
+        'id': 12,
+        'num': 23
+      },
+      {
+        'id': 8,
+        'num': 18
+      }
+    ],
+    'baseEnergy': 19293,
+    'menuPercent': 78
+  },
   '3000': {
     // 拌拌果汁
     'id': 3000,
