@@ -216,7 +216,7 @@ export default {
       'energy': 220730,
       'sleepStyles': [
         '80-id-2',
-        // '132-id-8',
+        '132-id-12',
         '132-id-4',
         '215-id-2',
         '113-id-1'

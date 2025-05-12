@@ -768,7 +768,7 @@ const getQuickChangeSleepPoint = () => {
         >
       </el-radio-group>
     </div>
-    <el-form label-width="90px" v-if="+navData.navIndex !== 4">
+    <el-form label-width="90px">
       <!-- S 当前岛屿 -->
       <el-form-item>
         <template #label
@@ -902,7 +902,7 @@ const getQuickChangeSleepPoint = () => {
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->
-      <el-form-item :label="`${$t('PROP.level')}/${$t('PROP.energy')}`">
+      <el-form-item :label="`${$t('PROP.level')}/${$t('PROP.energy')}`" v-if="+navData.navIndex !== 4">
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"
@@ -1346,7 +1346,7 @@ const getQuickChangeSleepPoint = () => {
         </div>
       </el-form-item>
     </el-form>
-    <div :class="{ hide: +navData.navIndex !== 2 || +navData.navIndex !== 4 }">
+    <div :class="{ hide: +navData.navIndex !== 2 }">
       <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
         <el-form label-width="90px">
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableRandomOptions')">
@@ -2168,7 +2168,7 @@ const getQuickChangeSleepPoint = () => {
         </p>
       </div>
     </div>
-    <div class="sleeplist sleeplist-unlock" v-if="+navData.navIndex !== 4">
+    <div class="sleeplist sleeplist-unlock">
       <div class="page-inner">
         <h3>
           {{ $t("PAGE_SLEEPCALC.sleepStyle") }}
@@ -2261,12 +2261,12 @@ const getQuickChangeSleepPoint = () => {
         </template>
       </div>
     </div>
-    <h2 v-if="+navData.navIndex !== 4">
+    <h2>
       {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{
         $t(`PAGE_SLEEPCALC.titleCutNum`)
       }}<span class="cpt-tips extra">(v{{ mapSplitVer }})</span>
     </h2>
-    <ul class="cpt-list" v-if="+navData.navIndex !== 4">
+    <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
         v-bind:key="catchItem.catchNum"
@@ -2301,9 +2301,6 @@ const getQuickChangeSleepPoint = () => {
           />
         </div>
       </div>
-    </template>
-    <template v-if="+navData.navIndex === 4">
-      4
     </template>
   </div>
 </template>
