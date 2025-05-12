@@ -25,7 +25,7 @@ export const LAB_CONFIG = {
   upIdsSmallIds: [],
   upIdsMidIds: [113, 242, 440],
   upIdsLargeIds: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
-  noLastList: [113, 242, 440]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {

@@ -57,6 +57,7 @@ export default {
     'nav0': '按只数拆分睡眠',
     'nav2': '抽取睡姿',
     'nav3': '睡眠分析',
+    'nav4': 'NextWeek',
 
     'titleCutNum': '数据区间参考',
     'titleSleepRes': '抽取睡姿结果',

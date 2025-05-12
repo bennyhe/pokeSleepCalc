@@ -45,6 +45,10 @@ export const NAV_SLEEPCALC = {
       name: 'nav3',
       value: 3
     }
+    // {
+    //   name: 'nav4',
+    //   value: 4
+    // }
   ],
   navIndex: 0
 }

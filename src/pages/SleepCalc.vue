@@ -768,7 +768,7 @@ const getQuickChangeSleepPoint = () => {
         >
       </el-radio-group>
     </div>
-    <el-form label-width="90px">
+    <el-form label-width="90px" v-if="+navData.navIndex !== 4">
       <!-- S 当前岛屿 -->
       <el-form-item>
         <template #label
@@ -1346,7 +1346,7 @@ const getQuickChangeSleepPoint = () => {
         </div>
       </el-form-item>
     </el-form>
-    <div :class="{ hide: +navData.navIndex !== 2 }">
+    <div :class="{ hide: +navData.navIndex !== 2 || +navData.navIndex !== 4 }">
       <div class="sleeplist" v-if="randomSleepStyle.resList.length > 0">
         <el-form label-width="90px">
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableRandomOptions')">
@@ -2168,7 +2168,7 @@ const getQuickChangeSleepPoint = () => {
         </p>
       </div>
     </div>
-    <div class="sleeplist sleeplist-unlock">
+    <div class="sleeplist sleeplist-unlock" v-if="+navData.navIndex !== 4">
       <div class="page-inner">
         <h3>
           {{ $t("PAGE_SLEEPCALC.sleepStyle") }}
@@ -2261,12 +2261,12 @@ const getQuickChangeSleepPoint = () => {
         </template>
       </div>
     </div>
-    <h2>
+    <h2 v-if="+navData.navIndex !== 4">
       {{ $t(`ILAND.${gameMap[userData.curMap].id}`) }}-{{
         $t(`PAGE_SLEEPCALC.titleCutNum`)
       }}<span class="cpt-tips extra">(v{{ mapSplitVer }})</span>
     </h2>
-    <ul class="cpt-list">
+    <ul class="cpt-list" v-if="+navData.navIndex !== 4">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
         v-bind:key="catchItem.catchNum"
@@ -2301,6 +2301,9 @@ const getQuickChangeSleepPoint = () => {
           />
         </div>
       </div>
+    </template>
+    <template v-if="+navData.navIndex === 4">
+      4
     </template>
   </div>
 </template>

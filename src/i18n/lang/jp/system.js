@@ -57,8 +57,9 @@ export default {
   'PAGE_SLEEPCALC': {
     'nav0': 'ポケモン個数で分割睡眠計算',
     'nav2': '寝顔抽選',
-    'nav3': '睡眠の分析'
-    ,
+    'nav3': '睡眠の分析',
+    'nav4': 'NextWeek',
+    
     'titleCutNum': '睡眠リサーチのポケモン数',
     'titleSleepRes': '寝顔抽選結果',
     'titleMathExp': '現れたポケモン数の期待値',
