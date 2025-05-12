@@ -23,8 +23,8 @@ export const SLEEP_CALC_CONFIG = {
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [113, 242, 440],
-  upIdsLargeIds: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
+  upIdsMidIds: [],
+  upIdsLargeIds: [],
   noLastList: []
 }
 export const ACT_LIST = [
@@ -78,5 +78,32 @@ export const ACT_LIST = [
     midUp: [113, 242, 440],
     smallUp: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
     isActRandom: true
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1746993600000,
+    endTime: 1747079999000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1747080000000,
+    endTime: 1747166399000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 3
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1747166400000,
+    endTime: 1747252799000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
   }
 ]
