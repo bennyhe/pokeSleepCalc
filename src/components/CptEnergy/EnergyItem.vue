@@ -14,9 +14,7 @@ import {
   characterOptions,
   skillOptionsTxt
 } from '../../config/helpSpeed.js'
-import {
-  getSkillLevel
-} from '../../utils/helpcalc.js'
+import { getSkillLevel } from '../../utils/helpcalc.js'
 import { getNum, toHMInLang, get } from '../../utils/index.js'
 import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
 import { POKEMON_MAX_LEVEL } from '../../config/game.js'
@@ -374,7 +372,7 @@ const handleChangeSkillLevel = () => {
             </el-radio-group>
           </div>
         </div>
-        <h4>当前等级(Lv.10-{{POKEMON_MAX_LEVEL}})</h4>
+        <h4>当前等级(Lv.10-{{ POKEMON_MAX_LEVEL }})</h4>
         <div>
           <el-input-number
             v-model="editData.level"
@@ -396,7 +394,10 @@ const handleChangeSkillLevel = () => {
             </el-checkbox>
           </el-checkbox-group>
           <div style="margin-top: 3px; margin-left: 12px">
-            <el-checkbox v-model="editData.isShiny"  :disabled="+editData.id!== 491">
+            <el-checkbox
+              v-model="editData.isShiny"
+              :disabled="+editData.pokemonId === 491"
+            >
               {{ $t("PROP.shiny") }}
             </el-checkbox>
           </div>
@@ -523,7 +524,9 @@ const handleChangeSkillLevel = () => {
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in getSkillLevel(pokedex[editData.pokemonId].skillType)"
+              v-for="skillItem in getSkillLevel(
+                pokedex[editData.pokemonId].skillType
+              )"
               v-bind:key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

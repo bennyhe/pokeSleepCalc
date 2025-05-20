@@ -749,7 +749,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div style="margin-top: 3px; margin-left: 12px">
         <el-checkbox
           v-model="helpSpeedCalcForm.isShiny"
-          :disabled="+helpSpeedCalcForm.id !== 491"
+          :disabled="+helpSpeedCalcForm.pokemonId === 491"
         >
           {{ $t("PROP.shiny") }}
         </el-checkbox>
