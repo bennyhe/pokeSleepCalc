@@ -58,7 +58,8 @@ const evoLine = [
   [627, 628],
   [7054, 980],
   [517, 518],
-  [440, 113, 242]
+  [440, 113, 242],
+  [198, 430]
 ]
 const pokedex = {
   1: {
@@ -1640,6 +1641,33 @@ const pokedex = {
     foodPer: 21.90,
     skillPer: 10.10
   },
+  198: {
+    id: 198,
+    // name: '黑暗鴉',
+    friendship: 16,
+    sleepType: 1,
+    skillType: 24,
+    // pokeType: 3,
+    maxcarry: 13,
+    // helpSpeed: 2500,
+    berryType: 17
+    // foodPer: 12.80,
+    // skillPer: 6.10,
+    // food: {
+    //   type: [2, 4, 7],
+    //   count: {
+    //     2: {
+    //       num: [2, 5, 7]
+    //     },
+    //     4: {
+    //       num: [0, 6, 10]
+    //     },
+    //     7: {
+    //       num: [0, 0, 12]
+    //     }
+    //   }
+    // }
+  },
   199: {
     id: 199,
     // name: '呆呆王',
@@ -2454,6 +2482,19 @@ const pokedex = {
     berryType: 8,
     foodPer: 12.80,
     skillPer: 6.10
+  },
+  430: {
+    id: 430,
+    // name: '烏鴉頭頭',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 24,
+    // pokeType: 3,
+    maxcarry: 18,
+    // helpSpeed: 2500,
+    berryType: 17
+    // foodPer: 12.80,
+    // skillPer: 6.10
   },
   438: {
     id: 438,
@@ -3484,7 +3525,7 @@ const updatePoke = [{
   pokemons: [491]
 }, {
   time: '2025/05/1',
-  pokemons: [440, 113, 242]
+  pokemons: [440, 113, 242, 198, 430]
 }]
 // console.log(pokedex)
 export {

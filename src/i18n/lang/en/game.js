@@ -98,7 +98,8 @@ export default {
     20: 'Mimic (Skill Copy)',
     21: 'Berry Burst',
     22: 'Lunar Blessing (Energy for Everyone S)',
-    23: 'Bad Dreams (Charge Strength M)'
+    23: 'Bad Dreams (Charge Strength M)',
+    24: 'Super Luck (Ingredient Draw S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -427,7 +428,9 @@ export default {
     491: 'Darkrai',
     113: 'Chansey',
     242: 'Blissey',
-    440: 'Happiny'
+    440: 'Happiny',
+    198: 'Murkrow',
+    430: 'Honchkrow'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -718,6 +721,8 @@ export default {
     296: '新月祈禱睡',
     297: '寶貝石頭睡',
     298: '家家酒睡',
-    299: '寶貝蛋睡'
+    299: '寶貝蛋睡',
+    300: '收集寶石睡',
+    301: '保護寶石睡'
   }
 }
