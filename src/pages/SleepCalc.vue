@@ -17,6 +17,7 @@ import { NAV_SLEEPCALC } from '../config/nav.js'
 import { SPO38000 } from '../config/spo.js'
 import { ACT_LIST, SLEEP_CALC_CONFIG } from '../config/act.js'
 import {
+  getTargetPokemonsSleeps,
   getUnLockSleeps,
   getRandomSleepStyle,
   getRandomHopeWithMulti,
@@ -434,7 +435,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 const getSleepStyle = () => {
   let orgSleepList = [
     ...userData.value.curUnlockSleeps,
-    ...userData.value.unLockSleeps
+    ...userData.value.unLockSleeps,
+    getTargetPokemonsSleeps('491-id-1'),
+    getTargetPokemonsSleeps('491-id-2'),
+    getTargetPokemonsSleeps('491-id-3')
   ]
   if (!userData.value.isActRandom) {
     orgSleepList = getFilterInTypes(

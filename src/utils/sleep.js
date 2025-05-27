@@ -10,6 +10,17 @@ import {
   fnAccumulation,
   getPercent
 } from '../utils/index.js'
+export function getTargetPokemonsSleeps(pokeSleepId) {
+  if (SLEEP_STYLE[pokeSleepId]) {
+    return {
+      ...SLEEP_STYLE[pokeSleepId],
+      sleepType: pokedex[SLEEP_STYLE[pokeSleepId].pokeId].sleepType,
+      spo: getSPOById(pokeSleepId),
+      spoId: SPO_DATA[pokeSleepId].id
+    }
+  }
+  return {}
+}
 export function getUnLockSleeps(levelList, curStageIndex) {
   let unLockSleeps = []
   let curUnlockSleeps = []
@@ -22,10 +33,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
           levelItem.sleepStyles.forEach(sItem => {
             if (SLEEP_STYLE[sItem]) {
               aResLast.push({
-                ...SLEEP_STYLE[sItem],
-                sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-                spo: getSPOById(sItem),
-                spoId: SPO_DATA[sItem].id,
+                ...getTargetPokemonsSleeps(sItem),
                 unLockLevel: levelKey
               })
             }
