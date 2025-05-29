@@ -248,6 +248,13 @@ h4 {
       box-shadow: 0 1px 2px #ed556a;
     }
   }
+
+  &--large {
+    .cpt-avatar__pic {
+      width: 48px;
+      height: 48px;
+    }
+  }
 }
 
 .cpt-select-list {
@@ -562,7 +569,7 @@ h4 {
     background: linear-gradient(45deg, rgba(#fceabb, 50%) 0%, rgba(#fccd4d, 50%) 50%, rgba(#f8b500, 50%) 51%, rgba(#fbdf93, 50%) 100%);
     padding: 3px;
     border-radius: 6px;
-    color: #d1813a;
+    color: $primaryColor;
     font-size: 16px;
   }
 
