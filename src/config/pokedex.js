@@ -270,7 +270,7 @@ const pokedex = {
     pokeType: 1,
     berryType: 9,
     maxcarry: 21,
-    helpSpeed: 2600,
+    helpSpeed: 2500,
     foodPer: 19.70,
     skillPer: 1.40
   },
@@ -888,7 +888,7 @@ const pokedex = {
     pokeType: 1,
     berryType: 16,
     maxcarry: 21,
-    helpSpeed: 2400,
+    helpSpeed: 2300,
     foodPer: 18.40,
     skillPer: 2.00
   },
@@ -2264,7 +2264,7 @@ const pokedex = {
     pokeType: 1,
     berryType: 3,
     maxcarry: 14,
-    helpSpeed: 3700,
+    helpSpeed: 3500,
     foodPer: 25.80,
     skillPer: 6.10
   },
