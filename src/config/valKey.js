@@ -169,7 +169,8 @@ export const SKILL_TYPES = {
   21: '樹果遽增',
   22: '新月祈禱（活力全體療癒S）',
   23: '夢魘（能量填充M）',
-  24: '超幸運（食材精選S）'
+  24: '超幸運（食材精選S）',
+  25: '怪力鉗（食材精選S）'
 }
 export const SUBSKILLS_NAMES = {
   1: '樹果數量S',

@@ -17,16 +17,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [303], // ban 宝可梦id
+  showBanArea: [0, 2, 5] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
+  upIdsMidIds: [303],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [303]
 }
 export const ACT_LIST = [
   //  {
@@ -71,40 +71,84 @@ export const ACT_LIST = [
   //   times: 1.5
   // }
   // {
-  //   name: '春日嘉年華2025',
-  //   namejp: 'スプリングフェス2025',
-  //   startTime: 1746388800000,
-  //   endTime: 1746993599000,
+  //   name: '新月之日前',
+  //   namejp: '新月の前後の日',
+  //   startTime: 1748203200000,
+  //   endTime: 1748289599000,
   //   notArea: [],
-  //   midUp: [113, 242, 440],
-  //   smallUp: [81, 132, 175, 225, 302, 333, 353, 363, 447, 453, 845],
+  //   midUp: [198, 430],
   //   isActRandom: true
   // },
+  // {
+  //   name: '新月之日',
+  //   namejp: '新月の日',
+  //   startTime: 1748289600000,
+  //   endTime: 1748375999000,
+  //   notArea: [],
+  //   midUp: [198, 430],
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '新月之日后',
+  //   namejp: '新月の前後の日',
+  //   startTime: 1748376000000,
+  //   endTime: 1748462399000,
+  //   notArea: [],
+  //   midUp: [198, 430],
+  //   isActRandom: true
+  // }
   {
-    name: '新月之日前',
-    namejp: '新月の前後の日',
-    startTime: 1748203200000,
-    endTime: 1748289599000,
+    name: '分量加大！料理週vol.1',
+    namejp: 'デカ盛り！料理ウィーク vol.1',
+    startTime: 1749412800000,
+    endTime: 1749499199000,
     notArea: [],
-    midUp: [198, 430],
+    midUp: [303],
+    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
     isActRandom: true
   },
   {
-    name: '新月之日',
-    namejp: '新月の日',
-    startTime: 1748289600000,
-    endTime: 1748375999000,
+    name: '分量加大！料理週vol.1 & 好眠日',
+    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の前後の日',
+    startTime: 1749499200000,
+    endTime: 1749585599000,
     notArea: [],
-    midUp: [198, 430],
+    midUp: [35, 36, 173, 303],
+    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
+    times: 1.5,
     isActRandom: true
   },
   {
-    name: '新月之日后',
-    namejp: '新月の前後の日',
-    startTime: 1748376000000,
-    endTime: 1748462399000,
+    name: '分量加大！料理週vol.1 & 满月日',
+    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の日',
+    startTime: 1749585600000,
+    endTime: 1749671999000,
     notArea: [],
-    midUp: [198, 430],
+    largeUp: [35, 36, 173],
+    midUp: [303],
+    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
+    times: 2.5,
+    isActRandom: true
+  },
+  {
+    name: '分量加大！料理週vol.1 & 好眠日',
+    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の前後の日',
+    startTime: 1749672000000,
+    endTime: 1749758399000,
+    notArea: [],
+    midUp: [35, 36, 173, 303],
+    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
+    times: 1.5,
+    isActRandom: true
+  },
+  {
+    name: '分量加大！料理週vol.1',
+    namejp: 'デカ盛り！料理ウィーク vol.1',
+    startTime: 1749758400000,
+    endTime: 1750017599000,
+    notArea: [],
+    midUp: [303],
+    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
     isActRandom: true
   }
 ]

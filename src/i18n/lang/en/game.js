@@ -99,7 +99,8 @@ export default {
     21: 'Berry Burst',
     22: 'Lunar Blessing (Energy for Everyone S)',
     23: 'Bad Dreams (Charge Strength M)',
-    24: 'Super Luck (Ingredient Draw S)'
+    24: 'Super Luck (Ingredient Draw S)',
+    25: 'Hyper Cutter (Ingredient Draw S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -430,7 +431,8 @@ export default {
     242: 'Blissey',
     440: 'Happiny',
     198: 'Murkrow',
-    430: 'Honchkrow'
+    430: 'Honchkrow',
+    303: 'Mawile'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -726,6 +728,8 @@ export default {
     301: '保護寶石睡',
     302: '飄飄盤手睡',
     303: '飄飄備戰睡',
-    304: '暗黑洞睡'
+    304: '暗黑洞睡',
+    305: '晃晃大顎睡',
+    306: '抱大顎睡'
   }
 }

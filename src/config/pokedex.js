@@ -2108,6 +2108,33 @@ const pokedex = {
       }
     }
   },
+  303: {
+    id: 303,
+    // name: '大嘴娃',
+    friendship: 16,
+    sleepType: 3,
+    skillType: 25,
+    // pokeType: 3,
+    berryType: 2,
+    maxcarry: 17
+    // helpSpeed: 3600,
+    // foodPer: 18.80,
+    // skillPer: 6.80,
+    // food: {
+    //   type: [10, 2, 13],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 2, 3]
+    //     },
+    //     13: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
   304: {
     id: 304,
     // name: '可可多拉',
@@ -3526,6 +3553,9 @@ const updatePoke = [{
 }, {
   time: '2025/05/1',
   pokemons: [440, 113, 242, 198, 430]
+}, {
+  time: '2025/06/1',
+  pokemons: [303]
 }]
 // console.log(pokedex)
 export {
