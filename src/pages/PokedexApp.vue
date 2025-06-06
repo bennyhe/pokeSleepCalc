@@ -3,12 +3,10 @@ import { ref, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
-import CptDialog from '../components/Dialog/index.vue'
-import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
-import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
+import CptDialogPokemonDetail from '../components/DialogPokemonDetail/ItemIndex.vue'
+
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
-import { SPO38000 } from '../config/spo.js'
 import { FOOD_TYPES } from '../config/valKey.js'
 import { orgResetObjectInPokedex } from '../config/filterDialog.js'
 import {
@@ -17,10 +15,9 @@ import {
   getPercent,
   findMenuWithFood,
   getStageLevelPicId,
-  containsAny,
-  getNum
+  containsAny
 } from '../utils/index.js'
-import { getUnLockSleeps, getTargetPokemonsSleeps } from '../utils/sleep.js'
+import { getUnLockSleeps } from '../utils/sleep.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -44,6 +41,7 @@ const gameMapPokemons = [
 ]
 gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
+  console.log(curMapSleeps)
   gameMapPokemons.push({
     levelPokemons: [],
     allPokemons: [],
@@ -536,100 +534,13 @@ onMounted(() => {
       <div class="cpt-empty" v-else>{{ $t("OPTIONS.noHasPokemons") }}</div>
     </template>
     <!-- E 全图鉴 -->
-    <!-- S 修改个体弹窗 -->
-    <CptDialog :isShow="isShowDialog" v-bind:key="dialogId">
-      <div class="dialog-pokedex-detail" v-if="curDialogPokeId">
-        <h3>
-          {{ $t(`POKEMON_NAME.${curDialogPokeId}`) }}
-          <div
-            class="i i-sleeptype"
-            :class="`i i-sleeptype--${pokedex[curDialogPokeId].sleepType}`"
-          >
-            {{ $t(`SLEEP_TYPES.${pokedex[curDialogPokeId].sleepType}`) }}
-          </div>
-        </h3>
-        <div>
-          <CptAvatar :pokeId="curDialogPokeId" size="large" />
-          <CptAvatar
-            :pokeId="curDialogPokeId"
-            size="large"
-            isShiny
-            v-if="curDialogPokeId !== 491"
-          />
-          <div>
-            <div
-              class="cpt-pokemon__pic"
-              style="display: inline-block; width: 120px; height: 120px"
-            >
-              <img
-                :src="`./img/portrait/${curDialogPokeId}.png`"
-                :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
-                style="width: 100%"
-              />
-            </div>
-            <div
-              class="cpt-pokemon__pic"
-              style="display: inline-block; width: 120px; height: 120px"
-              v-if="curDialogPokeId !== 491"
-            >
-              <img
-                :src="`./img/portrait/shiny/${curDialogPokeId}.png`"
-                :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
-                style="width: 100%"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="poke-tb poke-tb--xscorll">
-          <template v-for="fKey in 12" v-bind:key="fKey">
-            <template
-              v-if="getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`).id"
-            >
-              <div class="poke-tb__item">
-                <CptSleepStyle
-                  :showCptPoke="false"
-                  :sleepItem="
-                    getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                  "
-                  :showKey="['sleepType']"
-                >
-                  <p
-                    v-if="
-                      getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                        .spoId
-                    "
-                  >
-                    ID: #{{
-                      getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                        .spoId
-                    }}
-                  </p>
-                  <p
-                    v-if="
-                      getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                        .spo
-                    "
-                  >
-                    SPO:
-                    {{
-                      getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                        .spo
-                    }}
-                  </p>
-                  <p style="color: #d1813a">
-                    {{
-                      getNum(
-                        getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
-                          .spo * SPO38000
-                      )
-                    }}
-                  </p>
-                </CptSleepStyle>
-              </div>
-            </template>
-          </template>
-        </div>
-      </div>
-    </CptDialog>
+    <!-- S 详细弹窗 -->
+    <CptDialogPokemonDetail
+      :isShow="isShowDialog"
+      :dialogId="dialogId"
+      :curDialogPokeId="curDialogPokeId"
+    >
+    </CptDialogPokemonDetail>
+    <!-- S 详细弹窗 -->
   </div>
 </template>

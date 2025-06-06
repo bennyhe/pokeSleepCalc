@@ -1936,9 +1936,15 @@ h3 {
 // 多语言界面适配
 @import "./_import.lang.scss";
 
+.dialog-pokedex-detail {
+  font-size: 14px;
+  max-height: 580px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .dialog-filter {
   font-size: 14px;
-  max-height: 600px;
+  max-height: 580px;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -2168,8 +2174,9 @@ h3 {
   .dialog-support,
   .dialog-update,
   .dialog-filter,
-  .dialog-editiv {
-    max-height: vw(850);
+  .dialog-editiv,
+  .dialog-pokedex-detail {
+    max-height: vw(830);
   }
   .dialog-editiv {
     overflow-y: auto;
