@@ -2114,26 +2114,26 @@ const pokedex = {
     friendship: 16,
     sleepType: 3,
     skillType: 25,
-    // pokeType: 3,
+    pokeType: 2,
     berryType: 2,
-    maxcarry: 17
-    // helpSpeed: 3600,
-    // foodPer: 18.80,
-    // skillPer: 6.80,
-    // food: {
-    //   type: [10, 2, 13],
-    //   count: {
-    //     10: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 2, 3]
-    //     },
-    //     13: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    maxcarry: 17,
+    helpSpeed: 3200,
+    foodPer: 20.40,
+    skillPer: 3.80,
+    food: {
+      type: [10, 16, 12],
+      count: {
+        10: {
+          num: [2, 5, 7]
+        },
+        16: {
+          num: [0, 4, 6]
+        },
+        12: {
+          num: [0, 0, 8]
+        }
+      }
+    }
   },
   304: {
     id: 304,

@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '克雷色利亞VS達克萊伊',
+      name: '锅大周',
       // startTime: 1738385391641,
       // endTime: 1737835199000,
       list: actTimeList
