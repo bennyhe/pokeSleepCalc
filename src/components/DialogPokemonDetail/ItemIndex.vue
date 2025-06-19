@@ -48,7 +48,7 @@ const props = defineProps({
             style="display: inline-block; width: 120px; height: 120px"
           >
             <img
-              :src="`./img/portrait/${curDialogPokeId}.png`"
+              v-lazy="`./img/portrait/${curDialogPokeId}.png`"
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
             />
@@ -59,7 +59,7 @@ const props = defineProps({
             v-if="curDialogPokeId !== 491"
           >
             <img
-              :src="`./img/portrait/shiny/${curDialogPokeId}.png`"
+              v-lazy="`./img/portrait/shiny/${curDialogPokeId}.png`"
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
             />
