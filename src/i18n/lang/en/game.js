@@ -432,7 +432,8 @@ export default {
     440: 'Happiny',
     198: 'Murkrow',
     430: 'Honchkrow',
-    303: 'Mawile'
+    303: 'Mawile',
+    83: 'Farfetch\'d'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -730,6 +731,8 @@ export default {
     303: '飄飄備戰睡',
     304: '暗黑洞睡',
     305: '晃晃大顎睡',
-    306: '抱大顎睡'
+    306: '抱大顎睡',
+    307: '揮莖備戰睡',
+    308: '嘴饞睡'
   }
 }

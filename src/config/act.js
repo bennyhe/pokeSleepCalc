@@ -6,6 +6,7 @@ export const SLEEP_CALC_POKEMONS = {
     113, 242, 440,
     198, 430,
     303
+    // 83
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -18,16 +19,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [83], // ban 宝可梦id
+  showBanArea: [0,1,5] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
-  upIdsMidIds: [303],
+  upIdsSmallIds: [7, 10, 54, 79, 84, 127, 158, 194, 214, 225, 333, 627, 736, 845, 912],
+  upIdsMidIds: [83],
   upIdsLargeIds: [],
-  noLastList: [303]
+  noLastList: [83]
 }
 export const ACT_LIST = [
   //  {
@@ -99,57 +100,13 @@ export const ACT_LIST = [
   //   isActRandom: true
   // }
   {
-    name: '分量加大！料理週vol.1',
-    namejp: 'デカ盛り！料理ウィーク vol.1',
-    startTime: 1749412800000,
-    endTime: 1749499199000,
+    name: '夏日嘉年華2025',
+    namejp: 'サマーフェスティバル2025',
+    startTime: 1750622400000,
+    endTime: 1751227199000,
     notArea: [],
-    midUp: [303],
-    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
-    isActRandom: true
-  },
-  {
-    name: '分量加大！料理週vol.1 & 好眠日',
-    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の前後の日',
-    startTime: 1749499200000,
-    endTime: 1749585599000,
-    notArea: [],
-    midUp: [35, 36, 173, 303],
-    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '分量加大！料理週vol.1 & 满月日',
-    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の日',
-    startTime: 1749585600000,
-    endTime: 1749671999000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    midUp: [303],
-    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
-    times: 2.5,
-    isActRandom: true
-  },
-  {
-    name: '分量加大！料理週vol.1 & 好眠日',
-    namejp: 'デカ盛り！料理ウィーク vol.1 & 満月の前後の日',
-    startTime: 1749672000000,
-    endTime: 1749758399000,
-    notArea: [],
-    midUp: [35, 36, 173, 303],
-    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '分量加大！料理週vol.1',
-    namejp: 'デカ盛り！料理ウィーク vol.1',
-    startTime: 1749758400000,
-    endTime: 1750017599000,
-    notArea: [],
-    midUp: [303],
-    smallUp: [1, 4, 7, 92, 127, 133, 147, 194, 198, 214, 225, 304, 440, 906, 909],
+    midUp: [83],
+    smallUp: [7, 10, 54, 79, 84, 127, 158, 194, 214, 225, 333, 627, 736, 845, 912],
     isActRandom: true
   }
 ]

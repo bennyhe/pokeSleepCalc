@@ -852,6 +852,30 @@ const pokedex = {
     foodPer: 18.20,
     skillPer: 6.30
   },
+  83: {
+    id: 83,
+    // name: '大蔥鴨',
+    friendship: 16,
+    sleepType: 3,
+    // skillType: 11,
+    // pokeType: 3,
+    berryType: 16,
+    maxcarry: 18
+    // helpSpeed: 5800,
+    // foodPer: 18.20,
+    // skillPer: 6.40,
+    // food: {
+    //   type: [10, 6],
+    //   count: {
+    //     10: {
+    //       num: [1, 2, 4]
+    //     },
+    //     6: {
+    //       num: [0, 2, 3]
+    //     }
+    //   }
+    // }
+  },
   84: {
     id: 84,
     // name: '嘟嘟',
@@ -3555,7 +3579,7 @@ const updatePoke = [{
   pokemons: [440, 113, 242, 198, 430]
 }, {
   time: '2025/06/1',
-  pokemons: [303]
+  pokemons: [303, 83]
 }]
 // console.log(pokedex)
 export {
