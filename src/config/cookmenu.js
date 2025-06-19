@@ -395,6 +395,31 @@ export const COOKMENU = {
     'baseEnergy': 19061,
     'menuPercent': 61
   },
+  '1021': {
+    // 居合斬壽喜燒咖哩
+    'id': 1021,
+    'type': 1,
+    'from': [
+      {
+        'id': 1,
+        'num': 27
+      },
+      {
+        'id': 7,
+        'num': 26
+      },
+      {
+        'id': 9,
+        'num': 26
+      },
+      {
+        'id': 3,
+        'num': 22
+      }
+    ],
+    'baseEnergy': 20655,
+    'menuPercent': 61
+  }, 
   '2000': {
     // 拌拌沙拉
     'id': 2000,

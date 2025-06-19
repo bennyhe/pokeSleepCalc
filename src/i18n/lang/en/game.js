@@ -202,6 +202,7 @@ export default {
     1018: '“Inferno” Corn Keema Curry',
     1019: '“Dizzy Punch” Spicy Curry',
     1020: '“Hidden Power” Perk-Up Stew',
+    1021: '“Cut” Sukiyaki Curry',
     2000: 'Mixed Salad',
     2001: 'Slowpoke Tail Pepper Salad',
     2002: '“Spore” Mushroom Salad',
