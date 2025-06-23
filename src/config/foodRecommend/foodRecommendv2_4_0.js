@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1750689844933,
-  appVer: '2.9.0',
+  updateTime: 1738725056954,
+  appVer: '2.4.0',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -142,21 +142,6 @@ export const foodRecommend = {
       evoLine: [736, 737, 738],
       needFood: [[17], [17, 2], [17, 2]],
       desc: '咖啡主C位'
-    },
-    {
-      evoLine: [303],
-      needFood: [[10], [10], [10]],
-      desc: '没啥卵用的油手，真不如古月鸟，玉米不如熊神'
-    },
-    {
-      evoLine: [440, 113, 242],
-      needFood: [[3], [3], [3]],
-      desc: '鸡蛋主C位，真神'
-    },
-    {
-      evoLine: [83],
-      needFood: [[1], [1], [1]],
-      desc: '葱主C位'
     }
   ]
 }

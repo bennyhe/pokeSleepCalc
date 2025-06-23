@@ -78,11 +78,11 @@
     z-index: 97;
     margin-left: 584px;
     box-shadow: 1px 1px 6px $mainColor;
-    margin-top: -42px;
+    // margin-top: -42px;
 
     &:hover,
     &:active {
-      opacity: .7;
+      background-color: rgba($color: #fff, $alpha: .7);
     }
   }
 

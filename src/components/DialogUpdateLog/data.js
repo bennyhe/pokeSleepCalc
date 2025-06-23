@@ -3,6 +3,7 @@ const markdownText = `
 
 ## 25-06-23
 1. update 宝可梦#83
+2. update 食材宝可梦推荐文
 
 ## 25-06-19
 1. add 宝可梦#83
