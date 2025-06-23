@@ -21,7 +21,7 @@ export const foodRecommend = {
     {
       evoLine: [50, 51],
       needFood: [[12], [1], [1]],
-      desc: '唯一lv30产葱最快的食材型，比百变怪快'
+      desc: '产葱副手'
     },
     {
       evoLine: [69, 70, 71],
