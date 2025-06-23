@@ -857,24 +857,27 @@ const pokedex = {
     // name: '大蔥鴨',
     friendship: 16,
     sleepType: 3,
-    // skillType: 11,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 16,
-    maxcarry: 18
-    // helpSpeed: 5800,
-    // foodPer: 18.20,
-    // skillPer: 6.40,
-    // food: {
-    //   type: [10, 6],
-    //   count: {
-    //     10: {
-    //       num: [1, 2, 4]
-    //     },
-    //     6: {
-    //       num: [0, 2, 3]
-    //     }
-    //   }
-    // }
+    maxcarry: 18,
+    helpSpeed: 3000,
+    foodPer: 16,
+    skillPer: 4.3,
+    food: {
+      type: [1, 7, 11],
+      count: {
+        1: {
+          num: [2, 4, 7]
+        },
+        7: {
+          num: [0, 8, 13]
+        },
+        11: {
+          num: [0, 0, 12]
+        }
+      }
+    }
   },
   84: {
     id: 84,
