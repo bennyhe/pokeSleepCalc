@@ -868,7 +868,7 @@ const pokedex = {
       type: [1, 7, 11],
       count: {
         1: {
-          num: [2, 4, 7]
+          num: [2, 5, 7]
         },
         7: {
           num: [0, 8, 13]

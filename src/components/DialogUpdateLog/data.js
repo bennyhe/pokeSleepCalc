@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 25-06-27
+1. fix #83大葱鸭lv.30葱数量错误
+
 ## 25-06-23
 1. update 宝可梦#83
 2. update 食材宝可梦推荐文
