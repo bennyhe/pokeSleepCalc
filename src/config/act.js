@@ -7,6 +7,7 @@ export const SLEEP_CALC_POKEMONS = {
     198, 430,
     303,
     83
+    // 252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -19,16 +20,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312], // ban 宝可梦id
+  showBanArea: [0, 1, 2, 4, 5] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+  upIdsMidIds: [252, 255, 258, 311, 312],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312]
 }
 export const ACT_LIST = [
   //  {
@@ -147,6 +148,26 @@ export const ACT_LIST = [
     endTime: 1752436799000,
     notArea: [],
     midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+    smallUp: [],
+    isActRandom: true
+  },
+  {
+    name: '2週年紀念嘉年華第1週',
+    namejp: '2周年記念フェスティバル1週目',
+    startTime: 1752436800000,
+    endTime: 1753041599000,
+    notArea: [],
+    midUp: [252, 255, 258, 311, 312],
+    smallUp: [],
+    isActRandom: true
+  },
+  {
+    name: '2週年紀念嘉年華第2週',
+    namejp: '2周年記念フェスティバル2週目',
+    startTime: 1753041600000,
+    endTime: 1753646399000,
+    notArea: [],
+    midUp: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
     smallUp: [],
     isActRandom: true
   }
