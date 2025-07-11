@@ -59,7 +59,10 @@ const evoLine = [
   [7054, 980],
   [517, 518],
   [440, 113, 242],
-  [198, 430]
+  [198, 430],
+  [252, 253, 254],
+  [255, 256, 257],
+  [258, 259, 260]
 ]
 const pokedex = {
   1: {
@@ -2002,6 +2005,165 @@ const pokedex = {
     foodPer: 26.60,
     skillPer: 5.20
   },
+  252: {
+    id: 252,
+    // name: '木守宮',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 4,
+    maxcarry: 8
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+    // food: {
+    //   type: [11, 15, 7],
+    //   count: {
+    //     11: {
+    //       num: [2, 5, 7]
+    //     },
+    //     15: {
+    //       num: [0, 5, 8]
+    //     },
+    //     7: {
+    //       num: [0, 0, 8]
+    //     }
+    //   }
+    // }
+  },
+  253: {
+    id: 253,
+    // name: '森林蜥蜴',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 4,
+    maxcarry: 11
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
+  254: {
+    id: 254,
+    // name: '蜥蜴王',
+    friendship: 20,
+    sleepType: 1,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 4,
+    maxcarry: 17
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
+  255: {
+    id: 255,
+    // name: '火稚雞',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 10,
+    maxcarry: 12
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+    // food: {
+    //   type: [11, 15, 7],
+    //   count: {
+    //     11: {
+    //       num: [2, 5, 7]
+    //     },
+    //     15: {
+    //       num: [0, 5, 8]
+    //     },
+    //     7: {
+    //       num: [0, 0, 8]
+    //     }
+    //   }
+    // }
+  },
+  256: {
+    id: 256,
+    // name: '力壯雞',
+    friendship: 12,
+    sleepType: 2,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 18,
+    maxcarry: 16
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
+  257: {
+    id: 257,
+    // name: '火焰雞',
+    friendship: 20,
+    sleepType: 2,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 18,
+    maxcarry: 22
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
+  258: {
+    id: 258,
+    // name: '水躍魚',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 1,
+    maxcarry: 11
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+    // food: {
+    //   type: [11, 15, 7],
+    //   count: {
+    //     11: {
+    //       num: [2, 5, 7]
+    //     },
+    //     15: {
+    //       num: [0, 5, 8]
+    //     },
+    //     7: {
+    //       num: [0, 0, 8]
+    //     }
+    //   }
+    // }
+  },
+  259: {
+    id: 259,
+    // name: '沼躍魚',
+    friendship: 12,
+    sleepType: 3,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 15,
+    maxcarry: 16
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
+  260: {
+    id: 260,
+    // name: '巨沼怪',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 7,
+    // pokeType: 2,
+    berryType: 15,
+    maxcarry: 20
+    // helpSpeed: 4800,
+    // foodPer: 23.80,
+    // skillPer: 4.10,
+  },
   280: {
     id: 280,
     // name: '拉魯拉絲',
@@ -2214,6 +2376,60 @@ const pokedex = {
     helpSpeed: 3000,
     foodPer: 28.50,
     skillPer: 5.20
+  },
+  311: {
+    id: 311,
+    // name: '正電拍拍',
+    friendship: 10,
+    sleepType: 2,
+    skillType: 26,
+    // pokeType: 3,
+    berryType: 13,
+    maxcarry: 16
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+    // food: {
+    //   type: [15, 2, 9],
+    //   count: {
+    //     15: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     9: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  312: {
+    id: 312,
+    // name: '負電拍拍',
+    friendship: 10,
+    sleepType: 2,
+    skillType: 27,
+    // pokeType: 3,
+    berryType: 13,
+    maxcarry: 16
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+    // food: {
+    //   type: [15, 2, 9],
+    //   count: {
+    //     15: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     9: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
   },
   316: {
     id: 316,
@@ -3510,7 +3726,7 @@ const initPokedex = () => {
   }
   evoLine.forEach(evoItem => {
     evoItem.forEach((pm, pmKey) => {
-      if ((pm!== 9001) && (pm !== 9002) && (pm !== 9004)) {
+      if ((pm !== 9001) && (pm !== 9002) && (pm !== 9004)) {
         pokedex[pm].evoLineKey = 1
       }
       if (pmKey > 0) {
@@ -3583,6 +3799,9 @@ const updatePoke = [{
 }, {
   time: '2025/06/1',
   pokemons: [303, 83]
+}, {
+  time: '2025/07/1',
+  pokemons: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312]
 }]
 // console.log(pokedex)
 export {

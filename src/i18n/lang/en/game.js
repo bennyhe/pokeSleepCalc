@@ -100,7 +100,9 @@ export default {
     22: 'Lunar Blessing (Energy for Everyone S)',
     23: 'Bad Dreams (Charge Strength M)',
     24: 'Super Luck (Ingredient Draw S)',
-    25: 'Hyper Cutter (Ingredient Draw S)'
+    25: 'Hyper Cutter (Ingredient Draw S)',
+    26: 'Plus (Ingredient Magnet S)',
+    27: 'Minus (Cooking Power-Up S)'
   },
   'SUBSKILLS_NAMES': {
     1: '樹果數量S',
@@ -434,7 +436,18 @@ export default {
     198: 'Murkrow',
     430: 'Honchkrow',
     303: 'Mawile',
-    83: 'Farfetch\'d'
+    83: 'Farfetch\'d',
+    252: '木守宮',
+    253: '森林蜥蜴',
+    254: '蜥蜴王',
+    255: '火稚雞',
+    256: '力壯雞',
+    257: '火焰雞',
+    258: '水躍魚',
+    259: '沼躍魚',
+    260: '巨沼怪',
+    311: '正電拍拍',
+    312: '負電拍拍'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',
@@ -734,6 +747,19 @@ export default {
     305: '晃晃大顎睡',
     306: '抱大顎睡',
     307: '揮莖備戰睡',
-    308: '嘴饞睡'
+    308: '嘴饞睡',
+    309: '夢中攀爬睡',
+    310: '葉子裹裹睡',
+    311: '培育小樹睡',
+    312: '暖烘烘睡',
+    313: '跳跳睡',
+    314: '踢踢睡',
+    315: '聚氣睡',
+    316: '火焰踢睡',
+    317: '晃晃鰭睡',
+    318: '抱岩石睡',
+    319: '夢中游泳睡',
+    320: '玩泥巴睡',
+    321: '揮揮彩球睡'
   }
 }
