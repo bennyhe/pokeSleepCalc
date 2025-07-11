@@ -5,8 +5,8 @@ export const SLEEP_CALC_POKEMONS = {
     488,
     113, 242, 440,
     198, 430,
-    303
-    // 83
+    303,
+    83
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -25,10 +25,10 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [7, 10, 54, 79, 84, 127, 158, 194, 214, 225, 333, 627, 736, 845, 912],
-  upIdsMidIds: [83],
+  upIdsSmallIds: [],
+  upIdsMidIds: [906, 907, 908, 909, 910, 911, 912, 913, 914],
   upIdsLargeIds: [],
-  noLastList: [83]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {
@@ -99,14 +99,55 @@ export const ACT_LIST = [
   //   midUp: [198, 430],
   //   isActRandom: true
   // }
+  // {
+  //   name: '2週年搶先慶企畫',
+  //   namejp: 'もうすぐ2周年キャンペーン',
+  //   startTime: 1751832000000,
+  //   endTime: 1752091199000,
+  //   notArea: [],
+  //   midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+  //   smallUp: [],
+  //   isActRandom: true
+  // },
   {
-    name: '夏日嘉年華2025',
-    namejp: 'サマーフェスティバル2025',
-    startTime: 1750622400000,
-    endTime: 1751227199000,
+    name: '2週年搶先慶企畫 & 好眠日',
+    namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
+    startTime: 1752091200000,
+    endTime: 1752177599000,
     notArea: [],
-    midUp: [83],
-    smallUp: [7, 10, 54, 79, 84, 127, 158, 194, 214, 225, 333, 627, 736, 845, 912],
+    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
+    times: 1.5,
+    isActRandom: true
+  },
+  {
+    name: '2週年搶先慶企畫 & 满月日',
+    namejp: 'もうすぐ2周年キャンペーン & 満月の日',
+    startTime: 1752177600000,
+    endTime: 1752263999000,
+    notArea: [],
+    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+    largeUp: [35, 36, 173],
+    times: 2,
+    isActRandom: true
+  },
+  {
+    name: '2週年搶先慶企畫 & 好眠日',
+    namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
+    startTime: 1752264000000,
+    endTime: 1752350399000,
+    notArea: [],
+    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
+    times: 1.5,
+    isActRandom: true
+  },
+  {
+    name: '2週年搶先慶企畫',
+    namejp: 'もうすぐ2周年キャンペーン',
+    startTime: 1752350400000,
+    endTime: 1752436799000,
+    notArea: [],
+    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+    smallUp: [],
     isActRandom: true
   }
 ]
