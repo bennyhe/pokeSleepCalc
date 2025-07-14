@@ -182,7 +182,7 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 4500,
     foodPer: 27.10,
-    skillPer: 2.00,
+    skillPer: 2,
     food: {
       type: [8, 13, 7],
       count: {
@@ -209,7 +209,7 @@ const pokedex = {
     maxcarry: 14,
     helpSpeed: 3400,
     foodPer: 27.10,
-    skillPer: 2.00
+    skillPer: 2
   },
   9: {
     id: 9,
@@ -288,7 +288,7 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 4900,
     foodPer: 23.70,
-    skillPer: 3.00,
+    skillPer: 3,
     food: {
       type: [5, 15, 7],
       count: {
@@ -315,7 +315,7 @@ const pokedex = {
     maxcarry: 16,
     helpSpeed: 2950,
     foodPer: 23.70,
-    skillPer: 3.00
+    skillPer: 3
   },
   23: {
     id: 23,
@@ -473,7 +473,7 @@ const pokedex = {
     maxcarry: 13,
     helpSpeed: 2900,
     foodPer: 17.40,
-    skillPer: 4.00
+    skillPer: 4
   },
   50: {
     id: 50,
@@ -512,8 +512,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 16,
     helpSpeed: 2800,
-    foodPer: 19.00,
-    skillPer: 2.00
+    foodPer: 19,
+    skillPer: 2
   },
   52: {
     id: 52,
@@ -629,7 +629,7 @@ const pokedex = {
     berryType: 18,
     maxcarry: 17,
     helpSpeed: 2800,
-    foodPer: 20.00,
+    foodPer: 20,
     skillPer: 2.40
   },
   58: {
@@ -643,7 +643,7 @@ const pokedex = {
     maxcarry: 8,
     helpSpeed: 4300,
     foodPer: 13.80,
-    skillPer: 5.00,
+    skillPer: 5,
     food: {
       type: [6, 7, 8],
       count: {
@@ -710,7 +710,7 @@ const pokedex = {
     maxcarry: 12,
     helpSpeed: 3800,
     foodPer: 23.50,
-    skillPer: 4.00
+    skillPer: 4
   },
   71: {
     id: 71,
@@ -775,7 +775,7 @@ const pokedex = {
     berryType: 14,
     maxcarry: 16,
     helpSpeed: 3100,
-    foodPer: 28.00,
+    foodPer: 28,
     skillPer: 5.20
   },
   79: {
@@ -866,7 +866,7 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 3000,
     foodPer: 16,
-    skillPer: 4.3,
+    skillPer: 4.30,
     food: {
       type: [1, 7, 11],
       count: {
@@ -893,7 +893,7 @@ const pokedex = {
     maxcarry: 13,
     helpSpeed: 3800,
     foodPer: 18.40,
-    skillPer: 2.00,
+    skillPer: 2,
     food: {
       type: [15, 13, 7],
       count: {
@@ -920,7 +920,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 2300,
     foodPer: 18.40,
-    skillPer: 2.00
+    skillPer: 2
   },
   92: {
     id: 92,
@@ -1222,8 +1222,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 9,
     helpSpeed: 5000,
-    foodPer: 25.00,
-    skillPer: 2.00,
+    foodPer: 25,
+    skillPer: 2,
     food: {
       type: [6, 16, 10],
       count: {
@@ -1431,7 +1431,7 @@ const pokedex = {
     berryType: 13,
     maxcarry: 10,
     helpSpeed: 4300,
-    foodPer: 21.00,
+    foodPer: 21,
     skillPer: 2.30,
     food: {
       type: [5, 11, 3],
@@ -1485,7 +1485,7 @@ const pokedex = {
     berryType: 12,
     maxcarry: 8,
     helpSpeed: 5200,
-    foodPer: 17.00,
+    foodPer: 17,
     skillPer: 3.80,
     food: {
       type: [9, 10, 13],
@@ -1589,7 +1589,7 @@ const pokedex = {
     berryType: 13,
     maxcarry: 15,
     helpSpeed: 2500,
-    foodPer: 13.00,
+    foodPer: 13,
     skillPer: 4.70
   },
   185: {
@@ -1642,7 +1642,7 @@ const pokedex = {
     berryType: 1,
     maxcarry: 16,
     helpSpeed: 3400,
-    foodPer: 19.00,
+    foodPer: 19,
     skillPer: 3.20
   },
   196: {
@@ -1722,7 +1722,7 @@ const pokedex = {
     maxcarry: 16,
     helpSpeed: 3500,
     foodPer: 21.10,
-    skillPer: 7.00
+    skillPer: 7
   },
   208: {
     id: 208,
@@ -1856,7 +1856,7 @@ const pokedex = {
     maxcarry: 16,
     helpSpeed: 3300,
     foodPer: 20.30,
-    skillPer: 4.00
+    skillPer: 4
   },
   242: {
     id: 242,
@@ -2010,159 +2010,159 @@ const pokedex = {
     // name: '木守宮',
     friendship: 5,
     sleepType: 1,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 21,
+    pokeType: 3,
     berryType: 4,
-    maxcarry: 8
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
-    // food: {
-    //   type: [11, 15, 7],
-    //   count: {
-    //     11: {
-    //       num: [2, 5, 7]
-    //     },
-    //     15: {
-    //       num: [0, 5, 8]
-    //     },
-    //     7: {
-    //       num: [0, 0, 8]
-    //     }
-    //   }
-    // }
+    maxcarry: 8,
+    helpSpeed: 4500,
+    foodPer: 17.20,
+    skillPer: 3.50,
+    food: {
+      type: [3, 17, 1],
+      count: {
+        3: {
+          num: [1, 2, 4]
+        },
+        17: {
+          num: [0, 2, 3]
+        },
+        1: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   253: {
     id: 253,
     // name: '森林蜥蜴',
     friendship: 12,
     sleepType: 1,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 21,
+    pokeType: 3,
     berryType: 4,
-    maxcarry: 11
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 11,
+    helpSpeed: 3300,
+    foodPer: 15,
+    skillPer: 3.50
   },
   254: {
     id: 254,
     // name: '蜥蜴王',
     friendship: 20,
     sleepType: 1,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 21,
+    pokeType: 3,
     berryType: 4,
-    maxcarry: 17
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 17,
+    helpSpeed: 2300,
+    foodPer: 10.70,
+    skillPer: 3
   },
   255: {
     id: 255,
     // name: '火稚雞',
     friendship: 5,
     sleepType: 2,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 7,
+    pokeType: 1,
     berryType: 10,
-    maxcarry: 12
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
-    // food: {
-    //   type: [11, 15, 7],
-    //   count: {
-    //     11: {
-    //       num: [2, 5, 7]
-    //     },
-    //     15: {
-    //       num: [0, 5, 8]
-    //     },
-    //     7: {
-    //       num: [0, 0, 8]
-    //     }
-    //   }
-    // }
+    maxcarry: 12,
+    helpSpeed: 4300,
+    foodPer: 16,
+    skillPer: 4.4,
+    food: {
+      type: [2, 15, 10],
+      count: {
+        2: {
+          num: [1, 2, 4]
+        },
+        15: {
+          num: [0, 4, 6]
+        },
+        10: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   256: {
     id: 256,
     // name: '力壯雞',
     friendship: 12,
     sleepType: 3,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 7,
+    pokeType: 1,
     berryType: 18,
-    maxcarry: 16
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 16,
+    helpSpeed: 3400,
+    foodPer: 17,
+    skillPer: 5.20
   },
   257: {
     id: 257,
     // name: '火焰雞',
     friendship: 20,
     sleepType: 3,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 7,
+    pokeType: 1,
     berryType: 18,
-    maxcarry: 22
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 22,
+    helpSpeed: 2600,
+    foodPer: 15.30,
+    skillPer: 4.90
   },
   258: {
     id: 258,
     // name: '水躍魚',
     friendship: 5,
     sleepType: 3,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 14,
+    pokeType: 1,
     berryType: 1,
-    maxcarry: 11
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
-    // food: {
-    //   type: [11, 15, 7],
-    //   count: {
-    //     11: {
-    //       num: [2, 5, 7]
-    //     },
-    //     15: {
-    //       num: [0, 5, 8]
-    //     },
-    //     7: {
-    //       num: [0, 0, 8]
-    //     }
-    //   }
-    // }
+    maxcarry: 11,
+    helpSpeed: 4700,
+    foodPer: 19.20,
+    skillPer: 2.4,
+    food: {
+      type: [16, 8, 2],
+      count: {
+        16: {
+          num: [1, 2, 4]
+        },
+        8: {
+          num: [0, 3, 5]
+        },
+        2: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   259: {
     id: 259,
     // name: '沼躍魚',
     friendship: 12,
     sleepType: 3,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 14,
+    pokeType: 1,
     berryType: 15,
-    maxcarry: 16
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 16,
+    helpSpeed: 3500,
+    foodPer: 16.80,
+    skillPer: 2.80
   },
   260: {
     id: 260,
     // name: '巨沼怪',
     friendship: 20,
     sleepType: 3,
-    // skillType: 7,
-    // pokeType: 2,
+    skillType: 14,
+    pokeType: 1,
     berryType: 15,
-    maxcarry: 20
-    // helpSpeed: 4800,
-    // foodPer: 23.80,
-    // skillPer: 4.10,
+    maxcarry: 20,
+    helpSpeed: 2800,
+    foodPer: 14.60,
+    skillPer: 3.40
   },
   280: {
     id: 280,
@@ -2383,26 +2383,26 @@ const pokedex = {
     friendship: 10,
     sleepType: 2,
     skillType: 26,
-    // pokeType: 3,
+    pokeType: 3,
     berryType: 13,
-    maxcarry: 16
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
-    // food: {
-    //   type: [15, 2, 9],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     9: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 16,
+    helpSpeed: 2400,
+    foodPer: 10.30,
+    skillPer: 4.90,
+    food: {
+      type: [17, 1, 8],
+      count: {
+        17: {
+          num: [1, 2, 4]
+        },
+        1: {
+          num: [0, 2, 3]
+        },
+        8: {
+          num: [0, 0, 6]
+        }
+      }
+    }
   },
   312: {
     id: 312,
@@ -2410,26 +2410,26 @@ const pokedex = {
     friendship: 10,
     sleepType: 2,
     skillType: 27,
-    // pokeType: 3,
+    pokeType: 3,
     berryType: 13,
-    maxcarry: 16
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
-    // food: {
-    //   type: [15, 2, 9],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     9: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 16,
+    helpSpeed: 2400,
+    foodPer: 17.40,
+    skillPer: 4.90,
+    food: {
+      type: [9, 3, 8],
+      count: {
+        9: {
+          num: [1, 2, 4]
+        },
+        3: {
+          num: [0, 2, 3]
+        },
+        8: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   316: {
     id: 316,
@@ -2468,8 +2468,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 19,
     helpSpeed: 3500,
-    foodPer: 21.00,
-    skillPer: 7.00
+    foodPer: 21,
+    skillPer: 7
   },
   333: {
     id: 333,
@@ -2710,7 +2710,7 @@ const pokedex = {
     berryType: 13,
     maxcarry: 21,
     helpSpeed: 2400,
-    foodPer: 20.00,
+    foodPer: 20,
     skillPer: 2.30
   },
   425: {
@@ -2884,7 +2884,7 @@ const pokedex = {
     maxcarry: 14,
     helpSpeed: 2600,
     berryType: 18,
-    foodPer: 15.00,
+    foodPer: 15,
     skillPer: 5.10
   },
   453: {
@@ -2961,7 +2961,7 @@ const pokedex = {
     berryType: 7,
     maxcarry: 21,
     helpSpeed: 3000,
-    foodPer: 25.00,
+    foodPer: 25,
     skillPer: 4.40
   },
   461: {
@@ -3181,7 +3181,7 @@ const pokedex = {
     maxcarry: 15,
     helpSpeed: 2600,
     foodPer: 17.80,
-    skillPer: 4.00
+    skillPer: 4
   },
   702: {
     id: 702,
@@ -3314,7 +3314,7 @@ const pokedex = {
     helpSpeed: 2500,
     berryType: 12,
     foodPer: 16.70,
-    skillPer: 3.00,
+    skillPer: 3,
     food: {
       type: [16, 11, 13],
       count: {
@@ -3435,7 +3435,7 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 2600,
     berryType: 17,
-    foodPer: 19.00,
+    foodPer: 19,
     skillPer: 2.20
   },
   909: {
@@ -3476,7 +3476,7 @@ const pokedex = {
     helpSpeed: 3100,
     berryType: 10,
     foodPer: 24.70,
-    skillPer: 5.00
+    skillPer: 5
   },
   911: {
     id: 911,
@@ -3620,7 +3620,7 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 5600,
     berryType: 7,
-    foodPer: 23.00,
+    foodPer: 23,
     skillPer: 2.80,
     food: {
       type: [15, 16, 4],
