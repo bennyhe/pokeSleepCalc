@@ -10,6 +10,7 @@ import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { pokedex } from '../config/pokedex.js'
 const getTimes = 4000
 const sleepTypeToIndex = {
   999: 3,
@@ -21,11 +22,13 @@ const showMax = {
   num: 399
 }
 const pageData = ref({
-  curMap: 0
+  curMap: 0,
+  pokemonId: null
 })
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
 }
+const handleChangePokemon = pokeId => {}
 </script>
 
 <template>
@@ -45,7 +48,7 @@ const handleClickChangeMap = id => {
         >
           <div
             class="cpt-select-list__item"
-            :class="{ cur: pageData.curMap === mapIndex }"
+            :class="{ 'cur-poke': pageData.curMap === mapIndex }"
           >
             <div class="cpt-select-list__name">
               {{ $t(`ILAND.${mapItem.id}`) }}
@@ -83,8 +86,33 @@ const handleClickChangeMap = id => {
       </ul>
     </el-form-item>
     <!-- E 当前岛屿 -->
+    <el-form-item :label="$t('PROP.pokemon')">
+      <div style="width: 100%">
+        <el-select
+          v-model="pageData.pokemonId"
+          filterable
+          @change="handleChangePokemon()"
+        >
+          <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+            <el-option
+              :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-#${pokeItem.id}`"
+              :value="pokeItem.id"
+            >
+              <img
+                class="icon"
+                v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+                :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+                v-bind:key="pokeItem.id"
+              />
+              {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-#{{ pokeItem.id }}
+            </el-option>
+          </template>
+        </el-select>
+      </div>
+    </el-form-item>
   </el-form>
   <div
+    class="page-master__list"
     v-for="(cItem, cKey) in SLEEP_TYPES"
     v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}_${cItem}`"
   >
@@ -116,12 +144,19 @@ const handleClickChangeMap = id => {
         v-for="(hopeItem, hopeKey) in tdItem.res"
         v-bind:key="hopeItem.pokeId"
       >
-        <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
+        <CptAvatar
+          :pokeId="hopeItem.pokeId"
+          v-if="hopeKey < showMax.num"
+          :class="{ 'cur-poke': pageData.pokemonId === hopeItem.pokeId }"
+        >
           <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
         </CptAvatar>
       </template>
     </template>
-    <template v-if="masterRes.level20.actTime.list.length > 0">
+    <div
+      class="master-acttime"
+      v-if="masterRes.level20.actTime.list.length > 0"
+    >
       <h4>
         <img
           class="icon"
@@ -147,13 +182,20 @@ const handleClickChangeMap = id => {
           v-for="(hopeItem, hopeKey) in tdItem.res"
           v-bind:key="hopeItem.pokeId"
         >
-          <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
+          <CptAvatar
+            :pokeId="hopeItem.pokeId"
+            v-if="hopeKey < showMax.num"
+            :class="{ 'cur-poke': pageData.pokemonId === hopeItem.pokeId }"
+          >
             <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
           </CptAvatar>
         </template>
       </template>
-    </template>
-    <template v-if="masterRes.level20.extraTime.list.length > 0">
+    </div>
+    <div
+      class="master-extratime"
+      v-if="masterRes.level20.extraTime.list.length > 0"
+    >
       <h4>
         <img
           class="icon"
@@ -179,11 +221,15 @@ const handleClickChangeMap = id => {
           v-for="(hopeItem, hopeKey) in tdItem.res"
           v-bind:key="hopeItem.pokeId"
         >
-          <CptAvatar :pokeId="hopeItem.pokeId" v-if="hopeKey < showMax.num">
+          <CptAvatar
+            :pokeId="hopeItem.pokeId"
+            v-if="hopeKey < showMax.num"
+            :class="{ 'cur-poke': pageData.pokemonId === hopeItem.pokeId }"
+          >
             <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
           </CptAvatar>
         </template>
       </template>
-    </template>
+    </div>
   </div>
 </template>

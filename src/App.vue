@@ -126,7 +126,7 @@ onMounted(() => {
     <div class="page-item cur" v-if="navData.navIndex === '0383a0134484d5bd'">
       <PageSleepLab />
     </div>
-    <div class="page-item cur" v-if="navData.navIndex === 'master20'">
+    <div class="page-item cur page-master" v-if="navData.navIndex === 'master20'">
       <PageMasterRes />
     </div>
     <div class="page-item cur page-findpm" v-if="navData.navIndex === 'findpm'">
