@@ -18,7 +18,7 @@ const sleepTypeToIndex = {
   3: 2
 }
 const showMax = {
-  num: 99
+  num: 399
 }
 const pageData = ref({
   curMap: 0
@@ -153,11 +153,7 @@ const handleClickChangeMap = id => {
         </template>
       </template>
     </template>
-    <template
-      v-if="
-        pageData.curMap === 5 && masterRes.level20.extraTime.list.length > 0
-      "
-    >
+    <template v-if="masterRes.level20.extraTime.list.length > 0">
       <h4>
         <img
           class="icon"
