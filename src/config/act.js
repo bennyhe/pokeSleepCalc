@@ -27,7 +27,7 @@ export const SLEEP_CALC_CONFIG = {
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [252, 255, 258, 311, 312],
+  upIdsMidIds: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
   upIdsLargeIds: [],
   noLastList: []
 }
