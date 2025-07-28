@@ -27,7 +27,7 @@ export const SLEEP_CALC_CONFIG = {
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -110,57 +110,57 @@ export const ACT_LIST = [
   //   smallUp: [],
   //   isActRandom: true
   // },
-  {
-    name: '2週年搶先慶企畫 & 好眠日',
-    namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
-    startTime: 1752091200000,
-    endTime: 1752177599000,
-    notArea: [],
-    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '2週年搶先慶企畫 & 满月日',
-    namejp: 'もうすぐ2周年キャンペーン & 満月の日',
-    startTime: 1752177600000,
-    endTime: 1752263999000,
-    notArea: [],
-    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
-    largeUp: [35, 36, 173],
-    times: 2,
-    isActRandom: true
-  },
-  {
-    name: '2週年搶先慶企畫 & 好眠日',
-    namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
-    startTime: 1752264000000,
-    endTime: 1752350399000,
-    notArea: [],
-    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '2週年搶先慶企畫',
-    namejp: 'もうすぐ2周年キャンペーン',
-    startTime: 1752350400000,
-    endTime: 1752436799000,
-    notArea: [],
-    midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
-    smallUp: [],
-    isActRandom: true
-  },
-  {
-    name: '2週年紀念嘉年華第1週',
-    namejp: '2周年記念フェスティバル1週目',
-    startTime: 1752436800000,
-    endTime: 1753041599000,
-    notArea: [],
-    midUp: [252, 255, 258, 311, 312],
-    smallUp: [],
-    isActRandom: true
-  },
+  // {
+  //   name: '2週年搶先慶企畫 & 好眠日',
+  //   namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
+  //   startTime: 1752091200000,
+  //   endTime: 1752177599000,
+  //   notArea: [],
+  //   midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
+  //   times: 1.5,
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '2週年搶先慶企畫 & 满月日',
+  //   namejp: 'もうすぐ2周年キャンペーン & 満月の日',
+  //   startTime: 1752177600000,
+  //   endTime: 1752263999000,
+  //   notArea: [],
+  //   midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+  //   largeUp: [35, 36, 173],
+  //   times: 2,
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '2週年搶先慶企畫 & 好眠日',
+  //   namejp: 'もうすぐ2周年キャンペーン & 満月の前後の日',
+  //   startTime: 1752264000000,
+  //   endTime: 1752350399000,
+  //   notArea: [],
+  //   midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914, 35, 36, 173],
+  //   times: 1.5,
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '2週年搶先慶企畫',
+  //   namejp: 'もうすぐ2周年キャンペーン',
+  //   startTime: 1752350400000,
+  //   endTime: 1752436799000,
+  //   notArea: [],
+  //   midUp: [906, 907, 908, 909, 910, 911, 912, 913, 914],
+  //   smallUp: [],
+  //   isActRandom: true
+  // },
+  // {
+  //   name: '2週年紀念嘉年華第1週',
+  //   namejp: '2周年記念フェスティバル1週目',
+  //   startTime: 1752436800000,
+  //   endTime: 1753041599000,
+  //   notArea: [],
+  //   midUp: [252, 255, 258, 311, 312],
+  //   smallUp: [],
+  //   isActRandom: true
+  // },
   {
     name: '2週年紀念嘉年華第2週',
     namejp: '2周年記念フェスティバル2週目',
