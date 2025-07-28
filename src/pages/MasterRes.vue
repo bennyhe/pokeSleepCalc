@@ -48,7 +48,7 @@ const handleChangePokemon = pokeId => {}
         >
           <div
             class="cpt-select-list__item"
-            :class="{ 'cur-poke': pageData.curMap === mapIndex }"
+            :class="{ cur: pageData.curMap === mapIndex }"
           >
             <div class="cpt-select-list__name">
               {{ $t(`ILAND.${mapItem.id}`) }}
@@ -111,6 +111,64 @@ const handleChangePokemon = pokeId => {}
       </div>
     </el-form-item>
   </el-form>
+  <div class="map-pokemons" v-if="pageData.pokemonId">
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+          <td
+            v-for="(cItem, cKey) in SLEEP_TYPES"
+            v-bind:key="`${tdKey}_${cItem}`"
+          >
+            <div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
+              {{ $t(`SLEEP_TYPES.${cKey}`) }}
+            </div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(mapItem, mapKey) in gameMap" v-bind:key="mapItem.id">
+          <td>
+            <div class="cpt-select-list__item cur">
+              <div class="cpt-select-list__name">
+                {{ $t(`ILAND.${mapItem.id}`) }}
+                <div></div>
+              </div>
+              <img
+                v-if="mapItem.pic"
+                class="cpt-select-list__bg"
+                v-lazy="`./img/ui/${mapItem.pic}.png`"
+                :alt="mapItem.name"
+              />
+            </div>
+          </td>
+          <td
+            v-for="(cItem, cKey) in SLEEP_TYPES"
+            v-bind:key="`${tdKey}_${cItem}`"
+          >
+            <template
+              v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
+                mapKey + sleepTypeToIndex[cKey] * 6,
+                mapKey + sleepTypeToIndex[cKey] * 6 + 1
+              )"
+              v-bind:key="`${gameMap[mapKey].id}_${tdKey}`"
+            >
+              <template
+                v-for="hopeItem in tdItem.res"
+                v-bind:key="hopeItem.pokeId"
+              >
+                <template v-if="pageData.pokemonId === hopeItem.pokeId">
+                  <CptAvatar :pokeId="hopeItem.pokeId" :class="'cur-poke'">
+                  </CptAvatar>
+                  {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
+                </template>
+              </template>
+            </template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div
     class="page-master__list"
     v-for="(cItem, cKey) in SLEEP_TYPES"
