@@ -62,7 +62,8 @@ const evoLine = [
   [198, 430],
   [252, 253, 254],
   [255, 256, 257],
-  [258, 259, 260]
+  [258, 259, 260],
+  [848, 849, 8001]
 ]
 const pokedex = {
   1: {
@@ -3385,6 +3386,44 @@ const pokedex = {
       }
     }
   },
+  848: {
+    id: 848,
+    // name: '毒電嬰',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 14,
+    // pokeType: 2,
+    maxcarry: 6,
+    // helpSpeed: 2700,
+    berryType: 5
+    // foodPer: 16.50,
+    // skillPer: 3.90,
+    // food: {
+    //   type: [10, 4, 3],
+    //   count: {
+    //     10: {
+    //       num: [2, 5, 7]
+    //     },
+    //     4: {
+    //       num: [0, 4, 7]
+    //     },
+    //     3: {
+    //       num: [0, 0, 8]
+    //     }
+    //   }
+    // }
+  },
+  849: {
+    id: 849,
+    // name: '顫弦蠑螈（高調的樣子）',
+    friendship: 20,
+    sleepType: 1,
+    // skillType: 14,
+    // pokeType: 2,
+    maxcarry: 18,
+    // helpSpeed: 2700,
+    berryType: 5
+  },
   906: {
     id: 906,
     // name: '新葉喵',
@@ -3677,6 +3716,17 @@ const pokedex = {
       }
     }
   },
+  8001: {
+    id: 8001,
+    // name: '顫弦蠑螈（低調的樣子）',
+    friendship: 20,
+    sleepType: 1,
+    // skillType: 14,
+    // pokeType: 2,
+    maxcarry: 18,
+    // helpSpeed: 2700,
+    berryType: 5
+  },
   9001: {
     id: 9001,
     // name: '皮卡丘（萬聖節）',
@@ -3802,6 +3852,9 @@ const updatePoke = [{
 }, {
   time: '2025/07/1',
   pokemons: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312]
+}, {
+  time: '2025/08/1',
+  pokemons: [848, 849, 8001]
 }]
 // console.log(pokedex)
 export {
