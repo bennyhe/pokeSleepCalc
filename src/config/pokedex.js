@@ -512,7 +512,7 @@ const pokedex = {
     pokeType: 2,
     berryType: 15,
     maxcarry: 16,
-    helpSpeed: 2800,
+    helpSpeed: 2650,
     foodPer: 19,
     skillPer: 2
   },
@@ -1036,7 +1036,7 @@ const pokedex = {
     pokeType: 1,
     berryType: 15,
     maxcarry: 15,
-    helpSpeed: 3500,
+    helpSpeed: 3300,
     foodPer: 22.50,
     skillPer: 4.50
   },
@@ -3391,38 +3391,40 @@ const pokedex = {
     // name: '毒電嬰',
     friendship: 5,
     sleepType: 3,
-    // skillType: 14,
-    // pokeType: 2,
+    skillType: 10,
+    pokeType: 3,
     maxcarry: 6,
-    // helpSpeed: 2700,
-    berryType: 5
-    // foodPer: 16.50,
-    // skillPer: 3.90,
-    // food: {
-    //   type: [10, 4, 3],
-    //   count: {
-    //     10: {
-    //       num: [2, 5, 7]
-    //     },
-    //     4: {
-    //       num: [0, 4, 7]
-    //     },
-    //     3: {
-    //       num: [0, 0, 8]
-    //     }
-    //   }
-    // }
+    helpSpeed: 5600,
+    berryType: 5,
+    foodPer: 20.90,
+    skillPer: 4.80,
+    food: {
+      type: [8, 5, 1],
+      count: {
+        8: {
+          num: [1, 2, 4]
+        },
+        5: {
+          num: [0, 2, 4]
+        },
+        1: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   849: {
     id: 849,
     // name: '顫弦蠑螈（高調的樣子）',
     friendship: 20,
     sleepType: 1,
-    // skillType: 14,
-    // pokeType: 2,
+    skillType: 26,
+    pokeType: 3,
     maxcarry: 18,
-    // helpSpeed: 2700,
-    berryType: 5
+    helpSpeed: 3100,
+    berryType: 5,
+    foodPer: 23.90,
+    skillPer: 6.40
   },
   906: {
     id: 906,
@@ -3721,11 +3723,13 @@ const pokedex = {
     // name: '顫弦蠑螈（低調的樣子）',
     friendship: 20,
     sleepType: 1,
-    // skillType: 14,
-    // pokeType: 2,
+    skillType: 27,
+    pokeType: 3,
     maxcarry: 18,
-    // helpSpeed: 2700,
-    berryType: 5
+    helpSpeed: 3100,
+    berryType: 5,
+    foodPer: 23.90,
+    skillPer: 6.40
   },
   9001: {
     id: 9001,
