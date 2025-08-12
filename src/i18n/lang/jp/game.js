@@ -36,7 +36,13 @@ export default {
     'snow': 'ウノハナ雪原',
     'lake': 'ラピスラズリ湖畔',
     'plant': 'ゴールド旧発電所',
-    'none': 'Other Area'
+    'none': 'Other Area',
+    'greenex': 'ワカクサ本島 EX',
+    'beachex': 'シアンの砂浜 EX',
+    'holeex': 'トープ洞窟 EX',
+    'snowex': 'ウノハナ雪原 EX',
+    'lakeex': 'ラピスラズリ湖畔 EX',
+    'plantex': 'ゴールド旧発電所 EX'
   },
   'LEVEL_TITLE': {
     1: 'ノーマル',

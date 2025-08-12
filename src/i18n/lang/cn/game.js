@@ -35,7 +35,13 @@ export default {
     'snow': '白花雪原',
     'lake': '宝蓝湖畔',
     'plant': '黃金舊發電廠',
-    'none': '未适正树果'
+    'none': '未适正树果',
+    'greenex': '萌绿之岛 EX',
+    'beachex': '天青沙滩 EX',
+    'holeex': '灰褐洞窟 EX',
+    'snowex': '白花雪原 EX',
+    'lakeex': '宝蓝湖畔 EX',
+    'plantex': '黃金舊發電廠 EX'
   },
   'LEVEL_TITLE': {
     1: '普通',

@@ -100,5 +100,5 @@ export const NAV_SLEEPLAB = {
       value: 2
     }
   ],
-  navIndex: 1
+  navIndex: 0
 }

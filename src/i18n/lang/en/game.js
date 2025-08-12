@@ -35,7 +35,13 @@ export default {
     'snow': 'Snowdrop Tundra',
     'lake': 'Carmine Volcano',
     'plant': 'Old Gold Power Plant',
-    'none': 'Other Area'
+    'none': 'Other Area',
+    'greenex': 'Greengrass Isle EX',
+    'beachex': 'Cyan Beach EX',
+    'holeex': 'Taupe Hollow EX',
+    'snowex': 'Snowdrop Tundra EX',
+    'lakeex': 'Carmine Volcano EX',
+    'plantex': 'Old Gold Power Plant EX'
   },
   'LEVEL_TITLE': {
     1: 'Basic',
