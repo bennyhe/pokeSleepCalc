@@ -4,6 +4,7 @@ const markdownText = `
 ## 25-08-13
 1. add 萌绿EX数据
 2. update 岛屿数据区间参考v3.0.0
+3. update 帮速计算支持选萌绿EX的果子
 
 ## 25-08-11
 1. update 宝可梦 #848, #849, #8001

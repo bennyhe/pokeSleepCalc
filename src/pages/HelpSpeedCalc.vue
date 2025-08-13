@@ -174,6 +174,7 @@ if (getLSBOX) {
 const getLSFMBs = localStorage.getItem('PSC_FMBs')
 if (getLSFMBs) {
   gameMapNew.value[0].berry = JSON.parse(getLSFMBs)
+  gameMapNew.value[6].berry = JSON.parse(getLSFMBs) // 加7岛记得改序号
 }
 const getLSAB = localStorage.getItem('PSC_AB')
 if (getLSAB) {
@@ -468,20 +469,24 @@ const handleClickChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
   fnUpdateRank() // 更新排行榜
 }
-const handleClickChangeFMBerrys = berryId => {
-  if (gameMapNew.value[0].berry.includes(berryId)) {
-    gameMapNew.value[0].berry = gameMapNew.value[0].berry.filter(
+const setFMBerrys = (areaIndexId, berryId) => {
+  if (gameMapNew.value[areaIndexId].berry.includes(berryId)) {
+    gameMapNew.value[areaIndexId].berry = gameMapNew.value[areaIndexId].berry.filter(
       item => item !== berryId
     )
   } else {
-    if (gameMapNew.value[0].berry.join('') === '???') {
-      gameMapNew.value[0].berry = []
+    if (gameMapNew.value[areaIndexId].berry.join('') === '???') {
+      gameMapNew.value[areaIndexId].berry = []
     }
-    gameMapNew.value[0].berry.push(berryId)
+    gameMapNew.value[areaIndexId].berry.push(berryId)
   }
-  if (gameMapNew.value[0].berry.length === 0) {
-    gameMapNew.value[0].berry = ['?', '?', '?']
+  if (gameMapNew.value[areaIndexId].berry.length === 0) {
+    gameMapNew.value[areaIndexId].berry = ['?', '?', '?']
   }
+}
+const handleClickChangeFMBerrys = berryId => {
+  setFMBerrys(0, berryId)
+  setFMBerrys(6, berryId) //加7岛记得改序号
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
   // console.log(gameMapNew.value[0].berry)
 
@@ -1109,7 +1114,7 @@ watch(helpSpeedCalcForm.value, val => {
       </ul>
       <div
         style="width: 100%"
-        v-if="navData.navIndex !== 0 && helpSpeedCalcForm.curMap === 0"
+        v-if="navData.navIndex !== 0 && (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 6)"
       >
         <ul class="cpt-select-list cpt-select-list--berry">
           <template
