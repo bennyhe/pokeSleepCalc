@@ -23,7 +23,8 @@ const showMax = {
 }
 const pageData = ref({
   curMap: 0,
-  pokemonId: null
+  pokemonId: null,
+  areaNum: 7
 })
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
@@ -67,8 +68,8 @@ const handleChangePokemon = pokeId => {}
           >
             <template
               v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
-                mapIndex + sleepTypeToIndex[cKey] * 6,
-                mapIndex + sleepTypeToIndex[cKey] * 6 + 1
+                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
+                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
               )"
               v-bind:key="`${mapItem.id}_${tdKey}`"
             >
@@ -148,8 +149,8 @@ const handleChangePokemon = pokeId => {}
           >
             <template
               v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
-                mapKey + sleepTypeToIndex[cKey] * 6,
-                mapKey + sleepTypeToIndex[cKey] * 6 + 1
+                mapKey + sleepTypeToIndex[cKey] * pageData.areaNum,
+                mapKey + sleepTypeToIndex[cKey] * pageData.areaNum + 1
               )"
               v-bind:key="`${gameMap[mapKey].id}_${tdKey}`"
             >
@@ -186,8 +187,8 @@ const handleChangePokemon = pokeId => {}
     </h4>
     <template
       v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
-        pageData.curMap + sleepTypeToIndex[cKey] * 6,
-        pageData.curMap + sleepTypeToIndex[cKey] * 6 + 1
+        pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
+        pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
       )"
       v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
     >
@@ -224,8 +225,8 @@ const handleChangePokemon = pokeId => {}
       </h4>
       <template
         v-for="(tdItem, tdKey) in masterRes.level20.actTime.list.slice(
-          pageData.curMap + sleepTypeToIndex[cKey] * 6,
-          pageData.curMap + sleepTypeToIndex[cKey] * 6 + 1
+          pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
+          pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
         )"
         v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
@@ -263,8 +264,8 @@ const handleChangePokemon = pokeId => {}
       </h4>
       <template
         v-for="(tdItem, tdKey) in masterRes.level20.extraTime.list.slice(
-          pageData.curMap + sleepTypeToIndex[cKey] * 6,
-          pageData.curMap + sleepTypeToIndex[cKey] * 6 + 1
+          pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
+          pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
         )"
         v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >

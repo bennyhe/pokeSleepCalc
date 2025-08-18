@@ -1,6 +1,9 @@
 const markdownText = `
 # 更新日志
 
+## 25-08-17
+1. update 岛屿数据区间参考v3.0.3
+
 ## 25-08-13
 1. add 萌绿EX数据
 2. update 岛屿数据区间参考v3.0.0
