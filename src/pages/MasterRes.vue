@@ -165,6 +165,26 @@ const handleChangePokemon = pokeId => {}
                 </template>
               </template>
             </template>
+            <div style='opacity: .7' v-if="masterRes.level20.actTime.list.length > 0">
+              <template
+                v-for="(tdItem, tdKey) in masterRes.level20.actTime.list.slice(
+                  mapKey + sleepTypeToIndex[cKey] * pageData.areaNum,
+                  mapKey + sleepTypeToIndex[cKey] * pageData.areaNum + 1
+                )"
+                v-bind:key="`${gameMap[mapKey].id}_${tdKey}`"
+              >
+                <template
+                  v-for="hopeItem in tdItem.res"
+                  v-bind:key="hopeItem.pokeId"
+                >
+                  <template v-if="pageData.pokemonId === hopeItem.pokeId">
+                    /<CptAvatar :pokeId="hopeItem.pokeId" :class="'cur-poke'">
+                    </CptAvatar>
+                    {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
+                  </template>
+                </template>
+              </template>
+            </div>
           </td>
         </tr>
       </tbody>
