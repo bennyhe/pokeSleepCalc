@@ -6,7 +6,7 @@ export const masterRes = {
   // updateTime: 1739196143732,
   level20: {
     peaceTime: {
-      name: '平时-7.14+',
+      name: '平时-8.25+',
       list: peaceTimeList
     },
     actTime: {

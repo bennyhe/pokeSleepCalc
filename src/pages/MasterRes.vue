@@ -178,9 +178,7 @@ const handleChangePokemon = pokeId => {}
                   v-bind:key="hopeItem.pokeId"
                 >
                   <template v-if="pageData.pokemonId === hopeItem.pokeId">
-                    /<CptAvatar :pokeId="hopeItem.pokeId" :class="'cur-poke'">
-                    </CptAvatar>
-                    {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
+                    -{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}-
                   </template>
                 </template>
               </template>
