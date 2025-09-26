@@ -63,7 +63,8 @@ const evoLine = [
   [252, 253, 254],
   [255, 256, 257],
   [258, 259, 260],
-  [848, 849, 8001]
+  [848, 849, 8001],
+  [177, 178]
 ]
 const pokedex = {
   1: {
@@ -1542,6 +1543,46 @@ const pokedex = {
     helpSpeed: 3800,
     foodPer: 16.30,
     skillPer: 5.60
+  },
+  177: {
+    id: 177,
+    // name: '天然雀',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 13,
+    // pokeType: 3,
+    berryType: 6,
+    maxcarry: 11
+    // helpSpeed: 3800,
+    // foodPer: 16.30,
+    // skillPer: 5.60,
+    // food: {
+    //   type: [3, 11, 13],
+    //   count: {
+    //     3: {
+    //       num: [1, 2, 4]
+    //     },
+    //     11: {
+    //       num: [0, 2, 4]
+    //     },
+    //     13: {
+    //       num: [0, 0, 3]
+    //     }
+    //   }
+    // }
+  },
+  178: {
+    id: 178,
+    // name: '天然鳥',
+    friendship: 12,
+    sleepType: 2,
+    // skillType: 13,
+    // pokeType: 3,
+    berryType: 6,
+    maxcarry: 19
+    // helpSpeed: 3800,
+    // foodPer: 16.30,
+    // skillPer: 5.60
   },
   179: {
     id: 179,
@@ -3859,6 +3900,9 @@ const updatePoke = [{
 }, {
   time: '2025/08/1',
   pokemons: [848, 849, 8001]
+}, {
+  time: '2025/09/1',
+  pokemons: [177, 178]
 }]
 // console.log(pokedex)
 export {
