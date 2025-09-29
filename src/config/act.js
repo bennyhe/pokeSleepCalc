@@ -6,7 +6,8 @@ export const SLEEP_CALC_POKEMONS = {
     303,
     83,
     252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
-    848, 849, 8001
+    848, 849, 8001,
+    177, 178
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -19,10 +20,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [177,178], // ban 宝可梦id
-  showBanArea: [0,4,6] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 215, 228, 252, 255, 258, 287, 333, 353, 363, 517, 627, 778, 7006],

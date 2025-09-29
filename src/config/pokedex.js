@@ -1549,40 +1549,40 @@ const pokedex = {
     // name: '天然雀',
     friendship: 5,
     sleepType: 2,
-    // skillType: 13,
-    // pokeType: 3,
+    skillType: 10,
+    pokeType: 1,
     berryType: 6,
-    maxcarry: 11
-    // helpSpeed: 3800,
-    // foodPer: 16.30,
-    // skillPer: 5.60,
-    // food: {
-    //   type: [3, 11, 13],
-    //   count: {
-    //     3: {
-    //       num: [1, 2, 4]
-    //     },
-    //     11: {
-    //       num: [0, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    maxcarry: 11,
+    helpSpeed: 4500,
+    foodPer: 18.50,
+    skillPer: 1.60,
+    food: {
+      type: [3, 13, 5],
+      count: {
+        3: {
+          num: [1, 2, 4]
+        },
+        13: {
+          num: [0, 2, 3]
+        },
+        5: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   178: {
     id: 178,
     // name: '天然鳥',
     friendship: 12,
     sleepType: 2,
-    // skillType: 13,
-    // pokeType: 3,
+    skillType: 10,
+    pokeType: 1,
     berryType: 6,
-    maxcarry: 19
-    // helpSpeed: 3800,
-    // foodPer: 16.30,
-    // skillPer: 5.60
+    maxcarry: 19,
+    helpSpeed: 2500,
+    foodPer: 19.10,
+    skillPer: 2.50
   },
   179: {
     id: 179,
