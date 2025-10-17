@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '果實纍纍！樹果週vol.1',
+      name: '平时-10.22+',
       // startTime: 1738385391641,
       // endTime: 1737835199000,
       list: actTimeList
