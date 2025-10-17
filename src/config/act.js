@@ -3,8 +3,8 @@ export const SLEEP_CALC_POKEMONS = {
   noLastList: [243, 244, 245, 35, 36, 173, 488,
     // 113, 242, 440,
     // 198, 430,
-    303,
-    83,
+    // 303,
+    // 83,
     252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
     848, 849, 8001,
     177, 178
@@ -26,10 +26,10 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 215, 228, 252, 255, 258, 287, 333, 353, 363, 517, 627, 778, 7006],
-  upIdsMidIds: [177, 178],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
-  noLastList: [177, 178]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {
@@ -134,53 +134,4 @@ export const ACT_LIST = [
   //   smallUp: [],
   //   isActRandom: true
   // },
-  {
-    name: '果實纍纍！樹果週vol.1',
-    namejp: 'どっさり！きのみウィーク vol.1',
-    startTime: 1759089600000,
-    endTime: 1759694399000,
-    notArea: [],
-    smallUp: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 215, 228, 252, 255, 258, 287, 333, 353, 363, 517, 627, 778, 7006],
-    midUp: [177, 178],
-    isActRandom: true
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1759694400000,
-    endTime: 1759780799000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1759780800000,
-    endTime: 1759867199000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    times: 3,
-    isActRandom: true
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1759867200000,
-    endTime: 1759953599000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5,
-    isActRandom: true
-  },
-  {
-    name: '發現寶可夢睡姿週vol.2',
-    namejp: 'ポケモン寝顔発見ウィーク vol.2',
-    startTime: 1759953600000,
-    endTime: 1760299199000,
-    notArea: [],
-    midUp: [],
-    isActRandom: true
-  }
 ]
