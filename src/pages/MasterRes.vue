@@ -9,6 +9,7 @@ import {
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
+import { IN_LAST_TIME_POKEMONS } from '../config/act.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
 const getTimes = 4000
@@ -39,6 +40,22 @@ const handleChangePokemon = pokeId => {}
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
   </div>
   <el-form label-width="90px">
+    <el-form-item>
+      <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" v-bind:key="iltKey">
+        <img
+          v-for="pokes in iltItem.ids"
+          class="icon"
+          v-lazy="`./img/pokedex/${pokes}.png`"
+          :alt="$t(`POKEMON_NAME.${pokes}`)"
+          v-bind:key="pokes"
+        />
+        {{
+          formatTime(
+            new Date(iltItem.starttime).getTime() + 100 * 60 * 60 * 24 * 1000
+          )
+        }}
+      </p>
+    </el-form-item>
     <!-- S 当前岛屿 -->
     <el-form-item :label="$t('OPTIONS.formLableCurIland')">
       <ul class="cpt-select-list">
@@ -165,7 +182,10 @@ const handleChangePokemon = pokeId => {}
                 </template>
               </template>
             </template>
-            <div style='opacity: .7' v-if="masterRes.level20.actTime.list.length > 0">
+            <div
+              style="opacity: 0.7"
+              v-if="masterRes.level20.actTime.list.length > 0"
+            >
               <template
                 v-for="(tdItem, tdKey) in masterRes.level20.actTime.list.slice(
                   mapKey + sleepTypeToIndex[cKey] * pageData.areaNum,
