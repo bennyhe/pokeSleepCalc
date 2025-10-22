@@ -20,6 +20,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [177, 178],
     starttime: '2025/9/29 04:00'
+  },
+  {
+    ids: [170, 171],
+    starttime: '2025/10/22 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {

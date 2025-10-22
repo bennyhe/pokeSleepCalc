@@ -419,6 +419,31 @@ export const COOKMENU = {
     ],
     'baseEnergy': 20655,
     'menuPercent': 61
+  },
+  '1022': {
+    // 扮演南瓜精濃湯
+    'id': 1022,
+    'type': 1,
+    'from': [
+      {
+        'id': 18,
+        'num': 10
+      },
+      {
+        'id': 7,
+        'num': 16
+      },
+      {
+        'id': 4,
+        'num': 18
+      },
+      {
+        'id': 2,
+        'num': 25
+      }
+    ],
+    'baseEnergy': 15621,
+    'menuPercent': 48
   }, 
   '2000': {
     // 拌拌沙拉
@@ -1356,5 +1381,25 @@ export const COOKMENU = {
     }],
     'baseEnergy': 20885,
     'menuPercent': 61
+  },
+  '3025': {
+    // 心跳加速鬼面鬆餅
+    'id': 3025,
+    'type': 3,
+    'from': [{
+      'id': 18,
+      'num': 18
+    }, {
+      'id': 3,
+      'num': 24
+    }, {
+      'id': 9,
+      'num': 32
+    }, {
+      'id': 12,
+      'num': 29
+    }],
+    'baseEnergy': 24354,
+    'menuPercent': 78
   }
 }
