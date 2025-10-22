@@ -15,7 +15,8 @@ import {
   fnAccumulation,
   getStageLevelPicId,
   containsAny,
-  getDecimalNumber
+  getDecimalNumber,
+  extractPrefix
 } from '../utils/index.js'
 import {
   getNewFoodPer,
@@ -653,7 +654,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
             <img
               class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />
@@ -1236,7 +1237,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
             <img
               class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               v-bind:key="pokeItem.id"
             />

@@ -64,7 +64,8 @@ const evoLine = [
   [255, 256, 257],
   [258, 259, 260],
   [848, 849, 8001],
-  [177, 178]
+  [177, 178],
+  [710, 711, '710-2', '711-2', '710-3', '711-3', '710-4', '711-4']
 ]
 const pokedex = {
   1: {
@@ -3252,6 +3253,124 @@ const pokedex = {
       }
     }
   },
+  710: {
+    id: 710,
+    // name: '南瓜精 (中顆種)',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 11,
+    helpSpeed: 5400,
+    foodPer: 12,
+    skillPer: 4.90,
+    food: {
+      type: [18, 15, 4],
+      count: {
+        18: {
+          num: [2, 5, 7]
+        },
+        15: {
+          num: [0, 11, 18]
+        },
+        4: {
+          num: [0, 0, 15]
+        }
+      }
+    }
+  },
+  '710-2': {
+    id: '710-2',
+    // name: '南瓜精 (中顆種)',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 7,
+    helpSpeed: 5300,
+    foodPer: 12,
+    skillPer: 4.90
+  },
+  '710-3': {
+    id: '710-3',
+    // name: '南瓜精 (中顆種)',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 15,
+    helpSpeed: 5500,
+    foodPer: 12,
+    skillPer: 4.90
+  },
+  '710-4': {
+    id: '710-4',
+    // name: '南瓜精 (中顆種)',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 21,
+    helpSpeed: 5600,
+    foodPer: 12,
+    skillPer: 4.90
+  },
+  711: {
+    id: 711,
+    // name: '南瓜怪人  (中顆種)',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 14,
+    helpSpeed: 3200,
+    foodPer: 13,
+    skillPer: 4.90
+  },
+  '711-2': {
+    id: '711-2',
+    // name: '南瓜怪人  (小顆種)',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 10,
+    helpSpeed: 3100,
+    foodPer: 13,
+    skillPer: 4.90
+  },
+  '711-3': {
+    id: '711-3',
+    // name: '南瓜怪人  (中顆種)',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 19,
+    helpSpeed: 3300,
+    foodPer: 13,
+    skillPer: 4.90
+  },
+  '711-4': {
+    id: '711-4',
+    // name: '南瓜怪人  (中顆種)',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 1,
+    pokeType: 2,
+    berryType: 8,
+    maxcarry: 25,
+    helpSpeed: 3400,
+    foodPer: 13,
+    skillPer: 4.90
+  },
   736: {
     id: 736,
     // name: '強顎雞母蟲',
@@ -3821,7 +3940,7 @@ const initPokedex = () => {
   }
   evoLine.forEach(evoItem => {
     evoItem.forEach((pm, pmKey) => {
-      if ((pm !== 9001) && (pm !== 9002) && (pm !== 9004)) {
+      if ((+pm !== 9001) && (+pm !== 9002) && (+pm !== 9004)) {
         pokedex[pm].evoLineKey = 1
       }
       if (pmKey > 0) {
@@ -3903,6 +4022,9 @@ const updatePoke = [{
 }, {
   time: '2025/09/1',
   pokemons: [177, 178]
+}, {
+  time: '2025/10/1',
+  pokemons: [710, 711]
 }]
 // console.log(pokedex)
 export {

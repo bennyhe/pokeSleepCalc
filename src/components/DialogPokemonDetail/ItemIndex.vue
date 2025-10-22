@@ -7,7 +7,7 @@ import { SPO38000 } from '../../config/spo.js'
 import { pokedex } from '../../config/pokedex.js'
 import { gameMap } from '../../config/game.js'
 import { getTargetPokemonsSleeps, getUnLockSleeps } from '../../utils/sleep.js'
-import { getNum, getStageLevelPicId } from '../../utils/index.js'
+import { getNum, getStageLevelPicId, extractPrefix } from '../../utils/index.js'
 
 const props = defineProps({
   curDialogPokeId: {
@@ -48,7 +48,7 @@ const props = defineProps({
             style="display: inline-block; width: 120px; height: 120px"
           >
             <img
-              v-lazy="`./img/portrait/${curDialogPokeId}.png`"
+              v-lazy="`./img/portrait/${extractPrefix(curDialogPokeId)}.png`"
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
             />
@@ -59,7 +59,7 @@ const props = defineProps({
             v-if="curDialogPokeId !== 491"
           >
             <img
-              v-lazy="`./img/portrait/shiny/${curDialogPokeId}.png`"
+              v-lazy="`./img/portrait/shiny/${extractPrefix(curDialogPokeId)}.png`"
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
             />
@@ -69,41 +69,41 @@ const props = defineProps({
       <div class="poke-tb poke-tb--xscorll">
         <template v-for="fKey in 12" v-bind:key="fKey">
           <template
-            v-if="getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`).id"
+            v-if="getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`).id"
           >
             <div class="poke-tb__item">
               <CptSleepStyle
                 :showCptPoke="false"
                 :sleepItem="
-                  getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
+                  getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`)
                 "
                 :showKey="['sleepType']"
               >
                 <p
                   v-if="
-                    getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
+                    getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`)
                       .spoId
                   "
                 >
                   ID: #{{
-                    getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
+                    getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`)
                       .spoId
                   }}
                 </p>
                 <p
                   v-if="
-                    getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`).spo
+                    getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`).spo
                   "
                 >
                   SPO:
                   {{
-                    getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`).spo
+                    getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`).spo
                   }}
                 </p>
                 <p style="color: #d1813a">
                   {{
                     getNum(
-                      getTargetPokemonsSleeps(`${curDialogPokeId}-id-${fKey}`)
+                      getTargetPokemonsSleeps(`${extractPrefix(curDialogPokeId)}-id-${fKey}`)
                         .spo * SPO38000
                     )
                   }}
@@ -118,7 +118,7 @@ const props = defineProps({
                       ).allUnlockSleepsList"
                     >
                       <template
-                        v-if="`${curDialogPokeId}-id-${fKey}` === sleepsItem.id"
+                        v-if="`${extractPrefix(curDialogPokeId)}-id-${fKey}` === sleepsItem.id"
                       >
                         <li
                           class="cpt-select-list__item cur"

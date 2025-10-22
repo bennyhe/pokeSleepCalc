@@ -329,3 +329,17 @@ export function calcPositions(sleepArr, width, height) {
 export function containsAny(a, b) {
   return b.some(item => a.includes(item))
 }
+
+/**
+ * 去除部分宝可梦id带-以后的字符串
+ * @param {string/number} str 
+ * @returns 
+ */
+export function extractPrefix(str) {
+  if (typeof str !== 'string') {
+    // 如果不是字符串，可以转换为字符串或者返回一个默认值/错误
+    str = String(str) // 或者根据你的需求处理
+  }
+  const match = str.match(/^[^-]+/)
+  return match ? match[0] : str // 如果没有连字符，返回原字符串
+}

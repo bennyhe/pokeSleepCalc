@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import { extractPrefix } from '../../utils/index.js'
 const props = defineProps({
   pokeId: {
     type: [String, Number]
@@ -18,7 +19,9 @@ const props = defineProps({
   <div class="cpt-avatar" :class="`cpt-avatar--${size}`">
     <img
       class="cpt-avatar__pic"
-      v-lazy="`./img/pokedex/${isShiny ? 'shiny/' : ''}${pokeId}.png`"
+      v-lazy="
+        `./img/pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`
+      "
       :alt="$t(`POKEMON_NAME.${pokeId}`)"
     />
     <slot />

@@ -2,7 +2,7 @@
 import { defineProps, computed } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
-import { toHMInLang, get } from '../../utils/index.js'
+import { toHMInLang, get, extractPrefix } from '../../utils/index.js'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -64,7 +64,7 @@ const getFoodType = () => {
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img
-        v-lazy="`./img/pokedex/${isShiny ? 'shiny/' : ''}${pokeId}.png`"
+        v-lazy="`./img/pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`"
         :alt="$t(`POKEMON_NAME.${pokeId}`)"
       />
     </div>

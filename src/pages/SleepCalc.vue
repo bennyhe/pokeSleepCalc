@@ -36,7 +36,8 @@ import {
   sortInObjectOptions,
   getDecimalNumber,
   calcPositions,
-  fnAccumulation
+  fnAccumulation,
+  extractPrefix
 } from '../utils/index.js'
 import { feedSandslash, getRandomIV } from '../utils/game.js'
 
@@ -1389,13 +1390,13 @@ const getQuickChangeSleepPoint = () => {
                   :value="pokeItem.id"
                   :disabled="
                     !gameMapPokemons[userData.curMap].allPokemons.includes(
-                      pokeItem.id
+                      +extractPrefix(pokeItem.id)
                     )
                   "
                 >
                   <img
                     class="icon"
-                    v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+                    v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
                     :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
                     v-bind:key="pokeItem.id"
                   />

@@ -15,7 +15,8 @@ import {
   getPercent,
   findMenuWithFood,
   getStageLevelPicId,
-  containsAny
+  containsAny,
+  extractPrefix
 } from '../utils/index.js'
 import { getUnLockSleeps } from '../utils/sleep.js'
 
@@ -469,11 +470,11 @@ onMounted(() => {
         <div
           class="poke-tb__item"
           v-for="pokemonsItem in getAfterFilterPoke()"
-          v-bind:key="pokemonsItem.name"
-          @click="handleClickPokemons(+pokemonsItem.id)"
+          v-bind:key="pokemonsItem.id"
+          @click="handleClickPokemons(pokemonsItem.id)"
         >
           <CptPoke
-            :pokeId="+pokemonsItem.id"
+            :pokeId="pokemonsItem.id"
             :showKey="getShowKeyVal(pokemonsItem.id)"
           />
           <ul class="cpt-select-list">
@@ -484,7 +485,7 @@ onMounted(() => {
               <li
                 class="cpt-select-list__item cur"
                 v-if="
-                  gameMapPokemons[mapKey].allPokemons.includes(+pokemonsItem.id)
+                  gameMapPokemons[mapKey].allPokemons.includes(+extractPrefix(pokemonsItem.id))
                 "
               >
                 <div class="cpt-select-list__name">
@@ -496,7 +497,7 @@ onMounted(() => {
                         `./img/ui/${getStageLevelPicId(
                           gameMap[mapKey].levelList[
                             gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                              +pokemonsItem.id
+                              +extractPrefix(pokemonsItem.id)
                             ]
                           ].name
                         )}.png`
@@ -506,7 +507,7 @@ onMounted(() => {
                         `LEVEL_TITLE.${
                           gameMap[mapKey].levelList[
                             gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                              +pokemonsItem.id
+                              +extractPrefix(pokemonsItem.id)
                             ]
                           ].nameId
                         }`
@@ -514,7 +515,7 @@ onMounted(() => {
                     }}{{
                       gameMap[mapKey].levelList[
                         gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
-                          +pokemonsItem.id
+                          +extractPrefix(pokemonsItem.id)
                         ]
                       ].nameIndex
                     }}

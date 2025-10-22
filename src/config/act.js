@@ -7,7 +7,8 @@ export const SLEEP_CALC_POKEMONS = {
     // 83,
     // 252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
     848, 849, 8001,
-    177, 178
+    177, 178,
+    710, 711
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -22,8 +23,8 @@ export const IN_LAST_TIME_POKEMONS = [
     starttime: '2025/9/29 04:00'
   },
   {
-    ids: [170, 171],
-    starttime: '2025/10/22 04:00'
+    ids: [710, 711],
+    starttime: '2025/10/27 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
