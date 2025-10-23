@@ -1344,10 +1344,7 @@ const getQuickChangeSleepPoint = () => {
           )
         }}</span>
         <div style="width: 100%">
-          <span class="sptime">{{
-            getNum(getScore(randomSleepStyle.sleepPoint))
-          }}</span
-          >分
+          <span class="sptime">{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}</span>{{ $t('PROP.dpr') }}
         </div>
       </el-form-item>
     </el-form>
@@ -1915,8 +1912,7 @@ const getQuickChangeSleepPoint = () => {
                   }}</template>
                   (<span class="sptime">{{
                     getNum(getScore(randomSleepStyle.sleepPoint))
-                  }}</span
-                  >分)
+                  }}</span>{{ $t('PROP.dpr') }})
                   <p
                     v-if="
                       userSleep.accumulationMulti.exp &&
@@ -2066,12 +2062,17 @@ const getQuickChangeSleepPoint = () => {
           }}{{
             gameMap[userData.curMap].levelList[userData.curStageIndex]
               .nameIndex
-          }}」{{ $t("BTN.getSpoMid") }}({{
-            getNumberInMap(
-              getScore(randomSleepStyle.sleepPoint),
-              gameMap[userData.curMap].scoreList
+          }}」{{
+            $t(
+              'BTN.getSpoAfter',
+              [
+                getNumberInMap(
+                  getScore(randomSleepStyle.sleepPoint),
+                  gameMap[userData.curMap].scoreList
+                )
+              ]
             )
-          }}{{ $t("BTN.getSpoAfter") }}SPO</el-button
+          }}</el-button
         >
         <ul class="spo-calc-list">
           <template

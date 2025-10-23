@@ -29,8 +29,7 @@ export default {
     'filter': '筛选',
     'close': '关闭',
     'getSpoBefore': '点击获取用来研究',
-    'getSpoMid': '',
-    'getSpoAfter': '种)总'
+    'getSpoAfter': '({0}种)总SPO'
   },
   'DIALOG_TITLE': {
     'filter': '筛选宝可梦'

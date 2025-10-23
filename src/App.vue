@@ -32,12 +32,16 @@ const handleClickNav = key => {
   window.scrollTo(0, 0)
 }
 
-const sellang = ref(localStorage.getItem('psclang') || 'cn')
+const sellang = ref(localStorage.getItem('psclang') || (window.navigator.language === 'ja' ? 'jp' : 'cn'))
 const { locale } = useI18n() // 先调用此方法，然后再使用
-const handleClickChangeLang = () => {
+const changeLanguage = () => {
   locale.value = sellang.value
   localStorage.setItem('psclang', sellang.value)
-  // console.log(locale.value)
+}
+changeLanguage()
+
+const handleClickChangeLang = () => {
+  changeLanguage()
   location.reload()
 }
 
