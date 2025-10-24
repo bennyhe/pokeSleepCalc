@@ -1636,7 +1636,7 @@ watch(helpSpeedCalcForm.value, val => {
   <div class="page-inner cpt-tips">
     <p>* {{ $t("TIPS.energy1") }}</p>
     <p>* {{ $t("TIPS.energy2") }}</p>
-    <p>* 非满包满活力，技能型宝可梦更容易触发技能。</p>
-    <p>* 宝可梦盒子仅支持本地存储，不支持云存档。</p>
+    <p>* {{ $t("TIPS.energy3") }}</p>
+    <p>* {{ $t("TIPS.energy4") }}</p>
   </div>
 </template>

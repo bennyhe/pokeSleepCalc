@@ -29,8 +29,7 @@ export default {
     'filter': '筛选',
     'close': '关闭',
     'getSpoBefore': '点击获取用来研究',
-    'getSpoMid': '',
-    'getSpoAfter': '种)总'
+    'getSpoAfter': '({0}种)总SPO'
   },
   'DIALOG_TITLE': {
     'filter': '筛选宝可梦'
@@ -101,6 +100,7 @@ export default {
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',
     'energy2': '结果为对应等级一天产出。',
-    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。'
+    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。',
+    'energy4': '宝可梦盒子仅支持本地存储，不支持云存档。'
   }
 }

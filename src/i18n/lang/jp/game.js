@@ -7,7 +7,7 @@ export default {
     'shiny': '色違',
     'recipes': 'レシピ',
     'with': '関連',
-    'individual': '個体',
+    'individual': '個体性能',
     'hungry': 'チャンス',
     'food': '食材',
     'mainSkill': 'メインスキル',
@@ -51,7 +51,7 @@ export default {
     4: 'マスター'
   },
   'SLEEP_TYPES': {
-    999: 'とくちょうなしタイプ',
+    999: 'とくちょうなし',
     1: 'うとうと',
     2: 'すやすや',
     3: 'ぐっすり'
