@@ -11,7 +11,6 @@ export default {
     'otherDay': '下記以外の曜日',
     'sleepDay': '満月の前後の日',
     'fullMoon': '満月の日',
-    'moreOne': '一匹余り',
     'one': '匹',
     'oneThing': '個',
     'doubleEnergy': 'きのみエナジー2倍',
@@ -65,7 +64,7 @@ export default {
     'sleepStyle': '記録済み寝顔',
     'noLock': '選択解除',
     'lockOptions': '{0}枠目まで金スキル固定',
-    'moreOne': '1匹余り',
+    'moreOne': '1匹追加',
     'sleepMathExp': '期待値',
 
     'formLableDays': '特殊効果',
@@ -88,19 +87,20 @@ export default {
     'tipsNoSupportAfter': 'に対応していません。',
     'tipsNoRes': '抽選結果はゲーム内の結果のそのものではないので、あくまでも参考です。',
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
-    'tipsUseTickets1': 'いいキャップチケットを使用すると（毎日1回目のリサーチで）追加で1匹、おこうを使用すると追加で1匹出現します。',
-    'tipsUseTickets2': 'いいキャップチケットとおこうの使用は計算範囲外です。',
+    'tipsUseTickets1': 'いいキャンプチケットを使用すると（毎日1回目のリサーチで）1匹追加でき、おこうを使用するとさらに1匹追加できます。',
+    'tipsUseTickets2': 'いいキャンプチケットとおこうの使用は計算範囲外です。',
 
     'formLabelAllSpo': '現在の睡眠総',
     'formLabelnoUseSpo': '残り',
     'formLabelPercent': 'ねむけパワーの有効性'
   },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。'
+    'tipsHS': 'すべてのおてつだいスピードスキルのバフは、合計で35%を超えない。'
   },
   'TIPS': {
     'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',
-    'energy2': '結果は対応レベルの産出。',
-    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。'
+    'energy2': '結果は対応するレベルにおける1日あたりの生産量です。',
+    'energy3': 'スキルタイプのポケモンは、げんきが満タンではない場合にスキルを発動しやすくなります。',
+    'energy4': 'ポケモンボックスは、ローカルストレージのみに対応しており、クラウドには対応していません。'
   }
 }
