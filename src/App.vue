@@ -31,8 +31,8 @@ const handleClickNav = key => {
   navData.value.navIndex = key
   window.scrollTo(0, 0)
 }
-
-const sellang = ref(localStorage.getItem('psclang') || (window.navigator.language === 'ja' ? 'jp' : 'cn'))
+const curLang = window.navigator.language.indexOf('ja') > -1 ? 'jp' : 'cn'
+const sellang = ref(localStorage.getItem('psclang') || curLang)
 const { locale } = useI18n() // 先调用此方法，然后再使用
 const changeLanguage = () => {
   locale.value = sellang.value

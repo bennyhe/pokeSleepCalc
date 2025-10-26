@@ -7,7 +7,7 @@ export default {
     'shiny': '色違',
     'recipes': 'レシピ',
     'with': '関連',
-    'individual': '個体性能',
+    'individual': '個体',
     'hungry': 'チャンス',
     'food': '食材',
     'mainSkill': 'メインスキル',

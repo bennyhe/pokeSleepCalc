@@ -29,7 +29,7 @@ export default {
     'filter': '検索',
     'close': '閉じる',
     'getSpoBefore': 'クリックで',
-    'getSpoAfter': '（リサーチポケモン数:{0}）の総SPOを研究する'
+    'getSpoAfter': 'を研究する({0})種の総SPO獲得'
   },
   'DIALOG_TITLE': {
     'filter': 'ポケモンを検索'
@@ -53,7 +53,7 @@ export default {
     'berrypokeinmap': '好物きのみを拾うポケモン'
   },
   'PAGE_SLEEPCALC': {
-    'nav0': 'リサーチのポケモン数計算',
+    'nav0': 'ポケモン個数で分割睡眠計算',
     'nav2': '寝顔抽選',
     'nav3': '睡眠の分析',
     'nav4': 'NextWeek',
@@ -63,7 +63,7 @@ export default {
     'titleMathExp': '睡眠リサーチのポケモン出現数の期待値',
     'sleepStyle': '記録済み寝顔',
     'noLock': '選択解除',
-    'lockOptions': '{0}枠目まで金スキル固定',
+    'lockOptions': '金枠{0}つ目固定',
     'moreOne': '1匹追加',
     'sleepMathExp': '期待値',
 
@@ -79,15 +79,15 @@ export default {
 
     'btnSleepOnceBefore': 'クリックで',
     'btnSleepOnceAfter': '種)寝顔抽選',
-    'btnSleepMoreTime': 'クリックで期待値を計算する({0}回睡眠，おこうといいキャンプチケット不使用)',
+    'btnSleepMoreTime': 'クリックで期待値を計算する({0}回寝，おこうといいキャンプチケットなし)',
 
     // 'tipsTitle': 'ゲームのバージョン1.4.0では多くの寝顔関連の内容が更新されたため、寝顔抽選機能が期待通りの結果をもたらさないことがあります。',
     'tipsNoSupportBefore': '寝顔抽選は',
-    'tipsNoSupportMid': '未発見のポケモンの寝顔の出現確率アップや、ライコウなどの特殊なポケモン固有の超低確率などの特殊な状況',
-    'tipsNoSupportAfter': 'に対応していません。',
+    'tipsNoSupportMid': '未発見のポケモンの寝顔の出現確率UP、またライコウなどの特殊ポケモン固有の超低確率などの特殊な状況',
+    'tipsNoSupportAfter': 'には対応していません。',
     'tipsNoRes': '抽選結果はゲーム内の結果のそのものではないので、あくまでも参考です。',
     'tipsShiny': '抽選の色違い率はゲーム内の色違い率ではありません。',
-    'tipsUseTickets1': 'いいキャンプチケットを使用すると（毎日1回目のリサーチで）1匹追加でき、おこうを使用するとさらに1匹追加できます。',
+    'tipsUseTickets1': 'いいキャンプチケット使用で（第1回目寝）はおまけ1匹、おこう使うも1匹追加。',
     'tipsUseTickets2': 'いいキャンプチケットとおこうの使用は計算範囲外です。',
 
     'formLabelAllSpo': '現在の睡眠総',
@@ -95,12 +95,12 @@ export default {
     'formLabelPercent': 'ねむけパワーの有効性'
   },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': 'すべてのおてつだいスピードスキルのバフは、合計で35%を超えない。'
+    'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。'
   },
   'TIPS': {
     'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',
-    'energy2': '結果は対応するレベルにおける1日あたりの生産量です。',
-    'energy3': 'スキルタイプのポケモンは、げんきが満タンではない場合にスキルを発動しやすくなります。',
-    'energy4': 'ポケモンボックスは、ローカルストレージのみに対応しており、クラウドには対応していません。'
+    'energy2': '結果は対応レベルの1日の産出。',
+    'energy3': '非最大所持げんき満タン状態、またはスキルタイプポケモンがスキル発動しやすい。',
+    'energy4': 'ポケモンボックスはローカルセーブに対応するが、クラウド保存にサポートしない。'
   }
 }
