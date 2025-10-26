@@ -28,8 +28,8 @@ export default {
   'BTN': {
     'filter': '筛选',
     'close': '关闭',
-    'getSpoBefore': '点击获取用来研究',
-    'getSpoAfter': '({0}种)总SPO'
+    'getSpoBefore': '点击获取',
+    'getSpoAfter': '({0}种)总SPO数'
   },
   'DIALOG_TITLE': {
     'filter': '筛选宝可梦'

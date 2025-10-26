@@ -29,7 +29,7 @@ export default {
     'filter': '検索',
     'close': '閉じる',
     'getSpoBefore': 'クリックで',
-    'getSpoAfter': 'を研究する({0})種の総SPO獲得'
+    'getSpoAfter': '({0})種の総SPO獲得'
   },
   'DIALOG_TITLE': {
     'filter': 'ポケモンを検索'
