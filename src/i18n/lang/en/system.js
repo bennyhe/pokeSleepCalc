@@ -28,8 +28,8 @@ export default {
   'BTN': {
     'filter': 'FILTER',
     'close': 'CLOSE',
-    'getSpoBefore': '点击获取用来研究',
-    'getSpoAfter': '({0}种)总SPO'
+    'getSpoBefore': '点击获取',
+    'getSpoAfter': '({0}种)总SPO数'
   },
   'DIALOG_TITLE': {
     'filter': 'FILTER POKEMON'

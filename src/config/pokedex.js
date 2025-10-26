@@ -23,7 +23,7 @@ const evoLine = [
   [194, 195],
   [104, 105],
   [439, 122],
-  [133, 134, 135, 136, 196, 197, 470, 471, 700, 9004],
+  [133, 134, 135, 136, 196, 197, 470, 471, 700, 9004, 9005],
   [147, 148, 149],
   [152, 153, 154],
   [155, 156, 157],
@@ -3930,6 +3930,19 @@ const pokedex = {
     helpSpeed: 3100,
     foodPer: 15.60,
     skillPer: 3.20
+  },
+  9005: {
+    id: 9005,
+    // name: '伊布（萬聖節）',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 3,
+    // pokeType: 1,
+    berryType: 11,
+    maxcarry: 18
+    // helpSpeed: 3100,
+    // foodPer: 15.60,
+    // skillPer: 3.20
   }
 }
 const initPokedex = () => {
@@ -3940,7 +3953,7 @@ const initPokedex = () => {
   }
   evoLine.forEach(evoItem => {
     evoItem.forEach((pm, pmKey) => {
-      if ((+pm !== 9001) && (+pm !== 9002) && (+pm !== 9004)) {
+      if ((+pm !== 9001) && (+pm !== 9002) && (+pm !== 9004) && (+pm !== 9005)) {
         pokedex[pm].evoLineKey = 1
       }
       if (pmKey > 0) {
@@ -4024,7 +4037,7 @@ const updatePoke = [{
   pokemons: [177, 178]
 }, {
   time: '2025/10/1',
-  pokemons: [710, 711]
+  pokemons: [710, 711, 9005]
 }]
 // console.log(pokedex)
 export {
