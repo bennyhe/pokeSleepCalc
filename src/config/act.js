@@ -126,7 +126,7 @@ export const ACT_LIST = [
     namejp: 'ハロウィン2025：ダブルアメリサーチ',
     startTime: 1761508800000,
     endTime: 1762113599000,
-    notArea: [1,2,3,4,5],
+    notArea: [],
     midUp: [92, 93, 94, 353, 354, 425, 426, 778, 911, 9001],
     largeUp: [710, 711, 9005],
     isActRandom: true
