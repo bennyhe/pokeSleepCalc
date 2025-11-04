@@ -8,8 +8,7 @@ export const SLEEP_CALC_POKEMONS = {
     252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
     848, 849, 8001,
     177, 178,
-    710, 711,
-    9005
+    710, 711
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -121,16 +120,6 @@ export const ACT_LIST = [
   //   times: 1.5,
   //   isActRandom: true
   // },
-  {
-    name: '萬聖節2025：糖果倍增研究',
-    namejp: 'ハロウィン2025：ダブルアメリサーチ',
-    startTime: 1761508800000,
-    endTime: 1762113599000,
-    notArea: [],
-    midUp: [92, 93, 94, 353, 354, 425, 426, 778, 911, 9001],
-    largeUp: [710, 711, 9005],
-    isActRandom: true
-  },
   {
     name: '好眠日',
     namejp: '満月の前後の日',
