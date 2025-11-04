@@ -3404,7 +3404,7 @@ const pokedex = {
   },
   710: {
     id: 710,
-    // name: '南瓜精 (中顆種)',
+    // name: '南瓜精(中顆種)',
     friendship: 5,
     sleepType: 1,
     skillType: 1,
@@ -3431,7 +3431,7 @@ const pokedex = {
   },
   '710-2': {
     id: '710-2',
-    // name: '南瓜精 (中顆種)',
+    // name: '南瓜精(小顆種)',
     friendship: 5,
     sleepType: 1,
     skillType: 1,
@@ -3444,7 +3444,7 @@ const pokedex = {
   },
   '710-3': {
     id: '710-3',
-    // name: '南瓜精 (中顆種)',
+    // name: '南瓜精(大顆種)',
     friendship: 5,
     sleepType: 1,
     skillType: 1,
@@ -3457,7 +3457,7 @@ const pokedex = {
   },
   '710-4': {
     id: '710-4',
-    // name: '南瓜精 (中顆種)',
+    // name: '南瓜精(巨顆種)',
     friendship: 5,
     sleepType: 1,
     skillType: 1,
@@ -3470,7 +3470,7 @@ const pokedex = {
   },
   711: {
     id: 711,
-    // name: '南瓜怪人  (中顆種)',
+    // name: '南瓜怪人(中顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
@@ -3483,7 +3483,7 @@ const pokedex = {
   },
   '711-2': {
     id: '711-2',
-    // name: '南瓜怪人  (小顆種)',
+    // name: '南瓜怪人(小顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
@@ -3496,7 +3496,7 @@ const pokedex = {
   },
   '711-3': {
     id: '711-3',
-    // name: '南瓜怪人  (中顆種)',
+    // name: '南瓜怪人(中顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
@@ -3509,7 +3509,7 @@ const pokedex = {
   },
   '711-4': {
     id: '711-4',
-    // name: '南瓜怪人  (中顆種)',
+    // name: '南瓜怪人(中顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
