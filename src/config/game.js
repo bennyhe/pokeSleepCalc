@@ -4,9 +4,10 @@ import map3 from './gameMap/3.js'
 import map4 from './gameMap/4.js'
 import map5 from './gameMap/5.js'
 import map6 from './gameMap/6.js'
+import map7 from './gameMap/7.js'
 import map10001 from './gameMap/10001.js'
 
-export const areaBonusMax = 75
+export const areaBonusMax = 85
 export const POKEMON_MAX_LEVEL = 65
 export const mapSplitVer = '3.0.4'
 export const gameMap = [
