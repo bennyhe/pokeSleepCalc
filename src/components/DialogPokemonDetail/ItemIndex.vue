@@ -26,7 +26,7 @@ const props = defineProps({
   <CptDialog :isShow="isShow" v-bind:key="dialogId">
     <div class="dialog-pokedex-detail" v-if="curDialogPokeId">
       <h3>
-        {{ $t(`POKEMON_NAME.${curDialogPokeId}`) }}
+        #{{curDialogPokeId}} {{ $t(`POKEMON_NAME.${curDialogPokeId}`) }}
         <div
           class="i i-sleeptype"
           :class="`i i-sleeptype--${pokedex[curDialogPokeId].sleepType}`"
