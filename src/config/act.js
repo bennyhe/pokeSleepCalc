@@ -9,6 +9,7 @@ export const SLEEP_CALC_POKEMONS = {
     848, 849, 8001,
     177, 178,
     710, 711
+    // 328, 329, 330, 371, 372, 373, 557, 558
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -43,9 +44,9 @@ export const SLEEP_CALC_CONFIG = {
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [92, 93, 94, 353, 354, 425, 426, 778, 911, 9001],
-  upIdsLargeIds: [710, 711, 9005],
-  noLastList: []
+  upIdsMidIds: [],
+  upIdsLargeIds: [],
+  noLastList: [328, 329, 330, 371, 372, 373, 557, 558]
 }
 export const ACT_LIST = [
   //  {

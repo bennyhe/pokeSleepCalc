@@ -33,10 +33,6 @@ const pageData = ref({
 const foodResRank = ref({})
 const berryResRank = ref({})
 const skillResRank = ref({})
-newGameMap.push({
-  id: 'none',
-  berry: [9, 3, 5]
-})
 
 for (const key in BERRY_TYPES) {
   if (Object.hasOwnProperty.call(BERRY_TYPES, key)) {

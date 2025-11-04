@@ -175,7 +175,7 @@ if (getLSBOX) {
 const getLSFMBs = localStorage.getItem('PSC_FMBs')
 if (getLSFMBs) {
   gameMapNew.value[0].berry = JSON.parse(getLSFMBs)
-  gameMapNew.value[6].berry = JSON.parse(getLSFMBs) // 加7岛记得改序号
+  gameMapNew.value[7].berry = JSON.parse(getLSFMBs) // 加8岛记得改序号
 }
 const getLSAB = localStorage.getItem('PSC_AB')
 if (getLSAB) {
@@ -487,7 +487,7 @@ const setFMBerrys = (areaIndexId, berryId) => {
 }
 const handleClickChangeFMBerrys = berryId => {
   setFMBerrys(0, berryId)
-  setFMBerrys(6, berryId) //加7岛记得改序号
+  setFMBerrys(7, berryId) //加8岛记得改序号
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
   // console.log(gameMapNew.value[0].berry)
 

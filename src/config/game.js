@@ -17,5 +17,6 @@ export const gameMap = [
   map4,
   map5,
   map6,
+  map7,
   map10001
 ]
