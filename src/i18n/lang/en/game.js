@@ -35,6 +35,7 @@ export default {
     'snow': 'Snowdrop Tundra',
     'lake': 'Carmine Volcano',
     'plant': 'Old Gold Power Plant',
+    'amber': 'Amber Canyon',
     'none': 'Other Area',
     'greenex': 'Greengrass Isle EX',
     'beachex': 'Cyan Beach EX',

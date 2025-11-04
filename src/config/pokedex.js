@@ -65,7 +65,10 @@ const evoLine = [
   [258, 259, 260],
   [848, 849, 8001],
   [177, 178],
-  [710, 711, '710-2', '711-2', '710-3', '711-3', '710-4', '711-4']
+  [710, 711, '710-2', '711-2', '710-3', '711-3', '710-4', '711-4'],
+  [328, 329, 330],
+  [371, 372, 373],
+  [557, 558]
 ]
 const pokedex = {
   1: {
@@ -2514,6 +2517,59 @@ const pokedex = {
     foodPer: 21,
     skillPer: 7
   },
+  328: {
+    id: 328,
+    // name: '大顎蟻',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 15,
+    maxcarry: 8
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+    // food: {
+    //   type: [15, 2, 9],
+    //   count: {
+    //     15: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     9: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  329: {
+    id: 329,
+    // name: '超音波幼蟲',
+    friendship: 12,
+    sleepType: 3,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 15,
+    maxcarry: 12
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+  },
+  330: {
+    id: 330,
+    // name: '沙漠蜻蜓',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 15,
+    maxcarry: 17
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+  },
   333: {
     id: 333,
     // name: '青綿鳥',
@@ -2702,6 +2758,59 @@ const pokedex = {
     berryType: 7,
     foodPer: 22.30,
     skillPer: 2.20
+  },
+  371: {
+    id: 371,
+    // name: '寶貝龍',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 3,
+    maxcarry: 9
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+    // food: {
+    //   type: [15, 2, 9],
+    //   count: {
+    //     15: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     9: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  372: {
+    id: 372,
+    // name: '甲殼龍',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 3,
+    maxcarry: 14
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+  },
+  373: {
+    id: 373,
+    // name: '暴飛龍',
+    friendship: 25,
+    sleepType: 1,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 3,
+    maxcarry: 22
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
   },
   403: {
     id: 403,
@@ -3172,6 +3281,46 @@ const pokedex = {
     helpSpeed: 2800,
     foodPer: 18.80,
     skillPer: 4.10
+  },
+  557: {
+    id: 557,
+    // name: '石居蟹',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 9,
+    maxcarry: 8
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
+    // food: {
+    //   type: [15, 2, 9],
+    //   count: {
+    //     15: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     9: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  558: {
+    id: 558,
+    // name: '岩殿居蟹',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 6,
+    // pokeType: 3,
+    berryType: 9,
+    maxcarry: 17
+    // helpSpeed: 5900,
+    // foodPer: 21.40,
+    // skillPer: 6.30,
   },
   627: {
     id: 627,
@@ -4052,6 +4201,9 @@ const updatePoke = [{
 }, {
   time: '2025/10/1',
   pokemons: [710, 711, 9005]
+}, {
+  time: '2025/11/1',
+  pokemons: [328, 329, 330, 371, 372, 373, 557, 558]
 }]
 // console.log(pokedex)
 export {
