@@ -129,6 +129,10 @@ for (const cookTypeKey in COOK_TYPES) {
                 :alt="$t(`FOOD_TYPES.${+key}`)"
               />
               {{ $t(`FOOD_TYPES.${key}`) }}
+              -
+              <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+                FOOD_ENERGY[key]
+              }}
             </el-option>
           </template>
         </el-select>
