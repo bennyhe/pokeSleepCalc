@@ -1115,9 +1115,10 @@ watch(helpSpeedCalcForm.value, val => {
           </li>
         </template>
       </ul>
+      <!-- 加8岛记得改序号 -->
       <div
         style="width: 100%"
-        v-if="navData.navIndex !== 0 && (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 6)"
+        v-if="navData.navIndex !== 0 && (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 7)"
       >
         <ul class="cpt-select-list cpt-select-list--berry">
           <template
