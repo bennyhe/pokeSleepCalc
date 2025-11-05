@@ -10,16 +10,15 @@ import {
 import { COOKMENU } from '../config/cookmenu.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
-import {
-  COOK_TYPES,
-  MENU_TYPES,
-  FOOD_TYPES,
-  FOOD_ENERGY
-} from '../config/valKey.js'
+import { FOOD_ENERGY } from '../config/valKey.js'
+
 import { getDecimalNumber } from '../utils/index.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
+
+import GAME_VALS from '../i18n/lang/cn/game.js'
+const { FOOD_TYPES, MENU_TYPES, COOK_TYPES } = GAME_VALS
 
 const foodConfig = ref({
   pokemonType: 1,
@@ -63,7 +62,7 @@ for (const cookTypeKey in COOK_TYPES) {
     const res = []
     for (const menuKey in MENU_TYPES) {
       if (Object.hasOwnProperty.call(MENU_TYPES, menuKey)) {
-        if (+COOKMENU[menuKey].type === +cookTypeKey) {
+        if (COOKMENU[menuKey] && +COOKMENU[menuKey].type === +cookTypeKey) {
           res.push(COOKMENU[menuKey])
         }
       }

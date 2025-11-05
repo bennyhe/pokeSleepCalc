@@ -14,10 +14,12 @@ import {
 import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
-import { BERRY_TYPES } from '../config/valKey.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
+
+import GAME_VALS from '../i18n/lang/cn/game.js'
+const { BERRY_TYPES } = GAME_VALS
 
 const newGameMap = [...gameMap]
 const pageData = ref({

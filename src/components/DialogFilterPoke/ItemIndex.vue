@@ -4,14 +4,6 @@ import { ElMessage } from 'element-plus'
 import CptDialog from '../Dialog/index.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
-  BERRY_TYPES,
-  FOOD_TYPES,
-  POKE_TYPES,
-  SKILL_TYPES,
-  SLEEP_TYPES,
-  SUBSKILLS_NAMES
-} from '../../config/valKey.js'
-import {
   allHelpType,
   characterOptions,
   skillOptionsExtra,
@@ -23,6 +15,16 @@ import {
   skillOptionsSkillLevel,
   levelOptions
 } from '../../config/helpSpeed.js'
+
+import GAME_VALS from '../../i18n/lang/cn/game.js'
+const {
+  BERRY_TYPES,
+  FOOD_TYPES,
+  POKE_TYPES,
+  SKILL_TYPES,
+  SLEEP_TYPES,
+  SUBSKILLS_NAMES
+} = GAME_VALS
 
 const props = defineProps({
   showKey: {

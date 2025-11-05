@@ -1,9 +1,11 @@
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
-import { BERRY_TYPES, FOOD_TYPES, SKILL_TYPES } from '../config/valKey.js'
 import { skillEffects } from '../config/skillEffects.js'
 
 import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
+
+import GAME_VALS from '../i18n/lang/cn/game.js'
+const { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } = GAME_VALS
 
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
   areaBonus = areaBonus || 0

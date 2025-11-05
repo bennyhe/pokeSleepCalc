@@ -7,7 +7,6 @@ import CptDialogPokemonDetail from '../components/DialogPokemonDetail/ItemIndex.
 
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
-import { FOOD_TYPES } from '../config/valKey.js'
 import { orgResetObjectInPokedex } from '../config/filterDialog.js'
 import {
   get,
@@ -22,6 +21,9 @@ import { getUnLockSleeps } from '../utils/sleep.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
+
+import GAME_VALS from '../i18n/lang/cn/game.js'
+const { FOOD_TYPES } = GAME_VALS
 
 const pokedexLength = ref(0)
 const curFilter = ref('all')
