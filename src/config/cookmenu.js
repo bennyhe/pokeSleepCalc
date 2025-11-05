@@ -444,7 +444,32 @@ export const COOKMENU = {
     ],
     'baseEnergy': 15621,
     'menuPercent': 48
-  }, 
+  },
+  '1023': {
+    // 茂盛焗烤酪梨
+    'id': 1023,
+    'type': 1,
+    'from': [
+      {
+        'id': 19,
+        'num': 22
+      },
+      {
+        'id': 4,
+        'num': 20
+      },
+      {
+        'id': 8,
+        'num': 41
+      },
+      {
+        'id': 10,
+        'num': 32
+      }
+    ],
+    'baseEnergy': 24802,
+    'menuPercent': 78
+  },
   '2000': {
     // 拌拌沙拉
     'id': 2000,
@@ -918,6 +943,52 @@ export const COOKMENU = {
       }
     ],
     'baseEnergy': 19293,
+    'menuPercent': 78
+  },
+  '2024': {
+    // 碎裂酪梨沙拉
+    'id': 2024,
+    'type': 2,
+    'from': [
+      {
+        'id': 19,
+        'num': 14
+      },
+      {
+        'id': 15,
+        'num': 18
+      },
+      {
+        'id': 10,
+        'num': 10
+      }
+    ],
+    'baseEnergy': 7125,
+    'menuPercent': 35
+  },
+  '2025': {
+    // 重踏酪梨醬脆片
+    'id': 2025,
+    'type': 2,
+    'from': [
+      {
+        'id': 19,
+        'num': 28
+      },
+      {
+        'id': 16,
+        'num': 25
+      },
+      {
+        'id': 6,
+        'num': 30
+      },
+      {
+        'id': 15,
+        'num': 22
+      }
+    ],
+    'baseEnergy': 25162,
     'menuPercent': 78
   },
   '3000': {
@@ -1401,5 +1472,22 @@ export const COOKMENU = {
     }],
     'baseEnergy': 24354,
     'menuPercent': 78
+  },
+  '3026': {
+    // 青草攪拌器冰沙
+    'id': 3026,
+    'type': 3,
+    'from': [{
+      'id': 19,
+      'num': 18
+    }, {
+      'id': 12,
+      'num': 16
+    }, {
+      'id': 8,
+      'num': 14
+    }],
+    'baseEnergy': 8165,
+    'menuPercent': 35
   }
 }
