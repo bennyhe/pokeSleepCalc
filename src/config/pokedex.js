@@ -2807,10 +2807,10 @@ const pokedex = {
     skillType: 11,
     pokeType: 1,
     berryType: 3,
-    maxcarry: 22
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
+    maxcarry: 22,
+    helpSpeed: 2800,
+    foodPer: 21.30,
+    skillPer: 3.40
   },
   403: {
     id: 403,
