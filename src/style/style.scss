@@ -1935,6 +1935,7 @@ h3 {
 
 .page-master {
   &__list {
+    border-bottom: 2px dashed $mainColor;
     .cpt-avatar.cur-poke {
       border: 2px solid $mainColor;
       border-radius: 6px;
@@ -1951,7 +1952,7 @@ h3 {
   }
 }
 .master-acttime {
-  border-top: 2px dashed $mainColor;
+  border-top: 1px dashed rgba($color: $mainColor, $alpha: .5);
   h4{
     color: $mainColor
   }

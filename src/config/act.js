@@ -16,6 +16,10 @@ export const SLEEP_CALC_POKEMONS = {
 
 export const IN_LAST_TIME_POKEMONS = [
   {
+    ids: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
+    starttime: '2025/7/14 04:00'
+  },
+  {
     ids: [848, 849, 8001],
     starttime: '2025/8/11 04:00'
   },
