@@ -2522,53 +2522,53 @@ const pokedex = {
     // name: '大顎蟻',
     friendship: 5,
     sleepType: 3,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 15,
-    maxcarry: 8
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
-    // food: {
-    //   type: [15, 2, 9],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     9: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 8,
+    helpSpeed: 5000,
+    foodPer: 15.20,
+    skillPer: 3.10,
+    food: {
+      type: [19, 6, 15],
+      count: {
+        19: {
+          num: [2, 5, 7]
+        },
+        6: {
+          num: [0, 6, 9]
+        },
+        15: {
+          num: [0, 0, 12]
+        }
+      }
+    }
   },
   329: {
     id: 329,
     // name: '超音波幼蟲',
     friendship: 12,
     sleepType: 3,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 15,
-    maxcarry: 12
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
+    maxcarry: 12,
+    helpSpeed: 3700,
+    foodPer: 15.50,
+    skillPer: 3.4
   },
   330: {
     id: 330,
     // name: '沙漠蜻蜓',
     friendship: 20,
     sleepType: 3,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 15,
-    maxcarry: 17
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
+    maxcarry: 17,
+    helpSpeed: 2700,
+    foodPer: 17.20,
+    skillPer: 3.90
   },
   333: {
     id: 333,
@@ -2764,48 +2764,48 @@ const pokedex = {
     // name: '寶貝龍',
     friendship: 5,
     sleepType: 1,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 11,
+    pokeType: 1,
     berryType: 3,
-    maxcarry: 9
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
-    // food: {
-    //   type: [15, 2, 9],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     9: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 9,
+    helpSpeed: 5300,
+    foodPer: 20.90,
+    skillPer: 2.70,
+    food: {
+      type: [4, 11, 7],
+      count: {
+        4: {
+          num: [1, 2, 4]
+        },
+        11: {
+          num: [0, 3, 4]
+        },
+        7: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   372: {
     id: 372,
     // name: '甲殼龍',
     friendship: 12,
     sleepType: 1,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 11,
+    pokeType: 1,
     berryType: 3,
-    maxcarry: 14
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
+    maxcarry: 14,
+    helpSpeed: 3800,
+    foodPer: 20.50,
+    skillPer: 2.70
   },
   373: {
     id: 373,
     // name: '暴飛龍',
     friendship: 25,
     sleepType: 1,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 11,
+    pokeType: 1,
     berryType: 3,
     maxcarry: 22
     // helpSpeed: 5900,
@@ -3287,40 +3287,40 @@ const pokedex = {
     // name: '石居蟹',
     friendship: 5,
     sleepType: 1,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 28,
+    pokeType: 3,
     berryType: 9,
-    maxcarry: 8
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
-    // food: {
-    //   type: [15, 2, 9],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     9: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 8,
+    helpSpeed: 4300,
+    foodPer: 17.50,
+    skillPer: 5.40,
+    food: {
+      type: [19, 4, 10],
+      count: {
+        19: {
+          num: [1, 2, 4]
+        },
+        4: {
+          num: [0, 3, 5]
+        },
+        10: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   558: {
     id: 558,
     // name: '岩殿居蟹',
     friendship: 12,
     sleepType: 1,
-    // skillType: 6,
-    // pokeType: 3,
+    skillType: 28,
+    pokeType: 3,
     berryType: 9,
-    maxcarry: 17
-    // helpSpeed: 5900,
-    // foodPer: 21.40,
-    // skillPer: 6.30,
+    maxcarry: 17,
+    helpSpeed: 3200,
+    foodPer: 26,
+    skillPer: 6.10
   },
   627: {
     id: 627,
