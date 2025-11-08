@@ -28,22 +28,21 @@ export const map5ScoreList = [{ catchNum: 3, startscore: 0, endscore: 3153519 },
   { catchNum: 6, startscore: 16659808, endscore: 30491709 },
   { catchNum: 7, startscore: 30491710, endscore: 68664242 },
   { catchNum: 8, startscore: 68664245 }]
-export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6009350 },
+export const map6ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6010228 },
   { catchNum: 4, startscore: 6010340, endscore: 14339724 },
-  { catchNum: 5, startscore: 14339775, endscore: 30491702 },
-  { catchNum: 6, startscore: 30491720, endscore: 49915400 },
-  { catchNum: 7, startscore: 49915500, endscore: 97371580 },
-  { catchNum: 8, startscore: 97371700 }]
-export const map7ScoreList = [{ catchNum: 3, startscore: 0, endscore: 5482800 },
-  { catchNum: 4, startscore: 6375253, endscore: 13824394 },
-  { catchNum: 5, startscore: 14361360, endscore: 27766800 },
-  { catchNum: 6, startscore: 31201050, endscore: 48196534 },
-  { catchNum: 7, startscore: 51816492, endscore: 96556200 },
-  { catchNum: 8, startscore: 97428366 }
-]
-export const map10001ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6009860 },
-  { catchNum: 4, startscore: 6798100, endscore: 14208000 },
-  { catchNum: 5, startscore: 14417460, endscore: 30412425 },
-  { catchNum: 6, startscore: 30497760, endscore: 49914228 },
-  { catchNum: 7, startscore: 49917176, endscore: 97371659 },
-  { catchNum: 8, startscore: 97371675 }]
+  { catchNum: 5, startscore: 14339760, endscore: 30491702 },
+  { catchNum: 6, startscore: 30491720, endscore: 49915440 },
+  { catchNum: 7, startscore: 49915476, endscore: 97371659 },
+  { catchNum: 8, startscore: 97371672 }]
+export const map7ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6010228 },
+  { catchNum: 4, startscore: 6010340, endscore: 14339724 },
+  { catchNum: 5, startscore: 14339760, endscore: 30491702 },
+  { catchNum: 6, startscore: 30491720, endscore: 49915440 },
+  { catchNum: 7, startscore: 49915476, endscore: 97371659 },
+  { catchNum: 8, startscore: 97371672 }]
+export const map10001ScoreList = [{ catchNum: 3, startscore: 0, endscore: 6010228 },
+  { catchNum: 4, startscore: 6010340, endscore: 14339724 },
+  { catchNum: 5, startscore: 14339760, endscore: 30491702 },
+  { catchNum: 6, startscore: 30491720, endscore: 49915440 },
+  { catchNum: 7, startscore: 49915476, endscore: 97371659 },
+  { catchNum: 8, startscore: 97371672 }]
