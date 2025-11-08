@@ -436,10 +436,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
 const getSleepStyle = () => {
   let orgSleepList = [
     ...userData.value.curUnlockSleeps,
-    ...userData.value.unLockSleeps,
-    getTargetPokemonsSleeps('491-id-1'),
-    getTargetPokemonsSleeps('491-id-2'),
-    getTargetPokemonsSleeps('491-id-3')
+    ...userData.value.unLockSleeps
   ]
   if (!userData.value.isActRandom) {
     orgSleepList = getFilterInTypes(
@@ -447,6 +444,13 @@ const getSleepStyle = () => {
       userData.value.curUnLockSleepType
     )
   }
+  // #491噩梦神各个类型都会有
+  orgSleepList = [
+    ...orgSleepList,
+    getTargetPokemonsSleeps('491-id-1'),
+    getTargetPokemonsSleeps('491-id-2'),
+    getTargetPokemonsSleeps('491-id-3')
+  ]
   orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
 }
