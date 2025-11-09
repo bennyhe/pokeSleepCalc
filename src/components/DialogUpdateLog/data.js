@@ -2,7 +2,7 @@ const markdownText = `
 # 更新日志
 
 ## 25-11-09
-1. add 萌绿之岛EX抽取睡姿
+1. add 萌绿之岛EX抽取睡姿，数据来源自[Pokémon Sleep 攻略站](https://pks.raenonx.cc/zh/) 
 
 ## 25-11-08
 1. update 统一6岛、7岛和Ex岛屿数据区间参考
