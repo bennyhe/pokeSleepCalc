@@ -590,8 +590,6 @@ export function getLevelIndexByEnergy(curMapLevelList, CurEnergy) {
 export function getSPOById(sleepStyleId) {
   if (sleepStyleId && SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo_n) {
     return SPONEW_TO_SPOOLD[SPO_DATA[sleepStyleId].spo_n] // 转换最新的spo_n对应数值
-  } else if (SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo) {
-    return SPO_DATA[sleepStyleId].spo
   }
 }
 
