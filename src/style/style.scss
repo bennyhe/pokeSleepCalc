@@ -1244,6 +1244,7 @@ h3 {
   &--xscorll {
     white-space: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   &--4000 {
@@ -2285,5 +2286,12 @@ h3 {
       overflow-x: auto;
       white-space: nowrap;
     }
+  }
+}
+
+
+.page-sleepcalc--ex {
+  .exhide {
+    display: none;
   }
 }

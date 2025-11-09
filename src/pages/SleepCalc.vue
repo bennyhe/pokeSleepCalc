@@ -115,7 +115,11 @@ const gameMapPokemons = [
   // }
 ]
 gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(gitem.levelList, 34).allUnlockSleepsList
+  const curMapSleeps = getUnLockSleeps(
+    gitem.id,
+    gitem.levelList,
+    34
+  ).allUnlockSleepsList
   gameMapPokemons.push({
     levelPokemons: [],
     allPokemons: []
@@ -150,6 +154,7 @@ const setDefaultCutNumber = () => {
 
 const setUnlockSleeps = () => {
   const resSleeps = getUnLockSleeps(
+    gameMap[userData.value.curMap].id,
     gameMap[userData.value.curMap].levelList,
     userData.value.curStageIndex
   )
@@ -447,9 +452,9 @@ const getSleepStyle = () => {
   // #491噩梦神各个类型都会有
   orgSleepList = [
     ...orgSleepList,
-    getTargetPokemonsSleeps('491-id-1'),
-    getTargetPokemonsSleeps('491-id-2'),
-    getTargetPokemonsSleeps('491-id-3')
+    getTargetPokemonsSleeps('491-id-1', gameMap[userData.value.curMap].id),
+    getTargetPokemonsSleeps('491-id-2', gameMap[userData.value.curMap].id),
+    getTargetPokemonsSleeps('491-id-3', gameMap[userData.value.curMap].id)
   ]
   orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
@@ -760,7 +765,10 @@ const getQuickChangeSleepPoint = () => {
 </script>
 
 <template>
-  <div class="page-sleepcalc">
+  <div
+    class="page-sleepcalc"
+    :class="{ 'page-sleepcalc--ex': gameMap[userData.curMap].id === 'greenex' }"
+  >
     <h2>{{ $t("PAGE_TITLE.sleepcalc") }}</h2>
     <div class="page-inner">
       <el-radio-group
@@ -911,7 +919,10 @@ const getQuickChangeSleepPoint = () => {
         </ul>
       </el-form-item>
       <!-- E 当前岛屿 -->
-      <el-form-item :label="`${$t('PROP.level')}/${$t('PROP.energy')}`" v-if="+navData.navIndex !== 4">
+      <el-form-item
+        :label="`${$t('PROP.level')}/${$t('PROP.energy')}`"
+        v-if="+navData.navIndex !== 4"
+      >
         <el-col :span="11">
           <el-select
             v-model="userData.curStageIndex"
@@ -1348,7 +1359,10 @@ const getQuickChangeSleepPoint = () => {
           )
         }}</span>
         <div style="width: 100%">
-          <span class="sptime">{{ getNum(getScore(randomSleepStyle.sleepPoint)) }}</span>{{ $t('PROP.dpr') }}
+          <span class="sptime">{{
+            getNum(getScore(randomSleepStyle.sleepPoint))
+          }}</span
+          >{{ $t("PROP.dpr") }}
         </div>
       </el-form-item>
     </el-form>
@@ -1607,7 +1621,7 @@ const getQuickChangeSleepPoint = () => {
         <div class="page-inner">
           <h3>
             {{ $t("PAGE_SLEEPCALC.titleSleepRes") }}
-            <span class="extra"
+            <span class="extra exhide"
               >({{
                 getNumberInMap(
                   getScore(randomSleepStyle.sleepPoint),
@@ -1916,8 +1930,10 @@ const getQuickChangeSleepPoint = () => {
                   }}</template>
                   (<span class="sptime">{{
                     getNum(getScore(randomSleepStyle.sleepPoint))
-                  }}</span>{{ $t('PROP.dpr') }})
+                  }}</span
+                  >{{ $t("PROP.dpr") }})
                   <p
+                    class="exhide"
                     v-if="
                       userSleep.accumulationMulti.exp &&
                       userSleep.accumulationMulti.shards
@@ -2067,15 +2083,12 @@ const getQuickChangeSleepPoint = () => {
             gameMap[userData.curMap].levelList[userData.curStageIndex]
               .nameIndex
           }}」{{
-            $t(
-              'BTN.getSpoAfter',
-              [
-                getNumberInMap(
-                  getScore(randomSleepStyle.sleepPoint),
-                  gameMap[userData.curMap].scoreList
-                )
-              ]
-            )
+            $t("BTN.getSpoAfter", [
+              getNumberInMap(
+                getScore(randomSleepStyle.sleepPoint),
+                gameMap[userData.curMap].scoreList
+              ),
+            ])
           }}</el-button
         >
         <ul class="spo-calc-list">

@@ -77,15 +77,15 @@ const props = defineProps({
           }}</span>
         </template>
       </p>
-      <p>
+      <p class="exhide">
         <img class="icon" v-lazy="`./img/ui/exp.png`" />
         <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
-      <p>
+      <p class="exhide">
         <img class="icon" v-lazy="`./img/ui/shards.png`" />
         <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
-      <p>
+      <p class="exhide">
         <img class="icon" v-lazy="`./img/ui/candy.png`" />
         <span class="sptime">{{ sleepItem.candys }}</span>
       </p>

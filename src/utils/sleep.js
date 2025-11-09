@@ -1,5 +1,5 @@
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
-import { SPO_DATA, SPONEW_TO_SPOOLD, SPO38000 } from '../config/spo.js'
+import { SPO_DATA, SPONEW_TO_SPOOLD, SPONEW_TO_EX, SPO38000 } from '../config/spo.js'
 import { SLEEP_CALC_POKEMONS, SLEEP_CALC_UP } from '../config/act.js'
 import { pokedex } from '../config/pokedex.js'
 import {
@@ -10,18 +10,18 @@ import {
   fnAccumulation,
   getPercent
 } from '../utils/index.js'
-export function getTargetPokemonsSleeps(pokeSleepId) {
+export function getTargetPokemonsSleeps(pokeSleepId, mapId) {
   if (SLEEP_STYLE[pokeSleepId]) {
     return {
       ...SLEEP_STYLE[pokeSleepId],
       sleepType: pokedex[SLEEP_STYLE[pokeSleepId].pokeId].sleepType,
-      spo: getSPOById(pokeSleepId),
+      spo: getSPOById(pokeSleepId, mapId),
       spoId: SPO_DATA[pokeSleepId].id
     }
   }
   return {}
 }
-export function getUnLockSleeps(levelList, curStageIndex) {
+export function getUnLockSleeps(mapId, levelList, curStageIndex) {
   let unLockSleeps = []
   let curUnlockSleeps = []
   if (curStageIndex > 0) {
@@ -33,7 +33,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
           levelItem.sleepStyles.forEach(sItem => {
             if (SLEEP_STYLE[sItem]) {
               aResLast.push({
-                ...getTargetPokemonsSleeps(sItem),
+                ...getTargetPokemonsSleeps(sItem, mapId),
                 unLockLevel: levelKey
               })
             }
@@ -60,7 +60,7 @@ export function getUnLockSleeps(levelList, curStageIndex) {
           aRes.push({
             ...SLEEP_STYLE[sItem],
             sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: getSPOById(sItem),
+            spo: getSPOById(sItem, mapId),
             spoId: SPO_DATA[sItem].id,
             unLockLevel: curStageIndex
           })
@@ -153,6 +153,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   )
   let curSpo = getSPOByScore(score)
   let orgSleepList = getUnLockSleeps(
+    mapData.id,
     mapData.levelList,
     curStageIndex
   ).allUnlockSleepsList
@@ -369,6 +370,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   if (useIncensePokemonId || get('isUseTicket', extraSleepStyleOptions)) {
     // 获取当前地图所有睡姿
     targetPokemonAllSleep = getUnLockSleeps(
+      mapData.id,
       mapData.levelList,
       34
     ).allUnlockSleepsList.filter(sitem => (isSleepOnStomach ? sitem.sleepNameId !== 4 : true))
@@ -587,8 +589,12 @@ export function getLevelIndexByEnergy(curMapLevelList, CurEnergy) {
   return curStageIndex
 }
 
-export function getSPOById(sleepStyleId) {
+export function getSPOById(sleepStyleId, mapId) {
   if (sleepStyleId && SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo_n) {
+    if (mapId ==='greenex') {
+      // console.log(mapId === 'greenex')
+      return SPONEW_TO_EX[SPO_DATA[sleepStyleId].spo_n] // 转换最新的spo_n对应数值
+    }
     return SPONEW_TO_SPOOLD[SPO_DATA[sleepStyleId].spo_n] // 转换最新的spo_n对应数值
   }
 }
@@ -598,6 +604,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
   let isSleepOnStomach = false
 
   let orgSleepList = getUnLockSleeps(
+    mapData.id,
     mapData.levelList,
     curStageIndex
   ).allUnlockSleepsList
@@ -634,7 +641,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
   dataList.forEach((sleepStyleId, dataKey) => {
     if (sleepStyleId && (+curUnLockSleepType === 999 || (
       +curUnLockSleepType !== 999 && (pokedex[SLEEP_STYLE[sleepStyleId].pokeId].sleepType === +curUnLockSleepType)))) {
-      const curSpo = canUseSPO - (canUseSPO - lastSPO - getSPOById(sleepStyleId))
+      const curSpo = canUseSPO - (canUseSPO - lastSPO - getSPOById(sleepStyleId, mapData.id))
       let lastPokemon = spoZeroPoke
       // 保底计算
       if (curSpo >= 2) {
