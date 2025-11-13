@@ -12,9 +12,80 @@ import {
 import {
   characterOptions
 } from '../config/helpSpeed.js'
+import { pokedex as pokedexAll } from '../config/pokedex.js'
 import i18n from '../i18n'
 const { t } = i18n.global
 
+/**
+ * 食品Index长度配置函数
+ * @param {*} pokemonId 
+ * @param {*} pokeLevel 
+ * @returns 
+ * 规则：
+  如果等级小于30，则只有1位，即返回数组长度为1，且值根据之前的规则，但只取第一个元素（如果原来规则返回的数组长度大于1，则截取）
+
+  如果等级在30到59之间，则返回2位，即数组长度为2，取原来规则的前两个元素。
+
+  如果等级大于等于60，则返回3位，即原来规则的数组。
+
+  但是注意，我们之前的规则有三种情况：
+  a. 如果pokedexAll[pokemonId].food.type.length === 2，则返回[1,2,2] -> 现在要根据等级调整长度
+  b. 如果是达克莱伊，返回三个相同的值（食物类型的长度）
+  c. 默认返回[1,2,3]
+ */
+export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
+  // 根据等级确定数组长度
+  let arrayLength
+  if (pokeLevel < 30) {
+    arrayLength = 1
+  } else if (pokeLevel < 60) {
+    arrayLength = 2
+  } else {
+    arrayLength = 3
+  }
+
+  // 特殊情况1：如果pokedexAll[pokemonId].food.type.length === 2，返回[1,2,2]（根据等级截取）
+  if (pokedexAll[pokemonId] && pokedexAll[pokemonId].food && pokedexAll[pokemonId].food.type && pokedexAll[pokemonId].food.type.length === 2) {
+    const specialLimits = [1, 2, 2]
+    return specialLimits.slice(0, arrayLength)
+  }
+
+  // 特殊情况2：达克莱伊(491)
+  if (+pokemonId === 491) {
+    const darkraiFoodTypes = pokedexAll[491].food.type.length
+    const darkraiLimits = [1, 1, darkraiFoodTypes]
+    return darkraiLimits.slice(0, arrayLength)
+  }
+
+  // 默认情况：根据等级返回相应长度的数组
+  // 第一个食物最多1种，第二个最多2种，第三个最多3种
+  const defaultLimits = [1, 2, 3]
+  return defaultLimits.slice(0, arrayLength)
+}
+/**
+ * 遍历出所有可能的食物类型组合
+ * @param {Array} limits 
+ * @returns 
+ */
+export function fnGenerateFoodCombinations(limits) {
+  const combinations = []
+
+  // 递归函数生成所有组合
+  function generate(current, depth) {
+    if (depth === limits.length) {
+      combinations.push([...current])
+      return
+    }
+
+    for (let i = 0; i < limits[depth]; i++) {
+      current[depth] = i
+      generate(current, depth + 1)
+    }
+  }
+
+  generate([], 0)
+  return combinations
+}
 export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPlayer, isRightBerry) => {
   isRightBerry = isRightBerry || helpSpeedCalcFormData.isRightBerry
   const pokeLevel = pokeItem.level || helpSpeedCalcFormData.level
@@ -30,33 +101,11 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
   )
 
   const resRankArr = []
-  let tempFoodType = [
-    [0, 0],
-    [0, 1]
-  ]
-  if (pokeLevel < 30) {
-    tempFoodType = [[0]]
-  } else if (pokeLevel >= 60) {
-    if (pokeItem.food.type.length === 3) {
-      tempFoodType = [
-        [0, 0, 0],
-        [0, 0, 1],
-        [0, 0, 2],
-        [0, 1, 0],
-        [0, 1, 1],
-        [0, 1, 2]
-      ]
-    } else {
-      tempFoodType = [
-        [0, 0, 0],
-        [0, 0, 1],
-        [0, 1, 0],
-        [0, 1, 1]
-      ]
-    }
-  }
 
-  if (isPlayer) {
+  const limits = fnGetFoodIndexLimits(+newPokeItem.id, pokeLevel)
+  let tempFoodType = fnGenerateFoodCombinations(limits)
+
+  if (isPlayer) { // 玩家则
     tempFoodType = [[...pokeUseFoods]]
     if (pokeLevel >= 30 && pokeLevel < 60) {
       tempFoodType[0].splice(2, 1)
@@ -70,15 +119,6 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
       nArr.push(tempFoodType[i], tempFoodType[i])
     }
     tempFoodType = nArr
-  }
-
-  if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
-    tempFoodType = [
-      [0]
-    ]
-    if (!isPlayer) {
-      tempFoodType.push([0])
-    }
   }
 
   tempFoodType.forEach((arrFTItem, arrFTKey) => {
@@ -99,11 +139,11 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
         arrFood.push(newPokeItem.food.type[arrFTItem[2]])
       }
 
-      if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
-        arrFood = [
-          newPokeItem.food.type[arrFTItem[0]]
-        ]
-      }
+      // if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
+      //   arrFood = [
+      //     newPokeItem.food.type[arrFTItem[0]]
+      //   ]
+      // }
     }
     resRankArr.push({
       ...newPokeItem,
@@ -515,9 +555,9 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
 
 export const getSkillLevel = pokeSkillType => {
   const arrLevel = [1, 2, 3, 4, 5, 6]
-  if (![23].includes(pokeSkillType)) {
-    arrLevel.push(7)
-  }
+  // if (![23].includes(pokeSkillType)) {
+  //   arrLevel.push(7)
+  // }
   if ([3, 6].includes(pokeSkillType)) {
     arrLevel.push(8)
   }

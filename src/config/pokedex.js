@@ -3234,10 +3234,31 @@ const pokedex = {
     foodPer: 19.20,
     skillPer: 2.30,
     food: {
-      type: [7],
+      type: [7, 5, 6, 8, 9, 15, 16, 17],
       count: {
+        5: {
+          num: [2, 5, 7]
+        },
+        6: {
+          num: [2, 3, 5]
+        },
         7: {
-          num: [2, 0, 0]
+          num: [2, 4, 6]
+        },
+        8: {
+          num: [2, 4, 6]
+        },
+        9: {
+          num: [2, 4, 6]
+        },
+        15: {
+          num: [2, 4, 6]
+        },
+        16: {
+          num: [2, 3, 4]
+        },
+        17: {
+          num: [2, 3, 4]
         }
       }
     }
@@ -3319,8 +3340,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 17,
     helpSpeed: 3200,
-    foodPer: 26,
-    skillPer: 6.10
+    foodPer: 23.9,
+    skillPer: 6.40
   },
   627: {
     id: 627,

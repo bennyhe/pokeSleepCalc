@@ -6,6 +6,7 @@ import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
 import { sortInObjectOptions, containsAny } from '../utils/index.js'
+import { fnGetFoodIndexLimits, fnGenerateFoodCombinations } from '../utils/helpcalc.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
@@ -64,36 +65,23 @@ onMounted(() => {
         )
 
         if (pokeItem.food) { // 如果有食材排列
-          let tempFoodType = [ // 如果是两种食材宝可梦
-            [0, 0, 0],
-            [0, 0, 1],
-            [0, 1, 0],
-            [0, 1, 1]
-          ]
-          if (pokeItem.food.type.length === 3) { // 如果是三种食材宝可梦
-            tempFoodType.push([0, 0, 2])
-            tempFoodType.push([0, 1, 2])
-          }
-          if(+pokeItem.id === 491) { // 未解锁30 60食材的噩梦神
-            tempFoodType = [
-              [0]
-            ]
-          }
+
+          const limits = fnGetFoodIndexLimits(pokeItem.id, 60)
+          const tempFoodType = fnGenerateFoodCombinations(limits)
+
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
-            let useFood = [
+            const useFood = [
               pokeItem.food.type[arrFTItem[0]],
               pokeItem.food.type[arrFTItem[1]],
               pokeItem.food.type[arrFTItem[2]]
             ]
-            if(+pokeItem.id === 491) {
-              useFood = [
-                pokeItem.food.type[arrFTItem[0]]
-              ]
-            }
+            // if(+pokeItem.id === 491) {
+            //   useFood = [
+            //     pokeItem.food.type[arrFTItem[0]]
+            //   ]
+            // }
             const isHasBerrys = [0]
-            if(+pokeItem.id !== 491) {
-              isHasBerrys.push(1)
-            }
+            isHasBerrys.push(1)
             isHasBerrys.forEach((oddItem, oddKey) => {
               const is2n = (oddKey + 1) % 2 === 0
               pageData.value.resRankArr.push({

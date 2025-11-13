@@ -179,7 +179,7 @@ export const skillEffects = {
   },
   23: {
     id: 23,
-    maxLevel: 6,
+    maxLevel: 7,
     effects: [
       {
         level: 1,
@@ -204,6 +204,10 @@ export const skillEffects = {
       {
         level: 6,
         value: 13638
+      },
+      {
+        level: 7,
+        value: 17304
       }
     ]
   }

@@ -63,7 +63,7 @@ import i18n from '../i18n'
 const { t } = i18n.global
 
 import GAME_VALS from '../i18n/lang/cn/game.js'
-const { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } = GAME_VALS
+const { BERRY_TYPES } = GAME_VALS
 
 const navData = ref(NAV_HELPSPEEDCALC)
 const byHelpSpeedRes = ref([])
