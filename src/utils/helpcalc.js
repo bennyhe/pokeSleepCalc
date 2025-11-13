@@ -53,7 +53,7 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
   // 特殊情况2：达克莱伊(491)
   if (+pokemonId === 491) {
     const darkraiFoodTypes = pokedexAll[491].food.type.length
-    const darkraiLimits = [1, 1, darkraiFoodTypes]
+    const darkraiLimits = [2, 2, darkraiFoodTypes]
     return darkraiLimits.slice(0, arrayLength)
   }
 
@@ -555,9 +555,9 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
 
 export const getSkillLevel = pokeSkillType => {
   const arrLevel = [1, 2, 3, 4, 5, 6]
-  // if (![23].includes(pokeSkillType)) {
-  //   arrLevel.push(7)
-  // }
+  if ([23].includes(pokeSkillType)) {
+    arrLevel.push(7)
+  }
   if ([3, 6].includes(pokeSkillType)) {
     arrLevel.push(8)
   }

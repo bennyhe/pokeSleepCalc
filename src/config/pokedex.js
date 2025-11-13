@@ -3234,7 +3234,7 @@ const pokedex = {
     foodPer: 19.20,
     skillPer: 2.30,
     food: {
-      type: [7, 5, 6, 8, 9, 15, 16, 17],
+      type: [7, 17, 5, 6, 8, 9, 15, 16],
       count: {
         5: {
           num: [2, 5, 7]
