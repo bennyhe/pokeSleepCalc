@@ -30,6 +30,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [328, 329, 330, 371, 372, 373, 557, 558],
     starttime: '2025/11/10 04:00'
+  },
+  {
+    ids: [442],
+    starttime: '2025/12/01 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -41,10 +45,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [442], // ban 宝可梦id
+  showBanArea: [0, 3, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [328, 371, 557],
@@ -126,6 +130,18 @@ export const ACT_LIST = [
   //   isActRandom: true
   // },
   {
+    name: '琥褐溪谷登場企畫',
+    namejp: 'アンバー渓谷登場キャンペーン',
+    startTime: 1762718400000,
+    endTime: 1763927999000,
+    notArea: [],
+    smallUp: [328, 371, 557],
+    isActRandom: true,
+    timelimitPokemons: {
+      'green': [328, 371, 557]
+    }
+  },
+  {
     name: '好眠日',
     namejp: '満月の前後の日',
     startTime: 1762200000000,
@@ -151,17 +167,5 @@ export const ACT_LIST = [
     notArea: [],
     midUp: [35, 36, 173],
     times: 1.5
-  },
-  {
-    name: '琥褐溪谷登場企畫',
-    namejp: 'アンバー渓谷登場キャンペーン',
-    startTime: 1762718400000,
-    endTime: 1763927999000,
-    notArea: [],
-    smallUp: [328, 371, 557],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [328, 371, 557]
-    }
   }
 ]

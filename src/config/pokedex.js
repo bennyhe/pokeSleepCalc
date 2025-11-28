@@ -2999,6 +2999,33 @@ const pokedex = {
       }
     }
   },
+  442: {
+    id: 442,
+    // name: '花岩怪',
+    friendship: 16,
+    sleepType: 1,
+    // skillType: 8,
+    // pokeType: 2,
+    berryType: 17,
+    maxcarry: 27
+    // helpSpeed: 5400,
+    // foodPer: 21,
+    // skillPer: 1.30,
+    // food: {
+    //   type: [3, 4, 9],
+    //   count: {
+    //     3: {
+    //       num: [2, 5, 7]
+    //     },
+    //     4: {
+    //       num: [0, 4, 7]
+    //     },
+    //     9: {
+    //       num: [0, 0, 8]
+    //     }
+    //   }
+    // }
+  },
   447: {
     id: 447,
     // name: '利歐路',
@@ -4225,6 +4252,9 @@ const updatePoke = [{
 }, {
   time: '2025/11/1',
   pokemons: [328, 329, 330, 371, 372, 373, 557, 558]
+}, {
+  time: '2025/12/1',
+  pokemons: [442]
 }]
 // console.log(pokedex)
 export {
