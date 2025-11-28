@@ -554,10 +554,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
 }
 
 export const getSkillLevel = pokeSkillType => {
-  const arrLevel = [1, 2, 3, 4, 5, 6]
-  if ([23].includes(pokeSkillType)) {
-    arrLevel.push(7)
-  }
+  const arrLevel = [1, 2, 3, 4, 5, 6, 7]
   if ([3, 6].includes(pokeSkillType)) {
     arrLevel.push(8)
   }
