@@ -1842,13 +1842,13 @@ const pokedex = {
     // name: '信使鳥',
     friendship: 16,
     sleepType: 1,
-    skillType: 10,
+    skillType: 29,
     pokeType: 2,
     berryType: 16,
     maxcarry: 20,
     helpSpeed: 2500,
     foodPer: 18.80,
-    skillPer: 1.50,
+    skillPer: 3,
     food: {
       type: [3, 5, 13],
       count: {
