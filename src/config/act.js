@@ -51,10 +51,10 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 3, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [328, 371, 557],
-  upIdsMidIds: [],
+  upIdsSmallIds: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+  upIdsMidIds: [442],
   upIdsLargeIds: [],
-  noLastList: [328, 329, 330, 371, 372, 373, 557, 558]
+  noLastList: [442]
 }
 export const ACT_LIST = [
   //  {
@@ -130,42 +130,57 @@ export const ACT_LIST = [
   //   isActRandom: true
   // },
   {
-    name: '琥褐溪谷登場企畫',
-    namejp: 'アンバー渓谷登場キャンペーン',
-    startTime: 1762718400000,
-    endTime: 1763927999000,
+    name: '分量加大！料理週vol.2',
+    namejp: 'デカ盛り！料理ウィーク vol.2',
+    startTime: 1764532800000,
+    endTime: 1764791999000,
     notArea: [],
-    smallUp: [328, 371, 557],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [328, 371, 557]
-    }
+    smallUp: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+    midUp: [442],
+    isActRandom: true
   },
   {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1762200000000,
-    endTime: 1762286399000,
+    name: '分量加大！料理週vol.2 & 好眠日',
+    namejp: 'デカ盛り！料理ウィーク vol.2 & 満月の前後の日',
+    startTime: 1764792000000,
+    endTime: 1764878399000,
     notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
+    smallUp: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+    midUp: [442, 35, 36, 173],
+    times: 1.5,
+    isActRandom: true
   },
   {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1762286400000,
-    endTime: 1762372799000,
+    name: '分量加大！料理週vol.2 & 满月日',
+    namejp: 'デカ盛り！料理ウィーク vol.2 & 満月の日',
+    startTime: 1764878400000,
+    endTime: 1764964799000,
     notArea: [],
     largeUp: [35, 36, 173],
-    times: 2.5
+    smallUp: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+    midUp: [442],
+    times: 2,
+    isActRandom: true
   },
   {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1762372800000,
-    endTime: 1762459199000,
+    name: '分量加大！料理週vol.2 & 好眠日',
+    namejp: 'デカ盛り！料理ウィーク vol.2 & 満月の前後の日',
+    startTime: 1764964800000,
+    endTime: 1765051199000,
     notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
+    smallUp: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+    midUp: [442, 35, 36, 173],
+    times: 1.5,
+    isActRandom: true
+  },
+  {
+    name: '分量加大！料理週vol.2',
+    namejp: 'デカ盛り！料理ウィーク vol.2',
+    startTime: 1765051200000,
+    endTime: 1765137599000,
+    notArea: [],
+    smallUp: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
+    midUp: [442],
+    isActRandom: true
   }
 ]

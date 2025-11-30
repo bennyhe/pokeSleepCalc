@@ -129,7 +129,7 @@ const handleChangePokemon = pokeId => {}
       </div>
     </el-form-item>
   </el-form>
-  <div class="map-pokemons" v-if="pageData.pokemonId">
+  <div v-if="pageData.pokemonId">
     <table>
       <thead>
         <tr>
