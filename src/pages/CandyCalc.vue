@@ -8,12 +8,9 @@ import {
   levelOptions,
   SHARDS_CANDY
 } from '../config/candyCalc.js'
-import {
-  POKEMON_MAX_LEVEL
-} from '../config/game.js'
+import { POKEMON_MAX_LEVEL } from '../config/game.js'
 
 import { getNum } from '../utils/index.js'
-
 
 const candyCalcForm = ref({
   pType: 1,
@@ -42,13 +39,16 @@ const actType = {
 const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
 levelOptionsTo.splice(0, 1)
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
-levelOptionsTo.push({
-  label: 60,
-  txt: 'Lv.60'
-},{
-  label: 65,
-  txt: 'Lv.65'
-})
+levelOptionsTo.push(
+  {
+    label: 60,
+    txt: 'Lv.60'
+  },
+  {
+    label: 65,
+    txt: 'Lv.65'
+  }
+)
 const getExp = (fromLevel, toLevel) => {
   const fromExp = Math.round(
     LEVEL_EXP[fromLevel - 1] * candyCalcForm.value.pType
@@ -57,8 +57,30 @@ const getExp = (fromLevel, toLevel) => {
   const exp = toExp - fromExp
   return exp
 }
-const getOnceCandyExp = nature => {
-  return NATURE_ONE_CANDY_EXP[nature] * candyCalcForm.value.useExps
+const getOnceCandyExp = (nature, toLevel) => {
+  // console.log('计算糖果经验:', { nature, toLevel })
+  // 根据目标等级确定基础经验值
+  let baseExp
+  if (toLevel <= 26) {
+    baseExp = NATURE_ONE_CANDY_EXP['lv25'] // 1-25级
+  } else if (toLevel <= 31) {
+    baseExp = NATURE_ONE_CANDY_EXP['lv30'] // 25-30级
+  } else {
+    baseExp = NATURE_ONE_CANDY_EXP['normal'] // 30-65级
+  }
+  
+  // 性格倍率调整
+  const natureMultipliers = {
+    up: 1.18,
+    down: 0.82,
+    normal: 1.00
+  }
+  
+  const multiplier = natureMultipliers[nature] || 1.00
+  const singleCandyExp = Math.round(baseExp * multiplier)
+  
+  // 返回总经验值
+  return singleCandyExp * candyCalcForm.value.useExps
 }
 const getOnceShards = (i, useCandyNumCurLevel) => {
   return SHARDS_CANDY[i] * useCandyNumCurLevel * candyCalcForm.value.useShards
@@ -68,7 +90,7 @@ const getRes = (fromLevel, toLevel, nature) => {
   toLevel = toLevel || candyCalcForm.value.toLevel
   nature = nature || candyCalcForm.value.nature
   // 最后一级处理
-  if (fromLevel === (POKEMON_MAX_LEVEL - 1)) {
+  if (fromLevel === POKEMON_MAX_LEVEL - 1) {
     toLevel = POKEMON_MAX_LEVEL
   }
   if (!candyCalcForm.value.levelUpExp) {
@@ -79,7 +101,7 @@ const getRes = (fromLevel, toLevel, nature) => {
       ? getExp(fromLevel, fromLevel + 1) - candyCalcForm.value.levelUpExp
       : 0
   const exp = getExp(fromLevel, toLevel) - whitOutLevelUp
-  const candys = Math.ceil(exp / getOnceCandyExp(nature))
+  const candys = Math.ceil(exp / getOnceCandyExp(nature, toLevel))
   let shards = 0
   if (toLevel - fromLevel > 0) {
     let carryNextLevelExp = 0
@@ -88,9 +110,9 @@ const getRes = (fromLevel, toLevel, nature) => {
       if (i === fromLevel && candyCalcForm.value.levelUpExp > 0) {
         needExp = candyCalcForm.value.levelUpExp
       }
-      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature))
+      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature, toLevel))
       carryNextLevelExp =
-        useCandyNumCurLevel * getOnceCandyExp(nature) - needExp
+        useCandyNumCurLevel * getOnceCandyExp(nature, toLevel) - needExp
       shards += getOnceShards(i, useCandyNumCurLevel)
     }
   }
