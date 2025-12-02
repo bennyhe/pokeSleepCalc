@@ -3004,27 +3004,27 @@ const pokedex = {
     // name: '花岩怪',
     friendship: 16,
     sleepType: 1,
-    // skillType: 8,
-    // pokeType: 2,
+    skillType: 9,
+    pokeType: 2,
     berryType: 17,
-    maxcarry: 27
-    // helpSpeed: 5400,
-    // foodPer: 21,
-    // skillPer: 1.30,
-    // food: {
-    //   type: [3, 4, 9],
-    //   count: {
-    //     3: {
-    //       num: [2, 5, 7]
-    //     },
-    //     4: {
-    //       num: [0, 4, 7]
-    //     },
-    //     9: {
-    //       num: [0, 0, 8]
-    //     }
-    //   }
-    // }
+    maxcarry: 27,
+    helpSpeed: 3500,
+    foodPer: 19.8,
+    skillPer: 3.60,
+    food: {
+      type: [2, 18, 1],
+      count: {
+        2: {
+          num: [2, 5, 7]
+        },
+        18: {
+          num: [0, 3, 5]
+        },
+        1: {
+          num: [0, 0, 6]
+        }
+      }
+    }
   },
   447: {
     id: 447,

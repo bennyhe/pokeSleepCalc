@@ -61,9 +61,9 @@ const getOnceCandyExp = (nature, toLevel) => {
   // console.log('计算糖果经验:', { nature, toLevel })
   // 根据目标等级确定基础经验值
   let baseExp
-  if (toLevel <= 26) {
+  if (toLevel <= 25) {
     baseExp = NATURE_ONE_CANDY_EXP['lv25'] // 1-25级
-  } else if (toLevel <= 31) {
+  } else if (toLevel <= 30) {
     baseExp = NATURE_ONE_CANDY_EXP['lv30'] // 25-30级
   } else {
     baseExp = NATURE_ONE_CANDY_EXP['normal'] // 30-65级
