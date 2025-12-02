@@ -101,7 +101,7 @@ const getRes = (fromLevel, toLevel, nature) => {
       ? getExp(fromLevel, fromLevel + 1) - candyCalcForm.value.levelUpExp
       : 0
   const exp = getExp(fromLevel, toLevel) - whitOutLevelUp
-  const candys = Math.ceil(exp / getOnceCandyExp(nature, toLevel))
+  const candys = Math.ceil(exp / getOnceCandyExp(nature, toLevel)) //这里的糖果数不对，没有根据各个等级获取
   let shards = 0
   if (toLevel - fromLevel > 0) {
     let carryNextLevelExp = 0
@@ -110,9 +110,9 @@ const getRes = (fromLevel, toLevel, nature) => {
       if (i === fromLevel && candyCalcForm.value.levelUpExp > 0) {
         needExp = candyCalcForm.value.levelUpExp
       }
-      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature, toLevel))
+      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature, i))
       carryNextLevelExp =
-        useCandyNumCurLevel * getOnceCandyExp(nature, toLevel) - needExp
+        useCandyNumCurLevel * getOnceCandyExp(nature, i) - needExp
       shards += getOnceShards(i, useCandyNumCurLevel)
     }
   }
