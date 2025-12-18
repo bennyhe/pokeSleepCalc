@@ -35,6 +35,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [442],
     starttime: '2025/12/01 04:00'
+  },
+  {
+    ids: [777, 974, 975, 9006],
+    starttime: '2025/12/22 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -46,16 +50,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [777, 974, 975, 9002, 9004, 9006], // ban 宝可梦id
+  showBanArea: [0, 3, 5, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [50, 69, 74, 83, 115, 132, 194, 246, 303, 359, 403, 439, 453, 459, 736, 759, 764, 845, 912, 7054, 710],
-  upIdsMidIds: [442],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [777, 974, 975, 9006]
 }
 export const ACT_LIST = [
   //  {

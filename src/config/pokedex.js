@@ -68,7 +68,8 @@ const evoLine = [
   [710, 711, '710-2', '711-2', '710-3', '711-3', '710-4', '711-4'],
   [328, 329, 330],
   [371, 372, 373],
-  [557, 558]
+  [557, 558],
+  [974, 975]
 ]
 const pokedex = {
   1: {
@@ -3688,6 +3689,33 @@ const pokedex = {
       }
     }
   },
+  777: {
+    id: 777,
+    // name: '托戈德瑪爾',
+    friendship: 16,
+    sleepType: 3,
+    skillType: 30,
+    // pokeType: 3,
+    maxcarry: 18,
+    // helpSpeed: 2500,
+    berryType: 2
+    // foodPer: 15.30,
+    // skillPer: 3.30,
+    // food: {
+    //   type: [5, 17, 2],
+    //   count: {
+    //     5: {
+    //       num: [1, 2, 4]
+    //     },
+    //     17: {
+    //       num: [0, 1, 2]
+    //     },
+    //     2: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   778: {
     id: 778,
     // name: '謎擬Ｑ',
@@ -3695,7 +3723,6 @@ const pokedex = {
     sleepType: 1,
     skillType: 17,
     pokeType: 3,
-    berryType: 8,
     maxcarry: 19,
     helpSpeed: 2500,
     berryType: 8,
@@ -3995,6 +4022,46 @@ const pokedex = {
     foodPer: 14.10,
     skillPer: 3.90
   },
+  974: {
+    id: 974,
+    // name: '走鯨',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 8,
+    // pokeType: 3,
+    maxcarry: 12,
+    // helpSpeed: 4600,
+    berryType: 7
+    // foodPer: 11.10,
+    // skillPer: 3.60,
+    // food: {
+    //   type: [13, 8, 3],
+    //   count: {
+    //     13: {
+    //       num: [1, 2, 3]
+    //     },
+    //     8: {
+    //       num: [0, 3, 6]
+    //     },
+    //     3: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
+  975: {
+    id: 975,
+    // name: '浩大鯨',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 8,
+    // pokeType: 3,
+    maxcarry: 25,
+    // helpSpeed: 3300,
+    berryType: 7
+    // foodPer: 10.90,
+    // skillPer: 3.60
+  },
   980: {
     id: 980,
     // name: '土王',
@@ -4154,6 +4221,33 @@ const pokedex = {
         }
       }
     }
+  },
+  9006: {
+    id: 9006,
+    // name: '海豹球（佳節）',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 10,
+    // pokeType: 3,
+    berryType: 7,
+    maxcarry: 20
+    // helpSpeed: 3200,
+    // foodPer: 12.0,
+    // skillPer: 4.60,
+    // food: {
+    //   type: [18, 13, 8],
+    //   count: {
+    //     18: {
+    //       num: [1, 2, 4]
+    //     },
+    //     13: {
+    //       num: [0, 4, 6]
+    //     },
+    //     8: {
+    //       num: [0, 0, 9]
+    //     }
+    //   }
+    // }
   }
 }
 const initPokedex = () => {
@@ -4254,7 +4348,7 @@ const updatePoke = [{
   pokemons: [328, 329, 330, 371, 372, 373, 557, 558]
 }, {
   time: '2025/12/1',
-  pokemons: [442]
+  pokemons: [442, 777, 974, 975, 9006]
 }]
 // console.log(pokedex)
 export {
