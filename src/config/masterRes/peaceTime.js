@@ -5,211 +5,211 @@ export default [
     'res': [
       {
         'pokeId': 461,
-        'count': 3794
+        'count': 3725
       },
       {
         'pokeId': 3,
-        'count': 868
+        'count': 873
+      },
+      {
+        'pokeId': 12,
+        'count': 827
       },
       {
         'pokeId': 225,
         'count': 801
       },
       {
-        'pokeId': 127,
-        'count': 795
-      },
-      {
         'pokeId': 11,
-        'count': 781
+        'count': 759
       },
       {
-        'pokeId': 12,
-        'count': 780
+        'pokeId': 127,
+        'count': 752
       },
       {
         'pokeId': 214,
-        'count': 717
+        'count': 746
       },
       {
         'pokeId': 154,
-        'count': 695
-      },
-      {
-        'pokeId': 908,
-        'count': 651
-      },
-      {
-        'pokeId': 215,
-        'count': 569
-      },
-      {
-        'pokeId': 317,
-        'count': 567
-      },
-      {
-        'pokeId': 359,
-        'count': 566
-      },
-      {
-        'pokeId': 453,
-        'count': 564
-      },
-      {
-        'pokeId': 906,
-        'count': 559
-      },
-      {
-        'pokeId': 1,
-        'count': 556
-      },
-      {
-        'pokeId': 10,
-        'count': 554
-      },
-      {
-        'pokeId': 907,
-        'count': 551
-      },
-      {
-        'pokeId': 430,
-        'count': 550
-      },
-      {
-        'pokeId': 152,
-        'count': 549
+        'count': 689
       },
       {
         'pokeId': 778,
-        'count': 549
+        'count': 649
       },
       {
-        'pokeId': 197,
-        'count': 541
+        'pokeId': 908,
+        'count': 634
       },
       {
-        'pokeId': 710,
-        'count': 535
+        'pokeId': 317,
+        'count': 596
       },
       {
-        'pokeId': 252,
-        'count': 532
-      },
-      {
-        'pokeId': 316,
-        'count': 531
-      },
-      {
-        'pokeId': 228,
-        'count': 529
-      },
-      {
-        'pokeId': 153,
-        'count': 525
-      },
-      {
-        'pokeId': 71,
-        'count': 519
-      },
-      {
-        'pokeId': 57,
-        'count': 517
-      },
-      {
-        'pokeId': 198,
-        'count': 517
-      },
-      {
-        'pokeId': 254,
-        'count': 516
-      },
-      {
-        'pokeId': 54,
-        'count': 514
-      },
-      {
-        'pokeId': 2,
-        'count': 513
-      },
-      {
-        'pokeId': 288,
-        'count': 511
-      },
-      {
-        'pokeId': 23,
-        'count': 510
-      },
-      {
-        'pokeId': 70,
-        'count': 508
-      },
-      {
-        'pokeId': 980,
-        'count': 506
-      },
-      {
-        'pokeId': 470,
-        'count': 505
+        'pokeId': 215,
+        'count': 576
       },
       {
         'pokeId': 69,
-        'count': 501
+        'count': 570
       },
       {
-        'pokeId': 849,
-        'count': 500
+        'pokeId': 252,
+        'count': 570
       },
       {
-        'pokeId': 56,
-        'count': 496
+        'pokeId': 907,
+        'count': 553
       },
       {
-        'pokeId': 8001,
-        'count': 495
+        'pokeId': 57,
+        'count': 551
       },
       {
-        'pokeId': 442,
-        'count': 494
+        'pokeId': 906,
+        'count': 547
       },
       {
-        'pokeId': 454,
-        'count': 493
+        'pokeId': 153,
+        'count': 544
       },
       {
-        'pokeId': 7054,
-        'count': 492
+        'pokeId': 980,
+        'count': 544
+      },
+      {
+        'pokeId': 10,
+        'count': 542
       },
       {
         'pokeId': 354,
-        'count': 484
+        'count': 534
       },
       {
-        'pokeId': 253,
-        'count': 482
+        'pokeId': 2,
+        'count': 533
       },
       {
-        'pokeId': 425,
-        'count': 480
+        'pokeId': 288,
+        'count': 531
       },
       {
-        'pokeId': 711,
-        'count': 477
+        'pokeId': 316,
+        'count': 527
+      },
+      {
+        'pokeId': 23,
+        'count': 524
       },
       {
         'pokeId': 24,
-        'count': 457
+        'count': 521
       },
       {
-        'pokeId': 353,
-        'count': 436
+        'pokeId': 710,
+        'count': 521
+      },
+      {
+        'pokeId': 228,
+        'count': 520
+      },
+      {
+        'pokeId': 56,
+        'count': 518
+      },
+      {
+        'pokeId': 1,
+        'count': 517
+      },
+      {
+        'pokeId': 54,
+        'count': 517
+      },
+      {
+        'pokeId': 152,
+        'count': 513
+      },
+      {
+        'pokeId': 197,
+        'count': 513
+      },
+      {
+        'pokeId': 7054,
+        'count': 512
+      },
+      {
+        'pokeId': 430,
+        'count': 508
+      },
+      {
+        'pokeId': 470,
+        'count': 508
+      },
+      {
+        'pokeId': 253,
+        'count': 507
+      },
+      {
+        'pokeId': 71,
+        'count': 503
+      },
+      {
+        'pokeId': 254,
+        'count': 500
+      },
+      {
+        'pokeId': 442,
+        'count': 498
+      },
+      {
+        'pokeId': 198,
+        'count': 496
+      },
+      {
+        'pokeId': 849,
+        'count': 494
+      },
+      {
+        'pokeId': 8001,
+        'count': 493
+      },
+      {
+        'pokeId': 453,
+        'count': 492
+      },
+      {
+        'pokeId': 711,
+        'count': 488
+      },
+      {
+        'pokeId': 359,
+        'count': 486
+      },
+      {
+        'pokeId': 454,
+        'count': 469
+      },
+      {
+        'pokeId': 70,
+        'count': 458
+      },
+      {
+        'pokeId': 425,
+        'count': 451
       },
       {
         'pokeId': 92,
-        'count': 434
+        'count': 440
       },
       {
         'pokeId': 93,
-        'count': 434
+        'count': 440
+      },
+      {
+        'pokeId': 353,
+        'count': 420
       }
     ]
   },
@@ -219,75 +219,75 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 5356
-      },
-      {
-        'pokeId': 127,
-        'count': 1603
-      },
-      {
-        'pokeId': 54,
-        'count': 1596
-      },
-      {
-        'pokeId': 316,
-        'count': 1596
-      },
-      {
-        'pokeId': 69,
-        'count': 1595
-      },
-      {
-        'pokeId': 57,
-        'count': 1588
-      },
-      {
-        'pokeId': 454,
-        'count': 1588
-      },
-      {
-        'pokeId': 214,
-        'count': 1583
-      },
-      {
-        'pokeId': 253,
-        'count': 1582
-      },
-      {
-        'pokeId': 453,
-        'count': 1570
-      },
-      {
-        'pokeId': 23,
-        'count': 1564
-      },
-      {
-        'pokeId': 70,
-        'count': 1556
+        'count': 5416
       },
       {
         'pokeId': 152,
-        'count': 1555
+        'count': 1622
       },
       {
-        'pokeId': 252,
-        'count': 1554
-      },
-      {
-        'pokeId': 56,
-        'count': 1549
-      },
-      {
-        'pokeId': 10,
-        'count': 1544
+        'pokeId': 69,
+        'count': 1617
       },
       {
         'pokeId': 24,
-        'count': 1514
+        'count': 1616
+      },
+      {
+        'pokeId': 57,
+        'count': 1593
+      },
+      {
+        'pokeId': 10,
+        'count': 1584
+      },
+      {
+        'pokeId': 316,
+        'count': 1584
+      },
+      {
+        'pokeId': 253,
+        'count': 1569
+      },
+      {
+        'pokeId': 127,
+        'count': 1568
+      },
+      {
+        'pokeId': 454,
+        'count': 1568
+      },
+      {
+        'pokeId': 70,
+        'count': 1562
+      },
+      {
+        'pokeId': 252,
+        'count': 1562
+      },
+      {
+        'pokeId': 23,
+        'count': 1556
+      },
+      {
+        'pokeId': 214,
+        'count': 1549
+      },
+      {
+        'pokeId': 54,
+        'count': 1539
+      },
+      {
+        'pokeId': 56,
+        'count': 1525
+      },
+      {
+        'pokeId': 453,
+        'count': 1517
       },
       {
         'pokeId': 254,
-        'count': 1507
+        'count': 1453
       }
     ]
   },
@@ -297,79 +297,79 @@ export default [
     'res': [
       {
         'pokeId': 911,
-        'count': 5128
+        'count': 5152
       },
       {
         'pokeId': 980,
-        'count': 1725
+        'count': 1658
+      },
+      {
+        'pokeId': 248,
+        'count': 1620
       },
       {
         'pokeId': 94,
-        'count': 1624
-      },
-      {
-        'pokeId': 7054,
-        'count': 1567
+        'count': 1554
       },
       {
         'pokeId': 316,
-        'count': 1556
-      },
-      {
-        'pokeId': 23,
         'count': 1554
       },
       {
         'pokeId': 454,
-        'count': 1552
+        'count': 1549
       },
       {
-        'pokeId': 248,
-        'count': 1543
-      },
-      {
-        'pokeId': 302,
-        'count': 1538
+        'pokeId': 23,
+        'count': 1546
       },
       {
         'pokeId': 317,
-        'count': 1517
-      },
-      {
-        'pokeId': 229,
-        'count': 1513
+        'count': 1537
       },
       {
         'pokeId': 354,
-        'count': 1506
-      },
-      {
-        'pokeId': 197,
-        'count': 1505
+        'count': 1521
       },
       {
         'pokeId': 24,
-        'count': 1479
+        'count': 1507
+      },
+      {
+        'pokeId': 229,
+        'count': 1498
+      },
+      {
+        'pokeId': 197,
+        'count': 1478
+      },
+      {
+        'pokeId': 302,
+        'count': 1460
       },
       {
         'pokeId': 453,
-        'count': 1437
+        'count': 1460
       },
       {
         'pokeId': 228,
-        'count': 1430
+        'count': 1456
+      },
+      {
+        'pokeId': 7054,
+        'count': 1434
       },
       {
         'pokeId': 92,
-        'count': 1366
-      },
-      {
-        'pokeId': 93,
-        'count': 1284
+        'count': 1364
       },
       {
         'pokeId': 353,
-        'count': 1176
+        'count': 1361
+      },
+      {
+        'pokeId': 93,
+        'count': 1291
       }
     ]
   },
@@ -379,79 +379,79 @@ export default [
     'res': [
       {
         'pokeId': 461,
-        'count': 5168
+        'count': 5124
       },
       {
         'pokeId': 215,
-        'count': 1636
-      },
-      {
-        'pokeId': 288,
-        'count': 1559
-      },
-      {
-        'pokeId': 359,
-        'count': 1559
-      },
-      {
-        'pokeId': 57,
-        'count': 1540
-      },
-      {
-        'pokeId': 453,
-        'count': 1531
-      },
-      {
-        'pokeId': 334,
-        'count': 1522
-      },
-      {
-        'pokeId': 454,
-        'count': 1511
-      },
-      {
-        'pokeId': 69,
-        'count': 1506
-      },
-      {
-        'pokeId': 56,
-        'count': 1505
+        'count': 1666
       },
       {
         'pokeId': 225,
-        'count': 1499
+        'count': 1587
+      },
+      {
+        'pokeId': 56,
+        'count': 1584
+      },
+      {
+        'pokeId': 359,
+        'count': 1569
+      },
+      {
+        'pokeId': 288,
+        'count': 1545
+      },
+      {
+        'pokeId': 57,
+        'count': 1544
+      },
+      {
+        'pokeId': 453,
+        'count': 1532
       },
       {
         'pokeId': 317,
-        'count': 1499
-      },
-      {
-        'pokeId': 316,
-        'count': 1497
-      },
-      {
-        'pokeId': 198,
-        'count': 1489
-      },
-      {
-        'pokeId': 54,
-        'count': 1470
+        'count': 1515
       },
       {
         'pokeId': 430,
-        'count': 1440
+        'count': 1506
+      },
+      {
+        'pokeId': 198,
+        'count': 1500
+      },
+      {
+        'pokeId': 334,
+        'count': 1490
+      },
+      {
+        'pokeId': 454,
+        'count': 1474
       },
       {
         'pokeId': 442,
-        'count': 1438
+        'count': 1456
       },
       {
-        'pokeId': 92,
-        'count': 1324
+        'pokeId': 54,
+        'count': 1444
+      },
+      {
+        'pokeId': 316,
+        'count': 1439
+      },
+      {
+        'pokeId': 69,
+        'count': 1437
       },
       {
         'pokeId': 93,
-        'count': 1307
+        'count': 1305
+      },
+      {
+        'pokeId': 92,
+        'count': 1283
       }
     ]
   },
@@ -461,103 +461,103 @@ export default [
     'res': [
       {
         'pokeId': 149,
-        'count': 4848
-      },
-      {
-        'pokeId': 154,
-        'count': 1197
-      },
-      {
-        'pokeId': 3,
-        'count': 1187
-      },
-      {
-        'pokeId': 71,
-        'count': 1184
+        'count': 4901
       },
       {
         'pokeId': 908,
-        'count': 1174
-      },
-      {
-        'pokeId': 148,
-        'count': 1156
-      },
-      {
-        'pokeId': 152,
-        'count': 1156
-      },
-      {
-        'pokeId': 906,
-        'count': 1154
-      },
-      {
-        'pokeId': 23,
-        'count': 1142
-      },
-      {
-        'pokeId': 1,
-        'count': 1139
-      },
-      {
-        'pokeId': 57,
-        'count': 1128
-      },
-      {
-        'pokeId': 252,
-        'count': 1128
-      },
-      {
-        'pokeId': 254,
-        'count': 1128
-      },
-      {
-        'pokeId': 334,
-        'count': 1125
-      },
-      {
-        'pokeId': 253,
-        'count': 1123
-      },
-      {
-        'pokeId': 56,
-        'count': 1119
-      },
-      {
-        'pokeId': 442,
-        'count': 1118
-      },
-      {
-        'pokeId': 147,
-        'count': 1115
-      },
-      {
-        'pokeId': 907,
-        'count': 1114
-      },
-      {
-        'pokeId': 70,
-        'count': 1105
-      },
-      {
-        'pokeId': 153,
-        'count': 1099
-      },
-      {
-        'pokeId': 2,
-        'count': 1097
+        'count': 1210
       },
       {
         'pokeId': 470,
+        'count': 1179
+      },
+      {
+        'pokeId': 23,
+        'count': 1178
+      },
+      {
+        'pokeId': 906,
+        'count': 1175
+      },
+      {
+        'pokeId': 334,
+        'count': 1172
+      },
+      {
+        'pokeId': 253,
+        'count': 1156
+      },
+      {
+        'pokeId': 57,
+        'count': 1145
+      },
+      {
+        'pokeId': 3,
+        'count': 1142
+      },
+      {
+        'pokeId': 147,
+        'count': 1139
+      },
+      {
+        'pokeId': 252,
+        'count': 1135
+      },
+      {
+        'pokeId': 1,
+        'count': 1134
+      },
+      {
+        'pokeId': 70,
+        'count': 1127
+      },
+      {
+        'pokeId': 442,
+        'count': 1121
+      },
+      {
+        'pokeId': 56,
+        'count': 1118
+      },
+      {
+        'pokeId': 148,
+        'count': 1116
+      },
+      {
+        'pokeId': 907,
+        'count': 1115
+      },
+      {
+        'pokeId': 254,
+        'count': 1102
+      },
+      {
+        'pokeId': 153,
+        'count': 1101
+      },
+      {
+        'pokeId': 2,
+        'count': 1098
+      },
+      {
+        'pokeId': 71,
         'count': 1094
       },
       {
-        'pokeId': 69,
+        'pokeId': 54,
+        'count': 1092
+      },
+      {
+        'pokeId': 152,
         'count': 1087
       },
       {
-        'pokeId': 54,
-        'count': 1083
+        'pokeId': 154,
+        'count': 1086
+      },
+      {
+        'pokeId': 69,
+        'count': 1077
       }
     ]
   },
@@ -567,119 +567,119 @@ export default [
     'res': [
       {
         'pokeId': 738,
-        'count': 4431
+        'count': 4436
       },
       {
         'pokeId': 430,
-        'count': 1167
+        'count': 1258
       },
       {
         'pokeId': 778,
-        'count': 1086
-      },
-      {
-        'pokeId': 907,
-        'count': 1063
-      },
-      {
-        'pokeId': 11,
-        'count': 1059
-      },
-      {
-        'pokeId': 198,
-        'count': 1025
-      },
-      {
-        'pokeId': 254,
-        'count': 1025
-      },
-      {
-        'pokeId': 737,
-        'count': 1023
-      },
-      {
-        'pokeId': 426,
-        'count': 1019
-      },
-      {
-        'pokeId': 24,
-        'count': 997
-      },
-      {
-        'pokeId': 736,
-        'count': 997
-      },
-      {
-        'pokeId': 252,
-        'count': 996
-      },
-      {
-        'pokeId': 908,
-        'count': 993
+        'count': 1068
       },
       {
         'pokeId': 10,
-        'count': 990
+        'count': 1033
       },
       {
-        'pokeId': 23,
-        'count': 985
-      },
-      {
-        'pokeId': 710,
-        'count': 983
-      },
-      {
-        'pokeId': 354,
-        'count': 974
-      },
-      {
-        'pokeId': 12,
-        'count': 973
-      },
-      {
-        'pokeId': 253,
-        'count': 972
+        'pokeId': 198,
+        'count': 1029
       },
       {
         'pokeId': 94,
-        'count': 954
+        'count': 1013
+      },
+      {
+        'pokeId': 253,
+        'count': 1012
+      },
+      {
+        'pokeId': 354,
+        'count': 1011
+      },
+      {
+        'pokeId': 737,
+        'count': 1009
+      },
+      {
+        'pokeId': 736,
+        'count': 1006
+      },
+      {
+        'pokeId': 426,
+        'count': 1001
+      },
+      {
+        'pokeId': 254,
+        'count': 999
+      },
+      {
+        'pokeId': 906,
+        'count': 995
+      },
+      {
+        'pokeId': 908,
+        'count': 994
       },
       {
         'pokeId': 8001,
-        'count': 949
+        'count': 990
+      },
+      {
+        'pokeId': 252,
+        'count': 986
+      },
+      {
+        'pokeId': 24,
+        'count': 985
+      },
+      {
+        'pokeId': 907,
+        'count': 979
+      },
+      {
+        'pokeId': 710,
+        'count': 978
+      },
+      {
+        'pokeId': 12,
+        'count': 976
+      },
+      {
+        'pokeId': 23,
+        'count': 969
       },
       {
         'pokeId': 711,
-        'count': 943
+        'count': 954
       },
       {
         'pokeId': 911,
+        'count': 952
+      },
+      {
+        'pokeId': 11,
         'count': 941
       },
       {
         'pokeId': 849,
-        'count': 935
-      },
-      {
-        'pokeId': 906,
-        'count': 929
-      },
-      {
-        'pokeId': 425,
-        'count': 904
-      },
-      {
-        'pokeId': 353,
-        'count': 901
+        'count': 939
       },
       {
         'pokeId': 92,
-        'count': 895
+        'count': 886
+      },
+      {
+        'pokeId': 425,
+        'count': 881
+      },
+      {
+        'pokeId': 353,
+        'count': 862
       },
       {
         'pokeId': 93,
-        'count': 891
+        'count': 858
       }
     ]
   },
@@ -689,87 +689,87 @@ export default [
     'res': [
       {
         'pokeId': 248,
-        'count': 5300
-      },
-      {
-        'pokeId': 980,
-        'count': 1445
-      },
-      {
-        'pokeId': 127,
-        'count': 1385
-      },
-      {
-        'pokeId': 8001,
-        'count': 1369
-      },
-      {
-        'pokeId': 711,
-        'count': 1365
-      },
-      {
-        'pokeId': 372,
-        'count': 1362
-      },
-      {
-        'pokeId': 558,
-        'count': 1347
-      },
-      {
-        'pokeId': 11,
-        'count': 1341
-      },
-      {
-        'pokeId': 710,
-        'count': 1335
-      },
-      {
-        'pokeId': 334,
-        'count': 1333
-      },
-      {
-        'pokeId': 12,
-        'count': 1331
-      },
-      {
-        'pokeId': 557,
-        'count': 1331
-      },
-      {
-        'pokeId': 214,
-        'count': 1328
-      },
-      {
-        'pokeId': 10,
-        'count': 1327
-      },
-      {
-        'pokeId': 7054,
-        'count': 1327
-      },
-      {
-        'pokeId': 371,
-        'count': 1322
-      },
-      {
-        'pokeId': 373,
-        'count': 1322
-      },
-      {
-        'pokeId': 23,
-        'count': 1304
-      },
-      {
-        'pokeId': 442,
-        'count': 1288
+        'count': 5262
       },
       {
         'pokeId': 849,
-        'count': 1281
+        'count': 1439
+      },
+      {
+        'pokeId': 7054,
+        'count': 1389
+      },
+      {
+        'pokeId': 372,
+        'count': 1388
+      },
+      {
+        'pokeId': 12,
+        'count': 1377
+      },
+      {
+        'pokeId': 442,
+        'count': 1364
+      },
+      {
+        'pokeId': 8001,
+        'count': 1363
+      },
+      {
+        'pokeId': 11,
+        'count': 1358
+      },
+      {
+        'pokeId': 214,
+        'count': 1356
+      },
+      {
+        'pokeId': 980,
+        'count': 1354
+      },
+      {
+        'pokeId': 23,
+        'count': 1339
+      },
+      {
+        'pokeId': 371,
+        'count': 1331
+      },
+      {
+        'pokeId': 334,
+        'count': 1324
+      },
+      {
+        'pokeId': 10,
+        'count': 1315
       },
       {
         'pokeId': 24,
-        'count': 1257
+        'count': 1312
+      },
+      {
+        'pokeId': 711,
+        'count': 1311
+      },
+      {
+        'pokeId': 557,
+        'count': 1306
+      },
+      {
+        'pokeId': 127,
+        'count': 1302
+      },
+      {
+        'pokeId': 373,
+        'count': 1275
+      },
+      {
+        'pokeId': 558,
+        'count': 1272
+      },
+      {
+        'pokeId': 710,
+        'count': 1263
       }
     ]
   },
@@ -779,179 +779,179 @@ export default [
     'res': [
       {
         'pokeId': 461,
-        'count': 1346
+        'count': 1374
       },
       {
         'pokeId': 980,
-        'count': 1105
+        'count': 1191
       },
       {
         'pokeId': 11,
-        'count': 980
+        'count': 977
       },
       {
         'pokeId': 3,
-        'count': 906
+        'count': 914
       },
       {
         'pokeId': 2,
-        'count': 852
+        'count': 880
       },
       {
         'pokeId': 248,
-        'count': 811
-      },
-      {
-        'pokeId': 10,
-        'count': 810
-      },
-      {
-        'pokeId': 906,
-        'count': 796
-      },
-      {
-        'pokeId': 302,
-        'count': 789
+        'count': 829
       },
       {
         'pokeId': 908,
-        'count': 786
+        'count': 822
       },
       {
-        'pokeId': 228,
-        'count': 783
+        'pokeId': 906,
+        'count': 802
       },
       {
-        'pokeId': 1,
-        'count': 779
-      },
-      {
-        'pokeId': 426,
-        'count': 778
-      },
-      {
-        'pokeId': 127,
-        'count': 769
+        'pokeId': 10,
+        'count': 798
       },
       {
         'pokeId': 252,
-        'count': 745
+        'count': 792
       },
       {
-        'pokeId': 354,
-        'count': 744
+        'pokeId': 127,
+        'count': 787
       },
       {
-        'pokeId': 334,
-        'count': 736
-      },
-      {
-        'pokeId': 778,
-        'count': 731
-      },
-      {
-        'pokeId': 229,
-        'count': 728
-      },
-      {
-        'pokeId': 12,
-        'count': 724
+        'pokeId': 302,
+        'count': 786
       },
       {
         'pokeId': 197,
-        'count': 716
-      },
-      {
-        'pokeId': 907,
-        'count': 715
+        'count': 771
       },
       {
         'pokeId': 152,
-        'count': 709
+        'count': 769
+      },
+      {
+        'pokeId': 426,
+        'count': 752
+      },
+      {
+        'pokeId': 907,
+        'count': 739
+      },
+      {
+        'pokeId': 778,
+        'count': 726
+      },
+      {
+        'pokeId': 354,
+        'count': 725
+      },
+      {
+        'pokeId': 228,
+        'count': 717
       },
       {
         'pokeId': 225,
-        'count': 706
+        'count': 715
       },
       {
-        'pokeId': 710,
-        'count': 697
-      },
-      {
-        'pokeId': 153,
-        'count': 679
+        'pokeId': 229,
+        'count': 710
       },
       {
         'pokeId': 359,
-        'count': 676
-      },
-      {
-        'pokeId': 7054,
-        'count': 675
-      },
-      {
-        'pokeId': 154,
-        'count': 674
-      },
-      {
-        'pokeId': 353,
-        'count': 660
+        'count': 709
       },
       {
         'pokeId': 215,
-        'count': 657
+        'count': 703
+      },
+      {
+        'pokeId': 334,
+        'count': 700
+      },
+      {
+        'pokeId': 7054,
+        'count': 685
       },
       {
         'pokeId': 288,
-        'count': 653
+        'count': 679
       },
       {
-        'pokeId': 214,
-        'count': 644
+        'pokeId': 353,
+        'count': 671
       },
       {
-        'pokeId': 253,
-        'count': 634
+        'pokeId': 153,
+        'count': 670
       },
       {
-        'pokeId': 470,
-        'count': 626
+        'pokeId': 1,
+        'count': 669
       },
       {
         'pokeId': 198,
-        'count': 625
+        'count': 662
       },
       {
-        'pokeId': 8001,
-        'count': 603
+        'pokeId': 12,
+        'count': 652
       },
       {
-        'pokeId': 849,
-        'count': 589
+        'pokeId': 214,
+        'count': 651
+      },
+      {
+        'pokeId': 710,
+        'count': 650
+      },
+      {
+        'pokeId': 470,
+        'count': 633
+      },
+      {
+        'pokeId': 253,
+        'count': 629
+      },
+      {
+        'pokeId': 154,
+        'count': 615
       },
       {
         'pokeId': 911,
-        'count': 589
-      },
-      {
-        'pokeId': 425,
-        'count': 575
+        'count': 586
       },
       {
         'pokeId': 430,
-        'count': 572
+        'count': 571
       },
       {
-        'pokeId': 442,
-        'count': 567
+        'pokeId': 425,
+        'count': 566
+      },
+      {
+        'pokeId': 8001,
+        'count': 565
       },
       {
         'pokeId': 711,
-        'count': 544
+        'count': 563
+      },
+      {
+        'pokeId': 442,
+        'count': 558
+      },
+      {
+        'pokeId': 849,
+        'count': 556
       },
       {
         'pokeId': 254,
-        'count': 517
+        'count': 481
       }
     ]
   },
@@ -961,215 +961,215 @@ export default [
     'res': [
       {
         'pokeId': 289,
-        'count': 3574
+        'count': 3522
       },
       {
         'pokeId': 132,
-        'count': 970
-      },
-      {
-        'pokeId': 26,
-        'count': 800
+        'count': 891
       },
       {
         'pokeId': 6,
-        'count': 784
-      },
-      {
-        'pokeId': 242,
-        'count': 779
-      },
-      {
-        'pokeId': 53,
-        'count': 721
-      },
-      {
-        'pokeId': 115,
-        'count': 721
-      },
-      {
-        'pokeId': 764,
-        'count': 721
-      },
-      {
-        'pokeId': 52,
-        'count': 708
-      },
-      {
-        'pokeId': 700,
-        'count': 692
+        'count': 842
       },
       {
         'pokeId': 468,
-        'count': 681
+        'count': 787
+      },
+      {
+        'pokeId': 242,
+        'count': 784
+      },
+      {
+        'pokeId': 26,
+        'count': 767
+      },
+      {
+        'pokeId': 115,
+        'count': 731
+      },
+      {
+        'pokeId': 764,
+        'count': 726
+      },
+      {
+        'pokeId': 52,
+        'count': 724
+      },
+      {
+        'pokeId': 53,
+        'count': 676
+      },
+      {
+        'pokeId': 700,
+        'count': 659
       },
       {
         'pokeId': 135,
-        'count': 657
+        'count': 649
       },
       {
         'pokeId': 157,
-        'count': 646
-      },
-      {
-        'pokeId': 113,
-        'count': 635
-      },
-      {
-        'pokeId': 19,
-        'count': 593
-      },
-      {
-        'pokeId': 4,
-        'count': 542
-      },
-      {
-        'pokeId': 39,
-        'count': 536
-      },
-      {
-        'pokeId': 179,
-        'count': 534
+        'count': 603
       },
       {
         'pokeId': 202,
+        'count': 602
+      },
+      {
+        'pokeId': 113,
+        'count': 586
+      },
+      {
+        'pokeId': 19,
+        'count': 567
+      },
+      {
+        'pokeId': 35,
+        'count': 548
+      },
+      {
+        'pokeId': 176,
         'count': 533
       },
       {
         'pokeId': 909,
-        'count': 524
+        'count': 532
       },
       {
         'pokeId': 38,
-        'count': 523
-      },
-      {
-        'pokeId': 136,
-        'count': 517
-      },
-      {
-        'pokeId': 287,
-        'count': 516
-      },
-      {
-        'pokeId': 702,
-        'count': 511
-      },
-      {
-        'pokeId': 35,
-        'count': 508
-      },
-      {
-        'pokeId': 79,
-        'count': 507
-      },
-      {
-        'pokeId': 25,
-        'count': 505
-      },
-      {
-        'pokeId': 180,
-        'count': 505
-      },
-      {
-        'pokeId': 921,
-        'count': 505
-      },
-      {
-        'pokeId': 20,
-        'count': 504
-      },
-      {
-        'pokeId': 178,
-        'count': 500
-      },
-      {
-        'pokeId': 155,
-        'count': 497
-      },
-      {
-        'pokeId': 133,
-        'count': 495
-      },
-      {
-        'pokeId': 37,
-        'count': 491
-      },
-      {
-        'pokeId': 80,
-        'count': 489
+        'count': 529
       },
       {
         'pokeId': 40,
-        'count': 487
+        'count': 528
       },
       {
-        'pokeId': 176,
-        'count': 482
+        'pokeId': 25,
+        'count': 527
       },
       {
-        'pokeId': 58,
-        'count': 479
+        'pokeId': 179,
+        'count': 523
       },
       {
         'pokeId': 156,
-        'count': 477
+        'count': 514
       },
       {
-        'pokeId': 311,
-        'count': 477
+        'pokeId': 921,
+        'count': 513
       },
       {
-        'pokeId': 517,
-        'count': 473
+        'pokeId': 702,
+        'count': 510
       },
       {
-        'pokeId': 196,
-        'count': 470
+        'pokeId': 39,
+        'count': 509
+      },
+      {
+        'pokeId': 133,
+        'count': 508
+      },
+      {
+        'pokeId': 180,
+        'count': 507
+      },
+      {
+        'pokeId': 155,
+        'count': 505
       },
       {
         'pokeId': 5,
-        'count': 462
+        'count': 503
       },
       {
-        'pokeId': 312,
-        'count': 462
+        'pokeId': 20,
+        'count': 495
       },
       {
-        'pokeId': 177,
-        'count': 458
+        'pokeId': 79,
+        'count': 495
+      },
+      {
+        'pokeId': 4,
+        'count': 490
+      },
+      {
+        'pokeId': 58,
+        'count': 490
+      },
+      {
+        'pokeId': 178,
+        'count': 487
+      },
+      {
+        'pokeId': 80,
+        'count': 485
+      },
+      {
+        'pokeId': 287,
+        'count': 481
+      },
+      {
+        'pokeId': 37,
+        'count': 479
       },
       {
         'pokeId': 255,
-        'count': 453
+        'count': 478
       },
       {
-        'pokeId': 36,
-        'count': 441
+        'pokeId': 177,
+        'count': 476
       },
       {
-        'pokeId': 51,
-        'count': 422
+        'pokeId': 136,
+        'count': 470
+      },
+      {
+        'pokeId': 312,
+        'count': 469
+      },
+      {
+        'pokeId': 311,
+        'count': 463
       },
       {
         'pokeId': 243,
-        'count': 422
+        'count': 459
+      },
+      {
+        'pokeId': 196,
+        'count': 454
+      },
+      {
+        'pokeId': 517,
+        'count': 447
+      },
+      {
+        'pokeId': 36,
+        'count': 440
+      },
+      {
+        'pokeId': 51,
+        'count': 428
       },
       {
         'pokeId': 50,
-        'count': 416
-      },
-      {
-        'pokeId': 244,
         'count': 408
       },
       {
         'pokeId': 488,
+        'count': 406
+      },
+      {
+        'pokeId': 244,
         'count': 405
       },
       {
         'pokeId': 518,
-        'count': 382
+        'count': 390
       }
     ]
   },
@@ -1179,87 +1179,87 @@ export default [
     'res': [
       {
         'pokeId': 242,
-        'count': 4293
+        'count': 4272
       },
       {
         'pokeId': 113,
-        'count': 2059
+        'count': 2009
       },
       {
         'pokeId': 132,
-        'count': 1760
-      },
-      {
-        'pokeId': 58,
-        'count': 1396
-      },
-      {
-        'pokeId': 25,
-        'count': 1395
-      },
-      {
-        'pokeId': 909,
-        'count': 1367
-      },
-      {
-        'pokeId': 115,
-        'count': 1366
-      },
-      {
-        'pokeId': 35,
-        'count': 1362
-      },
-      {
-        'pokeId': 36,
-        'count': 1360
-      },
-      {
-        'pokeId': 40,
-        'count': 1350
-      },
-      {
-        'pokeId': 764,
-        'count': 1349
-      },
-      {
-        'pokeId': 19,
-        'count': 1348
+        'count': 1686
       },
       {
         'pokeId': 199,
-        'count': 1332
+        'count': 1402
       },
       {
-        'pokeId': 39,
-        'count': 1323
+        'pokeId': 909,
+        'count': 1390
       },
       {
-        'pokeId': 80,
-        'count': 1320
-      },
-      {
-        'pokeId': 133,
-        'count': 1303
-      },
-      {
-        'pokeId': 20,
-        'count': 1297
+        'pokeId': 35,
+        'count': 1377
       },
       {
         'pokeId': 910,
-        'count': 1297
+        'count': 1376
+      },
+      {
+        'pokeId': 19,
+        'count': 1369
+      },
+      {
+        'pokeId': 39,
+        'count': 1365
       },
       {
         'pokeId': 122,
-        'count': 1293
+        'count': 1364
+      },
+      {
+        'pokeId': 40,
+        'count': 1355
+      },
+      {
+        'pokeId': 20,
+        'count': 1354
+      },
+      {
+        'pokeId': 25,
+        'count': 1352
+      },
+      {
+        'pokeId': 764,
+        'count': 1350
+      },
+      {
+        'pokeId': 115,
+        'count': 1328
+      },
+      {
+        'pokeId': 133,
+        'count': 1326
+      },
+      {
+        'pokeId': 80,
+        'count': 1304
+      },
+      {
+        'pokeId': 36,
+        'count': 1292
+      },
+      {
+        'pokeId': 58,
+        'count': 1292
       },
       {
         'pokeId': 79,
-        'count': 1275
+        'count': 1277
       },
       {
         'pokeId': 50,
-        'count': 1155
+        'count': 1160
       }
     ]
   },
@@ -1269,111 +1269,111 @@ export default [
     'res': [
       {
         'pokeId': 59,
-        'count': 4855
-      },
-      {
-        'pokeId': 35,
-        'count': 1118
+        'count': 4839
       },
       {
         'pokeId': 37,
-        'count': 1103
-      },
-      {
-        'pokeId': 40,
-        'count': 1098
-      },
-      {
-        'pokeId': 39,
-        'count': 1090
-      },
-      {
-        'pokeId': 19,
-        'count': 1081
-      },
-      {
-        'pokeId': 5,
-        'count': 1077
-      },
-      {
-        'pokeId': 133,
-        'count': 1073
-      },
-      {
-        'pokeId': 136,
-        'count': 1072
+        'count': 1164
       },
       {
         'pokeId': 910,
-        'count': 1072
+        'count': 1123
       },
       {
-        'pokeId': 6,
-        'count': 1071
+        'pokeId': 909,
+        'count': 1099
       },
       {
-        'pokeId': 4,
-        'count': 1069
+        'pokeId': 36,
+        'count': 1095
       },
       {
         'pokeId': 255,
-        'count': 1067
+        'count': 1091
       },
       {
-        'pokeId': 157,
-        'count': 1066
+        'pokeId': 132,
+        'count': 1083
+      },
+      {
+        'pokeId': 5,
+        'count': 1081
+      },
+      {
+        'pokeId': 136,
+        'count': 1081
+      },
+      {
+        'pokeId': 20,
+        'count': 1079
+      },
+      {
+        'pokeId': 155,
+        'count': 1076
+      },
+      {
+        'pokeId': 133,
+        'count': 1067
       },
       {
         'pokeId': 196,
         'count': 1063
       },
       {
-        'pokeId': 132,
-        'count': 1058
+        'pokeId': 38,
+        'count': 1059
       },
       {
-        'pokeId': 20,
+        'pokeId': 58,
+        'count': 1056
+      },
+      {
+        'pokeId': 202,
+        'count': 1053
+      },
+      {
+        'pokeId': 39,
         'count': 1051
       },
       {
         'pokeId': 156,
-        'count': 1050
+        'count': 1044
       },
       {
-        'pokeId': 58,
-        'count': 1049
+        'pokeId': 40,
+        'count': 1041
       },
       {
-        'pokeId': 202,
-        'count': 1045
+        'pokeId': 35,
+        'count': 1036
       },
       {
-        'pokeId': 38,
-        'count': 1042
-      },
-      {
-        'pokeId': 36,
+        'pokeId': 4,
         'count': 1034
       },
       {
-        'pokeId': 909,
-        'count': 1019
+        'pokeId': 19,
+        'count': 1033
       },
       {
-        'pokeId': 155,
-        'count': 1016
+        'pokeId': 157,
+        'count': 1030
       },
       {
-        'pokeId': 51,
-        'count': 937
+        'pokeId': 6,
+        'count': 1021
       },
       {
         'pokeId': 50,
-        'count': 873
+        'count': 933
+      },
+      {
+        'pokeId': 51,
+        'count': 837
       },
       {
         'pokeId': 244,
-        'count': 851
+        'count': 831
       }
     ]
   },
@@ -1383,91 +1383,91 @@ export default [
     'res': [
       {
         'pokeId': 923,
-        'count': 4220
+        'count': 4235
       },
       {
         'pokeId': 113,
-        'count': 1709
-      },
-      {
-        'pokeId': 922,
-        'count': 1449
-      },
-      {
-        'pokeId': 921,
-        'count': 1434
-      },
-      {
-        'pokeId': 242,
-        'count': 1399
-      },
-      {
-        'pokeId': 80,
-        'count': 1363
-      },
-      {
-        'pokeId': 202,
-        'count': 1351
-      },
-      {
-        'pokeId': 289,
-        'count': 1332
+        'count': 1816
       },
       {
         'pokeId': 132,
-        'count': 1331
+        'count': 1383
+      },
+      {
+        'pokeId': 242,
+        'count': 1380
+      },
+      {
+        'pokeId': 202,
+        'count': 1376
       },
       {
         'pokeId': 181,
-        'count': 1331
+        'count': 1372
       },
       {
-        'pokeId': 133,
-        'count': 1329
+        'pokeId': 922,
+        'count': 1364
       },
       {
-        'pokeId': 176,
-        'count': 1320
-      },
-      {
-        'pokeId': 287,
-        'count': 1313
-      },
-      {
-        'pokeId': 39,
-        'count': 1308
-      },
-      {
-        'pokeId': 180,
-        'count': 1299
+        'pokeId': 921,
+        'count': 1351
       },
       {
         'pokeId': 19,
-        'count': 1295
+        'count': 1349
       },
       {
-        'pokeId': 35,
-        'count': 1284
+        'pokeId': 39,
+        'count': 1333
       },
       {
-        'pokeId': 179,
-        'count': 1270
+        'pokeId': 289,
+        'count': 1329
+      },
+      {
+        'pokeId': 80,
+        'count': 1317
+      },
+      {
+        'pokeId': 180,
+        'count': 1294
       },
       {
         'pokeId': 79,
-        'count': 1269
+        'count': 1289
+      },
+      {
+        'pokeId': 287,
+        'count': 1285
+      },
+      {
+        'pokeId': 176,
+        'count': 1279
       },
       {
         'pokeId': 20,
-        'count': 1259
+        'count': 1277
+      },
+      {
+        'pokeId': 133,
+        'count': 1273
       },
       {
         'pokeId': 36,
-        'count': 1195
+        'count': 1263
+      },
+      {
+        'pokeId': 179,
+        'count': 1262
+      },
+      {
+        'pokeId': 35,
+        'count': 1247
       },
       {
         'pokeId': 488,
-        'count': 940
+        'count': 926
       }
     ]
   },
@@ -1477,99 +1477,99 @@ export default [
     'res': [
       {
         'pokeId': 518,
-        'count': 4825
+        'count': 4775
       },
       {
         'pokeId': 132,
-        'count': 1526
+        'count': 1477
       },
       {
         'pokeId': 282,
-        'count': 1253
-      },
-      {
-        'pokeId': 53,
-        'count': 1237
-      },
-      {
-        'pokeId': 281,
-        'count': 1222
-      },
-      {
-        'pokeId': 202,
-        'count': 1221
-      },
-      {
-        'pokeId': 39,
-        'count': 1204
-      },
-      {
-        'pokeId': 177,
-        'count': 1203
-      },
-      {
-        'pokeId': 52,
-        'count': 1202
-      },
-      {
-        'pokeId': 702,
-        'count': 1201
+        'count': 1333
       },
       {
         'pokeId': 764,
-        'count': 1194
+        'count': 1266
       },
       {
-        'pokeId': 133,
-        'count': 1192
-      },
-      {
-        'pokeId': 79,
-        'count': 1190
-      },
-      {
-        'pokeId': 36,
-        'count': 1189
+        'pokeId': 39,
+        'count': 1252
       },
       {
         'pokeId': 176,
-        'count': 1182
+        'count': 1246
+      },
+      {
+        'pokeId': 281,
+        'count': 1238
+      },
+      {
+        'pokeId': 133,
+        'count': 1225
       },
       {
         'pokeId': 255,
-        'count': 1173
+        'count': 1204
       },
       {
-        'pokeId': 35,
+        'pokeId': 178,
+        'count': 1198
+      },
+      {
+        'pokeId': 196,
+        'count': 1194
+      },
+      {
+        'pokeId': 36,
+        'count': 1185
+      },
+      {
+        'pokeId': 52,
+        'count': 1181
+      },
+      {
+        'pokeId': 25,
+        'count': 1175
+      },
+      {
+        'pokeId': 79,
+        'count': 1166
+      },
+      {
+        'pokeId': 202,
         'count': 1164
       },
       {
         'pokeId': 80,
-        'count': 1157
-      },
-      {
-        'pokeId': 196,
-        'count': 1150
-      },
-      {
-        'pokeId': 25,
-        'count': 1139
+        'count': 1148
       },
       {
         'pokeId': 280,
-        'count': 1137
+        'count': 1143
       },
       {
-        'pokeId': 178,
-        'count': 1130
+        'pokeId': 53,
+        'count': 1135
+      },
+      {
+        'pokeId': 177,
+        'count': 1128
+      },
+      {
+        'pokeId': 702,
+        'count': 1119
+      },
+      {
+        'pokeId': 35,
+        'count': 1114
       },
       {
         'pokeId': 517,
-        'count': 989
+        'count': 1021
       },
       {
         'pokeId': 488,
-        'count': 920
+        'count': 913
       }
     ]
   },
@@ -1579,30 +1579,30 @@ export default [
     'res': [
       {
         'pokeId': 923,
-        'count': 4876
+        'count': 4918
       },
       {
         'pokeId': 132,
-        'count': 1375
-      },
-      {
-        'pokeId': 921,
-        'count': 1121
+        'count': 1412
       },
       {
         'pokeId': 405,
-        'count': 1115
+        'count': 1135
+      },
+      {
+        'pokeId': 921,
+        'count': 1126
       },
       {
         'pokeId': 311,
-        'count': 1113
+        'count': 1115
       },
       {
-        'pokeId': 910,
+        'pokeId': 36,
         'count': 1090
       },
       {
-        'pokeId': 35,
+        'pokeId': 179,
         'count': 1083
       },
       {
@@ -1610,80 +1610,80 @@ export default [
         'count': 1082
       },
       {
-        'pokeId': 404,
-        'count': 1078
+        'pokeId': 910,
+        'count': 1076
       },
       {
         'pokeId': 26,
-        'count': 1076
-      },
-      {
-        'pokeId': 133,
-        'count': 1076
+        'count': 1074
       },
       {
         'pokeId': 135,
-        'count': 1073
-      },
-      {
-        'pokeId': 179,
-        'count': 1073
-      },
-      {
-        'pokeId': 702,
-        'count': 1073
-      },
-      {
-        'pokeId': 180,
         'count': 1071
       },
       {
-        'pokeId': 403,
-        'count': 1067
+        'pokeId': 404,
+        'count': 1069
       },
       {
-        'pokeId': 922,
+        'pokeId': 133,
         'count': 1059
       },
       {
-        'pokeId': 181,
-        'count': 1058
+        'pokeId': 403,
+        'count': 1057
+      },
+      {
+        'pokeId': 122,
+        'count': 1052
       },
       {
         'pokeId': 909,
         'count': 1049
       },
       {
-        'pokeId': 36,
-        'count': 1037
+        'pokeId': 702,
+        'count': 1048
       },
       {
-        'pokeId': 122,
-        'count': 1021
+        'pokeId': 181,
+        'count': 1044
+      },
+      {
+        'pokeId': 922,
+        'count': 1035
+      },
+      {
+        'pokeId': 35,
+        'count': 1031
       },
       {
         'pokeId': 518,
-        'count': 1005
+        'count': 1027
       },
       {
-        'pokeId': 50,
-        'count': 958
+        'pokeId': 180,
+        'count': 1023
       },
       {
         'pokeId': 51,
-        'count': 931
+        'count': 939
+      },
+      {
+        'pokeId': 50,
+        'count': 922
       },
       {
         'pokeId': 517,
-        'count': 876
+        'count': 905
       },
       {
         'pokeId': 243,
-        'count': 806
+        'count': 798
       },
       {
         'pokeId': 312,
-        'count': 758
+        'count': 760
       }
     ]
   },
@@ -1693,83 +1693,83 @@ export default [
     'res': [
       {
         'pokeId': 242,
-        'count': 5431
+        'count': 5440
       },
       {
         'pokeId': 132,
-        'count': 1845
-      },
-      {
-        'pokeId': 178,
-        'count': 1526
-      },
-      {
-        'pokeId': 5,
-        'count': 1450
-      },
-      {
-        'pokeId': 177,
-        'count': 1429
-      },
-      {
-        'pokeId': 133,
-        'count': 1425
-      },
-      {
-        'pokeId': 37,
-        'count': 1421
-      },
-      {
-        'pokeId': 113,
-        'count': 1417
-      },
-      {
-        'pokeId': 255,
-        'count': 1411
-      },
-      {
-        'pokeId': 36,
-        'count': 1406
-      },
-      {
-        'pokeId': 38,
-        'count': 1403
+        'count': 1813
       },
       {
         'pokeId': 115,
-        'count': 1396
+        'count': 1520
+      },
+      {
+        'pokeId': 38,
+        'count': 1490
       },
       {
         'pokeId': 311,
-        'count': 1390
+        'count': 1459
       },
       {
-        'pokeId': 312,
-        'count': 1384
+        'pokeId': 37,
+        'count': 1450
+      },
+      {
+        'pokeId': 133,
+        'count': 1436
+      },
+      {
+        'pokeId': 36,
+        'count': 1434
+      },
+      {
+        'pokeId': 5,
+        'count': 1424
+      },
+      {
+        'pokeId': 255,
+        'count': 1412
+      },
+      {
+        'pokeId': 178,
+        'count': 1405
+      },
+      {
+        'pokeId': 113,
+        'count': 1400
       },
       {
         'pokeId': 6,
-        'count': 1382
-      },
-      {
-        'pokeId': 35,
-        'count': 1377
+        'count': 1396
       },
       {
         'pokeId': 4,
-        'count': 1369
+        'count': 1392
       },
       {
-        'pokeId': 518,
-        'count': 1221
+        'pokeId': 35,
+        'count': 1371
+      },
+      {
+        'pokeId': 177,
+        'count': 1356
+      },
+      {
+        'pokeId': 312,
+        'count': 1302
       },
       {
         'pokeId': 517,
-        'count': 1202
+        'count': 1270
+      },
+      {
+        'pokeId': 518,
+        'count': 1186
       },
       {
         'pokeId': 244,
-        'count': 1115
+        'count': 1044
       }
     ]
   },
@@ -1779,203 +1779,203 @@ export default [
     'res': [
       {
         'pokeId': 923,
-        'count': 1609
+        'count': 1537
       },
       {
         'pokeId': 132,
-        'count': 1366
+        'count': 1407
       },
       {
         'pokeId': 113,
-        'count': 1009
+        'count': 1075
       },
       {
         'pokeId': 518,
-        'count': 972
+        'count': 1031
       },
       {
         'pokeId': 242,
-        'count': 824
+        'count': 838
       },
       {
         'pokeId': 5,
-        'count': 694
-      },
-      {
-        'pokeId': 59,
-        'count': 693
+        'count': 695
       },
       {
         'pokeId': 6,
-        'count': 688
+        'count': 689
       },
       {
         'pokeId': 909,
-        'count': 659
-      },
-      {
-        'pokeId': 910,
-        'count': 652
+        'count': 685
       },
       {
         'pokeId': 37,
-        'count': 644
-      },
-      {
-        'pokeId': 280,
-        'count': 640
-      },
-      {
-        'pokeId': 25,
-        'count': 637
-      },
-      {
-        'pokeId': 180,
-        'count': 633
+        'count': 658
       },
       {
         'pokeId': 135,
-        'count': 626
+        'count': 648
       },
       {
-        'pokeId': 179,
-        'count': 624
+        'pokeId': 25,
+        'count': 643
       },
       {
         'pokeId': 517,
-        'count': 621
+        'count': 639
+      },
+      {
+        'pokeId': 179,
+        'count': 636
       },
       {
         'pokeId': 281,
-        'count': 617
+        'count': 634
       },
       {
-        'pokeId': 156,
-        'count': 613
+        'pokeId': 180,
+        'count': 630
       },
       {
-        'pokeId': 133,
-        'count': 608
-      },
-      {
-        'pokeId': 115,
-        'count': 603
-      },
-      {
-        'pokeId': 38,
-        'count': 601
-      },
-      {
-        'pokeId': 255,
-        'count': 599
-      },
-      {
-        'pokeId': 287,
-        'count': 599
-      },
-      {
-        'pokeId': 52,
-        'count': 595
-      },
-      {
-        'pokeId': 702,
-        'count': 594
-      },
-      {
-        'pokeId': 196,
-        'count': 591
-      },
-      {
-        'pokeId': 921,
-        'count': 591
-      },
-      {
-        'pokeId': 35,
-        'count': 588
-      },
-      {
-        'pokeId': 26,
-        'count': 584
-      },
-      {
-        'pokeId': 282,
-        'count': 584
-      },
-      {
-        'pokeId': 4,
-        'count': 577
-      },
-      {
-        'pokeId': 53,
-        'count': 576
-      },
-      {
-        'pokeId': 36,
-        'count': 574
-      },
-      {
-        'pokeId': 58,
-        'count': 573
+        'pokeId': 59,
+        'count': 621
       },
       {
         'pokeId': 155,
-        'count': 572
+        'count': 619
       },
       {
-        'pokeId': 311,
-        'count': 572
+        'pokeId': 287,
+        'count': 615
+      },
+      {
+        'pokeId': 282,
+        'count': 614
+      },
+      {
+        'pokeId': 115,
+        'count': 609
+      },
+      {
+        'pokeId': 52,
+        'count': 608
+      },
+      {
+        'pokeId': 289,
+        'count': 606
+      },
+      {
+        'pokeId': 133,
+        'count': 603
+      },
+      {
+        'pokeId': 910,
+        'count': 601
+      },
+      {
+        'pokeId': 702,
+        'count': 599
+      },
+      {
+        'pokeId': 58,
+        'count': 598
       },
       {
         'pokeId': 177,
-        'count': 570
+        'count': 596
+      },
+      {
+        'pokeId': 700,
+        'count': 595
+      },
+      {
+        'pokeId': 156,
+        'count': 590
+      },
+      {
+        'pokeId': 38,
+        'count': 586
+      },
+      {
+        'pokeId': 35,
+        'count': 581
       },
       {
         'pokeId': 922,
-        'count': 562
+        'count': 574
       },
       {
-        'pokeId': 178,
-        'count': 559
+        'pokeId': 255,
+        'count': 563
       },
       {
         'pokeId': 136,
-        'count': 555
+        'count': 562
+      },
+      {
+        'pokeId': 4,
+        'count': 557
+      },
+      {
+        'pokeId': 921,
+        'count': 557
+      },
+      {
+        'pokeId': 178,
+        'count': 556
+      },
+      {
+        'pokeId': 157,
+        'count': 553
+      },
+      {
+        'pokeId': 196,
+        'count': 553
       },
       {
         'pokeId': 312,
         'count': 551
       },
       {
-        'pokeId': 289,
-        'count': 549
-      },
-      {
-        'pokeId': 157,
-        'count': 543
-      },
-      {
         'pokeId': 764,
-        'count': 536
+        'count': 551
       },
       {
         'pokeId': 181,
-        'count': 529
+        'count': 550
       },
       {
-        'pokeId': 700,
-        'count': 518
+        'pokeId': 280,
+        'count': 548
+      },
+      {
+        'pokeId': 36,
+        'count': 545
+      },
+      {
+        'pokeId': 53,
+        'count': 544
+      },
+      {
+        'pokeId': 26,
+        'count': 530
+      },
+      {
+        'pokeId': 311,
+        'count': 511
       },
       {
         'pokeId': 243,
-        'count': 376
-      },
-      {
-        'pokeId': 488,
-        'count': 376
+        'count': 384
       },
       {
         'pokeId': 244,
-        'count': 374
+        'count': 364
+      },
+      {
+        'pokeId': 488,
+        'count': 361
       }
     ]
   },
@@ -1985,179 +1985,187 @@ export default [
     'res': [
       {
         'pokeId': 628,
-        'count': 4077
+        'count': 4002
       },
       {
         'pokeId': 845,
-        'count': 1164
+        'count': 1154
       },
       {
         'pokeId': 303,
-        'count': 957
-      },
-      {
-        'pokeId': 160,
-        'count': 886
+        'count': 899
       },
       {
         'pokeId': 9,
-        'count': 840
+        'count': 861
       },
       {
         'pokeId': 363,
-        'count': 818
+        'count': 812
+      },
+      {
+        'pokeId': 160,
+        'count': 786
       },
       {
         'pokeId': 81,
-        'count': 784
+        'count': 756
       },
       {
         'pokeId': 462,
-        'count': 746
+        'count': 745
       },
       {
         'pokeId': 82,
-        'count': 734
+        'count': 735
       },
       {
-        'pokeId': 246,
-        'count': 659
-      },
-      {
-        'pokeId': 194,
-        'count': 646
-      },
-      {
-        'pokeId': 440,
-        'count': 644
-      },
-      {
-        'pokeId': 172,
-        'count': 642
+        'pokeId': 134,
+        'count': 609
       },
       {
         'pokeId': 158,
-        'count': 633
-      },
-      {
-        'pokeId': 174,
-        'count': 628
-      },
-      {
-        'pokeId': 912,
-        'count': 627
-      },
-      {
-        'pokeId': 848,
-        'count': 623
-      },
-      {
-        'pokeId': 175,
-        'count': 622
-      },
-      {
-        'pokeId': 333,
-        'count': 621
-      },
-      {
-        'pokeId': 195,
-        'count': 619
-      },
-      {
-        'pokeId': 75,
-        'count': 613
-      },
-      {
-        'pokeId': 104,
-        'count': 613
-      },
-      {
-        'pokeId': 173,
-        'count': 608
-      },
-      {
-        'pokeId': 447,
-        'count': 606
-      },
-      {
-        'pokeId': 84,
         'count': 605
       },
       {
-        'pokeId': 360,
-        'count': 604
+        'pokeId': 848,
+        'count': 605
       },
       {
-        'pokeId': 258,
-        'count': 603
-      },
-      {
-        'pokeId': 105,
-        'count': 600
+        'pokeId': 172,
+        'count': 601
       },
       {
         'pokeId': 627,
         'count': 600
       },
       {
-        'pokeId': 83,
+        'pokeId': 438,
+        'count': 599
+      },
+      {
+        'pokeId': 912,
         'count': 597
       },
       {
-        'pokeId': 185,
-        'count': 596
-      },
-      {
-        'pokeId': 85,
-        'count': 593
-      },
-      {
-        'pokeId': 7,
-        'count': 592
-      },
-      {
-        'pokeId': 438,
-        'count': 587
-      },
-      {
-        'pokeId': 134,
-        'count': 586
-      },
-      {
-        'pokeId': 471,
-        'count': 585
-      },
-      {
-        'pokeId': 256,
-        'count': 580
-      },
-      {
-        'pokeId': 259,
-        'count': 575
-      },
-      {
         'pokeId': 8,
-        'count': 567
+        'count': 595
       },
       {
         'pokeId': 74,
-        'count': 561
+        'count': 595
+      },
+      {
+        'pokeId': 246,
+        'count': 590
+      },
+      {
+        'pokeId': 185,
+        'count': 589
+      },
+      {
+        'pokeId': 174,
+        'count': 587
+      },
+      {
+        'pokeId': 974,
+        'count': 584
+      },
+      {
+        'pokeId': 85,
+        'count': 580
+      },
+      {
+        'pokeId': 105,
+        'count': 580
+      },
+      {
+        'pokeId': 777,
+        'count': 579
+      },
+      {
+        'pokeId': 195,
+        'count': 577
+      },
+      {
+        'pokeId': 333,
+        'count': 577
+      },
+      {
+        'pokeId': 83,
+        'count': 576
       },
       {
         'pokeId': 159,
-        'count': 559
+        'count': 574
       },
       {
-        'pokeId': 257,
-        'count': 540
+        'pokeId': 175,
+        'count': 572
       },
       {
-        'pokeId': 260,
-        'count': 531
+        'pokeId': 471,
+        'count': 570
+      },
+      {
+        'pokeId': 173,
+        'count': 569
+      },
+      {
+        'pokeId': 84,
+        'count': 566
+      },
+      {
+        'pokeId': 75,
+        'count': 565
+      },
+      {
+        'pokeId': 104,
+        'count': 565
+      },
+      {
+        'pokeId': 256,
+        'count': 565
+      },
+      {
+        'pokeId': 440,
+        'count': 564
+      },
+      {
+        'pokeId': 360,
+        'count': 563
+      },
+      {
+        'pokeId': 259,
+        'count': 562
+      },
+      {
+        'pokeId': 258,
+        'count': 560
+      },
+      {
+        'pokeId': 7,
+        'count': 555
+      },
+      {
+        'pokeId': 194,
+        'count': 555
+      },
+      {
+        'pokeId': 447,
+        'count': 548
       },
       {
         'pokeId': 245,
-        'count': 529
+        'count': 533
+      },
+      {
+        'pokeId': 260,
+        'count': 522
+      },
+      {
+        'pokeId': 257,
+        'count': 517
       }
     ]
   },
@@ -2167,115 +2175,115 @@ export default [
     'res': [
       {
         'pokeId': 83,
-        'count': 3451
+        'count': 3477
       },
       {
         'pokeId': 628,
-        'count': 1613
-      },
-      {
-        'pokeId': 845,
-        'count': 1212
+        'count': 1600
       },
       {
         'pokeId': 913,
-        'count': 1113
+        'count': 1167
       },
       {
         'pokeId': 9,
-        'count': 1107
+        'count': 1145
+      },
+      {
+        'pokeId': 845,
+        'count': 1144
       },
       {
         'pokeId': 627,
-        'count': 1106
+        'count': 1118
       },
       {
         'pokeId': 185,
-        'count': 1104
+        'count': 1087
+      },
+      {
+        'pokeId': 914,
+        'count': 1085
       },
       {
         'pokeId': 158,
-        'count': 1094
+        'count': 1082
       },
       {
         'pokeId': 440,
-        'count': 1072
-      },
-      {
-        'pokeId': 439,
-        'count': 1058
+        'count': 1079
       },
       {
         'pokeId': 8,
-        'count': 1052
+        'count': 1064
+      },
+      {
+        'pokeId': 438,
+        'count': 1061
+      },
+      {
+        'pokeId': 174,
+        'count': 1059
+      },
+      {
+        'pokeId': 134,
+        'count': 1057
       },
       {
         'pokeId': 363,
         'count': 1051
       },
       {
-        'pokeId': 173,
-        'count': 1044
-      },
-      {
-        'pokeId': 259,
-        'count': 1044
-      },
-      {
-        'pokeId': 55,
-        'count': 1042
-      },
-      {
-        'pokeId': 7,
-        'count': 1039
-      },
-      {
-        'pokeId': 174,
-        'count': 1039
-      },
-      {
-        'pokeId': 195,
-        'count': 1037
-      },
-      {
         'pokeId': 912,
-        'count': 1035
+        'count': 1045
       },
       {
         'pokeId': 194,
-        'count': 1027
+        'count': 1032
       },
       {
-        'pokeId': 914,
-        'count': 1023
+        'pokeId': 173,
+        'count': 1030
       },
       {
-        'pokeId': 134,
-        'count': 1022
-      },
-      {
-        'pokeId': 438,
-        'count': 1020
-      },
-      {
-        'pokeId': 258,
-        'count': 1007
-      },
-      {
-        'pokeId': 159,
-        'count': 972
+        'pokeId': 7,
+        'count': 1026
       },
       {
         'pokeId': 160,
-        'count': 968
+        'count': 1024
+      },
+      {
+        'pokeId': 439,
+        'count': 1021
+      },
+      {
+        'pokeId': 258,
+        'count': 1013
+      },
+      {
+        'pokeId': 55,
+        'count': 1001
+      },
+      {
+        'pokeId': 195,
+        'count': 993
+      },
+      {
+        'pokeId': 259,
+        'count': 987
+      },
+      {
+        'pokeId': 159,
+        'count': 963
       },
       {
         'pokeId': 260,
-        'count': 938
+        'count': 922
       },
       {
         'pokeId': 245,
-        'count': 710
+        'count': 667
       }
     ]
   },
@@ -2285,103 +2293,103 @@ export default [
     'res': [
       {
         'pokeId': 303,
-        'count': 3801
+        'count': 3844
       },
       {
         'pokeId': 195,
-        'count': 1542
+        'count': 1640
       },
       {
         'pokeId': 208,
-        'count': 1409
-      },
-      {
-        'pokeId': 76,
-        'count': 1256
-      },
-      {
-        'pokeId': 75,
-        'count': 1226
-      },
-      {
-        'pokeId': 256,
-        'count': 1217
-      },
-      {
-        'pokeId': 194,
-        'count': 1210
+        'count': 1439
       },
       {
         'pokeId': 105,
-        'count': 1197
-      },
-      {
-        'pokeId': 175,
-        'count': 1196
-      },
-      {
-        'pokeId': 173,
-        'count': 1176
-      },
-      {
-        'pokeId': 74,
-        'count': 1170
-      },
-      {
-        'pokeId': 360,
-        'count': 1166
+        'count': 1221
       },
       {
         'pokeId': 247,
-        'count': 1157
+        'count': 1212
       },
       {
-        'pokeId': 259,
-        'count': 1157
+        'pokeId': 75,
+        'count': 1207
+      },
+      {
+        'pokeId': 76,
+        'count': 1186
+      },
+      {
+        'pokeId': 194,
+        'count': 1180
       },
       {
         'pokeId': 447,
-        'count': 1155
+        'count': 1178
       },
       {
-        'pokeId': 328,
-        'count': 1146
-      },
-      {
-        'pokeId': 329,
-        'count': 1141
-      },
-      {
-        'pokeId': 174,
-        'count': 1124
+        'pokeId': 74,
+        'count': 1176
       },
       {
         'pokeId': 246,
-        'count': 1123
+        'count': 1174
       },
       {
-        'pokeId': 258,
-        'count': 1121
+        'pokeId': 360,
+        'count': 1174
       },
       {
         'pokeId': 104,
-        'count': 1120
+        'count': 1165
       },
       {
-        'pokeId': 260,
-        'count': 1084
+        'pokeId': 175,
+        'count': 1160
+      },
+      {
+        'pokeId': 173,
+        'count': 1157
+      },
+      {
+        'pokeId': 174,
+        'count': 1156
+      },
+      {
+        'pokeId': 256,
+        'count': 1131
+      },
+      {
+        'pokeId': 328,
+        'count': 1131
+      },
+      {
+        'pokeId': 258,
+        'count': 1119
+      },
+      {
+        'pokeId': 329,
+        'count': 1112
+      },
+      {
+        'pokeId': 259,
+        'count': 1099
       },
       {
         'pokeId': 257,
-        'count': 1058
-      },
-      {
-        'pokeId': 95,
-        'count': 1032
+        'count': 1051
       },
       {
         'pokeId': 330,
-        'count': 1016
+        'count': 1040
+      },
+      {
+        'pokeId': 260,
+        'count': 1036
+      },
+      {
+        'pokeId': 95,
+        'count': 1012
       }
     ]
   },
@@ -2391,87 +2399,99 @@ export default [
     'res': [
       {
         'pokeId': 7007,
-        'count': 5049
+        'count': 4544
       },
       {
         'pokeId': 628,
-        'count': 1518
-      },
-      {
-        'pokeId': 360,
-        'count': 1452
-      },
-      {
-        'pokeId': 74,
-        'count': 1393
-      },
-      {
-        'pokeId': 363,
-        'count': 1391
-      },
-      {
-        'pokeId': 459,
-        'count': 1391
-      },
-      {
-        'pokeId': 173,
-        'count': 1372
-      },
-      {
-        'pokeId': 105,
-        'count': 1355
-      },
-      {
-        'pokeId': 175,
-        'count': 1352
-      },
-      {
-        'pokeId': 365,
-        'count': 1351
-      },
-      {
-        'pokeId': 447,
-        'count': 1348
-      },
-      {
-        'pokeId': 440,
-        'count': 1343
-      },
-      {
-        'pokeId': 7006,
-        'count': 1334
+        'count': 1533
       },
       {
         'pokeId': 627,
-        'count': 1326
-      },
-      {
-        'pokeId': 333,
-        'count': 1321
-      },
-      {
-        'pokeId': 364,
-        'count': 1315
-      },
-      {
-        'pokeId': 845,
-        'count': 1314
-      },
-      {
-        'pokeId': 471,
-        'count': 1308
-      },
-      {
-        'pokeId': 104,
-        'count': 1286
+        'count': 1266
       },
       {
         'pokeId': 448,
-        'count': 1286
+        'count': 1255
+      },
+      {
+        'pokeId': 365,
+        'count': 1246
+      },
+      {
+        'pokeId': 363,
+        'count': 1244
+      },
+      {
+        'pokeId': 364,
+        'count': 1238
+      },
+      {
+        'pokeId': 845,
+        'count': 1220
+      },
+      {
+        'pokeId': 333,
+        'count': 1212
+      },
+      {
+        'pokeId': 974,
+        'count': 1211
+      },
+      {
+        'pokeId': 440,
+        'count': 1210
+      },
+      {
+        'pokeId': 7006,
+        'count': 1204
+      },
+      {
+        'pokeId': 447,
+        'count': 1196
+      },
+      {
+        'pokeId': 74,
+        'count': 1185
+      },
+      {
+        'pokeId': 777,
+        'count': 1182
+      },
+      {
+        'pokeId': 105,
+        'count': 1179
+      },
+      {
+        'pokeId': 173,
+        'count': 1172
+      },
+      {
+        'pokeId': 175,
+        'count': 1159
+      },
+      {
+        'pokeId': 471,
+        'count': 1146
+      },
+      {
+        'pokeId': 360,
+        'count': 1124
+      },
+      {
+        'pokeId': 104,
+        'count': 1121
+      },
+      {
+        'pokeId': 459,
+        'count': 1082
+      },
+      {
+        'pokeId': 975,
+        'count': 1044
       },
       {
         'pokeId': 460,
-        'count': 1195
+        'count': 1027
       }
     ]
   },
@@ -2481,91 +2501,91 @@ export default [
     'res': [
       {
         'pokeId': 914,
-        'count': 4984
-      },
-      {
-        'pokeId': 475,
-        'count': 1454
-      },
-      {
-        'pokeId': 85,
-        'count': 1387
+        'count': 4922
       },
       {
         'pokeId': 9,
-        'count': 1350
+        'count': 1485
       },
       {
-        'pokeId': 175,
-        'count': 1334
-      },
-      {
-        'pokeId': 185,
-        'count': 1329
-      },
-      {
-        'pokeId': 912,
-        'count': 1321
+        'pokeId': 475,
+        'count': 1407
       },
       {
         'pokeId': 173,
-        'count': 1317
+        'count': 1369
       },
       {
-        'pokeId': 174,
-        'count': 1305
+        'pokeId': 175,
+        'count': 1333
       },
       {
-        'pokeId': 257,
-        'count': 1296
+        'pokeId': 185,
+        'count': 1318
       },
       {
         'pokeId': 760,
-        'count': 1296
-      },
-      {
-        'pokeId': 256,
-        'count': 1294
-      },
-      {
-        'pokeId': 447,
-        'count': 1285
+        'count': 1316
       },
       {
         'pokeId': 360,
-        'count': 1282
-      },
-      {
-        'pokeId': 759,
-        'count': 1282
+        'count': 1310
       },
       {
         'pokeId': 84,
-        'count': 1271
+        'count': 1306
+      },
+      {
+        'pokeId': 759,
+        'count': 1297
+      },
+      {
+        'pokeId': 913,
+        'count': 1297
+      },
+      {
+        'pokeId': 256,
+        'count': 1293
       },
       {
         'pokeId': 8,
-        'count': 1267
+        'count': 1281
+      },
+      {
+        'pokeId': 333,
+        'count': 1278
+      },
+      {
+        'pokeId': 257,
+        'count': 1273
       },
       {
         'pokeId': 7,
         'count': 1265
       },
       {
-        'pokeId': 913,
-        'count': 1253
+        'pokeId': 912,
+        'count': 1263
       },
       {
-        'pokeId': 333,
-        'count': 1246
+        'pokeId': 174,
+        'count': 1261
+      },
+      {
+        'pokeId': 85,
+        'count': 1252
+      },
+      {
+        'pokeId': 447,
+        'count': 1252
       },
       {
         'pokeId': 172,
-        'count': 1199
+        'count': 1244
       },
       {
         'pokeId': 245,
-        'count': 983
+        'count': 978
       }
     ]
   },
@@ -2575,83 +2595,87 @@ export default [
     'res': [
       {
         'pokeId': 306,
-        'count': 5370
+        'count': 5259
       },
       {
-        'pokeId': 172,
-        'count': 1514
-      },
-      {
-        'pokeId': 303,
-        'count': 1510
-      },
-      {
-        'pokeId': 74,
-        'count': 1506
-      },
-      {
-        'pokeId': 913,
-        'count': 1496
-      },
-      {
-        'pokeId': 305,
-        'count': 1495
-      },
-      {
-        'pokeId': 195,
-        'count': 1487
-      },
-      {
-        'pokeId': 75,
-        'count': 1479
-      },
-      {
-        'pokeId': 194,
-        'count': 1469
-      },
-      {
-        'pokeId': 439,
-        'count': 1468
-      },
-      {
-        'pokeId': 304,
-        'count': 1463
-      },
-      {
-        'pokeId': 83,
-        'count': 1462
+        'pokeId': 777,
+        'count': 1482
       },
       {
         'pokeId': 912,
-        'count': 1450
+        'count': 1480
       },
       {
-        'pokeId': 848,
-        'count': 1437
+        'pokeId': 913,
+        'count': 1441
       },
       {
-        'pokeId': 173,
-        'count': 1411
+        'pokeId': 439,
+        'count': 1429
+      },
+      {
+        'pokeId': 83,
+        'count': 1427
       },
       {
         'pokeId': 914,
-        'count': 1380
+        'count': 1415
+      },
+      {
+        'pokeId': 305,
+        'count': 1388
+      },
+      {
+        'pokeId': 75,
+        'count': 1379
+      },
+      {
+        'pokeId': 848,
+        'count': 1373
+      },
+      {
+        'pokeId': 194,
+        'count': 1371
+      },
+      {
+        'pokeId': 172,
+        'count': 1370
+      },
+      {
+        'pokeId': 304,
+        'count': 1360
+      },
+      {
+        'pokeId': 195,
+        'count': 1348
+      },
+      {
+        'pokeId': 303,
+        'count': 1342
+      },
+      {
+        'pokeId': 74,
+        'count': 1336
+      },
+      {
+        'pokeId': 173,
+        'count': 1330
       },
       {
         'pokeId': 462,
-        'count': 1272
-      },
-      {
-        'pokeId': 81,
-        'count': 1268
+        'count': 1225
       },
       {
         'pokeId': 82,
-        'count': 1247
+        'count': 1209
+      },
+      {
+        'pokeId': 81,
+        'count': 1191
       },
       {
         'pokeId': 208,
-        'count': 816
+        'count': 845
       }
     ]
   },
@@ -2661,71 +2685,75 @@ export default [
     'res': [
       {
         'pokeId': 303,
-        'count': 5594
-      },
-      {
-        'pokeId': 258,
-        'count': 1735
-      },
-      {
-        'pokeId': 329,
-        'count': 1716
-      },
-      {
-        'pokeId': 330,
-        'count': 1685
-      },
-      {
-        'pokeId': 333,
-        'count': 1680
-      },
-      {
-        'pokeId': 627,
-        'count': 1668
-      },
-      {
-        'pokeId': 246,
-        'count': 1652
+        'count': 5523
       },
       {
         'pokeId': 628,
-        'count': 1646
+        'count': 1648
       },
       {
-        'pokeId': 848,
-        'count': 1646
+        'pokeId': 258,
+        'count': 1621
       },
       {
-        'pokeId': 247,
-        'count': 1645
-      },
-      {
-        'pokeId': 257,
-        'count': 1641
+        'pokeId': 246,
+        'count': 1607
       },
       {
         'pokeId': 440,
-        'count': 1629
+        'count': 1600
       },
       {
         'pokeId': 328,
-        'count': 1627
-      },
-      {
-        'pokeId': 259,
-        'count': 1626
-      },
-      {
-        'pokeId': 173,
-        'count': 1625
+        'count': 1582
       },
       {
         'pokeId': 260,
-        'count': 1625
+        'count': 1574
+      },
+      {
+        'pokeId': 777,
+        'count': 1556
+      },
+      {
+        'pokeId': 247,
+        'count': 1555
       },
       {
         'pokeId': 256,
-        'count': 1560
+        'count': 1549
+      },
+      {
+        'pokeId': 329,
+        'count': 1549
+      },
+      {
+        'pokeId': 173,
+        'count': 1546
+      },
+      {
+        'pokeId': 257,
+        'count': 1537
+      },
+      {
+        'pokeId': 627,
+        'count': 1529
+      },
+      {
+        'pokeId': 330,
+        'count': 1524
+      },
+      {
+        'pokeId': 848,
+        'count': 1513
+      },
+      {
+        'pokeId': 259,
+        'count': 1497
+      },
+      {
+        'pokeId': 333,
+        'count': 1490
       }
     ]
   },
@@ -2735,207 +2763,219 @@ export default [
     'res': [
       {
         'pokeId': 306,
-        'count': 2221
+        'count': 2004
       },
       {
         'pokeId': 303,
-        'count': 840
+        'count': 908
       },
       {
         'pokeId': 628,
-        'count': 815
+        'count': 817
       },
       {
         'pokeId': 208,
-        'count': 799
-      },
-      {
-        'pokeId': 7007,
-        'count': 733
+        'count': 755
       },
       {
         'pokeId': 185,
-        'count': 730
+        'count': 720
       },
       {
-        'pokeId': 912,
-        'count': 650
-      },
-      {
-        'pokeId': 246,
-        'count': 648
-      },
-      {
-        'pokeId': 134,
-        'count': 637
+        'pokeId': 7007,
+        'count': 692
       },
       {
         'pokeId': 9,
-        'count': 636
+        'count': 669
       },
       {
-        'pokeId': 158,
-        'count': 631
+        'pokeId': 246,
+        'count': 658
       },
       {
-        'pokeId': 85,
-        'count': 630
-      },
-      {
-        'pokeId': 247,
-        'count': 625
+        'pokeId': 912,
+        'count': 617
       },
       {
         'pokeId': 172,
-        'count': 624
+        'count': 615
       },
       {
-        'pokeId': 105,
-        'count': 616
+        'pokeId': 247,
+        'count': 611
       },
       {
         'pokeId': 8,
         'count': 609
       },
       {
-        'pokeId': 438,
-        'count': 608
-      },
-      {
-        'pokeId': 173,
-        'count': 603
-      },
-      {
-        'pokeId': 259,
-        'count': 603
-      },
-      {
-        'pokeId': 365,
-        'count': 597
-      },
-      {
-        'pokeId': 104,
-        'count': 596
-      },
-      {
-        'pokeId': 333,
-        'count': 596
+        'pokeId': 85,
+        'count': 609
       },
       {
         'pokeId': 914,
-        'count': 595
+        'count': 605
       },
       {
-        'pokeId': 304,
+        'pokeId': 134,
         'count': 594
       },
       {
-        'pokeId': 845,
-        'count': 594
-      },
-      {
-        'pokeId': 459,
+        'pokeId': 438,
         'count': 592
       },
       {
-        'pokeId': 627,
-        'count': 587
-      },
-      {
-        'pokeId': 363,
-        'count': 581
-      },
-      {
-        'pokeId': 440,
-        'count': 574
-      },
-      {
-        'pokeId': 848,
-        'count': 574
-      },
-      {
-        'pokeId': 159,
-        'count': 571
-      },
-      {
-        'pokeId': 84,
-        'count': 570
+        'pokeId': 913,
+        'count': 590
       },
       {
         'pokeId': 7,
+        'count': 588
+      },
+      {
+        'pokeId': 158,
+        'count': 587
+      },
+      {
+        'pokeId': 462,
+        'count': 571
+      },
+      {
+        'pokeId': 365,
         'count': 569
       },
       {
-        'pokeId': 258,
-        'count': 569
+        'pokeId': 459,
+        'count': 562
       },
       {
-        'pokeId': 305,
-        'count': 566
-      },
-      {
-        'pokeId': 913,
-        'count': 564
-      },
-      {
-        'pokeId': 95,
-        'count': 560
-      },
-      {
-        'pokeId': 475,
+        'pokeId': 104,
         'count': 560
       },
       {
         'pokeId': 471,
-        'count': 559
+        'count': 557
       },
       {
-        'pokeId': 460,
+        'pokeId': 845,
+        'count': 557
+      },
+      {
+        'pokeId': 363,
+        'count': 556
+      },
+      {
+        'pokeId': 84,
         'count': 555
       },
       {
-        'pokeId': 256,
-        'count': 552
+        'pokeId': 974,
+        'count': 555
       },
       {
         'pokeId': 364,
-        'count': 552
+        'count': 549
       },
       {
-        'pokeId': 462,
-        'count': 550
+        'pokeId': 105,
+        'count': 548
       },
       {
-        'pokeId': 160,
-        'count': 544
+        'pokeId': 159,
+        'count': 542
+      },
+      {
+        'pokeId': 440,
+        'count': 540
+      },
+      {
+        'pokeId': 304,
+        'count': 535
+      },
+      {
+        'pokeId': 333,
+        'count': 535
       },
       {
         'pokeId': 7006,
-        'count': 537
+        'count': 535
       },
       {
-        'pokeId': 81,
-        'count': 532
+        'pokeId': 305,
+        'count': 531
+      },
+      {
+        'pokeId': 848,
+        'count': 531
+      },
+      {
+        'pokeId': 95,
+        'count': 526
+      },
+      {
+        'pokeId': 160,
+        'count': 526
       },
       {
         'pokeId': 83,
-        'count': 525
+        'count': 518
+      },
+      {
+        'pokeId': 258,
+        'count': 518
+      },
+      {
+        'pokeId': 173,
+        'count': 517
+      },
+      {
+        'pokeId': 475,
+        'count': 513
+      },
+      {
+        'pokeId': 256,
+        'count': 512
+      },
+      {
+        'pokeId': 627,
+        'count': 509
+      },
+      {
+        'pokeId': 777,
+        'count': 505
+      },
+      {
+        'pokeId': 259,
+        'count': 500
+      },
+      {
+        'pokeId': 460,
+        'count': 483
+      },
+      {
+        'pokeId': 81,
+        'count': 482
       },
       {
         'pokeId': 260,
-        'count': 523
+        'count': 474
       },
       {
         'pokeId': 257,
-        'count': 468
-      },
-      {
-        'pokeId': 82,
         'count': 464
       },
       {
+        'pokeId': 82,
+        'count': 456
+      },
+      {
+        'pokeId': 975,
+        'count': 417
+      },
+      {
         'pokeId': 245,
-        'count': 372
+        'count': 352
       }
     ]
   },
@@ -2945,599 +2985,607 @@ export default [
     'res': [
       {
         'pokeId': 628,
-        'count': 3203
+        'count': 3278
       },
       {
         'pokeId': 461,
-        'count': 392
+        'count': 405
       },
       {
         'pokeId': 845,
-        'count': 390
-      },
-      {
-        'pokeId': 132,
-        'count': 359
-      },
-      {
-        'pokeId': 3,
-        'count': 328
-      },
-      {
-        'pokeId': 225,
-        'count': 304
-      },
-      {
-        'pokeId': 127,
-        'count': 290
+        'count': 349
       },
       {
         'pokeId': 303,
-        'count': 283
+        'count': 335
       },
       {
-        'pokeId': 289,
-        'count': 280
+        'pokeId': 132,
+        'count': 309
+      },
+      {
+        'pokeId': 3,
+        'count': 288
       },
       {
         'pokeId': 115,
-        'count': 276
+        'count': 279
+      },
+      {
+        'pokeId': 127,
+        'count': 279
+      },
+      {
+        'pokeId': 289,
+        'count': 265
       },
       {
         'pokeId': 11,
-        'count': 273
-      },
-      {
-        'pokeId': 157,
-        'count': 270
-      },
-      {
-        'pokeId': 764,
-        'count': 268
+        'count': 260
       },
       {
         'pokeId': 53,
-        'count': 266
-      },
-      {
-        'pokeId': 700,
-        'count': 266
-      },
-      {
-        'pokeId': 160,
-        'count': 261
-      },
-      {
-        'pokeId': 6,
         'count': 259
       },
       {
-        'pokeId': 363,
-        'count': 259
-      },
-      {
-        'pokeId': 12,
+        'pokeId': 225,
         'count': 255
       },
       {
-        'pokeId': 82,
-        'count': 250
+        'pokeId': 12,
+        'count': 254
       },
       {
-        'pokeId': 135,
-        'count': 250
-      },
-      {
-        'pokeId': 242,
-        'count': 248
+        'pokeId': 363,
+        'count': 254
       },
       {
         'pokeId': 26,
-        'count': 245
-      },
-      {
-        'pokeId': 468,
-        'count': 243
-      },
-      {
-        'pokeId': 154,
-        'count': 239
+        'count': 253
       },
       {
         'pokeId': 52,
-        'count': 231
+        'count': 252
       },
       {
-        'pokeId': 81,
-        'count': 228
-      },
-      {
-        'pokeId': 19,
-        'count': 226
+        'pokeId': 700,
+        'count': 247
       },
       {
         'pokeId': 9,
-        'count': 223
+        'count': 242
+      },
+      {
+        'pokeId': 157,
+        'count': 242
+      },
+      {
+        'pokeId': 242,
+        'count': 242
       },
       {
         'pokeId': 214,
-        'count': 218
+        'count': 241
+      },
+      {
+        'pokeId': 154,
+        'count': 240
+      },
+      {
+        'pokeId': 764,
+        'count': 238
       },
       {
         'pokeId': 462,
-        'count': 214
+        'count': 235
       },
       {
-        'pokeId': 25,
-        'count': 209
+        'pokeId': 6,
+        'count': 229
       },
       {
-        'pokeId': 430,
-        'count': 209
+        'pokeId': 81,
+        'count': 221
       },
       {
-        'pokeId': 702,
-        'count': 206
+        'pokeId': 160,
+        'count': 221
       },
       {
-        'pokeId': 778,
-        'count': 203
+        'pokeId': 82,
+        'count': 218
       },
       {
-        'pokeId': 39,
-        'count': 199
+        'pokeId': 468,
+        'count': 216
       },
       {
-        'pokeId': 215,
-        'count': 199
-      },
-      {
-        'pokeId': 228,
-        'count': 199
-      },
-      {
-        'pokeId': 185,
-        'count': 198
-      },
-      {
-        'pokeId': 174,
-        'count': 197
-      },
-      {
-        'pokeId': 258,
-        'count': 197
-      },
-      {
-        'pokeId': 38,
-        'count': 196
-      },
-      {
-        'pokeId': 246,
-        'count': 196
-      },
-      {
-        'pokeId': 252,
-        'count': 196
-      },
-      {
-        'pokeId': 7,
-        'count': 194
-      },
-      {
-        'pokeId': 37,
-        'count': 192
-      },
-      {
-        'pokeId': 178,
-        'count': 192
-      },
-      {
-        'pokeId': 57,
-        'count': 191
-      },
-      {
-        'pokeId': 253,
-        'count': 191
-      },
-      {
-        'pokeId': 287,
-        'count': 190
-      },
-      {
-        'pokeId': 84,
-        'count': 188
-      },
-      {
-        'pokeId': 711,
-        'count': 188
-      },
-      {
-        'pokeId': 8,
-        'count': 187
-      },
-      {
-        'pokeId': 908,
-        'count': 187
-      },
-      {
-        'pokeId': 56,
-        'count': 186
-      },
-      {
-        'pokeId': 70,
-        'count': 186
-      },
-      {
-        'pokeId': 173,
-        'count': 186
-      },
-      {
-        'pokeId': 194,
-        'count': 186
-      },
-      {
-        'pokeId': 360,
-        'count': 186
-      },
-      {
-        'pokeId': 627,
-        'count': 186
-      },
-      {
-        'pokeId': 907,
-        'count': 186
-      },
-      {
-        'pokeId': 35,
-        'count': 185
-      },
-      {
-        'pokeId': 202,
-        'count': 185
-      },
-      {
-        'pokeId': 69,
-        'count': 184
-      },
-      {
-        'pokeId': 80,
-        'count': 184
-      },
-      {
-        'pokeId': 196,
-        'count': 184
-      },
-      {
-        'pokeId': 921,
-        'count': 184
-      },
-      {
-        'pokeId': 54,
-        'count': 183
-      },
-      {
-        'pokeId': 104,
-        'count': 183
+        'pokeId': 135,
+        'count': 215
       },
       {
         'pokeId': 153,
-        'count': 183
+        'count': 213
       },
       {
-        'pokeId': 172,
-        'count': 183
+        'pokeId': 1,
+        'count': 211
       },
       {
-        'pokeId': 453,
-        'count': 183
+        'pokeId': 246,
+        'count': 210
       },
       {
-        'pokeId': 906,
-        'count': 183
+        'pokeId': 921,
+        'count': 205
       },
       {
-        'pokeId': 4,
-        'count': 182
+        'pokeId': 56,
+        'count': 204
       },
       {
-        'pokeId': 24,
-        'count': 182
+        'pokeId': 71,
+        'count': 204
       },
       {
-        'pokeId': 257,
-        'count': 182
+        'pokeId': 195,
+        'count': 203
+      },
+      {
+        'pokeId': 438,
+        'count': 203
+      },
+      {
+        'pokeId': 908,
+        'count': 202
+      },
+      {
+        'pokeId': 19,
+        'count': 201
       },
       {
         'pokeId': 454,
+        'count': 201
+      },
+      {
+        'pokeId': 104,
+        'count': 197
+      },
+      {
+        'pokeId': 10,
+        'count': 194
+      },
+      {
+        'pokeId': 354,
+        'count': 194
+      },
+      {
+        'pokeId': 40,
+        'count': 191
+      },
+      {
+        'pokeId': 360,
+        'count': 191
+      },
+      {
+        'pokeId': 906,
+        'count': 191
+      },
+      {
+        'pokeId': 37,
+        'count': 189
+      },
+      {
+        'pokeId': 173,
+        'count': 189
+      },
+      {
+        'pokeId': 253,
+        'count': 189
+      },
+      {
+        'pokeId': 57,
+        'count': 188
+      },
+      {
+        'pokeId': 176,
+        'count': 188
+      },
+      {
+        'pokeId': 179,
+        'count': 188
+      },
+      {
+        'pokeId': 627,
+        'count': 187
+      },
+      {
+        'pokeId': 710,
+        'count': 186
+      },
+      {
+        'pokeId': 134,
+        'count': 185
+      },
+      {
+        'pokeId': 177,
+        'count': 185
+      },
+      {
+        'pokeId': 215,
+        'count': 185
+      },
+      {
+        'pokeId': 75,
+        'count': 184
+      },
+      {
+        'pokeId': 172,
+        'count': 184
+      },
+      {
+        'pokeId': 430,
+        'count': 184
+      },
+      {
+        'pokeId': 907,
+        'count': 184
+      },
+      {
+        'pokeId': 980,
+        'count': 183
+      },
+      {
+        'pokeId': 54,
         'count': 182
       },
       {
-        'pokeId': 5,
-        'count': 181
+        'pokeId': 69,
+        'count': 182
+      },
+      {
+        'pokeId': 85,
+        'count': 182
+      },
+      {
+        'pokeId': 113,
+        'count': 182
+      },
+      {
+        'pokeId': 311,
+        'count': 182
+      },
+      {
+        'pokeId': 453,
+        'count': 182
       },
       {
         'pokeId': 83,
         'count': 181
       },
       {
-        'pokeId': 133,
+        'pokeId': 159,
         'count': 181
       },
       {
-        'pokeId': 244,
-        'count': 181
-      },
-      {
-        'pokeId': 317,
+        'pokeId': 8,
         'count': 180
-      },
-      {
-        'pokeId': 8001,
-        'count': 180
-      },
-      {
-        'pokeId': 134,
-        'count': 179
-      },
-      {
-        'pokeId': 243,
-        'count': 179
-      },
-      {
-        'pokeId': 470,
-        'count': 179
-      },
-      {
-        'pokeId': 155,
-        'count': 178
-      },
-      {
-        'pokeId': 259,
-        'count': 178
-      },
-      {
-        'pokeId': 260,
-        'count': 178
-      },
-      {
-        'pokeId': 440,
-        'count': 178
-      },
-      {
-        'pokeId': 113,
-        'count': 177
-      },
-      {
-        'pokeId': 198,
-        'count': 177
-      },
-      {
-        'pokeId': 23,
-        'count': 176
       },
       {
         'pokeId': 58,
-        'count': 176
+        'count': 180
       },
       {
-        'pokeId': 255,
-        'count': 176
-      },
-      {
-        'pokeId': 438,
-        'count': 176
-      },
-      {
-        'pokeId': 75,
-        'count': 175
-      },
-      {
-        'pokeId': 85,
-        'count': 175
-      },
-      {
-        'pokeId': 288,
-        'count': 175
-      },
-      {
-        'pokeId': 176,
-        'count': 174
-      },
-      {
-        'pokeId': 2,
-        'count': 173
-      },
-      {
-        'pokeId': 254,
-        'count': 173
-      },
-      {
-        'pokeId': 912,
-        'count': 173
-      },
-      {
-        'pokeId': 256,
-        'count': 172
-      },
-      {
-        'pokeId': 909,
-        'count': 172
-      },
-      {
-        'pokeId': 1,
-        'count': 171
-      },
-      {
-        'pokeId': 447,
-        'count': 171
-      },
-      {
-        'pokeId': 175,
-        'count': 170
-      },
-      {
-        'pokeId': 195,
-        'count': 170
+        'pokeId': 105,
+        'count': 180
       },
       {
         'pokeId': 152,
-        'count': 169
+        'count': 180
       },
       {
-        'pokeId': 197,
-        'count': 169
+        'pokeId': 259,
+        'count': 180
       },
       {
-        'pokeId': 354,
-        'count': 169
+        'pokeId': 80,
+        'count': 179
       },
       {
-        'pokeId': 980,
-        'count': 169
+        'pokeId': 158,
+        'count': 179
       },
       {
-        'pokeId': 40,
-        'count': 168
+        'pokeId': 228,
+        'count': 179
       },
       {
-        'pokeId': 79,
-        'count': 168
+        'pokeId': 778,
+        'count': 179
       },
       {
-        'pokeId': 316,
-        'count': 167
+        'pokeId': 2,
+        'count': 178
+      },
+      {
+        'pokeId': 20,
+        'count': 178
+      },
+      {
+        'pokeId': 23,
+        'count': 178
+      },
+      {
+        'pokeId': 252,
+        'count': 178
+      },
+      {
+        'pokeId': 702,
+        'count': 178
+      },
+      {
+        'pokeId': 5,
+        'count': 177
+      },
+      {
+        'pokeId': 185,
+        'count': 177
+      },
+      {
+        'pokeId': 243,
+        'count': 177
+      },
+      {
+        'pokeId': 256,
+        'count': 177
+      },
+      {
+        'pokeId': 317,
+        'count': 177
+      },
+      {
+        'pokeId': 912,
+        'count': 177
+      },
+      {
+        'pokeId': 194,
+        'count': 176
+      },
+      {
+        'pokeId': 848,
+        'count': 176
+      },
+      {
+        'pokeId': 4,
+        'count': 175
+      },
+      {
+        'pokeId': 74,
+        'count': 175
+      },
+      {
+        'pokeId': 133,
+        'count': 175
+      },
+      {
+        'pokeId': 178,
+        'count': 175
+      },
+      {
+        'pokeId': 180,
+        'count': 175
       },
       {
         'pokeId': 333,
+        'count': 175
+      },
+      {
+        'pokeId': 7,
+        'count': 174
+      },
+      {
+        'pokeId': 316,
+        'count': 174
+      },
+      {
+        'pokeId': 288,
+        'count': 172
+      },
+      {
+        'pokeId': 777,
+        'count': 172
+      },
+      {
+        'pokeId': 7054,
+        'count': 172
+      },
+      {
+        'pokeId': 35,
+        'count': 171
+      },
+      {
+        'pokeId': 39,
+        'count': 171
+      },
+      {
+        'pokeId': 196,
+        'count': 171
+      },
+      {
+        'pokeId': 197,
+        'count': 171
+      },
+      {
+        'pokeId': 257,
+        'count': 171
+      },
+      {
+        'pokeId': 470,
+        'count': 171
+      },
+      {
+        'pokeId': 25,
+        'count': 170
+      },
+      {
+        'pokeId': 51,
+        'count': 170
+      },
+      {
+        'pokeId': 174,
+        'count': 170
+      },
+      {
+        'pokeId': 254,
+        'count': 170
+      },
+      {
+        'pokeId': 175,
+        'count': 168
+      },
+      {
+        'pokeId': 155,
+        'count': 167
+      },
+      {
+        'pokeId': 38,
+        'count': 166
+      },
+      {
+        'pokeId': 79,
+        'count': 166
+      },
+      {
+        'pokeId': 255,
+        'count': 166
+      },
+      {
+        'pokeId': 974,
+        'count': 166
+      },
+      {
+        'pokeId': 156,
         'count': 165
       },
       {
-        'pokeId': 36,
+        'pokeId': 198,
+        'count': 165
+      },
+      {
+        'pokeId': 202,
         'count': 164
       },
       {
         'pokeId': 359,
+        'count': 164
+      },
+      {
+        'pokeId': 447,
+        'count': 164
+      },
+      {
+        'pokeId': 24,
         'count': 163
       },
       {
-        'pokeId': 158,
-        'count': 162
-      },
-      {
-        'pokeId': 180,
-        'count': 162
-      },
-      {
-        'pokeId': 848,
-        'count': 162
-      },
-      {
-        'pokeId': 10,
-        'count': 161
-      },
-      {
-        'pokeId': 71,
-        'count': 161
-      },
-      {
-        'pokeId': 177,
-        'count': 160
-      },
-      {
-        'pokeId': 471,
-        'count': 160
-      },
-      {
-        'pokeId': 488,
-        'count': 160
-      },
-      {
-        'pokeId': 136,
-        'count': 159
-      },
-      {
-        'pokeId': 156,
-        'count': 159
-      },
-      {
-        'pokeId': 20,
-        'count': 158
-      },
-      {
-        'pokeId': 74,
-        'count': 158
-      },
-      {
-        'pokeId': 311,
-        'count': 158
-      },
-      {
-        'pokeId': 159,
-        'count': 157
-      },
-      {
-        'pokeId': 179,
-        'count': 156
-      },
-      {
-        'pokeId': 517,
-        'count': 156
-      },
-      {
-        'pokeId': 312,
-        'count': 155
-      },
-      {
-        'pokeId': 425,
-        'count': 155
-      },
-      {
-        'pokeId': 105,
-        'count': 154
-      },
-      {
-        'pokeId': 353,
-        'count': 154
-      },
-      {
-        'pokeId': 849,
-        'count': 154
-      },
-      {
-        'pokeId': 7054,
-        'count': 154
-      },
-      {
-        'pokeId': 442,
-        'count': 153
-      },
-      {
-        'pokeId': 710,
-        'count': 153
-      },
-      {
-        'pokeId': 51,
-        'count': 151
+        'pokeId': 909,
+        'count': 163
       },
       {
         'pokeId': 92,
-        'count': 149
+        'count': 161
       },
       {
-        'pokeId': 93,
-        'count': 148
+        'pokeId': 425,
+        'count': 161
       },
       {
-        'pokeId': 518,
-        'count': 148
+        'pokeId': 711,
+        'count': 161
+      },
+      {
+        'pokeId': 442,
+        'count': 160
       },
       {
         'pokeId': 245,
-        'count': 145
+        'count': 159
+      },
+      {
+        'pokeId': 287,
+        'count': 158
+      },
+      {
+        'pokeId': 70,
+        'count': 157
+      },
+      {
+        'pokeId': 244,
+        'count': 157
+      },
+      {
+        'pokeId': 8001,
+        'count': 157
+      },
+      {
+        'pokeId': 84,
+        'count': 156
+      },
+      {
+        'pokeId': 258,
+        'count': 156
+      },
+      {
+        'pokeId': 136,
+        'count': 155
+      },
+      {
+        'pokeId': 488,
+        'count': 154
+      },
+      {
+        'pokeId': 36,
+        'count': 153
       },
       {
         'pokeId': 50,
-        'count': 137
+        'count': 153
+      },
+      {
+        'pokeId': 849,
+        'count': 153
+      },
+      {
+        'pokeId': 440,
+        'count': 149
+      },
+      {
+        'pokeId': 471,
+        'count': 149
+      },
+      {
+        'pokeId': 260,
+        'count': 148
+      },
+      {
+        'pokeId': 93,
+        'count': 144
+      },
+      {
+        'pokeId': 312,
+        'count': 143
+      },
+      {
+        'pokeId': 517,
+        'count': 143
+      },
+      {
+        'pokeId': 353,
+        'count': 130
+      },
+      {
+        'pokeId': 518,
+        'count': 128
       }
     ]
   },
@@ -3547,202 +3595,198 @@ export default [
     'res': [
       {
         'pokeId': 242,
-        'count': 3032
+        'count': 3038
       },
       {
         'pokeId': 113,
-        'count': 912
+        'count': 928
       },
       {
         'pokeId': 83,
-        'count': 698
+        'count': 718
       },
       {
         'pokeId': 132,
-        'count': 591
-      },
-      {
-        'pokeId': 628,
-        'count': 510
-      },
-      {
-        'pokeId': 910,
-        'count': 489
+        'count': 568
       },
       {
         'pokeId': 911,
-        'count': 484
-      },
-      {
-        'pokeId': 909,
-        'count': 476
-      },
-      {
-        'pokeId': 454,
         'count': 472
       },
       {
-        'pokeId': 115,
-        'count': 465
+        'pokeId': 910,
+        'count': 471
       },
       {
-        'pokeId': 39,
-        'count': 461
+        'pokeId': 36,
+        'count': 470
       },
       {
-        'pokeId': 58,
-        'count': 457
+        'pokeId': 628,
+        'count': 468
       },
       {
-        'pokeId': 25,
-        'count': 456
-      },
-      {
-        'pokeId': 56,
-        'count': 456
-      },
-      {
-        'pokeId': 79,
-        'count': 453
-      },
-      {
-        'pokeId': 363,
-        'count': 450
+        'pokeId': 909,
+        'count': 466
       },
       {
         'pokeId': 7,
-        'count': 448
-      },
-      {
-        'pokeId': 440,
-        'count': 448
-      },
-      {
-        'pokeId': 127,
-        'count': 444
-      },
-      {
-        'pokeId': 845,
-        'count': 443
-      },
-      {
-        'pokeId': 912,
-        'count': 443
-      },
-      {
-        'pokeId': 35,
-        'count': 439
-      },
-      {
-        'pokeId': 69,
-        'count': 438
-      },
-      {
-        'pokeId': 70,
-        'count': 438
-      },
-      {
-        'pokeId': 152,
-        'count': 436
-      },
-      {
-        'pokeId': 160,
-        'count': 436
+        'count': 463
       },
       {
         'pokeId': 9,
-        'count': 431
-      },
-      {
-        'pokeId': 40,
-        'count': 429
-      },
-      {
-        'pokeId': 195,
-        'count': 429
-      },
-      {
-        'pokeId': 54,
-        'count': 426
+        'count': 462
       },
       {
         'pokeId': 185,
-        'count': 426
+        'count': 462
+      },
+      {
+        'pokeId': 253,
+        'count': 456
       },
       {
         'pokeId': 194,
-        'count': 426
+        'count': 453
+      },
+      {
+        'pokeId': 254,
+        'count': 453
+      },
+      {
+        'pokeId': 25,
+        'count': 450
+      },
+      {
+        'pokeId': 454,
+        'count': 444
+      },
+      {
+        'pokeId': 56,
+        'count': 442
+      },
+      {
+        'pokeId': 70,
+        'count': 442
+      },
+      {
+        'pokeId': 845,
+        'count': 442
+      },
+      {
+        'pokeId': 10,
+        'count': 441
+      },
+      {
+        'pokeId': 438,
+        'count': 441
+      },
+      {
+        'pokeId': 19,
+        'count': 439
       },
       {
         'pokeId': 55,
-        'count': 423
+        'count': 438
+      },
+      {
+        'pokeId': 913,
+        'count': 437
+      },
+      {
+        'pokeId': 57,
+        'count': 436
+      },
+      {
+        'pokeId': 440,
+        'count': 436
+      },
+      {
+        'pokeId': 439,
+        'count': 435
+      },
+      {
+        'pokeId': 8,
+        'count': 434
+      },
+      {
+        'pokeId': 316,
+        'count': 434
+      },
+      {
+        'pokeId': 58,
+        'count': 430
+      },
+      {
+        'pokeId': 20,
+        'count': 428
+      },
+      {
+        'pokeId': 453,
+        'count': 427
+      },
+      {
+        'pokeId': 127,
+        'count': 425
+      },
+      {
+        'pokeId': 764,
+        'count': 425
       },
       {
         'pokeId': 173,
+        'count': 424
+      },
+      {
+        'pokeId': 24,
         'count': 423
       },
       {
         'pokeId': 159,
+        'count': 423
+      },
+      {
+        'pokeId': 627,
+        'count': 423
+      },
+      {
+        'pokeId': 35,
+        'count': 422
+      },
+      {
+        'pokeId': 69,
+        'count': 422
+      },
+      {
+        'pokeId': 133,
         'count': 421
       },
       {
-        'pokeId': 438,
+        'pokeId': 134,
         'count': 421
+      },
+      {
+        'pokeId': 39,
+        'count': 419
       },
       {
         'pokeId': 252,
         'count': 419
       },
       {
-        'pokeId': 133,
-        'count': 418
+        'pokeId': 40,
+        'count': 414
       },
       {
-        'pokeId': 122,
-        'count': 417
+        'pokeId': 912,
+        'count': 414
       },
       {
-        'pokeId': 19,
-        'count': 416
-      },
-      {
-        'pokeId': 316,
-        'count': 416
-      },
-      {
-        'pokeId': 764,
-        'count': 416
-      },
-      {
-        'pokeId': 36,
-        'count': 415
-      },
-      {
-        'pokeId': 627,
-        'count': 415
-      },
-      {
-        'pokeId': 8,
+        'pokeId': 115,
         'count': 413
       },
       {
-        'pokeId': 158,
-        'count': 413
-      },
-      {
-        'pokeId': 258,
-        'count': 413
-      },
-      {
-        'pokeId': 80,
-        'count': 412
-      },
-      {
-        'pokeId': 174,
-        'count': 412
-      },
-      {
-        'pokeId': 57,
+        'pokeId': 54,
         'count': 410
       },
       {
@@ -3750,68 +3794,72 @@ export default [
         'count': 410
       },
       {
-        'pokeId': 913,
+        'pokeId': 79,
         'count': 409
       },
       {
-        'pokeId': 439,
+        'pokeId': 214,
+        'count': 409
+      },
+      {
+        'pokeId': 258,
         'count': 407
       },
       {
-        'pokeId': 259,
+        'pokeId': 122,
         'count': 404
       },
       {
-        'pokeId': 20,
-        'count': 401
+        'pokeId': 914,
+        'count': 404
       },
       {
-        'pokeId': 253,
-        'count': 401
+        'pokeId': 160,
+        'count': 402
       },
       {
-        'pokeId': 453,
-        'count': 400
+        'pokeId': 174,
+        'count': 402
       },
       {
-        'pokeId': 260,
+        'pokeId': 80,
         'count': 399
       },
       {
-        'pokeId': 10,
+        'pokeId': 152,
+        'count': 399
+      },
+      {
+        'pokeId': 195,
         'count': 398
       },
       {
-        'pokeId': 24,
-        'count': 395
+        'pokeId': 259,
+        'count': 393
       },
       {
-        'pokeId': 214,
-        'count': 395
+        'pokeId': 260,
+        'count': 393
+      },
+      {
+        'pokeId': 363,
+        'count': 393
+      },
+      {
+        'pokeId': 158,
+        'count': 385
       },
       {
         'pokeId': 23,
-        'count': 392
-      },
-      {
-        'pokeId': 914,
-        'count': 392
-      },
-      {
-        'pokeId': 254,
-        'count': 387
+        'count': 382
       },
       {
         'pokeId': 50,
-        'count': 363
-      },
-      {
-        'pokeId': 134,
-        'count': 362
+        'count': 355
       },
       {
         'pokeId': 245,
-        'count': 350
+        'count': 314
       }
     ]
   },
@@ -3821,287 +3869,287 @@ export default [
     'res': [
       {
         'pokeId': 303,
-        'count': 3655
+        'count': 3641
       },
       {
         'pokeId': 980,
-        'count': 558
+        'count': 554
       },
       {
         'pokeId': 248,
-        'count': 514
+        'count': 495
       },
       {
         'pokeId': 911,
-        'count': 488
+        'count': 485
       },
       {
         'pokeId': 208,
-        'count': 469
+        'count': 461
       },
       {
-        'pokeId': 195,
-        'count': 464
+        'pokeId': 37,
+        'count': 446
       },
       {
-        'pokeId': 35,
-        'count': 451
+        'pokeId': 910,
+        'count': 441
       },
       {
-        'pokeId': 447,
+        'pokeId': 157,
         'count': 440
       },
       {
-        'pokeId': 302,
+        'pokeId': 354,
+        'count': 436
+      },
+      {
+        'pokeId': 246,
         'count': 434
       },
       {
-        'pokeId': 317,
+        'pokeId': 228,
         'count': 433
       },
       {
-        'pokeId': 4,
-        'count': 426
-      },
-      {
-        'pokeId': 20,
-        'count': 426
-      },
-      {
-        'pokeId': 76,
-        'count': 426
-      },
-      {
-        'pokeId': 453,
-        'count': 426
-      },
-      {
-        'pokeId': 19,
-        'count': 425
+        'pokeId': 38,
+        'count': 429
       },
       {
         'pokeId': 7054,
+        'count': 428
+      },
+      {
+        'pokeId': 75,
+        'count': 427
+      },
+      {
+        'pokeId': 258,
+        'count': 427
+      },
+      {
+        'pokeId': 136,
         'count': 425
       },
       {
-        'pokeId': 94,
+        'pokeId': 195,
+        'count': 424
+      },
+      {
+        'pokeId': 316,
         'count': 424
       },
       {
         'pokeId': 174,
-        'count': 424
-      },
-      {
-        'pokeId': 36,
         'count': 423
       },
       {
-        'pokeId': 155,
+        'pokeId': 173,
+        'count': 422
+      },
+      {
+        'pokeId': 194,
+        'count': 422
+      },
+      {
+        'pokeId': 317,
         'count': 422
       },
       {
         'pokeId': 909,
-        'count': 422
+        'count': 421
       },
       {
-        'pokeId': 37,
+        'pokeId': 76,
         'count': 420
       },
       {
-        'pokeId': 132,
-        'count': 420
-      },
-      {
-        'pokeId': 910,
-        'count': 420
-      },
-      {
-        'pokeId': 246,
-        'count': 416
-      },
-      {
-        'pokeId': 257,
-        'count': 416
-      },
-      {
-        'pokeId': 329,
-        'count': 416
-      },
-      {
-        'pokeId': 194,
-        'count': 410
-      },
-      {
-        'pokeId': 196,
-        'count': 409
-      },
-      {
-        'pokeId': 136,
-        'count': 408
-      },
-      {
-        'pokeId': 328,
-        'count': 408
+        'pokeId': 20,
+        'count': 418
       },
       {
         'pokeId': 454,
+        'count': 418
+      },
+      {
+        'pokeId': 4,
+        'count': 415
+      },
+      {
+        'pokeId': 24,
+        'count': 415
+      },
+      {
+        'pokeId': 156,
+        'count': 412
+      },
+      {
+        'pokeId': 35,
+        'count': 411
+      },
+      {
+        'pokeId': 132,
+        'count': 409
+      },
+      {
+        'pokeId': 197,
         'count': 407
       },
       {
-        'pokeId': 173,
-        'count': 405
+        'pokeId': 255,
+        'count': 407
       },
       {
-        'pokeId': 247,
+        'pokeId': 328,
         'count': 405
-      },
-      {
-        'pokeId': 40,
-        'count': 404
       },
       {
         'pokeId': 104,
         'count': 404
       },
       {
-        'pokeId': 39,
+        'pokeId': 196,
+        'count': 404
+      },
+      {
+        'pokeId': 94,
         'count': 403
       },
       {
-        'pokeId': 58,
+        'pokeId': 155,
+        'count': 403
+      },
+      {
+        'pokeId': 19,
         'count': 402
       },
       {
-        'pokeId': 24,
-        'count': 400
+        'pokeId': 453,
+        'count': 402
       },
       {
-        'pokeId': 175,
-        'count': 399
-      },
-      {
-        'pokeId': 354,
-        'count': 398
+        'pokeId': 40,
+        'count': 401
       },
       {
         'pokeId': 74,
-        'count': 395
+        'count': 401
       },
       {
-        'pokeId': 157,
-        'count': 395
+        'pokeId': 302,
+        'count': 399
       },
       {
         'pokeId': 5,
-        'count': 392
+        'count': 397
       },
       {
-        'pokeId': 38,
-        'count': 392
-      },
-      {
-        'pokeId': 229,
-        'count': 392
-      },
-      {
-        'pokeId': 256,
-        'count': 390
-      },
-      {
-        'pokeId': 316,
-        'count': 389
-      },
-      {
-        'pokeId': 59,
-        'count': 388
-      },
-      {
-        'pokeId': 6,
-        'count': 387
-      },
-      {
-        'pokeId': 228,
-        'count': 387
-      },
-      {
-        'pokeId': 259,
-        'count': 387
-      },
-      {
-        'pokeId': 133,
-        'count': 386
-      },
-      {
-        'pokeId': 75,
-        'count': 385
-      },
-      {
-        'pokeId': 95,
-        'count': 384
-      },
-      {
-        'pokeId': 330,
-        'count': 384
-      },
-      {
-        'pokeId': 197,
-        'count': 383
-      },
-      {
-        'pokeId': 202,
-        'count': 382
-      },
-      {
-        'pokeId': 260,
-        'count': 381
-      },
-      {
-        'pokeId': 156,
-        'count': 377
+        'pokeId': 257,
+        'count': 397
       },
       {
         'pokeId': 105,
-        'count': 370
+        'count': 396
       },
       {
-        'pokeId': 255,
-        'count': 370
+        'pokeId': 259,
+        'count': 396
       },
       {
-        'pokeId': 258,
-        'count': 369
+        'pokeId': 6,
+        'count': 393
       },
       {
-        'pokeId': 92,
-        'count': 368
+        'pokeId': 229,
+        'count': 393
       },
       {
-        'pokeId': 23,
-        'count': 365
+        'pokeId': 260,
+        'count': 393
       },
       {
-        'pokeId': 93,
-        'count': 357
+        'pokeId': 175,
+        'count': 392
       },
       {
-        'pokeId': 50,
-        'count': 356
+        'pokeId': 247,
+        'count': 391
+      },
+      {
+        'pokeId': 447,
+        'count': 391
       },
       {
         'pokeId': 360,
-        'count': 356
-      },
-      {
-        'pokeId': 51,
-        'count': 351
+        'count': 389
       },
       {
         'pokeId': 353,
-        'count': 324
+        'count': 387
+      },
+      {
+        'pokeId': 50,
+        'count': 384
+      },
+      {
+        'pokeId': 58,
+        'count': 384
+      },
+      {
+        'pokeId': 39,
+        'count': 381
+      },
+      {
+        'pokeId': 23,
+        'count': 378
+      },
+      {
+        'pokeId': 95,
+        'count': 372
+      },
+      {
+        'pokeId': 256,
+        'count': 372
+      },
+      {
+        'pokeId': 133,
+        'count': 369
+      },
+      {
+        'pokeId': 329,
+        'count': 363
+      },
+      {
+        'pokeId': 36,
+        'count': 362
+      },
+      {
+        'pokeId': 51,
+        'count': 360
+      },
+      {
+        'pokeId': 59,
+        'count': 360
+      },
+      {
+        'pokeId': 202,
+        'count': 359
+      },
+      {
+        'pokeId': 330,
+        'count': 341
       },
       {
         'pokeId': 244,
-        'count': 313
+        'count': 339
+      },
+      {
+        'pokeId': 92,
+        'count': 330
+      },
+      {
+        'pokeId': 93,
+        'count': 315
       }
     ]
   },
@@ -4111,251 +4159,263 @@ export default [
     'res': [
       {
         'pokeId': 461,
-        'count': 3257
-      },
-      {
-        'pokeId': 923,
-        'count': 943
+        'count': 3095
       },
       {
         'pokeId': 113,
-        'count': 826
+        'count': 923
       },
       {
-        'pokeId': 215,
-        'count': 553
-      },
-      {
-        'pokeId': 7007,
-        'count': 516
-      },
-      {
-        'pokeId': 132,
-        'count': 507
-      },
-      {
-        'pokeId': 628,
-        'count': 504
-      },
-      {
-        'pokeId': 19,
-        'count': 497
-      },
-      {
-        'pokeId': 176,
-        'count': 487
+        'pokeId': 923,
+        'count': 910
       },
       {
         'pokeId': 845,
-        'count': 484
+        'count': 506
+      },
+      {
+        'pokeId': 7007,
+        'count': 487
       },
       {
         'pokeId': 627,
-        'count': 482
-      },
-      {
-        'pokeId': 180,
-        'count': 478
-      },
-      {
-        'pokeId': 365,
-        'count': 478
-      },
-      {
-        'pokeId': 364,
-        'count': 476
-      },
-      {
-        'pokeId': 104,
-        'count': 475
-      },
-      {
-        'pokeId': 359,
-        'count': 475
-      },
-      {
-        'pokeId': 181,
-        'count': 473
-      },
-      {
-        'pokeId': 287,
-        'count': 473
-      },
-      {
-        'pokeId': 442,
-        'count': 473
-      },
-      {
-        'pokeId': 202,
-        'count': 472
-      },
-      {
-        'pokeId': 447,
-        'count': 472
-      },
-      {
-        'pokeId': 20,
-        'count': 470
-      },
-      {
-        'pokeId': 39,
-        'count': 470
-      },
-      {
-        'pokeId': 133,
-        'count': 469
-      },
-      {
-        'pokeId': 288,
-        'count': 469
-      },
-      {
-        'pokeId': 317,
-        'count': 468
-      },
-      {
-        'pokeId': 333,
-        'count': 468
-      },
-      {
-        'pokeId': 35,
-        'count': 467
-      },
-      {
-        'pokeId': 69,
-        'count': 467
-      },
-      {
-        'pokeId': 430,
-        'count': 467
-      },
-      {
-        'pokeId': 74,
-        'count': 464
-      },
-      {
-        'pokeId': 225,
-        'count': 464
-      },
-      {
-        'pokeId': 80,
-        'count': 463
-      },
-      {
-        'pokeId': 173,
-        'count': 463
-      },
-      {
-        'pokeId': 179,
-        'count': 463
-      },
-      {
-        'pokeId': 105,
-        'count': 461
-      },
-      {
-        'pokeId': 79,
-        'count': 460
-      },
-      {
-        'pokeId': 316,
-        'count': 460
-      },
-      {
-        'pokeId': 922,
-        'count': 460
-      },
-      {
-        'pokeId': 289,
-        'count': 455
-      },
-      {
-        'pokeId': 334,
-        'count': 455
-      },
-      {
-        'pokeId': 440,
-        'count': 455
-      },
-      {
-        'pokeId': 242,
-        'count': 450
-      },
-      {
-        'pokeId': 360,
-        'count': 449
-      },
-      {
-        'pokeId': 454,
-        'count': 448
-      },
-      {
-        'pokeId': 57,
-        'count': 447
-      },
-      {
-        'pokeId': 459,
-        'count': 444
-      },
-      {
-        'pokeId': 175,
-        'count': 442
-      },
-      {
-        'pokeId': 7006,
-        'count': 442
-      },
-      {
-        'pokeId': 198,
-        'count': 439
-      },
-      {
-        'pokeId': 54,
-        'count': 437
-      },
-      {
-        'pokeId': 36,
-        'count': 435
+        'count': 486
       },
       {
         'pokeId': 448,
-        'count': 435
+        'count': 477
       },
       {
-        'pokeId': 453,
-        'count': 432
-      },
-      {
-        'pokeId': 460,
-        'count': 428
-      },
-      {
-        'pokeId': 471,
-        'count': 428
-      },
-      {
-        'pokeId': 363,
-        'count': 422
+        'pokeId': 242,
+        'count': 476
       },
       {
         'pokeId': 921,
-        'count': 416
+        'count': 474
+      },
+      {
+        'pokeId': 628,
+        'count': 473
+      },
+      {
+        'pokeId': 225,
+        'count': 471
+      },
+      {
+        'pokeId': 181,
+        'count': 470
+      },
+      {
+        'pokeId': 179,
+        'count': 469
+      },
+      {
+        'pokeId': 922,
+        'count': 467
+      },
+      {
+        'pokeId': 215,
+        'count': 466
+      },
+      {
+        'pokeId': 365,
+        'count': 465
+      },
+      {
+        'pokeId': 447,
+        'count': 464
+      },
+      {
+        'pokeId': 104,
+        'count': 463
+      },
+      {
+        'pokeId': 79,
+        'count': 462
+      },
+      {
+        'pokeId': 19,
+        'count': 460
+      },
+      {
+        'pokeId': 69,
+        'count': 457
+      },
+      {
+        'pokeId': 74,
+        'count': 457
+      },
+      {
+        'pokeId': 453,
+        'count': 454
+      },
+      {
+        'pokeId': 39,
+        'count': 452
+      },
+      {
+        'pokeId': 289,
+        'count': 450
+      },
+      {
+        'pokeId': 133,
+        'count': 449
+      },
+      {
+        'pokeId': 363,
+        'count': 449
+      },
+      {
+        'pokeId': 777,
+        'count': 447
+      },
+      {
+        'pokeId': 359,
+        'count': 445
+      },
+      {
+        'pokeId': 360,
+        'count': 445
+      },
+      {
+        'pokeId': 36,
+        'count': 443
+      },
+      {
+        'pokeId': 54,
+        'count': 440
+      },
+      {
+        'pokeId': 974,
+        'count': 438
+      },
+      {
+        'pokeId': 105,
+        'count': 437
+      },
+      {
+        'pokeId': 173,
+        'count': 436
+      },
+      {
+        'pokeId': 198,
+        'count': 434
+      },
+      {
+        'pokeId': 57,
+        'count': 432
+      },
+      {
+        'pokeId': 454,
+        'count': 432
+      },
+      {
+        'pokeId': 20,
+        'count': 431
+      },
+      {
+        'pokeId': 202,
+        'count': 431
+      },
+      {
+        'pokeId': 471,
+        'count': 430
+      },
+      {
+        'pokeId': 176,
+        'count': 429
+      },
+      {
+        'pokeId': 287,
+        'count': 429
+      },
+      {
+        'pokeId': 7006,
+        'count': 428
+      },
+      {
+        'pokeId': 316,
+        'count': 424
+      },
+      {
+        'pokeId': 35,
+        'count': 422
+      },
+      {
+        'pokeId': 459,
+        'count': 422
+      },
+      {
+        'pokeId': 80,
+        'count': 420
+      },
+      {
+        'pokeId': 442,
+        'count': 418
+      },
+      {
+        'pokeId': 180,
+        'count': 417
+      },
+      {
+        'pokeId': 175,
+        'count': 415
+      },
+      {
+        'pokeId': 333,
+        'count': 415
+      },
+      {
+        'pokeId': 430,
+        'count': 415
+      },
+      {
+        'pokeId': 334,
+        'count': 414
+      },
+      {
+        'pokeId': 440,
+        'count': 413
+      },
+      {
+        'pokeId': 317,
+        'count': 412
+      },
+      {
+        'pokeId': 132,
+        'count': 411
       },
       {
         'pokeId': 56,
-        'count': 407
+        'count': 410
+      },
+      {
+        'pokeId': 364,
+        'count': 409
+      },
+      {
+        'pokeId': 288,
+        'count': 391
+      },
+      {
+        'pokeId': 975,
+        'count': 383
       },
       {
         'pokeId': 92,
-        'count': 389
+        'count': 375
+      },
+      {
+        'pokeId': 460,
+        'count': 374
       },
       {
         'pokeId': 93,
-        'count': 352
+        'count': 364
       },
       {
         'pokeId': 488,
-        'count': 319
+        'count': 337
       }
     ]
   },
@@ -4369,283 +4429,283 @@ export default [
       },
       {
         'pokeId': 132,
-        'count': 520
-      },
-      {
-        'pokeId': 475,
-        'count': 479
+        'count': 499
       },
       {
         'pokeId': 282,
-        'count': 470
+        'count': 481
       },
       {
-        'pokeId': 36,
-        'count': 465
-      },
-      {
-        'pokeId': 907,
-        'count': 448
-      },
-      {
-        'pokeId': 913,
-        'count': 440
-      },
-      {
-        'pokeId': 908,
-        'count': 437
-      },
-      {
-        'pokeId': 177,
-        'count': 436
-      },
-      {
-        'pokeId': 196,
-        'count': 434
-      },
-      {
-        'pokeId': 254,
-        'count': 428
-      },
-      {
-        'pokeId': 257,
-        'count': 428
-      },
-      {
-        'pokeId': 702,
-        'count': 428
-      },
-      {
-        'pokeId': 764,
-        'count': 424
-      },
-      {
-        'pokeId': 360,
-        'count': 422
-      },
-      {
-        'pokeId': 3,
-        'count': 420
-      },
-      {
-        'pokeId': 70,
-        'count': 419
-      },
-      {
-        'pokeId': 333,
-        'count': 418
-      },
-      {
-        'pokeId': 52,
-        'count': 415
-      },
-      {
-        'pokeId': 281,
-        'count': 415
-      },
-      {
-        'pokeId': 148,
-        'count': 411
-      },
-      {
-        'pokeId': 334,
-        'count': 411
-      },
-      {
-        'pokeId': 906,
-        'count': 411
-      },
-      {
-        'pokeId': 252,
-        'count': 410
+        'pokeId': 475,
+        'count': 469
       },
       {
         'pokeId': 280,
-        'count': 410
+        'count': 458
       },
       {
-        'pokeId': 176,
-        'count': 409
+        'pokeId': 908,
+        'count': 452
       },
       {
-        'pokeId': 80,
-        'count': 406
+        'pokeId': 3,
+        'count': 444
       },
       {
-        'pokeId': 39,
-        'count': 404
+        'pokeId': 447,
+        'count': 440
       },
       {
-        'pokeId': 71,
-        'count': 402
-      },
-      {
-        'pokeId': 7,
-        'count': 401
-      },
-      {
-        'pokeId': 56,
-        'count': 401
-      },
-      {
-        'pokeId': 174,
-        'count': 401
-      },
-      {
-        'pokeId': 256,
-        'count': 401
-      },
-      {
-        'pokeId': 2,
-        'count': 400
-      },
-      {
-        'pokeId': 84,
-        'count': 399
-      },
-      {
-        'pokeId': 153,
-        'count': 398
-      },
-      {
-        'pokeId': 172,
-        'count': 397
-      },
-      {
-        'pokeId': 152,
-        'count': 396
-      },
-      {
-        'pokeId': 175,
-        'count': 396
-      },
-      {
-        'pokeId': 1,
-        'count': 395
-      },
-      {
-        'pokeId': 8,
-        'count': 395
-      },
-      {
-        'pokeId': 914,
-        'count': 395
-      },
-      {
-        'pokeId': 470,
-        'count': 393
-      },
-      {
-        'pokeId': 760,
-        'count': 392
-      },
-      {
-        'pokeId': 147,
-        'count': 391
-      },
-      {
-        'pokeId': 23,
-        'count': 390
-      },
-      {
-        'pokeId': 79,
-        'count': 390
-      },
-      {
-        'pokeId': 85,
-        'count': 389
-      },
-      {
-        'pokeId': 759,
-        'count': 388
+        'pokeId': 36,
+        'count': 436
       },
       {
         'pokeId': 25,
-        'count': 387
-      },
-      {
-        'pokeId': 253,
-        'count': 387
+        'count': 434
       },
       {
         'pokeId': 9,
-        'count': 378
+        'count': 431
       },
       {
-        'pokeId': 173,
-        'count': 378
+        'pokeId': 360,
+        'count': 427
       },
       {
-        'pokeId': 202,
-        'count': 377
+        'pokeId': 148,
+        'count': 424
       },
       {
-        'pokeId': 255,
-        'count': 377
+        'pokeId': 39,
+        'count': 421
       },
       {
-        'pokeId': 518,
-        'count': 377
+        'pokeId': 333,
+        'count': 421
       },
       {
-        'pokeId': 133,
-        'count': 376
+        'pokeId': 154,
+        'count': 419
       },
       {
-        'pokeId': 442,
-        'count': 376
+        'pokeId': 52,
+        'count': 416
       },
       {
-        'pokeId': 185,
-        'count': 375
+        'pokeId': 80,
+        'count': 414
       },
       {
-        'pokeId': 912,
-        'count': 373
+        'pokeId': 252,
+        'count': 414
+      },
+      {
+        'pokeId': 907,
+        'count': 412
       },
       {
         'pokeId': 35,
-        'count': 372
+        'count': 410
+      },
+      {
+        'pokeId': 79,
+        'count': 410
+      },
+      {
+        'pokeId': 152,
+        'count': 410
+      },
+      {
+        'pokeId': 70,
+        'count': 409
       },
       {
         'pokeId': 54,
+        'count': 406
+      },
+      {
+        'pokeId': 174,
+        'count': 406
+      },
+      {
+        'pokeId': 764,
+        'count': 405
+      },
+      {
+        'pokeId': 2,
+        'count': 404
+      },
+      {
+        'pokeId': 912,
+        'count': 403
+      },
+      {
+        'pokeId': 254,
+        'count': 402
+      },
+      {
+        'pokeId': 57,
+        'count': 401
+      },
+      {
+        'pokeId': 906,
+        'count': 401
+      },
+      {
+        'pokeId': 1,
+        'count': 400
+      },
+      {
+        'pokeId': 56,
+        'count': 400
+      },
+      {
+        'pokeId': 185,
+        'count': 400
+      },
+      {
+        'pokeId': 85,
+        'count': 399
+      },
+      {
+        'pokeId': 196,
+        'count': 399
+      },
+      {
+        'pokeId': 7,
+        'count': 398
+      },
+      {
+        'pokeId': 176,
+        'count': 398
+      },
+      {
+        'pokeId': 470,
+        'count': 398
+      },
+      {
+        'pokeId': 760,
+        'count': 397
+      },
+      {
+        'pokeId': 23,
+        'count': 396
+      },
+      {
+        'pokeId': 914,
+        'count': 396
+      },
+      {
+        'pokeId': 173,
+        'count': 395
+      },
+      {
+        'pokeId': 702,
+        'count': 395
+      },
+      {
+        'pokeId': 253,
+        'count': 394
+      },
+      {
+        'pokeId': 281,
+        'count': 394
+      },
+      {
+        'pokeId': 256,
+        'count': 392
+      },
+      {
+        'pokeId': 442,
+        'count': 392
+      },
+      {
+        'pokeId': 202,
+        'count': 388
+      },
+      {
+        'pokeId': 175,
+        'count': 387
+      },
+      {
+        'pokeId': 71,
+        'count': 386
+      },
+      {
+        'pokeId': 177,
+        'count': 386
+      },
+      {
+        'pokeId': 255,
+        'count': 385
+      },
+      {
+        'pokeId': 172,
+        'count': 384
+      },
+      {
+        'pokeId': 133,
+        'count': 383
+      },
+      {
+        'pokeId': 759,
+        'count': 380
+      },
+      {
+        'pokeId': 8,
+        'count': 377
+      },
+      {
+        'pokeId': 147,
+        'count': 374
+      },
+      {
+        'pokeId': 84,
         'count': 371
       },
       {
-        'pokeId': 53,
+        'pokeId': 913,
+        'count': 371
+      },
+      {
+        'pokeId': 153,
         'count': 370
       },
       {
         'pokeId': 69,
-        'count': 369
+        'count': 364
       },
       {
-        'pokeId': 154,
-        'count': 368
+        'pokeId': 53,
+        'count': 362
       },
       {
-        'pokeId': 57,
-        'count': 367
+        'pokeId': 257,
+        'count': 362
+      },
+      {
+        'pokeId': 334,
+        'count': 359
       },
       {
         'pokeId': 178,
-        'count': 364
-      },
-      {
-        'pokeId': 447,
-        'count': 364
+        'count': 346
       },
       {
         'pokeId': 517,
-        'count': 353
+        'count': 341
       },
       {
-        'pokeId': 488,
-        'count': 297
+        'pokeId': 518,
+        'count': 338
       },
       {
         'pokeId': 245,
-        'count': 280
+        'count': 322
+      },
+      {
+        'pokeId': 488,
+        'count': 306
       }
     ]
   },
@@ -4655,307 +4715,311 @@ export default [
     'res': [
       {
         'pokeId': 738,
-        'count': 3954
+        'count': 3973
       },
       {
         'pokeId': 132,
-        'count': 503
+        'count': 534
       },
       {
         'pokeId': 430,
-        'count': 488
-      },
-      {
-        'pokeId': 404,
-        'count': 437
-      },
-      {
-        'pokeId': 405,
-        'count': 425
-      },
-      {
-        'pokeId': 303,
-        'count': 419
-      },
-      {
-        'pokeId': 849,
-        'count': 419
-      },
-      {
-        'pokeId': 304,
-        'count': 417
-      },
-      {
-        'pokeId': 74,
-        'count': 416
-      },
-      {
-        'pokeId': 848,
-        'count': 413
-      },
-      {
-        'pokeId': 24,
-        'count': 410
-      },
-      {
-        'pokeId': 75,
-        'count': 409
+        'count': 484
       },
       {
         'pokeId': 702,
-        'count': 405
+        'count': 424
       },
       {
-        'pokeId': 778,
-        'count': 405
-      },
-      {
-        'pokeId': 180,
-        'count': 404
-      },
-      {
-        'pokeId': 913,
-        'count': 403
-      },
-      {
-        'pokeId': 181,
-        'count': 396
-      },
-      {
-        'pokeId': 439,
-        'count': 394
-      },
-      {
-        'pokeId': 173,
-        'count': 392
-      },
-      {
-        'pokeId': 194,
-        'count': 392
-      },
-      {
-        'pokeId': 135,
-        'count': 391
-      },
-      {
-        'pokeId': 354,
-        'count': 391
-      },
-      {
-        'pokeId': 908,
-        'count': 389
-      },
-      {
-        'pokeId': 909,
-        'count': 389
-      },
-      {
-        'pokeId': 306,
-        'count': 387
-      },
-      {
-        'pokeId': 922,
-        'count': 387
+        'pokeId': 133,
+        'count': 417
       },
       {
         'pokeId': 923,
-        'count': 385
+        'count': 415
       },
       {
-        'pokeId': 12,
-        'count': 384
+        'pokeId': 304,
+        'count': 411
       },
       {
-        'pokeId': 254,
-        'count': 384
+        'pokeId': 303,
+        'count': 410
       },
       {
-        'pokeId': 912,
-        'count': 384
+        'pokeId': 83,
+        'count': 407
       },
       {
-        'pokeId': 907,
-        'count': 383
+        'pokeId': 914,
+        'count': 407
       },
       {
-        'pokeId': 26,
-        'count': 381
+        'pokeId': 10,
+        'count': 406
+      },
+      {
+        'pokeId': 35,
+        'count': 401
+      },
+      {
+        'pokeId': 710,
+        'count': 398
+      },
+      {
+        'pokeId': 8001,
+        'count': 397
+      },
+      {
+        'pokeId': 172,
+        'count': 395
+      },
+      {
+        'pokeId': 906,
+        'count': 395
+      },
+      {
+        'pokeId': 405,
+        'count': 394
+      },
+      {
+        'pokeId': 777,
+        'count': 393
+      },
+      {
+        'pokeId': 181,
+        'count': 392
       },
       {
         'pokeId': 198,
-        'count': 381
+        'count': 391
+      },
+      {
+        'pokeId': 711,
+        'count': 389
+      },
+      {
+        'pokeId': 36,
+        'count': 388
+      },
+      {
+        'pokeId': 848,
+        'count': 388
+      },
+      {
+        'pokeId': 12,
+        'count': 387
+      },
+      {
+        'pokeId': 23,
+        'count': 387
+      },
+      {
+        'pokeId': 909,
+        'count': 386
+      },
+      {
+        'pokeId': 911,
+        'count': 385
+      },
+      {
+        'pokeId': 195,
+        'count': 384
+      },
+      {
+        'pokeId': 403,
+        'count': 384
+      },
+      {
+        'pokeId': 737,
+        'count': 384
+      },
+      {
+        'pokeId': 135,
+        'count': 380
+      },
+      {
+        'pokeId': 173,
+        'count': 380
+      },
+      {
+        'pokeId': 439,
+        'count': 380
       },
       {
         'pokeId': 736,
         'count': 378
       },
       {
-        'pokeId': 122,
-        'count': 377
-      },
-      {
-        'pokeId': 252,
-        'count': 377
-      },
-      {
-        'pokeId': 711,
-        'count': 377
-      },
-      {
-        'pokeId': 914,
-        'count': 377
-      },
-      {
-        'pokeId': 25,
+        'pokeId': 180,
         'count': 375
-      },
-      {
-        'pokeId': 83,
-        'count': 375
-      },
-      {
-        'pokeId': 253,
-        'count': 375
-      },
-      {
-        'pokeId': 737,
-        'count': 374
-      },
-      {
-        'pokeId': 11,
-        'count': 373
-      },
-      {
-        'pokeId': 94,
-        'count': 373
-      },
-      {
-        'pokeId': 23,
-        'count': 372
-      },
-      {
-        'pokeId': 36,
-        'count': 372
-      },
-      {
-        'pokeId': 906,
-        'count': 372
-      },
-      {
-        'pokeId': 35,
-        'count': 371
-      },
-      {
-        'pokeId': 910,
-        'count': 371
-      },
-      {
-        'pokeId': 305,
-        'count': 370
-      },
-      {
-        'pokeId': 911,
-        'count': 370
-      },
-      {
-        'pokeId': 195,
-        'count': 368
-      },
-      {
-        'pokeId': 133,
-        'count': 367
-      },
-      {
-        'pokeId': 921,
-        'count': 362
-      },
-      {
-        'pokeId': 51,
-        'count': 360
-      },
-      {
-        'pokeId': 353,
-        'count': 359
       },
       {
         'pokeId': 426,
-        'count': 358
+        'count': 375
       },
       {
-        'pokeId': 403,
-        'count': 357
+        'pokeId': 404,
+        'count': 374
       },
       {
-        'pokeId': 10,
-        'count': 356
+        'pokeId': 912,
+        'count': 374
       },
       {
-        'pokeId': 710,
-        'count': 356
+        'pokeId': 778,
+        'count': 373
       },
       {
-        'pokeId': 8001,
-        'count': 350
+        'pokeId': 910,
+        'count': 372
+      },
+      {
+        'pokeId': 122,
+        'count': 369
+      },
+      {
+        'pokeId': 194,
+        'count': 369
+      },
+      {
+        'pokeId': 907,
+        'count': 369
+      },
+      {
+        'pokeId': 24,
+        'count': 368
+      },
+      {
+        'pokeId': 26,
+        'count': 368
+      },
+      {
+        'pokeId': 94,
+        'count': 368
+      },
+      {
+        'pokeId': 253,
+        'count': 367
+      },
+      {
+        'pokeId': 74,
+        'count': 366
+      },
+      {
+        'pokeId': 922,
+        'count': 365
+      },
+      {
+        'pokeId': 75,
+        'count': 364
+      },
+      {
+        'pokeId': 354,
+        'count': 362
+      },
+      {
+        'pokeId': 913,
+        'count': 362
+      },
+      {
+        'pokeId': 25,
+        'count': 361
+      },
+      {
+        'pokeId': 908,
+        'count': 361
       },
       {
         'pokeId': 311,
-        'count': 342
-      },
-      {
-        'pokeId': 517,
-        'count': 342
-      },
-      {
-        'pokeId': 172,
-        'count': 339
-      },
-      {
-        'pokeId': 518,
-        'count': 339
-      },
-      {
-        'pokeId': 82,
-        'count': 338
-      },
-      {
-        'pokeId': 462,
-        'count': 337
-      },
-      {
-        'pokeId': 50,
-        'count': 336
-      },
-      {
-        'pokeId': 81,
-        'count': 334
-      },
-      {
-        'pokeId': 179,
-        'count': 334
+        'count': 360
       },
       {
         'pokeId': 93,
-        'count': 322
+        'count': 359
       },
       {
-        'pokeId': 92,
-        'count': 311
+        'pokeId': 179,
+        'count': 359
       },
       {
-        'pokeId': 243,
-        'count': 308
+        'pokeId': 11,
+        'count': 358
+      },
+      {
+        'pokeId': 921,
+        'count': 357
+      },
+      {
+        'pokeId': 252,
+        'count': 353
+      },
+      {
+        'pokeId': 305,
+        'count': 349
+      },
+      {
+        'pokeId': 306,
+        'count': 349
+      },
+      {
+        'pokeId': 849,
+        'count': 347
+      },
+      {
+        'pokeId': 51,
+        'count': 334
+      },
+      {
+        'pokeId': 462,
+        'count': 333
+      },
+      {
+        'pokeId': 517,
+        'count': 333
+      },
+      {
+        'pokeId': 82,
+        'count': 321
+      },
+      {
+        'pokeId': 254,
+        'count': 321
+      },
+      {
+        'pokeId': 50,
+        'count': 320
       },
       {
         'pokeId': 425,
-        'count': 305
+        'count': 316
+      },
+      {
+        'pokeId': 243,
+        'count': 307
+      },
+      {
+        'pokeId': 92,
+        'count': 304
+      },
+      {
+        'pokeId': 518,
+        'count': 303
+      },
+      {
+        'pokeId': 81,
+        'count': 294
+      },
+      {
+        'pokeId': 353,
+        'count': 291
       },
       {
         'pokeId': 312,
-        'count': 274
+        'count': 251
       },
       {
         'pokeId': 208,
-        'count': 200
+        'count': 195
       }
     ]
   },
@@ -4965,235 +5029,239 @@ export default [
     'res': [
       {
         'pokeId': 242,
-        'count': 4437
+        'count': 4467
       },
       {
         'pokeId': 132,
-        'count': 624
-      },
-      {
-        'pokeId': 11,
-        'count': 538
-      },
-      {
-        'pokeId': 10,
-        'count': 533
-      },
-      {
-        'pokeId': 115,
-        'count': 524
-      },
-      {
-        'pokeId': 5,
-        'count': 520
-      },
-      {
-        'pokeId': 558,
-        'count': 518
-      },
-      {
-        'pokeId': 113,
-        'count': 511
+        'count': 638
       },
       {
         'pokeId': 311,
-        'count': 509
-      },
-      {
-        'pokeId': 440,
-        'count': 504
-      },
-      {
-        'pokeId': 173,
-        'count': 503
-      },
-      {
-        'pokeId': 980,
-        'count': 500
-      },
-      {
-        'pokeId': 303,
-        'count': 499
-      },
-      {
-        'pokeId': 334,
-        'count': 499
-      },
-      {
-        'pokeId': 711,
-        'count': 497
-      },
-      {
-        'pokeId': 259,
-        'count': 496
-      },
-      {
-        'pokeId': 133,
-        'count': 495
-      },
-      {
-        'pokeId': 333,
-        'count': 495
-      },
-      {
-        'pokeId': 557,
-        'count': 495
-      },
-      {
-        'pokeId': 35,
-        'count': 492
-      },
-      {
-        'pokeId': 127,
-        'count': 491
-      },
-      {
-        'pokeId': 36,
-        'count': 490
-      },
-      {
-        'pokeId': 257,
-        'count': 490
-      },
-      {
-        'pokeId': 38,
-        'count': 489
-      },
-      {
-        'pokeId': 256,
-        'count': 488
-      },
-      {
-        'pokeId': 371,
-        'count': 488
-      },
-      {
-        'pokeId': 442,
-        'count': 487
-      },
-      {
-        'pokeId': 37,
-        'count': 486
-      },
-      {
-        'pokeId': 248,
-        'count': 483
-      },
-      {
-        'pokeId': 848,
-        'count': 483
-      },
-      {
-        'pokeId': 849,
-        'count': 483
-      },
-      {
-        'pokeId': 7054,
-        'count': 483
-      },
-      {
-        'pokeId': 255,
-        'count': 482
-      },
-      {
-        'pokeId': 373,
-        'count': 482
-      },
-      {
-        'pokeId': 328,
-        'count': 481
-      },
-      {
-        'pokeId': 177,
-        'count': 478
-      },
-      {
-        'pokeId': 372,
-        'count': 478
-      },
-      {
-        'pokeId': 710,
-        'count': 478
-      },
-      {
-        'pokeId': 8001,
-        'count': 478
-      },
-      {
-        'pokeId': 246,
-        'count': 476
-      },
-      {
-        'pokeId': 23,
-        'count': 474
+        'count': 525
       },
       {
         'pokeId': 214,
-        'count': 473
+        'count': 522
       },
       {
-        'pokeId': 12,
-        'count': 472
-      },
-      {
-        'pokeId': 178,
-        'count': 471
-      },
-      {
-        'pokeId': 628,
-        'count': 470
-      },
-      {
-        'pokeId': 329,
-        'count': 465
-      },
-      {
-        'pokeId': 258,
-        'count': 462
+        'pokeId': 113,
+        'count': 519
       },
       {
         'pokeId': 627,
-        'count': 462
+        'count': 511
       },
       {
-        'pokeId': 6,
-        'count': 460
+        'pokeId': 177,
+        'count': 510
       },
       {
-        'pokeId': 330,
-        'count': 459
+        'pokeId': 7054,
+        'count': 505
       },
       {
-        'pokeId': 260,
-        'count': 450
+        'pokeId': 133,
+        'count': 503
       },
       {
-        'pokeId': 247,
-        'count': 449
+        'pokeId': 372,
+        'count': 498
       },
       {
-        'pokeId': 312,
-        'count': 449
+        'pokeId': 258,
+        'count': 494
+      },
+      {
+        'pokeId': 115,
+        'count': 491
+      },
+      {
+        'pokeId': 628,
+        'count': 491
       },
       {
         'pokeId': 24,
-        'count': 446
+        'count': 490
       },
       {
         'pokeId': 4,
-        'count': 444
+        'count': 489
       },
       {
-        'pokeId': 517,
-        'count': 424
+        'pokeId': 23,
+        'count': 489
+      },
+      {
+        'pokeId': 334,
+        'count': 489
+      },
+      {
+        'pokeId': 303,
+        'count': 487
+      },
+      {
+        'pokeId': 10,
+        'count': 485
+      },
+      {
+        'pokeId': 37,
+        'count': 485
+      },
+      {
+        'pokeId': 256,
+        'count': 485
+      },
+      {
+        'pokeId': 557,
+        'count': 485
+      },
+      {
+        'pokeId': 440,
+        'count': 484
+      },
+      {
+        'pokeId': 38,
+        'count': 482
+      },
+      {
+        'pokeId': 980,
+        'count': 482
+      },
+      {
+        'pokeId': 12,
+        'count': 479
+      },
+      {
+        'pokeId': 178,
+        'count': 479
+      },
+      {
+        'pokeId': 558,
+        'count': 478
+      },
+      {
+        'pokeId': 35,
+        'count': 477
+      },
+      {
+        'pokeId': 8001,
+        'count': 476
+      },
+      {
+        'pokeId': 373,
+        'count': 475
+      },
+      {
+        'pokeId': 371,
+        'count': 474
+      },
+      {
+        'pokeId': 11,
+        'count': 473
+      },
+      {
+        'pokeId': 246,
+        'count': 473
+      },
+      {
+        'pokeId': 127,
+        'count': 471
+      },
+      {
+        'pokeId': 259,
+        'count': 469
+      },
+      {
+        'pokeId': 260,
+        'count': 469
+      },
+      {
+        'pokeId': 173,
+        'count': 467
+      },
+      {
+        'pokeId': 442,
+        'count': 467
+      },
+      {
+        'pokeId': 6,
+        'count': 466
+      },
+      {
+        'pokeId': 255,
+        'count': 465
+      },
+      {
+        'pokeId': 848,
+        'count': 463
+      },
+      {
+        'pokeId': 312,
+        'count': 462
+      },
+      {
+        'pokeId': 333,
+        'count': 459
+      },
+      {
+        'pokeId': 248,
+        'count': 458
+      },
+      {
+        'pokeId': 247,
+        'count': 457
+      },
+      {
+        'pokeId': 257,
+        'count': 457
+      },
+      {
+        'pokeId': 710,
+        'count': 453
+      },
+      {
+        'pokeId': 330,
+        'count': 450
+      },
+      {
+        'pokeId': 36,
+        'count': 447
+      },
+      {
+        'pokeId': 329,
+        'count': 447
+      },
+      {
+        'pokeId': 328,
+        'count': 446
+      },
+      {
+        'pokeId': 777,
+        'count': 441
+      },
+      {
+        'pokeId': 711,
+        'count': 436
+      },
+      {
+        'pokeId': 849,
+        'count': 430
+      },
+      {
+        'pokeId': 5,
+        'count': 429
       },
       {
         'pokeId': 518,
-        'count': 421
+        'count': 414
+      },
+      {
+        'pokeId': 517,
+        'count': 406
       },
       {
         'pokeId': 244,
-        'count': 386
+        'count': 381
       }
     ]
   },
@@ -5203,583 +5271,595 @@ export default [
     'res': [
       {
         'pokeId': 306,
-        'count': 1445
+        'count': 1352
       },
       {
         'pokeId': 132,
-        'count': 495
-      },
-      {
-        'pokeId': 426,
-        'count': 409
-      },
-      {
-        'pokeId': 113,
-        'count': 371
-      },
-      {
-        'pokeId': 208,
-        'count': 365
+        'count': 507
       },
       {
         'pokeId': 11,
-        'count': 363
+        'count': 407
+      },
+      {
+        'pokeId': 426,
+        'count': 406
+      },
+      {
+        'pokeId': 113,
+        'count': 387
       },
       {
         'pokeId': 3,
-        'count': 353
+        'count': 338
       },
       {
-        'pokeId': 289,
-        'count': 340
+        'pokeId': 208,
+        'count': 325
       },
       {
         'pokeId': 248,
-        'count': 327
+        'count': 316
       },
       {
-        'pokeId': 59,
+        'pokeId': 2,
+        'count': 311
+      },
+      {
+        'pokeId': 289,
+        'count': 306
+      },
+      {
+        'pokeId': 908,
         'count': 304
       },
       {
         'pokeId': 246,
-        'count': 300
+        'count': 289
       },
       {
-        'pokeId': 2,
-        'count': 291
+        'pokeId': 59,
+        'count': 283
+      },
+      {
+        'pokeId': 906,
+        'count': 271
+      },
+      {
+        'pokeId': 303,
+        'count': 269
       },
       {
         'pokeId': 282,
-        'count': 278
-      },
-      {
-        'pokeId': 908,
-        'count': 271
+        'count': 268
       },
       {
         'pokeId': 180,
         'count': 262
       },
       {
-        'pokeId': 303,
-        'count': 257
+        'pokeId': 7007,
+        'count': 259
       },
       {
-        'pokeId': 906,
-        'count': 257
-      },
-      {
-        'pokeId': 38,
-        'count': 252
-      },
-      {
-        'pokeId': 25,
-        'count': 251
+        'pokeId': 518,
+        'count': 248
       },
       {
         'pokeId': 134,
-        'count': 250
-      },
-      {
-        'pokeId': 247,
         'count': 246
       },
       {
-        'pokeId': 7007,
+        'pokeId': 247,
         'count': 244
       },
       {
-        'pokeId': 364,
-        'count': 243
+        'pokeId': 173,
+        'count': 240
       },
       {
-        'pokeId': 127,
+        'pokeId': 354,
+        'count': 237
+      },
+      {
+        'pokeId': 133,
+        'count': 236
+      },
+      {
+        'pokeId': 105,
         'count': 235
+      },
+      {
+        'pokeId': 25,
+        'count': 234
+      },
+      {
+        'pokeId': 710,
+        'count': 234
+      },
+      {
+        'pokeId': 475,
+        'count': 233
       },
       {
         'pokeId': 172,
         'count': 232
       },
       {
-        'pokeId': 7054,
-        'count': 228
+        'pokeId': 252,
+        'count': 232
       },
       {
-        'pokeId': 10,
-        'count': 223
-      },
-      {
-        'pokeId': 35,
-        'count': 223
-      },
-      {
-        'pokeId': 133,
-        'count': 223
-      },
-      {
-        'pokeId': 228,
-        'count': 223
-      },
-      {
-        'pokeId': 104,
-        'count': 222
-      },
-      {
-        'pokeId': 281,
-        'count': 221
-      },
-      {
-        'pokeId': 280,
-        'count': 220
-      },
-      {
-        'pokeId': 363,
-        'count': 220
-      },
-      {
-        'pokeId': 7006,
-        'count': 220
-      },
-      {
-        'pokeId': 58,
-        'count': 219
+        'pokeId': 84,
+        'count': 229
       },
       {
         'pokeId': 115,
-        'count': 219
+        'count': 229
       },
       {
-        'pokeId': 155,
-        'count': 219
+        'pokeId': 38,
+        'count': 227
       },
       {
-        'pokeId': 242,
-        'count': 219
+        'pokeId': 12,
+        'count': 223
       },
       {
-        'pokeId': 334,
-        'count': 219
+        'pokeId': 7054,
+        'count': 221
       },
       {
-        'pokeId': 252,
+        'pokeId': 628,
+        'count': 220
+      },
+      {
+        'pokeId': 702,
+        'count': 220
+      },
+      {
+        'pokeId': 921,
+        'count': 220
+      },
+      {
+        'pokeId': 1,
         'count': 218
       },
       {
-        'pokeId': 253,
-        'count': 218
-      },
-      {
-        'pokeId': 259,
-        'count': 218
-      },
-      {
-        'pokeId': 627,
-        'count': 218
-      },
-      {
-        'pokeId': 6,
+        'pokeId': 104,
         'count': 217
       },
       {
-        'pokeId': 304,
+        'pokeId': 922,
         'count': 217
       },
       {
-        'pokeId': 912,
-        'count': 217
+        'pokeId': 127,
+        'count': 216
+      },
+      {
+        'pokeId': 179,
+        'count': 216
       },
       {
         'pokeId': 333,
         'count': 215
       },
       {
-        'pokeId': 105,
+        'pokeId': 287,
         'count': 214
-      },
-      {
-        'pokeId': 159,
-        'count': 214
-      },
-      {
-        'pokeId': 5,
-        'count': 213
-      },
-      {
-        'pokeId': 84,
-        'count': 213
-      },
-      {
-        'pokeId': 173,
-        'count': 213
-      },
-      {
-        'pokeId': 907,
-        'count': 213
-      },
-      {
-        'pokeId': 197,
-        'count': 212
-      },
-      {
-        'pokeId': 440,
-        'count': 212
-      },
-      {
-        'pokeId': 702,
-        'count': 212
-      },
-      {
-        'pokeId': 53,
-        'count': 211
-      },
-      {
-        'pokeId': 152,
-        'count': 211
-      },
-      {
-        'pokeId': 354,
-        'count': 210
-      },
-      {
-        'pokeId': 848,
-        'count': 210
-      },
-      {
-        'pokeId': 1,
-        'count': 209
-      },
-      {
-        'pokeId': 52,
-        'count': 208
-      },
-      {
-        'pokeId': 154,
-        'count': 208
-      },
-      {
-        'pokeId': 156,
-        'count': 208
-      },
-      {
-        'pokeId': 12,
-        'count': 207
-      },
-      {
-        'pokeId': 518,
-        'count': 207
-      },
-      {
-        'pokeId': 7,
-        'count': 205
-      },
-      {
-        'pokeId': 700,
-        'count': 205
-      },
-      {
-        'pokeId': 153,
-        'count': 204
-      },
-      {
-        'pokeId': 215,
-        'count': 204
-      },
-      {
-        'pokeId': 4,
-        'count': 203
-      },
-      {
-        'pokeId': 470,
-        'count': 203
-      },
-      {
-        'pokeId': 628,
-        'count': 203
-      },
-      {
-        'pokeId': 9,
-        'count': 202
-      },
-      {
-        'pokeId': 921,
-        'count': 202
-      },
-      {
-        'pokeId': 179,
-        'count': 201
-      },
-      {
-        'pokeId': 914,
-        'count': 201
-      },
-      {
-        'pokeId': 181,
-        'count': 200
-      },
-      {
-        'pokeId': 83,
-        'count': 199
-      },
-      {
-        'pokeId': 198,
-        'count': 199
-      },
-      {
-        'pokeId': 459,
-        'count': 199
-      },
-      {
-        'pokeId': 475,
-        'count': 199
-      },
-      {
-        'pokeId': 37,
-        'count': 198
-      },
-      {
-        'pokeId': 353,
-        'count': 198
-      },
-      {
-        'pokeId': 158,
-        'count': 197
-      },
-      {
-        'pokeId': 845,
-        'count': 197
-      },
-      {
-        'pokeId': 359,
-        'count': 196
       },
       {
         'pokeId': 438,
-        'count': 196
+        'count': 214
       },
       {
-        'pokeId': 85,
-        'count': 195
+        'pokeId': 228,
+        'count': 213
       },
       {
-        'pokeId': 8,
-        'count': 194
+        'pokeId': 10,
+        'count': 212
       },
       {
-        'pokeId': 258,
-        'count': 194
+        'pokeId': 281,
+        'count': 212
       },
       {
-        'pokeId': 312,
-        'count': 194
-      },
-      {
-        'pokeId': 471,
-        'count': 194
-      },
-      {
-        'pokeId': 910,
-        'count': 194
-      },
-      {
-        'pokeId': 778,
-        'count': 193
-      },
-      {
-        'pokeId': 229,
-        'count': 192
-      },
-      {
-        'pokeId': 365,
-        'count': 191
-      },
-      {
-        'pokeId': 287,
-        'count': 190
-      },
-      {
-        'pokeId': 26,
-        'count': 189
-      },
-      {
-        'pokeId': 177,
-        'count': 189
-      },
-      {
-        'pokeId': 185,
-        'count': 189
-      },
-      {
-        'pokeId': 517,
-        'count': 188
-      },
-      {
-        'pokeId': 710,
-        'count': 188
-      },
-      {
-        'pokeId': 922,
-        'count': 188
-      },
-      {
-        'pokeId': 442,
-        'count': 187
-      },
-      {
-        'pokeId': 36,
-        'count': 186
-      },
-      {
-        'pokeId': 909,
-        'count': 186
-      },
-      {
-        'pokeId': 911,
-        'count': 186
-      },
-      {
-        'pokeId': 302,
-        'count': 185
-      },
-      {
-        'pokeId': 425,
-        'count': 185
-      },
-      {
-        'pokeId': 160,
-        'count': 184
-      },
-      {
-        'pokeId': 214,
-        'count': 183
-      },
-      {
-        'pokeId': 256,
-        'count': 182
-      },
-      {
-        'pokeId': 225,
-        'count': 181
-      },
-      {
-        'pokeId': 135,
-        'count': 180
-      },
-      {
-        'pokeId': 136,
-        'count': 179
-      },
-      {
-        'pokeId': 764,
-        'count': 179
-      },
-      {
-        'pokeId': 196,
-        'count': 178
-      },
-      {
-        'pokeId': 461,
-        'count': 178
-      },
-      {
-        'pokeId': 462,
-        'count': 178
-      },
-      {
-        'pokeId': 849,
-        'count': 178
-      },
-      {
-        'pokeId': 913,
-        'count': 178
-      },
-      {
-        'pokeId': 980,
-        'count': 177
-      },
-      {
-        'pokeId': 81,
-        'count': 176
-      },
-      {
-        'pokeId': 430,
-        'count': 176
-      },
-      {
-        'pokeId': 711,
-        'count': 176
-      },
-      {
-        'pokeId': 157,
-        'count': 175
-      },
-      {
-        'pokeId': 311,
-        'count': 175
-      },
-      {
-        'pokeId': 288,
-        'count': 174
-      },
-      {
-        'pokeId': 82,
-        'count': 173
-      },
-      {
-        'pokeId': 260,
-        'count': 173
-      },
-      {
-        'pokeId': 178,
-        'count': 172
-      },
-      {
-        'pokeId': 460,
-        'count': 172
-      },
-      {
-        'pokeId': 257,
-        'count': 171
-      },
-      {
-        'pokeId': 305,
-        'count': 171
-      },
-      {
-        'pokeId': 254,
-        'count': 166
+        'pokeId': 334,
+        'count': 212
       },
       {
         'pokeId': 255,
+        'count': 211
+      },
+      {
+        'pokeId': 6,
+        'count': 210
+      },
+      {
+        'pokeId': 53,
+        'count': 210
+      },
+      {
+        'pokeId': 242,
+        'count': 209
+      },
+      {
+        'pokeId': 459,
+        'count': 208
+      },
+      {
+        'pokeId': 280,
+        'count': 206
+      },
+      {
+        'pokeId': 907,
+        'count': 205
+      },
+      {
+        'pokeId': 158,
+        'count': 204
+      },
+      {
+        'pokeId': 848,
+        'count': 204
+      },
+      {
+        'pokeId': 304,
+        'count': 203
+      },
+      {
+        'pokeId': 914,
+        'count': 203
+      },
+      {
+        'pokeId': 185,
+        'count': 202
+      },
+      {
+        'pokeId': 258,
+        'count': 202
+      },
+      {
+        'pokeId': 9,
+        'count': 201
+      },
+      {
+        'pokeId': 136,
+        'count': 201
+      },
+      {
+        'pokeId': 214,
+        'count': 201
+      },
+      {
+        'pokeId': 305,
+        'count': 201
+      },
+      {
+        'pokeId': 912,
+        'count': 201
+      },
+      {
+        'pokeId': 7006,
+        'count': 201
+      },
+      {
+        'pokeId': 259,
+        'count': 200
+      },
+      {
+        'pokeId': 260,
+        'count': 200
+      },
+      {
+        'pokeId': 517,
+        'count': 200
+      },
+      {
+        'pokeId': 845,
+        'count': 200
+      },
+      {
+        'pokeId': 196,
+        'count': 199
+      },
+      {
+        'pokeId': 359,
+        'count': 199
+      },
+      {
+        'pokeId': 7,
+        'count': 198
+      },
+      {
+        'pokeId': 909,
+        'count': 198
+      },
+      {
+        'pokeId': 215,
+        'count': 197
+      },
+      {
+        'pokeId': 4,
+        'count': 195
+      },
+      {
+        'pokeId': 160,
+        'count': 195
+      },
+      {
+        'pokeId': 197,
+        'count': 194
+      },
+      {
+        'pokeId': 288,
+        'count': 194
+      },
+      {
+        'pokeId': 363,
+        'count': 194
+      },
+      {
+        'pokeId': 58,
+        'count': 193
+      },
+      {
+        'pokeId': 156,
+        'count': 193
+      },
+      {
+        'pokeId': 440,
+        'count': 193
+      },
+      {
+        'pokeId': 35,
+        'count': 192
+      },
+      {
+        'pokeId': 36,
+        'count': 192
+      },
+      {
+        'pokeId': 85,
+        'count': 192
+      },
+      {
+        'pokeId': 153,
+        'count': 192
+      },
+      {
+        'pokeId': 155,
+        'count': 192
+      },
+      {
+        'pokeId': 764,
+        'count': 192
+      },
+      {
+        'pokeId': 37,
+        'count': 190
+      },
+      {
+        'pokeId': 154,
+        'count': 190
+      },
+      {
+        'pokeId': 159,
+        'count': 190
+      },
+      {
+        'pokeId': 302,
+        'count': 190
+      },
+      {
+        'pokeId': 913,
+        'count': 190
+      },
+      {
+        'pokeId': 627,
+        'count': 189
+      },
+      {
+        'pokeId': 974,
+        'count': 189
+      },
+      {
+        'pokeId': 5,
+        'count': 188
+      },
+      {
+        'pokeId': 152,
+        'count': 188
+      },
+      {
+        'pokeId': 181,
+        'count': 188
+      },
+      {
+        'pokeId': 910,
+        'count': 188
+      },
+      {
+        'pokeId': 157,
+        'count': 187
+      },
+      {
+        'pokeId': 711,
+        'count': 187
+      },
+      {
+        'pokeId': 8,
+        'count': 186
+      },
+      {
+        'pokeId': 135,
+        'count': 184
+      },
+      {
+        'pokeId': 311,
+        'count': 184
+      },
+      {
+        'pokeId': 81,
+        'count': 183
+      },
+      {
+        'pokeId': 229,
+        'count': 182
+      },
+      {
+        'pokeId': 312,
+        'count': 182
+      },
+      {
+        'pokeId': 198,
+        'count': 181
+      },
+      {
+        'pokeId': 256,
+        'count': 181
+      },
+      {
+        'pokeId': 26,
+        'count': 179
+      },
+      {
+        'pokeId': 365,
+        'count': 178
+      },
+      {
+        'pokeId': 177,
+        'count': 177
+      },
+      {
+        'pokeId': 425,
+        'count': 177
+      },
+      {
+        'pokeId': 52,
+        'count': 175
+      },
+      {
+        'pokeId': 471,
+        'count': 175
+      },
+      {
+        'pokeId': 178,
+        'count': 173
+      },
+      {
+        'pokeId': 225,
+        'count': 173
+      },
+      {
+        'pokeId': 980,
+        'count': 173
+      },
+      {
+        'pokeId': 470,
+        'count': 172
+      },
+      {
+        'pokeId': 83,
+        'count': 171
+      },
+      {
+        'pokeId': 364,
+        'count': 170
+      },
+      {
+        'pokeId': 430,
+        'count': 170
+      },
+      {
+        'pokeId': 849,
+        'count': 170
+      },
+      {
+        'pokeId': 253,
+        'count': 168
+      },
+      {
+        'pokeId': 442,
+        'count': 168
+      },
+      {
+        'pokeId': 257,
         'count': 166
       },
       {
+        'pokeId': 777,
+        'count': 166
+      },
+      {
+        'pokeId': 82,
+        'count': 165
+      },
+      {
+        'pokeId': 353,
+        'count': 165
+      },
+      {
+        'pokeId': 461,
+        'count': 165
+      },
+      {
+        'pokeId': 911,
+        'count': 164
+      },
+      {
+        'pokeId': 778,
+        'count': 162
+      },
+      {
+        'pokeId': 460,
+        'count': 158
+      },
+      {
+        'pokeId': 700,
+        'count': 157
+      },
+      {
         'pokeId': 95,
-        'count': 160
-      },
-      {
-        'pokeId': 8001,
-        'count': 160
-      },
-      {
-        'pokeId': 923,
         'count': 148
       },
       {
-        'pokeId': 488,
-        'count': 132
+        'pokeId': 8001,
+        'count': 148
+      },
+      {
+        'pokeId': 462,
+        'count': 146
+      },
+      {
+        'pokeId': 923,
+        'count': 145
+      },
+      {
+        'pokeId': 254,
+        'count': 141
       },
       {
         'pokeId': 244,
-        'count': 127
+        'count': 140
+      },
+      {
+        'pokeId': 975,
+        'count': 140
       },
       {
         'pokeId': 245,
-        'count': 123
+        'count': 134
+      },
+      {
+        'pokeId': 488,
+        'count': 128
       },
       {
         'pokeId': 243,
-        'count': 109
+        'count': 123
       }
     ]
   }
