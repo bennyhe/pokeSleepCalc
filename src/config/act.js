@@ -56,9 +56,9 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 3, 5, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
-  upIdsLargeIds: [],
+  upIdsSmallIds: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
+  upIdsMidIds: [9002, 9004],
+  upIdsLargeIds: [777, 974, 975, 9006],
   noLastList: [777, 974, 975, 9006]
 }
 export const ACT_LIST = [
@@ -134,4 +134,33 @@ export const ACT_LIST = [
   //   times: 1.5,
   //   isActRandom: true
   // },
+  {
+    name: '佳節2025：夢之碎片倍增研究',
+    namejp: 'ホリデー2025：ダブルゆめのかけらリサーチ',
+    startTime: 1766347200000,
+    endTime: 1766951999000,
+    notArea: [1, 2, 3, 4, 5, 6],
+    largeUp: [777, 974, 975, 9006],
+    midUp: [9002, 9004],
+    smallUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
+    isActRandom: true
+  },
+  {
+    name: '新年2026(第1週)',
+    namejp: 'ニューイヤー2026(1週目)',
+    startTime: 1766952000000,
+    endTime: 1767556799000,
+    notArea: [],
+    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
+    isActRandom: true
+  },
+  {
+    name: '新年2026(第2週)',
+    namejp: 'ニューイヤー2026(2週目)',
+    startTime: 1767556800000,
+    endTime: 1768161599000,
+    notArea: [1],
+    smallUp: [177, 178, 311, 312, 328, 329, 330, 371, 372, 373, 442, 557, 558, 848, 849, 8001, 710, 711],
+    isActRandom: true
+  }
 ]
