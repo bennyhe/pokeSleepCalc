@@ -1,7 +1,7 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245, 488], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 488,
-    252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
+    // 252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312,
     848, 849, 8001,
     177, 178,
     710, 711,
@@ -13,10 +13,10 @@ export const SLEEP_CALC_POKEMONS = {
 }
 
 export const IN_LAST_TIME_POKEMONS = [
-  {
-    ids: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
-    starttime: '2025/7/14 04:00'
-  },
+  // {
+  //   ids: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
+  //   starttime: '2025/7/14 04:00'
+  // },
   {
     ids: [848, 849, 8001],
     starttime: '2025/8/11 04:00'
@@ -51,10 +51,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [777, 974, 975, 9002, 9004, 9006], // ban 宝可梦id
-  showBanArea: [0, 3, 5, 6, 7] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
@@ -138,13 +138,16 @@ export const ACT_LIST = [
   {
     name: '佳節2025：夢之碎片倍增研究',
     namejp: 'ホリデー2025：ダブルゆめのかけらリサーチ',
-    startTime: 1766347200000,
+    startTime: 1766329353925,
     endTime: 1766951999000,
     notArea: [1, 2, 3, 4, 5, 6],
     largeUp: [777, 974, 975, 9006],
     midUp: [9002, 9004],
     smallUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
-    isActRandom: true
+    isActRandom: true,
+    timelimitPokemons: {
+      'green': [459, 9002, 9004, 9006, 7006, 364, 922, 365, 460, 975, 7007]
+    }
   },
   {
     name: '新年2026(第1週)',
