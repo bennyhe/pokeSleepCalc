@@ -3695,26 +3695,26 @@ const pokedex = {
     friendship: 16,
     sleepType: 3,
     skillType: 30,
-    // pokeType: 3,
+    pokeType: 3,
     maxcarry: 18,
-    // helpSpeed: 2500,
-    berryType: 2
-    // foodPer: 15.30,
-    // skillPer: 3.30,
-    // food: {
-    //   type: [5, 17, 2],
-    //   count: {
-    //     5: {
-    //       num: [1, 2, 4]
-    //     },
-    //     17: {
-    //       num: [0, 1, 2]
-    //     },
-    //     2: {
-    //       num: [0, 0, 2]
-    //     }
-    //   }
-    // }
+    helpSpeed: 2700,
+    berryType: 2,
+    foodPer: 16.90,
+    skillPer: 5.40,
+    food: {
+      type: [8, 19, 13],
+      count: {
+        8: {
+          num: [1, 2, 4]
+        },
+        19: {
+          num: [0, 1, 2]
+        },
+        13: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   778: {
     id: 778,
@@ -4027,40 +4027,40 @@ const pokedex = {
     // name: '走鯨',
     friendship: 5,
     sleepType: 3,
-    // skillType: 8,
-    // pokeType: 3,
+    skillType: 7,
+    pokeType: 2,
     maxcarry: 12,
-    // helpSpeed: 4600,
-    berryType: 7
-    // foodPer: 11.10,
-    // skillPer: 3.60,
-    // food: {
-    //   type: [13, 8, 3],
-    //   count: {
-    //     13: {
-    //       num: [1, 2, 3]
-    //     },
-    //     8: {
-    //       num: [0, 3, 6]
-    //     },
-    //     3: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    helpSpeed: 5100,
+    berryType: 7,
+    foodPer: 22.30,
+    skillPer: 4.20,
+    food: {
+      type: [4, 7, 18],
+      count: {
+        4: {
+          num: [2, 5, 7]
+        },
+        7: {
+          num: [0, 5, 9]
+        },
+        18: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   975: {
     id: 975,
     // name: '浩大鯨',
     friendship: 20,
     sleepType: 3,
-    // skillType: 8,
-    // pokeType: 3,
+    skillType: 7,
+    pokeType: 2,
     maxcarry: 25,
-    // helpSpeed: 3300,
-    berryType: 7
-    // foodPer: 10.90,
-    // skillPer: 3.60
+    helpSpeed: 2800,
+    berryType: 7,
+    foodPer: 20.90,
+    skillPer: 4.20
   },
   980: {
     id: 980,
@@ -4224,30 +4224,30 @@ const pokedex = {
   },
   9006: {
     id: 9006,
-    // name: '海豹球（佳節）',
+    name: '海豹球（佳節）',
     friendship: 5,
     sleepType: 3,
-    // skillType: 10,
-    // pokeType: 3,
+    skillType: 14,
+    pokeType: 3,
     berryType: 7,
-    maxcarry: 20
-    // helpSpeed: 3200,
-    // foodPer: 12.0,
-    // skillPer: 4.60,
-    // food: {
-    //   type: [18, 13, 8],
-    //   count: {
-    //     18: {
-    //       num: [1, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 4, 6]
-    //     },
-    //     8: {
-    //       num: [0, 0, 9]
-    //     }
-    //   }
-    // }
+    maxcarry: 20,
+    helpSpeed: 3300,
+    foodPer: 21.5,
+    skillPer: 5,
+    food: {
+      type: [10, 7, 11],
+      count: {
+        10: {
+          num: [1, 2, 4]
+        },
+        7: {
+          num: [0, 3, 4]
+        },
+        11: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   }
 }
 const initPokedex = () => {
