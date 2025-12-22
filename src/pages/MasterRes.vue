@@ -9,7 +9,7 @@ import {
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
-import { IN_LAST_TIME_POKEMONS } from '../config/act.js'
+import { IN_LAST_TIME_DAYS, IN_LAST_TIME_POKEMONS } from '../config/act.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
 const getTimes = 4000
@@ -51,7 +51,14 @@ const handleChangePokemon = pokeId => {}
         />
         {{
           formatTime(
-            new Date(iltItem.starttime).getTime() + 100 * 60 * 60 * 24 * 1000
+            new Date(iltItem.starttime).getTime() +
+              IN_LAST_TIME_DAYS * 60 * 60 * 24 * 1000
+          )
+        }}
+        /
+        {{
+          formatTime(
+            new Date(iltItem.starttime).getTime() + 154 * 60 * 60 * 24 * 1000
           )
         }}
       </p>
