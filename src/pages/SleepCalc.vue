@@ -245,7 +245,7 @@ const getAfterClacSPO = () => {
   let nowSPO = sleepStyleAny.value.curSPO
   sleepStyleAny.value.list.forEach(sleepStyleId => {
     if (sleepStyleId) {
-      nowSPO -= getSPOById(sleepStyleId)
+      nowSPO -= getSPOById(sleepStyleId, gameMap[userData.value.curMap].id)
     }
   })
   return nowSPO
@@ -2163,8 +2163,13 @@ const getQuickChangeSleepPoint = () => {
               <span class="mr3" v-if="sleepStyleId">
                 <span
                   class="sptime"
-                  v-if="sleepStyleId && getSPOById(sleepStyleId)"
-                  >{{ getSPOById(sleepStyleId) }}</span
+                  v-if="
+                    sleepStyleId &&
+                    getSPOById(sleepStyleId, gameMap[userData.curMap].id)
+                  "
+                  >{{
+                    getSPOById(sleepStyleId, gameMap[userData.curMap].id)
+                  }}</span
                 >
                 <span class="sptime" v-else>{{
                   SPO_DATA[sleepStyleId].spo
