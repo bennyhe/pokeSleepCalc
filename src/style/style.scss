@@ -2042,6 +2042,12 @@ h3 {
     padding: 3px 6px;
   }
 
+  .is-active {
+    h3 {
+      color: $navColor
+    }
+  }
+
   h4 {
     font-size: 13px;
   }

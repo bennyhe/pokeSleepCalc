@@ -1378,9 +1378,9 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
       <div class="typerank">
         <el-collapse accordion v-model="pageData.collapseActName">
-          <el-collapse-item name="food">
-            <template #title
-              ><h3>
+          <el-collapse-item name="1">
+            <template #title>
+              <h3>
                 {{
                   calcTimeConfig.find(
                     (ctcItem) => ctcItem.value === helpSpeedCalcForm.calcTime
@@ -1390,7 +1390,7 @@ watch(helpSpeedCalcForm.value, val => {
                   v-if="helpSpeedCalcForm.isUseTicket"
                   >{{ `${$t("OPTIONS.use")}${$t("PROP.ticket")}` }}</span
                 >
-              </h3>
+              </h3></template>
             </template>
             <CptTypeRankItem
               :dataList="foodResRank"
