@@ -93,7 +93,7 @@ const helpSpeedCalcForm = ref({
   skilllevel: 1
 })
 const pageData = ref({
-  collapseActName: 'food'
+  collapseActName: '1'
 })
 const foodResRank = ref({})
 const berryResRank = ref({})
@@ -1378,7 +1378,7 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
       <div class="typerank">
         <el-collapse accordion v-model="pageData.collapseActName">
-          <el-collapse-item name="1">
+          <el-collapse-item name="food">
             <template #title>
               <h3>
                 {{
@@ -1390,8 +1390,8 @@ watch(helpSpeedCalcForm.value, val => {
                   v-if="helpSpeedCalcForm.isUseTicket"
                   >{{ `${$t("OPTIONS.use")}${$t("PROP.ticket")}` }}</span
                 >
-              </h3></template>
-            </template>
+              </h3></template
+            >
             <CptTypeRankItem
               :dataList="foodResRank"
               showType="food"
