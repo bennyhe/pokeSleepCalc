@@ -518,7 +518,7 @@ const handleClickChangeFMBerrys = berryId => {
 }
 const handleClickChangeExBonus = (type, berryId) => {
   if (helpSpeedCalcForm.value.greenex[type].includes(berryId)) {
-    helpSpeedCalcForm.value.greenex[type] = gameMapNew.value[0].berry.filter(item => item !== berryId)
+    helpSpeedCalcForm.value.greenex[type] = helpSpeedCalcForm.value.greenex[type].filter(item => item !== berryId)
   } else {
     helpSpeedCalcForm.value.greenex[type].push(berryId)
   }
