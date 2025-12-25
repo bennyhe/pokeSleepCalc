@@ -7,7 +7,8 @@ import {
   getNewMaxcarry
 } from './energy.js'
 import {
-  sortInObjectOptions
+  sortInObjectOptions,
+  get
 } from './index.js'
 import {
   characterOptions
@@ -86,7 +87,7 @@ export function fnGenerateFoodCombinations(limits) {
   generate([], 0)
   return combinations
 }
-export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPlayer, isRightBerry) => {
+export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPlayer, isRightBerry, mapBonusData) => {
   isRightBerry = isRightBerry || helpSpeedCalcFormData.isRightBerry
   const pokeLevel = pokeItem.level || helpSpeedCalcFormData.level
   const pokeUseFoods = pokeItem.useFoods || helpSpeedCalcFormData.useFoods
@@ -157,7 +158,8 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
         arrFood,
         is2n ? true : false,
         isRightBerry,
-        +helpSpeedCalcFormData.areaBonus
+        +helpSpeedCalcFormData.areaBonus,
+        mapBonusData
       )
     })
   })
@@ -216,7 +218,7 @@ export const getNature = pokemons => {
 
 
 // 获取计算结果
-export const getNewHelpSpeed = (formData, level, isUseTicket) => {
+export const getNewHelpSpeed = (formData, level, isUseTicket, mapBonusData) => {
   // console.log(formData, level)
   // formData: {
   //   baseHelpSpeed, // Number
@@ -258,15 +260,27 @@ export const getNewHelpSpeed = (formData, level, isUseTicket) => {
     // 所有帮速技能加起来不能大于35%
     basichelp = 0.35
   }
-  let res = Math.floor(
+  let res =
     (Math.floor((1 - mainMuti) * (1 - basichelp) * (1 - levelUp) * 10000) /
       10000) *
     formData.baseHelpSpeed
-  )
+  // 是否使用露营券
   if (isUseTicket) {
-    res = Math.floor(res / 1.2)
+    res = res / 1.2
   }
-  return res
+  // ex岛屿
+  if (get('curMapData.id', mapBonusData) === 'greenex') {
+    // console.log('11111ex')
+    if (get('curMapData.berry', mapBonusData, 1) && get('curMapData.berry', mapBonusData).includes(get('curPokeBerryType', mapBonusData))) { //已选中对应树果
+      if (get('curMapData.berry', mapBonusData)[0]===get('curPokeBerryType', mapBonusData)){
+        res = res * 0.9 //帮手宝可梦的帮忙间隔缩短10%
+      }
+    } else { // ex其它属性帮忙间隔延长15%
+      // console.log('11111ex other')
+      res = res * 1.15
+    }
+  }
+  return Math.floor(res)
 }
 const getPlayerExtraDesc = pokemons => {
   let extraDesc = '自选'
@@ -288,6 +302,14 @@ const getPlayerExtraDesc = pokemons => {
   extraDesc += `\n${getNature(pokemons)}`
   return extraDesc
 }
+/**
+ * 帮速计算-单个宝可梦横向对比数据列表
+ * @param {*} helpSpeedCalcFormData 
+ * @param {*} pokedex 
+ * @param {*} pokeId 
+ * @param {*} isUseRankSort 
+ * @returns 
+ */
 export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, isUseRankSort) => {
   let resRankArr = []
   const pokeItem = { ...pokedex[pokeId] }

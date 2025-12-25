@@ -7,7 +7,7 @@ import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
 import GAME_VALS from '../i18n/lang/cn/game.js'
 const { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } = GAME_VALS
 
-const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus) => {
+const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus, mapBonusData) => {
   areaBonus = areaBonus || 0
   let pokeType = [1, 4].includes(+pokeItem.pokeType) ? 2 : 1 // 树果型、全类型自带树果*2
   if (isDoubleBerry) {
@@ -18,12 +18,19 @@ const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, 
   if (isRightBerry) {
     res = res * 2
   }
+  // ex岛屿
+  if (get('curMapData.id', mapBonusData) === 'greenex') {
+    // console.log('11111ex')
+    if (get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果2.4倍树果能量
+      res = res * 2.4
+    }
+  }
   return {
     berryCount,
     berryEnergy: Math.floor(res * (1 + areaBonus / 100))
   }
 }
-const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
+const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
   areaBonus = areaBonus || 0
   // console.log(pokeItem.oneDayHelpCount.food, useFoods)
   const helpFoodEnergy = {
@@ -34,9 +41,16 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus) => {
   }
   // const count = get('food.type', pokeItem).length || useFoods.length
   for (let i = 0; i < useFoods.length; i++) {
+    let defaultFoodCount = pokeItem.food.count[useFoods[i]].num[i]
+    // ex岛屿
+    if (get('curMapData.id', mapBonusData) === 'greenex') {
+      // console.log('11111ex')
+      if (get('moreFood', mapBonusData, 1) && get('moreFood', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果多1个食材
+        defaultFoodCount++
+      }
+    }
     helpFoodEnergy.count[i] =
-      getDecimalNumber(pokeItem.oneDayHelpCount.food / useFoods.length *
-        pokeItem.food.count[useFoods[i]].num[i], 1)
+      getDecimalNumber(pokeItem.oneDayHelpCount.food / useFoods.length * defaultFoodCount, 1)
     if (helpFoodEnergy.count[i] >= 100) {
       helpFoodEnergy.count[i] = Math.floor(helpFoodEnergy.count[i])
     }
@@ -137,9 +151,10 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
  * @param {*} isDoubleBerry 
  * @param {*} isRightBerry 
  * @param {*} areaBonus 
+ * @param {*} mapBonusData // 在帮速计算的ex岛额外加成才传入 
  * @returns 
  */
-export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus) => {
+export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, isRightBerry, areaBonus, mapBonusData) => {
   const level = pokeLevel || 50
   areaBonus = areaBonus || 0
   const oneDayBerryEnergy = getOneDayBerryEnergy(
@@ -147,9 +162,10 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     level,
     isDoubleBerry,
     isRightBerry,
-    areaBonus
+    areaBonus,
+    mapBonusData
   )
-  const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus)
+  const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus, mapBonusData)
   const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, areaBonus)
   let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
   if (oneDaySkillEffects.type === 'energy') {

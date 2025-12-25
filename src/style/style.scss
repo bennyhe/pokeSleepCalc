@@ -35,6 +35,10 @@ html.dark {
   margin-bottom: constant(safe-area-inset-bottom);
   margin-bottom: env(safe-area-inset-bottom);
 
+  .el-alert {
+    padding: 3px 8px;
+  }
+
   .el-form-item {
     margin-bottom: 12px;
   }
@@ -1846,6 +1850,13 @@ h3 {
       transform: scale(.85);
       margin: 0 -8px;
       padding: 0;
+    }
+  }
+
+  .ex-alert {
+    .cpt-select-list--berry {
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 }

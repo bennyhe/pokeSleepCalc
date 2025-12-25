@@ -90,7 +90,11 @@ const helpSpeedCalcForm = ref({
   areaBonus: 0,
   rankSort: 'energy',
   evotimes: 0,
-  skilllevel: 1
+  skilllevel: 1,
+  greenex: {
+    moreBerryEngery: [],
+    moreFood: []
+  }
 })
 const pageData = ref({
   collapseActName: '1'
@@ -183,6 +187,10 @@ const getLSAB = localStorage.getItem('PSC_AB')
 if (getLSAB) {
   helpSpeedCalcForm.value.areaBonus = +getLSAB
 }
+const getLSFMEXBs = localStorage.getItem('PSC_FMEXBs')
+if (getLSFMEXBs) {
+  helpSpeedCalcForm.value.greenex = JSON.parse(getLSFMEXBs)
+}
 
 const getProcessMuti = formData => {
   return (
@@ -249,6 +257,7 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
   let resRankArr = []
   dataList.forEach(upItem => {
     let addIn = true
+    // 是否使用了筛选
     if (isUseFilter) {
       if (FILTER_OBJECT.value.isShiny) {
         addIn = addIn && upItem.isShiny
@@ -298,7 +307,11 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       pokeItem.helpSpeed = getNewHelpSpeed(
         { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
         upItem.level,
-        helpSpeedCalcForm.value.isUseTicket
+        helpSpeedCalcForm.value.isUseTicket,
+        {
+          curMapData: gameMapNew.value[helpSpeedCalcForm.value.curMap],
+          curPokeBerryType: pokedex[upItem.pokemonId].berryType
+        }
       )
       pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
       pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
@@ -312,7 +325,11 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
           true,
           gameMapNew.value[helpSpeedCalcForm.value.curMap].berry.includes(
             pokeItem.berryType
-          )
+          ),
+          {
+            curMapData: gameMapNew.value[helpSpeedCalcForm.value.curMap],
+            ...helpSpeedCalcForm.value.greenex
+          }
         )
       )
     }
@@ -474,9 +491,9 @@ const handleClickChangeMap = id => {
 }
 const setFMBerrys = (areaIndexId, berryId) => {
   if (gameMapNew.value[areaIndexId].berry.includes(berryId)) {
-    gameMapNew.value[areaIndexId].berry = gameMapNew.value[areaIndexId].berry.filter(
-      item => item !== berryId
-    )
+    gameMapNew.value[areaIndexId].berry = gameMapNew.value[
+      areaIndexId
+    ].berry.filter(item => item !== berryId)
   } else {
     if (gameMapNew.value[areaIndexId].berry.join('') === '???') {
       gameMapNew.value[areaIndexId].berry = []
@@ -489,10 +506,23 @@ const setFMBerrys = (areaIndexId, berryId) => {
 }
 const handleClickChangeFMBerrys = berryId => {
   setFMBerrys(0, berryId)
-  setFMBerrys(7, berryId) //加8岛记得改序号
+  setFMBerrys(7, berryId) //greened, 加8岛记得改序号
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
+
+  helpSpeedCalcForm.value.greenex.moreBerryEngery = []
+  helpSpeedCalcForm.value.greenex.moreFood = []
+  localStorage.setItem('PSC_FMEXBs', JSON.stringify(helpSpeedCalcForm.value.greenex))
   // console.log(gameMapNew.value[0].berry)
 
+  fnUpdateRank() // 更新排行榜
+}
+const handleClickChangeExBonus = (type, berryId) => {
+  if (helpSpeedCalcForm.value.greenex[type].includes(berryId)) {
+    helpSpeedCalcForm.value.greenex[type] = gameMapNew.value[0].berry.filter(item => item !== berryId)
+  } else {
+    helpSpeedCalcForm.value.greenex[type].push(berryId)
+  }
+  localStorage.setItem('PSC_FMEXBs', JSON.stringify(helpSpeedCalcForm.value.greenex))
   fnUpdateRank() // 更新排行榜
 }
 const handleChangeAreaBonus = () => {
@@ -1118,7 +1148,10 @@ watch(helpSpeedCalcForm.value, val => {
       <!-- 加8岛记得改序号 -->
       <div
         style="width: 100%"
-        v-if="navData.navIndex !== 0 && (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 7)"
+        v-if="
+          navData.navIndex !== 0 &&
+          (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 7)
+        "
       >
         <ul class="cpt-select-list cpt-select-list--berry">
           <template
@@ -1320,6 +1353,95 @@ watch(helpSpeedCalcForm.value, val => {
           {{ userPokemons.list.length }})</span
         >
       </h3>
+    </div>
+    <div v-if="navData.navIndex === 2">
+      <h3>
+        <SvgIcon type="team" />队伍<span class="extra"
+          >({{ userTeam.list.length }})</span
+        >
+      </h3>
+    </div>
+    <el-alert
+      :title="$t('ILAND.greenex')"
+      type="warning"
+      show-icon
+      v-if="
+        gameMapNew[helpSpeedCalcForm.curMap].id === 'greenex' &&
+        [1, 2].includes(navData.navIndex)
+      "
+    >
+      <div class="ex-alert">
+        <div v-if="gameMapNew[0].berry[0] !== '?'">
+          <div class="cpt-food cpt-food--s berry">
+            <div class="cpt-food__item">
+              <img
+                v-lazy="`./img/berry/${+gameMapNew[0].berry[0]}.png`"
+                :alt="$t(`BERRY_TYPES.${+gameMapNew[0].berry[0]}`)"
+              />
+            </div>
+          </div>
+          帮手宝可梦的帮忙间隔缩短10%
+        </div>
+        <div>
+          <ul class="cpt-select-list cpt-select-list--berry" v-if="gameMapNew[0].berry.join('') !== '???'">
+            <template
+              v-for="(berryKey) in gameMapNew[0].berry"
+              v-bind:key="`loveberry1_${$t(`BERRY_TYPES.${berryKey}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickChangeExBonus('moreFood', +berryKey)"
+                :class="{
+                  cur: helpSpeedCalcForm.greenex.moreFood.includes(berryKey),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <div class="cpt-food cpt-food--s berry">
+                    <div class="cpt-food__item">
+                      <img
+                        v-lazy="`./img/berry/${+berryKey}.png`"
+                        :alt="$t(`BERRY_TYPES.${+berryKey}`)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+          对应树果帮手宝可梦平常帮忙食材增加1个
+        </div>
+        <div>
+          <ul class="cpt-select-list cpt-select-list--berry" v-if="gameMapNew[0].berry.join('') !== '???'">
+            <template
+              v-for="(berryKey) in gameMapNew[0].berry"
+              v-bind:key="`loveberry2_${$t(`BERRY_TYPES.${berryKey}`)}`"
+            >
+              <li
+                class="cpt-select-list__item"
+                @click="handleClickChangeExBonus('moreBerryEngery', +berryKey)"
+                :class="{
+                  cur: helpSpeedCalcForm.greenex.moreBerryEngery.includes(berryKey),
+                }"
+              >
+                <div class="cpt-select-list__name">
+                  <div class="cpt-food cpt-food--s berry">
+                    <div class="cpt-food__item">
+                      <img
+                        v-lazy="`./img/berry/${+berryKey}.png`"
+                        :alt="$t(`BERRY_TYPES.${+berryKey}`)"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+          树果带来的能量增加量会变成2.4倍
+        </div>
+        <p>其他属性：帮手宝可梦的帮忙间隔延长15%</p>
+      </div>
+    </el-alert>
+    <div v-if="navData.navIndex === 1">
       <div>
         <textarea
           type="text"
@@ -1376,6 +1498,7 @@ watch(helpSpeedCalcForm.value, val => {
           :handleClickFilterReset="handleClickFilterReset"
         />
       </div>
+      <!-- S 产出排行 -->
       <div class="typerank">
         <el-collapse accordion v-model="pageData.collapseActName">
           <el-collapse-item name="food">
@@ -1440,6 +1563,7 @@ watch(helpSpeedCalcForm.value, val => {
           </el-collapse-item>
         </el-collapse>
       </div>
+      <!-- E 产出排行 -->
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemons.list.length > 0"
@@ -1496,11 +1620,6 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
     </div>
     <div v-if="navData.navIndex === 2">
-      <h3>
-        <SvgIcon type="team" />队伍<span class="extra"
-          >({{ userTeam.list.length }})</span
-        >
-      </h3>
       <el-button
         type="success"
         size="small"
