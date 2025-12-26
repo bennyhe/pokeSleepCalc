@@ -17,11 +17,8 @@ const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, 
   let res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
   if (isRightBerry) {
     // ex岛屿
-    if (get('curMapData.id', mapBonusData) === 'greenex') {
-      // console.log('11111ex')
-      if (get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果2.4倍树果能量
-        res = res * 2.4
-      }
+    if (get('curMapData.id', mapBonusData) === 'greenex' && get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果2.4倍树果能量
+      res = res * 2.4
     } else {
       res = res * 2
     }
