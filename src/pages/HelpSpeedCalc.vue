@@ -485,7 +485,7 @@ const handleClickDelPokeInTeam = dataId => {
     1
   )
 }
-const handleClickChangeMap = id => {
+const handleChangeMap = id => {
   helpSpeedCalcForm.value.curMap = id
   fnUpdateRank() // 更新排行榜
 }
@@ -504,7 +504,7 @@ const setFMBerrys = (areaIndexId, berryId) => {
     gameMapNew.value[areaIndexId].berry = ['?', '?', '?']
   }
 }
-const handleClickChangeFMBerrys = berryId => {
+const handleChangeFMBerrys = berryId => {
   setFMBerrys(0, berryId)
   setFMBerrys(7, berryId) //greened, 加8岛记得改序号
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
@@ -516,7 +516,7 @@ const handleClickChangeFMBerrys = berryId => {
 
   fnUpdateRank() // 更新排行榜
 }
-const handleClickChangeExBonus = (type, berryId) => {
+const handleChangeExBonus = (type, berryId) => {
   if (helpSpeedCalcForm.value.greenex[type].includes(berryId)) {
     helpSpeedCalcForm.value.greenex[type] = helpSpeedCalcForm.value.greenex[type].filter(item => item !== berryId)
   } else {
@@ -637,7 +637,7 @@ const getTeamCurEnergyLevel = () => {
   return 0
 }
 
-const handleClickChangeRankSort = rankSort => {
+const handleChangeRankSort = rankSort => {
   helpSpeedCalcForm.value.rankSort = rankSort
 }
 const getNowUseRankSort = () => {
@@ -1115,7 +1115,7 @@ watch(helpSpeedCalcForm.value, val => {
             v-if="!(mapItem.id.indexOf('berry_') > -1)"
             v-bind:key="mapItem.id"
             :class="{ cur: helpSpeedCalcForm.curMap === mapIndex }"
-            @click="handleClickChangeMap(mapIndex)"
+            @click="handleChangeMap(mapIndex)"
           >
             <div class="cpt-select-list__name">
               {{ $t(`ILAND.${mapItem.id}`) }}
@@ -1160,7 +1160,7 @@ watch(helpSpeedCalcForm.value, val => {
           >
             <li
               class="cpt-select-list__item"
-              @click="handleClickChangeFMBerrys(+key)"
+              @click="handleChangeFMBerrys(+key)"
               :class="{ cur: gameMapNew[0].berry.includes(+key) }"
             >
               <div class="cpt-select-list__name">
@@ -1287,28 +1287,28 @@ watch(helpSpeedCalcForm.value, val => {
         size="small"
         color="#fdb43b"
         :plain="helpSpeedCalcForm.rankSort !== 'energy'"
-        @click="handleClickChangeRankSort('energy')"
+        @click="handleChangeRankSort('energy')"
         >总能量↓</el-button
       >
       <el-button
         size="small"
         color="#41ae3c"
         :plain="helpSpeedCalcForm.rankSort !== 'berry'"
-        @click="handleClickChangeRankSort('berry')"
+        @click="handleChangeRankSort('berry')"
         >树果能量↓</el-button
       >
       <el-button
         size="small"
         color="#fcc307"
         :plain="helpSpeedCalcForm.rankSort !== 'food'"
-        @click="handleClickChangeRankSort('food')"
+        @click="handleChangeRankSort('food')"
         >食材能量↓</el-button
       >
       <el-button
         size="small"
         color="#5cb3cc"
         :plain="helpSpeedCalcForm.rankSort !== 'skillCount'"
-        @click="handleClickChangeRankSort('skillCount')"
+        @click="handleChangeRankSort('skillCount')"
         >技能次数↓</el-button
       >
     </el-form-item>
@@ -1390,7 +1390,7 @@ watch(helpSpeedCalcForm.value, val => {
             >
               <li
                 class="cpt-select-list__item"
-                @click="handleClickChangeExBonus('moreFood', +berryKey)"
+                @click="handleChangeExBonus('moreFood', +berryKey)"
                 :class="{
                   cur: helpSpeedCalcForm.greenex.moreFood.includes(berryKey),
                 }"
@@ -1418,7 +1418,7 @@ watch(helpSpeedCalcForm.value, val => {
             >
               <li
                 class="cpt-select-list__item"
-                @click="handleClickChangeExBonus('moreBerryEngery', +berryKey)"
+                @click="handleChangeExBonus('moreBerryEngery', +berryKey)"
                 :class="{
                   cur: helpSpeedCalcForm.greenex.moreBerryEngery.includes(berryKey),
                 }"
