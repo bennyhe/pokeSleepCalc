@@ -25,6 +25,16 @@ const props = defineProps({
     default: false
   }
 })
+
+const gameMapNew = JSON.parse(JSON.stringify(gameMap))
+if (+props.curDialogPokeId === 491) {
+  gameMapNew.forEach(gitem => {
+    // console.log(gitem.levelList[0].sleepStyles)
+    gitem.levelList[0].sleepStyles.push('491-id-1')
+    gitem.levelList[0].sleepStyles.push('491-id-2')
+    gitem.levelList[0].sleepStyles.push('491-id-3')
+  })
+}
 </script>
 <template>
   <CptDialog :isShow="isShow" v-bind:key="dialogId">
@@ -135,7 +145,10 @@ const props = defineProps({
                   }}
                 </p>
                 <ul class="cpt-select-list">
-                  <template v-for="mapItem in gameMap" v-bind:key="mapItem.id">
+                  <template
+                    v-for="mapItem in gameMapNew"
+                    v-bind:key="mapItem.id"
+                  >
                     <template
                       v-for="sleepsItem in getUnLockSleeps(
                         mapItem.id,

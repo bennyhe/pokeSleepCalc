@@ -46,9 +46,11 @@ gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.id, gitem.levelList, 34).allUnlockSleepsList
   console.log(curMapSleeps)
   gameMapPokemons.push({
-    levelPokemons: [],
-    allPokemons: [],
-    pokemonsIdToMapLevelIndex: {}
+    levelPokemons: [[491]],
+    allPokemons: [491],
+    pokemonsIdToMapLevelIndex: {
+      491: 0
+    }
   })
   curMapSleeps.forEach(sleepsItem => {
     if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
@@ -71,7 +73,7 @@ gameMap.forEach((gitem, gkey) => {
     }
   })
 })
-// console.log(gameMapPokemons)
+// console.log('gameMapPokemons', gameMapPokemons)
 
 const filterItemInFor = (pokeItem, resList, orgList, keyVel, title) => {
   if (pokeItem[keyVel] && !orgList.includes(pokeItem[keyVel])) {
