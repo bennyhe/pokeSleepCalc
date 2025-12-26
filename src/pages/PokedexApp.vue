@@ -44,7 +44,7 @@ const gameMapPokemons = [
 ]
 gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.id, gitem.levelList, 34).allUnlockSleepsList
-  console.log(curMapSleeps)
+  // console.log(curMapSleeps)
   gameMapPokemons.push({
     levelPokemons: [[491]],
     allPokemons: [491],

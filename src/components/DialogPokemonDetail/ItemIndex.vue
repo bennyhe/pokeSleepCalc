@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, watch } from 'vue'
 import CptDialog from '../Dialog/index.vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import CptSleepStyle from '../CptSleepStyle/SleepItem.vue'
@@ -27,14 +27,12 @@ const props = defineProps({
 })
 
 const gameMapNew = JSON.parse(JSON.stringify(gameMap))
-if (+props.curDialogPokeId === 491) {
-  gameMapNew.forEach(gitem => {
-    // console.log(gitem.levelList[0].sleepStyles)
-    gitem.levelList[0].sleepStyles.push('491-id-1')
-    gitem.levelList[0].sleepStyles.push('491-id-2')
-    gitem.levelList[0].sleepStyles.push('491-id-3')
-  })
-}
+gameMapNew.forEach(gitem => {
+  // console.log(gitem.levelList[0].sleepStyles)
+  gitem.levelList[0].sleepStyles.push('491-id-1')
+  gitem.levelList[0].sleepStyles.push('491-id-2')
+  gitem.levelList[0].sleepStyles.push('491-id-3')
+})
 </script>
 <template>
   <CptDialog :isShow="isShow" v-bind:key="dialogId">
