@@ -54,7 +54,7 @@ const getWithData = rItem => {
 const getCptPokeShowKey = () => {
   const arr = ['helpSpeedHM']
   if (props.showType === 'berry') {
-    arr.push('foodPer')
+    arr.push('foodPer', 'pokeType')
   } else if (props.showType === 'food') {
     arr.push('foodPer', 'food')
   } else {
