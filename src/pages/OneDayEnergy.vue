@@ -67,7 +67,7 @@ onMounted(() => {
         if (pokeItem.food) { // 如果有食材排列
 
           const limits = fnGetFoodIndexLimits(pokeItem.id, 60)
-          const tempFoodType = fnGenerateFoodCombinations(limits)
+          const tempFoodType = fnGenerateFoodCombinations(limits, +pokeItem.id === 491)
 
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
             const useFood = [

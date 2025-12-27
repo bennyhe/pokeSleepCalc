@@ -886,12 +886,13 @@ h4 {
   }
 
   &--s {
+    $imgSize: 18px;
     .cpt-food__item {
-      width: 20px;
+      width: $imgSize;
     }
 
     img {
-      height: 20px;
+      height: $imgSize;
     }
   }
 

@@ -54,7 +54,7 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
   // 特殊情况2：达克莱伊(491)
   if (+pokemonId === 491) {
     const darkraiFoodTypes = pokedexAll[491].food.type.length
-    const darkraiLimits = [2, 2, darkraiFoodTypes]
+    const darkraiLimits = [darkraiFoodTypes, 1, 1]
     return darkraiLimits.slice(0, arrayLength)
   }
 
@@ -66,10 +66,24 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
 /**
  * 遍历出所有可能的食物类型组合
  * @param {Array} limits 
+ * @param {Boolean} uniform 用来只输出所有的aaa
  * @returns 
  */
-export function fnGenerateFoodCombinations(limits) {
+export function fnGenerateFoodCombinations(limits, uniform) {
+  uniform = uniform || false
   const combinations = []
+
+  // 👉 同值模式
+  if (uniform) {
+    const loopCount = limits[0] || 0       // for 循环次数
+    const subLength = limits.length        // 子数组长度
+
+    for (let i = 0; i < loopCount; i++) {
+      combinations.push(new Array(subLength).fill(i))
+    }
+    // console.log(limits, combinations)
+    return combinations
+  }
 
   // 递归函数生成所有组合
   function generate(current, depth) {
@@ -104,7 +118,7 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
   const resRankArr = []
 
   const limits = fnGetFoodIndexLimits(+newPokeItem.id, pokeLevel)
-  let tempFoodType = fnGenerateFoodCombinations(limits)
+  let tempFoodType = fnGenerateFoodCombinations(limits, +newPokeItem.id === 491)
 
   if (isPlayer) { // 玩家则
     tempFoodType = [[...pokeUseFoods]]
