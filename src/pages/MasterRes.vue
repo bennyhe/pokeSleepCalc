@@ -39,103 +39,118 @@ const handleChangePokemon = pokeId => {}
     <!-- <p>最后更新：{{ formatTime(masterRes.updateTime) }}</p> -->
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
   </div>
-  <el-form label-width="90px">
-    <el-form-item>
-      <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" v-bind:key="iltKey">
+  <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" v-bind:key="iltKey">
+    <img
+      v-for="pokes in iltItem.ids"
+      class="icon"
+      v-lazy="`./img/pokedex/${pokes}.png`"
+      :alt="$t(`POKEMON_NAME.${pokes}`)"
+      v-bind:key="pokes"
+    />
+    {{
+      formatTime(
+        new Date(iltItem.starttime).getTime() +
+          IN_LAST_TIME_DAYS * 60 * 60 * 24 * 1000
+      )
+    }}
+    /
+    {{
+      formatTime(
+        new Date(iltItem.starttime).getTime() + 154 * 60 * 60 * 24 * 1000
+      )
+    }}
+  </p>
+  <!-- S 当前岛屿 -->
+  <ul class="cpt-select-list">
+    <li
+      @click="handleClickChangeMap(mapIndex)"
+      v-for="(mapItem, mapIndex) in gameMap"
+      v-bind:key="mapItem.id"
+    >
+      <div
+        class="cpt-select-list__item"
+        :class="{ cur: pageData.curMap === mapIndex }"
+      >
+        <div class="cpt-select-list__name">
+          {{ $t(`ILAND.${mapItem.id}`) }}
+          <div></div>
+        </div>
         <img
-          v-for="pokes in iltItem.ids"
-          class="icon"
-          v-lazy="`./img/pokedex/${pokes}.png`"
-          :alt="$t(`POKEMON_NAME.${pokes}`)"
-          v-bind:key="pokes"
+          v-if="mapItem.pic"
+          class="cpt-select-list__bg"
+          v-lazy="`./img/ui/${mapItem.pic}.png`"
+          :alt="mapItem.name"
         />
-        {{
-          formatTime(
-            new Date(iltItem.starttime).getTime() +
-              IN_LAST_TIME_DAYS * 60 * 60 * 24 * 1000
-          )
-        }}
-        /
-        {{
-          formatTime(
-            new Date(iltItem.starttime).getTime() + 154 * 60 * 60 * 24 * 1000
-          )
-        }}
-      </p>
-    </el-form-item>
-    <!-- S 当前岛屿 -->
-    <el-form-item :label="$t('OPTIONS.formLableCurIland')">
-      <ul class="cpt-select-list">
-        <li
-          @click="handleClickChangeMap(mapIndex)"
-          v-for="(mapItem, mapIndex) in gameMap"
-          v-bind:key="mapItem.id"
-        >
-          <div
-            class="cpt-select-list__item"
-            :class="{ cur: pageData.curMap === mapIndex }"
-          >
-            <div class="cpt-select-list__name">
-              {{ $t(`ILAND.${mapItem.id}`) }}
-              <div></div>
-            </div>
-            <img
-              v-if="mapItem.pic"
-              class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
-              :alt="mapItem.name"
-            />
-          </div>
+      </div>
+      <template
+        v-for="(cItem, cKey) in SLEEP_TYPES"
+        v-bind:key="`${mapItem.id}_${tdKey}_${cItem}`"
+      >
+        <span style="display: inline-block; width: 30px">
           <template
-            v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="`${mapItem.id}_${tdKey}_${cItem}`"
+            v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
+              mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
+              mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
+            )"
+            v-bind:key="`${mapItem.id}_${tdKey}`"
           >
             <template
-              v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
-                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
-                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
-              )"
-              v-bind:key="`${mapItem.id}_${tdKey}`"
+              v-for="hopeItem in tdItem.res.slice(0, 1)"
+              v-bind:key="hopeItem.pokeId"
             >
-              <template
-                v-for="hopeItem in tdItem.res.slice(0, 1)"
-                v-bind:key="hopeItem.pokeId"
-              >
-                <CptAvatar :pokeId="hopeItem.pokeId">
-                  <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-                </CptAvatar>
-              </template>
+              <CptAvatar :pokeId="hopeItem.pokeId">
+                <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
+              </CptAvatar>
             </template>
           </template>
-        </li>
-      </ul>
-    </el-form-item>
-    <!-- E 当前岛屿 -->
-    <el-form-item :label="$t('PROP.pokemon')">
-      <div style="width: 100%">
-        <el-select
-          v-model="pageData.pokemonId"
-          filterable
-          @change="handleChangePokemon()"
-        >
-          <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-            <el-option
-              :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-#${pokeItem.id}`"
-              :value="pokeItem.id"
-            >
-              <img
-                class="icon"
-                v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-                :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-                v-bind:key="pokeItem.id"
-              />
-              {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-#{{ pokeItem.id }}
-            </el-option>
-          </template>
-        </el-select>
-      </div>
-    </el-form-item>
-  </el-form>
+          <!-- <template v-if="masterRes.level20.actTime.list.length > 0">
+                <template
+                  v-for="(
+                    tdItem, tdKey
+                  ) in masterRes.level20.actTime.list.slice(
+                    mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
+                    mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
+                  )"
+                  v-bind:key="`${mapItem.id}2_${tdKey}`"
+                >
+                  <template
+                    v-for="hopeItem in tdItem.res.slice(0, 1)"
+                    v-bind:key="hopeItem.pokeId"
+                  >
+                    <CptAvatar :pokeId="hopeItem.pokeId">
+                      <p>
+                        {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
+                      </p>
+                    </CptAvatar>
+                  </template>
+                </template>
+              </template> -->
+        </span>
+      </template>
+    </li>
+  </ul>
+  <!-- E 当前岛屿 -->
+  {{ $t("PROP.pokemon") }}
+  <el-select
+    v-model="pageData.pokemonId"
+    filterable
+    @change="handleChangePokemon()"
+  >
+    <template v-for="pokeItem in pokedex" :key="pokeItem.id">
+      <el-option
+        :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-#${pokeItem.id}`"
+        :value="pokeItem.id"
+      >
+        <img
+          class="icon"
+          v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+          :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
+          v-bind:key="pokeItem.id"
+        />
+        {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-#{{ pokeItem.id }}
+      </el-option>
+    </template>
+  </el-select>
   <div v-if="pageData.pokemonId">
     <table>
       <thead>
