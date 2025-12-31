@@ -188,7 +188,7 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
   const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus, mapBonusData)
   const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, level, isRightBerry, areaBonus, mapBonusData)
   let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
-  if (oneDaySkillEffects.type === 'energy') {
+  if (['energy', 'berrys'].includes(oneDaySkillEffects.type)) {
     oneDayEnergy += oneDaySkillEffects.value
   }
   return {
