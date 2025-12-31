@@ -7,6 +7,19 @@ import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
 import GAME_VALS from '../i18n/lang/cn/game.js'
 const { FOOD_TYPES, BERRY_TYPES, SKILL_TYPES } = GAME_VALS
 
+const getAfterBonusBerryEnergy = (berryRes, berryType, isRightBerry, mapBonusData) => {
+  let res = berryRes
+  if (isRightBerry) {
+    // ex岛屿
+    if (get('curMapData.id', mapBonusData) === 'greenex' && get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(berryType)) { //已选中对应树果2.4倍树果能量
+      res = res * 2.4
+    } else {
+      res = res * 2
+    }
+  }
+  return res
+}
+
 const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, areaBonus, mapBonusData) => {
   areaBonus = areaBonus || 0
   let pokeType = [1, 4].includes(+pokeItem.pokeType) ? 2 : 1 // 树果型、全类型自带树果*2
@@ -14,18 +27,11 @@ const getOneDayBerryEnergy = (pokeItem, pokeLevel, isDoubleBerry, isRightBerry, 
     pokeType++
   }
   const berryCount = getDecimalNumber(pokeItem.oneDayHelpCount.berry * pokeType, 1)
-  let res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
-  if (isRightBerry) {
-    // ex岛屿
-    if (get('curMapData.id', mapBonusData) === 'greenex' && get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果2.4倍树果能量
-      res = res * 2.4
-    } else {
-      res = res * 2
-    }
-  }
+  const res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
+  const berryEnergy = getAfterBonusBerryEnergy(res, pokeItem.berryType, isRightBerry, mapBonusData)
   return {
     berryCount,
-    berryEnergy: Math.floor(res * (1 + areaBonus / 100))
+    berryEnergy: Math.floor(berryEnergy * (1 + areaBonus / 100))
   }
 }
 const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
@@ -86,34 +92,50 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
 /**
  * 获取技能效果
  * @param {Object} pokeItem 宝可梦数据
+ * @param {Number} pokeLevel 宝可梦等级
  * @param {Number} areaBonus 岛屿加成
  * @returns 
  */
-const getOneDaySkillEffects = (pokeItem, areaBonus) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23] // , 11, 14
+const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, mapBonusData) => {
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
+  const skillExtra = {}
   if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType])) {
     let skillOnceEnergy = 0
-    const curSkillValue = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].value
-    if (Array.isArray(curSkillValue)) { // 区间则取平均值
-      skillOnceEnergy = curSkillValue.reduce((sum, current) => sum + current, 0) / curSkillValue.length
-    } else {
-      skillOnceEnergy = curSkillValue
+    const curSkillVal = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].value // 获得当前技能的发动值
+    if ([1, 2, 5, 3, 6, 23].includes(pokeSkillType)) { // 能量填充 & 获得梦碎主技能
+      if (Array.isArray(curSkillVal)) { // 区间则取平均值
+        skillOnceEnergy = curSkillVal.reduce((sum, current) => sum + current, 0) / curSkillVal.length
+      } else {
+        skillOnceEnergy = curSkillVal
+      }
+    } else if ([17, 21].includes(pokeSkillType)) { // 树果递增
+      // console.log(pokeBerryType, pokeLevel, curSkillVal)
+      const res = curSkillVal * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
+      skillOnceEnergy = getAfterBonusBerryEnergy(res, pokeItem.berryType, isRightBerry, mapBonusData)
+      skillExtra.berrys = [{
+        berryType: pokeItem.berryType,
+        berryCount: getDecimalNumber(curSkillVal * pokeSkillCount, 1)
+      }]
     }
     let energy = pokeSkillCount * skillOnceEnergy
     let type = 'energy'
-    if ([1, 2, 5, 23].includes(pokeSkillType) && areaBonus) {
+    if ([1, 2, 5, 23, 17, 21].includes(pokeSkillType) && areaBonus) {
       energy = energy * (1 + areaBonus / 100)
     }
     if ([3, 6].includes(pokeSkillType)) {
       type = 'shards'
     }
+    if ([17, 21].includes(pokeSkillType)) {
+      type = 'berrys'
+    }
     // console.log(pokeItem, areaBonus)
     return {
       type,
-      value: Math.floor(energy)
+      value: Math.floor(energy),
+      skillExtra
     }
   }
   return {}
@@ -164,7 +186,7 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     mapBonusData
   )
   const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus, mapBonusData)
-  const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, areaBonus)
+  const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, level, isRightBerry, areaBonus, mapBonusData)
   let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
   if (oneDaySkillEffects.type === 'energy') {
     oneDayEnergy += oneDaySkillEffects.value

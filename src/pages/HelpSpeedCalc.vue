@@ -511,18 +511,26 @@ const handleChangeFMBerrys = berryId => {
 
   helpSpeedCalcForm.value.greenex.moreBerryEngery = []
   helpSpeedCalcForm.value.greenex.moreFood = []
-  localStorage.setItem('PSC_FMEXBs', JSON.stringify(helpSpeedCalcForm.value.greenex))
+  localStorage.setItem(
+    'PSC_FMEXBs',
+    JSON.stringify(helpSpeedCalcForm.value.greenex)
+  )
   // console.log(gameMapNew.value[0].berry)
 
   fnUpdateRank() // 更新排行榜
 }
 const handleChangeExBonus = (type, berryId) => {
   if (helpSpeedCalcForm.value.greenex[type].includes(berryId)) {
-    helpSpeedCalcForm.value.greenex[type] = helpSpeedCalcForm.value.greenex[type].filter(item => item !== berryId)
+    helpSpeedCalcForm.value.greenex[type] = helpSpeedCalcForm.value.greenex[
+      type
+    ].filter(item => item !== berryId)
   } else {
     helpSpeedCalcForm.value.greenex[type].push(berryId)
   }
-  localStorage.setItem('PSC_FMEXBs', JSON.stringify(helpSpeedCalcForm.value.greenex))
+  localStorage.setItem(
+    'PSC_FMEXBs',
+    JSON.stringify(helpSpeedCalcForm.value.greenex)
+  )
   fnUpdateRank() // 更新排行榜
 }
 const handleChangeAreaBonus = () => {
@@ -1383,9 +1391,12 @@ watch(helpSpeedCalcForm.value, val => {
           帮手宝可梦的帮忙间隔缩短10%
         </div>
         <div>
-          <ul class="cpt-select-list cpt-select-list--berry" v-if="gameMapNew[0].berry.join('') !== '???'">
+          <ul
+            class="cpt-select-list cpt-select-list--berry"
+            v-if="gameMapNew[0].berry.join('') !== '???'"
+          >
             <template
-              v-for="(berryKey) in gameMapNew[0].berry"
+              v-for="berryKey in gameMapNew[0].berry"
               v-bind:key="`loveberry1_${$t(`BERRY_TYPES.${berryKey}`)}`"
             >
               <li
@@ -1411,16 +1422,21 @@ watch(helpSpeedCalcForm.value, val => {
           对应树果帮手宝可梦平常帮忙食材增加1个
         </div>
         <div>
-          <ul class="cpt-select-list cpt-select-list--berry" v-if="gameMapNew[0].berry.join('') !== '???'">
+          <ul
+            class="cpt-select-list cpt-select-list--berry"
+            v-if="gameMapNew[0].berry.join('') !== '???'"
+          >
             <template
-              v-for="(berryKey) in gameMapNew[0].berry"
+              v-for="berryKey in gameMapNew[0].berry"
               v-bind:key="`loveberry2_${$t(`BERRY_TYPES.${berryKey}`)}`"
             >
               <li
                 class="cpt-select-list__item"
                 @click="handleChangeExBonus('moreBerryEngery', +berryKey)"
                 :class="{
-                  cur: helpSpeedCalcForm.greenex.moreBerryEngery.includes(berryKey),
+                  cur: helpSpeedCalcForm.greenex.moreBerryEngery.includes(
+                    berryKey
+                  ),
                 }"
               >
                 <div class="cpt-select-list__name">

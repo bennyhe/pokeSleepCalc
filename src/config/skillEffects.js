@@ -177,6 +177,78 @@ export const skillEffects = {
       }
     ]
   },
+  17: {
+    id: 17,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 8,
+        teamValue: 1
+      },
+      {
+        level: 2,
+        value: 10,
+        teamValue: 2
+      },
+      {
+        level: 3,
+        value: 15,
+        teamValue: 2
+      },
+      {
+        level: 4,
+        value: 17,
+        teamValue: 3
+      },
+      {
+        level: 5,
+        value: 19,
+        teamValue: 4
+      },
+      {
+        level: 6,
+        value: 21,
+        teamValue: 5
+      }
+    ]
+  },
+  21: {
+    id: 21,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 11,
+        teamValue: 1
+      },
+      {
+        level: 2,
+        value: 14,
+        teamValue: 2
+      },
+      {
+        level: 3,
+        value: 21,
+        teamValue: 2
+      },
+      {
+        level: 4,
+        value: 24,
+        teamValue: 3
+      },
+      {
+        level: 5,
+        value: 27,
+        teamValue: 4
+      },
+      {
+        level: 6,
+        value: 30,
+        teamValue: 5
+      }
+    ]
+  },
   23: {
     id: 23,
     maxLevel: 7,

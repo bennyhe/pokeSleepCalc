@@ -593,6 +593,8 @@ export const getSkillLevel = pokeSkillType => {
   const arrLevel = [1, 2, 3, 4, 5, 6, 7]
   if ([3, 6].includes(pokeSkillType)) {
     arrLevel.push(8)
+  } else if ([4, 7, 8, 14, 15, 17, 18, 21, 22].includes(pokeSkillType)) {
+    arrLevel.splice(6, 1)
   }
   return arrLevel
 }
