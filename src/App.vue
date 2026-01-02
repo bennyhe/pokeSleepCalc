@@ -21,10 +21,8 @@ import PageCandyCalc from './pages/CandyCalc.vue'
 import PageMasterRes from './pages/MasterRes.vue'
 import PageFindPm from './pages/FindPm.vue'
 
-import { updatePoke } from './config/pokedex.js'
 import { NAV_LANG, NAV_PAGE } from './config/nav.js'
 
-const newUpdatePoke = [...updatePoke.reverse()]
 const navData = ref(NAV_PAGE)
 
 const handleClickNav = key => {
@@ -120,17 +118,16 @@ onMounted(() => {
     >
       <PageOneDayEnergy />
     </div>
-    <div
-      class="page-item"
-      :class="{ cur: +navData.navIndex === 6 }"
-      v-if="+navData.navIndex === 6"
-    >
-      <PageNew :newUpdatePoke="newUpdatePoke" />
+    <div class="page-item" :class="{ cur: +navData.navIndex === 6 }">
+      <PageNew />
     </div>
     <div class="page-item cur" v-if="navData.navIndex === '0383a0134484d5bd'">
       <PageSleepLab />
     </div>
-    <div class="page-item cur page-master" v-if="navData.navIndex === 'master20'">
+    <div
+      class="page-item cur page-master"
+      v-if="navData.navIndex === 'master20'"
+    >
       <PageMasterRes />
     </div>
     <div class="page-item cur page-findpm" v-if="navData.navIndex === 'findpm'">

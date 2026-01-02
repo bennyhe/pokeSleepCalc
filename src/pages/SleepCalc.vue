@@ -850,6 +850,15 @@ const getQuickChangeSleepPoint = () => {
                         v-bind:key="`pomap_${
                           gameMapPokemons[userData.curMap].id
                         }`"
+                        :class="{
+                          'td-none':
+                            gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ] &&
+                            gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ].length === 0,
+                        }"
                       >
                         <template
                           v-if="
