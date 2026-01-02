@@ -1167,7 +1167,7 @@ const getQuickChangeSleepPoint = () => {
                   getNum(getScore(100))
                 }}</span
                 >{{ $t("PROP.dpr") }}</span
-              >掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+              >，掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
               >点活力
             </p>
           </el-form-item>
@@ -1253,7 +1253,7 @@ const getQuickChangeSleepPoint = () => {
                     }})</span
                   ></span
                 >+{{ $t("PROP.dpr") }}</span
-              >掉<span class="vigour">{{
+              >，掉<span class="vigour">{{
                 getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
               }}</span
               >点活力
@@ -1285,7 +1285,7 @@ const getQuickChangeSleepPoint = () => {
                   class="spscore"
                   >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
                 >+{{ $t("PROP.dpr") }}</span
-              >掉<span class="vigour">{{
+              >，掉<span class="vigour">{{
                 getLostVigour(
                   toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
                 )
