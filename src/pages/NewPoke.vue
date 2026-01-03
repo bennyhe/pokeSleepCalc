@@ -36,7 +36,7 @@ const getShowKeyVal = pokemonsItem => {
 }
 const NewPokesByDate = ref([
   {
-    year: 2023,
+    year: 2025,
     list: new Array(12).fill([])
   },
   {
@@ -44,7 +44,7 @@ const NewPokesByDate = ref([
     list: new Array(12).fill([])
   },
   {
-    year: 2025,
+    year: 2023,
     list: new Array(12).fill([])
   }
 ])
