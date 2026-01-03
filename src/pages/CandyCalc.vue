@@ -126,6 +126,8 @@ const handleChangeActUp = () => {
   candyCalcForm.value.useExps = actType[candyCalcForm.value.actUp].useExps
   candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
 }
+
+console.log('init page candycalc...')
 </script>
 
 <template>

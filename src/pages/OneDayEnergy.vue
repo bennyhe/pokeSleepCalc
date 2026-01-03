@@ -2,11 +2,15 @@
 import { ref, onMounted } from 'vue'
 import { Place } from '@element-plus/icons-vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
+import CptEnergyRowItem from '../components/CptEnergy/EnergyRowItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
-import { sortInObjectOptions, containsAny } from '../utils/index.js'
-import { fnGetFoodIndexLimits, fnGenerateFoodCombinations } from '../utils/helpcalc.js'
+import { sortInObjectOptions, containsAny, get } from '../utils/index.js'
+import {
+  fnGetFoodIndexLimits,
+  fnGenerateFoodCombinations
+} from '../utils/helpcalc.js'
 import {
   getOneDayEnergy,
   getOneDayHelpCount,
@@ -31,7 +35,7 @@ const pageData = ref({
   curPageIndex: 1,
   pageSize: 102,
   areaBonus: areaBonusMax,
-  collapseActName: 'food'
+  collapseActName: ''
 })
 const foodResRank = ref({})
 const berryResRank = ref({})
@@ -64,10 +68,14 @@ onMounted(() => {
           pokeItem.skillPer
         )
 
-        if (pokeItem.food) { // 如果有食材排列
+        if (pokeItem.food) {
+          // 如果有食材排列
 
           const limits = fnGetFoodIndexLimits(pokeItem.id, 60)
-          const tempFoodType = fnGenerateFoodCombinations(limits, +pokeItem.id === 491)
+          const tempFoodType = fnGenerateFoodCombinations(
+            limits,
+            +pokeItem.id === 491
+          )
 
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
             const useFood = [
@@ -231,10 +239,24 @@ const handleClickFilterPokes = (typeKey, val) => {
   }
   getChangeOptionsAfterData()
 }
+const filterOnceTop = (dataList, typeKey, topCount) => {
+  const hasList = []
+  const res = []
+  for (let i = 0; i < 100; i++) {
+    const pokeItem = dataList[i]
+    if(get('pokemonId', pokeItem) && !hasList.includes(pokeItem.pokemonId)){
+      res.push({...pokeItem})
+      hasList.push(pokeItem.pokemonId)
+    }
+    
+  }
+  return res.slice(0, topCount)
+}
 
 // const handleClickSlider = () => {
 //   getChangeOptionsAfterData()
 // }
+console.log('init page onedayenergy...')
 </script>
 
 <template>
@@ -384,6 +406,23 @@ const handleClickFilterPokes = (typeKey, val) => {
       :handleClickFilterReset="handleClickFilterReset"
     />
   </div>
+  <div class="cpt-energyrow" v-if="pageData.resRankArr.length > 0">
+    <template
+      v-for="(pokeItem, pokeKey) in filterOnceTop(pageData.resRankArr, 'all', 10)"
+      v-bind:key="`area${pageData.curMap}_${
+        pokeItem.pokemonId
+      }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}_2`"
+    >
+      <CptEnergyRowItem
+        :pokeItem="pokeItem"
+        :pokeKey="pokeKey"
+        :maxEnergy="filterOnceTop(pageData.resRankArr, 'all', 10)[0].oneDayEnergy"
+        :isHightLightBerry="
+          newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
+        "
+        />
+    </template>
+  </div>
   <div
     class="cpt-pagination"
     v-if="pageData.resRankArr.length / pageData.pageSize > 1"
@@ -409,6 +448,9 @@ const handleClickFilterPokes = (typeKey, val) => {
           'skillPer',
           'skillType',
         ]"
+        :isHightLightBerry="
+          newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
+        "
         v-if="
           pokeKey >= (pageData.curPageIndex - 1) * pageData.pageSize &&
           pokeKey <
@@ -417,9 +459,6 @@ const handleClickFilterPokes = (typeKey, val) => {
         v-bind:key="`area${pageData.curMap}_${
           pokeItem.pokemonId
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
-        :isHightLightBerry="
-          newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
-        "
       />
     </template>
   </div>
