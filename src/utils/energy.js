@@ -102,7 +102,7 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
   const skillExtra = {}
-  if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType])) {
+  if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType]) && skillEffects[pokeSkillType].effects[pokeSkillLevel - 1]) {
     let skillOnceEnergy = 0
     const curSkillVal = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].value // 获得当前技能的发动值
     if ([1, 2, 5, 3, 6, 23].includes(pokeSkillType)) { // 能量填充 & 获得梦碎主技能
