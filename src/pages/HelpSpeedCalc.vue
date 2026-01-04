@@ -691,6 +691,7 @@ watch(helpSpeedCalcForm.value, val => {
               pokeItem.helpSpeed
             }s`"
             :value="pokeItem.id"
+            v-if="pokeItem.id.toString().indexOf('-') === -1"
           >
             <img
               class="icon"
@@ -1278,6 +1279,7 @@ watch(helpSpeedCalcForm.value, val => {
               pokeItem.helpSpeed
             }s`"
             :value="pokeItem.id"
+            v-if="pokeItem.id.toString().indexOf('-') === -1"
           >
             <img
               class="icon"

@@ -1429,6 +1429,7 @@ const getQuickChangeSleepPoint = () => {
                       +extractPrefix(pokeItem.id)
                     )
                   "
+                  v-if="pokeItem.id.toString().indexOf('-') === -1"
                 >
                   <img
                     class="icon"

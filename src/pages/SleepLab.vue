@@ -19,6 +19,7 @@ import { NAV_SLEEPLAB } from '../config/nav.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
+import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
 
 const navData = ref(NAV_SLEEPLAB)
 const pageData = ref({
@@ -364,20 +365,7 @@ const handleChangeInputPM = () => {
         collapse-tags
         collapse-tags-tooltip
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
-          </el-option>
-        </template>
+        <CptSelectOptions />
       </el-select>
       <CptAvatar
         :pokeId="pokeId"
@@ -395,20 +383,7 @@ const handleChangeInputPM = () => {
         collapse-tags
         collapse-tags-tooltip
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
-          </el-option>
-        </template>
+        <CptSelectOptions />
       </el-select>
     </el-form-item>
     <el-form-item label="大UP">
@@ -422,20 +397,7 @@ const handleChangeInputPM = () => {
         collapse-tags
         collapse-tags-tooltip
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
-          </el-option>
-        </template>
+        <CptSelectOptions />
       </el-select>
       <CptAvatar
         :pokeId="pokeId"
@@ -454,20 +416,7 @@ const handleChangeInputPM = () => {
         collapse-tags
         collapse-tags-tooltip
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="$t(`POKEMON_NAME.${pokeItem.id}`)"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${pokeItem.id}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
-          </el-option>
-        </template>
+        <CptSelectOptions />
       </el-select>
       <CptAvatar
         :pokeId="pokeId"
