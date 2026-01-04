@@ -12,7 +12,7 @@ import { pokedex } from '../../config/pokedex.js'
 <template>
   <template v-for="pokeItem in pokedex" :key="pokeItem.id">
     <el-option
-      :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
+      :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-#${ pokeItem.id }`"
       :value="pokeItem.id"
       v-if="pokeItem.id.toString().indexOf('-') === -1"
     >
