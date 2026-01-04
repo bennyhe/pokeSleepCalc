@@ -1,7 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245, 488], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 488,
-    848, 849, 8001,
     177, 178,
     710, 711,
     328, 329, 330, 371, 372, 373, 557, 558,
@@ -17,10 +16,10 @@ export const IN_LAST_TIME_POKEMONS = [
   //   ids: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
   //   starttime: '2025/7/14 04:00'
   // },
-  {
-    ids: [848, 849, 8001],
-    starttime: '2025/8/11 04:00'
-  },
+  // {
+  //   ids: [848, 849, 8001],
+  //   starttime: '2025/8/11 04:00'
+  // },
   {
     ids: [177, 178],
     starttime: '2025/9/29 04:00'
@@ -57,7 +56,7 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
+  upIdsSmallIds: [177, 178, 311, 312, 328, 329, 330, 371, 372, 373, 442, 557, 558, 848, 849, 8001, 710, 711],
   upIdsMidIds: [],
   upIdsLargeIds: [],
   noLastList: []
@@ -190,7 +189,7 @@ export const ACT_LIST = [
     namejp: 'ニューイヤー2026(2週目)',
     startTime: 1767556800000,
     endTime: 1768161599000,
-    notArea: [1],
+    notArea: [],
     smallUp: [177, 178, 311, 312, 328, 329, 330, 371, 372, 373, 442, 557, 558, 848, 849, 8001, 710, 711],
     isActRandom: true,
     timelimitPokemons: {
