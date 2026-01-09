@@ -13,7 +13,7 @@ import {
 import {
   characterOptions
 } from '../config/helpSpeed.js'
-import { pokedex as pokedexAll } from '../config/pokedex.js'
+import { pokedex } from '../config/pokedex.js'
 import i18n from '../i18n'
 const { t } = i18n.global
 
@@ -30,7 +30,7 @@ const { t } = i18n.global
   如果等级大于等于60，则返回3位，即原来规则的数组。
 
   但是注意，我们之前的规则有三种情况：
-  a. 如果pokedexAll[pokemonId].food.type.length === 2，则返回[1,2,2] -> 现在要根据等级调整长度
+  a. 如果pokedex[pokemonId].food.type.length === 2，则返回[1,2,2] -> 现在要根据等级调整长度
   b. 如果是达克莱伊，返回三个相同的值（食物类型的长度）
   c. 默认返回[1,2,3]
  */
@@ -45,15 +45,15 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
     arrayLength = 3
   }
 
-  // 特殊情况1：如果pokedexAll[pokemonId].food.type.length === 2，返回[1,2,2]（根据等级截取）
-  if (pokedexAll[pokemonId] && pokedexAll[pokemonId].food && pokedexAll[pokemonId].food.type && pokedexAll[pokemonId].food.type.length === 2) {
+  // 特殊情况1：如果pokedex[pokemonId].food.type.length === 2，返回[1,2,2]（根据等级截取）
+  if (pokedex[pokemonId] && pokedex[pokemonId].food && pokedex[pokemonId].food.type && pokedex[pokemonId].food.type.length === 2) {
     const specialLimits = [1, 2, 2]
     return specialLimits.slice(0, arrayLength)
   }
 
   // 特殊情况2：达克莱伊(491)
   if (+pokemonId === 491) {
-    const darkraiFoodTypes = pokedexAll[491].food.type.length
+    const darkraiFoodTypes = pokedex[491].food.type.length
     const darkraiLimits = [darkraiFoodTypes, 1, 1]
     return darkraiLimits.slice(0, arrayLength)
   }
@@ -181,7 +181,7 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
 }
 
 // 获取选择帮忙速度的宝可梦分组
-export const initFilterGroup = pokedex => {
+export const initFilterGroup = () => {
   let byHelpSpeedResIn = []
   const byHelpSpeedOrgList = []
   for (const pokeKey in pokedex) {
@@ -319,12 +319,11 @@ const getPlayerExtraDesc = pokemons => {
 /**
  * 帮速计算-单个宝可梦横向对比数据列表
  * @param {*} helpSpeedCalcFormData 
- * @param {*} pokedex 
  * @param {*} pokeId 
  * @param {*} isUseRankSort 
  * @returns 
  */
-export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, isUseRankSort) => {
+export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankSort) => {
   let resRankArr = []
   const pokeItem = { ...pokedex[pokeId] }
   pokeItem.isShiny = helpSpeedCalcFormData.isShiny
@@ -363,6 +362,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
     character: 'none' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
 
+  // 如果选了对比的宝可梦
   if (helpSpeedCalcFormData.contrastPoke) {
     const tempPokeItem = { ...pokedex[helpSpeedCalcFormData.contrastPoke] }
     tempPokeItem.helpSpeed = getNewHelpSpeed(
@@ -450,6 +450,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   )
   tempPokeItem2.skillPer = getNewSkillPer(
     {
+      mainSkillUp: helpSpeedCalcFormData.mainSkillUp,
       ...tempSCOptions2
     },
     tempPokeItem2.skillPer
@@ -477,6 +478,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   )
   tempPokeItem3.skillPer = getNewSkillPer(
     {
+      mainSkillUp: helpSpeedCalcFormData.mainSkillUp,
       ...tempSCOptions3
     },
     tempPokeItem3.skillPer
@@ -504,6 +506,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   )
   tempPokeItem4.skillPer = getNewSkillPer(
     {
+      mainSkillUp: helpSpeedCalcFormData.mainSkillUp,
       ...tempSCOptions4
     },
     tempPokeItem4.skillPer
@@ -531,6 +534,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   )
   tempPokeItem5.skillPer = getNewSkillPer(
     {
+      mainSkillUp: helpSpeedCalcFormData.mainSkillUp,
       ...tempSCOptions5
     },
     tempPokeItem5.skillPer
@@ -558,6 +562,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokedex, pokeId, i
   )
   tempPokeItem6.skillPer = getNewSkillPer(
     {
+      mainSkillUp: helpSpeedCalcFormData.mainSkillUp,
       ...tempSCOptions6
     },
     tempPokeItem6.skillPer

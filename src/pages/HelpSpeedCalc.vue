@@ -94,7 +94,8 @@ const helpSpeedCalcForm = ref({
   greenex: {
     moreBerryEngery: [],
     moreFood: []
-  }
+  },
+  mainSkillUp: 1
 })
 const pageData = ref({
   collapseActName: '1'
@@ -314,7 +315,13 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
         }
       )
       pokeItem.foodPer = getNewFoodPer(upItem, pokeItem.foodPer)
-      pokeItem.skillPer = getNewSkillPer(upItem, pokeItem.skillPer)
+      pokeItem.skillPer = getNewSkillPer(
+        {
+          ...upItem,
+          mainSkillUp: helpSpeedCalcForm.value.mainSkillUp
+        },
+        pokeItem.skillPer
+      )
       pokeItem.maxcarry = getNewMaxcarry(upItem, pokeItem.maxcarry)
       // console.log(pokeItem)
       resRankArr = resRankArr.concat(
@@ -537,6 +544,9 @@ const handleChangeAreaBonus = () => {
   localStorage.setItem('PSC_AB', helpSpeedCalcForm.value.areaBonus)
   fnUpdateRank() // 更新排行榜
 }
+const handleChangeMainSkillUp = () => {
+  fnUpdateRank() // 更新排行榜
+}
 const handleClickAutoTeam = () => {
   userTeam.value.list = []
   const resList = getBoxCurEnergy(userPokemons.value.list)
@@ -666,7 +676,7 @@ const handleChangeGetSkillLevel = () => {
 }
 
 onMounted(() => {
-  byHelpSpeedRes.value = initFilterGroup(pokedex)
+  byHelpSpeedRes.value = initFilterGroup()
   setTargetListByHelp()
   fnUpdateRank() // 更新排行榜
 })
@@ -1200,6 +1210,23 @@ watch(helpSpeedCalcForm.value, val => {
         />
       </div>
     </el-form-item>
+    <el-form-item>
+      <template #label>
+        <span class="cpt-pokemon__skillper">技能率UP</span>
+      </template>
+      <div class="el-form-slider--bonus" style="width: 90%">
+        <el-slider
+          v-model="helpSpeedCalcForm.mainSkillUp"
+          :step="0.25"
+          :min="1"
+          :max="1.5"
+          :show-tooltip="false"
+          show-stops
+          :marks="{ 1: '1', 1.25: '1.25', 1.5: '1.5' }"
+          @change="handleChangeMainSkillUp()"
+        />
+      </div>
+    </el-form-item>
     <el-form-item :label="$t('PROP.ticket')">
       <el-switch
         v-model="helpSpeedCalcForm.isUseTicket"
@@ -1344,7 +1371,6 @@ watch(helpSpeedCalcForm.value, val => {
         }"
         v-for="(pokeItem, pokeKey) in getTargetPokemonEnergy(
           helpSpeedCalcForm,
-          pokedex,
           helpSpeedCalcForm.pokemonId,
           true
         )"
@@ -1580,6 +1606,12 @@ watch(helpSpeedCalcForm.value, val => {
         </el-collapse>
       </div>
       <!-- E 产出排行 -->
+      <p
+        v-if="userPokemons.list.length > 0 && helpSpeedCalcForm.mainSkillUp > 1"
+      >
+        <span class="cpt-pokemon__skillper">技能率UP: </span
+        >{{ helpSpeedCalcForm.mainSkillUp }}倍
+      </p>
       <div
         class="poke-tb poke-tb--xscorll poke-tb--box"
         v-if="userPokemons.list.length > 0"
@@ -1651,7 +1683,7 @@ watch(helpSpeedCalcForm.value, val => {
             >{{ helpSpeedCalcForm.areaBonus }}</span
           >%)
         </el-col>
-        <el-col span="12">
+        <el-col :span="6">
           <img
             class="icon"
             v-lazy="
@@ -1666,6 +1698,10 @@ watch(helpSpeedCalcForm.value, val => {
               }`
             )
           }}{{ gameMapNew[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
+        </el-col>
+        <el-col :span="8" v-if="helpSpeedCalcForm.mainSkillUp > 1">
+          <span class="cpt-pokemon__skillper">技能率UP: </span
+          >{{ helpSpeedCalcForm.mainSkillUp }}倍
         </el-col>
       </el-row>
       <el-row>

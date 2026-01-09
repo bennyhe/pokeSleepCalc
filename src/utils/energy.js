@@ -224,6 +224,7 @@ export function getNewFoodPer(formData, foodPer) {
 
 export function getNewSkillPer(formData, skillPer) {
   skillPer = skillPer || 0
+  let mainSkillUp = 1
   let basicsKill = 0
   let mainMuti = 0
   if (formData.skill.includes('ss')) {
@@ -238,8 +239,12 @@ export function getNewSkillPer(formData, skillPer) {
   if (formData.character.indexOf('sdown') > -1) {
     mainMuti = -0.2
   }
+  if (formData.mainSkillUp) {
+    mainSkillUp = +formData.mainSkillUp
+    // console.log('formData.mainSkillUp', formData.mainSkillUp)
+  }
   return (
-    Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * 1000) / 1000
+    Math.floor(skillPer * ((1 + basicsKill) * (1 + mainMuti)) * mainSkillUp * 1000) / 1000
   )
 }
 
