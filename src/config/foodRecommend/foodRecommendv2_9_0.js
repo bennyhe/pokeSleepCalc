@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1768442252392,
-  appVer: '3.1.0',
+  updateTime: 1750689844933,
+  appVer: '2.9.0',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -151,32 +151,12 @@ export const foodRecommend = {
     {
       evoLine: [440, 113, 242],
       needFood: [[3], [3], [3]],
-      desc: '鸡蛋主C位，自带群回活力，真神'
+      desc: '鸡蛋主C位，真神'
     },
     {
       evoLine: [83],
       needFood: [[1], [1], [1]],
       desc: '葱主C位'
-    },
-    {
-      evoLine: [710, 711],
-      needFood: [[18], [18], [18]],
-      desc: '南瓜C位，体型越大帮速越慢持有越多，但是初始食材率太低了'
-    },
-    {
-      evoLine: [328, 329, 330],
-      needFood: [[19], [19, 6], [19, 6]],
-      desc: '鳄梨C位'
-    },
-    {
-      evoLine: [442],
-      needFood: [[2], [2, 18], [2, 18]],
-      desc: '可以aaa蘑菇，但是产量不如沼王，第一个abb南瓜'
-    },
-    {
-      evoLine: [974, 975],
-      needFood: [[4], [4], [4]],
-      desc: '产量超过土豆猫，但是主技能不如猫的扩锅好用'
     }
   ]
 }
