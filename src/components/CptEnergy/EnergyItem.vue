@@ -15,10 +15,12 @@ import {
   skillOptionsTxt
 } from '../../config/helpSpeed.js'
 import { getSkillLevel } from '../../utils/helpcalc.js'
-import { getNum, toHMInLang, get } from '../../utils/index.js'
+import { toHMInLang } from '../../utils/index.js'
 import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
 import { POKEMON_MAX_LEVEL } from '../../config/game.js'
 import { pokedex } from '../../config/pokedex.js'
+
+import CptEnergySkill from './EnergySkill.vue'
 
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
@@ -122,87 +124,7 @@ const handleChangeSkillLevel = () => {
       >
         {{ props.pokeItem.nameExtra }}
       </p>
-      <p class="cpt-pokemon__poketype1 xs">
-        果{{ getNum(props.pokeItem.oneDayBerryEnergy) }}
-      </p>
-      <p class="cpt-pokemon__poketype2 xs">
-        食{{ getNum(props.pokeItem.oneDayFoodEnergy.allEnergy) }}
-      </p>
-      <p class="cpt-pokemon__poketype3 xs">
-        技<img
-          class="icon"
-          v-lazy="`./img/ui/shards.png`"
-          v-if="props.pokeItem.oneDaySkillEffects.type === 'shards'"
-        /><template
-          v-else-if="
-            props.pokeItem.oneDaySkillEffects.type === 'berrys' &&
-            get(
-              'berrys[0].berryType',
-              props.pokeItem.oneDaySkillEffects.skillExtra
-            )
-          "
-        >
-          <div class="cpt-food cpt-food--s all-food cpt-food--energy">
-            <div class="cpt-food__item cur">
-              <img
-                v-lazy="
-                  `./img/berry/${props.pokeItem.oneDaySkillEffects.skillExtra.berrys[0].berryType}.png`
-                "
-                :alt="
-                  $t(
-                    `BERRY_TYPES.${props.pokeItem.oneDaySkillEffects.skillExtra.berrys[0].berryType}`
-                  )
-                "
-              />
-              <p class="cpt-food__count">
-                {{
-                  props.pokeItem.oneDaySkillEffects.skillExtra.berrys[0]
-                    .berryCount
-                }}
-              </p>
-            </div>
-          </div>
-        </template>
-        {{ getNum(props.pokeItem.oneDaySkillEffects.value || 0) }}
-      </p>
-      <p class="cpt-pokemon__skilltag xs">
-        <span class="cpt-pokemon__skilltag-title">
-          技<template v-if="props.pokeItem.skilllevel"
-            >Lv.{{ getNum(props.pokeItem.skilllevel) }}</template
-          >
-        </span>
-        <span class="cpt-pokemon__skilltag-info"
-          >{{ getNum(props.pokeItem.oneDayHelpCount.skill) }}次</span
-        >
-      </p>
-      <div
-        v-if="
-          props.pokeItem.oneDayFoodEnergy.useFoods &&
-          props.pokeItem.oneDayFoodEnergy.useFoods.length > 0
-        "
-      >
-        <div class="cpt-food cpt-food--s all-food cpt-food--energy">
-          <div
-            class="cpt-food__item cur"
-            v-for="(foodItem, foodKey) in props.pokeItem.oneDayFoodEnergy
-              .useFoods"
-            v-bind:key="foodKey"
-          >
-            <img
-              v-lazy="`./img/food/${foodItem}.png`"
-              :alt="$t(`FOOD_TYPES.${foodItem}`)"
-            />
-            <p class="cpt-food__count">
-              {{ props.pokeItem.oneDayFoodEnergy.count[foodKey] }}
-            </p>
-          </div>
-        </div>
-      </div>
-      <p class="res">
-        <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-          getNum(props.pokeItem.oneDayEnergy)
-        }}
-      </p>
+      <CptEnergySkill :dataSource="props.pokeItem" />
     </div>
     <p class="spscore" v-if="props.pokeItem.level">
       Lv.{{ props.pokeItem.level }}
@@ -296,87 +218,7 @@ const handleChangeSkillLevel = () => {
         </p>
       </div>
       <div class="poke-tb__energy">
-        <p class="cpt-pokemon__poketype1 xs">
-          果{{ getNum(pokeItemAfterBonus.oneDayBerryEnergy) }}
-        </p>
-        <p class="cpt-pokemon__poketype2 xs">
-          食{{ getNum(pokeItemAfterBonus.oneDayFoodEnergy.allEnergy) }}
-        </p>
-        <p class="cpt-pokemon__poketype3 xs">
-          技<img
-            class="icon"
-            v-lazy="`./img/ui/shards.png`"
-            v-if="pokeItemAfterBonus.oneDaySkillEffects.type === 'shards'"
-          /><template
-            v-else-if="
-              pokeItemAfterBonus.oneDaySkillEffects.type === 'berrys' &&
-              get(
-                'berrys[0].berryType',
-                pokeItemAfterBonus.oneDaySkillEffects.skillExtra
-              )
-            "
-          >
-            <div class="cpt-food cpt-food--s all-food cpt-food--energy">
-              <div class="cpt-food__item cur">
-                <img
-                  v-lazy="
-                    `./img/berry/${pokeItemAfterBonus.oneDaySkillEffects.skillExtra.berrys[0].berryType}.png`
-                  "
-                  :alt="
-                    $t(
-                      `BERRY_TYPES.${pokeItemAfterBonus.oneDaySkillEffects.skillExtra.berrys[0].berryType}`
-                    )
-                  "
-                />
-                <p class="cpt-food__count">
-                  {{
-                    pokeItemAfterBonus.oneDaySkillEffects.skillExtra.berrys[0]
-                      .berryCount
-                  }}
-                </p>
-              </div>
-            </div>
-          </template>
-          {{ getNum(pokeItemAfterBonus.oneDaySkillEffects.value || 0) }}
-        </p>
-        <p class="cpt-pokemon__skilltag xs">
-          <span class="cpt-pokemon__skilltag-title">
-            技<template v-if="pokeItemAfterBonus.skilllevel"
-              >Lv.{{ getNum(pokeItemAfterBonus.skilllevel) }}</template
-            >
-          </span>
-          <span class="cpt-pokemon__skilltag-info"
-            >{{ getNum(pokeItemAfterBonus.oneDayHelpCount.skill) }}次</span
-          >
-        </p>
-        <div
-          v-if="
-            pokeItemAfterBonus.oneDayFoodEnergy.useFoods &&
-            pokeItemAfterBonus.oneDayFoodEnergy.useFoods.length > 0
-          "
-        >
-          <div class="cpt-food cpt-food--s all-food cpt-food--energy">
-            <div
-              class="cpt-food__item cur"
-              v-for="(foodItem, foodKey) in pokeItemAfterBonus.oneDayFoodEnergy
-                .useFoods"
-              v-bind:key="foodKey"
-            >
-              <img
-                v-lazy="`./img/food/${foodItem}.png`"
-                :alt="$t(`FOOD_TYPES.${foodItem}`)"
-              />
-              <p class="cpt-food__count">
-                {{ pokeItemAfterBonus.oneDayFoodEnergy.count[foodKey] }}
-              </p>
-            </div>
-          </div>
-          <p class="res">
-            <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-              getNum(pokeItemAfterBonus.oneDayEnergy)
-            }}
-          </p>
-        </div>
+        <CptEnergySkill :dataSource="pokeItemAfterBonus" />
       </div>
     </div>
     <div v-if="props.isEdit" class="mb3" style="margin-top: 6px">

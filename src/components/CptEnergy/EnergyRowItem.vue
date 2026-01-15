@@ -78,8 +78,9 @@ const props = defineProps({
             2
           )}%`"
           v-if="
-            props.pokeItem.oneDaySkillEffects.type === 'berrys' ||
-            props.pokeItem.oneDaySkillEffects.type === 'energy'
+            ['berrys', 'energy', 'foods'].includes(
+              props.pokeItem.oneDaySkillEffects.type
+            )
           "
         >
           <span class="pcsee"
