@@ -121,11 +121,12 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
       }
     } else if ([17, 21].includes(pokeSkillType)) { // 树果递增
       // console.log(pokeBerryType, pokeLevel, curSkillVal)
-      const res = curSkillVal * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
+      const berryCount = getDecimalNumber(curSkillVal * pokeSkillCount, 1)
+      const res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
       skillOnceEnergy = getAfterBonusBerryEnergy(res, pokeItem.berryType, isRightBerry, mapBonusData)
       skillExtra.berrys = [{
         berryType: pokeItem.berryType,
-        berryCount: getDecimalNumber(curSkillVal * pokeSkillCount, 1)
+        berryCount
       }]
     } else if ([28].includes(pokeSkillType)) { // 食材精選S
       const foodTypes = [4, 10, 19]
@@ -133,17 +134,17 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
       //   foodTypes = [4, 10, 19]
       // }
       skillExtra.foods = foodTypes.map(foodItem=>{
-        const foodCount = getDecimalNumber(curSkillVal / 3 * pokeSkillCount, 1)
+        const foodCount = getDecimalNumber(curSkillVal / foodTypes.length * pokeSkillCount, 1)
         skillOnceEnergy += foodCount * FOOD_ENERGY[foodItem]
         return {
           foodType: foodItem,
           foodCount
         }
       })
-      console.log(skillExtra.foods)
+      // console.log(skillExtra.foods)
     }
     let energy = pokeSkillCount * skillOnceEnergy
-    if ([28].includes(pokeSkillType)){
+    if ([17, 21, 28].includes(pokeSkillType)){
       energy = skillOnceEnergy
     }
     if ([1, 2, 5, 23, 17, 21, 28].includes(pokeSkillType) && areaBonus) {
