@@ -69,7 +69,8 @@ const evoLine = [
   [328, 329, 330],
   [371, 372, 373],
   [557, 558],
-  [974, 975]
+  [974, 975],
+  [213]
 ]
 const pokedex = {
   1: {
@@ -1783,6 +1784,33 @@ const pokedex = {
     helpSpeed: 3000,
     foodPer: 15.40,
     skillPer: 3.20
+  },
+  213: {
+    id: 213,
+    // name: '壺壺',
+    friendship: 16,
+    sleepType: 1,
+    skillType: 31,
+    // pokeType: 3,
+    berryType: 9,
+    maxcarry: 16
+    // helpSpeed: 2300,
+    // foodPer: 15.80,
+    // skillPer: 4.70,
+    // food: {
+    //   type: [9, 2, 7],
+    //   count: {
+    //     9: {
+    //       num: [1, 2, 4]
+    //     },
+    //     2: {
+    //       num: [0, 1, 2]
+    //     },
+    //     7: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
   },
   214: {
     id: 214,
@@ -4349,6 +4377,9 @@ const updatePoke = [{
 }, {
   time: '2025/12/1',
   pokemons: [442, 777, 974, 975, 9006]
+}, {
+  time: '2026/01/1',
+  pokemons: [213]
 }]
 // console.log(pokedex)
 export {

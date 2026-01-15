@@ -333,7 +333,8 @@ export default {
         '913-id-4',
         '194-id-4',
         '628-id-4',
-        '113-id-2'
+        '113-id-2',
+        '213-id-1'
       ]
     },
     {
@@ -397,7 +398,8 @@ export default {
       'energy': 420363,
       'sleepStyles': [
         '764-id-3',
-        '83-id-4'
+        '83-id-4',
+        '213-id-2'
       ]
     },
     {
@@ -412,7 +414,8 @@ export default {
         '199-id-2',
         '36-id-4',
         '245-id-1',
-        '628-id-3'
+        '628-id-3',
+        '213-id-4'
         // '488-id-1'
       ]
     },
@@ -477,7 +480,9 @@ export default {
       'nameIndex': 11,
       'nameId': 4,
       'energy': 819107,
-      'sleepStyles': []
+      'sleepStyles': [
+        '213-id-3'
+      ]
     },
     {
       'name': '大师12',

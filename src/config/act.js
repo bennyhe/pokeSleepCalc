@@ -5,7 +5,8 @@ export const SLEEP_CALC_POKEMONS = {
     710, 711,
     328, 329, 330, 371, 372, 373, 557, 558,
     442,
-    777, 974, 975
+    777, 974, 975,
+    213
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -39,6 +40,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [777, 974, 975],
     starttime: '2025/12/22 04:00'
+  },
+  {
+    ids: [213],
+    starttime: '2026/01/19 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -50,14 +55,14 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [213], // ban 宝可梦id
+  showBanArea: [0,1,2,3,6,7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [177, 178, 311, 312, 328, 329, 330, 371, 372, 373, 442, 557, 558, 848, 849, 8001, 710, 711],
-  upIdsMidIds: [],
+  upIdsSmallIds: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
+  upIdsMidIds: [213],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -104,96 +109,13 @@ export const ACT_LIST = [
   //   times: 1.5
   // }
   {
-    name: '佳節2025：夢之碎片倍增研究',
-    namejp: 'ホリデー2025：ダブルゆめのかけらリサーチ',
-    startTime: 1766329353925,
-    endTime: 1766951999000,
-    notArea: [1, 2, 3, 4, 5, 6],
-    largeUp: [777, 974, 975, 9006],
-    midUp: [9002, 9004],
-    smallUp: [225, 363, 364, 365, 459, 460, 471, 921, 922, 923, 7006, 7007],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [459, 9002, 9004, 9006, 7006, 364, 922, 365, 460, 975, 7007]
-    }
-  },
-  {
-    name: '新年2026(第1週)',
-    namejp: 'ニューイヤー2026(1週目)',
-    startTime: 1766952000000,
-    endTime: 1767211199000,
+    name: '強化發動！技能週vol.3',
+    namejp: '連発！スキルウィーク vol.3',
+    startTime: 1768766400000,
+    endTime: 1769371199000,
     notArea: [],
-    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    }
-  },
-  {
-    name: '新年2026(第1週)',
-    namejp: 'ニューイヤー2026(1週目)',
-    startTime: 1767211200000,
-    endTime: 1767297599000,
-    notArea: [],
-    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    },
-    times: 3
-  },
-  {
-    name: '新年2026(第1週) & 好眠日',
-    namejp: 'ニューイヤー2026(1週目) & 満月の前後の日',
-    startTime: 1767297600000,
-    endTime: 1767383999000,
-    notArea: [],
-    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    },
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '新年2026(第1週) & 满月日',
-    namejp: 'ニューイヤー2026(1週目) & 満月の日',
-    startTime: 1767384000000,
-    endTime: 1767470399000,
-    notArea: [],
-    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    },
-    largeUp: [35, 36, 173],
-    times: 2
-  },
-  {
-    name: '新年2026(第1週) & 好眠日',
-    namejp: 'ニューイヤー2026(1週目) & 満月の前後の日',
-    startTime: 1767470400000,
-    endTime: 1767556799000,
-    notArea: [],
-    smallUp: [83, 113, 198, 242, 252, 253, 254, 255, 256, 257, 258, 259, 260, 303, 430, 440, 517, 518, 627, 628, 980, 7054],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    },
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '新年2026(第2週)',
-    namejp: 'ニューイヤー2026(2週目)',
-    startTime: 1767556800000,
-    endTime: 1768161599000,
-    notArea: [],
-    smallUp: [177, 178, 311, 312, 328, 329, 330, 371, 372, 373, 442, 557, 558, 848, 849, 8001, 710, 711],
-    isActRandom: true,
-    timelimitPokemons: {
-      'green': [371, 557, 328]
-    }
+    smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
+    midUp: [213],
+    isActRandom: true
   }
 ]
