@@ -36,6 +36,10 @@ const getShowKeyVal = pokemonsItem => {
 }
 const NewPokesByDate = ref([
   {
+    year: 2026,
+    list: new Array(12).fill([])
+  },
+  {
     year: 2025,
     list: new Array(12).fill([])
   },
