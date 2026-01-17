@@ -41,9 +41,9 @@ echarts.use([
 ])
 
 const pageData = ref({
-  curMap: 0,
+  curMap: 0, //未使用参数
   mapSleepType: [],
-  maxScore: '5000000',
+  // maxScore: '10981171',
   minScore: '0',
   isActRandom: false,
   actRandomNum: 0.3,
@@ -62,12 +62,6 @@ const pageData = ref({
   noLastList: [...SLEEP_CALC_POKEMONS.noLastList, ...LAB_CONFIG.noLastList],
   pokemonId: 7006,
   chartShow: {
-    green: false,
-    beach: false,
-    hole: false,
-    snow: false,
-    lake: false,
-    plant: false,
     st1: false,
     st2: false,
     st3: false,
@@ -82,13 +76,19 @@ const gameMapPokemons = [
   //   allPokemons: [] //all pokemons
   // }
 ]
+const orginChartShow = ref({})
 gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(gitem.id, gitem.levelList, 34).allUnlockSleepsList
+  const curMapSleeps = getUnLockSleeps(
+    gitem.id,
+    gitem.levelList,
+    34
+  ).allUnlockSleepsList
   gameMapPokemons.push({
     levelPokemons: [],
     allPokemons: [],
     pokemonsIdToMapLevelIndex: {}
   })
+  orginChartShow.value[gitem.id] = false
   curMapSleeps.forEach(sleepsItem => {
     if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
       gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
@@ -111,8 +111,11 @@ gameMap.forEach((gitem, gkey) => {
   })
 })
 // console.log(gameMapPokemons)
-
-const getTimes = 3200
+pageData.value.chartShow = {
+  ...orginChartShow.value,
+  ...pageData.value.chartShow
+}
+const getTimes = 3500
 const testData = ref([])
 const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType[0]
@@ -149,35 +152,35 @@ const handleClickGet = type => {
   let lastGetList = []
   testData.value = []
   // allMap
-  console.log('quick start...', gameMap[pageData.value.curMap].levelList)
   gameMap.forEach((mapItem, mapKey) => {
     if (
       gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
     ) {
       pageData.value.mapSleepType.forEach(sltItem => {
+        console.log('quick start...', mapItem.id, gameMap[mapKey].levelList)
         let k = 0
         const iland = []
-        gameMap[pageData.value.curMap].levelList.forEach((item, mapIndex) => {
+        gameMap[mapKey].levelList.forEach((item, mapIndex) => {
           const curAllScore = item.energy
           const allPoint = curAllScore * 100
-          if (curAllScore <= +pageData.value.maxScore) {
-            const randomRes = getRes(curAllScore, allPoint, mapKey, sltItem)
-            const res = randomRes.res
-            lastGetList = lastGetList.concat(randomRes.lastGetList)
-            console.log(
-              k,
-              curAllScore,
-              allPoint,
-              `${(new Date().getTime() - startTime) / 1000}s`
-            )
-            const lastRes = {
-              basePoint: curAllScore,
-              allPoint,
-              res
-            }
-            iland.push(lastRes)
-            k++
+          // if (curAllScore <= +pageData.value.maxScore) {
+          const randomRes = getRes(curAllScore, allPoint, mapKey, sltItem)
+          const res = randomRes.res
+          lastGetList = lastGetList.concat(randomRes.lastGetList)
+          console.log(
+            k,
+            curAllScore,
+            allPoint,
+            `${(new Date().getTime() - startTime) / 1000}s`
+          )
+          const lastRes = {
+            basePoint: curAllScore,
+            allPoint,
+            res
           }
+          iland.push(lastRes)
+          k++
+          // }
         })
         targetRes.push({
           curMap: mapItem.id,
@@ -328,9 +331,9 @@ const initChart = targetRes => {
   })
 }
 
-const handleClickChangeMap = id => {
-  pageData.value.curMap = id
-}
+// const handleClickChangeMap = id => {
+//   pageData.value.curMap = id
+// }
 
 const handleChangeUps = () => {
   console.log(
@@ -342,12 +345,7 @@ const handleChangeUps = () => {
 
 const initState = () => {
   pageData.value.chartShow = {
-    green: false,
-    beach: false,
-    hole: false,
-    snow: false,
-    lake: false,
-    plant: false,
+    ...orginChartShow.value,
     st1: false,
     st2: false,
     st3: false,
@@ -385,29 +383,6 @@ initState()
 
 <template>
   <el-form label-width="90px">
-    <!-- S 当前岛屿 -->
-    <!-- <el-form-item :label="$t('OPTIONS.formLableCurIland')">
-      <ul class="cpt-select-list">
-        <li
-          class="cpt-select-list__item"
-          v-for="(mapItem, mapIndex) in gameMap"
-          v-bind:key="mapItem.id"
-          :class="{ cur: pageData.curMap === mapIndex }"
-          @click="handleClickChangeMap(mapIndex)"
-        >
-          <div class="cpt-select-list__name">
-            {{ $t(`ILAND.${mapItem.id}`) }}
-          </div>
-          <img
-            v-if="mapItem.pic"
-            class="cpt-select-list__bg"
-            v-lazy="`./img/ui/${mapItem.pic}.png`"
-            :alt="mapItem.name"
-          />
-        </li>
-      </ul>
-    </el-form-item> -->
-    <!-- E 当前岛屿 -->
     <el-form-item :label="$t('PROP.pokemon')">
       <div style="width: 100%">
         <el-select
