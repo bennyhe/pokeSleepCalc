@@ -97,7 +97,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
  * @returns 
  */
 const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, mapBonusData) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 25, 28] // , 11, 14
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 24, 25, 28] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -107,7 +107,7 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
     resType = 'shards'
   } else if ([17, 21].includes(pokeSkillType)) {
     resType = 'berrys'
-  } else if ([25, 28].includes(pokeSkillType)) {
+  } else if ([24, 25, 28].includes(pokeSkillType)) {
     resType = 'foods'
   }
   if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType]) && skillEffects[pokeSkillType].effects[pokeSkillLevel - 1]) {
@@ -128,8 +128,23 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
         berryType: pokeItem.berryType,
         berryCount
       }]
-    } else if ([25, 28].includes(pokeSkillType)) { // 食材精選S
+    } else if ([24, 25, 28].includes(pokeSkillType)) { // 食材精選S
       const foodTypes = {
+        24: [
+          {
+            foodtype: 2,
+            percent: 21.5 / 100
+          }, {
+            foodtype: 7,
+            percent: 21.5 / 100
+          }, {
+            foodtype: 15,
+            percent: 21.5 / 100
+          }, {
+            foodtype: 17,
+            percent: 21.5 / 100
+          }
+        ],
         25: [
           {
             foodtype: 4,
@@ -163,7 +178,7 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
       }
       skillExtra.foods = foodTypes[pokeSkillType].map(foodItem => {
         let foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount, 1)
-        if (pokeSkillType === 25) {
+        if (pokeSkillType === 25) { // 怪力钳小概率2倍暴击
           foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount + curSkillVal * 2 * foodItem.morePercent * pokeSkillCount, 1)
         }
         skillOnceEnergy += foodCount * FOOD_ENERGY[foodItem.foodtype]
