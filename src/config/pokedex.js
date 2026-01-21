@@ -1791,26 +1791,26 @@ const pokedex = {
     friendship: 16,
     sleepType: 1,
     skillType: 31,
-    // pokeType: 3,
+    pokeType: 3,
     berryType: 9,
-    maxcarry: 16
-    // helpSpeed: 2300,
-    // foodPer: 15.80,
-    // skillPer: 4.70,
-    // food: {
-    //   type: [9, 2, 7],
-    //   count: {
-    //     9: {
-    //       num: [1, 2, 4]
-    //     },
-    //     2: {
-    //       num: [0, 1, 2]
-    //     },
-    //     7: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 16,
+    helpSpeed: 3600,
+    foodPer: 20.50,
+    skillPer: 5.90,
+    food: {
+      type: [10, 17, 9],
+      count: {
+        10: {
+          num: [1, 2, 4]
+        },
+        17: {
+          num: [0, 2, 3]
+        },
+        9: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   214: {
     id: 214,
