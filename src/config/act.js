@@ -80,41 +80,41 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1736712000000,
-  //   endTime: 1736798399000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // },
-  // {
-  //   name: '满月日',
-  //   namejp: '満月の日',
-  //   startTime: 1736798400000,
-  //   endTime: 1736884799000,
-  //   notArea: [],
-  //   largeUp: [35, 36, 173],
-  //   times: 3
-  // },
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1736884800000,
-  //   endTime: 1736971199000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // }
   {
-    name: '強化發動！技能週vol.3',
-    namejp: '連発！スキルウィーク vol.3',
-    startTime: 1768766400000,
-    endTime: 1769371199000,
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1769889600000,
+    endTime: 1769975999000,
     notArea: [],
-    smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
-    midUp: [213],
-    isActRandom: true
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1769976000000,
+    endTime: 1770062399000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 4
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1770062400000,
+    endTime: 1770148799000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
   }
+  // {
+  //   name: '強化發動！技能週vol.3',
+  //   namejp: '連発！スキルウィーク vol.3',
+  //   startTime: 1768766400000,
+  //   endTime: 1769371199000,
+  //   notArea: [],
+  //   smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
+  //   midUp: [213],
+  //   isActRandom: true
+  // }
 ]
