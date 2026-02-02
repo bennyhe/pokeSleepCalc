@@ -59,14 +59,37 @@ export function get(path, parent, num) {
   if (typeof parent !== 'object') {
     parent = this
   }
-  const pathArr = path.replace(/\[/g, '.')
-    .replace(/\]/g, '')
-    .split('.')
-  const res = pathArr.reduce((o, k) => (o || {})[k], parent)
-  if ((Array.isArray(res) && num)) {
-    return res.length >= num ? res.slice(0, num) : undefined
+
+  // 快速路径：单层属性
+  if (!path.includes('.') && !path.includes('[')) {
+    const value = parent[path]
+    if (Array.isArray(value) && num) {
+      return value.length >= num ? value.slice(0, num) : undefined
+    }
+    return value
   }
-  return res
+
+  // 处理包含 [ ] 的路径，先标准化
+  let normalizedPath = path
+  if (path.includes('[')) {
+    normalizedPath = path.replace(/\[/g, '.').replace(/\]/g, '')
+  }
+
+  // 分割路径并遍历
+  const keys = normalizedPath.split('.')
+  let current = parent
+
+  for (let i = 0; i < keys.length; i++) {
+    if (current == null || typeof current !== 'object') {
+      return undefined
+    }
+    current = current[keys[i]]
+  }
+
+  if (Array.isArray(current) && num) {
+    return current.length >= num ? current.slice(0, num) : undefined
+  }
+  return current
 }
 
 export function getNum(num) {
@@ -273,17 +296,30 @@ export function findMenuWithFood(pokemonFoodKey) {
 
 //洗牌算法
 export function getRandomArr(data, eachNum) {
-  let num = eachNum || 100 //默认交换100次位置
-  const _arr = [...data]
-  let n = _arr.length
-  const result = []
+  const len = data.length
+  if (len === 0) return []
 
-  // 先打乱数组
-  while (n-- && num--) {
-    const index = Math.floor(Math.random() * n); // 随机位置
-    [_arr[index], _arr[n]] = [_arr[n], _arr[index]] // 交换数据
-    result.push(_arr[n]) // 取出当前最后的值，即刚才交换过来的值
+  const num = eachNum || 100
+  const resultLen = Math.min(len, num)
+
+  // 预分配结果数组
+  const result = new Array(resultLen)
+
+  // 直接在原数据上操作，避免额外的数组拷贝（如果可以修改原数组的话）
+  // 但为了安全，我们还是创建副本
+  const workArray = [...data]
+
+  let remaining = len
+  for (let i = 0; i < resultLen; i++) {
+    remaining--
+    const randomIndex = Math.floor(Math.random() * remaining)
+    // 交换并保存结果
+    const temp = workArray[randomIndex]
+    workArray[randomIndex] = workArray[remaining]
+    workArray[remaining] = temp
+    result[i] = workArray[remaining]
   }
+
   return result
 }
 

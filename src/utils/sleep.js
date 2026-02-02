@@ -165,7 +165,11 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
   // console.log(extraSleepStyleOptions)
   const res = []
-  const useIncensePokemonId = get('useIncensePokemonId', extraSleepStyleOptions)
+
+  // 优化：直接使用属性访问替代 get 函数
+  const useIncensePokemonId = extraSleepStyleOptions.useIncensePokemonId || ''
+  const isActRandom = !!extraSleepStyleOptions.isActRandom
+  const isUseTicket = !!extraSleepStyleOptions.isUseTicket
 
   spacialPokemons.list.forEach(spitem => {
     spacialPokemons.isGet[spitem] = false //重置
@@ -186,7 +190,6 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 
   // 使用浅拷贝替代深拷贝来优化性能
   let orgSleepListByActType = [...orgSleepList]
-  const isActRandom = get('isActRandom', extraSleepStyleOptions)
   const catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * extraSleepStyleOptions.actRandomNum) // 活动带类型的无症状 固定前几个无症状
   // console.log(isActRandom, catchNumByActRandom, orgSleepListByActType)
 
@@ -197,10 +200,14 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     )
   }
 
+  // 优化：直接检查数组长度替代 get 函数
+  const hasBanPokes = Array.isArray(extraSleepStyleOptions.banPokes) && extraSleepStyleOptions.banPokes.length > 0
+  const hasNoLastPokes = Array.isArray(extraSleepStyleOptions.noLastPokes) && extraSleepStyleOptions.noLastPokes.length > 0
+
   // 特殊宝可梦使用熏香，也只能出1只
   if (spacialPokemons.list.includes(+useIncensePokemonId)) {
     // 如果存在ban的宝可梦列表则合并
-    if (get('banPokes', extraSleepStyleOptions, 1)) {
+    if (hasBanPokes) {
       extraSleepStyleOptions.banPokes = extraSleepStyleOptions.banPokes.concat([...spacialPokemons.list])
     } else {
       extraSleepStyleOptions.banPokes = [...spacialPokemons.list]
@@ -208,14 +215,14 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     // console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
   }
   // 如果存在额外不进保底的宝可梦列表则合并
-  if (get('noLastPokes', extraSleepStyleOptions, 1)) {
+  if (hasNoLastPokes) {
     extraSleepStyleOptions.noLastPokes = extraSleepStyleOptions.noLastPokes.concat([...spacialPokemons.noLastList])
   } else {
     extraSleepStyleOptions.noLastPokes = [...spacialPokemons.noLastList]
   }
   // console.log(extraSleepStyleOptions.noLastPokes)
   // 如果存在去除宝可梦
-  if (get('banPokes', extraSleepStyleOptions, 1)) {
+  if (hasBanPokes) {
     orgSleepList = orgSleepList.filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
@@ -226,14 +233,18 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       )
     }
   }
+
+  // 优化：为嵌套属性创建专用检查函数
+  const hasUpIds = upIds => upIds && upIds.ids && upIds.ids.length > 0
+
   // 部分宝可梦权重
-  if (get('upIdsMid.ids', extraSleepStyleOptions, 1)) {
+  if (hasUpIds(extraSleepStyleOptions.upIdsMid)) {
     orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsMid)
   }
-  if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
-    orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
+  if (hasUpIds(extraSleepStyleOptions.upIdsSmall)) {
+    orgSleepStyleOptions.orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
   }
-  if (get('upIdsLarge.ids', extraSleepStyleOptions, 1)) {
+  if (hasUpIds(extraSleepStyleOptions.upIdsLarge)) {
     orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsLarge)
   }
   // 随机洗牌，如果10倍长度少于1000，则默认1000次
@@ -244,13 +255,13 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   // 如果是活动随机类型
   if (isActRandom) {
     // 部分宝可梦权重
-    if (get('upIdsMid.ids', extraSleepStyleOptions, 1)) {
+    if (hasUpIds(extraSleepStyleOptions.upIdsMid)) {
       orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsMid)
     }
-    if (get('upIdsSmall.ids', extraSleepStyleOptions, 1)) {
+    if (hasUpIds(extraSleepStyleOptions.upIdsSmall)) {
       orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsSmall)
     }
-    if (get('upIdsLarge.ids', extraSleepStyleOptions, 1)) {
+    if (hasUpIds(extraSleepStyleOptions.upIdsLarge)) {
       orgSleepListByActType = inRandomSleepStyleGetSleepStyles(orgSleepListByActType, extraSleepStyleOptions.upIdsLarge)
     }
     orgSleepListByActType = getRandomArr(
@@ -396,7 +407,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   let useOptionsCurSpo = getSPOByScore(score)
   let targetPokemonAllSleep = []
   // console.log(isSleepOnStomach)
-  if (useIncensePokemonId || get('isUseTicket', extraSleepStyleOptions)) {
+  if (useIncensePokemonId || isUseTicket) {
     // 获取当前地图所有睡姿
     targetPokemonAllSleep = getUnLockSleeps(
       mapData.id,
@@ -440,9 +451,12 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 使用露营券
-  if (get('isUseTicket', extraSleepStyleOptions)) {
+  if (isUseTicket) {
+    // 转换 banPokes 为 Set 以提高 includes 性能
+    const banPokesSet = new Set(extraSleepStyleOptions.banPokes)
+
     let ticketSleeps = [...targetPokemonAllSleep].filter(
-      item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId) && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+      item => !banPokesSet.has(+item.pokeId) && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
 
     // 睡眠类型图鉴筛选
@@ -461,8 +475,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     })
     // console.log('已经抽过的特殊宝可梦', isGetPokes)
     if (isGetPokes.length > 0) {
+      const isGetPokesSet = new Set(isGetPokes)
       ticketSleeps = ticketSleeps.filter(
-        item => !isGetPokes.includes(+item.pokeId)
+        item => !isGetPokesSet.has(+item.pokeId)
       )
     }
 
