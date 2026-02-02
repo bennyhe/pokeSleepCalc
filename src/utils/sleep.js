@@ -112,23 +112,38 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
   if (options === undefined) {
     return orgSleepList
   }
+
+  // 保持原有的 upCoefficient 计算逻辑（支持配置表）
   let upCoefficient = SLEEP_CALC_UP.small // 默认small
   if (options.upType === 'mid') {
     upCoefficient = SLEEP_CALC_UP.mid
   } else if (options.upType === 'large') {
     upCoefficient = SLEEP_CALC_UP.large
   }
+
   if (options.ids && options.ids.length > 0) {
-    const needUseSleepStyles = orgSleepList.filter(item => options.ids.includes(item.pokeId))
+    // 使用 Set 优化 includes 性能
+    const idsSet = new Set(options.ids)
+    const needUseSleepStyles = orgSleepList.filter(item => idsSet.has(item.pokeId))
+
     if (needUseSleepStyles.length > 0) {
-      let newRes = []
-      for (let i = 0; i < upCoefficient - 1; i++) {
-        newRes = [...newRes, ...needUseSleepStyles]
+      // 预分配数组长度，避免动态扩容
+      const repeatCount = upCoefficient - 1
+      const totalLength = needUseSleepStyles.length * repeatCount + orgSleepList.length
+      const newRes = new Array(totalLength)
+
+      let index = 0
+      // 高效填充重复的权重睡姿
+      for (let i = 0; i < repeatCount; i++) {
+        for (let j = 0; j < needUseSleepStyles.length; j++) {
+          newRes[index++] = needUseSleepStyles[j]
+        }
       }
-      newRes = [
-        ...newRes,
-        ...orgSleepList
-      ]
+      // 高效填充原始睡姿列表
+      for (let j = 0; j < orgSleepList.length; j++) {
+        newRes[index++] = orgSleepList[j]
+      }
+
       return newRes
     }
   }
