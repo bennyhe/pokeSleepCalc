@@ -24,58 +24,66 @@ export function getTargetPokemonsSleeps(pokeSleepId, mapId) {
 export function getUnLockSleeps(mapId, levelList, curStageIndex) {
   let unLockSleeps = []
   let curUnlockSleeps = []
+
+  // 预计算常用值以减少重复访问
+  const currentLevelSleepStyles = levelList[curStageIndex].sleepStyles
+
   if (curStageIndex > 0) {
     const aResLast = []
-    levelList
-      .slice(0, curStageIndex)
-      .forEach((levelItem, levelKey) => {
-        if (levelItem.sleepStyles.length > 0) {
-          levelItem.sleepStyles.forEach(sItem => {
-            if (SLEEP_STYLE[sItem]) {
-              aResLast.push({
-                ...getTargetPokemonsSleeps(sItem, mapId),
-                unLockLevel: levelKey
-              })
-            }
-            // else {
-            //   console.log(sItem)
-            // }
-          })
+
+    // 使用普通 for 循环替代 forEach 提升性能
+    for (let levelKey = 0; levelKey < curStageIndex; levelKey++) {
+      const levelItem = levelList[levelKey]
+      const sleepStyles = levelItem.sleepStyles
+      const sleepStylesLength = sleepStyles.length
+
+      if (sleepStylesLength > 0) {
+        for (let j = 0; j < sleepStylesLength; j++) {
+          const sItem = sleepStyles[j]
+          if (SLEEP_STYLE[sItem]) {
+            aResLast.push({
+              ...getTargetPokemonsSleeps(sItem, mapId),
+              unLockLevel: levelKey
+            })
+          }
+          // else {
+          //   console.log(sItem)
+          // }
         }
-      })
+      }
+    }
+
     unLockSleeps = sortInObjectOptions(
       aResLast,
       ['sleepType', 'pokeId', 'star'],
       'up'
     )
   }
-  if (
-    levelList[curStageIndex].sleepStyles.length >
-    0
-  ) {
+
+  if (currentLevelSleepStyles.length > 0) {
     const aRes = []
-    levelList[curStageIndex].sleepStyles.forEach(
-      sItem => {
-        if (SLEEP_STYLE[sItem]) {
-          aRes.push({
-            ...SLEEP_STYLE[sItem],
-            sleepType: pokedex[SLEEP_STYLE[sItem].pokeId].sleepType,
-            spo: getSPOById(sItem, mapId),
-            spoId: SPO_DATA[sItem].id,
-            unLockLevel: curStageIndex
-          })
-        }
-        // else {
-        //   console.log(sItem)
-        // }
+    const currentSleepStylesLength = currentLevelSleepStyles.length
+
+    for (let j = 0; j < currentSleepStylesLength; j++) {
+      const sItem = currentLevelSleepStyles[j]
+      if (SLEEP_STYLE[sItem]) {
+        aRes.push({
+          ...getTargetPokemonsSleeps(sItem, mapId),
+          unLockLevel: curStageIndex
+        })
       }
-    )
+      // else {
+      //   console.log(sItem)
+      // }
+    }
+
     curUnlockSleeps = sortInObjectOptions(
       aRes,
       ['sleepType', 'pokeId', 'star'],
       'up'
     )
   }
+
   return {
     unLockSleeps,
     curUnlockSleeps,
@@ -163,20 +171,23 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     spacialPokemons.isGet[spitem] = false //重置
   })
 
-  let cathPokeCount = getNumberInMap(
+  const cathPokeCount = getNumberInMap(
     score,
     mapData.scoreList
   )
-  let curSpo = getSPOByScore(score)
-  let orgSleepList = getUnLockSleeps(
+  const curSpo = getSPOByScore(score)
+  // 只调用一次 getUnLockSleeps 来优化性能
+  const unlockData = getUnLockSleeps(
     mapData.id,
     mapData.levelList,
     curStageIndex
-  ).allUnlockSleepsList
+  )
+  let orgSleepList = unlockData.allUnlockSleepsList
 
-  let orgSleepListByActType = JSON.parse(JSON.stringify(orgSleepList))
+  // 使用浅拷贝替代深拷贝来优化性能
+  let orgSleepListByActType = [...orgSleepList]
   const isActRandom = get('isActRandom', extraSleepStyleOptions)
-  let catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * extraSleepStyleOptions.actRandomNum) // 活动带类型的无症状 固定前几个无症状
+  const catchNumByActRandom = cathPokeCount - Math.floor(cathPokeCount * extraSleepStyleOptions.actRandomNum) // 活动带类型的无症状 固定前几个无症状
   // console.log(isActRandom, catchNumByActRandom, orgSleepListByActType)
 
   // 睡眠类型图鉴筛选
@@ -267,10 +278,15 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 
   let isSleepOnStomach = false
 
-  while (cathPokeCount > 1) {
+  // 使用局部变量优化循环性能
+  let currentCathPokeCount = cathPokeCount
+  let currentCatchNumByActRandom = catchNumByActRandom
+  let currentCurSpo = curSpo
+
+  while (currentCathPokeCount > 1) {
     let sleepList = orgSleepList.filter(
       item =>
-        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+        item.spo <= currentCurSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     sleepList = getRandomArr(sleepList, sleepList.length * 10)
 
@@ -279,19 +295,19 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     if (isActRandom && +curUnLockSleepType !== 999) {
       sleepListByActRandom = orgSleepListByActType.filter(
         item =>
-          item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+          item.spo <= currentCurSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
       )
       sleepListByActRandom = getRandomArr(sleepListByActRandom, sleepListByActRandom.length * 10)
     }
     //当剩余的 SPO 小于 2 时(即小于可用的睡姿的 SPO 时)，将固定抽出 SPO 值最小，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-    if (curSpo < 2) {
-      const pushZero = fnGetZeroPokemon(isActRandom, curUnLockSleepType, catchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType)
+    if (currentCurSpo < 2) {
+      const pushZero = fnGetZeroPokemon(isActRandom, curUnLockSleepType, currentCatchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType)
       res.push(pushZero)
-      curSpo = 1
+      currentCurSpo = 1
     } else {
       let useSleepList = [...sleepList]
       // 类型非无症状的活动随机类型
-      if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
+      if (isActRandom && +curUnLockSleepType !== 999 && currentCatchNumByActRandom > 0) {
         useSleepList = [...sleepListByActRandom]
       }
       const rdmIndex = parseInt(
@@ -300,9 +316,9 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       )
       let rdmRes = useSleepList[rdmIndex]
       if (useSleepList.length === 0) {
-        rdmRes = fnGetZeroPokemon(isActRandom, curUnLockSleepType, catchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType)
+        rdmRes = fnGetZeroPokemon(isActRandom, curUnLockSleepType, currentCatchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType)
       }
-      // console.log(useSleepList, curSpo, rdmRes)
+      // console.log(useSleepList, currentCurSpo, rdmRes)
       // 大肚子睡只能1次
       if (rdmRes.sleepNameId && rdmRes.sleepNameId === 4) {
         isSleepOnStomach = true
@@ -330,17 +346,17 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
         ...rdmRes,
         isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
       })
-      curSpo -= rdmRes.spo
-      if (curSpo < 2) {
-        curSpo = 1
+      currentCurSpo -= rdmRes.spo
+      if (currentCurSpo < 2) {
+        currentCurSpo = 1
       }
     }
-    // console.log(curSpo)
-    cathPokeCount--
-    catchNumByActRandom--
+    // console.log(currentCurSpo)
+    currentCathPokeCount--
+    currentCatchNumByActRandom--
   }
   //当抽取到最后一个睡姿的时候，将根据剩余的 SPO 固定抽出最后一个 SPO 最大，且解锁的卡比兽等级最低，且睡姿 ID 最小的睡姿
-  if (curSpo < 2) {
+  if (currentCurSpo < 2) {
     res.push({
       ...spoZeroPoke,
       isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
@@ -350,12 +366,12 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     let lastList = orgSleepList.filter(
       item =>
         !extraSleepStyleOptions.noLastPokes.includes(item.pokeId) && // 去除特殊宝可梦保底
-        item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
+        item.spo <= currentCurSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
     )
     if (lastList.length === 0) {
       lastList = [spoZeroPoke]
     } else {
-      // console.log('curSpo', extraSleepStyleOptions, curSpo, orgSleepList, lastList)
+      // console.log('curSpo', extraSleepStyleOptions, currentCurSpo, orgSleepList, lastList)
       lastList = sortInObjectOptions(lastList, ['spo'], 'down')
       if (spacialPokemons.probabilityLastList.includes(lastList[0].pokeId) && (Math.random() < 0.8)) {
         lastList = sortInObjectOptions(lastList.filter(item => item.pokeId !== lastList[0].pokeId), ['spo'], 'down')
@@ -468,7 +484,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   //   mapData.name,
   //   levelList[curStageIndex].name,
   //   3000000,
-  //   `剩余SPO:${curSpo}`,
+  //   `剩余SPO:${currentCurSpo}`,
   //   SLEEP_TYPES[curUnLockSleepType],
   //   `${getNumberInMap(score, mapData.scoreList)}只`
   // )
@@ -480,7 +496,6 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   const time = new Date().getTime()
   getTimes = getTimes || 4000
-  const orgList = []
   const lastGetList = new Set()
   const acc = {
     exp: 0,
@@ -488,8 +503,13 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
     spoValidity: 0
   }
 
-  // 使用 Map 来保存唯一的ID，避免重复查找
-  const mergeResMap = new Map()
+  // 预计算固定数据，避免在循环中重复计算
+  const shouldCalculateAcc = !extraSleepStyleOptions.isNoMoreData
+  const scoreGtSPO38000 = score > SPO38000
+  const currentSPO = getSPOByScore(score)
+
+  // 使用普通对象代替 Map，减少内存分配开销
+  const mergeResObj = {}
 
   for (let i = 0; i < getTimes; i++) {
     const onceGetRes = getRandomSleepStyle(
@@ -499,55 +519,57 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
       curStageIndex,
       extraSleepStyleOptions
     )
-    orgList.push(...onceGetRes)  // 扩展数组
 
-    if (!extraSleepStyleOptions.isNoMoreData) {
+    if (shouldCalculateAcc) {
       acc.exp += fnAccumulation(onceGetRes, 'exp')
       acc.shards += fnAccumulation(onceGetRes, 'shards')
-      if (score > SPO38000) {
+      if (scoreGtSPO38000) {
         acc.spoValidity += getPercent(
           fnAccumulation(onceGetRes, 'spo'),
-          getSPOByScore(score),
+          currentSPO,
           0
         )
       }
     }
 
-    // 将唯一 ID 存入 Set，避免重复添加
+    // 将唯一 ID 存入 Set
     const lastItemId = onceGetRes[onceGetRes.length - 1].id
     lastGetList.add(lastItemId)
 
-    // 使用 Map 来合并相同 id 的项
+    // 使用对象代替 Map，减少方法调用开销
     onceGetRes.forEach(item => {
-      const existingItem = mergeResMap.get(item.id)
-      if (existingItem) {
-        existingItem.count += 1
+      if (mergeResObj[item.id]) {
+        mergeResObj[item.id].count += 1
       } else {
-        mergeResMap.set(item.id, { ...item, count: 1 })
+        mergeResObj[item.id] = { ...item, count: 1 }
       }
     })
   }
 
   // 处理合并后的结果
   const res = []
-  mergeResMap.forEach(item => {
-    const findTargetResItem = res.find(resItem => resItem.pokeId === item.pokeId)
+  const pokeIdMap = {} // 用于快速查找已存在的 pokeId
 
-    if (!findTargetResItem) {
+  for (const itemId in mergeResObj) {
+    const item = mergeResObj[itemId]
+    const pokeId = item.pokeId
+
+    if (!pokeIdMap[pokeId]) {
       const resItem = {
-        pokeId: item.pokeId,
+        pokeId: pokeId,
         count: item.count,
         shardsSum: item.count * item.shards,
         expSum: item.count * item.exp,
         candysSum: item.count * item.candys
       }
-      if (!extraSleepStyleOptions.isNoMoreData) {
+      if (shouldCalculateAcc) {
         resItem.list = [item]
       }
       res.push(resItem)
+      pokeIdMap[pokeId] = resItem
     } else {
-      // console.log(res)
-      if (!extraSleepStyleOptions.isNoMoreData) {
+      const findTargetResItem = pokeIdMap[pokeId]
+      if (shouldCalculateAcc) {
         findTargetResItem.list.push(item)
       }
       findTargetResItem.count += item.count
@@ -555,8 +577,9 @@ export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curSt
       findTargetResItem.expSum += item.count * item.exp
       findTargetResItem.candysSum += item.count * item.candys
     }
-  })
-  if (!extraSleepStyleOptions.isNoMoreData) {
+  }
+
+  if (shouldCalculateAcc) {
     res.forEach(item => {
       item.list = sortInObjectOptions(item.list, ['count'], 'down')
     })

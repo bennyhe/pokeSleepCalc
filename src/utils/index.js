@@ -186,26 +186,46 @@ export function getUrlQuery(paramName, url) {
 }
 
 export function sortInObjectOptions(arr, options, updown) {
-  updown = updown || 'down'
-  if (options && options.length > 0) {
-    return arr.sort((a, b) => {
-      const aa = updown === 'up' ? a : b
-      const bb = updown === 'up' ? b : a
-      let sort = aa[options[0]] - bb[options[0]]
-      for (let i = 0; i < options.length; i++) {
-        const item = options[i]
-        if (item === 'name') {
-          sort = sort || bb[item].localeCompare(aa[item])
-        } else if (item === 'time') {
-          sort = sort || Date.parse(bb[item]) - Date.parse(aa[item])
-        } else {
-          sort = sort || aa[item] - bb[item]
-        }
-      }
-      return sort
-    })
+  // 如果没有选项或数组为空，直接返回
+  if (!options || options.length === 0 || arr.length <= 1) {
+    return arr
   }
-  return arr
+
+  const isUp = updown === 'up'
+
+  return arr.sort((a, b) => {
+    let sortResult = 0
+
+    for (let i = 0; i < options.length; i++) {
+      const key = options[i]
+
+      // 根据排序方向确定比较顺序
+      const valA = isUp ? a[key] : b[key]
+      const valB = isUp ? b[key] : a[key]
+
+      if (key === 'name') {
+        // 字符串比较优化：先检查是否相等，再使用 localeCompare
+        if (valA !== valB) {
+          sortResult = valB.localeCompare(valA)
+        }
+      } else if (key === 'time') {
+        // 时间比较优化：直接使用数值比较
+        const timeA = typeof valA === 'string' ? Date.parse(valA) : valA
+        const timeB = typeof valB === 'string' ? Date.parse(valB) : valB
+        sortResult = timeB - timeA
+      } else {
+        // 数值比较
+        sortResult = valA - valB
+      }
+
+      // 如果当前字段已经能确定顺序，就不用继续比较了
+      if (sortResult !== 0) {
+        break
+      }
+    }
+
+    return sortResult
+  })
 }
 
 export function getPercent(count, sum, decimalPoint) {
