@@ -23,7 +23,9 @@ import {
   ToolboxComponent,
   TooltipComponent,
   GridComponent,
-  LegendComponent
+  LegendComponent,
+  MarkPointComponent,
+  MarkLineComponent
 } from 'echarts/components'
 import { LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
@@ -35,6 +37,8 @@ echarts.use([
   TooltipComponent,
   GridComponent,
   LegendComponent,
+  MarkPointComponent,
+  MarkLineComponent,
   LineChart,
   CanvasRenderer,
   UniversalTransition
@@ -243,12 +247,48 @@ const initChart = targetRes => {
         chartMapOptions.series.push({
           name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
-          data: onceData
+          data: onceData,
+          // 添加最高值和平均值标记
+          markPoint: {
+            data: [
+              { 
+                type: 'max', 
+                name: '最大期望'
+              }
+            ],
+            label: {
+              formatter: '{c}',
+              position: 'top'
+            },
+            symbol: 'pin', // 使用图钉形状
+            symbolSize: 40
+          },
+          markLine: {
+            data: [{ type: 'average', name: 'Avg' }]
+          }
         })
         stObject[`st${resInMapItem.sleepType}`].push({
           name: t(`ILAND.${mapItem.id}`),
           type: 'line',
-          data: onceData
+          data: onceData,
+          // 同样为全局图表添加标记
+          markPoint: {
+            data: [
+              { 
+                type: 'max', 
+                name: '最大期望'
+              }
+            ],
+            label: {
+              formatter: '{c}',
+              position: 'top'
+            },
+            symbol: 'pin', // 使用图钉形状
+            symbolSize: 40
+          },
+          markLine: {
+            data: [{ type: 'average', name: 'Avg' }]
+          }
         })
         return t(`SLEEP_TYPES.${resInMapItem.sleepType}`)
       })
@@ -266,6 +306,8 @@ const initChart = targetRes => {
         legend: {
           data: chartMapOptions.legendData
         },
+        markPoint: chartMapOptions.markPoint,
+        markLine: chartMapOptions.markLine,
         grid: {
           left: '3%',
           right: '4%',
