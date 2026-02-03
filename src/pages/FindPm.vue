@@ -15,6 +15,7 @@ import {
   getStageLevelPicId
 } from '../utils/index.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
+import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 
 import * as echarts from 'echarts/core'
@@ -171,7 +172,7 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
       upIdsMid: pageData.value.upIdsMid,
       upIdsLarge: pageData.value.upIdsLarge,
       upIdsSmall: pageData.value.upIdsSmall,
-      isNoMoreData: true,
+      // isNoMoreData: true,
       actRandomNum: pageData.value.actRandomNum || 0.3,
       noLastPokes: pageData.value.noLastList
     }
@@ -184,7 +185,7 @@ const { t } = i18n.global
 // 10w-50w 2000
 // 50w以上-400w 5000
 // 400w-500w 100000
-const handleClickGet = type => {
+const handleClickGet = mapType => {
   const startTime = new Date().getTime()
   const targetRes = []
   let lastGetList = []
@@ -253,7 +254,7 @@ const initChart = targetRes => {
       gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
     ) {
       const chartMapOptions = {
-        title: t(`ILAND.${mapItem.id}`),
+        title: `${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-${t(`ILAND.${mapItem.id}`)}`,
         legendData: [],
         xAxis: [],
         series: [
@@ -268,8 +269,16 @@ const initChart = targetRes => {
       const resInMap = targetRes.filter(item => item.curMap === mapItem.id)
       chartMapOptions.legendData = resInMap.map(resInMapItem => {
         const onceData = []
-
-        chartMapOptions.xAxis = resInMapItem.res.map(pointItem => {
+        const onceDataEveryStyles = resInMapItem.res[resInMapItem.res.length - 1].res.find(
+          pointSubItem => +pointSubItem.pokeId === +pageData.value.pokemonId
+        ).list.map(styleItem=>{
+          return {
+            sleepName: `${t(`SLEEP_TYPES.${resInMapItem.sleepType}`)}-${SLEEP_STYLE[styleItem.id].star}✩-${t(`SLEEPSTYLE_NAME.${SLEEP_STYLE[styleItem.id].sleepNameId}`)}`,
+            styleId: styleItem.id,
+            data: new Array(34).fill(0)
+          }
+        })
+        chartMapOptions.xAxis = resInMapItem.res.map((pointItem, pointKey) => {
           const curPokeRes = pointItem.res.find(
             pointSubItem => +pointSubItem.pokeId === +pageData.value.pokemonId
           )
@@ -278,9 +287,23 @@ const initChart = targetRes => {
             num = getDecimalNumber(curPokeRes.count / getTimes, 2)
           }
           onceData.push(num)
+        
+          if(curPokeRes && curPokeRes.list && curPokeRes.list.length > 0) {
+            curPokeRes.list.forEach(styleItem => {
+              onceDataEveryStyles.forEach(everyItem => {
+                if(everyItem.styleId === styleItem.id && styleItem.count) {
+                  everyItem.data[pointKey] = getDecimalNumber(styleItem.count / getTimes, 2)
+                }
+              })
+            })
+          }
+
           return getNum(pointItem.allPoint)
         })
+        console.log(onceDataEveryStyles)
         console.log(t(`SLEEP_TYPES.${resInMapItem.sleepType}`), onceData)
+        // 按睡眠类型输出图表
+
         chartMapOptions.series.push({
           name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
@@ -304,6 +327,34 @@ const initChart = targetRes => {
             data: [{ type: 'average', name: 'Avg' }]
           }
         })
+        
+        onceDataEveryStyles.forEach(everyItem => {
+          chartMapOptions.series.push({
+            name: everyItem.sleepName,
+            type: 'line',
+            data: everyItem.data,
+            // 添加最高值和平均值标记
+            markPoint: {
+              data: [
+                { 
+                  type: 'max', 
+                  name: '最大期望'
+                }
+              ],
+              label: {
+                formatter: '{c}',
+                position: 'top'
+              },
+              symbol: 'pin', // 使用图钉形状
+              symbolSize: 40
+            },
+            markLine: {
+              data: [{ type: 'average', name: 'Avg' }]
+            }
+          })
+        
+        })
+        
         stObject[`st${resInMapItem.sleepType}`].push({
           name: t(`ILAND.${mapItem.id}`),
           type: 'line',
@@ -330,7 +381,7 @@ const initChart = targetRes => {
         return t(`SLEEP_TYPES.${resInMapItem.sleepType}`)
       })
       console.log(chartMapOptions)
-      // 使用新的初始化函数
+      // 使用新的初始化函数，按地图输出图表
       initOrUpdateChart(`echart_dom_map_${mapItem.id}`, {
         title: {
           text: chartMapOptions.title
@@ -362,7 +413,7 @@ const initChart = targetRes => {
         },
         series: chartMapOptions.series
       })
-
+      console.log(stObject)
       for (const stKey in stObject) {
         if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
           const stObjectItem = stObject[stKey]
