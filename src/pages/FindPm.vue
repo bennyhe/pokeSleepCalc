@@ -1,5 +1,5 @@
 <script setup>
-import { ref, nextTick } from 'vue'
+import { ref, nextTick, onBeforeUnmount } from 'vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
 import { pokedex } from '../config/pokedex.js'
@@ -492,6 +492,10 @@ const handleChangePokemon = () => {
   initState()
 }
 initState()
+// 组件卸载时自动清理图表实例
+onBeforeUnmount(() => {
+  cleanupCharts()
+})
 </script>
 
 <template>
