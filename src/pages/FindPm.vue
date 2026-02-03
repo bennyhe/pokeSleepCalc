@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
 import { pokedex } from '../config/pokedex.js'
@@ -72,6 +72,40 @@ const pageData = ref({
     st999: false
   }
 })
+// 存储 ECharts 实例，避免重复初始化
+const chartInstances = ref({})
+
+// 销毁图表实例的函数
+const disposeChart = chartId => {
+  if (chartInstances.value[chartId]) {
+    chartInstances.value[chartId].dispose()
+    delete chartInstances.value[chartId]
+  }
+}
+// 组件卸载时清理所有图表实例
+const cleanupCharts = () => {
+  Object.keys(chartInstances.value).forEach(chartId => {
+    disposeChart(chartId)
+  })
+}
+
+// 初始化或更新图表的函数
+const initOrUpdateChart = (chartId, options) => {
+  // 添加 DOM 存在性检查
+  const chartDom = document.getElementById(chartId)
+  if (!chartDom) {
+    console.warn(`DOM element with id ${chartId} not found`)
+    return
+  }
+
+  // 如果已有实例，先销毁
+  disposeChart(chartId)
+  
+  // 创建新实例
+  const chartInstance = echarts.init(chartDom)
+  chartInstances.value[chartId] = chartInstance
+  chartInstance.setOption(options)
+}
 
 // 存储每个地图每个等级会出现的宝可梦
 const gameMapPokemons = [
@@ -196,7 +230,10 @@ const handleClickGet = type => {
   })
   testData.value = targetRes
 
-  initChart(targetRes)
+  // 使用 nextTick 确保 DOM 更新完成后再初始化图表
+  nextTick(() => {
+    initChart(targetRes)
+  })
 
   console.log(targetRes, lastGetList)
 }
@@ -293,10 +330,8 @@ const initChart = targetRes => {
         return t(`SLEEP_TYPES.${resInMapItem.sleepType}`)
       })
       console.log(chartMapOptions)
-      const chartMap = echarts.init(
-        document.getElementById(`echart_dom_map_${mapItem.id}`)
-      )
-      chartMap.setOption({
+      // 使用新的初始化函数
+      initOrUpdateChart(`echart_dom_map_${mapItem.id}`, {
         title: {
           text: chartMapOptions.title
         },
@@ -306,8 +341,6 @@ const initChart = targetRes => {
         legend: {
           data: chartMapOptions.legendData
         },
-        markPoint: chartMapOptions.markPoint,
-        markLine: chartMapOptions.markLine,
         grid: {
           left: '3%',
           right: '4%',
@@ -329,6 +362,44 @@ const initChart = targetRes => {
         },
         series: chartMapOptions.series
       })
+
+      for (const stKey in stObject) {
+        if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
+          const stObjectItem = stObject[stKey]
+          // 使用新的初始化函数
+          initOrUpdateChart(`echart_dom_${stKey}`, {
+            title: {
+              text: t(`SLEEP_TYPES.${stKey.replace('st', '')}`)
+            },
+            tooltip: {
+              trigger: 'axis'
+            },
+            legend: {
+              data: stObjectItem.map(item => item.name)
+            },
+            grid: {
+              left: '3%',
+              right: '4%',
+              bottom: '3%',
+              containLabel: true
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: stXAxis
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: stObjectItem
+          })
+        }
+      }
 
       for (const stKey in stObject) {
         if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
@@ -615,7 +686,7 @@ initState()
       style="height: 450px"
     ></div>
   </template>
-  <template
+  <!-- <template
     v-for="iLandItem in testData"
     v-bind:key="`${iLandItem.curMap}-${iLandItem.sleepType}`"
   >
@@ -645,5 +716,5 @@ initState()
         </CptAvatar>
       </div>
     </div>
-  </template>
+  </template> -->
 </template>
