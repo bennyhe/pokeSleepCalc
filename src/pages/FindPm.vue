@@ -275,7 +275,7 @@ const initChart = targetRes => {
           return {
             sleepName: `${t(`SLEEP_TYPES.${resInMapItem.sleepType}`)}-${SLEEP_STYLE[styleItem.id].star}✩-${t(`SLEEPSTYLE_NAME.${SLEEP_STYLE[styleItem.id].sleepNameId}`)}`,
             styleId: styleItem.id,
-            data: new Array(34).fill(0)
+            data: new Array(35).fill(0)
           }
         })
         chartMapOptions.xAxis = resInMapItem.res.map((pointItem, pointKey) => {

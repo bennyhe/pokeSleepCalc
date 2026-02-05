@@ -70,7 +70,8 @@ const evoLine = [
   [371, 372, 373],
   [557, 558],
   [974, 975],
-  [213]
+  [213],
+  [742, 743]
 ]
 const pokedex = {
   1: {
@@ -3650,6 +3651,46 @@ const pokedex = {
     foodPer: 19.40,
     skillPer: 5.10
   },
+  742: {
+    id: 742,
+    // name: '萌虻',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 5,
+    // pokeType: 2,
+    maxcarry: 9,
+    // helpSpeed: 4100,
+    berryType: 12
+    // foodPer: 22.50,
+    // skillPer: 1.10,
+    // food: {
+    //   type: [16, 7, 3],
+    //   count: {
+    //     16: {
+    //       num: [2, 5, 7]
+    //     },
+    //     7: {
+    //       num: [0, 6, 10]
+    //     },
+    //     3: {
+    //       num: [0, 0, 9]
+    //     }
+    //   }
+    // }
+  },
+  743: {
+    id: 743,
+    // name: '蝶結萌虻',
+    friendship: 12,
+    sleepType: 2,
+    // skillType: 5,
+    // pokeType: 2,
+    maxcarry: 19,
+    // helpSpeed: 2800,
+    berryType: 12
+    // foodPer: 22.90,
+    // skillPer: 1.30
+  },
   759: {
     id: 759,
     // name: '童偶熊',
@@ -4380,6 +4421,9 @@ const updatePoke = [{
 }, {
   time: '2026/01/1',
   pokemons: [213]
+}, {
+  time: '2026/02/1',
+  pokemons: [742, 743]
 }]
 // console.log(pokedex)
 export {

@@ -43,6 +43,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [213],
     starttime: '2026/01/19 04:00'
+  },
+  {
+    ids: [742, 743],
+    starttime: '2026/02/09 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -54,16 +58,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [742, 743], // ban 宝可梦id
+  showBanArea: [0, 1, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [1, 127, 132, 303, 359, 453, 759, 764, 845, 7054],
+  upIdsMidIds: [742, 743],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [742, 743]
 }
 export const ACT_LIST = [
   //  {
@@ -80,41 +84,41 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1769889600000,
-    endTime: 1769975999000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1769976000000,
-    endTime: 1770062399000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    times: 4
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1770062400000,
-    endTime: 1770148799000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  }
   // {
-  //   name: '強化發動！技能週vol.3',
-  //   namejp: '連発！スキルウィーク vol.3',
-  //   startTime: 1768766400000,
-  //   endTime: 1769371199000,
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1769889600000,
+  //   endTime: 1769975999000,
   //   notArea: [],
-  //   smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
-  //   midUp: [213],
-  //   isActRandom: true
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // },
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1769976000000,
+  //   endTime: 1770062399000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173],
+  //   times: 4
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1770062400000,
+  //   endTime: 1770148799000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
   // }
+  {
+    name: '情人節2026',
+    namejp: 'バレンタイン2026',
+    startTime: 1770580800000,
+    endTime: 1771185599000,
+    notArea: [],
+    smallUp: [1, 127, 132, 303, 359, 453, 759, 764, 845, 7054],
+    midUp: [742, 743],
+    isActRandom: true
+  }
 ]

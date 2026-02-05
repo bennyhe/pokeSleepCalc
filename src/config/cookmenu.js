@@ -1489,5 +1489,25 @@ export const COOKMENU = {
     }],
     'baseEnergy': 8165,
     'menuPercent': 35
+  },
+  '3027': {
+    // 採蜜巧克力格子鬆餅
+    'id': 3027,
+    'type': 3,
+    'from': [{
+      'id': 9,
+      'num': 38
+    }, {
+      'id': 16,
+      'num': 28
+    }, {
+      'id': 10,
+      'num': 28
+    }, {
+      'id': 13,
+      'num': 21
+    }],
+    'baseEnergy': 25484,
+    'menuPercent': 78
   }
 }

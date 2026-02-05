@@ -257,7 +257,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsMid)
   }
   if (hasUpIds(extraSleepStyleOptions.upIdsSmall)) {
-    orgSleepStyleOptions.orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
+    orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsSmall)
   }
   if (hasUpIds(extraSleepStyleOptions.upIdsLarge)) {
     orgSleepList = inRandomSleepStyleGetSleepStyles(orgSleepList, extraSleepStyleOptions.upIdsLarge)
