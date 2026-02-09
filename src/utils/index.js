@@ -59,37 +59,14 @@ export function get(path, parent, num) {
   if (typeof parent !== 'object') {
     parent = this
   }
-
-  // 快速路径：单层属性
-  if (!path.includes('.') && !path.includes('[')) {
-    const value = parent[path]
-    if (Array.isArray(value) && num) {
-      return value.length >= num ? value.slice(0, num) : undefined
-    }
-    return value
+  const pathArr = path.replace(/\[/g, '.')
+    .replace(/\]/g, '')
+    .split('.')
+  const res = pathArr.reduce((o, k) => (o || {})[k], parent)
+  if ((Array.isArray(res) && num)) {
+    return res.length >= num ? res.slice(0, num) : undefined
   }
-
-  // 处理包含 [ ] 的路径，先标准化
-  let normalizedPath = path
-  if (path.includes('[')) {
-    normalizedPath = path.replace(/\[/g, '.').replace(/\]/g, '')
-  }
-
-  // 分割路径并遍历
-  const keys = normalizedPath.split('.')
-  let current = parent
-
-  for (let i = 0; i < keys.length; i++) {
-    if (current == null || typeof current !== 'object') {
-      return undefined
-    }
-    current = current[keys[i]]
-  }
-
-  if (Array.isArray(current) && num) {
-    return current.length >= num ? current.slice(0, num) : undefined
-  }
-  return current
+  return res
 }
 
 export function getNum(num) {

@@ -3656,40 +3656,40 @@ const pokedex = {
     // name: '萌虻',
     friendship: 5,
     sleepType: 2,
-    // skillType: 5,
-    // pokeType: 2,
+    skillType: 28,
+    pokeType: 2,
     maxcarry: 9,
-    // helpSpeed: 4100,
-    berryType: 12
-    // foodPer: 22.50,
-    // skillPer: 1.10,
-    // food: {
-    //   type: [16, 7, 3],
-    //   count: {
-    //     16: {
-    //       num: [2, 5, 7]
-    //     },
-    //     7: {
-    //       num: [0, 6, 10]
-    //     },
-    //     3: {
-    //       num: [0, 0, 9]
-    //     }
-    //   }
-    // }
+    helpSpeed: 4500,
+    berryType: 12,
+    foodPer: 19.90,
+    skillPer: 1.90,
+    food: {
+      type: [9, 10, 16],
+      count: {
+        9: {
+          num: [2, 5, 7]
+        },
+        10: {
+          num: [0, 4, 6]
+        },
+        16: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   743: {
     id: 743,
     // name: '蝶結萌虻',
     friendship: 12,
     sleepType: 2,
-    // skillType: 5,
-    // pokeType: 2,
+    skillType: 28,
+    pokeType: 2,
     maxcarry: 19,
-    // helpSpeed: 2800,
-    berryType: 12
-    // foodPer: 22.90,
-    // skillPer: 1.30
+    helpSpeed: 2300,
+    berryType: 12,
+    foodPer: 19.40,
+    skillPer: 2.50
   },
   759: {
     id: 759,

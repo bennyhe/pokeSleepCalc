@@ -176,6 +176,11 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
           percent: 1 / 3
         }]
       }
+      if ([742, 743].includes(+pokeItem.id)){
+        foodTypes[28][0].foodtype = 9
+        foodTypes[28][1].foodtype = 10
+        foodTypes[28][2].foodtype = 16
+      }
       skillExtra.foods = foodTypes[pokeSkillType].map(foodItem => {
         let foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount, 1)
         if (pokeSkillType === 25) { // 怪力钳小概率2倍暴击
