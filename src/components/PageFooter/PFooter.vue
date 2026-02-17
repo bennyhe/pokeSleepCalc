@@ -32,7 +32,7 @@ const handleClickShowSupport = () => {
       <a href="https://afdian.com/a/pokesleepcalc" target="_blank">按月订阅支持(爱发电)(WX Pay/Ali Pay/Paypal/Stripe)</a>
     </p>
     <p>
-      <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志</a>
+      <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志(2023-{{ new Date().getFullYear() }})</a>
     </p>
     <CptDialogUpdateLog v-bind:key="dialogId" :isShow="isShowDialog" />
     <CptDialogSupport v-bind:key="dialogId2" :isShow="isShowDialog2" />
