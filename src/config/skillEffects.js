@@ -29,7 +29,7 @@ export const skillEffects = {
       },
       {
         level: 7,
-        value: 3002
+        value: 3212
       }
     ]
   },
@@ -63,7 +63,7 @@ export const skillEffects = {
       },
       {
         level: 7,
-        value: 6409
+        value: 6858
       }
     ]
   },
@@ -279,7 +279,7 @@ export const skillEffects = {
       },
       {
         level: 7,
-        value: 17304
+        value: 18515
       }
     ]
   },
