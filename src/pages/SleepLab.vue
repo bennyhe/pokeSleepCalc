@@ -205,8 +205,8 @@ const { t } = i18n.global
 const pokemonNames = ref('')
 const handleChangeInputPM = () => {
   const res = []
-  if (pokemonNames.value.indexOf('、') > -1) {
-    const PMArr = pokemonNames.value.split('、')
+  if (pokemonNames.value.indexOf('、 ') > -1) {
+    const PMArr = pokemonNames.value.split('、 ')
     for (const pId in pokedex) {
       if (Object.prototype.hasOwnProperty.call(pokedex, pId)) {
         const pItem = pokedex[pId]

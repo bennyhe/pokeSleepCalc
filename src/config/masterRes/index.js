@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '情人节2026',
+      name: 'vol1',
       // startTime: 1738385391641,
       // endTime: 1737835199000,
       list: actTimeList
