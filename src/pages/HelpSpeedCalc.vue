@@ -35,7 +35,7 @@ import {
   getNewHelpSpeed,
   getSkillLevel
 } from '../utils/helpcalc.js'
-import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL } from '../config/game.js'
+import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL, SP_POKEMONS } from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
@@ -805,7 +805,7 @@ watch(helpSpeedCalcForm.value, val => {
       <div style="margin-top: 3px; margin-left: 12px">
         <el-checkbox
           v-model="helpSpeedCalcForm.isShiny"
-          :disabled="+helpSpeedCalcForm.pokemonId === 491"
+          :disabled="SP_POKEMONS.includes(+helpSpeedCalcForm.pokemonId)"
         >
           {{ $t("PROP.shiny") }}
         </el-checkbox>

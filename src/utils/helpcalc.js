@@ -13,6 +13,9 @@ import {
 import {
   characterOptions
 } from '../config/helpSpeed.js'
+import {
+  SP_POKEMONS
+} from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -52,7 +55,7 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
   }
 
   // 特殊情况2：达克莱伊(491)
-  if (+pokemonId === 491) {
+  if (SP_POKEMONS.includes(+pokemonId)) {
     const darkraiFoodTypes = pokedex[491].food.type.length
     const darkraiLimits = [darkraiFoodTypes, 1, 1]
     return darkraiLimits.slice(0, arrayLength)
@@ -118,7 +121,7 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
   const resRankArr = []
 
   const limits = fnGetFoodIndexLimits(+newPokeItem.id, pokeLevel)
-  let tempFoodType = fnGenerateFoodCombinations(limits, +newPokeItem.id === 491)
+  let tempFoodType = fnGenerateFoodCombinations(limits, SP_POKEMONS.includes(+newPokeItem.id))
 
   if (isPlayer) { // 玩家则
     tempFoodType = [[...pokeUseFoods]]
@@ -153,12 +156,6 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
       } else if (pokeLevel >= 60) {
         arrFood.push(newPokeItem.food.type[arrFTItem[2]])
       }
-
-      // if (+newPokeItem.id === 491) { // 未解锁30 60食材的噩梦神
-      //   arrFood = [
-      //     newPokeItem.food.type[arrFTItem[0]]
-      //   ]
-      // }
     }
     resRankArr.push({
       ...newPokeItem,

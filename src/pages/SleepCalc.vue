@@ -484,6 +484,7 @@ const getSleepStyle = () => {
   // #491噩梦神各个类型都会有
   orgSleepList = [
     ...orgSleepList,
+    getTargetPokemonsSleeps('151-id-1', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-1', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-2', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-3', gameMap[userData.value.curMap].id)

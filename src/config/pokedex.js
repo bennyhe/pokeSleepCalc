@@ -1274,6 +1274,48 @@ const pokedex = {
     foodPer: 26.40,
     skillPer: 2.60
   },
+  151: {
+    id: 151,
+    // name: '夢幻',
+    friendship: 25,
+    sleepType: 2,
+    skillType: 33,
+    pokeType: 4,
+    berryType: 6,
+    maxcarry: 26,
+    helpSpeed: 2900,
+    // foodPer: 16.90,
+    // skillPer: 3.90,
+    food: {
+      type: [1, 3, 6, 7, 10, 14, 15, 19],
+      count: {
+        1: {
+          num: [2, 3, 4]
+        },
+        3: {
+          num: [2, 4, 6]
+        },
+        6: {
+          num: [2, 4, 5]
+        },
+        7: {
+          num: [2, 4, 7]
+        },
+        10: {
+          num: [2, 4, 6]
+        },
+        14: {
+          num: [0, 0, 2]
+        },
+        15: {
+          num: [2, 5, 7]
+        },
+        19: {
+          num: [2, 3, 4]
+        }
+      }
+    }
+  },
   152: {
     id: 152,
     // name: '菊草葉',
@@ -4424,6 +4466,9 @@ const updatePoke = [{
 }, {
   time: '2026/02/1',
   pokemons: [742, 743]
+}, {
+  time: '2026/03/1',
+  pokemons: [151]
 }]
 // console.log(pokedex)
 export {

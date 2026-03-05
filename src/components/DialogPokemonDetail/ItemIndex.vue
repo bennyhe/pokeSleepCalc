@@ -5,7 +5,7 @@ import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import CptSleepStyle from '../CptSleepStyle/SleepItem.vue'
 import { SPO38000 } from '../../config/spo.js'
 import { pokedex } from '../../config/pokedex.js'
-import { gameMap } from '../../config/game.js'
+import { gameMap, SP_POKEMONS } from '../../config/game.js'
 import { getTargetPokemonsSleeps, getUnLockSleeps } from '../../utils/sleep.js'
 import {
   getNum,
@@ -29,6 +29,7 @@ const props = defineProps({
 const gameMapNew = JSON.parse(JSON.stringify(gameMap))
 gameMapNew.forEach(gitem => {
   // console.log(gitem.levelList[0].sleepStyles)
+  gitem.levelList[0].sleepStyles.push('151-id-1')
   gitem.levelList[0].sleepStyles.push('491-id-1')
   gitem.levelList[0].sleepStyles.push('491-id-2')
   gitem.levelList[0].sleepStyles.push('491-id-3')
@@ -52,7 +53,7 @@ gameMapNew.forEach(gitem => {
           :pokeId="curDialogPokeId"
           size="large"
           isShiny
-          v-if="curDialogPokeId !== 491"
+          v-if="!SP_POKEMONS.includes(curDialogPokeId)"
         />
         <div>
           <div
@@ -68,7 +69,7 @@ gameMapNew.forEach(gitem => {
           <div
             class="cpt-pokemon__pic"
             style="display: inline-block; width: 120px; height: 120px"
-            v-if="curDialogPokeId !== 491"
+            v-if="!SP_POKEMONS.includes(curDialogPokeId)"
           >
             <img
               v-lazy="

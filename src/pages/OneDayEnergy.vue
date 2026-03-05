@@ -16,7 +16,7 @@ import {
   getOneDayHelpCount,
   getRankPokemonsByTypes
 } from '../utils/energy.js'
-import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL } from '../config/game.js'
+import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL, SP_POKEMONS } from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 
@@ -74,7 +74,7 @@ onMounted(() => {
           const limits = fnGetFoodIndexLimits(pokeItem.id, 60)
           const tempFoodType = fnGenerateFoodCombinations(
             limits,
-            +pokeItem.id === 491
+            SP_POKEMONS.includes(+pokeItem.id)
           )
 
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
@@ -83,7 +83,7 @@ onMounted(() => {
               pokeItem.food.type[arrFTItem[1]],
               pokeItem.food.type[arrFTItem[2]]
             ]
-            // if(+pokeItem.id === 491) {
+            // if(SP_POKEMONS.includes(+pokeItem.id)) {
             //   useFood = [
             //     pokeItem.food.type[arrFTItem[0]]
             //   ]

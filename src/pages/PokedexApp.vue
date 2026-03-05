@@ -45,10 +45,11 @@ const gameMapPokemons = [
 gameMap.forEach((gitem, gkey) => {
   const curMapSleeps = getUnLockSleeps(gitem.id, gitem.levelList, 34).allUnlockSleepsList
   // console.log(curMapSleeps)
-  gameMapPokemons.push({
-    levelPokemons: [[491]],
-    allPokemons: [491],
+  gameMapPokemons.push({ //特殊宝可梦需提前写入配置
+    levelPokemons: [[151], [491]],
+    allPokemons: [151, 491],
     pokemonsIdToMapLevelIndex: {
+      151: 0,
       491: 0
     }
   })
