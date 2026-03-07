@@ -16,7 +16,12 @@ import {
   getOneDayHelpCount,
   getRankPokemonsByTypes
 } from '../utils/energy.js'
-import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL, SP_POKEMONS } from '../config/game.js'
+import {
+  gameMap,
+  areaBonusMax,
+  POKEMON_MAX_LEVEL,
+  SP_POKEMONS
+} from '../config/game.js'
 import { orgResetObject } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
 
@@ -76,6 +81,9 @@ onMounted(() => {
             limits,
             SP_POKEMONS.includes(+pokeItem.id)
           )
+          if (pokeItem.id === 151) {
+            tempFoodType.push([0, 0, 7])
+          }
 
           tempFoodType.forEach((arrFTItem, arrFTKey) => {
             const useFood = [
@@ -244,11 +252,10 @@ const filterOnceTop = (dataList, typeKey, topCount) => {
   const res = []
   for (let i = 0; i < 100; i++) {
     const pokeItem = dataList[i]
-    if(get('pokemonId', pokeItem) && !hasList.includes(pokeItem.pokemonId)){
-      res.push({...pokeItem})
+    if (get('pokemonId', pokeItem) && !hasList.includes(pokeItem.pokemonId)) {
+      res.push({ ...pokeItem })
       hasList.push(pokeItem.pokemonId)
     }
-    
   }
   return res.slice(0, topCount)
 }
@@ -408,7 +415,11 @@ console.log('init page onedayenergy...')
   </div>
   <div class="cpt-energyrow" v-if="pageData.resRankArr.length > 0">
     <template
-      v-for="(pokeItem, pokeKey) in filterOnceTop(pageData.resRankArr, 'all', 10)"
+      v-for="(pokeItem, pokeKey) in filterOnceTop(
+        pageData.resRankArr,
+        'all',
+        10
+      )"
       v-bind:key="`area${pageData.curMap}_${
         pokeItem.pokemonId
       }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}_2`"
@@ -416,11 +427,13 @@ console.log('init page onedayenergy...')
       <CptEnergyRowItem
         :pokeItem="pokeItem"
         :pokeKey="pokeKey"
-        :maxEnergy="filterOnceTop(pageData.resRankArr, 'all', 10)[0].oneDayEnergy"
+        :maxEnergy="
+          filterOnceTop(pageData.resRankArr, 'all', 10)[0].oneDayEnergy
+        "
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
-        />
+      />
     </template>
   </div>
   <div

@@ -1284,10 +1284,10 @@ const pokedex = {
     berryType: 6,
     maxcarry: 26,
     helpSpeed: 2900,
-    // foodPer: 16.90,
-    // skillPer: 3.90,
+    foodPer: 20,
+    skillPer: 4,
     food: {
-      type: [1, 3, 6, 7, 10, 14, 15, 19],
+      type: [1, 3, 6, 7, 10, 15, 19, 14],
       count: {
         1: {
           num: [2, 3, 4]

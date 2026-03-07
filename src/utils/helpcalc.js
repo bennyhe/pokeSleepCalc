@@ -54,9 +54,12 @@ export function fnGetFoodIndexLimits(pokemonId, pokeLevel) {
     return specialLimits.slice(0, arrayLength)
   }
 
-  // 特殊情况2：达克莱伊(491)
+  // 特殊情况2：达克莱伊(491) 梦幻(151)
   if (SP_POKEMONS.includes(+pokemonId)) {
-    const darkraiFoodTypes = pokedex[491].food.type.length
+    let darkraiFoodTypes = pokedex[pokemonId].food.type.length
+    if (+pokemonId === 151) {
+      darkraiFoodTypes = pokedex[pokemonId].food.type.length - 1
+    }
     const darkraiLimits = [darkraiFoodTypes, 1, 1]
     return darkraiLimits.slice(0, arrayLength)
   }
@@ -122,6 +125,9 @@ export const addArrInOptions = (helpSpeedCalcFormData, extraDesc, pokeItem, isPl
 
   const limits = fnGetFoodIndexLimits(+newPokeItem.id, pokeLevel)
   let tempFoodType = fnGenerateFoodCombinations(limits, SP_POKEMONS.includes(+newPokeItem.id))
+  if (+newPokeItem.id === 151 && pokeLevel >= 60) {
+    tempFoodType.push([0, 0, 7])
+  }
 
   if (isPlayer) { // 玩家则
     tempFoodType = [[...pokeUseFoods]]
@@ -283,7 +289,7 @@ export const getNewHelpSpeed = (formData, level, isUseTicket, mapBonusData) => {
   if (get('curMapData.id', mapBonusData) === 'greenex') {
     // console.log('11111ex')
     if (get('curMapData.berry', mapBonusData, 1) && get('curMapData.berry', mapBonusData).includes(get('curPokeBerryType', mapBonusData))) { //已选中对应树果
-      if (get('curMapData.berry', mapBonusData)[0]===get('curPokeBerryType', mapBonusData)){
+      if (get('curMapData.berry', mapBonusData)[0] === get('curPokeBerryType', mapBonusData)) {
         res = res * 0.9 //帮手宝可梦的帮忙间隔缩短10%
       }
     } else { // ex其它属性帮忙间隔延长15%
