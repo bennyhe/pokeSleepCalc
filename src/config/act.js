@@ -7,6 +7,7 @@ export const SLEEP_CALC_POKEMONS = {
     777, 974, 975,
     213,
     742, 743
+    // 714, 715
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -48,6 +49,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [742, 743],
     starttime: '2026/02/09 04:00'
+  },
+  {
+    ids: [714, 715],
+    starttime: '2026/03/23 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -59,16 +64,16 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [714, 715], // ban 宝可梦id
+  showBanArea: [0, 2, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
+  upIdsMidIds: [714, 715],
   upIdsLargeIds: [],
-  noLastList: []
+  noLastList: [714, 715]
 }
 export const ACT_LIST = [
   //  {
@@ -111,5 +116,15 @@ export const ACT_LIST = [
   //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
-  // }
+  // },
+  {
+    name: '寶可夢機率提升週（技能）vol.1',
+    namejp: 'ポケモンピックアップウィーク(スキル) vol.1',
+    startTime: 1774209600000,
+    endTime: 1774814399000,
+    notArea: [],
+    midUp: [714, 715],
+    smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
+    isActRandom: true
+  }
 ]

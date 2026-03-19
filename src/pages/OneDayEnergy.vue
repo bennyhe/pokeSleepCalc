@@ -82,6 +82,7 @@ onMounted(() => {
             SP_POKEMONS.includes(+pokeItem.id)
           )
           if (pokeItem.id === 151) {
+            // 梦幻60有个尾巴
             tempFoodType.push([0, 0, 7])
           }
 
@@ -96,8 +97,13 @@ onMounted(() => {
             //     pokeItem.food.type[arrFTItem[0]]
             //   ]
             // }
-            const isHasBerrys = [0]
-            isHasBerrys.push(1)
+            const isHasBerrys = [0, 1]
+            // if (arrFTItem.join('') === '000' && pokeItem.id === 151) {
+            //   console.log('梦幻0000')
+            //   pokeItem.skillType = 21
+            // } else if (pokeItem.id === 151) {
+            //   pokeItem.skillType = 33
+            // }
             isHasBerrys.forEach((oddItem, oddKey) => {
               const is2n = (oddKey + 1) % 2 === 0
               pageData.value.resRankArr.push({
