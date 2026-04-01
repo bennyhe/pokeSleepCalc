@@ -43,16 +43,31 @@ const gameMapPokemons = [
   // }
 ]
 gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(gitem.id, gitem.levelList, 34).allUnlockSleepsList
+  const curMapSleeps = getUnLockSleeps(
+    gitem.id,
+    gitem.levelList,
+    34
+  ).allUnlockSleepsList
   // console.log(curMapSleeps)
-  gameMapPokemons.push({ //特殊宝可梦需提前写入配置
-    levelPokemons: [[151], [491]],
-    allPokemons: [151, 491],
-    pokemonsIdToMapLevelIndex: {
-      151: 0,
-      491: 0
-    }
-  })
+  if (gitem.id === 'snow') {
+    gameMapPokemons.push({
+      //特殊宝可梦需提前写入配置
+      levelPokemons: [[491]],
+      allPokemons: [491],
+      pokemonsIdToMapLevelIndex: {
+        491: 0
+      }
+    })
+  } else {
+    gameMapPokemons.push({
+      //特殊宝可梦需提前写入配置
+      levelPokemons: [[151]],
+      allPokemons: [151],
+      pokemonsIdToMapLevelIndex: {
+        151: 0
+      }
+    })
+  }
   curMapSleeps.forEach(sleepsItem => {
     if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
       gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
@@ -490,7 +505,9 @@ onMounted(() => {
               <li
                 class="cpt-select-list__item cur"
                 v-if="
-                  gameMapPokemons[mapKey].allPokemons.includes(+extractPrefix(pokemonsItem.id))
+                  gameMapPokemons[mapKey].allPokemons.includes(
+                    +extractPrefix(pokemonsItem.id)
+                  )
                 "
               >
                 <div class="cpt-select-list__name">

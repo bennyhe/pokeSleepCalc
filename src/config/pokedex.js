@@ -2885,6 +2885,33 @@ const pokedex = {
     foodPer: 21.30,
     skillPer: 3.40
   },
+  380: {
+    id: 380,
+    // name: '拉帝亞斯',
+    friendship: 30,
+    sleepType: 1,
+    // skillType: 11,
+    // pokeType: 2,
+    berryType: 3,
+    maxcarry: 19
+    // helpSpeed: 4400,
+    // foodPer: 18.10,
+    // skillPer: 1.80,
+    // food: {
+    //   type: [12, 10, 17],
+    //   count: {
+    //     12: {
+    //       num: [2, 5, 7]
+    //     },
+    //     10: {
+    //       num: [0, 4, 7]
+    //     },
+    //     17: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
   403: {
     id: 403,
     // name: '小貓怪',
@@ -3646,40 +3673,40 @@ const pokedex = {
     // name: '嗡蝠',
     friendship: 5,
     sleepType: 1,
-    // skillType: 1,
-    // pokeType: 2,
+    skillType: 2,
+    pokeType: 3,
     berryType: 3,
-    maxcarry: 7
-    // helpSpeed: 4600,
-    // foodPer: 15.50,
-    // skillPer: 2.90,
-    // food: {
-    //   type: [17, 2, 9],
-    //   count: {
-    //     17: {
-    //       num: [2, 5, 7]
-    //     },
-    //     2: {
-    //       num: [0, 4, 7]
-    //     },
-    //     9: {
-    //       num: [0, 0, 11]
-    //     }
-    //   }
-    // }
+    maxcarry: 7,
+    helpSpeed: 5100,
+    foodPer: 19.80,
+    skillPer: 4.80,
+    food: {
+      type: [5, 1, 7],
+      count: {
+        5: {
+          num: [1, 2, 4]
+        },
+        1: {
+          num: [0, 1, 2]
+        },
+        7: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   715: {
     id: 715,
     // name: '音波龍',
     friendship: 12,
     sleepType: 1,
-    // skillType: 1,
-    // pokeType: 2,
+    skillType: 2,
+    pokeType: 3,
     berryType: 3,
-    maxcarry: 23
-    // helpSpeed: 3300,
-    // foodPer: 15.40,
-    // skillPer: 2.80
+    maxcarry: 23,
+    helpSpeed: 2700,
+    foodPer: 19.50,
+    skillPer: 4.80
   },
   736: {
     id: 736,
@@ -4421,95 +4448,98 @@ const initPokedex = () => {
 }
 initPokedex()
 const updatePoke = [{
-  time: '2023/8/1',
+  time: '2023/8/01',
   pokemons: [439, 122]
 }, {
-  time: '2023/9/1',
+  time: '2023/9/01',
   pokemons: [173, 35, 36]
 }, {
-  time: '2023/10/1',
+  time: '2023/10/01',
   pokemons: [353, 354, 9001]
 }, {
-  time: '2023/11/1',
+  time: '2023/11/01',
   pokemons: [95, 208]
 }, {
-  time: '2023/12/1',
+  time: '2023/12/01',
   pokemons: [225, 459, 460, 9002]
 }, {
-  time: '2024/01/1',
+  time: '2024/01/01',
   pokemons: [147, 148, 149, 280, 281, 282, 475, 759, 760]
 }, {
-  time: '2024/03/1',
+  time: '2024/03/01',
   pokemons: [702, 243]
 }, {
-  time: '2024/04/1',
+  time: '2024/04/01',
   pokemons: [764]
 }, {
-  time: '2024/05/1',
+  time: '2024/05/01',
   pokemons: [37, 38, 244]
 }, {
-  time: '2024/06/1',
+  time: '2024/06/01',
   pokemons: [845]
 }, {
-  time: '2024/07/1',
+  time: '2024/07/01',
   pokemons: [906, 907, 908, 909, 910, 911, 912, 913, 914]
 }, {
-  time: '2024/08/1',
+  time: '2024/08/01',
   pokemons: [194, 195]
 }, {
-  time: '2024/09/1',
+  time: '2024/09/01',
   pokemons: [245]
 }, {
-  time: '2024/10/1',
+  time: '2024/10/01',
   pokemons: [304, 305, 306, 403, 404, 405, 736, 737, 738, 425, 426, 778]
 }, {
-  time: '2024/12/1',
+  time: '2024/12/01',
   pokemons: [215, 461, 921, 922, 923, 7006, 7007, 9004]
 }, {
-  time: '2025/01/1',
+  time: '2025/01/01',
   pokemons: [627, 628]
 }, {
-  time: '2025/02/1',
+  time: '2025/02/01',
   pokemons: [7054, 980]
 }, {
-  time: '2025/03/1',
+  time: '2025/03/01',
   pokemons: [517, 518, 488]
 }, {
-  time: '2025/04/1',
+  time: '2025/04/01',
   pokemons: [491]
 }, {
-  time: '2025/05/1',
+  time: '2025/05/01',
   pokemons: [440, 113, 242, 198, 430]
 }, {
-  time: '2025/06/1',
+  time: '2025/06/01',
   pokemons: [303, 83]
 }, {
-  time: '2025/07/1',
+  time: '2025/07/01',
   pokemons: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312]
 }, {
-  time: '2025/08/1',
+  time: '2025/08/01',
   pokemons: [848, 849, 8001]
 }, {
-  time: '2025/09/1',
+  time: '2025/09/01',
   pokemons: [177, 178]
 }, {
-  time: '2025/10/1',
+  time: '2025/10/01',
   pokemons: [710, 711, 9005]
 }, {
-  time: '2025/11/1',
+  time: '2025/11/01',
   pokemons: [328, 329, 330, 371, 372, 373, 557, 558]
 }, {
-  time: '2025/12/1',
+  time: '2025/12/01',
   pokemons: [442, 777, 974, 975, 9006]
 }, {
-  time: '2026/01/1',
+  time: '2026/01/01',
   pokemons: [213]
 }, {
-  time: '2026/02/1',
+  time: '2026/02/01',
   pokemons: [742, 743]
 }, {
-  time: '2026/03/1',
+  time: '2026/03/01',
   pokemons: [151, 714, 715]
+}, {
+  time: '2026/04/01',
+  pokemons: [380]
 }]
 // console.log(pokedex)
 export {

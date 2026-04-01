@@ -37,7 +37,7 @@ export function feedSandslash(sleepItem, sandslashPower, eatTimes) {
 }
 
 export function getRandomIV(pokeId, options) {
-  const { isFirst243, isFirst244, isFirst245, isFirst488,  lockSkillCount } = options
+  const { isFirst243, isFirst244, isFirst245, isFirst488, isFirst380,  lockSkillCount } = options
   let ivRes = {
     useFoods: [],
     natureId: parseInt(Math.floor(Math.random() * 25), 10) + 1
@@ -72,6 +72,11 @@ export function getRandomIV(pokeId, options) {
     ivRes = {
       ...ivRes,
       ...POKE_488_IV
+    }
+  } else if ((isFirst380 && pokeId === 380)) {
+    ivRes = {
+      ...ivRes,
+      ...POKE_243_IV
     }
   } else {
     ivRes.skills = getRandomPokeSkills(lockSkillCount)

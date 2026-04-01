@@ -1,13 +1,14 @@
 export const SLEEP_CALC_POKEMONS = {
-  list: [243, 244, 245, 488], // 特殊宝可梦列表，只能一个
+  list: [243, 244, 245, 488, 380], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 488,
     // 710, 711,
     // 328, 329, 330, 371, 372, 373, 557, 558,
     442,
     777, 974, 975,
     213,
-    742, 743
-    // 714, 715
+    742, 743,
+    714, 715,
+    380
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -66,14 +67,14 @@ export const SLEEP_CALC_UP = {
 export const SLEEP_CALC_CONFIG = {
   onOffBan: true,
   showBan: true,
-  banPokes: [714, 715], // ban 宝可梦id
-  showBanArea: [0, 2, 6, 7] // 展示区域
+  banPokes: [380], // ban 宝可梦id
+  showBanArea: [0, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 777, 778, 848, 921],
-  upIdsMidIds: [714, 715],
+  upIdsSmallIds: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 714, 777, 778, 848, 921],
+  upIdsMidIds: [380],
   upIdsLargeIds: [],
-  noLastList: [714, 715]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {
@@ -90,33 +91,33 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1769889600000,
-  //   endTime: 1769975999000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // },
-  // {
-  //   name: '满月日',
-  //   namejp: '満月の日',
-  //   startTime: 1769976000000,
-  //   endTime: 1770062399000,
-  //   notArea: [],
-  //   largeUp: [35, 36, 173],
-  //   times: 4
-  // },
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1770062400000,
-  //   endTime: 1770148799000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1774987200000,
+    endTime: 1775073599000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1775073600000,
+    endTime: 1775159999000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 2
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1775160000000,
+    endTime: 1775246399000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
   {
     name: '寶可夢機率提升週（技能）vol.1',
     namejp: 'ポケモンピックアップウィーク(スキル) vol.1',
