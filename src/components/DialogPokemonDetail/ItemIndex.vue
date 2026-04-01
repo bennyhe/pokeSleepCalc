@@ -29,10 +29,15 @@ const props = defineProps({
 const gameMapNew = JSON.parse(JSON.stringify(gameMap))
 gameMapNew.forEach(gitem => {
   // console.log(gitem.levelList[0].sleepStyles)
-  gitem.levelList[0].sleepStyles.push('151-id-1')
-  gitem.levelList[0].sleepStyles.push('491-id-1')
-  gitem.levelList[0].sleepStyles.push('491-id-2')
-  gitem.levelList[0].sleepStyles.push('491-id-3')
+  if (gitem.id === 'snow') {
+    gitem.levelList[0].sleepStyles.push('491-id-1')
+    gitem.levelList[0].sleepStyles.push('491-id-2')
+    gitem.levelList[0].sleepStyles.push('491-id-3')
+  } else {
+    gitem.levelList[0].sleepStyles.push('151-id-1')
+    gitem.levelList[0].sleepStyles.push('151-id-2')
+    gitem.levelList[0].sleepStyles.push('151-id-3')
+  }
 })
 </script>
 <template>
