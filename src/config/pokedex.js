@@ -1073,7 +1073,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 2650,
     foodPer: 22.20,
-    skillPer: 1.70,
+    skillPer: 3.2,
     food: {
       type: [11, 4, 15],
       count: {
@@ -2730,7 +2730,7 @@ const pokedex = {
     // name: '阿勃梭魯',
     friendship: 16,
     sleepType: 1,
-    skillType: 1,
+    skillType: 2,
     pokeType: 2,
     berryType: 17,
     maxcarry: 21,
