@@ -491,6 +491,8 @@ const getSleepStyle = () => {
   orgSleepList = [
     ...orgSleepList,
     getTargetPokemonsSleeps('151-id-1', gameMap[userData.value.curMap].id),
+    getTargetPokemonsSleeps('151-id-2', gameMap[userData.value.curMap].id),
+    getTargetPokemonsSleeps('151-id-3', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-1', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-2', gameMap[userData.value.curMap].id),
     getTargetPokemonsSleeps('491-id-3', gameMap[userData.value.curMap].id)
