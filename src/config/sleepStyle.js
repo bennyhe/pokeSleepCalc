@@ -223,6 +223,7 @@ export const SLEEP_STYLE = {
   '132-id-10': { pokeId: 132, id: '132-id-10', star: 4, exp: 2363, shards: 4234, candys: 13, sleepNameId: 121 },
   '132-id-11': { pokeId: 132, id: '132-id-11', star: 4, exp: 2363, shards: 4234, candys: 13, sleepNameId: 341 },
   '132-id-12': { pokeId: 132, id: '132-id-12', star: 4, exp: 2363, shards: 4234, candys: 13, sleepNameId: 122 },
+  '132-id-13': { pokeId: 132, id: '132-id-13', star: 4, exp: 7091, shards: 11264, candys: 13, sleepNameId: 360 },
   '133-id-1': { pokeId: 133, id: '133-id-1', star: 1, exp: 24, shards: 43, candys: 4, sleepNameId: 35 },
   '133-id-2': { pokeId: 133, id: '133-id-2', star: 2, exp: 132, shards: 237, candys: 6, sleepNameId: 36 },
   '133-id-3': { pokeId: 133, id: '133-id-3', star: 3, exp: 520, shards: 931, candys: 9, sleepNameId: 123 },

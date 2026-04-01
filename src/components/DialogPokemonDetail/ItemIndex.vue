@@ -26,6 +26,13 @@ const props = defineProps({
   }
 })
 
+const fnGetCount = curDialogPokeId => {
+  if (curDialogPokeId === 132) {
+    return 13
+  }
+  return 4
+}
+
 const gameMapNew = JSON.parse(JSON.stringify(gameMap))
 gameMapNew.forEach(gitem => {
   // console.log(gitem.levelList[0].sleepStyles)
@@ -87,7 +94,7 @@ gameMapNew.forEach(gitem => {
         </div>
       </div>
       <div class="poke-tb poke-tb--xscorll">
-        <template v-for="fKey in 12" v-bind:key="fKey">
+        <template v-for="fKey in fnGetCount(curDialogPokeId)" v-bind:key="fKey">
           <template
             v-if="
               getTargetPokemonsSleeps(
