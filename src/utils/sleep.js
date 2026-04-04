@@ -104,7 +104,9 @@ const spacialPokemons = {
   isGet: { // 露营券判断是否重复使用
     243: false,
     244: false,
-    245: false
+    245: false,
+    488: false,
+    380: false
   }
 }
 
