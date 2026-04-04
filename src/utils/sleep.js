@@ -218,18 +218,17 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
 
   // 优化：直接检查数组长度替代 get 函数
-  const hasBanPokes = Array.isArray(extraSleepStyleOptions.banPokes) && extraSleepStyleOptions.banPokes.length > 0
   const hasNoLastPokes = Array.isArray(extraSleepStyleOptions.noLastPokes) && extraSleepStyleOptions.noLastPokes.length > 0
 
   // 特殊宝可梦使用熏香，也只能出1只
   if (spacialPokemons.list.includes(+useIncensePokemonId)) {
     // 如果存在ban的宝可梦列表则合并
-    if (hasBanPokes) {
+    if (extraSleepStyleOptions.banPokes && extraSleepStyleOptions.banPokes.length > 0) {
       extraSleepStyleOptions.banPokes = extraSleepStyleOptions.banPokes.concat([...spacialPokemons.list])
     } else {
       extraSleepStyleOptions.banPokes = [...spacialPokemons.list]
     }
-    // console.log('使用该熏香', useIncensePokemonId, extraSleepStyleOptions.banPokes)
+    console.log('使用该熏香', useIncensePokemonId, spacialPokemons.list, extraSleepStyleOptions.banPokes)
   }
   // 如果存在额外不进保底的宝可梦列表则合并
   if (hasNoLastPokes) {
@@ -239,7 +238,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   }
   // console.log(extraSleepStyleOptions.noLastPokes)
   // 如果存在去除宝可梦
-  if (hasBanPokes) {
+  if (extraSleepStyleOptions.banPokes && extraSleepStyleOptions.banPokes.length > 0) {
     orgSleepList = orgSleepList.filter(
       item => !extraSleepStyleOptions.banPokes.includes(+item.pokeId)
     )
