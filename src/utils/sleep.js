@@ -228,7 +228,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     } else {
       extraSleepStyleOptions.banPokes = [...spacialPokemons.list]
     }
-    console.log('使用该熏香', useIncensePokemonId, spacialPokemons.list, extraSleepStyleOptions.banPokes)
+    // console.log('使用该熏香', useIncensePokemonId, spacialPokemons.list, extraSleepStyleOptions.banPokes)
   }
   // 如果存在额外不进保底的宝可梦列表则合并
   if (hasNoLastPokes) {
