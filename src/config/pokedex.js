@@ -2890,27 +2890,27 @@ const pokedex = {
     // name: '拉帝亞斯',
     friendship: 30,
     sleepType: 1,
-    // skillType: 11,
-    // pokeType: 2,
+    skillType: 34,
+    pokeType: 3,
     berryType: 3,
-    maxcarry: 19
-    // helpSpeed: 4400,
-    // foodPer: 18.10,
-    // skillPer: 1.80,
-    // food: {
-    //   type: [12, 10, 17],
-    //   count: {
-    //     12: {
-    //       num: [2, 5, 7]
-    //     },
-    //     10: {
-    //       num: [0, 4, 7]
-    //     },
-    //     17: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    maxcarry: 19,
+    helpSpeed: 2800,
+    foodPer: 11.40,
+    skillPer: 4.90,
+    food: {
+      type: [12, 18, 2],
+      count: {
+        12: {
+          num: [1, 2, 4]
+        },
+        18: {
+          num: [0, 1, 2]
+        },
+        2: {
+          num: [0, 0, 2]
+        }
+      }
+    }
   },
   403: {
     id: 403,
