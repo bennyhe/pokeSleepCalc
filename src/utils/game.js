@@ -63,14 +63,15 @@ export function getRandomIV(pokeId, options) {
     }
     ivRes.useFoods = useFoods
   } 
-  if ((isFirst243 && pokeId === 243) || (isFirst244 && pokeId === 244) || (isFirst245 && pokeId === 245) || (isFirst488 && pokeId === 488)) {
+  if ((isFirst243 && pokeId === 243) || (isFirst244 && pokeId === 244) || (isFirst245 && pokeId === 245)) {
     ivRes = {
       ...ivRes,
       ...POKE_243_IV
     }
-  } else if ((isFirst380 && pokeId === 380)) {
+  } else if ((isFirst488 && pokeId === 488) || (isFirst380 && pokeId === 380)) {
     ivRes = {
       ...ivRes,
+      ...POKE_243_IV,
       ...POKE_488_IV
     }
   } else {
