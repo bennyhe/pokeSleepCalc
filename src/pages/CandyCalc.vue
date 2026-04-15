@@ -49,77 +49,79 @@ levelOptionsTo.push(
     txt: 'Lv.65'
   }
 )
-const getExp = (fromLevel, toLevel) => {
-  const fromExp = Math.round(
-    LEVEL_EXP[fromLevel - 1] * candyCalcForm.value.pType
-  )
-  const toExp = Math.round(LEVEL_EXP[toLevel - 1] * candyCalcForm.value.pType)
-  const exp = toExp - fromExp
-  return exp
+
+/**
+ * 根据目标等级确定基础经验值
+ */
+const getCandyBaseExp = targetLevel => {
+  if (targetLevel <= 25) return NATURE_ONE_CANDY_EXP.lv25 // 1-25级
+  if (targetLevel <= 30) return NATURE_ONE_CANDY_EXP.lv30 // 25-30级
+  return NATURE_ONE_CANDY_EXP.normal // 30-65级
 }
-const getOnceCandyExp = (nature, toLevel) => {
-  // console.log('计算糖果经验:', { nature, toLevel })
-  // 根据目标等级确定基础经验值
-  let baseExp
-  if (toLevel <= 25) {
-    baseExp = NATURE_ONE_CANDY_EXP['lv25'] // 1-25级
-  } else if (toLevel <= 30) {
-    baseExp = NATURE_ONE_CANDY_EXP['lv30'] // 25-30级
-  } else {
-    baseExp = NATURE_ONE_CANDY_EXP['normal'] // 30-65级
-  }
-  
-  // 性格倍率调整
-  const natureMultipliers = {
-    up: 1.18,
-    down: 0.82,
-    normal: 1.00
-  }
-  
-  const multiplier = natureMultipliers[nature] || 1.00
-  const singleCandyExp = Math.round(baseExp * multiplier)
-  
-  // 返回总经验值
+
+/**
+ * 计算单个糖果实际提供的经验值
+ * 性格倍率调整：up: 1.18, down: 0.82, normal: 1.00
+ */
+const getCandyExp = (targetLevel, nature) => {
+  const baseExp = getCandyBaseExp(targetLevel)
+  const natureMultiplier = { up: 1.18, down: 0.82, normal: 1.0 }[nature] || 1.0
+  const singleCandyExp = Math.round(baseExp * natureMultiplier)
   return singleCandyExp * candyCalcForm.value.useExps
 }
-const getOnceShards = (i, useCandyNumCurLevel) => {
-  return SHARDS_CANDY[i] * useCandyNumCurLevel * candyCalcForm.value.useShards
+
+const getLevelExp = level => {
+  return (
+    Math.round(LEVEL_EXP[level] * candyCalcForm.value.pType) -
+    Math.round(LEVEL_EXP[level - 1] * candyCalcForm.value.pType)
+  )
 }
-const getRes = (fromLevel, toLevel, nature) => {
-  fromLevel = fromLevel || candyCalcForm.value.fromLevel
-  toLevel = toLevel || candyCalcForm.value.toLevel
-  nature = nature || candyCalcForm.value.nature
+
+/**
+ * 计算总经验、糖果数、梦碎消耗
+ */
+const getRes = () => {
+  const { fromLevel, toLevel, nature, levelUpExp, useShards } =
+    candyCalcForm.value
+
   // 最后一级处理
-  if (fromLevel === POKEMON_MAX_LEVEL - 1) {
-    toLevel = POKEMON_MAX_LEVEL
+  const actualToLevel =
+    fromLevel >= POKEMON_MAX_LEVEL - 1 ? POKEMON_MAX_LEVEL : toLevel
+  const actualFromLevel = Math.min(fromLevel, POKEMON_MAX_LEVEL - 1)
+
+  if (actualToLevel <= actualFromLevel) {
+    return { exp: 0, candys: 0, shards: 0 }
   }
-  if (!candyCalcForm.value.levelUpExp) {
-    candyCalcForm.value.levelUpExp = 0
-  }
-  const whitOutLevelUp =
-    candyCalcForm.value.levelUpExp > 0
-      ? getExp(fromLevel, fromLevel + 1) - candyCalcForm.value.levelUpExp
-      : 0
-  const exp = getExp(fromLevel, toLevel) - whitOutLevelUp
-  const candys = Math.ceil(exp / getOnceCandyExp(nature, toLevel)) //这里的糖果数不对，没有根据各个等级获取
+
+  let totalExp = 0
+  let candys = 0
   let shards = 0
-  if (toLevel - fromLevel > 0) {
-    let carryNextLevelExp = 0
-    for (let i = fromLevel; i < toLevel; i++) {
-      let needExp = getExp(i, i + 1) - carryNextLevelExp
-      if (i === fromLevel && candyCalcForm.value.levelUpExp > 0) {
-        needExp = candyCalcForm.value.levelUpExp
-      }
-      const useCandyNumCurLevel = Math.ceil(needExp / getOnceCandyExp(nature, i))
-      carryNextLevelExp =
-        useCandyNumCurLevel * getOnceCandyExp(nature, i) - needExp
-      shards += getOnceShards(i, useCandyNumCurLevel)
+  let carryNextLevelExp = 0
+
+  for (let level = actualFromLevel; level < actualToLevel; level++) {
+    const levelTotalExp = getLevelExp(level)
+    totalExp += levelTotalExp
+
+    let needExp
+    if (level === actualFromLevel && levelUpExp > 0) {
+      needExp = levelUpExp
+      totalExp -= levelTotalExp - levelUpExp
+    } else {
+      needExp = levelTotalExp - carryNextLevelExp
     }
+
+    const candyExp = getCandyExp(level + 1, nature)
+    const useCandyNumCurLevel = Math.ceil(needExp / candyExp)
+    candys += useCandyNumCurLevel
+
+    carryNextLevelExp = useCandyNumCurLevel * candyExp - needExp
+    shards += SHARDS_CANDY[level] * useCandyNumCurLevel * useShards
   }
+
   return {
-    exp,
-    shards,
-    candys
+    exp: totalExp,
+    candys,
+    shards
   }
 }
 const handleChangeActUp = () => {
