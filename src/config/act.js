@@ -7,33 +7,14 @@ export const SLEEP_CALC_POKEMONS = {
     777, 974, 975,
     213,
     742, 743,
-    714, 715
+    714, 715,
+    27, 28
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
 
 export const IN_LAST_TIME_DAYS = 100
 export const IN_LAST_TIME_POKEMONS = [
-  // {
-  //   ids: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
-  //   starttime: '2025/7/14 04:00'
-  // },
-  // {
-  //   ids: [848, 849, 8001],
-  //   starttime: '2025/8/11 04:00'
-  // },
-  // {
-  //   ids: [177, 178],
-  //   starttime: '2025/9/29 04:00'
-  // },
-  // {
-  //   ids: [710, 711],
-  //   starttime: '2025/10/27 04:00'
-  // },
-  // {
-  //   ids: [328, 329, 330, 371, 372, 373, 557, 558],
-  //   starttime: '2025/11/10 04:00'
-  // },
   {
     ids: [442],
     starttime: '2025/12/01 04:00'
@@ -53,6 +34,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [714, 715],
     starttime: '2026/03/23 04:00'
+  },
+  {
+    ids: [27, 28],
+    starttime: '2026/04/27 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -64,14 +49,14 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [27, 28], // ban 宝可梦id
+  showBanArea: [0, 2, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 714, 777, 778, 848, 921],
-  upIdsMidIds: [380],
+  upIdsSmallIds: [27, 28],
+  upIdsMidIds: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -90,52 +75,71 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1774987200000,
+  //   endTime: 1775073599000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // },
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1775073600000,
+  //   endTime: 1775159999000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173],
+  //   times: 2
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1775160000000,
+  //   endTime: 1775246399000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // },
   {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1774987200000,
-    endTime: 1775073599000,
+    name: '春日嘉年華2026',
+    namejp: 'スプリングフェス2026',
+    startTime: 1777233600000,
+    endTime: 1777579199000,
     notArea: [],
-    midUp: [35, 36, 173],
+    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
+    midUp: [27, 28],
+    isActRandom: true
+  },
+  {
+    name: '春日嘉年華2026 & 好眠日',
+    namejp: 'スプリングフェス2026 & 満月の前後の日',
+    startTime: 1777579200000,
+    endTime: 1777665599000,
+    notArea: [],
+    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
+    midUp: [27, 28, 35, 36, 173],
     times: 1.5
   },
   {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1775073600000,
-    endTime: 1775159999000,
+    name: '春日嘉年華2026 & 满月日',
+    namejp: 'スプリングフェス2026 & 満月の日',
+    startTime: 1777665600000,
+    endTime: 1777751999000,
     notArea: [],
-    largeUp: [35, 36, 173],
+    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
+    midUp: [27, 28, 35, 36, 173],
     times: 2
   },
   {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1775160000000,
-    endTime: 1775246399000,
+    name: '春日嘉年華2026 & 好眠日',
+    namejp: 'スプリングフェス2026 & 満月の前後の日',
+    startTime: 1777752000000,
+    endTime: 1777838399000,
     notArea: [],
-    midUp: [35, 36, 173],
+    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
+    midUp: [27, 28, 35, 36, 173],
     times: 1.5
-  },
-  {
-    name: '拉帝亞斯研究',
-    namejp: 'ラティアスリサーチ',
-    startTime: 1775419200000,
-    endTime: 1776542399000,
-    notArea: [],
-    smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 714, 777, 778, 848, 921],
-    midUp: [380],
-    isActRandom: true
-  },
-  {
-    name: '拉帝亞斯研究',
-    namejp: 'ラティアスリサーチ',
-    startTime: 1776542400000,
-    endTime: 1776628799000,
-    notArea: [],
-    smallUp: [52, 54, 58, 79, 81, 133, 174, 175, 179, 198, 213, 214, 252, 280, 302, 311, 312, 316, 360, 425, 438, 447, 557, 627, 702, 714, 777, 778, 848, 921],
-    midUp: [380],
-    times: 1.5,
-    isActRandom: true
   }
 ]
