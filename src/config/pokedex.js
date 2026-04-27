@@ -399,40 +399,40 @@ const pokedex = {
     // name: '穿山鼠',
     friendship: 5,
     sleepType: 3,
-    // skillType: 28,
-    // pokeType: 2,
+    skillType: 28,
+    pokeType: 3,
     berryType: 15,
-    maxcarry: 11
-    // helpSpeed: 4700,
-    // foodPer: 16.80,
-    // skillPer: 3.20,
-    // food: {
-    //   type: [15, 16, 4],
-    //   count: {
-    //     15: {
-    //       num: [1, 2, 4]
-    //     },
-    //     16: {
-    //       num: [0, 2, 3]
-    //     },
-    //     4: {
-    //       num: [0, 0, 3]
-    //     }
-    //   }
-    // }
+    maxcarry: 11,
+    helpSpeed: 5300,
+    foodPer: 10,
+    skillPer: 4.6,
+    food: {
+      type: [18, 16, 4],
+      count: {
+        18: {
+          num: [1, 2, 4]
+        },
+        16: {
+          num: [0, 4, 6]
+        },
+        4: {
+          num: [0, 0, 7]
+        }
+      }
+    }
   },
   28: {
     id: 28,
     // name: '穿山王',
     friendship: 12,
     sleepType: 3,
-    // skillType: 28,
-    // pokeType: 2,
+    skillType: 28,
+    pokeType: 3,
     berryType: 15,
-    maxcarry: 22
-    // helpSpeed: 2600,
-    // foodPer: 16.40,
-    // skillPer: 2.90
+    maxcarry: 22,
+    helpSpeed: 2800,
+    foodPer: 10.8,
+    skillPer: 4.3
   },
   35: {
     id: 35,
