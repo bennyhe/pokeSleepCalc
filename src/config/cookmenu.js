@@ -991,6 +991,31 @@ export const COOKMENU = {
     'baseEnergy': 25162,
     'menuPercent': 78
   },
+  '2026': {
+    // 大塊滿滿熱水沙拉
+    'id': 2026,
+    'type': 2,
+    'from': [
+      {
+        'id': 18,
+        'num': 20
+      },
+      {
+        'id': 4,
+        'num': 30
+      },
+      {
+        'id': 16,
+        'num': 18
+      },
+      {
+        'id': 2,
+        'num': 27
+      }
+    ],
+    'baseEnergy': 25356,
+    'menuPercent': 61
+  },
   '3000': {
     // 拌拌果汁
     'id': 3000,
