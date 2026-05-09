@@ -60,8 +60,8 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 2, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [696, 697],
-  upIdsMidIds: [10,19,23,37,56,84,95,104,152,155,158,172,173,177,215,228,252,255,258,287,333,353,363,371,517,627,778,7006],
+  upIdsSmallIds: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 177, 215, 228, 252, 255, 258, 287, 333, 353, 363, 371, 517, 627, 778,7006],
+  upIdsMidIds: [696, 697],
   upIdsLargeIds: [],
   noLastList: []
 }

@@ -6,11 +6,11 @@ export const masterRes = {
   // updateTime: 1739196143732,
   level20: {
     peaceTime: {
-      name: '平时-4.27+',
+      name: '平时-5.11+',
       list: peaceTimeList
     },
     actTime: {
-      name: '春日嘉年華2026',
+      name: '树果周2',
       // startTime: 1738385391641,
       // endTime: 1737835199000,
       list: actTimeList
