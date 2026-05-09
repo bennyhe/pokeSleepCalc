@@ -73,7 +73,8 @@ const evoLine = [
   [213],
   [742, 743],
   [714, 715],
-  [27, 28]
+  [27, 28],
+  [696, 697]
 ]
 const pokedex = {
   1: {
@@ -3551,6 +3552,46 @@ const pokedex = {
     foodPer: 12.10,
     skillPer: 3.20
   },
+  696: {
+    id: 696,
+    // name: '寶寶暴龍',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 28,
+    // pokeType: 3,
+    berryType: 14,
+    maxcarry: 11
+    // helpSpeed: 4300,
+    // foodPer: 17.50,
+    // skillPer: 5.40,
+    // food: {
+    //   type: [19, 4, 10],
+    //   count: {
+    //     19: {
+    //       num: [1, 2, 4]
+    //     },
+    //     4: {
+    //       num: [0, 3, 5]
+    //     },
+    //     10: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
+  697: {
+    id: 697,
+    // name: '怪顎龍',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 28,
+    // pokeType: 3,
+    berryType: 14,
+    maxcarry: 28
+    // helpSpeed: 4300,
+    // foodPer: 17.50,
+    // skillPer: 5.40,
+  },
   700: {
     id: 700,
     // name: '仙子伊布',
@@ -4581,6 +4622,9 @@ const updatePoke = [{
 }, {
   time: '2026/04/01',
   pokemons: [380, 27, 28]
+}, {
+  time: '2026/05/01',
+  pokemons: [696, 697]
 }]
 // console.log(pokedex)
 export {

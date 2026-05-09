@@ -8,7 +8,8 @@ export const SLEEP_CALC_POKEMONS = {
     213,
     742, 743,
     714, 715,
-    27, 28
+    27, 28,
+    696, 697
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -38,6 +39,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [27, 28],
     starttime: '2026/04/27 04:00'
+  },
+  {
+    ids: [696, 697],
+    starttime: '2026/05/11 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -49,14 +54,14 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [696, 697], // ban 宝可梦id
+  showBanArea: [0, 2, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [27, 28],
-  upIdsMidIds: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
+  upIdsSmallIds: [696, 697],
+  upIdsMidIds: [10,19,23,37,56,84,95,104,152,155,158,172,173,177,215,228,252,255,258,287,333,353,363,371,517,627,778,7006],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -103,43 +108,13 @@ export const ACT_LIST = [
   //   times: 1.5
   // },
   {
-    name: '春日嘉年華2026',
-    namejp: 'スプリングフェス2026',
-    startTime: 1777233600000,
-    endTime: 1777579199000,
+    name: '果實纍纍！樹果週vol.2',
+    namejp: 'どっさり！きのみウィーク vol.2',
+    startTime: 1778443200000,
+    endTime: 1779047999000,
     notArea: [],
-    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
-    midUp: [27, 28],
+    smallUp: [10,19,23,37,56,84,95,104,152,155,158,172,173,177,215,228,252,255,258,287,333,353,363,371,517,627,778,7006],
+    midUp: [696, 697],
     isActRandom: true
-  },
-  {
-    name: '春日嘉年華2026 & 好眠日',
-    namejp: 'スプリングフェス2026 & 満月の前後の日',
-    startTime: 1777579200000,
-    endTime: 1777665599000,
-    notArea: [],
-    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
-    midUp: [27, 28, 35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '春日嘉年華2026 & 满月日',
-    namejp: 'スプリングフェス2026 & 満月の日',
-    startTime: 1777665600000,
-    endTime: 1777751999000,
-    notArea: [],
-    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
-    midUp: [27, 28, 35, 36, 173],
-    times: 2
-  },
-  {
-    name: '春日嘉年華2026 & 好眠日',
-    namejp: 'スプリングフェス2026 & 満月の前後の日',
-    startTime: 1777752000000,
-    endTime: 1777838399000,
-    notArea: [],
-    smallUp: [194, 255, 258, 371, 425, 442, 710, 759, 764, 906, 974],
-    midUp: [27, 28, 35, 36, 173],
-    times: 1.5
   }
 ]
