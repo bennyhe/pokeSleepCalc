@@ -54,10 +54,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [696, 697], // ban 宝可梦id
-  showBanArea: [0, 2, 6, 7] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 177, 215, 228, 252, 255, 258, 287, 333, 353, 363, 371, 517, 627, 778,7006],
@@ -110,7 +110,7 @@ export const ACT_LIST = [
   {
     name: '果實纍纍！樹果週vol.2',
     namejp: 'どっさり！きのみウィーク vol.2',
-    startTime: 1778443200000,
+    startTime: 1778419682801,
     endTime: 1779047999000,
     notArea: [],
     smallUp: [10,19,23,37,56,84,95,104,152,155,158,172,173,177,215,228,252,255,258,287,333,353,363,371,517,627,778,7006],

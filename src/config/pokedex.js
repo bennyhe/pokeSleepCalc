@@ -3557,40 +3557,40 @@ const pokedex = {
     // name: '寶寶暴龍',
     friendship: 5,
     sleepType: 3,
-    // skillType: 28,
-    // pokeType: 3,
+    skillType: 11,
+    pokeType: 1,
     berryType: 14,
-    maxcarry: 11
-    // helpSpeed: 4300,
-    // foodPer: 17.50,
-    // skillPer: 5.40,
-    // food: {
-    //   type: [19, 4, 10],
-    //   count: {
-    //     19: {
-    //       num: [1, 2, 4]
-    //     },
-    //     4: {
-    //       num: [0, 3, 5]
-    //     },
-    //     10: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    maxcarry: 11,
+    helpSpeed: 5200,
+    foodPer: 20.30,
+    skillPer: 2.40,
+    food: {
+      type: [7, 5, 4],
+      count: {
+        7: {
+          num: [1, 2, 4]
+        },
+        5: {
+          num: [0, 3, 4]
+        },
+        4: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   697: {
     id: 697,
     // name: '怪顎龍',
     friendship: 20,
     sleepType: 3,
-    // skillType: 28,
-    // pokeType: 3,
+    skillType: 11,
+    pokeType: 1,
     berryType: 14,
-    maxcarry: 28
-    // helpSpeed: 4300,
-    // foodPer: 17.50,
-    // skillPer: 5.40,
+    maxcarry: 28,
+    helpSpeed: 2800,
+    foodPer: 17.80,
+    skillPer: 2.90
   },
   700: {
     id: 700,
