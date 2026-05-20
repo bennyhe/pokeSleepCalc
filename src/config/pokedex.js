@@ -3961,7 +3961,7 @@ const pokedex = {
     helpSpeed: 2700,
     berryType: 2,
     foodPer: 16.90,
-    skillPer: 5.40,
+    skillPer: 5.50,
     food: {
       type: [8, 19, 13],
       count: {
