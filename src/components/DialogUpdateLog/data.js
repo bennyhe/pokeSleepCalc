@@ -3,7 +3,7 @@ const markdownText = `
 # 更新日志
 
 ## 26-05-20
-1. update 宝可梦#777
+1. update 宝可梦#777（技能率上升）
 
 ## 26-05-11
 1. update 宝可梦#696, #697
