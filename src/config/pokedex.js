@@ -4004,6 +4004,33 @@ const pokedex = {
       }
     }
   },
+  780: {
+    id: 780,
+    // name: '老翁龍',
+    friendship: 16,
+    sleepType: 1,
+    // skillType: 17,
+    // pokeType: 3,
+    maxcarry: 25,
+    // helpSpeed: 2500,
+    berryType: 3
+    // foodPer: 15.30,
+    // skillPer: 3.30,
+    // food: {
+    //   type: [5, 17, 2],
+    //   count: {
+    //     5: {
+    //       num: [1, 2, 4]
+    //     },
+    //     17: {
+    //       num: [0, 1, 2]
+    //     },
+    //     2: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   845: {
     id: 845,
     // name: '古月鳥',
@@ -4624,7 +4651,7 @@ const updatePoke = [{
   pokemons: [380, 27, 28]
 }, {
   time: '2026/05/01',
-  pokemons: [696, 697]
+  pokemons: [696, 697, 780]
 }]
 // console.log(pokedex)
 export {

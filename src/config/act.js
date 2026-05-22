@@ -10,6 +10,7 @@ export const SLEEP_CALC_POKEMONS = {
     714, 715,
     27, 28,
     696, 697
+    // 780
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -43,6 +44,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [696, 697],
     starttime: '2026/05/11 04:00'
+  },
+  {
+    ids: [780],
+    starttime: '2026/05/25 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -54,14 +59,14 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [780], // ban 宝可梦id
+  showBanArea: [0, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [10, 19, 23, 37, 56, 84, 95, 104, 152, 155, 158, 172, 173, 177, 215, 228, 252, 255, 258, 287, 333, 353, 363, 371, 517, 627, 778,7006],
-  upIdsMidIds: [696, 697],
+  upIdsSmallIds: [147, 148, 149, 334, 371, 372, 373, 714, 715],
+  upIdsMidIds: [780],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -108,13 +113,57 @@ export const ACT_LIST = [
   //   times: 1.5
   // },
   {
-    name: '果實纍纍！樹果週vol.2',
-    namejp: 'どっさり！きのみウィーク vol.2',
-    startTime: 1778419682801,
-    endTime: 1779047999000,
+    name: '寶可夢機率提升週（龍屬性）vol.1',
+    namejp: 'ポケモンピックアップウィーク(ドラゴン) vol.1',
+    startTime: 1779652800000,
+    endTime: 1780084799000,
+    notArea: [1, 5],
+    smallUp: [147, 148, 149, 334, 371, 372, 373, 714, 715],
+    midUp: [780],
+    isActRandom: true,
+    timelimitPokemons: {
+      'green': [147, 371],
+      'greenex': [147, 371]
+    }
+  },
+  {
+    name: '寶可夢機率提升週（龍屬性）vol.1 & 好眠日',
+    namejp: 'ポケモンピックアップウィーク(ドラゴン) vol.1 & 満月の前後の日',
+    startTime: 1774987200000,
+    endTime: 1775073599000,
     notArea: [],
-    smallUp: [10,19,23,37,56,84,95,104,152,155,158,172,173,177,215,228,252,255,258,287,333,353,363,371,517,627,778,7006],
-    midUp: [696, 697],
-    isActRandom: true
+    smallUp: [147, 148, 149, 334, 371, 372, 373, 714, 715],
+    midUp: [35, 36, 173, 780],
+    isActRandom: true,
+    timelimitPokemons: {
+      'green': [147, 371],
+      'greenex': [147, 371]
+    },
+    times: 1.5
+  },
+  {
+    name: '寶可夢機率提升週（龍屬性）vol.1 & 满月日',
+    namejp: 'ポケモンピックアップウィーク(ドラゴン) vol.1 & 満月の日',
+    startTime: 1775073600000,
+    endTime: 1775159999000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    smallUp: [147, 148, 149, 334, 371, 372, 373, 714, 715],
+    midUp: [780],
+    isActRandom: true,
+    timelimitPokemons: {
+      'green': [147, 371],
+      'greenex': [147, 371]
+    },
+    times: 2
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1775160000000,
+    endTime: 1775246399000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
   }
 ]
