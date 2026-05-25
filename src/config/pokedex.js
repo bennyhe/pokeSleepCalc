@@ -4009,27 +4009,27 @@ const pokedex = {
     // name: '老翁龍',
     friendship: 16,
     sleepType: 1,
-    // skillType: 17,
-    // pokeType: 3,
+    skillType: 14,
+    pokeType: 2,
     maxcarry: 25,
-    // helpSpeed: 2500,
-    berryType: 3
-    // foodPer: 15.30,
-    // skillPer: 3.30,
-    // food: {
-    //   type: [5, 17, 2],
-    //   count: {
-    //     5: {
-    //       num: [1, 2, 4]
-    //     },
-    //     17: {
-    //       num: [0, 1, 2]
-    //     },
-    //     2: {
-    //       num: [0, 0, 2]
-    //     }
-    //   }
-    // }
+    helpSpeed: 3500,
+    berryType: 3,
+    foodPer: 29.40,
+    skillPer: 4.60,
+    food: {
+      type: [15, 19, 7],
+      count: {
+        15: {
+          num: [2, 5, 7]
+        },
+        19: {
+          num: [0, 3, 4]
+        },
+        7: {
+          num: [0, 0, 7]
+        }
+      }
+    }
   },
   845: {
     id: 845,
