@@ -9,8 +9,8 @@ export const SLEEP_CALC_POKEMONS = {
     742, 743,
     714, 715,
     27, 28,
-    696, 697
-    // 780
+    696, 697,
+    780
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
