@@ -144,8 +144,8 @@ export const ACT_LIST = [
   {
     name: '寶可夢機率提升週（龍屬性）vol.1 & 满月日',
     namejp: 'ポケモンピックアップウィーク(ドラゴン) vol.1 & 満月の日',
-    startTime: 1775073600000,
-    endTime: 1775159999000,
+    startTime: 1780171200000,
+    endTime: 1780257599000,
     notArea: [],
     largeUp: [35, 36, 173],
     smallUp: [147, 148, 149, 334, 371, 372, 373, 714, 715],
@@ -160,8 +160,8 @@ export const ACT_LIST = [
   {
     name: '好眠日',
     namejp: '満月の前後の日',
-    startTime: 1775160000000,
-    endTime: 1775246399000,
+    startTime: 1780257600000,
+    endTime: 1780343999000,
     notArea: [],
     midUp: [35, 36, 173],
     times: 1.5
