@@ -81,6 +81,7 @@ const userSleep = ref({
   isFirst245: true,
   isFirst488: true,
   isFirst380: true,
+  isFirst381: true,
   accumulation: {
     exp: 0,
     shards: 0,
@@ -388,6 +389,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isFirst245: userSleep.value.isFirst245,
       isFirst488: userSleep.value.isFirst488,
       isFirst380: userSleep.value.isFirst380,
+      isFirst381: userSleep.value.isFirst381,
       lockSkillCount: userData.value.lockSkillCount
     })
     if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
@@ -404,6 +406,9 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
     if (userSleep.value.isFirst380 && sleepItem.pokeId === 380) {
       userSleep.value.isFirst380 = false
+    }
+    if (userSleep.value.isFirst381 && sleepItem.pokeId === 381) {
+      userSleep.value.isFirst381 = false
     }
 
     let isCurPokeMapLock = 0
@@ -423,6 +428,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
       isFirst245: userSleep.value.isFirst245,
       isFirst488: userSleep.value.isFirst488,
       isFirst380: userSleep.value.isFirst380,
+      isFirst381: userSleep.value.isFirst381,
       lockSkillCount: isCurPokeMapLock
     })
 
@@ -995,7 +1001,6 @@ const getQuickChangeSleepPoint = () => {
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
-          <!-- <el-radio :label="1.2"><CptAvatar pokeId="488" />*1.2倍</el-radio> -->
           <el-radio :label="1.5"
             ><SvgIcon type="moonNight" size="mid" />{{
               $t("OPTIONS.sleepDay")
