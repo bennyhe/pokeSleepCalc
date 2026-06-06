@@ -65,7 +65,7 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 4, 6, 7] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
+  upIdsSmallIds: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
   upIdsMidIds: [381],
   upIdsLargeIds: [],
   noLastList: []
@@ -112,4 +112,35 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // },
+  {
+    name: '拉帝歐斯與心之水滴',
+    namejp: 'ラティオスとこころのしずく',
+    startTime: 1780862400000,
+    endTime: 1781985599000,
+    notArea: [1, 2, 3, 5],
+    smallUp: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
+    midUp: [381],
+    timelimitPokemons: {
+      'green': [147, 371],
+      'greenex': [147, 371]
+    },
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    isActRandom: true
+  },
+  {
+    name: '拉帝歐斯與心之水滴',
+    namejp: 'ラティオスとこころのしずく',
+    startTime: 1781985600000,
+    endTime: 1782071999000,
+    notArea: [1, 2, 3, 5],
+    smallUp: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
+    midUp: [381],
+    timelimitPokemons: {
+      'green': [147, 371],
+      'greenex': [147, 371]
+    },
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    times: 1.5,
+    isActRandom: true
+  }
 ]
