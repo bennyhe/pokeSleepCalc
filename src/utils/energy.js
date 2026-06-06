@@ -333,9 +333,9 @@ export function getNewMaxcarry(formData, maxcarry) {
   if (formData.skill.includes('cl')) {
     maxcarry += 18
   }
-  if (formData.evotimes) {
-    maxcarry += (formData.evotimes * 5)
-  }
+  // if (formData.evotimes) { // 游戏更新过配置不再绑定进化次数决定持有上限
+  //   maxcarry += (formData.evotimes * 5)
+  // }
   return maxcarry
 }
 

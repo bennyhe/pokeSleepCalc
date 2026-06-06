@@ -112,7 +112,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 4,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3300,
     foodPer: 25.50,
     skillPer: 1.90
@@ -125,7 +125,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 4,
-    maxcarry: 17,
+    maxcarry: 27,
     helpSpeed: 2800,
     foodPer: 26.60,
     skillPer: 2.10
@@ -165,7 +165,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 10,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 3000,
     foodPer: 22.70,
     skillPer: 1.60
@@ -178,7 +178,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 10,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2400,
     foodPer: 22.40,
     skillPer: 1.60
@@ -218,7 +218,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 1,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3400,
     foodPer: 27.10,
     skillPer: 2
@@ -231,7 +231,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 2,
     berryType: 1,
-    maxcarry: 17,
+    maxcarry: 27,
     helpSpeed: 2800,
     foodPer: 27.50,
     skillPer: 2.10
@@ -271,7 +271,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 9,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 4200,
     foodPer: 20.80,
     skillPer: 1.80
@@ -284,7 +284,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 9,
-    maxcarry: 21,
+    maxcarry: 31,
     helpSpeed: 2500,
     foodPer: 19.70,
     skillPer: 1.40
@@ -324,7 +324,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 11,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 2950,
     foodPer: 23.70,
     skillPer: 3
@@ -364,7 +364,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 5,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3400,
     foodPer: 26.40,
     skillPer: 5.70
@@ -377,10 +377,37 @@ const pokedex = {
     skillType: 1,
     pokeType: 1,
     berryType: 13,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 2700,
     foodPer: 20.70,
     skillPer: 2.10
+  },
+  9001: {
+    id: 9001,
+    // name: '皮卡丘（萬聖節）',
+    friendship: 7,
+    sleepType: 2,
+    skillType: 5,
+    pokeType: 1,
+    berryType: 13,
+    maxcarry: 18,
+    helpSpeed: 2500,
+    berryType: 13,
+    foodPer: 21.80,
+    skillPer: 2.80
+  },
+  9002: {
+    id: 9002,
+    // name: '皮卡丘（佳節）',
+    friendship: 7,
+    sleepType: 2,
+    skillType: 3,
+    pokeType: 3,
+    berryType: 13,
+    maxcarry: 20,
+    helpSpeed: 2500,
+    foodPer: 13.10,
+    skillPer: 4.20
   },
   26: {
     id: 26,
@@ -390,7 +417,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 1,
     berryType: 13,
-    maxcarry: 21,
+    maxcarry: 31,
     helpSpeed: 2200,
     foodPer: 22.40,
     skillPer: 3.20
@@ -443,7 +470,7 @@ const pokedex = {
     skillType: 13,
     pokeType: 1,
     berryType: 12,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 4000,
     foodPer: 16.80,
     skillPer: 3.60
@@ -456,7 +483,7 @@ const pokedex = {
     skillType: 13,
     pokeType: 1,
     berryType: 12,
-    maxcarry: 24,
+    maxcarry: 34,
     helpSpeed: 2800,
     foodPer: 16.80,
     skillPer: 3.60
@@ -488,6 +515,34 @@ const pokedex = {
       }
     }
   },
+
+  7006: {
+    id: 7006,
+    // name: '六尾（阿羅拉的樣子）',
+    friendship: 5,
+    sleepType: 3,
+    skillType: 9,
+    pokeType: 1,
+    maxcarry: 10,
+    helpSpeed: 5600,
+    berryType: 7,
+    foodPer: 23,
+    skillPer: 2.80,
+    food: {
+      type: [15, 16, 4],
+      count: {
+        15: {
+          num: [1, 2, 4]
+        },
+        16: {
+          num: [0, 2, 3]
+        },
+        4: {
+          num: [0, 0, 3]
+        }
+      }
+    }
+  },
   38: {
     id: 38,
     // name: '九尾',
@@ -496,10 +551,23 @@ const pokedex = {
     skillType: 4,
     pokeType: 1,
     berryType: 10,
-    maxcarry: 23,
+    maxcarry: 28,
     helpSpeed: 2600,
     foodPer: 16.40,
     skillPer: 2.90
+  },
+  7007: {
+    id: 7007,
+    // name: '九尾（阿羅拉的樣子）',
+    friendship: 20,
+    sleepType: 3,
+    skillType: 9,
+    pokeType: 1,
+    maxcarry: 25,
+    helpSpeed: 2900,
+    berryType: 7,
+    foodPer: 23.20,
+    skillPer: 2.80
   },
   39: {
     id: 39,
@@ -509,7 +577,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     berryType: 12,
-    maxcarry: 9,
+    maxcarry: 14,
     helpSpeed: 3900,
     foodPer: 18.20,
     skillPer: 4.30
@@ -522,7 +590,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     berryType: 12,
-    maxcarry: 22,
+    maxcarry: 32,
     helpSpeed: 2750,
     foodPer: 19.10,
     skillPer: 4
@@ -562,7 +630,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 15,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 2650,
     foodPer: 19,
     skillPer: 2
@@ -599,7 +667,7 @@ const pokedex = {
     skillType: 3,
     pokeType: 3,
     berryType: 11,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 2800,
     foodPer: 16.90,
     skillPer: 4.40
@@ -639,7 +707,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 3,
     berryType: 1,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3400,
     foodPer: 16.20,
     skillPer: 12.50
@@ -679,7 +747,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 18,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 2800,
     foodPer: 20,
     skillPer: 2.40
@@ -719,7 +787,7 @@ const pokedex = {
     skillType: 9,
     pokeType: 3,
     berryType: 10,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 2500,
     foodPer: 13.60,
     skillPer: 4.90
@@ -759,7 +827,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 4,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 3800,
     foodPer: 23.50,
     skillPer: 4
@@ -772,7 +840,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 4,
-    maxcarry: 17,
+    maxcarry: 27,
     helpSpeed: 2800,
     foodPer: 23.30,
     skillPer: 3.90
@@ -812,7 +880,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 14,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 4000,
     foodPer: 27.20,
     skillPer: 4.80
@@ -825,7 +893,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 14,
-    maxcarry: 16,
+    maxcarry: 26,
     helpSpeed: 3100,
     foodPer: 28,
     skillPer: 5.20
@@ -865,7 +933,7 @@ const pokedex = {
     skillType: 4,
     pokeType: 3,
     berryType: 1,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3800,
     foodPer: 19.70,
     skillPer: 8
@@ -902,7 +970,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 3,
     berryType: 2,
-    maxcarry: 11,
+    maxcarry: 16,
     helpSpeed: 4000,
     foodPer: 18.20,
     skillPer: 6.30
@@ -969,7 +1037,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 16,
-    maxcarry: 21,
+    maxcarry: 26,
     helpSpeed: 2300,
     foodPer: 18.40,
     skillPer: 2
@@ -1009,7 +1077,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3000,
     foodPer: 15.70,
     skillPer: 2.20
@@ -1022,7 +1090,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 2200,
     foodPer: 16.10,
     skillPer: 2.40
@@ -1086,7 +1154,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 15,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 3300,
     foodPer: 22.50,
     skillPer: 4.50
@@ -1099,7 +1167,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 2,
     berryType: 11,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 3300,
     foodPer: 23.60,
     skillPer: 2.30
@@ -1139,7 +1207,7 @@ const pokedex = {
     skillType: 20,
     pokeType: 2,
     berryType: 6,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 2800,
     foodPer: 21.60,
     skillPer: 3.90
@@ -1225,6 +1293,46 @@ const pokedex = {
       }
     }
   },
+  9004: {
+    id: 9004,
+    // name: '伊布（佳節）',
+    friendship: 5,
+    sleepType: 2,
+    skillType: 3,
+    pokeType: 1,
+    berryType: 11,
+    maxcarry: 20,
+    helpSpeed: 3100,
+    foodPer: 15.60,
+    skillPer: 3.20
+  },
+  9005: {
+    id: 9005,
+    // name: '伊布（萬聖節）',
+    friendship: 5,
+    sleepType: 2,
+    skillType: 10,
+    pokeType: 3,
+    berryType: 11,
+    maxcarry: 18,
+    helpSpeed: 3200,
+    foodPer: 12.0,
+    skillPer: 4.60,
+    food: {
+      type: [18, 13, 8],
+      count: {
+        18: {
+          num: [1, 2, 4]
+        },
+        13: {
+          num: [0, 4, 6]
+        },
+        8: {
+          num: [0, 0, 9]
+        }
+      }
+    }
+  },
   134: {
     id: 134,
     // name: '水伊布',
@@ -1233,7 +1341,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 3,
     berryType: 1,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 3100,
     foodPer: 21.20,
     skillPer: 6.10
@@ -1246,7 +1354,7 @@ const pokedex = {
     skillType: 9,
     pokeType: 3,
     berryType: 13,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 2200,
     foodPer: 15.10,
     skillPer: 3.90
@@ -1259,7 +1367,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 3,
     berryType: 10,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 2700,
     foodPer: 18.50,
     skillPer: 5.20
@@ -1299,7 +1407,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 3,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 3800,
     foodPer: 26.20,
     skillPer: 2.50
@@ -1312,7 +1420,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 3,
-    maxcarry: 20,
+    maxcarry: 30,
     helpSpeed: 2600,
     foodPer: 26.40,
     skillPer: 2.60
@@ -1394,7 +1502,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 4,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 3300,
     foodPer: 16.80,
     skillPer: 3.80
@@ -1407,7 +1515,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 4,
-    maxcarry: 20,
+    maxcarry: 30,
     helpSpeed: 2800,
     foodPer: 17.50,
     skillPer: 4.60
@@ -1447,7 +1555,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 10,
-    maxcarry: 18,
+    maxcarry: 23,
     helpSpeed: 3000,
     foodPer: 21.10,
     skillPer: 4.10
@@ -1460,7 +1568,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 10,
-    maxcarry: 23,
+    maxcarry: 33,
     helpSpeed: 2400,
     foodPer: 20.80,
     skillPer: 3.90
@@ -1497,7 +1605,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 1,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 3400,
     foodPer: 25.30,
     skillPer: 5.20
@@ -1510,7 +1618,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 1,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2800,
     foodPer: 25.70,
     skillPer: 5.50
@@ -1631,7 +1739,7 @@ const pokedex = {
     skillType: 13,
     pokeType: 3,
     berryType: 12,
-    maxcarry: 10,
+    maxcarry: 15,
     helpSpeed: 3800,
     foodPer: 16.30,
     skillPer: 5.60
@@ -1671,7 +1779,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 6,
-    maxcarry: 19,
+    maxcarry: 24,
     helpSpeed: 2500,
     foodPer: 19.10,
     skillPer: 2.50
@@ -1708,7 +1816,7 @@ const pokedex = {
     skillType: 2,
     pokeType: 3,
     berryType: 13,
-    maxcarry: 11,
+    maxcarry: 16,
     helpSpeed: 3300,
     foodPer: 12.70,
     skillPer: 4.60
@@ -1721,7 +1829,7 @@ const pokedex = {
     skillType: 2,
     pokeType: 3,
     berryType: 13,
-    maxcarry: 15,
+    maxcarry: 25,
     helpSpeed: 2500,
     foodPer: 13,
     skillPer: 4.70
@@ -1734,7 +1842,7 @@ const pokedex = {
     skillType: 2,
     pokeType: 3,
     berryType: 14,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 4000,
     foodPer: 21.70,
     skillPer: 7.20
@@ -1766,6 +1874,33 @@ const pokedex = {
       }
     }
   },
+  7054: {
+    id: 7054,
+    // name: '烏波（帕底亞的樣子）',
+    friendship: 5,
+    sleepType: 1,
+    skillType: 7,
+    pokeType: 2,
+    maxcarry: 9,
+    helpSpeed: 6400,
+    berryType: 5,
+    foodPer: 20.90,
+    skillPer: 5.60,
+    food: {
+      type: [13, 17, 4],
+      count: {
+        13: {
+          num: [2, 5, 7]
+        },
+        17: {
+          num: [0, 4, 7]
+        },
+        4: {
+          num: [0, 0, 9]
+        }
+      }
+    }
+  },
   195: {
     id: 195,
     // name: '沼王',
@@ -1774,7 +1909,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 1,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3400,
     foodPer: 19,
     skillPer: 3.20
@@ -1787,7 +1922,7 @@ const pokedex = {
     skillType: 2,
     berryType: 6,
     pokeType: 3,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 2400,
     foodPer: 16.40,
     skillPer: 4.40
@@ -1800,7 +1935,7 @@ const pokedex = {
     skillType: 18,
     pokeType: 3,
     berryType: 17,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3200,
     foodPer: 21.90,
     skillPer: 10.10
@@ -1840,7 +1975,7 @@ const pokedex = {
     skillType: 4,
     pokeType: 3,
     berryType: 1,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 3400,
     foodPer: 16.60,
     skillPer: 8.70
@@ -1853,7 +1988,7 @@ const pokedex = {
     skillType: 4,
     pokeType: 3,
     berryType: 6,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3500,
     foodPer: 21.10,
     skillPer: 8.2
@@ -1866,7 +2001,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 2,
-    maxcarry: 25,
+    maxcarry: 30,
     helpSpeed: 3000,
     foodPer: 15.40,
     skillPer: 3.20
@@ -2014,7 +2149,7 @@ const pokedex = {
     skillType: 2,
     pokeType: 1,
     berryType: 17,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3300,
     foodPer: 20.30,
     skillPer: 4
@@ -2027,7 +2162,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 2,
     berryType: 11,
-    maxcarry: 21,
+    maxcarry: 31,
     helpSpeed: 3100,
     foodPer: 23.80,
     skillPer: 2.30
@@ -2148,7 +2283,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 14,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 3600,
     foodPer: 24.70,
     skillPer: 4.50
@@ -2161,7 +2296,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 17,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2700,
     foodPer: 26.60,
     skillPer: 5.20
@@ -2201,7 +2336,7 @@ const pokedex = {
     skillType: 21,
     pokeType: 3,
     berryType: 4,
-    maxcarry: 11,
+    maxcarry: 16,
     helpSpeed: 3300,
     foodPer: 15,
     skillPer: 3.50
@@ -2214,7 +2349,7 @@ const pokedex = {
     skillType: 21,
     pokeType: 3,
     berryType: 4,
-    maxcarry: 17,
+    maxcarry: 27,
     helpSpeed: 2300,
     foodPer: 10.70,
     skillPer: 3
@@ -2254,7 +2389,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 18,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3400,
     foodPer: 17,
     skillPer: 5.20
@@ -2267,7 +2402,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 18,
-    maxcarry: 22,
+    maxcarry: 32,
     helpSpeed: 2600,
     foodPer: 15.30,
     skillPer: 4.90
@@ -2307,7 +2442,7 @@ const pokedex = {
     skillType: 14,
     pokeType: 1,
     berryType: 15,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3500,
     foodPer: 16.80,
     skillPer: 2.80
@@ -2320,7 +2455,7 @@ const pokedex = {
     skillType: 14,
     pokeType: 1,
     berryType: 15,
-    maxcarry: 20,
+    maxcarry: 30,
     helpSpeed: 2800,
     foodPer: 14.60,
     skillPer: 3.40
@@ -2360,7 +2495,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     berryType: 6,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 3500,
     foodPer: 14.60,
     skillPer: 4.30
@@ -2373,7 +2508,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     berryType: 6,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 2400,
     foodPer: 14.40,
     skillPer: 4.20
@@ -2413,7 +2548,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 11,
-    maxcarry: 9,
+    maxcarry: 14,
     helpSpeed: 3200,
     foodPer: 20.40,
     skillPer: 1.50
@@ -2426,7 +2561,7 @@ const pokedex = {
     skillType: 10,
     pokeType: 1,
     berryType: 11,
-    maxcarry: 16,
+    maxcarry: 26,
     helpSpeed: 3600,
     foodPer: 33.90,
     skillPer: 6.70
@@ -2520,7 +2655,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 2,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 4200,
     foodPer: 27.70,
     skillPer: 4.80
@@ -2533,7 +2668,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 2,
     berryType: 2,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 3000,
     foodPer: 28.50,
     skillPer: 5.20
@@ -2627,7 +2762,7 @@ const pokedex = {
     skillType: 6,
     pokeType: 3,
     berryType: 5,
-    maxcarry: 19,
+    maxcarry: 24,
     helpSpeed: 3500,
     foodPer: 21,
     skillPer: 7
@@ -2667,7 +2802,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 15,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 3700,
     foodPer: 15.50,
     skillPer: 3.4
@@ -2680,7 +2815,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 15,
-    maxcarry: 17,
+    maxcarry: 27,
     helpSpeed: 2700,
     foodPer: 17.20,
     skillPer: 3.90
@@ -2720,7 +2855,7 @@ const pokedex = {
     skillType: 7,
     pokeType: 1,
     berryType: 3,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3500,
     foodPer: 25.80,
     skillPer: 6.10
@@ -2761,7 +2896,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 1,
     berryType: 8,
-    maxcarry: 19,
+    maxcarry: 24,
     helpSpeed: 2600,
     berryType: 8,
     foodPer: 17.90,
@@ -2848,6 +2983,33 @@ const pokedex = {
       }
     }
   },
+  9006: {
+    id: 9006,
+    name: '海豹球（佳節）',
+    friendship: 5,
+    sleepType: 3,
+    skillType: 14,
+    pokeType: 3,
+    berryType: 7,
+    maxcarry: 20,
+    helpSpeed: 3300,
+    foodPer: 21.5,
+    skillPer: 5,
+    food: {
+      type: [10, 7, 11],
+      count: {
+        10: {
+          num: [1, 2, 4]
+        },
+        7: {
+          num: [0, 3, 4]
+        },
+        11: {
+          num: [0, 0, 4]
+        }
+      }
+    }
+  },
   364: {
     id: 364,
     // name: '海魔獅',
@@ -2855,7 +3017,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 10,
     pokeType: 1,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 4000,
     berryType: 7,
     foodPer: 22.10,
@@ -2868,7 +3030,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 10,
     pokeType: 1,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 3000,
     berryType: 7,
     foodPer: 22.30,
@@ -2909,7 +3071,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 1,
     berryType: 3,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3800,
     foodPer: 20.50,
     skillPer: 2.70
@@ -2922,7 +3084,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 1,
     berryType: 3,
-    maxcarry: 22,
+    maxcarry: 32,
     helpSpeed: 2800,
     foodPer: 21.30,
     skillPer: 3.40
@@ -3016,7 +3178,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 2,
     berryType: 13,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3200,
     foodPer: 18.20,
     skillPer: 1.80
@@ -3029,7 +3191,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 2,
     berryType: 13,
-    maxcarry: 21,
+    maxcarry: 31,
     helpSpeed: 2400,
     foodPer: 20,
     skillPer: 2.30
@@ -3068,7 +3230,7 @@ const pokedex = {
     sleepType: 1,
     skillType: 16,
     pokeType: 3,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 2500,
     berryType: 8,
     foodPer: 12.80,
@@ -3081,7 +3243,7 @@ const pokedex = {
     sleepType: 1,
     skillType: 24,
     pokeType: 3,
-    maxcarry: 18,
+    maxcarry: 23,
     helpSpeed: 3200,
     berryType: 17,
     foodPer: 14.30,
@@ -3229,7 +3391,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 3,
     pokeType: 3,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 2600,
     berryType: 18,
     foodPer: 15,
@@ -3267,7 +3429,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 5,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3400,
     foodPer: 22.90,
     skillPer: 4.30
@@ -3307,7 +3469,7 @@ const pokedex = {
     skillType: 5,
     pokeType: 2,
     berryType: 7,
-    maxcarry: 21,
+    maxcarry: 26,
     helpSpeed: 3000,
     foodPer: 25,
     skillPer: 4.40
@@ -3320,7 +3482,7 @@ const pokedex = {
     skillType: 14,
     pokeType: 1,
     berryType: 17,
-    maxcarry: 21,
+    maxcarry: 26,
     helpSpeed: 2700,
     foodPer: 25.10,
     skillPer: 1.80
@@ -3333,7 +3495,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 3,
     berryType: 2,
-    maxcarry: 13,
+    maxcarry: 23,
     helpSpeed: 3100,
     foodPer: 17.90,
     skillPer: 6.20
@@ -3346,7 +3508,7 @@ const pokedex = {
     skillType: 13,
     pokeType: 3,
     berryType: 12,
-    maxcarry: 16,
+    maxcarry: 26,
     helpSpeed: 2600,
     foodPer: 15.80,
     skillPer: 5.30
@@ -3359,7 +3521,7 @@ const pokedex = {
     skillType: 4,
     pokeType: 3,
     berryType: 4,
-    maxcarry: 13,
+    maxcarry: 18,
     helpSpeed: 3000,
     foodPer: 20.50,
     skillPer: 6.90
@@ -3372,7 +3534,7 @@ const pokedex = {
     skillType: 11,
     pokeType: 3,
     berryType: 7,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 3200,
     foodPer: 21.90,
     skillPer: 6.30
@@ -3385,7 +3547,7 @@ const pokedex = {
     skillType: 9,
     pokeType: 3,
     berryType: 18,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2400,
     foodPer: 14.70,
     skillPer: 5.40
@@ -3494,7 +3656,7 @@ const pokedex = {
     skillType: 6,
     pokeType: 1,
     berryType: 6,
-    maxcarry: 24,
+    maxcarry: 29,
     helpSpeed: 2800,
     foodPer: 18.80,
     skillPer: 4.10
@@ -3534,7 +3696,7 @@ const pokedex = {
     skillType: 28,
     pokeType: 3,
     berryType: 9,
-    maxcarry: 17,
+    maxcarry: 22,
     helpSpeed: 3200,
     foodPer: 23.9,
     skillPer: 6.40
@@ -3574,7 +3736,7 @@ const pokedex = {
     skillType: 21,
     pokeType: 3,
     berryType: 16,
-    maxcarry: 18,
+    maxcarry: 23,
     helpSpeed: 2400,
     foodPer: 12.10,
     skillPer: 3.20
@@ -3627,7 +3789,7 @@ const pokedex = {
     skillType: 8,
     pokeType: 3,
     berryType: 12,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 2600,
     foodPer: 17.80,
     skillPer: 4
@@ -3733,7 +3895,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3200,
     foodPer: 13,
     skillPer: 4.90
@@ -3746,33 +3908,33 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 10,
+    maxcarry: 15,
     helpSpeed: 3100,
     foodPer: 13,
     skillPer: 4.90
   },
   '711-3': {
     id: '711-3',
-    // name: '南瓜怪人(中顆種)',
+    // name: '南瓜怪人(大顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 19,
+    maxcarry: 24,
     helpSpeed: 3300,
     foodPer: 13,
     skillPer: 4.90
   },
   '711-4': {
     id: '711-4',
-    // name: '南瓜怪人(中顆種)',
+    // name: '南瓜怪人(巨顆種)',
     friendship: 20,
     sleepType: 1,
     skillType: 1,
     pokeType: 2,
     berryType: 8,
-    maxcarry: 25,
+    maxcarry: 30,
     helpSpeed: 3400,
     foodPer: 13,
     skillPer: 4.90
@@ -3852,7 +4014,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 9,
-    maxcarry: 15,
+    maxcarry: 20,
     helpSpeed: 3300,
     foodPer: 15.40,
     skillPer: 2.80
@@ -3865,7 +4027,7 @@ const pokedex = {
     skillType: 1,
     pokeType: 2,
     berryType: 9,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2800,
     foodPer: 19.40,
     skillPer: 5.10
@@ -3904,7 +4066,7 @@ const pokedex = {
     sleepType: 2,
     skillType: 28,
     pokeType: 2,
-    maxcarry: 19,
+    maxcarry: 24,
     helpSpeed: 2300,
     berryType: 12,
     foodPer: 19.40,
@@ -3944,7 +4106,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 5,
     pokeType: 2,
-    maxcarry: 20,
+    maxcarry: 25,
     helpSpeed: 2800,
     berryType: 18,
     foodPer: 22.90,
@@ -4119,7 +4281,20 @@ const pokedex = {
     sleepType: 1,
     skillType: 26,
     pokeType: 3,
-    maxcarry: 18,
+    maxcarry: 23,
+    helpSpeed: 3100,
+    berryType: 5,
+    foodPer: 23.90,
+    skillPer: 6.40
+  },
+  8001: {
+    id: 8001,
+    // name: '顫弦蠑螈（低調的樣子）',
+    friendship: 20,
+    sleepType: 1,
+    skillType: 27,
+    pokeType: 3,
+    maxcarry: 23,
     helpSpeed: 3100,
     berryType: 5,
     foodPer: 23.90,
@@ -4159,7 +4334,7 @@ const pokedex = {
     sleepType: 1,
     skillType: 11,
     pokeType: 2,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3500,
     berryType: 4,
     foodPer: 20.90,
@@ -4172,7 +4347,7 @@ const pokedex = {
     sleepType: 1,
     skillType: 11,
     pokeType: 2,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 2600,
     berryType: 17,
     foodPer: 19,
@@ -4212,7 +4387,7 @@ const pokedex = {
     sleepType: 2,
     skillType: 7,
     pokeType: 2,
-    maxcarry: 16,
+    maxcarry: 21,
     helpSpeed: 3100,
     berryType: 10,
     foodPer: 24.70,
@@ -4225,7 +4400,7 @@ const pokedex = {
     sleepType: 1,
     skillType: 7,
     pokeType: 2,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2700,
     berryType: 8,
     foodPer: 26.80,
@@ -4265,7 +4440,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 2,
     pokeType: 2,
-    maxcarry: 14,
+    maxcarry: 19,
     helpSpeed: 3600,
     berryType: 1,
     foodPer: 25.90,
@@ -4278,7 +4453,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 2,
     pokeType: 2,
-    maxcarry: 19,
+    maxcarry: 29,
     helpSpeed: 2600,
     berryType: 18,
     foodPer: 23.20,
@@ -4318,7 +4493,7 @@ const pokedex = {
     sleepType: 2,
     skillType: 8,
     pokeType: 3,
-    maxcarry: 12,
+    maxcarry: 17,
     helpSpeed: 3300,
     berryType: 13,
     foodPer: 10.90,
@@ -4331,7 +4506,7 @@ const pokedex = {
     sleepType: 2,
     skillType: 8,
     pokeType: 3,
-    maxcarry: 18,
+    maxcarry: 28,
     helpSpeed: 2400,
     berryType: 13,
     foodPer: 14.10,
@@ -4371,7 +4546,7 @@ const pokedex = {
     sleepType: 3,
     skillType: 7,
     pokeType: 2,
-    maxcarry: 25,
+    maxcarry: 30,
     helpSpeed: 2800,
     berryType: 7,
     foodPer: 20.90,
@@ -4384,185 +4559,11 @@ const pokedex = {
     sleepType: 1,
     skillType: 7,
     pokeType: 2,
-    maxcarry: 20,
+    maxcarry: 25,
     helpSpeed: 3500,
     berryType: 5,
     foodPer: 20.80,
     skillPer: 5.50
-  },
-  7006: {
-    id: 7006,
-    // name: '六尾（阿羅拉的樣子）',
-    friendship: 5,
-    sleepType: 3,
-    skillType: 9,
-    pokeType: 1,
-    maxcarry: 10,
-    helpSpeed: 5600,
-    berryType: 7,
-    foodPer: 23,
-    skillPer: 2.80,
-    food: {
-      type: [15, 16, 4],
-      count: {
-        15: {
-          num: [1, 2, 4]
-        },
-        16: {
-          num: [0, 2, 3]
-        },
-        4: {
-          num: [0, 0, 3]
-        }
-      }
-    }
-  },
-  7007: {
-    id: 7007,
-    // name: '九尾（阿羅拉的樣子）',
-    friendship: 20,
-    sleepType: 3,
-    skillType: 9,
-    pokeType: 1,
-    maxcarry: 20,
-    helpSpeed: 2900,
-    berryType: 7,
-    foodPer: 23.20,
-    skillPer: 2.80
-  },
-  7054: {
-    id: 7054,
-    // name: '烏波（帕底亞的樣子）',
-    friendship: 5,
-    sleepType: 1,
-    skillType: 7,
-    pokeType: 2,
-    maxcarry: 9,
-    helpSpeed: 6400,
-    berryType: 5,
-    foodPer: 20.90,
-    skillPer: 5.60,
-    food: {
-      type: [13, 17, 4],
-      count: {
-        13: {
-          num: [2, 5, 7]
-        },
-        17: {
-          num: [0, 4, 7]
-        },
-        4: {
-          num: [0, 0, 9]
-        }
-      }
-    }
-  },
-  8001: {
-    id: 8001,
-    // name: '顫弦蠑螈（低調的樣子）',
-    friendship: 20,
-    sleepType: 1,
-    skillType: 27,
-    pokeType: 3,
-    maxcarry: 18,
-    helpSpeed: 3100,
-    berryType: 5,
-    foodPer: 23.90,
-    skillPer: 6.40
-  },
-  9001: {
-    id: 9001,
-    // name: '皮卡丘（萬聖節）',
-    friendship: 7,
-    sleepType: 2,
-    skillType: 5,
-    pokeType: 1,
-    berryType: 13,
-    maxcarry: 18,
-    helpSpeed: 2500,
-    berryType: 13,
-    foodPer: 21.80,
-    skillPer: 2.80
-  },
-  9002: {
-    id: 9002,
-    // name: '皮卡丘（佳節）',
-    friendship: 7,
-    sleepType: 2,
-    skillType: 3,
-    pokeType: 3,
-    berryType: 13,
-    maxcarry: 20,
-    helpSpeed: 2500,
-    foodPer: 13.10,
-    skillPer: 4.20
-  },
-  9004: {
-    id: 9004,
-    // name: '伊布（佳節）',
-    friendship: 5,
-    sleepType: 2,
-    skillType: 3,
-    pokeType: 1,
-    berryType: 11,
-    maxcarry: 20,
-    helpSpeed: 3100,
-    foodPer: 15.60,
-    skillPer: 3.20
-  },
-  9005: {
-    id: 9005,
-    // name: '伊布（萬聖節）',
-    friendship: 5,
-    sleepType: 2,
-    skillType: 10,
-    pokeType: 3,
-    berryType: 11,
-    maxcarry: 18,
-    helpSpeed: 3200,
-    foodPer: 12.0,
-    skillPer: 4.60,
-    food: {
-      type: [18, 13, 8],
-      count: {
-        18: {
-          num: [1, 2, 4]
-        },
-        13: {
-          num: [0, 4, 6]
-        },
-        8: {
-          num: [0, 0, 9]
-        }
-      }
-    }
-  },
-  9006: {
-    id: 9006,
-    name: '海豹球（佳節）',
-    friendship: 5,
-    sleepType: 3,
-    skillType: 14,
-    pokeType: 3,
-    berryType: 7,
-    maxcarry: 20,
-    helpSpeed: 3300,
-    foodPer: 21.5,
-    skillPer: 5,
-    food: {
-      type: [10, 7, 11],
-      count: {
-        10: {
-          num: [1, 2, 4]
-        },
-        7: {
-          num: [0, 3, 4]
-        },
-        11: {
-          num: [0, 0, 4]
-        }
-      }
-    }
   }
 }
 const initPokedex = () => {
