@@ -872,7 +872,10 @@ export const SLEEP_STYLE = {
   '780-id-1': { pokeId: 780, id: '780-id-1', star: 1, exp: 549, shards: 874, candys: 7, sleepNameId: 364},
   '780-id-2': { pokeId: 780, id: '780-id-2', star: 2, exp: 2410, shards: 3830, candys: 9, sleepNameId: 128 },
   '780-id-3': { pokeId: 780, id: '780-id-3', star: 3, exp: 8563, shards: 13602, candys: 12, sleepNameId: 365 },
-  '780-id-4': { pokeId: 780, id: '780-id-4', star: 4, exp: 11948, shards: 18978, candys: 13, sleepNameId: 4 }
+  '780-id-4': { pokeId: 780, id: '780-id-4', star: 4, exp: 11948, shards: 18978, candys: 13, sleepNameId: 4 },
+  '381-id-1': { pokeId: 381, id: '381-id-1', star: 1, exp: 1038, shards: 5417, candys: 11, sleepNameId: 357 },
+  '381-id-2': { pokeId: 381, id: '381-id-2', star: 2, exp: 5209, shards: 13423, candys: 13, sleepNameId: 358 },
+  '381-id-3': { pokeId: 381, id: '381-id-3', star: 3, exp: 15309, shards: 31548, candys: 16, sleepNameId: 366 }
 }
 
 // Object.keys(SLEEP_STYLE).forEach(key => {

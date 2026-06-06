@@ -2954,6 +2954,33 @@ const pokedex = {
       }
     }
   },
+  381: {
+    id: 381,
+    // name: '拉帝歐斯',
+    friendship: 30,
+    sleepType: 1,
+    skillType: 35,
+    // pokeType: 3,
+    berryType: 3,
+    maxcarry: 19
+    // helpSpeed: 2800,
+    // foodPer: 11.40,
+    // skillPer: 4.90,
+    // food: {
+    //   type: [12, 18, 2],
+    //   count: {
+    //     12: {
+    //       num: [1, 2, 4]
+    //     },
+    //     18: {
+    //       num: [0, 1, 2]
+    //     },
+    //     2: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   403: {
     id: 403,
     // name: '小貓怪',
@@ -4652,6 +4679,9 @@ const updatePoke = [{
 }, {
   time: '2026/05/01',
   pokemons: [696, 697, 780]
+}, {
+  time: '2026/06/01',
+  pokemons: [381]
 }]
 // console.log(pokedex)
 export {
