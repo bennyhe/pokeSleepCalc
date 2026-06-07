@@ -59,10 +59,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [381], // ban 宝可梦id
-  showBanArea: [0, 4, 6, 7] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
@@ -115,7 +115,7 @@ export const ACT_LIST = [
   {
     name: '拉帝歐斯與心之水滴',
     namejp: 'ラティオスとこころのしずく',
-    startTime: 1780862400000,
+    startTime: 1780836303993,
     endTime: 1781985599000,
     notArea: [1, 2, 3, 5],
     smallUp: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
