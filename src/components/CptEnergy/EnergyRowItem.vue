@@ -123,11 +123,11 @@ const props = defineProps({
         <span class="cpt-pokemon__skilltag xs">
           <span class="cpt-pokemon__skilltag-title">
             技<template v-if="props.pokeItem.skilllevel"
-              >Lv.{{ getNum(props.pokeItem.skilllevel) }}</template
+              >Lv.{{ props.pokeItem.skilllevel }}</template
             >
           </span>
           <span class="cpt-pokemon__skilltag-info"
-            >{{ getNum(props.pokeItem.oneDayHelpCount.skill) }}次</span
+            >{{ props.pokeItem.oneDayHelpCountSkill }}次</span
           >
         </span>
         <span

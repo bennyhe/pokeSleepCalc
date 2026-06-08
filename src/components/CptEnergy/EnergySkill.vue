@@ -84,11 +84,11 @@ const props = defineProps({
     <p class="cpt-pokemon__skilltag xs">
       <span class="cpt-pokemon__skilltag-title">
         技<template v-if="dataSource.skilllevel"
-          >Lv.{{ getNum(dataSource.skilllevel) }}</template
+          >Lv.{{ dataSource.skilllevel }}</template
         >
       </span>
       <span class="cpt-pokemon__skilltag-info"
-        >{{ getNum(dataSource.oneDayHelpCount.skill) }}次</span
+        >{{ dataSource.oneDayHelpCountSkill  }}次</span
       >
     </p>
     <div
