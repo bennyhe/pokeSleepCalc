@@ -384,5 +384,35 @@ export const skillEffects = {
         value: 18
       }
     ]
+  },
+  35: {
+    id: 35,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 12
+      },
+      {
+        level: 2,
+        value: 21
+      },
+      {
+        level: 3,
+        value: 29
+      },
+      {
+        level: 4,
+        value: 38
+      },
+      {
+        level: 5,
+        value: 43
+      },
+      {
+        level: 6,
+        value: 48
+      }
+    ]
   }
 }

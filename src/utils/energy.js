@@ -97,7 +97,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
  * @returns 
  */
 const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, mapBonusData) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 24, 25, 28] // , 11, 14
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 24, 25, 28, 35] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -105,7 +105,7 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
   let resType = 'energy'
   if ([3, 6].includes(pokeSkillType)) {
     resType = 'shards'
-  } else if ([17, 21].includes(pokeSkillType)) {
+  } else if ([17, 21, 35].includes(pokeSkillType)) {
     resType = 'berrys'
   } else if ([24, 25, 28].includes(pokeSkillType)) {
     resType = 'foods'
@@ -119,7 +119,7 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
       } else {
         skillOnceEnergy = curSkillVal
       }
-    } else if ([17, 21].includes(pokeSkillType)) { // 树果递增
+    } else if ([17, 21, 35].includes(pokeSkillType)) { // 树果递增
       // console.log(pokeBerryType, pokeLevel, curSkillVal)
       const berryCount = getDecimalNumber(curSkillVal * pokeSkillCount, 1)
       const res = berryCount * BERRY_ENERGY[pokeItem.berryType].energy[pokeLevel - 1].energy
