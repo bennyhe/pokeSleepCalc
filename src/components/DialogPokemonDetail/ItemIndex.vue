@@ -29,6 +29,8 @@ const props = defineProps({
 const fnGetCount = curDialogPokeId => {
   if (curDialogPokeId === 132) {
     return 13
+  } else if (curDialogPokeId === 380 || curDialogPokeId === 381) {
+    return 5
   }
   return 4
 }
