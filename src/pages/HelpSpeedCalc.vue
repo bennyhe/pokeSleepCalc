@@ -97,6 +97,34 @@ const helpSpeedCalcForm = ref({
   },
   mainSkillUp: 1
 })
+const pokemonOptions = computed(() => {
+  return Object.values(pokedex).map(pokeItem => ({
+    value: pokeItem.id,
+    label: `${t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`,
+    helpSpeed: pokeItem.helpSpeed
+  }))
+})
+
+const pokemonOptionsContrast = computed(() => {
+  return Object.values(pokedex).map(pokeItem => ({
+    value: pokeItem.id,
+    label: `对比${t(`POKEMON_NAME.${pokeItem.id}`)}-${pokeItem.helpSpeed}s`,
+    helpSpeed: pokeItem.helpSpeed
+  }))
+})
+
+const pokemonImagePreloadStarted = ref(false)
+const pokemonImagePreloadLoaded = new Set()
+const POKEMON_IMAGE_PRIORITY_PRELOAD_COUNT = 60
+
+const getPokemonImageSrc = pokemonId => {
+  return `./img/pokedex/${extractPrefix(pokemonId)}.png`
+}
+
+const markPokemonImageLoaded = src => {
+  pokemonImagePreloadLoaded.add(src)
+}
+
 const pageData = ref({
   collapseActName: '1'
 })
@@ -254,6 +282,60 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.skilllevel = 1
   setTargetListByHelp()
 }
+
+const preloadPokemonImages = () => {
+  const images = Object.values(pokedex)
+    .map(pokeItem => getPokemonImageSrc(pokeItem.id))
+    .filter(src => !pokemonImagePreloadLoaded.has(src))
+  const priorityImages = images.slice(0, POKEMON_IMAGE_PRIORITY_PRELOAD_COUNT)
+  const restImages = images.slice(POKEMON_IMAGE_PRIORITY_PRELOAD_COUNT)
+
+  preloadPokemonImageQueue(priorityImages, 4, () => {
+    setTimeout(() => {
+      preloadPokemonImageQueue(restImages, 2)
+    }, 100)
+  })
+}
+
+const preloadPokemonImageQueue = (images, concurrency, onDone) => {
+  let imageIndex = 0
+  let activeCount = 0
+  let loadedCount = 0
+
+  const loadNext = () => {
+    if (loadedCount >= images.length) {
+      if (onDone) onDone()
+      return
+    }
+
+    while (activeCount < concurrency && imageIndex < images.length) {
+      const src = images[imageIndex]
+      imageIndex++
+      activeCount++
+
+      const img = new Image()
+      const finish = () => {
+        markPokemonImageLoaded(src)
+        activeCount--
+        loadedCount++
+        loadNext()
+      }
+      img.onload = finish
+      img.onerror = finish
+      img.src = src
+    }
+  }
+
+  loadNext()
+}
+
+const handlePreloadImages = visible => {
+  if (!visible || pokemonImagePreloadStarted.value) return
+  pokemonImagePreloadStarted.value = true
+  // Give the dropdown's visible options a head start, then warm the rest gently.
+  setTimeout(preloadPokemonImages, 300)
+}
+
 const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
   let resRankArr = []
   dataList.forEach(upItem => {
@@ -690,28 +772,26 @@ watch(helpSpeedCalcForm.value, val => {
   <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
   <el-form label-width="90px">
     <el-form-item :label="$t('PROP.pokemon')">
-      <el-select
+      <el-select-v2
         v-model="helpSpeedCalcForm.pokemonId"
         filterable
+        :height="280"
+        :options="pokemonOptions"
         @change="handleChangePokemon()"
+        @visible-change="handlePreloadImages"
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-${
-              pokeItem.helpSpeed
-            }s`"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
-          </el-option>
+        <template #default="{ item }">
+          <img
+            class="icon pokemon-select-option__icon"
+            :src="getPokemonImageSrc(item.value)"
+            :alt="$t(`POKEMON_NAME.${item.value}`)"
+            decoding="async"
+            @load="markPokemonImageLoaded(getPokemonImageSrc(item.value))"
+            @error="markPokemonImageLoaded(getPokemonImageSrc(item.value))"
+          />
+          {{ $t(`POKEMON_NAME.${item.value}`) }}-{{ item.helpSpeed }}s
         </template>
-      </el-select>
+      </el-select-v2>
     </el-form-item>
     <el-form-item>
       <i class="i i-rank" :class="`i-rank--${targetInList.sortIndex}`">{{
@@ -1292,30 +1372,28 @@ watch(helpSpeedCalcForm.value, val => {
         >
         / {{ helpSpeedCalcForm.resLength }} 位
       </div>
-      <el-select
+      <el-select-v2
         v-model="helpSpeedCalcForm.contrastPoke"
         :placeholder="$t('PLACEHOLDER.contrast')"
         filterable
         clearable
         class="mb3"
+        :height="280"
+        :options="pokemonOptionsContrast"
+        @visible-change="handlePreloadImages"
       >
-        <template v-for="pokeItem in pokedex" :key="pokeItem.id">
-          <el-option
-            :label="`对比${$t(`POKEMON_NAME.${pokeItem.id}`)}-${
-              pokeItem.helpSpeed
-            }s`"
-            :value="pokeItem.id"
-          >
-            <img
-              class="icon"
-              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
-              :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
-            />
-            {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
-          </el-option>
+        <template #default="{ item }">
+          <img
+            class="icon pokemon-select-option__icon"
+            :src="getPokemonImageSrc(item.value)"
+            :alt="$t(`POKEMON_NAME.${item.value}`)"
+            decoding="async"
+            @load="markPokemonImageLoaded(getPokemonImageSrc(item.value))"
+            @error="markPokemonImageLoaded(getPokemonImageSrc(item.value))"
+          />
+          {{ $t(`POKEMON_NAME.${item.value}`) }}-{{ item.helpSpeed }}s
         </template>
-      </el-select>
+      </el-select-v2>
     </el-form-item>
     <el-form-item class="el-btn-s">
       <el-button
@@ -1814,3 +1892,11 @@ watch(helpSpeedCalcForm.value, val => {
     <p>* {{ $t("TIPS.energy4") }}</p>
   </div>
 </template>
+<style scoped>
+.pokemon-select-option__icon {
+  display: inline-block;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #eef5ef;
+}
+</style>
