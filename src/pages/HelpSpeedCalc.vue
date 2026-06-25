@@ -50,7 +50,8 @@ import {
   skillOptionsMaxcarry,
   skillOptionsSkillLevel,
   skillOptionsTxt,
-  levelOptions
+  levelOptions,
+  maxSkillCount
 } from '../config/helpSpeed.js'
 
 import { useI18n } from 'vue-i18n'
@@ -793,7 +794,7 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
     </el-form-item>
     <el-form-item>
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="5">
+      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="maxSkillCount">
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptionsExtra2"
@@ -820,7 +821,7 @@ watch(helpSpeedCalcForm.value, val => {
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
             :min="0"
-            :max="5"
+            :max="maxSkillCount"
           >
             <el-checkbox-button
               :label="skillItem.label"
@@ -839,7 +840,7 @@ watch(helpSpeedCalcForm.value, val => {
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
             :min="0"
-            :max="5"
+            :max="maxSkillCount"
           >
             <el-checkbox-button
               :label="skillItem.label"
@@ -858,7 +859,7 @@ watch(helpSpeedCalcForm.value, val => {
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
             :min="0"
-            :max="5"
+            :max="maxSkillCount"
           >
             <el-checkbox-button
               :label="skillItem.label"
@@ -877,7 +878,7 @@ watch(helpSpeedCalcForm.value, val => {
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
             :min="0"
-            :max="5"
+            :max="maxSkillCount"
           >
             <el-checkbox-button
               :label="skillItem.label"
@@ -898,7 +899,7 @@ watch(helpSpeedCalcForm.value, val => {
             class="el-checkbox-group--inline"
             v-model="helpSpeedCalcForm.skill"
             :min="0"
-            :max="5"
+            :max="maxSkillCount"
             @change="handleChangeGetSkillLevel()"
           >
             <el-checkbox-button
@@ -952,7 +953,7 @@ watch(helpSpeedCalcForm.value, val => {
           class="el-checkbox-group--inline"
           v-model="helpSpeedCalcForm.skill"
           :min="0"
-          :max="5"
+          :max="maxSkillCount"
         >
           <el-checkbox-button
             :label="skillItem.label"

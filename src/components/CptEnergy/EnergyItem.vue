@@ -12,7 +12,8 @@ import {
   skillOptionsMaxcarry,
   skillOptionsSkillLevel,
   characterOptions,
-  skillOptionsTxt
+  skillOptionsTxt,
+  maxSkillCount
 } from '../../config/helpSpeed.js'
 import { getSkillLevel } from '../../utils/helpcalc.js'
 import { toHMInLang } from '../../utils/index.js'
@@ -298,7 +299,7 @@ const handleChangeSkillLevel = () => {
           />
         </div>
         <div style="display: flex">
-          <el-checkbox-group v-model="editData.skill" :min="0" :max="5">
+          <el-checkbox-group v-model="editData.skill" :min="0" :max="maxSkillCount">
             <el-checkbox
               :label="skillItem.label"
               v-for="skillItem in skillOptionsExtra2"
@@ -325,7 +326,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
             >
               <el-checkbox-button
                 :label="skillItem.label"
@@ -346,7 +347,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
             >
               <el-checkbox-button
                 :label="skillItem.label"
@@ -366,7 +367,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
             >
               <el-checkbox-button
                 :label="skillItem.label"
@@ -386,7 +387,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
             >
               <el-checkbox-button
                 :label="skillItem.label"
@@ -406,7 +407,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
               @change="handleChangeSkillLevel()"
             >
               <el-checkbox-button
@@ -455,7 +456,7 @@ const handleChangeSkillLevel = () => {
               class="el-checkbox-group--inline"
               v-model="editData.skill"
               :min="0"
-              :max="5"
+              :max="maxSkillCount"
             >
               <el-checkbox-button
                 :label="skillItem.label"
