@@ -85,33 +85,33 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1774987200000,
-  //   endTime: 1775073599000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // },
-  // {
-  //   name: '满月日',
-  //   namejp: '満月の日',
-  //   startTime: 1775073600000,
-  //   endTime: 1775159999000,
-  //   notArea: [],
-  //   largeUp: [35, 36, 173],
-  //   times: 2
-  // },
-  // {
-  //   name: '好眠日',
-  //   namejp: '満月の前後の日',
-  //   startTime: 1775160000000,
-  //   endTime: 1775246399000,
-  //   notArea: [],
-  //   midUp: [35, 36, 173],
-  //   times: 1.5
-  // },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1782676800000,
+    endTime: 1782763199000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  },
+  {
+    name: '满月日',
+    namejp: '満月の日',
+    startTime: 1782763200000,
+    endTime: 1782849599000,
+    notArea: [],
+    largeUp: [35, 36, 173],
+    times: 3
+  },
+  {
+    name: '好眠日',
+    namejp: '満月の前後の日',
+    startTime: 1782849600000,
+    endTime: 1782935999000,
+    notArea: [],
+    midUp: [35, 36, 173],
+    times: 1.5
+  }
   // {
   //   name: '拉帝歐斯與心之水滴',
   //   namejp: 'ラティオスとこころのしずく',
