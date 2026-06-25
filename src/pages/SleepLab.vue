@@ -514,7 +514,10 @@ const handleChangeInputPM = () => {
               :sleepItem="SLEEP_STYLE[sleepId]"
               :showKey="['sleepType']"
             >
-              <p v-if="SLEEP_STYLE[sleepId].id">
+              <p v-if="SLEEP_STYLE[sleepId].pokeId">
+                #{{ SLEEP_STYLE[sleepId].pokeId }}
+              </p>
+              <!-- <p v-if="SLEEP_STYLE[sleepId].id">
                 {{ SLEEP_STYLE[sleepId].id }}
               </p>
               <p v-if="SPO_DATA[SLEEP_STYLE[sleepId].id]">
@@ -522,7 +525,7 @@ const handleChangeInputPM = () => {
               </p>
               <p v-if="SPO_DATA[SLEEP_STYLE[sleepId].id]">
                 spo: {{ getSPOById(SLEEP_STYLE[sleepId].id) }}
-              </p>
+              </p> -->
             </CptSleepStyle>
           </div>
         </template>
