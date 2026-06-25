@@ -212,6 +212,6 @@ export const levelOptions = [{
   label: 60,
   txt: 'Lv.60(3食)'
 }, {
-  label: 65,
-  txt: 'Lv.65'
+  label: 70,
+  txt: 'Lv.70'
 }]

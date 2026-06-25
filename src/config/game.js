@@ -8,9 +8,9 @@ import map7 from './gameMap/7.js'
 import map10001 from './gameMap/10001.js'
 
 export const areaBonusMax = 85
-export const POKEMON_MAX_LEVEL = 65
+export const POKEMON_MAX_LEVEL = 70
 export const mapSplitVer = '3.0.4'
-export const SP_POKEMONS = [491, 151]
+export const SP_POKEMONS = [491, 151] // 锁闪
 export const gameMap = [
   map1,
   map2,

@@ -261,6 +261,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 151
+      },
+      {
+        'lv': 66,
+        'energy': 154
+      },
+      {
+        'lv': 67,
+        'energy': 158
+      },
+      {
+        'lv': 68,
+        'energy': 162
+      },
+      {
+        'lv': 69,
+        'energy': 166
+      },
+      {
+        'lv': 70,
+        'energy': 170
       }
     ]
   },
@@ -526,6 +546,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 160
+      },
+      {
+        'lv': 66,
+        'energy': 164
+      },
+      {
+        'lv': 67,
+        'energy': 168
+      },
+      {
+        'lv': 68,
+        'energy': 173
+      },
+      {
+        'lv': 69,
+        'energy': 177
+      },
+      {
+        'lv': 70,
+        'energy': 181
       }
     ]
   },
@@ -791,6 +831,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 170
+      },
+      {
+        'lv': 66,
+        'energy': 174
+      },
+      {
+        'lv': 67,
+        'energy': 179
+      },
+      {
+        'lv': 68,
+        'energy': 183
+      },
+      {
+        'lv': 69,
+        'energy': 188
+      },
+      {
+        'lv': 70,
+        'energy': 192
       }
     ]
   },
@@ -1056,6 +1116,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 146
+      },
+      {
+        'lv': 66,
+        'energy': 149
+      },
+      {
+        'lv': 67,
+        'energy': 153
+      },
+      {
+        'lv': 68,
+        'energy': 157
+      },
+      {
+        'lv': 69,
+        'energy': 161
+      },
+      {
+        'lv': 70,
+        'energy': 165
       }
     ]
   },
@@ -1321,6 +1401,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 155
+      },
+      {
+        'lv': 66,
+        'energy': 159
+      },
+      {
+        'lv': 67,
+        'energy': 163
+      },
+      {
+        'lv': 68,
+        'energy': 167
+      },
+      {
+        'lv': 69,
+        'energy': 172
+      },
+      {
+        'lv': 70,
+        'energy': 176
       }
     ]
   },
@@ -1586,6 +1686,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 126
+      },
+      {
+        'lv': 66,
+        'energy': 129
+      },
+      {
+        'lv': 67,
+        'energy': 133
+      },
+      {
+        'lv': 68,
+        'energy': 136
+      },
+      {
+        'lv': 69,
+        'energy': 139
+      },
+      {
+        'lv': 70,
+        'energy': 143
       }
     ]
   },
@@ -1851,6 +1971,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 155
+      },
+      {
+        'lv': 66,
+        'energy': 159
+      },
+      {
+        'lv': 67,
+        'energy': 163
+      },
+      {
+        'lv': 68,
+        'energy': 167
+      },
+      {
+        'lv': 69,
+        'energy': 172
+      },
+      {
+        'lv': 70,
+        'energy': 176
       }
     ]
   },
@@ -2116,6 +2256,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 126
+      },
+      {
+        'lv': 66,
+        'energy': 129
+      },
+      {
+        'lv': 67,
+        'energy': 133
+      },
+      {
+        'lv': 68,
+        'energy': 136
+      },
+      {
+        'lv': 69,
+        'energy': 139
+      },
+      {
+        'lv': 70,
+        'energy': 143
       }
     ]
   },
@@ -2381,6 +2541,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 117
+      },
+      {
+        'lv': 66,
+        'energy': 119
+      },
+      {
+        'lv': 67,
+        'energy': 122
+      },
+      {
+        'lv': 68,
+        'energy': 126
+      },
+      {
+        'lv': 69,
+        'energy': 129
+      },
+      {
+        'lv': 70,
+        'energy': 132
       }
     ]
   },
@@ -2646,6 +2826,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 131
+      },
+      {
+        'lv': 66,
+        'energy': 134
+      },
+      {
+        'lv': 67,
+        'energy': 138
+      },
+      {
+        'lv': 68,
+        'energy': 141
+      },
+      {
+        'lv': 69,
+        'energy': 145
+      },
+      {
+        'lv': 70,
+        'energy': 148
       }
     ]
   },
@@ -2911,6 +3111,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 136
+      },
+      {
+        'lv': 66,
+        'energy': 139
+      },
+      {
+        'lv': 67,
+        'energy': 143
+      },
+      {
+        'lv': 68,
+        'energy': 146
+      },
+      {
+        'lv': 69,
+        'energy': 150
+      },
+      {
+        'lv': 70,
+        'energy': 154
       }
     ]
   },
@@ -3176,6 +3396,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 126
+      },
+      {
+        'lv': 66,
+        'energy': 129
+      },
+      {
+        'lv': 67,
+        'energy': 133
+      },
+      {
+        'lv': 68,
+        'energy': 136
+      },
+      {
+        'lv': 69,
+        'energy': 139
+      },
+      {
+        'lv': 70,
+        'energy': 143
       }
     ]
   },
@@ -3441,6 +3681,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 121
+      },
+      {
+        'lv': 66,
+        'energy': 124
+      },
+      {
+        'lv': 67,
+        'energy': 128
+      },
+      {
+        'lv': 68,
+        'energy': 131
+      },
+      {
+        'lv': 69,
+        'energy': 134
+      },
+      {
+        'lv': 70,
+        'energy': 137
       }
     ]
   },
@@ -3706,6 +3966,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 146
+      },
+      {
+        'lv': 66,
+        'energy': 149
+      },
+      {
+        'lv': 67,
+        'energy': 153
+      },
+      {
+        'lv': 68,
+        'energy': 157
+      },
+      {
+        'lv': 69,
+        'energy': 161
+      },
+      {
+        'lv': 70,
+        'energy': 165
       }
     ]
   },
@@ -3971,6 +4251,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 141
+      },
+      {
+        'lv': 66,
+        'energy': 144
+      },
+      {
+        'lv': 67,
+        'energy': 148
+      },
+      {
+        'lv': 68,
+        'energy': 152
+      },
+      {
+        'lv': 69,
+        'energy': 155
+      },
+      {
+        'lv': 70,
+        'energy': 159
       }
     ]
   },
@@ -4236,6 +4536,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 117
+      },
+      {
+        'lv': 66,
+        'energy': 119
+      },
+      {
+        'lv': 67,
+        'energy': 122
+      },
+      {
+        'lv': 68,
+        'energy': 126
+      },
+      {
+        'lv': 69,
+        'energy': 129
+      },
+      {
+        'lv': 70,
+        'energy': 132
       }
     ]
   },
@@ -4501,6 +4821,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 151
+      },
+      {
+        'lv': 66,
+        'energy': 154
+      },
+      {
+        'lv': 67,
+        'energy': 158
+      },
+      {
+        'lv': 68,
+        'energy': 162
+      },
+      {
+        'lv': 69,
+        'energy': 166
+      },
+      {
+        'lv': 70,
+        'energy': 170
       }
     ]
   },
@@ -4766,6 +5106,26 @@ export const BERRY_ENERGY = {
       {
         'lv': 65,
         'energy': 131
+      },
+      {
+        'lv': 66,
+        'energy': 134
+      },
+      {
+        'lv': 67,
+        'energy': 138
+      },
+      {
+        'lv': 68,
+        'energy': 141
+      },
+      {
+        'lv': 69,
+        'energy': 145
+      },
+      {
+        'lv': 70,
+        'energy': 148
       }
     ]
   }

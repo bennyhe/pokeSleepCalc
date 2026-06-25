@@ -8,8 +8,7 @@ import {
   levelOptions,
   SHARDS_CANDY
 } from '../config/candyCalc.js'
-// import { POKEMON_MAX_LEVEL } from '../config/game.js'
-const POKEMON_MAX_LEVEL = 75 // 临时使用
+import { POKEMON_MAX_LEVEL } from '../config/game.js'
 import { getNum } from '../utils/index.js'
 
 const candyCalcForm = ref({
@@ -52,7 +51,7 @@ levelOptionsTo.push(
 const getCandyBaseExp = targetLevel => {
   if (targetLevel <= 25) return NATURE_ONE_CANDY_EXP.lv25 // 1-25级
   if (targetLevel <= 30) return NATURE_ONE_CANDY_EXP.lv30 // 25-30级
-  return NATURE_ONE_CANDY_EXP.normal // 30-65级
+  return NATURE_ONE_CANDY_EXP.normal // 30-70级
 }
 
 /**
