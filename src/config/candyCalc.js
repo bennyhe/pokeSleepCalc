@@ -135,8 +135,8 @@ export const SHARDS_CANDY = [
 ]
 export const NATURE_ONE_CANDY_EXP = {
   // up 1.18  down 0.82
-  lv25: 35,   //  自Lv.1至達到Lv.25為止
-  lv30: 30,   //  自Lv.25至達到Lv.30為止
+  lv25: 40,   //  自Lv.1至達到Lv.25為止
+  lv30: 35,   //  自Lv.25至達到Lv.30為止
   // down: 21,
   normal: 25
   // up: 30
