@@ -8,8 +8,8 @@ import {
   levelOptions,
   SHARDS_CANDY
 } from '../config/candyCalc.js'
-import { POKEMON_MAX_LEVEL } from '../config/game.js'
-
+// import { POKEMON_MAX_LEVEL } from '../config/game.js'
+const POKEMON_MAX_LEVEL = 75 // 临时使用
 import { getNum } from '../utils/index.js'
 
 const candyCalcForm = ref({
@@ -41,12 +41,8 @@ levelOptionsTo.splice(0, 1)
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
 levelOptionsTo.push(
   {
-    label: 60,
-    txt: 'Lv.60'
-  },
-  {
-    label: 65,
-    txt: 'Lv.65'
+    label: 70,
+    txt: 'Lv.70'
   }
 )
 
