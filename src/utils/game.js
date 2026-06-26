@@ -100,7 +100,7 @@ function weightedRandomSelect(items, weights) {
 }
 export function getRandomPokeSkills(lockSkillCount) {
   const uniqueSubSkills = new Set()
-  const unlockLevel = [10, 25, 50, 75, 100]
+  const unlockLevel = [10, 25, 50, 70, 80]
   let i = 0
   let rare3Skills = getRandomArr([...SUB_SKILLS].filter(skill => skill.rare === 3), 100)
 
