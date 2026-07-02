@@ -3,8 +3,8 @@ export const SLEEP_CALC_POKEMONS = {
   noLastList: [243, 244, 245, 35, 36, 173, 488, 380, 381,
     // 710, 711,
     // 328, 329, 330, 371, 372, 373, 557, 558,
-    442,
-    777, 974, 975,
+    // 442,
+    // 777, 974, 975,
     213,
     742, 743,
     714, 715,
@@ -17,14 +17,14 @@ export const SLEEP_CALC_POKEMONS = {
 
 export const IN_LAST_TIME_DAYS = 100
 export const IN_LAST_TIME_POKEMONS = [
-  {
-    ids: [442],
-    starttime: '2025/12/01 04:00'
-  },
-  {
-    ids: [777, 974, 975],
-    starttime: '2025/12/22 04:00'
-  },
+  // {
+  //   ids: [442],
+  //   starttime: '2025/12/01 04:00'
+  // },
+  // {
+  //   ids: [777, 974, 975],
+  //   starttime: '2025/12/22 04:00'
+  // },
   {
     ids: [213],
     starttime: '2026/01/19 04:00'
@@ -66,7 +66,7 @@ export const SLEEP_CALC_CONFIG = {
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsMidIds: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -85,46 +85,41 @@ export const ACT_LIST = [
   //    times: 2.5,
   //    isActRandom: true
   //  }
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1782676800000,
-    endTime: 1782763199000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  },
-  {
-    name: '满月日',
-    namejp: '満月の日',
-    startTime: 1782763200000,
-    endTime: 1782849599000,
-    notArea: [],
-    largeUp: [35, 36, 173],
-    times: 3
-  },
-  {
-    name: '好眠日',
-    namejp: '満月の前後の日',
-    startTime: 1782849600000,
-    endTime: 1782935999000,
-    notArea: [],
-    midUp: [35, 36, 173],
-    times: 1.5
-  }
   // {
-  //   name: '拉帝歐斯與心之水滴',
-  //   namejp: 'ラティオスとこころのしずく',
-  //   startTime: 1780836303993,
-  //   endTime: 1781985599000,
-  //   notArea: [1, 2, 3, 5],
-  //   smallUp: [147, 148, 149, 334, 371, 372, 373, 380, 714, 715, 780],
-  //   midUp: [381],
-  //   timelimitPokemons: {
-  //     'green': [147, 371],
-  //     'greenex': [147, 371]
-  //   },
-  //   actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-  //   isActRandom: true
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1782676800000,
+  //   endTime: 1782763199000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
   // },
+  // {
+  //   name: '满月日',
+  //   namejp: '満月の日',
+  //   startTime: 1782763200000,
+  //   endTime: 1782849599000,
+  //   notArea: [],
+  //   largeUp: [35, 36, 173],
+  //   times: 3
+  // },
+  // {
+  //   name: '好眠日',
+  //   namejp: '満月の前後の日',
+  //   startTime: 1782849600000,
+  //   endTime: 1782935999000,
+  //   notArea: [],
+  //   midUp: [35, 36, 173],
+  //   times: 1.5
+  // }
+  {
+    name: '3週年搶先慶企畫',
+    namejp: 'もうすぐ3周年キャンペーン',
+    startTime: 1783281600000,
+    endTime: 1783886399000,
+    notArea: [3],
+    midUp: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    isActRandom: true
+  }
 ]
