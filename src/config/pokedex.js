@@ -74,7 +74,10 @@ const evoLine = [
   [742, 743],
   [714, 715],
   [27, 28],
-  [696, 697]
+  [696, 697],
+  [387, 388, 389],
+  [390, 391, 392],
+  [393, 394, 395]
 ]
 const pokedex = {
   1: {
@@ -2985,7 +2988,7 @@ const pokedex = {
   },
   9006: {
     id: 9006,
-    name: '海豹球（佳節）',
+    // name: '海豹球（佳節）',
     friendship: 5,
     sleepType: 3,
     skillType: 14,
@@ -3142,6 +3145,165 @@ const pokedex = {
         }
       }
     }
+  },
+  387: {
+    id: 387,
+    // name: '草苗龜',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 4,
+    maxcarry: 12
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+    // food: {
+    //   type: [12, 3, 8],
+    //   count: {
+    //     12: {
+    //       num: [1, 2, 4]
+    //     },
+    //     3: {
+    //       num: [0, 2, 3]
+    //     },
+    //     8: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  388: {
+    id: 388,
+    // name: '樹林龜',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 4,
+    maxcarry: 19
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+  },
+  389: {
+    id: 389,
+    // name: '土台龜',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 15,
+    maxcarry: 27
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+  },
+  390: {
+    id: 390,
+    // name: '小火焰猴',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 10,
+    maxcarry: 10
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+    // food: {
+    //   type: [12, 3, 8],
+    //   count: {
+    //     12: {
+    //       num: [1, 2, 4]
+    //     },
+    //     3: {
+    //       num: [0, 2, 3]
+    //     },
+    //     8: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  391: {
+    id: 391,
+    // name: '猛火猴',
+    friendship: 12,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 18,
+    maxcarry: 19
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+  },
+  392: {
+    id: 392,
+    // name: '烈焰猴',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 18,
+    maxcarry: 28
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+  },
+  393: {
+    id: 393,
+    // name: '波加曼',
+    friendship: 5,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 1,
+    maxcarry: 11
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+    // food: {
+    //   type: [12, 3, 8],
+    //   count: {
+    //     12: {
+    //       num: [1, 2, 4]
+    //     },
+    //     3: {
+    //       num: [0, 2, 3]
+    //     },
+    //     8: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
+  },
+  394: {
+    id: 394,
+    // name: '波皇子',
+    friendship: 12,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 1,
+    maxcarry: 20
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
+  },
+  395: {
+    id: 395,
+    // name: '帝王拿波',
+    friendship: 20,
+    sleepType: 3,
+    // skillType: 35,
+    // pokeType: 3,
+    berryType: 2,
+    maxcarry: 28
+    // helpSpeed: 2800,
+    // foodPer: 19.80,
+    // skillPer: 3,
   },
   403: {
     id: 403,
@@ -4683,6 +4845,9 @@ const updatePoke = [{
 }, {
   time: '2026/06/01',
   pokemons: [381]
+}, {
+  time: '2026/07/01',
+  pokemons: [387, 388, 389, 390, 391, 392, 393, 394, 395]
 }]
 // console.log(pokedex)
 export {
