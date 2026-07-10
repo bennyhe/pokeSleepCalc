@@ -242,7 +242,7 @@ export default {
       'name': '超级5',
       'nameIndex': 5,
       'nameId': 2,
-      // 'energy': 272333,
+      'energy': 272333,
       'sleepStyles': [
         // '334-id-2',
         '148-id-2',
