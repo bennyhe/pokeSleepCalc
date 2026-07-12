@@ -6,8 +6,8 @@ export const SLEEP_CALC_POKEMONS = {
     714, 715,
     27, 28,
     696, 697,
-    780
-    // 387, 388, 389, 390, 391, 392, 393, 394, 395
+    780,
+    387, 388, 389, 390, 391, 392, 393, 394, 395
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -52,10 +52,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [387, 388, 389, 390, 391, 392, 393, 394, 395], // ban 宝可梦id
-  showBanArea: [0, 1, 2, 3, 4, 6, 7] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
@@ -106,19 +106,9 @@ export const ACT_LIST = [
   //   times: 1.5
   // }
   {
-    name: '3週年搶先慶企畫',
-    namejp: 'もうすぐ3周年キャンペーン',
-    startTime: 1783281600000,
-    endTime: 1783886399000,
-    notArea: [3],
-    midUp: [252, 253, 254, 255, 256, 257, 258, 259, 260, 311, 312],
-    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-    isActRandom: true
-  },
-  {
     name: '3週年紀念嘉年華第1週',
     namejp: '3周年記念フェスティバル1週目',
-    startTime: 1783886400000,
+    startTime: 1783863264166,
     endTime: 1784491199000,
     notArea: [5],
     midUp: [387, 390, 393],
