@@ -3151,159 +3151,159 @@ const pokedex = {
     // name: '草苗龜',
     friendship: 5,
     sleepType: 1,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 8,
+    pokeType: 3,
     berryType: 4,
-    maxcarry: 12
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
-    // food: {
-    //   type: [12, 3, 8],
-    //   count: {
-    //     12: {
-    //       num: [1, 2, 4]
-    //     },
-    //     3: {
-    //       num: [0, 2, 3]
-    //     },
-    //     8: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 12,
+    helpSpeed: 4500,
+    foodPer: 13.2,
+    skillPer: 4.1,
+    food: {
+      type: [2, 4, 11],
+      count: {
+        2: {
+          num: [1, 2, 4]
+        },
+        4: {
+          num: [0, 3, 5]
+        },
+        11: {
+          num: [0, 0, 6]
+        }
+      }
+    }
   },
   388: {
     id: 388,
     // name: '樹林龜',
     friendship: 12,
     sleepType: 1,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 8,
+    pokeType: 3,
     berryType: 4,
-    maxcarry: 19
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 19,
+    helpSpeed: 3700,
+    foodPer: 15.0,
+    skillPer: 4.6
   },
   389: {
     id: 389,
     // name: '土台龜',
     friendship: 20,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 8,
+    pokeType: 3,
     berryType: 15,
-    maxcarry: 27
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 27,
+    helpSpeed: 2900,
+    foodPer: 15.6,
+    skillPer: 4.8
   },
   390: {
     id: 390,
     // name: '小火焰猴',
     friendship: 5,
     sleepType: 2,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 21,
+    pokeType: 3,
     berryType: 10,
-    maxcarry: 10
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
-    // food: {
-    //   type: [12, 3, 8],
-    //   count: {
-    //     12: {
-    //       num: [1, 2, 4]
-    //     },
-    //     3: {
-    //       num: [0, 2, 3]
-    //     },
-    //     8: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 10,
+    helpSpeed: 4100,
+    foodPer: 11.4,
+    skillPer: 3.3,
+    food: {
+      type: [6, 11, 17],
+      count: {
+        6: {
+          num: [1, 2, 4]
+        },
+        11: {
+          num: [0, 3, 4]
+        },
+        17: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   391: {
     id: 391,
     // name: '猛火猴',
     friendship: 12,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 21,
+    pokeType: 3,
     berryType: 18,
-    maxcarry: 19
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 19,
+    helpSpeed: 3100,
+    foodPer: 11.4,
+    skillPer: 3.3
   },
   392: {
     id: 392,
     // name: '烈焰猴',
     friendship: 20,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 21,
+    pokeType: 3,
     berryType: 18,
-    maxcarry: 28
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 28,
+    helpSpeed: 2400,
+    foodPer: 10.6,
+    skillPer: 3.3
   },
   393: {
     id: 393,
     // name: '波加曼',
     friendship: 5,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 9,
+    pokeType: 1,
     berryType: 1,
-    maxcarry: 11
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
-    // food: {
-    //   type: [12, 3, 8],
-    //   count: {
-    //     12: {
-    //       num: [1, 2, 4]
-    //     },
-    //     3: {
-    //       num: [0, 2, 3]
-    //     },
-    //     8: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    maxcarry: 11,
+    helpSpeed: 4500,
+    foodPer: 15.9,
+    skillPer: 2.6,
+    food: {
+      type: [3, 1, 9],
+      count: {
+        3: {
+          num: [1, 2, 4]
+        },
+        1: {
+          num: [0, 1, 2]
+        },
+        9: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   394: {
     id: 394,
     // name: '波皇子',
     friendship: 12,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 9,
+    pokeType: 1,
     berryType: 1,
-    maxcarry: 20
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 20,
+    helpSpeed: 3700,
+    foodPer: 16.3,
+    skillPer: 3.5
   },
   395: {
     id: 395,
     // name: '帝王拿波',
     friendship: 20,
     sleepType: 3,
-    // skillType: 35,
-    // pokeType: 3,
+    skillType: 9,
+    pokeType: 1,
     berryType: 2,
-    maxcarry: 28
-    // helpSpeed: 2800,
-    // foodPer: 19.80,
-    // skillPer: 3,
+    maxcarry: 28,
+    helpSpeed: 3200,
+    foodPer: 16.8,
+    skillPer: 3.8
   },
   403: {
     id: 403,
