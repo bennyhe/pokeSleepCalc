@@ -1,12 +1,19 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
-import { Place } from '@element-plus/icons-vue'
+import {
+  Place,
+  Edit,
+  Check,
+  ArrowDown,
+  ArrowUp
+} from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
+import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import {
   get,
   sortInObjectOptions,
@@ -35,9 +42,15 @@ import {
   getNewHelpSpeed,
   getSkillLevel
 } from '../utils/helpcalc.js'
-import { gameMap, areaBonusMax, POKEMON_MAX_LEVEL, SP_POKEMONS } from '../config/game.js'
+import {
+  gameMap,
+  areaBonusMax,
+  POKEMON_MAX_LEVEL,
+  SP_POKEMONS
+} from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
+import { COOKMENU } from '../config/cookmenu.js'
 import { NAV_HELPSPEEDCALC } from '../config/nav.js'
 import {
   allHelpType,
@@ -64,7 +77,7 @@ import i18n from '../i18n'
 const { t } = i18n.global
 
 import GAME_VALS from '../i18n/lang/cn/game.js'
-const { BERRY_TYPES } = GAME_VALS
+const { BERRY_TYPES, COOK_TYPES, MENU_TYPES } = GAME_VALS
 
 const navData = ref(NAV_HELPSPEEDCALC)
 const byHelpSpeedRes = ref([])
@@ -96,7 +109,17 @@ const helpSpeedCalcForm = ref({
     moreBerryEngery: [],
     moreFood: []
   },
-  mainSkillUp: 1
+  mainSkillUp: 1,
+  isShowWeekly: false
+})
+const curWeeklyMenu = ref({
+  cooktype: 1,
+  details: Array.from({ length: 21 }, () => ({
+    id: '',
+    isEdit: false,
+    isCritical: false,
+    baseEnergy: 0
+  }))
 })
 const pageData = ref({
   collapseActName: '1'
@@ -153,6 +176,20 @@ const subskillOn = computed(() => {
   }
   return teamSkill
 })
+const menuEnergy = computed(() => {
+  return fnAccumulation(curWeeklyMenu.value.details, 'baseEnergy')
+})
+const menuCritical = computed(() => {
+  let count = 0
+  curWeeklyMenu.value.details.forEach(item => {
+    console.log(item)
+    if (item.isCritical) {
+      count++
+    }
+  })
+  return count
+})
+
 const calcTimeConfig = [
   {
     name: `${t('PROP.whistle')}(${toHMInLang(3, '', localeLangId.value)})`,
@@ -686,6 +723,25 @@ watch(helpSpeedCalcForm.value, val => {
     helpSpeedCalcForm.value.level = 10
   }
 })
+
+const LS_NAME_WEEKYLY = 'MY_WEEKYLY_MENU'
+const handleClickCritical = menuItem => {
+  menuItem.isCritical = !menuItem.isCritical
+}
+const handleClickEdit = menuItem => {
+  menuItem.isEdit = !menuItem.isEdit
+  handleClickWeekylySave()
+}
+const handleClickWeekylySave = () => {
+  localStorage.setItem(LS_NAME_WEEKYLY, JSON.stringify(curWeeklyMenu.value))
+}
+const handlChangeMenuItem = menuItem => {
+  menuItem.baseEnergy = COOKMENU[menuItem.id].baseEnergy
+  handleClickWeekylySave()
+}
+if (localStorage.getItem(LS_NAME_WEEKYLY)) {
+  curWeeklyMenu.value = JSON.parse(localStorage.getItem(LS_NAME_WEEKYLY))
+}
 </script>
 <template>
   <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
@@ -794,7 +850,11 @@ watch(helpSpeedCalcForm.value, val => {
       </div>
     </el-form-item>
     <el-form-item>
-      <el-checkbox-group v-model="helpSpeedCalcForm.skill" :min="0" :max="maxSkillCount">
+      <el-checkbox-group
+        v-model="helpSpeedCalcForm.skill"
+        :min="0"
+        :max="maxSkillCount"
+      >
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptionsExtra2"
@@ -1707,6 +1767,18 @@ watch(helpSpeedCalcForm.value, val => {
       </el-row>
       <el-row>
         <el-col>
+          总{{ $t("PROP.energy") }}：
+          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+            class="sptime"
+          >
+            <template v-if="subskillOn.helpBonus.energy > 0">
+              {{ getNum(subskillOn.helpBonus.energy + menuEnergy) }}</template
+            ><template v-else>{{
+              getNum(getTeamCurEnergy() + menuEnergy)
+            }}</template></span
+          >
+        </el-col>
+        <el-col>
           队伍{{ $t("PROP.energy") }}：
           <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
             class="sptime"
@@ -1717,6 +1789,122 @@ watch(helpSpeedCalcForm.value, val => {
           ><template v-if="subskillOn.helpBonus.count > 0"
             >(全队技能生效中)</template
           >
+        </el-col>
+        <el-col>
+          料理{{ $t("PROP.energy") }}：
+          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+            class="sptime"
+            >{{ getNum(menuEnergy) }}</span
+          ><template v-if="menuCritical > 0"
+            >(暴击<span class="sptime">{{ menuCritical }}</span
+            >/21)</template
+          >
+          <el-button
+            size="small"
+            color="#fcc307"
+            circle
+            plain
+            @click="
+              helpSpeedCalcForm.isShowWeekly = !helpSpeedCalcForm.isShowWeekly
+            "
+            ><el-icon size="16" style="vertical-align: middle"
+              ><ArrowDown v-if="!helpSpeedCalcForm.isShowWeekly" /><ArrowUp
+                v-else /></el-icon
+          ></el-button>
+          <!-- S 周料理 -->
+          <div class="weekyly-menu" v-if="helpSpeedCalcForm.isShowWeekly">
+            <el-radio-group
+              v-model="curWeeklyMenu.cooktype"
+              size="small"
+              @change="handleClickWeekylySave()"
+            >
+              <template
+                v-for="(cookTypeVal, cookTypeKey) in COOK_TYPES"
+                v-bind:key="cookTypeKey"
+              >
+                <el-radio-button :label="cookTypeKey">{{
+                  $t(`COOK_TYPES.${cookTypeKey}`)
+                }}</el-radio-button>
+              </template>
+            </el-radio-group>
+            <div class="weekyly-menu__inner">
+              <div
+                class="weekyly-menu__item"
+                v-for="(menuItem, key) in curWeeklyMenu.details"
+                v-bind:key="`cwm_${key}`"
+              >
+                <CptFoodmenu
+                  :menuItem="menuItem"
+                  :menuType="curWeeklyMenu.cooktype"
+                  :isEdit="menuItem.isEdit"
+                >
+                  <el-button
+                    class="weekyly-menu__btn"
+                    type="info"
+                    size="small"
+                    @click="handleClickEdit(menuItem)"
+                    circle
+                    plain
+                    color="#fcc307"
+                  >
+                    <el-icon
+                      size="16"
+                      style="vertical-align: middle"
+                      class="edit"
+                      ><Edit v-if="!menuItem.isEdit" /><Check v-else
+                    /></el-icon>
+                  </el-button>
+                  <template v-if="menuItem.isEdit">
+                    <el-select
+                      v-model="menuItem.id"
+                      filterable
+                      size="small"
+                      placeholder="请选择食谱"
+                      @change="handlChangeMenuItem(menuItem)"
+                    >
+                      <template v-for="(allMenuItem, allMenuKey) in MENU_TYPES">
+                        <el-option
+                          v-if="
+                            COOKMENU[allMenuKey] &&
+                            +COOKMENU[allMenuKey].type ===
+                              +curWeeklyMenu.cooktype
+                          "
+                          v-bind:key="COOKMENU[allMenuKey].id"
+                          :value="COOKMENU[allMenuKey].id"
+                          :label="$t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`)"
+                        >
+                          <img
+                            class="icon"
+                            v-lazy="`./img/food/${COOKMENU[allMenuKey].id}.png`"
+                            :alt="$t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`)"
+                            v-if="COOKMENU[allMenuKey].id"
+                          />
+                          {{ $t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`) }}
+                        </el-option>
+                      </template>
+                    </el-select>
+                    <el-input
+                      v-model="menuItem.baseEnergy"
+                      type="tel"
+                      size="small"
+                      maxlength="7"
+                      style="width: 70px"
+                      clearable
+                    >
+                    </el-input>
+                  </template>
+                  <span
+                    class="critical"
+                    :class="{ cur: menuItem.isCritical }"
+                    @click="handleClickCritical(menuItem)"
+                    ><template v-if="!menuItem.isCritical">未</template
+                    >暴击</span
+                  >
+                </CptFoodmenu>
+              </div>
+            </div>
+          </div>
+          <!-- E 周料理 -->
         </el-col>
       </el-row>
       <el-row v-if="getTeamCurFoods().length > 0">

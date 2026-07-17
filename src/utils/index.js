@@ -248,7 +248,7 @@ export function fnAccumulation(arr, key, isList) {
     if (isList) {
       return acc + item[key].length
     }
-    return acc + item[key]
+    return acc + (+item[key])
   }, 0)
   return res
 }

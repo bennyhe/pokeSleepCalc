@@ -1866,6 +1866,66 @@ h3 {
     }
   }
 }
+.weekyly-menu {
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    max-width: 310px;
+    margin-top: 5px;
+  }
+
+  &__item {
+    position: relative;
+
+    .cpt-foodmenu {
+      height: 85px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+  }
+
+  .critical {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fef8f7;
+    border: 2px dashed #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    color: #2c3e50;
+    transform: rotate(-8deg) scale(.8);
+    cursor: pointer;
+    box-shadow:
+      0 0 0 4px #2c3e50,
+      0 0 0 6px #fef8f7,
+      0 0 0 8px #2c3e50,
+      2px 4px 9px rgba(0, 0, 0, 0.15);
+
+    &.cur {
+      color: #c0392b;
+      border-color: #c0392b;
+      box-shadow:
+        0 0 0 4px #c0392b,
+        0 0 0 6px #fef8f7,
+        0 0 0 8px #c0392b,
+        2px 4px 9px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
 
 .el-form-slider--bonus {
   background-color: rgba($color: #abe8ae, $alpha: .2);
