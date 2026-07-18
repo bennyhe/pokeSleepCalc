@@ -1892,7 +1892,7 @@ h3 {
     left: 5px;
   }
 
-  .critical {
+  .icon-critical {
     position: absolute;
     right: 0;
     bottom: 2px;
@@ -1916,6 +1916,8 @@ h3 {
       2px 4px 9px rgba(0, 0, 0, 0.15);
 
     &.cur {
+      font-size: 16px;
+      font-weight: 700;
       color: #c0392b;
       border-color: #c0392b;
       box-shadow:

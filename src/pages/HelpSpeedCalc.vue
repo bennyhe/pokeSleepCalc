@@ -1807,10 +1807,8 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
             @click="
               helpSpeedCalcForm.isShowWeekly = !helpSpeedCalcForm.isShowWeekly
             "
-            ><el-icon size="16" style="vertical-align: middle"
-              ><ArrowDown v-if="!helpSpeedCalcForm.isShowWeekly" /><ArrowUp
-                v-else /></el-icon
-          ></el-button>
+            :icon="helpSpeedCalcForm.isShowWeekly ? ArrowUp : ArrowDown"
+          />
           <!-- S 周料理 -->
           <div class="weekyly-menu" v-if="helpSpeedCalcForm.isShowWeekly">
             <el-radio-group
@@ -1846,14 +1844,8 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
                     circle
                     plain
                     color="#fcc307"
-                  >
-                    <el-icon
-                      size="16"
-                      style="vertical-align: middle"
-                      class="edit"
-                      ><Edit v-if="!menuItem.isEdit" /><Check v-else
-                    /></el-icon>
-                  </el-button>
+                    :icon="!menuItem.isEdit ? Edit : Check"
+                  />
                   <template v-if="menuItem.isEdit">
                     <el-select
                       v-model="menuItem.id"
@@ -1894,7 +1886,7 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
                     </el-input>
                   </template>
                   <span
-                    class="critical"
+                    class="icon-critical"
                     :class="{ cur: menuItem.isCritical }"
                     @click="handleClickCritical(menuItem)"
                     ><template v-if="!menuItem.isCritical">未</template

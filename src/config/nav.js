@@ -69,7 +69,7 @@ export const NAV_HELPSPEEDCALC = {
       icon: 'team'
     }
   ],
-  navIndex: 2
+  navIndex: 0
 }
 export const NAV_LANG = [
   {
