@@ -5,7 +5,8 @@ import {
   Edit,
   Check,
   ArrowDown,
-  ArrowUp
+  ArrowUp,
+  Delete
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
@@ -724,23 +725,35 @@ watch(helpSpeedCalcForm.value, val => {
   }
 })
 
-const LS_NAME_WEEKYLY = 'MY_WEEKYLY_MENU'
+const LS_NAME_WEEKLY = 'MY_WEEKYLY_MENU'
 const handleClickCritical = menuItem => {
   menuItem.isCritical = !menuItem.isCritical
 }
 const handleClickEdit = menuItem => {
   menuItem.isEdit = !menuItem.isEdit
-  handleClickWeekylySave()
+  handleClickWeeklySave()
 }
-const handleClickWeekylySave = () => {
-  localStorage.setItem(LS_NAME_WEEKYLY, JSON.stringify(curWeeklyMenu.value))
+const handleClickWeeklySave = () => {
+  localStorage.setItem(LS_NAME_WEEKLY, JSON.stringify(curWeeklyMenu.value))
 }
 const handlChangeMenuItem = menuItem => {
   menuItem.baseEnergy = COOKMENU[menuItem.id].baseEnergy
-  handleClickWeekylySave()
+  handleClickWeeklySave()
 }
-if (localStorage.getItem(LS_NAME_WEEKYLY)) {
-  curWeeklyMenu.value = JSON.parse(localStorage.getItem(LS_NAME_WEEKYLY))
+const handleClickResetWeekly = dataId => {
+  const msg = '重置料理记录?'
+  if (confirm(msg)) {
+    curWeeklyMenu.value.details = Array.from({ length: 21 }, () => ({
+      id: '',
+      isEdit: false,
+      isCritical: false,
+      baseEnergy: 0
+    }))
+    handleClickWeeklySave()
+  }
+}
+if (localStorage.getItem(LS_NAME_WEEKLY)) {
+  curWeeklyMenu.value = JSON.parse(localStorage.getItem(LS_NAME_WEEKLY))
 }
 </script>
 <template>
@@ -1810,11 +1823,11 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
             :icon="helpSpeedCalcForm.isShowWeekly ? ArrowUp : ArrowDown"
           />
           <!-- S 周料理 -->
-          <div class="weekyly-menu" v-if="helpSpeedCalcForm.isShowWeekly">
+          <div class="weekly-menu" v-if="helpSpeedCalcForm.isShowWeekly">
             <el-radio-group
               v-model="curWeeklyMenu.cooktype"
               size="small"
-              @change="handleClickWeekylySave()"
+              @change="handleClickWeeklySave()"
             >
               <template
                 v-for="(cookTypeVal, cookTypeKey) in COOK_TYPES"
@@ -1825,9 +1838,18 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
                 }}</el-radio-button>
               </template>
             </el-radio-group>
-            <div class="weekyly-menu__inner">
+            <el-button
+              size="small"
+              type="info"
+              circle
+              plain
+              @click="handleClickResetWeekly()"
+              :icon="Delete"
+              style="margin-left: 5px;vertical-align: bottom;"
+            />
+            <div class="weekly-menu__inner">
               <div
-                class="weekyly-menu__item"
+                class="weekly-menu__item"
                 v-for="(menuItem, key) in curWeeklyMenu.details"
                 v-bind:key="`cwm_${key}`"
               >
@@ -1837,8 +1859,7 @@ if (localStorage.getItem(LS_NAME_WEEKYLY)) {
                   :isEdit="menuItem.isEdit"
                 >
                   <el-button
-                    class="weekyly-menu__btn"
-                    type="info"
+                    class="weekly-menu__btn"
                     size="small"
                     @click="handleClickEdit(menuItem)"
                     circle
