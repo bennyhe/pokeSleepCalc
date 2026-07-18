@@ -4,6 +4,7 @@ export default {
     'pokemon': 'ポケモン',
     'incense': 'おこう',
     'ticket': 'いいキャンプチケット',
+    'relaxing': 'リラックスセット',
     'shiny': '色違',
     'recipes': 'レシピ',
     'with': '関連',
@@ -43,7 +44,8 @@ export default {
     'holeex': 'トープ洞窟 EX',
     'snowex': 'ウノハナ雪原 EX',
     'lakeex': 'ラピスラズリ湖畔 EX',
-    'plantex': 'ゴールド旧発電所 EX'
+    'plantex': 'ゴールド旧発電所 EX',
+    'munchlax': 'ゴンベのおひるね島'
   },
   'LEVEL_TITLE': {
     1: 'ノーマル',

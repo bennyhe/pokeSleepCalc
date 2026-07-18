@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import {
   LEVEL_EXP,
@@ -124,6 +124,14 @@ const handleChangeActUp = () => {
   candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
 }
 
+const munchlax = computed(() => {
+  const useRelaxingDays = getRes().exp / 600
+  return {
+    days: getNum(getRes().exp / 150),
+    useRelaxingCount: getNum(useRelaxingDays / 7),
+    useRelaxingDays: getNum(useRelaxingDays)
+  }
+})
 console.log('init page candycalc...')
 </script>
 
@@ -288,6 +296,16 @@ console.log('init page candycalc...')
         <li>
           <img class="icon" v-lazy="`./img/ui/candy.png`" />
           <span class="sptime">{{ getNum(getRes().candys) }}</span>
+        </li>
+      </ul>
+    </el-form-item>
+    <el-form-item :label="$t('ILAND.munchlax')">
+      <ul>
+        <li>
+          需<span class="sptime">{{ munchlax.days }}</span>天 (150 EXP / Day)
+        </li>
+        <li>
+          使用<span class="sptime">{{ munchlax.useRelaxingCount }}</span>张{{$t('PROP.relaxing')}}：需<span class="sptime">{{ munchlax.useRelaxingDays }}</span>天 (600 EXP / Day)
         </li>
       </ul>
     </el-form-item>

@@ -3,6 +3,7 @@ export default {
     'pokemon': '宝可梦',
     'incense': '熏香',
     'ticket': '露营券',
+    'relaxing': '放鬆組合',
     'shiny': '闪光',
     'recipes': '食谱',
     'with': '关联',
@@ -42,7 +43,8 @@ export default {
     'holeex': '灰褐洞窟 EX',
     'snowex': '白花雪原 EX',
     'lakeex': '宝蓝湖畔 EX',
-    'plantex': '黃金舊發電廠 EX'
+    'plantex': '黃金舊發電廠 EX',
+    'munchlax': '小卡比獸的午睡島'
   },
   'LEVEL_TITLE': {
     1: '普通',
