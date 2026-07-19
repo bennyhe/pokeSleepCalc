@@ -249,12 +249,13 @@ const initChart = targetRes => {
     st3: [],
     st999: []
   }
+  const pokeName = t(`POKEMON_NAME.${pageData.value.pokemonId}`)
   gameMap.forEach((mapItem, mapKey) => {
     if (
       gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
     ) {
       const chartMapOptions = {
-        title: `${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-${t(`ILAND.${mapItem.id}`)}`,
+        title: `${pokeName}-${t(`ILAND.${mapItem.id}`)}`,
         legendData: [],
         xAxis: [],
         series: [
@@ -305,7 +306,7 @@ const initChart = targetRes => {
         // 按睡眠类型输出图表
 
         chartMapOptions.series.push({
-          name: t(`${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-SLEEP_TYPES.${resInMapItem.sleepType}`),
+          name: t(`${pokeName}-SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
           data: onceData,
           // 添加最高值和平均值标记
@@ -330,7 +331,7 @@ const initChart = targetRes => {
         
         onceDataEveryStyles.forEach(everyItem => {
           chartMapOptions.series.push({
-            name: `${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-${everyItem.sleepName}`,
+            name: `${pokeName}-${everyItem.sleepName}`,
             type: 'line',
             data: everyItem.data,
             // 添加最高值和平均值标记
