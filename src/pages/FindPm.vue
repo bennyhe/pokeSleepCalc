@@ -330,7 +330,7 @@ const initChart = targetRes => {
         
         onceDataEveryStyles.forEach(everyItem => {
           chartMapOptions.series.push({
-            name: everyItem.sleepName,
+            name: `${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-${everyItem.sleepName}`,
             type: 'line',
             data: everyItem.data,
             // 添加最高值和平均值标记
