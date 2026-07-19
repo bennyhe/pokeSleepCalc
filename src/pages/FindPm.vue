@@ -306,7 +306,7 @@ const initChart = targetRes => {
         // 按睡眠类型输出图表
 
         chartMapOptions.series.push({
-          name: t(`${pokeName}-SLEEP_TYPES.${resInMapItem.sleepType}`),
+          name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
           data: onceData,
           // 添加最高值和平均值标记
@@ -331,7 +331,7 @@ const initChart = targetRes => {
         
         onceDataEveryStyles.forEach(everyItem => {
           chartMapOptions.series.push({
-            name: `${pokeName}-${everyItem.sleepName}`,
+            name: everyItem.sleepName,
             type: 'line',
             data: everyItem.data,
             // 添加最高值和平均值标记
@@ -421,7 +421,7 @@ const initChart = targetRes => {
           // 使用新的初始化函数
           initOrUpdateChart(`echart_dom_${stKey}`, {
             title: {
-              text: t(`SLEEP_TYPES.${stKey.replace('st', '')}`)
+              text: `${pokeName}-${t(`SLEEP_TYPES.${stKey.replace('st', '')}`)}`
             },
             tooltip: {
               trigger: 'axis'
@@ -461,7 +461,7 @@ const initChart = targetRes => {
           )
           chartSt.setOption({
             title: {
-              text: t(`SLEEP_TYPES.${stKey.replace('st', '')}`)
+              text: `${pokeName}-${t(`SLEEP_TYPES.${stKey.replace('st', '')}`)}`
             },
             tooltip: {
               trigger: 'axis'
