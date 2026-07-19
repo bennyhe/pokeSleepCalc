@@ -104,28 +104,26 @@ const handleChangePokemon = pokeId => {}
               </CptAvatar>
             </template>
           </template>
-          <!-- <template v-if="masterRes.level20.actTime.list.length > 0">
-                <template
-                  v-for="(
-                    tdItem, tdKey
-                  ) in masterRes.level20.actTime.list.slice(
-                    mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
-                    mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
-                  )"
-                  v-bind:key="`${mapItem.id}2_${tdKey}`"
-                >
-                  <template
-                    v-for="hopeItem in tdItem.res.slice(0, 1)"
-                    v-bind:key="hopeItem.pokeId"
-                  >
-                    <CptAvatar :pokeId="hopeItem.pokeId">
-                      <p>
-                        {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
-                      </p>
-                    </CptAvatar>
-                  </template>
-                </template>
-              </template> -->
+          <template v-if="masterRes.level20.actTime.list.length > 0">
+            <template
+              v-for="(tdItem, tdKey) in masterRes.level20.actTime.list.slice(
+                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
+                mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
+              )"
+              v-bind:key="`${mapItem.id}2_${tdKey}`"
+            >
+              <template
+                v-for="hopeItem in tdItem.res.slice(0, 1)"
+                v-bind:key="hopeItem.pokeId"
+              >
+                <CptAvatar :pokeId="hopeItem.pokeId">
+                  <p>
+                    {{ getDecimalNumber(hopeItem.count / getTimes, 2) }}
+                  </p>
+                </CptAvatar>
+              </template>
+            </template>
+          </template>
         </span>
       </template>
     </li>

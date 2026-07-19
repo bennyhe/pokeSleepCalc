@@ -61,7 +61,7 @@ export const LAB_CONFIG = {
   upIdsSmallIds: [],
   upIdsMidIds: [387, 388, 389, 390, 391, 392, 393, 394, 395],
   upIdsLargeIds: [],
-  noLastList: [387, 388, 389, 390, 391, 392, 393, 394, 395]
+  noLastList: []
 }
 export const ACT_LIST = [
   //  {

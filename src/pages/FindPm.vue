@@ -305,7 +305,7 @@ const initChart = targetRes => {
         // 按睡眠类型输出图表
 
         chartMapOptions.series.push({
-          name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
+          name: t(`${t(`POKEMON_NAME.${pageData.value.pokemonId}`)}-SLEEP_TYPES.${resInMapItem.sleepType}`),
           type: 'line',
           data: onceData,
           // 添加最高值和平均值标记
