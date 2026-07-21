@@ -74,7 +74,7 @@ const getLevelExp = level => {
 /**
  * 计算总经验、糖果数、梦碎消耗
  */
-const getRes = () => {
+const getResults = computed(() => {
   const { fromLevel, toLevel, nature, levelUpExp, useShards } =
     candyCalcForm.value
 
@@ -117,7 +117,7 @@ const getRes = () => {
     candys,
     shards
   }
-}
+})
 const handleChangeActUp = () => {
   candyCalcForm.value.useExps = actType[candyCalcForm.value.actUp].useExps
   candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
@@ -134,7 +134,7 @@ const MUNCHLAX_CONFIG = computed(() => {
   }
 })
 const munchlax = computed(() => {
-  const res = getRes()
+  const res = getResults.value
   const useRelaxingDays = res.exp / MUNCHLAX_CONFIG.value.useRelaxing
   return {
     days: getNum(res.exp / MUNCHLAX_CONFIG.value.normal),
@@ -297,15 +297,15 @@ console.log('init page candycalc...')
       <ul>
         <li>
           <img class="icon" v-lazy="`./img/ui/exp.png`" />
-          <span class="sptime">{{ getNum(getRes().exp) }}</span>
+          <span class="sptime">{{ getNum(getResults.exp) }}</span>
         </li>
         <li>
           <img class="icon" v-lazy="`./img/ui/shards.png`" />
-          <span class="sptime">{{ getNum(getRes().shards) }}</span>
+          <span class="sptime">{{ getNum(getResults.shards) }}</span>
         </li>
         <li>
           <img class="icon" v-lazy="`./img/ui/candy.png`" />
-          <span class="sptime">{{ getNum(getRes().candys) }}</span>
+          <span class="sptime">{{ getNum(getResults.candys) }}</span>
         </li>
       </ul>
     </el-form-item>
