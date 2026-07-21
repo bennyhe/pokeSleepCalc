@@ -11,6 +11,7 @@ import {
 import { POKEMON_MAX_LEVEL } from '../config/game.js'
 import { getNum } from '../utils/index.js'
 
+const NATURE_EXP = { up: 1.18, down: 0.82, normal: 1.0 }
 const candyCalcForm = ref({
   pType: 1,
   fromLevel: 1,
@@ -38,12 +39,10 @@ const actType = {
 const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
 levelOptionsTo.splice(0, 1)
 levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
-levelOptionsTo.push(
-  {
-    label: 70,
-    txt: 'Lv.70'
-  }
-)
+levelOptionsTo.push({
+  label: 70,
+  txt: 'Lv.70'
+})
 
 /**
  * 根据目标等级确定基础经验值
@@ -60,7 +59,7 @@ const getCandyBaseExp = targetLevel => {
  */
 const getCandyExp = (targetLevel, nature) => {
   const baseExp = getCandyBaseExp(targetLevel)
-  const natureMultiplier = { up: 1.18, down: 0.82, normal: 1.0 }[nature] || 1.0
+  const natureMultiplier = NATURE_EXP[nature] || 1.0
   const singleCandyExp = Math.round(baseExp * natureMultiplier)
   return singleCandyExp * candyCalcForm.value.useExps
 }
@@ -124,10 +123,21 @@ const handleChangeActUp = () => {
   candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
 }
 
-const munchlax = computed(() => {
-  const useRelaxingDays = getRes().exp / 600
+const MUNCHLAX_CONFIG = computed(() => {
+  let natureMulti = NATURE_EXP.normal
+  if (candyCalcForm.value.nature === 'up') {
+    natureMulti = NATURE_EXP.up
+  }
   return {
-    days: getNum(getRes().exp / 150),
+    normal: 150 * natureMulti,
+    useRelaxing: 600 * natureMulti
+  }
+})
+const munchlax = computed(() => {
+  const res = getRes()
+  const useRelaxingDays = res.exp / MUNCHLAX_CONFIG.value.useRelaxing
+  return {
+    days: getNum(res.exp / MUNCHLAX_CONFIG.value.normal),
     useRelaxingCount: getNum(useRelaxingDays / 7),
     useRelaxingDays: getNum(useRelaxingDays)
   }
@@ -302,10 +312,15 @@ console.log('init page candycalc...')
     <el-form-item :label="$t('ILAND.munchlax')">
       <ul>
         <li>
-          需<span class="sptime">{{ munchlax.days }}</span>天 (150 EXP / Day)
+          需<span class="sptime">{{ munchlax.days }}</span
+          >天 ({{ MUNCHLAX_CONFIG.normal }} EXP / Day)
         </li>
         <li>
-          使用<span class="sptime">{{ munchlax.useRelaxingCount }}</span>张{{$t('PROP.relaxing')}}：需<span class="sptime">{{ munchlax.useRelaxingDays }}</span>天 (600 EXP / Day)
+          使用<span class="sptime">{{ munchlax.useRelaxingCount }}</span
+          >张{{ $t("PROP.relaxing") }}：需<span class="sptime">{{
+            munchlax.useRelaxingDays
+          }}</span
+          >天 ({{ MUNCHLAX_CONFIG.useRelaxing }} EXP / Day)
         </li>
       </ul>
     </el-form-item>
