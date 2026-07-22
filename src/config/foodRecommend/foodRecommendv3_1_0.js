@@ -1,7 +1,7 @@
 export const foodRecommend = {
   creatTime: 1704265513672,
-  updateTime: 1784699426856,
-  appVer: '3.6.1',
+  updateTime: 1768442252392,
+  appVer: '3.1.0',
   list: [
     {
       evoLine: [1, 2, 3],
@@ -16,7 +16,7 @@ export const foodRecommend = {
     {
       evoLine: [7, 8, 9],
       needFood: [[8], [8, 13], [13, 8]],
-      desc: '对应大部分牛奶料理以及料理所需的可可'
+      desc: '对应大部分牛奶料理以及料理所需的可可，如有伊布家族不考虑60奶'
     },
     {
       evoLine: [50, 51],
@@ -32,6 +32,11 @@ export const foodRecommend = {
       evoLine: [74, 75, 76],
       needFood: [[15], [4], [4]],
       desc: '对应高级料理的土豆'
+    },
+    {
+      evoLine: [79, 80, 199],
+      needFood: [[13], [14], [14]],
+      desc: '它不是食材型是技能型！选个up exp的性格养，30唯一有尾巴，解锁完尾巴就行！目前活力机制下呆呆王技能可用。'
     },
     {
       evoLine: [92, 93, 94],
@@ -51,12 +56,12 @@ export const foodRecommend = {
     {
       evoLine: [127],
       needFood: [[9], [9, 5], [9, 5]],
-      desc: '对应饮料甜品/沙拉周，蜜建议抓种子，苹果可以抓鳄鱼'
+      desc: '对应饮料甜品/沙拉周，蜜建议抓种子，苹果也可以抓灾兽、信使鸟'
     },
     {
       evoLine: [132],
       needFood: [[10], [1], [1, 14]],
-      desc: '葱可以找大葱鸭，唯一存在价值就是食材型产尾巴'
+      desc: '帮忙速度拉，还小口袋'
     },
     {
       evoLine: [225],
@@ -66,7 +71,7 @@ export const foodRecommend = {
     {
       evoLine: [246, 247, 248],
       needFood: [[11], [11, 15], [15, 11]],
-      desc: '姜手准神'
+      desc: '对应高级料理，不推荐新人抓&养，成本巨大，41级才3进'
     },
     {
       evoLine: [359],
@@ -86,7 +91,7 @@ export const foodRecommend = {
     {
       evoLine: [147, 148, 149],
       needFood: [[6], [6, 16], [6, 16]],
-      desc: '同小班全家一样的1.5倍育成经验。时间证明了含金量。'
+      desc: '同小班全家一样的1.5倍育成经验。要玉米找穿着熊。'
     },
     {
       evoLine: [759, 760],
@@ -172,16 +177,6 @@ export const foodRecommend = {
       evoLine: [974, 975],
       needFood: [[4], [4], [4]],
       desc: '产量超过土豆猫，但是主技能不如猫的扩锅好用'
-    },
-    {
-      evoLine: [742, 743],
-      needFood: [[9], [9], [9]],
-      desc: '新蜜手，abb油电猫比较契合'
-    },
-    {
-      evoLine: [780],
-      needFood: [[15], [15, 19], [15, 19]],
-      desc: '16格新豆手，第一个abb鳄梨'
     }
   ]
 }
