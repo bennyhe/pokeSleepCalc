@@ -9,7 +9,6 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import mdJS from 'md-js'
 import CptDialog from '../Dialog/index.vue'
 import updateLogInfo from './supportDetail.js'
 
