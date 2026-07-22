@@ -27,19 +27,15 @@ const foodConfig = ref({
   countOrg: [0, 0, 0]
 })
 const handleChangeFood = () => {
-  foodConfig.value.count[0] = foodConfig.value.pokemonType === 1 ? 2 : 1 // 食材型基础2,非食材型基础1
-  foodConfig.value.countOrg[0] = foodConfig.value.count[0]
-  foodConfig.value.countOrg[1] =
-    (FOOD_ENERGY[foodConfig.value.list[0]] * foodConfig.value.count[0] * 2.25) /
-    FOOD_ENERGY[foodConfig.value.list[1]]
-  foodConfig.value.countOrg[2] =
-    (FOOD_ENERGY[foodConfig.value.list[0]] *
-      foodConfig.value.count[0] *
-      2.25 *
-      1.6) /
-    FOOD_ENERGY[foodConfig.value.list[2]]
-  foodConfig.value.count[1] = Math.round(foodConfig.value.countOrg[1])
-  foodConfig.value.count[2] = Math.round(foodConfig.value.countOrg[2])
+  const fc = foodConfig.value
+  fc.count[0] = fc.pokemonType === 1 ? 2 : 1 // 食材型基础2,非食材型基础1
+  fc.countOrg[0] = fc.count[0]
+  fc.countOrg[1] =
+    (FOOD_ENERGY[fc.list[0]] * fc.count[0] * 2.25) / FOOD_ENERGY[fc.list[1]]
+  fc.countOrg[2] =
+    (FOOD_ENERGY[fc.list[0]] * fc.count[0] * 2.25 * 1.6) / FOOD_ENERGY[fc.list[2]]
+  fc.count[1] = Math.round(fc.countOrg[1])
+  fc.count[2] = Math.round(fc.countOrg[2])
 }
 
 const nFoodRecommend = { ...foodRecommend }
