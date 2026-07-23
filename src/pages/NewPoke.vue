@@ -29,6 +29,9 @@ const getShowKeyVal = pokemonsItem => {
     } else if (res.pokeType === 3) {
       // 技能型
       showKey.push('skillPer')
+    } else if (res.pokeType === 4) {
+      // 全部型
+      showKey.push('food', 'foodPer', 'skillPer')
     }
   }
   // console.log(showKey)
