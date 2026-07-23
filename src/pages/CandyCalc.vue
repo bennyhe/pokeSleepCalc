@@ -108,7 +108,7 @@ const handleChangeActUp = () => {
 }
 
 const MUNCHLAX_CONFIG = computed(() => {
-  let natureMulti = NATURE_EXP.normal
+  let natureMulti = NATURE_EXP.normal // 特殊规则 该功能down不会生效
   if (candyCalcForm.value.nature === 'up') {
     natureMulti = NATURE_EXP.up
   }
