@@ -1668,7 +1668,7 @@ const getQuickChangeSleepPoint = () => {
                 (userData.useIncensePokemonId ? 1 : 0) +
                 (userData.isUseTicket ? 1 : 0)
               }}种<template v-if="get('exp', userSleep.accumulation)"
-                >, <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
+                >, <img class="icon" v-lazy="'./img/ui/exp.png'" />{{
                   userSleep.accumulation.exp
                 }}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{
                   userSleep.accumulation.shards
@@ -1977,7 +1977,7 @@ const getQuickChangeSleepPoint = () => {
                       userSleep.accumulationMulti.shards
                     "
                   >
-                    <img class="icon" v-lazy="`./img/ui/exp.png`" /><span
+                    <img class="icon" v-lazy="'./img/ui/exp.png'" /><span
                       class="sptime"
                       >{{
                         getDecimalNumber(
@@ -2018,7 +2018,7 @@ const getQuickChangeSleepPoint = () => {
                   >
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp">
-                      <img class="icon" v-lazy="`./img/ui/exp.png`" />{{
+                      <img class="icon" v-lazy="'./img/ui/exp.png'" />{{
                         getDecimalNumber(hopeItem.expSum / getTimes, 2)
                       }}
                     </p>

@@ -6,12 +6,13 @@ import {
   NATURE_ONE_CANDY_EXP,
   POKEMON_TYPE,
   levelOptions,
-  SHARDS_CANDY
+  SHARDS_CANDY,
+  NATURE_EXP,
+  ACT_TYPE
 } from '../config/candyCalc.js'
 import { POKEMON_MAX_LEVEL } from '../config/game.js'
 import { getNum } from '../utils/index.js'
 
-const NATURE_EXP = { up: 1.18, down: 0.82, normal: 1.0 }
 const candyCalcForm = ref({
   pType: 1,
   fromLevel: 1,
@@ -22,27 +23,10 @@ const candyCalcForm = ref({
   useExps: 1,
   levelUpExp: 0
 })
-const actType = {
-  none: {
-    useShards: 1,
-    useExps: 1
-  },
-  candyup: {
-    useShards: 5,
-    useExps: 2
-  },
-  minicandyup: {
-    useShards: 4,
-    useExps: 2
-  }
-}
-const levelOptionsTo = JSON.parse(JSON.stringify(levelOptions))
-levelOptionsTo.splice(0, 1)
-levelOptionsTo.splice(levelOptionsTo.length - 1, 1)
-levelOptionsTo.push({
-  label: 70,
-  txt: 'Lv.70'
-})
+const levelOptionsTo = [
+  ...levelOptions.filter(item => item.label !== 25 && item.label !== 65),
+  { label: 70, txt: 'Lv.70' }
+]
 
 /**
  * 根据目标等级确定基础经验值
@@ -119,8 +103,8 @@ const getResults = computed(() => {
   }
 })
 const handleChangeActUp = () => {
-  candyCalcForm.value.useExps = actType[candyCalcForm.value.actUp].useExps
-  candyCalcForm.value.useShards = actType[candyCalcForm.value.actUp].useShards
+  candyCalcForm.value.useExps = ACT_TYPE[candyCalcForm.value.actUp].useExps
+  candyCalcForm.value.useShards = ACT_TYPE[candyCalcForm.value.actUp].useShards
 }
 
 const MUNCHLAX_CONFIG = computed(() => {
@@ -298,7 +282,7 @@ console.log('init page candycalc...')
     <el-form-item :label="$t('OPTIONS.calcRes')">
       <ul>
         <li>
-          <img class="icon" v-lazy="`./img/ui/exp.png`" />
+          <img class="icon" v-lazy="'./img/ui/exp.png'" />
           <span class="sptime">{{ getNum(getResults.exp) }}</span>
         </li>
         <li>

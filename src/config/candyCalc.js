@@ -191,3 +191,18 @@ export const POKEMON_TYPE = [{
   sampleIds: [491],
   txt: '幻(2.2倍)'
 }]
+export const NATURE_EXP = { up: 1.18, down: 0.82, normal: 1.0 }
+export const ACT_TYPE = {
+  none: {
+    useShards: 1,
+    useExps: 1
+  },
+  candyup: {
+    useShards: 5,
+    useExps: 2
+  },
+  minicandyup: {
+    useShards: 4,
+    useExps: 2
+  }
+}

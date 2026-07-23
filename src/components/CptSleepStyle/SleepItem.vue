@@ -78,7 +78,7 @@ const props = defineProps({
         </template>
       </p>
       <p class="exhide">
-        <img class="icon" v-lazy="`./img/ui/exp.png`" />
+        <img class="icon" v-lazy="'./img/ui/exp.png'" />
         <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
       <p class="exhide">
