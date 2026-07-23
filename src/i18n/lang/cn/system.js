@@ -94,8 +94,16 @@ export default {
     'formLabelnoUseSpo': '剩余',
     'formLabelPercent': '有效的睡意之力'
   },
+  'PAGE_FOODREC': {
+    'title_getfood': '宝可梦食材数量模拟',
+    'title_pokerec': '食材宝可梦推荐'
+  },
+  'PAGE_CANDY': {
+    'title_candy': '升级经验糖果计算'
+  },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': '所有帮速的技能加成累积不能超过35%。'
+    'tipsHS': '所有帮速的技能加成累积不能超过35%。',
+    'skillUp': 'UP'
   },
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',

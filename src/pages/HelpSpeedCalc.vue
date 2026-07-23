@@ -1286,7 +1286,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
     </el-form-item>
     <el-form-item>
       <template #label>
-        <span class="cpt-pokemon__skillper">技能率UP</span>
+        <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}</span>
       </template>
       <div class="el-form-slider--bonus" style="width: 90%">
         <el-slider
@@ -1344,7 +1344,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </template>
       </el-radio-group>
     </el-form-item>
-    <el-form-item label="快速等级" v-if="navData.navIndex === 0">
+    <el-form-item :label="$t('PAGE_HELPSPEEDCALC.changeLevel')" v-if="navData.navIndex === 0">
       <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
           class="radiogroup--level"
@@ -1683,7 +1683,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <p
         v-if="userPokemons.list.length > 0 && helpSpeedCalcForm.mainSkillUp > 1"
       >
-        <span class="cpt-pokemon__skillper">技能率UP: </span
+        <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}: </span
         >{{ helpSpeedCalcForm.mainSkillUp }}倍
       </p>
       <div
@@ -1774,7 +1774,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           }}{{ gameMapNew[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
         </el-col>
         <el-col :span="8" v-if="helpSpeedCalcForm.mainSkillUp > 1">
-          <span class="cpt-pokemon__skillper">技能率UP: </span
+          <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}: </span
           >{{ helpSpeedCalcForm.mainSkillUp }}倍
         </el-col>
       </el-row>

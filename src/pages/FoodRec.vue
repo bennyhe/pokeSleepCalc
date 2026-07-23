@@ -91,7 +91,7 @@ for (const cookTypeKey in COOK_TYPES) {
       </div>
     </template>
   </div>
-  <h2>宝可梦面板食材数量模拟</h2>
+  <h2>{{ $t(`PAGE_FOODREC.title_getfood`) }}</h2>
   <div class="page-inner pokemon-food-calc">
     <el-radio-group
       v-model="foodConfig.pokemonType"
@@ -163,7 +163,7 @@ for (const cookTypeKey in COOK_TYPES) {
       </div>
     </div>
   </div>
-  <h2>食材宝可梦推荐</h2>
+  <h2>{{ $t(`PAGE_FOODREC.title_pokerec`) }}</h2>
   <div class="page-inner cpt-tips">
     <p>创建时间：{{ formatTime(nFoodRecommend.creatTime) }}</p>
     <p>最后更新：{{ formatTime(nFoodRecommend.updateTime) }}</p>

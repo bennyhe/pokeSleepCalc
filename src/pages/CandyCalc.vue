@@ -146,7 +146,7 @@ console.log('init page candycalc...')
 </script>
 
 <template>
-  <h2>升级经验糖果计算</h2>
+  <h2>{{ $t('PAGE_CANDY.title_candy') }}</h2>
   <el-form label-width="90px">
     <el-form-item label="类型">
       <el-radio-group size="small" v-model="candyCalcForm.pType">

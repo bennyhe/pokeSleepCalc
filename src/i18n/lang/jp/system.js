@@ -94,8 +94,16 @@ export default {
     'formLabelnoUseSpo': '残り',
     'formLabelPercent': 'ねむけパワーの有効性'
   },
+  'PAGE_FOODREC': {
+    'title_getfood': 'ポケモンの食材獲得数シミュレーション',
+    'title_pokerec': '食材タイプのおすすめポケモン'
+  },
+  'PAGE_CANDY': {
+    'title_candy': 'レベルアップに必要なアメの計算'
+  },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。'
+    'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。',
+    'skillUp': '発生確率'
   },
   'TIPS': {
     'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',
