@@ -23,7 +23,12 @@ export default {
     'noHas': '无',
     'noHasPokemons': '暂无宝可梦',
     'calcRes': '计算结果',
-    'timelimit': '活动限定'
+    'timelimit': '活动限定',
+    'curLevel': '当前等级',
+    'targetLevel': '目标等级',
+    'pokemonBox': '宝可梦盒子',
+    'pokemonTeam': '队伍',
+    'pokemonCompare': '对比'
   },
   'BTN': {
     'filter': '筛选',

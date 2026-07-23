@@ -146,7 +146,7 @@ console.log('init page candycalc...')
 </script>
 
 <template>
-  <h2>{{ $t('PAGE_CANDY.title_candy') }}</h2>
+  <h2>{{ $t("PAGE_CANDY.title_candy") }}</h2>
   <el-form label-width="90px">
     <el-form-item label="类型">
       <el-radio-group size="small" v-model="candyCalcForm.pType">
@@ -246,7 +246,9 @@ console.log('init page candycalc...')
         type="tel"
       />
     </el-form-item>
-    <el-form-item :label="`当前等级(Lv.1-${POKEMON_MAX_LEVEL - 1})`">
+    <el-form-item
+      :label="`${$t('OPTIONS.curLevel')}(Lv.1-${POKEMON_MAX_LEVEL - 1})`"
+    >
       <el-slider
         v-model="candyCalcForm.fromLevel"
         show-input
@@ -266,7 +268,7 @@ console.log('init page candycalc...')
       </div>
     </el-form-item>
     <el-form-item
-      :label="`目标等级${
+      :label="`${$t('OPTIONS.targetLevel')}${
         candyCalcForm.fromLevel + 1 < POKEMON_MAX_LEVEL
           ? `(Lv.${candyCalcForm.fromLevel + 1}-${POKEMON_MAX_LEVEL})`
           : ''

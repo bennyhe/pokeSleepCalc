@@ -289,7 +289,7 @@ const handleChangeSkillLevel = () => {
             </el-radio-group>
           </div>
         </div>
-        <h4>当前等级(Lv.10-{{ POKEMON_MAX_LEVEL }})</h4>
+        <h4>{{$t('OPTIONS.curLevel')}}(Lv.10-{{ POKEMON_MAX_LEVEL }})</h4>
         <div>
           <el-input-number
             v-model="editData.level"

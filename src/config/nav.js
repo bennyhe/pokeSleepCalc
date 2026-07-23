@@ -55,18 +55,21 @@ export const NAV_SLEEPCALC = {
 export const NAV_HELPSPEEDCALC = {
   navList: [
     {
-      name: '默认',
-      value: 0
+      // name: '横向对比',
+      value: 0,
+      i18n: 'OPTIONS.pokemonCompare'
     },
     {
-      name: '宝可梦盒子',
+      // name: '宝可梦盒子',
       value: 1,
-      icon: 'box'
+      icon: 'box',
+      i18n: 'OPTIONS.pokemonBox'
     },
     {
-      name: '队伍',
+      // name: '队伍',
       value: 2,
-      icon: 'team'
+      icon: 'team',
+      i18n: 'OPTIONS.pokemonTeam'
     }
   ],
   navIndex: 0

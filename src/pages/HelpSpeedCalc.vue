@@ -843,7 +843,9 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-radio-group>
       </div>
     </el-form-item>
-    <el-form-item :label="`当前等级(Lv.10-${POKEMON_MAX_LEVEL})`">
+    <el-form-item
+      :label="`${$t('OPTIONS.curLevel')}(Lv.10-${POKEMON_MAX_LEVEL})`"
+    >
       <el-slider
         v-model="helpSpeedCalcForm.level"
         show-input
@@ -1286,7 +1288,9 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
     </el-form-item>
     <el-form-item>
       <template #label>
-        <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}</span>
+        <span class="cpt-pokemon__skillper">{{
+          `${$t("PROP.mainSkill")}${$t("PAGE_HELPSPEEDCALC.skillUp")}`
+        }}</span>
       </template>
       <div class="el-form-slider--bonus" style="width: 90%">
         <el-slider
@@ -1334,7 +1338,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       >
         <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
           <el-radio-button :label="cItem.value">
-            <SvgIcon :type="cItem.icon" v-if="cItem.icon" />{{ cItem.name
+            <SvgIcon :type="cItem.icon" v-if="cItem.icon" />{{ $t(cItem.i18n)
             }}<span v-if="cItem.value === 1"
               >({{ userPokemons.list.length }})</span
             ><span v-if="cItem.value === 2"
@@ -1344,7 +1348,10 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </template>
       </el-radio-group>
     </el-form-item>
-    <el-form-item :label="$t('PAGE_HELPSPEEDCALC.changeLevel')" v-if="navData.navIndex === 0">
+    <el-form-item
+      :label="$t('PAGE_HELPSPEEDCALC.changeLevel')"
+      v-if="navData.navIndex === 0"
+    >
       <el-radio-group v-model="helpSpeedCalcForm.level" size="small">
         <el-radio-button
           class="radiogroup--level"
@@ -1355,7 +1362,9 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         >
       </el-radio-group>
       <div style="width: 100%">
-        当前等级：Lv.<span class="sptime">{{ helpSpeedCalcForm.level }}</span>
+        {{ $t("OPTIONS.curLevel") }}：Lv.<span class="sptime">{{
+          helpSpeedCalcForm.level
+        }}</span>
       </div>
       <div style="width: 100%">
         当前{{ getNowUseRankSort() }}排位：第
@@ -1456,7 +1465,8 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
     </div>
     <div v-if="navData.navIndex === 1">
       <h3>
-        <SvgIcon type="box" size="small" />宝可梦盒子<span class="extra"
+        <SvgIcon type="box" size="small" />{{ $t("OPTIONS.pokemonBox")
+        }}<span class="extra"
           >({{ getBoxCurEnergy(userPokemons.list, true).length }} /
           {{ userPokemons.list.length }})</span
         >
@@ -1464,9 +1474,8 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
     </div>
     <div v-if="navData.navIndex === 2">
       <h3>
-        <SvgIcon type="team" />队伍<span class="extra"
-          >({{ userTeam.list.length }})</span
-        >
+        <SvgIcon type="team" />{{ $t("OPTIONS.pokemonTeam")
+        }}<span class="extra">({{ userTeam.list.length }})</span>
       </h3>
     </div>
     <el-alert
@@ -1683,7 +1692,10 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <p
         v-if="userPokemons.list.length > 0 && helpSpeedCalcForm.mainSkillUp > 1"
       >
-        <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}: </span
+        <span class="cpt-pokemon__skillper"
+          >{{
+            `${$t("PROP.mainSkill")}${$t("PAGE_HELPSPEEDCALC.skillUp")}`
+          }}: </span
         >{{ helpSpeedCalcForm.mainSkillUp }}倍
       </p>
       <div
@@ -1774,7 +1786,10 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           }}{{ gameMapNew[0].levelList[getTeamCurEnergyLevel()].nameIndex }}
         </el-col>
         <el-col :span="8" v-if="helpSpeedCalcForm.mainSkillUp > 1">
-          <span class="cpt-pokemon__skillper">{{`${$t('PROP.mainSkill')}${$t('PAGE_HELPSPEEDCALC.skillUp')}`}}: </span
+          <span class="cpt-pokemon__skillper"
+            >{{
+              `${$t("PROP.mainSkill")}${$t("PAGE_HELPSPEEDCALC.skillUp")}`
+            }}: </span
           >{{ helpSpeedCalcForm.mainSkillUp }}倍
         </el-col>
       </el-row>
@@ -1792,7 +1807,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           >
         </el-col>
         <el-col>
-          队伍{{ $t("PROP.energy") }}：
+          {{ $t("OPTIONS.pokemonTeam") }}{{ $t("PROP.energy") }}：
           <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
             class="sptime"
           >
@@ -1845,7 +1860,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               plain
               @click="handleClickResetWeekly()"
               :icon="Delete"
-              style="margin-left: 5px;vertical-align: bottom;"
+              style="margin-left: 5px; vertical-align: bottom"
             />
             <div class="weekly-menu__inner">
               <div

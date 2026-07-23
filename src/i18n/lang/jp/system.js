@@ -23,7 +23,12 @@ export default {
     'noHas': 'ない',
     'noHasPokemons': '見つからなかったよ。ほかの条件で探してみよう。',
     'calcRes': '計算結果',
-    'timelimit': '期間限定'
+    'timelimit': '期間限定',
+    'curLevel': '現在レベル',
+    'targetLevel': '目標レベル',
+    'pokemonBox': 'ポケモンボックス',
+    'pokemonTeam': 'おてつだいチーム',
+    'pokemonCompare': '比較'
   },
   'BTN': {
     'filter': '検索',
