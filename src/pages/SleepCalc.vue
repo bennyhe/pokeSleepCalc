@@ -867,12 +867,10 @@ const getQuickChangeSleepPoint = () => {
                         }`"
                         :class="{
                           'td-none':
-                            gameMapPokemons[userData.curMap].levelPokemons[
-                              levelKey
-                            ] &&
-                            gameMapPokemons[userData.curMap].levelPokemons[
-                              levelKey
-                            ].length === 0,
+                            !gameMapPokemons[userData.curMap]
+                              .levelPokemons[levelKey] ||
+                            gameMapPokemons[userData.curMap]
+                              .levelPokemons[levelKey].length === 0,
                         }"
                       >
                         <template
