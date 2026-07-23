@@ -1670,7 +1670,7 @@ const getQuickChangeSleepPoint = () => {
               }}种<template v-if="get('exp', userSleep.accumulation)"
                 >, <img class="icon" v-lazy="'./img/ui/exp.png'" />{{
                   userSleep.accumulation.exp
-                }}<img class="icon" v-lazy="`./img/ui/shards.png`" />{{
+                }}<img class="icon" v-lazy="'./img/ui/shards.png'" />{{
                   userSleep.accumulation.shards
                 }} </template
               >)</span
@@ -1986,7 +1986,7 @@ const getQuickChangeSleepPoint = () => {
                         )
                       }}</span
                     >
-                    <img class="icon" v-lazy="`./img/ui/shards.png`" /><span
+                    <img class="icon" v-lazy="'./img/ui/shards.png'" /><span
                       class="sptime"
                       >{{
                         getDecimalNumber(
@@ -2023,12 +2023,12 @@ const getQuickChangeSleepPoint = () => {
                       }}
                     </p>
                     <p v-if="pageData.showMoreMathExp">
-                      <img class="icon" v-lazy="`./img/ui/shards.png`" />{{
+                      <img class="icon" v-lazy="'./img/ui/shards.png'" />{{
                         getDecimalNumber(hopeItem.shardsSum / getTimes, 2)
                       }}
                     </p>
                     <p v-if="pageData.showMoreMathExp">
-                      <img class="icon" v-lazy="`./img/ui/candy.png`" />{{
+                      <img class="icon" v-lazy="'./img/ui/candy.png'" />{{
                         getDecimalNumber(hopeItem.candysSum / getTimes, 2)
                       }}
                     </p>

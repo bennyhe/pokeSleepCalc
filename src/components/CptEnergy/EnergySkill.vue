@@ -19,7 +19,7 @@ const props = defineProps({
     <div class="cpt-pokemon__poketype3 xs">
       技<img
         class="icon"
-        v-lazy="`./img/ui/shards.png`"
+        v-lazy="'./img/ui/shards.png'"
         v-if="dataSource.oneDaySkillEffects.type === 'shards'"
       /><template
         v-else-if="

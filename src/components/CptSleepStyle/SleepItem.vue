@@ -82,11 +82,11 @@ const props = defineProps({
         <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" v-lazy="`./img/ui/shards.png`" />
+        <img class="icon" v-lazy="'./img/ui/shards.png'" />
         <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" v-lazy="`./img/ui/candy.png`" />
+        <img class="icon" v-lazy="'./img/ui/candy.png'" />
         <span class="sptime">{{ sleepItem.candys }}</span>
       </p>
       <div v-if="localeLangId === 'jp' && sleepItem.count">

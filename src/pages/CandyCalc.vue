@@ -286,11 +286,11 @@ console.log('init page candycalc...')
           <span class="sptime">{{ getNum(getResults.exp) }}</span>
         </li>
         <li>
-          <img class="icon" v-lazy="`./img/ui/shards.png`" />
+          <img class="icon" v-lazy="'./img/ui/shards.png'" />
           <span class="sptime">{{ getNum(getResults.shards) }}</span>
         </li>
         <li>
-          <img class="icon" v-lazy="`./img/ui/candy.png`" />
+          <img class="icon" v-lazy="'./img/ui/candy.png'" />
           <span class="sptime">{{ getNum(getResults.candys) }}</span>
         </li>
       </ul>
