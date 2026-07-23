@@ -1006,6 +1006,20 @@ h4 {
       color: darken($color: $ptSkill, $amount: 25%)
     }
   }
+
+  &--short {
+    line-height: 1;
+    width: auto;
+    padding-left: 0;
+    overflow: visible;
+    min-width: 18px;
+    text-align: center;
+
+    .cpt-food {
+      margin-right: -12px;
+      margin-left: -12px;
+    }
+  }
 }
 
 .pokedex-list {

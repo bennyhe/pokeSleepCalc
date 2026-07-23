@@ -190,6 +190,12 @@ const menuCritical = computed(() => {
   })
   return count
 })
+const sortedMenuList = computed(() => {
+  return Object.keys(MENU_TYPES)
+    .map(key => COOKMENU[key])
+    .filter(item => item && +item.type === +curWeeklyMenu.value.cooktype)
+    .sort((a, b) => b.baseEnergy - a.baseEnergy)
+})
 
 const calcTimeConfig = [
   {
@@ -1890,26 +1896,38 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                       placeholder="请选择食谱"
                       @change="handlChangeMenuItem(menuItem)"
                     >
-                      <template v-for="(allMenuItem, allMenuKey) in MENU_TYPES">
-                        <el-option
-                          v-if="
-                            COOKMENU[allMenuKey] &&
-                            +COOKMENU[allMenuKey].type ===
-                              +curWeeklyMenu.cooktype
-                          "
-                          v-bind:key="COOKMENU[allMenuKey].id"
-                          :value="COOKMENU[allMenuKey].id"
-                          :label="$t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`)"
+                      <el-option
+                        v-for="menuItem in sortedMenuList"
+                        v-bind:key="menuItem.id"
+                        :value="menuItem.id"
+                        :label="$t(`MENU_TYPES.${menuItem.id}`)"
+                      >
+                        <img
+                          class="icon"
+                          v-lazy="`./img/food/${menuItem.id}.png`"
+                          :alt="$t(`MENU_TYPES.${menuItem.id}`)"
+                          v-if="menuItem.id"
+                        />
+                        {{ $t(`MENU_TYPES.${menuItem.id}`) }}
+                        <div
+                          class="cpt-foodmenu cpt-foodmenu--short"
+                          v-if="menuItem.from && menuItem.from.length > 0"
                         >
-                          <img
-                            class="icon"
-                            v-lazy="`./img/food/${COOKMENU[allMenuKey].id}.png`"
-                            :alt="$t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`)"
-                            v-if="COOKMENU[allMenuKey].id"
-                          />
-                          {{ $t(`MENU_TYPES.${COOKMENU[allMenuKey].id}`) }}
-                        </el-option>
-                      </template>
+                          <div class="cpt-food all-food">
+                            <div
+                              class="cpt-food__item cur"
+                              v-for="allFoodItem in menuItem.from"
+                              v-bind:key="allFoodItem.id"
+                            >
+                              <img
+                                v-lazy="`./img/food/${allFoodItem.id}.png`"
+                                :alt="$t(`FOOD_TYPES.${allFoodItem.id}`)"
+                              />
+                              <p>X{{ allFoodItem.num }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </el-option>
                     </el-select>
                     <el-input
                       v-model="menuItem.baseEnergy"
