@@ -103,7 +103,8 @@ export default {
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': 'すべてのおてつだいスピードスギルのバフは、合計で35%を超えない。',
-    'skillUp': '発生確率'
+    'skillUp': '発生確率',
+    'changeLevel': 'レベルを選択'
   },
   'TIPS': {
     'energy1': '数値はあくまでもプログラムの予測です。実際のゲーム結果と異なる場合があります。ご了承ください。',

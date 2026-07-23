@@ -103,7 +103,8 @@ export default {
   },
   'PAGE_HELPSPEEDCALC': {
     'tipsHS': '所有帮速的技能加成累积不能超过35%。',
-    'skillUp': 'UP'
+    'skillUp': 'UP',
+    'changeLevel': '快速等级'
   },
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',
