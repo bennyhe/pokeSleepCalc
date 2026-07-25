@@ -206,7 +206,7 @@ const getSleepCatchNum = point => {
   return resNumber
 }
 
-const setNewSleepStyleList = () => {
+const handleClickSetNewSleepStyleList = () => {
   sleepStyleAny.value.list.fill('')
   sleepStyleAny.value.sleepCatchNum = getNumberInMap(
     getScore(randomSleepStyle.value.sleepPoint),
@@ -217,7 +217,7 @@ const setNewSleepStyleList = () => {
   )
 }
 
-const getAfterClacSPO = () => {
+const afterClacSPO = computed(() => {
   let nowSPO = sleepStyleAny.value.curSPO
   sleepStyleAny.value.list.forEach(sleepStyleId => {
     if (sleepStyleId) {
@@ -225,9 +225,9 @@ const getAfterClacSPO = () => {
     }
   })
   return nowSPO
-}
+})
 
-const getNextScoreDiff = () => {
+const nextScoreDiff = computed(() => {
   if (gameMap[userData.value.curMap].scoreList[getSleepCatchNum() - 2]) {
     return (
       parseInt(
@@ -240,7 +240,7 @@ const getNextScoreDiff = () => {
     )
   }
   return 3
-}
+})
 
 // 获取对应树果的宝可梦们
 const getBerryPokemon = berryArr => {
@@ -456,7 +456,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   randomSleepStyle.value.resList = res
 }
 
-const getSleepStyle = () => {
+const sleepStyle = computed(() => {
   let orgSleepList = [
     ...userData.value.curUnlockSleeps,
     ...userData.value.unLockSleeps
@@ -479,7 +479,7 @@ const getSleepStyle = () => {
   ]
   orgSleepList = sortInObjectOptions(orgSleepList, ['spo', 'spoid'], 'down')
   return orgSleepList
-}
+})
 
 const getTimes = 4000
 const hopeList = ref([])
@@ -671,7 +671,7 @@ const handleChangeSleepStyle = () => {
     userData.value.curStageIndex,
     sleepStyleAny.value.list,
     sleepStyleAny.value.curSPO,
-    getAfterClacSPO()
+    afterClacSPO.value
   )
 }
 
@@ -1018,12 +1018,12 @@ const getQuickChangeSleepPoint = () => {
               >げんき消費。
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
+          <el-form-item v-if="getSleepCatchNum() < 8 && nextScoreDiff > 0">
             <p>
               <span class="sptime">{{ getSleepCatchNum() + 1 }}匹</span
               >捕獲まで<span class="sptime"
                 ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-                  getNextScoreDiff()
+                  nextScoreDiff
                 }}</span
               >エナジーが必要
             </p>
@@ -1159,12 +1159,12 @@ const getQuickChangeSleepPoint = () => {
               >点活力
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() < 8 && getNextScoreDiff() > 0">
+          <el-form-item v-if="getSleepCatchNum() < 8 && nextScoreDiff > 0">
             <p>
               距离抓<span class="sptime">{{ getSleepCatchNum() + 1 }}只</span
               >还需<span class="sptime"
                 ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
-                  getNextScoreDiff()
+                  nextScoreDiff
                 }}</span
               >能量
             </p>
@@ -2074,7 +2074,7 @@ const getQuickChangeSleepPoint = () => {
           class="mb3"
           type="success"
           plain
-          @click="setNewSleepStyleList()"
+          @click="handleClickSetNewSleepStyleList()"
           >{{ $t("BTN.getSpoBefore") }}「<img
             class="icon"
             v-lazy="
@@ -2117,7 +2117,7 @@ const getQuickChangeSleepPoint = () => {
                 class="el-select-sleepstyle mr3"
                 @change="handleChangeSleepStyle()"
               >
-                <template v-for="sItem in getSleepStyle()" :key="sItem.id">
+                <template v-for="sItem in sleepStyle" :key="sItem.id">
                   <el-option
                     :label="`${$t(`POKEMON_NAME.${sItem.pokeId}`)}-${
                       sItem.star
@@ -2191,13 +2191,13 @@ const getQuickChangeSleepPoint = () => {
           {{ $t("PAGE_SLEEPCALC.formLabelnoUseSpo") }}SPO:<span
             class="sptime"
             v-if="sleepStyleAny.curSPO > 0"
-            >{{ getAfterClacSPO() }}</span
+            >{{ afterClacSPO }}</span
           ><span class="sptime" v-else>0</span>
         </p>
-        <p v-if="getAfterClacSPO() >= 0 && sleepStyleAny.curSPO > 0">
+        <p v-if="afterClacSPO >= 0 && sleepStyleAny.curSPO > 0">
           {{ $t("PAGE_SLEEPCALC.formLabelPercent") }}:<span class="sptime">{{
             getPercent(
-              sleepStyleAny.curSPO - getAfterClacSPO(),
+              sleepStyleAny.curSPO - afterClacSPO,
               sleepStyleAny.curSPO,
               2
             )
