@@ -90,8 +90,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 11,
     helpSpeed: 4400,
-    foodPer: 25.70,
-    skillPer: 1.90,
+    foodPer: 25.7,
+    skillPer: 1.9,
     food: {
       type: [9, 12, 4],
       count: {
@@ -117,8 +117,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 19,
     helpSpeed: 3300,
-    foodPer: 25.50,
-    skillPer: 1.90
+    foodPer: 25.5,
+    skillPer: 1.9
   },
   3: {
     id: 3,
@@ -130,8 +130,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 27,
     helpSpeed: 2800,
-    foodPer: 26.60,
-    skillPer: 2.10
+    foodPer: 26.6,
+    skillPer: 2.1
   },
   4: {
     id: 4,
@@ -143,8 +143,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 12,
     helpSpeed: 3500,
-    foodPer: 20.10,
-    skillPer: 1.10,
+    foodPer: 20.1,
+    skillPer: 1.1,
     food: {
       type: [7, 11, 6],
       count: {
@@ -170,8 +170,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 20,
     helpSpeed: 3000,
-    foodPer: 22.70,
-    skillPer: 1.60
+    foodPer: 22.7,
+    skillPer: 1.6
   },
   6: {
     id: 6,
@@ -183,8 +183,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 29,
     helpSpeed: 2400,
-    foodPer: 22.40,
-    skillPer: 1.60
+    foodPer: 22.4,
+    skillPer: 1.6
   },
   7: {
     id: 7,
@@ -196,7 +196,7 @@ const pokedex = {
     berryType: 1,
     maxcarry: 10,
     helpSpeed: 4500,
-    foodPer: 27.10,
+    foodPer: 27.1,
     skillPer: 2,
     food: {
       type: [8, 13, 7],
@@ -223,7 +223,7 @@ const pokedex = {
     berryType: 1,
     maxcarry: 19,
     helpSpeed: 3400,
-    foodPer: 27.10,
+    foodPer: 27.1,
     skillPer: 2
   },
   9: {
@@ -236,8 +236,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 27,
     helpSpeed: 2800,
-    foodPer: 27.50,
-    skillPer: 2.10
+    foodPer: 27.5,
+    skillPer: 2.1
   },
   10: {
     id: 10,
@@ -249,8 +249,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 11,
     helpSpeed: 4400,
-    foodPer: 17.90,
-    skillPer: 0.80,
+    foodPer: 17.9,
+    skillPer: 0.8,
     food: {
       type: [9, 12, 15],
       count: {
@@ -276,8 +276,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 18,
     helpSpeed: 4200,
-    foodPer: 20.80,
-    skillPer: 1.80
+    foodPer: 20.8,
+    skillPer: 1.8
   },
   12: {
     id: 12,
@@ -289,8 +289,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 31,
     helpSpeed: 2500,
-    foodPer: 19.70,
-    skillPer: 1.40
+    foodPer: 19.7,
+    skillPer: 1.4
   },
   19: {
     id: 19,
@@ -302,7 +302,7 @@ const pokedex = {
     berryType: 11,
     maxcarry: 10,
     helpSpeed: 4900,
-    foodPer: 23.70,
+    foodPer: 23.7,
     skillPer: 3,
     food: {
       type: [5, 15, 7],
@@ -329,7 +329,7 @@ const pokedex = {
     berryType: 11,
     maxcarry: 21,
     helpSpeed: 2950,
-    foodPer: 23.70,
+    foodPer: 23.7,
     skillPer: 3
   },
   23: {
@@ -342,8 +342,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 10,
     helpSpeed: 5000,
-    foodPer: 23.50,
-    skillPer: 3.30,
+    foodPer: 23.5,
+    skillPer: 3.3,
     food: {
       type: [7, 3, 6],
       count: {
@@ -369,8 +369,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 19,
     helpSpeed: 3400,
-    foodPer: 26.40,
-    skillPer: 5.70
+    foodPer: 26.4,
+    skillPer: 5.7
   },
   25: {
     id: 25,
@@ -382,8 +382,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 22,
     helpSpeed: 2700,
-    foodPer: 20.70,
-    skillPer: 2.10
+    foodPer: 20.7,
+    skillPer: 2.1
   },
   9001: {
     id: 9001,
@@ -396,8 +396,8 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 2500,
     berryType: 13,
-    foodPer: 21.80,
-    skillPer: 2.80
+    foodPer: 21.8,
+    skillPer: 2.8
   },
   9002: {
     id: 9002,
@@ -409,8 +409,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 20,
     helpSpeed: 2500,
-    foodPer: 13.10,
-    skillPer: 4.20
+    foodPer: 13.1,
+    skillPer: 4.2
   },
   26: {
     id: 26,
@@ -422,8 +422,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 31,
     helpSpeed: 2200,
-    foodPer: 22.40,
-    skillPer: 3.20
+    foodPer: 22.4,
+    skillPer: 3.2
   },
   27: {
     id: 27,
@@ -475,8 +475,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 21,
     helpSpeed: 4000,
-    foodPer: 16.80,
-    skillPer: 3.60
+    foodPer: 16.8,
+    skillPer: 3.6
   },
   36: {
     id: 36,
@@ -488,8 +488,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 34,
     helpSpeed: 2800,
-    foodPer: 16.80,
-    skillPer: 3.60
+    foodPer: 16.8,
+    skillPer: 3.6
   },
   37: {
     id: 37,
@@ -501,8 +501,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 13,
     helpSpeed: 4700,
-    foodPer: 16.80,
-    skillPer: 3.20,
+    foodPer: 16.8,
+    skillPer: 3.2,
     food: {
       type: [15, 16, 4],
       count: {
@@ -530,7 +530,7 @@ const pokedex = {
     helpSpeed: 5600,
     berryType: 7,
     foodPer: 23,
-    skillPer: 2.80,
+    skillPer: 2.8,
     food: {
       type: [15, 16, 4],
       count: {
@@ -556,8 +556,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 28,
     helpSpeed: 2600,
-    foodPer: 16.40,
-    skillPer: 2.90
+    foodPer: 16.4,
+    skillPer: 2.9
   },
   7007: {
     id: 7007,
@@ -569,8 +569,8 @@ const pokedex = {
     maxcarry: 25,
     helpSpeed: 2900,
     berryType: 7,
-    foodPer: 23.20,
-    skillPer: 2.80
+    foodPer: 23.2,
+    skillPer: 2.8
   },
   39: {
     id: 39,
@@ -582,8 +582,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 14,
     helpSpeed: 3900,
-    foodPer: 18.20,
-    skillPer: 4.30
+    foodPer: 18.2,
+    skillPer: 4.3
   },
   40: {
     id: 40,
@@ -595,7 +595,7 @@ const pokedex = {
     berryType: 12,
     maxcarry: 32,
     helpSpeed: 2750,
-    foodPer: 19.10,
+    foodPer: 19.1,
     skillPer: 4
   },
   50: {
@@ -608,8 +608,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 10,
     helpSpeed: 4300,
-    foodPer: 19.20,
-    skillPer: 2.10,
+    foodPer: 19.2,
+    skillPer: 2.1,
     food: {
       type: [12, 1, 15],
       count: {
@@ -648,8 +648,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 9,
     helpSpeed: 4400,
-    foodPer: 16.30,
-    skillPer: 4.20,
+    foodPer: 16.3,
+    skillPer: 4.2,
     food: {
       type: [8, 7],
       count: {
@@ -672,8 +672,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 17,
     helpSpeed: 2800,
-    foodPer: 16.90,
-    skillPer: 4.40
+    foodPer: 16.9,
+    skillPer: 4.4
   },
   54: {
     id: 54,
@@ -685,8 +685,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 8,
     helpSpeed: 5400,
-    foodPer: 13.60,
-    skillPer: 12.60,
+    foodPer: 13.6,
+    skillPer: 12.6,
     food: {
       type: [13, 5, 7],
       count: {
@@ -712,8 +712,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 19,
     helpSpeed: 3400,
-    foodPer: 16.20,
-    skillPer: 12.50
+    foodPer: 16.2,
+    skillPer: 12.5
   },
   56: {
     id: 56,
@@ -725,8 +725,8 @@ const pokedex = {
     berryType: 18,
     maxcarry: 12,
     helpSpeed: 4200,
-    foodPer: 19.70,
-    skillPer: 2.20,
+    foodPer: 19.7,
+    skillPer: 2.2,
     food: {
       type: [7, 2, 9],
       count: {
@@ -753,7 +753,7 @@ const pokedex = {
     maxcarry: 22,
     helpSpeed: 2800,
     foodPer: 20,
-    skillPer: 2.40
+    skillPer: 2.4
   },
   58: {
     id: 58,
@@ -765,7 +765,7 @@ const pokedex = {
     berryType: 10,
     maxcarry: 8,
     helpSpeed: 4300,
-    foodPer: 13.80,
+    foodPer: 13.8,
     skillPer: 5,
     food: {
       type: [6, 7, 8],
@@ -792,8 +792,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 21,
     helpSpeed: 2500,
-    foodPer: 13.60,
-    skillPer: 4.90
+    foodPer: 13.6,
+    skillPer: 4.9
   },
   69: {
     id: 69,
@@ -805,8 +805,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 8,
     helpSpeed: 5200,
-    foodPer: 23.30,
-    skillPer: 3.90,
+    foodPer: 23.3,
+    skillPer: 3.9,
     food: {
       type: [12, 4, 1],
       count: {
@@ -832,7 +832,7 @@ const pokedex = {
     berryType: 4,
     maxcarry: 17,
     helpSpeed: 3800,
-    foodPer: 23.50,
+    foodPer: 23.5,
     skillPer: 4
   },
   71: {
@@ -845,8 +845,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 27,
     helpSpeed: 2800,
-    foodPer: 23.30,
-    skillPer: 3.90
+    foodPer: 23.3,
+    skillPer: 3.9
   },
   74: {
     id: 74,
@@ -858,8 +858,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 9,
     helpSpeed: 5700,
-    foodPer: 28.10,
-    skillPer: 5.20,
+    foodPer: 28.1,
+    skillPer: 5.2,
     food: {
       type: [15, 4, 2],
       count: {
@@ -885,8 +885,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 17,
     helpSpeed: 4000,
-    foodPer: 27.20,
-    skillPer: 4.80
+    foodPer: 27.2,
+    skillPer: 4.8
   },
   76: {
     id: 76,
@@ -899,7 +899,7 @@ const pokedex = {
     maxcarry: 26,
     helpSpeed: 3100,
     foodPer: 28,
-    skillPer: 5.20
+    skillPer: 5.2
   },
   79: {
     id: 79,
@@ -911,8 +911,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 9,
     helpSpeed: 5700,
-    foodPer: 15.10,
-    skillPer: 7.80,
+    foodPer: 15.1,
+    skillPer: 7.8,
     food: {
       type: [13, 14, 12],
       count: {
@@ -938,7 +938,7 @@ const pokedex = {
     berryType: 1,
     maxcarry: 21,
     helpSpeed: 3800,
-    foodPer: 19.70,
+    foodPer: 19.7,
     skillPer: 8
   },
   81: {
@@ -951,8 +951,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 8,
     helpSpeed: 5800,
-    foodPer: 18.20,
-    skillPer: 6.40,
+    foodPer: 18.2,
+    skillPer: 6.4,
     food: {
       type: [10, 6],
       count: {
@@ -975,8 +975,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 16,
     helpSpeed: 4000,
-    foodPer: 18.20,
-    skillPer: 6.30
+    foodPer: 18.2,
+    skillPer: 6.3
   },
   83: {
     id: 83,
@@ -989,7 +989,7 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 3000,
     foodPer: 16,
-    skillPer: 4.30,
+    skillPer: 4.3,
     food: {
       type: [1, 7, 11],
       count: {
@@ -1015,7 +1015,7 @@ const pokedex = {
     berryType: 16,
     maxcarry: 13,
     helpSpeed: 3800,
-    foodPer: 18.40,
+    foodPer: 18.4,
     skillPer: 2,
     food: {
       type: [15, 13, 7],
@@ -1042,7 +1042,7 @@ const pokedex = {
     berryType: 16,
     maxcarry: 26,
     helpSpeed: 2300,
-    foodPer: 18.40,
+    foodPer: 18.4,
     skillPer: 2
   },
   92: {
@@ -1055,8 +1055,8 @@ const pokedex = {
     berryType: 8,
     maxcarry: 10,
     helpSpeed: 3800,
-    foodPer: 14.40,
-    skillPer: 1.50,
+    foodPer: 14.4,
+    skillPer: 1.5,
     food: {
       type: [6, 2, 10],
       count: {
@@ -1082,8 +1082,8 @@ const pokedex = {
     berryType: 8,
     maxcarry: 19,
     helpSpeed: 3000,
-    foodPer: 15.70,
-    skillPer: 2.20
+    foodPer: 15.7,
+    skillPer: 2.2
   },
   94: {
     id: 94,
@@ -1095,8 +1095,8 @@ const pokedex = {
     berryType: 8,
     maxcarry: 28,
     helpSpeed: 2200,
-    foodPer: 16.10,
-    skillPer: 2.40
+    foodPer: 16.1,
+    skillPer: 2.4
   },
   95: {
     id: 95,
@@ -1108,8 +1108,8 @@ const pokedex = {
     maxcarry: 22,
     helpSpeed: 3100,
     berryType: 14,
-    foodPer: 13.20,
-    skillPer: 2.30,
+    foodPer: 13.2,
+    skillPer: 2.3,
     food: {
       type: [12, 7, 4],
       count: {
@@ -1135,8 +1135,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 10,
     helpSpeed: 4800,
-    foodPer: 22.30,
-    skillPer: 4.40,
+    foodPer: 22.3,
+    skillPer: 4.4,
     food: {
       type: [11, 13],
       count: {
@@ -1159,8 +1159,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 20,
     helpSpeed: 3300,
-    foodPer: 22.50,
-    skillPer: 4.50
+    foodPer: 22.5,
+    skillPer: 4.5
   },
   113: {
     id: 113,
@@ -1172,8 +1172,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 20,
     helpSpeed: 3300,
-    foodPer: 23.60,
-    skillPer: 2.30
+    foodPer: 23.6,
+    skillPer: 2.3
   },
   115: {
     id: 115,
@@ -1185,7 +1185,7 @@ const pokedex = {
     berryType: 11,
     maxcarry: 21,
     helpSpeed: 2650,
-    foodPer: 22.20,
+    foodPer: 22.2,
     skillPer: 3.2,
     food: {
       type: [11, 4, 15],
@@ -1212,8 +1212,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 22,
     helpSpeed: 2800,
-    foodPer: 21.60,
-    skillPer: 3.90
+    foodPer: 21.6,
+    skillPer: 3.9
   },
   127: {
     id: 127,
@@ -1225,8 +1225,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 24,
     helpSpeed: 2400,
-    foodPer: 21.60,
-    skillPer: 3.10,
+    foodPer: 21.6,
+    skillPer: 3.1,
     food: {
       type: [9, 5, 7],
       count: {
@@ -1252,8 +1252,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 17,
     helpSpeed: 3500,
-    foodPer: 20.10,
-    skillPer: 3.60,
+    foodPer: 20.1,
+    skillPer: 3.6,
     food: {
       type: [10, 1, 14],
       count: {
@@ -1279,8 +1279,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 12,
     helpSpeed: 3700,
-    foodPer: 19.20,
-    skillPer: 5.50,
+    foodPer: 19.2,
+    skillPer: 5.5,
     food: {
       type: [8, 13, 7],
       count: {
@@ -1306,8 +1306,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 20,
     helpSpeed: 3100,
-    foodPer: 15.60,
-    skillPer: 3.20
+    foodPer: 15.6,
+    skillPer: 3.2
   },
   9005: {
     id: 9005,
@@ -1319,8 +1319,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 18,
     helpSpeed: 3200,
-    foodPer: 12.0,
-    skillPer: 4.60,
+    foodPer: 12,
+    skillPer: 4.6,
     food: {
       type: [18, 13, 8],
       count: {
@@ -1346,8 +1346,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 18,
     helpSpeed: 3100,
-    foodPer: 21.20,
-    skillPer: 6.10
+    foodPer: 21.2,
+    skillPer: 6.1
   },
   135: {
     id: 135,
@@ -1359,8 +1359,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 22,
     helpSpeed: 2200,
-    foodPer: 15.10,
-    skillPer: 3.90
+    foodPer: 15.1,
+    skillPer: 3.9
   },
   136: {
     id: 136,
@@ -1372,8 +1372,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 19,
     helpSpeed: 2700,
-    foodPer: 18.50,
-    skillPer: 5.20
+    foodPer: 18.5,
+    skillPer: 5.2
   },
   147: {
     id: 147,
@@ -1412,8 +1412,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 17,
     helpSpeed: 3800,
-    foodPer: 26.20,
-    skillPer: 2.50
+    foodPer: 26.2,
+    skillPer: 2.5
   },
   149: {
     id: 149,
@@ -1425,8 +1425,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 30,
     helpSpeed: 2600,
-    foodPer: 26.40,
-    skillPer: 2.60
+    foodPer: 26.4,
+    skillPer: 2.6
   },
   151: {
     id: 151,
@@ -1480,8 +1480,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 12,
     helpSpeed: 4400,
-    foodPer: 16.90,
-    skillPer: 3.90,
+    foodPer: 16.9,
+    skillPer: 3.9,
     food: {
       type: [13, 9, 1],
       count: {
@@ -1507,8 +1507,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 22,
     helpSpeed: 3300,
-    foodPer: 16.80,
-    skillPer: 3.80
+    foodPer: 16.8,
+    skillPer: 3.8
   },
   154: {
     id: 154,
@@ -1520,8 +1520,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 30,
     helpSpeed: 2800,
-    foodPer: 17.50,
-    skillPer: 4.60
+    foodPer: 17.5,
+    skillPer: 4.6
   },
   155: {
     id: 155,
@@ -1533,8 +1533,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 14,
     helpSpeed: 3500,
-    foodPer: 18.60,
-    skillPer: 2.10,
+    foodPer: 18.6,
+    skillPer: 2.1,
     food: {
       type: [11, 6, 10],
       count: {
@@ -1560,8 +1560,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 23,
     helpSpeed: 3000,
-    foodPer: 21.10,
-    skillPer: 4.10
+    foodPer: 21.1,
+    skillPer: 4.1
   },
   157: {
     id: 157,
@@ -1573,8 +1573,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 33,
     helpSpeed: 2400,
-    foodPer: 20.80,
-    skillPer: 3.90
+    foodPer: 20.8,
+    skillPer: 3.9
   },
   158: {
     id: 158,
@@ -1586,8 +1586,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 11,
     helpSpeed: 4500,
-    foodPer: 25.30,
-    skillPer: 5.20,
+    foodPer: 25.3,
+    skillPer: 5.2,
     food: {
       type: [7, 10],
       count: {
@@ -1610,8 +1610,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 20,
     helpSpeed: 3400,
-    foodPer: 25.30,
-    skillPer: 5.20
+    foodPer: 25.3,
+    skillPer: 5.2
   },
   160: {
     id: 160,
@@ -1623,8 +1623,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 29,
     helpSpeed: 2800,
-    foodPer: 25.70,
-    skillPer: 5.50
+    foodPer: 25.7,
+    skillPer: 5.5
   },
   172: {
     id: 172,
@@ -1637,7 +1637,7 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 4300,
     foodPer: 21,
-    skillPer: 2.30,
+    skillPer: 2.3,
     food: {
       type: [5, 11, 3],
       count: {
@@ -1663,8 +1663,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 10,
     helpSpeed: 5600,
-    foodPer: 16.40,
-    skillPer: 3.40,
+    foodPer: 16.4,
+    skillPer: 3.4,
     food: {
       type: [5, 9, 15],
       count: {
@@ -1691,7 +1691,7 @@ const pokedex = {
     maxcarry: 8,
     helpSpeed: 5200,
     foodPer: 17,
-    skillPer: 3.80,
+    skillPer: 3.8,
     food: {
       type: [9, 10, 13],
       count: {
@@ -1717,8 +1717,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 8,
     helpSpeed: 4800,
-    foodPer: 15.10,
-    skillPer: 4.90,
+    foodPer: 15.1,
+    skillPer: 4.9,
     food: {
       type: [3, 11, 13],
       count: {
@@ -1744,8 +1744,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 15,
     helpSpeed: 3800,
-    foodPer: 16.30,
-    skillPer: 5.60
+    foodPer: 16.3,
+    skillPer: 5.6
   },
   177: {
     id: 177,
@@ -1757,8 +1757,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 11,
     helpSpeed: 4500,
-    foodPer: 18.50,
-    skillPer: 1.60,
+    foodPer: 18.5,
+    skillPer: 1.6,
     food: {
       type: [3, 13, 5],
       count: {
@@ -1784,8 +1784,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 24,
     helpSpeed: 2500,
-    foodPer: 19.10,
-    skillPer: 2.50
+    foodPer: 19.1,
+    skillPer: 2.5
   },
   179: {
     id: 179,
@@ -1797,8 +1797,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 9,
     helpSpeed: 4600,
-    foodPer: 12.80,
-    skillPer: 4.70,
+    foodPer: 12.8,
+    skillPer: 4.7,
     food: {
       type: [6, 3],
       count: {
@@ -1821,8 +1821,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 16,
     helpSpeed: 3300,
-    foodPer: 12.70,
-    skillPer: 4.60
+    foodPer: 12.7,
+    skillPer: 4.6
   },
   181: {
     id: 181,
@@ -1835,7 +1835,7 @@ const pokedex = {
     maxcarry: 25,
     helpSpeed: 2500,
     foodPer: 13,
-    skillPer: 4.70
+    skillPer: 4.7
   },
   185: {
     id: 185,
@@ -1847,8 +1847,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 21,
     helpSpeed: 4000,
-    foodPer: 21.70,
-    skillPer: 7.20
+    foodPer: 21.7,
+    skillPer: 7.2
   },
   194: {
     id: 194,
@@ -1860,8 +1860,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 10,
     helpSpeed: 5900,
-    foodPer: 20.10,
-    skillPer: 3.80,
+    foodPer: 20.1,
+    skillPer: 3.8,
     food: {
       type: [2, 4, 7],
       count: {
@@ -1887,8 +1887,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 6400,
     berryType: 5,
-    foodPer: 20.90,
-    skillPer: 5.60,
+    foodPer: 20.9,
+    skillPer: 5.6,
     food: {
       type: [13, 17, 4],
       count: {
@@ -1915,7 +1915,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 3400,
     foodPer: 19,
-    skillPer: 3.20
+    skillPer: 3.2
   },
   196: {
     id: 196,
@@ -1927,8 +1927,8 @@ const pokedex = {
     pokeType: 3,
     maxcarry: 21,
     helpSpeed: 2400,
-    foodPer: 16.40,
-    skillPer: 4.40
+    foodPer: 16.4,
+    skillPer: 4.4
   },
   197: {
     id: 197,
@@ -1940,8 +1940,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 19,
     helpSpeed: 3200,
-    foodPer: 21.90,
-    skillPer: 10.10
+    foodPer: 21.9,
+    skillPer: 10.1
   },
   198: {
     id: 198,
@@ -1953,8 +1953,8 @@ const pokedex = {
     maxcarry: 13,
     helpSpeed: 3600,
     berryType: 17,
-    foodPer: 14.10,
-    skillPer: 6.20,
+    foodPer: 14.1,
+    skillPer: 6.2,
     food: {
       type: [17, 15, 6],
       count: {
@@ -1980,8 +1980,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 22,
     helpSpeed: 3400,
-    foodPer: 16.60,
-    skillPer: 8.70
+    foodPer: 16.6,
+    skillPer: 8.7
   },
   202: {
     id: 202,
@@ -1993,7 +1993,7 @@ const pokedex = {
     berryType: 6,
     maxcarry: 21,
     helpSpeed: 3500,
-    foodPer: 21.10,
+    foodPer: 21.1,
     skillPer: 8.2
   },
   208: {
@@ -2006,8 +2006,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 30,
     helpSpeed: 3000,
-    foodPer: 15.40,
-    skillPer: 3.20
+    foodPer: 15.4,
+    skillPer: 3.2
   },
   213: {
     id: 213,
@@ -2019,8 +2019,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 16,
     helpSpeed: 3600,
-    foodPer: 20.50,
-    skillPer: 5.90,
+    foodPer: 20.5,
+    skillPer: 5.9,
     food: {
       type: [10, 17, 9],
       count: {
@@ -2046,8 +2046,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 20,
     helpSpeed: 2300,
-    foodPer: 15.80,
-    skillPer: 4.70,
+    foodPer: 15.8,
+    skillPer: 4.7,
     food: {
       type: [9, 2, 7],
       count: {
@@ -2073,8 +2073,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 17,
     helpSpeed: 3200,
-    foodPer: 25.50,
-    skillPer: 1.90,
+    foodPer: 25.5,
+    skillPer: 1.9,
     food: {
       type: [7, 3, 15],
       count: {
@@ -2100,7 +2100,7 @@ const pokedex = {
     berryType: 16,
     maxcarry: 20,
     helpSpeed: 2500,
-    foodPer: 18.80,
+    foodPer: 18.8,
     skillPer: 3,
     food: {
       type: [3, 5, 13],
@@ -2127,8 +2127,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 10,
     helpSpeed: 4900,
-    foodPer: 20.10,
-    skillPer: 3.70,
+    foodPer: 20.1,
+    skillPer: 3.7,
     food: {
       type: [6, 11, 1],
       count: {
@@ -2154,7 +2154,7 @@ const pokedex = {
     berryType: 17,
     maxcarry: 21,
     helpSpeed: 3300,
-    foodPer: 20.30,
+    foodPer: 20.3,
     skillPer: 4
   },
   242: {
@@ -2167,8 +2167,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 31,
     helpSpeed: 3100,
-    foodPer: 23.80,
-    skillPer: 2.30
+    foodPer: 23.8,
+    skillPer: 2.3
   },
   243: {
     id: 243,
@@ -2180,8 +2180,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 22,
     helpSpeed: 2100,
-    foodPer: 19.20,
-    skillPer: 1.90,
+    foodPer: 19.2,
+    skillPer: 1.9,
     food: {
       type: [7, 6, 1],
       count: {
@@ -2207,8 +2207,8 @@ const pokedex = {
     berryType: 10,
     maxcarry: 19,
     helpSpeed: 2400,
-    foodPer: 18.70,
-    skillPer: 2.30,
+    foodPer: 18.7,
+    skillPer: 2.3,
     food: {
       type: [10, 12, 2],
       count: {
@@ -2234,8 +2234,8 @@ const pokedex = {
     berryType: 1,
     maxcarry: 17,
     helpSpeed: 2700,
-    foodPer: 27.70,
-    skillPer: 2.60,
+    foodPer: 27.7,
+    skillPer: 2.6,
     food: {
       type: [5, 10, 16],
       count: {
@@ -2261,8 +2261,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 9,
     helpSpeed: 4800,
-    foodPer: 23.80,
-    skillPer: 4.10,
+    foodPer: 23.8,
+    skillPer: 4.1,
     food: {
       type: [11, 15, 7],
       count: {
@@ -2288,8 +2288,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 18,
     helpSpeed: 3600,
-    foodPer: 24.70,
-    skillPer: 4.50
+    foodPer: 24.7,
+    skillPer: 4.5
   },
   248: {
     id: 248,
@@ -2301,8 +2301,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 29,
     helpSpeed: 2700,
-    foodPer: 26.60,
-    skillPer: 5.20
+    foodPer: 26.6,
+    skillPer: 5.2
   },
   252: {
     id: 252,
@@ -2314,8 +2314,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 8,
     helpSpeed: 4500,
-    foodPer: 17.20,
-    skillPer: 3.50,
+    foodPer: 17.2,
+    skillPer: 3.5,
     food: {
       type: [3, 17, 1],
       count: {
@@ -2342,7 +2342,7 @@ const pokedex = {
     maxcarry: 16,
     helpSpeed: 3300,
     foodPer: 15,
-    skillPer: 3.50
+    skillPer: 3.5
   },
   254: {
     id: 254,
@@ -2354,7 +2354,7 @@ const pokedex = {
     berryType: 4,
     maxcarry: 27,
     helpSpeed: 2300,
-    foodPer: 10.70,
+    foodPer: 10.7,
     skillPer: 3
   },
   255: {
@@ -2395,7 +2395,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 3400,
     foodPer: 17,
-    skillPer: 5.20
+    skillPer: 5.2
   },
   257: {
     id: 257,
@@ -2407,8 +2407,8 @@ const pokedex = {
     berryType: 18,
     maxcarry: 32,
     helpSpeed: 2600,
-    foodPer: 15.30,
-    skillPer: 4.90
+    foodPer: 15.3,
+    skillPer: 4.9
   },
   258: {
     id: 258,
@@ -2420,7 +2420,7 @@ const pokedex = {
     berryType: 1,
     maxcarry: 11,
     helpSpeed: 4700,
-    foodPer: 19.20,
+    foodPer: 19.2,
     skillPer: 2.4,
     food: {
       type: [16, 8, 2],
@@ -2447,8 +2447,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 21,
     helpSpeed: 3500,
-    foodPer: 16.80,
-    skillPer: 2.80
+    foodPer: 16.8,
+    skillPer: 2.8
   },
   260: {
     id: 260,
@@ -2460,8 +2460,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 30,
     helpSpeed: 2800,
-    foodPer: 14.60,
-    skillPer: 3.40
+    foodPer: 14.6,
+    skillPer: 3.4
   },
   280: {
     id: 280,
@@ -2473,8 +2473,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 9,
     helpSpeed: 4800,
-    foodPer: 14.50,
-    skillPer: 4.30,
+    foodPer: 14.5,
+    skillPer: 4.3,
     food: {
       type: [5, 16, 1],
       count: {
@@ -2500,8 +2500,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 18,
     helpSpeed: 3500,
-    foodPer: 14.60,
-    skillPer: 4.30
+    foodPer: 14.6,
+    skillPer: 4.3
   },
   282: {
     id: 282,
@@ -2513,8 +2513,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 28,
     helpSpeed: 2400,
-    foodPer: 14.40,
-    skillPer: 4.20
+    foodPer: 14.4,
+    skillPer: 4.2
   },
   287: {
     id: 287,
@@ -2526,8 +2526,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 7,
     helpSpeed: 4900,
-    foodPer: 21.60,
-    skillPer: 1.90,
+    foodPer: 21.6,
+    skillPer: 1.9,
     food: {
       type: [12, 9, 5],
       count: {
@@ -2553,8 +2553,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 14,
     helpSpeed: 3200,
-    foodPer: 20.40,
-    skillPer: 1.50
+    foodPer: 20.4,
+    skillPer: 1.5
   },
   289: {
     id: 289,
@@ -2566,8 +2566,8 @@ const pokedex = {
     berryType: 11,
     maxcarry: 26,
     helpSpeed: 3600,
-    foodPer: 33.90,
-    skillPer: 6.70
+    foodPer: 33.9,
+    skillPer: 6.7
   },
   302: {
     id: 302,
@@ -2579,8 +2579,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 16,
     helpSpeed: 3600,
-    foodPer: 18.80,
-    skillPer: 6.80,
+    foodPer: 18.8,
+    skillPer: 6.8,
     food: {
       type: [10, 2, 13],
       count: {
@@ -2606,8 +2606,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 17,
     helpSpeed: 3200,
-    foodPer: 20.40,
-    skillPer: 3.80,
+    foodPer: 20.4,
+    skillPer: 3.8,
     food: {
       type: [10, 16, 12],
       count: {
@@ -2633,8 +2633,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 10,
     helpSpeed: 5700,
-    foodPer: 27.30,
-    skillPer: 4.60,
+    foodPer: 27.3,
+    skillPer: 4.6,
     food: {
       type: [7, 17, 15],
       count: {
@@ -2660,8 +2660,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 18,
     helpSpeed: 4200,
-    foodPer: 27.70,
-    skillPer: 4.80
+    foodPer: 27.7,
+    skillPer: 4.8
   },
   306: {
     id: 306,
@@ -2673,8 +2673,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 28,
     helpSpeed: 3000,
-    foodPer: 28.50,
-    skillPer: 5.20
+    foodPer: 28.5,
+    skillPer: 5.2
   },
   311: {
     id: 311,
@@ -2686,8 +2686,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 16,
     helpSpeed: 2400,
-    foodPer: 10.30,
-    skillPer: 4.90,
+    foodPer: 10.3,
+    skillPer: 4.9,
     food: {
       type: [17, 1, 8],
       count: {
@@ -2713,8 +2713,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 16,
     helpSpeed: 2400,
-    foodPer: 17.40,
-    skillPer: 4.90,
+    foodPer: 17.4,
+    skillPer: 4.9,
     food: {
       type: [9, 3, 8],
       count: {
@@ -2740,8 +2740,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 8,
     helpSpeed: 5900,
-    foodPer: 21.40,
-    skillPer: 6.30,
+    foodPer: 21.4,
+    skillPer: 6.3,
     food: {
       type: [15, 2, 9],
       count: {
@@ -2780,8 +2780,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 8,
     helpSpeed: 5000,
-    foodPer: 15.20,
-    skillPer: 3.10,
+    foodPer: 15.2,
+    skillPer: 3.1,
     food: {
       type: [19, 6, 15],
       count: {
@@ -2807,7 +2807,7 @@ const pokedex = {
     berryType: 15,
     maxcarry: 17,
     helpSpeed: 3700,
-    foodPer: 15.50,
+    foodPer: 15.5,
     skillPer: 3.4
   },
   330: {
@@ -2820,8 +2820,8 @@ const pokedex = {
     berryType: 15,
     maxcarry: 27,
     helpSpeed: 2700,
-    foodPer: 17.20,
-    skillPer: 3.90
+    foodPer: 17.2,
+    skillPer: 3.9
   },
   333: {
     id: 333,
@@ -2833,8 +2833,8 @@ const pokedex = {
     berryType: 16,
     maxcarry: 12,
     helpSpeed: 4200,
-    foodPer: 17.70,
-    skillPer: 3.20,
+    foodPer: 17.7,
+    skillPer: 3.2,
     food: {
       type: [3, 15, 5],
       count: {
@@ -2860,8 +2860,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 19,
     helpSpeed: 3500,
-    foodPer: 25.80,
-    skillPer: 6.10
+    foodPer: 25.8,
+    skillPer: 6.1
   },
   353: {
     id: 353,
@@ -2874,8 +2874,8 @@ const pokedex = {
     maxcarry: 11,
     helpSpeed: 3900,
     berryType: 8,
-    foodPer: 17.10,
-    skillPer: 2.60,
+    foodPer: 17.1,
+    skillPer: 2.6,
     food: {
       type: [10, 11, 2],
       count: {
@@ -2902,8 +2902,8 @@ const pokedex = {
     maxcarry: 24,
     helpSpeed: 2600,
     berryType: 8,
-    foodPer: 17.90,
-    skillPer: 3.30
+    foodPer: 17.9,
+    skillPer: 3.3
   },
   359: {
     id: 359,
@@ -2915,8 +2915,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 21,
     helpSpeed: 2950,
-    foodPer: 17.80,
-    skillPer: 3.80,
+    foodPer: 17.8,
+    skillPer: 3.8,
     food: {
       type: [13, 5, 2],
       count: {
@@ -2942,8 +2942,8 @@ const pokedex = {
     maxcarry: 7,
     helpSpeed: 5800,
     berryType: 6,
-    foodPer: 21.30,
-    skillPer: 6.90,
+    foodPer: 21.3,
+    skillPer: 6.9,
     food: {
       type: [5, 2, 10],
       count: {
@@ -2969,8 +2969,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 5600,
     berryType: 7,
-    foodPer: 22.40,
-    skillPer: 2.30,
+    foodPer: 22.4,
+    skillPer: 2.3,
     food: {
       type: [10, 7, 11],
       count: {
@@ -2996,7 +2996,7 @@ const pokedex = {
     berryType: 7,
     maxcarry: 20,
     helpSpeed: 3300,
-    foodPer: 21.5,
+    foodPer: 21.4,
     skillPer: 5,
     food: {
       type: [10, 7, 11],
@@ -3023,8 +3023,8 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 4000,
     berryType: 7,
-    foodPer: 22.10,
-    skillPer: 2.10
+    foodPer: 22.1,
+    skillPer: 2.1
   },
   365: {
     id: 365,
@@ -3036,8 +3036,8 @@ const pokedex = {
     maxcarry: 28,
     helpSpeed: 3000,
     berryType: 7,
-    foodPer: 22.30,
-    skillPer: 2.20
+    foodPer: 22.3,
+    skillPer: 2.2
   },
   371: {
     id: 371,
@@ -3049,8 +3049,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 9,
     helpSpeed: 5300,
-    foodPer: 20.90,
-    skillPer: 2.70,
+    foodPer: 20.9,
+    skillPer: 2.7,
     food: {
       type: [4, 11, 7],
       count: {
@@ -3076,8 +3076,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 19,
     helpSpeed: 3800,
-    foodPer: 20.50,
-    skillPer: 2.70
+    foodPer: 20.6,
+    skillPer: 2.7
   },
   373: {
     id: 373,
@@ -3089,8 +3089,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 32,
     helpSpeed: 2800,
-    foodPer: 21.30,
-    skillPer: 3.40
+    foodPer: 21.7,
+    skillPer: 3.4
   },
   380: {
     id: 380,
@@ -3102,8 +3102,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 19,
     helpSpeed: 2800,
-    foodPer: 11.40,
-    skillPer: 4.90,
+    foodPer: 11.4,
+    skillPer: 4.9,
     food: {
       type: [12, 18, 2],
       count: {
@@ -3129,7 +3129,7 @@ const pokedex = {
     berryType: 3,
     maxcarry: 19,
     helpSpeed: 2800,
-    foodPer: 19.80,
+    foodPer: 19.8,
     skillPer: 3,
     food: {
       type: [12, 3, 8],
@@ -3183,7 +3183,7 @@ const pokedex = {
     berryType: 4,
     maxcarry: 19,
     helpSpeed: 3700,
-    foodPer: 15.0,
+    foodPer: 15,
     skillPer: 4.6
   },
   389: {
@@ -3315,8 +3315,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 11,
     helpSpeed: 4400,
-    foodPer: 18.10,
-    skillPer: 1.80,
+    foodPer: 18.1,
+    skillPer: 1.8,
     food: {
       type: [12, 10, 17],
       count: {
@@ -3342,8 +3342,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 21,
     helpSpeed: 3200,
-    foodPer: 18.20,
-    skillPer: 1.80
+    foodPer: 18.2,
+    skillPer: 1.8
   },
   405: {
     id: 405,
@@ -3356,7 +3356,7 @@ const pokedex = {
     maxcarry: 31,
     helpSpeed: 2400,
     foodPer: 20,
-    skillPer: 2.30
+    skillPer: 2.3
   },
   425: {
     id: 425,
@@ -3368,8 +3368,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 4800,
     berryType: 8,
-    foodPer: 13.70,
-    skillPer: 6.90,
+    foodPer: 13.7,
+    skillPer: 7.1,
     food: {
       type: [16, 10, 4],
       count: {
@@ -3395,8 +3395,8 @@ const pokedex = {
     maxcarry: 22,
     helpSpeed: 2500,
     berryType: 8,
-    foodPer: 12.80,
-    skillPer: 6.10
+    foodPer: 12.8,
+    skillPer: 6.3
   },
   430: {
     id: 430,
@@ -3408,8 +3408,8 @@ const pokedex = {
     maxcarry: 23,
     helpSpeed: 3200,
     berryType: 17,
-    foodPer: 14.30,
-    skillPer: 6.70
+    foodPer: 14.3,
+    skillPer: 6.7
   },
   438: {
     id: 438,
@@ -3421,8 +3421,8 @@ const pokedex = {
     maxcarry: 8,
     helpSpeed: 6300,
     berryType: 14,
-    foodPer: 18.90,
-    skillPer: 6.10,
+    foodPer: 18.9,
+    skillPer: 6.1,
     food: {
       type: [12, 15, 2],
       count: {
@@ -3448,8 +3448,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 10,
     helpSpeed: 4300,
-    foodPer: 20.10,
-    skillPer: 3.20,
+    foodPer: 20.1,
+    skillPer: 3.2,
     food: {
       type: [12, 4, 1],
       count: {
@@ -3476,7 +3476,7 @@ const pokedex = {
     maxcarry: 7,
     helpSpeed: 5400,
     foodPer: 21,
-    skillPer: 1.30,
+    skillPer: 1.3,
     food: {
       type: [3, 4, 9],
       count: {
@@ -3503,7 +3503,7 @@ const pokedex = {
     maxcarry: 27,
     helpSpeed: 3500,
     foodPer: 19.8,
-    skillPer: 3.60,
+    skillPer: 3.6,
     food: {
       type: [2, 18, 1],
       count: {
@@ -3529,8 +3529,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 4200,
     berryType: 18,
-    foodPer: 12.60,
-    skillPer: 3.80,
+    foodPer: 12.6,
+    skillPer: 3.8,
     food: {
       type: [10, 4, 3],
       count: {
@@ -3557,7 +3557,7 @@ const pokedex = {
     helpSpeed: 2600,
     berryType: 18,
     foodPer: 15,
-    skillPer: 5.10
+    skillPer: 5.1
   },
   453: {
     id: 453,
@@ -3569,8 +3569,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 10,
     helpSpeed: 5600,
-    foodPer: 22.80,
-    skillPer: 4.20,
+    foodPer: 22.8,
+    skillPer: 4.2,
     food: {
       type: [10, 7],
       count: {
@@ -3593,8 +3593,8 @@ const pokedex = {
     berryType: 5,
     maxcarry: 19,
     helpSpeed: 3400,
-    foodPer: 22.90,
-    skillPer: 4.30
+    foodPer: 22.9,
+    skillPer: 4.3
   },
   459: {
     id: 459,
@@ -3606,8 +3606,8 @@ const pokedex = {
     berryType: 7,
     maxcarry: 10,
     helpSpeed: 5600,
-    foodPer: 25.10,
-    skillPer: 4.40,
+    foodPer: 25.1,
+    skillPer: 4.4,
     food: {
       type: [12, 3, 2],
       count: {
@@ -3634,7 +3634,7 @@ const pokedex = {
     maxcarry: 26,
     helpSpeed: 3000,
     foodPer: 25,
-    skillPer: 4.40
+    skillPer: 4.4
   },
   461: {
     id: 461,
@@ -3646,8 +3646,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 26,
     helpSpeed: 2700,
-    foodPer: 25.10,
-    skillPer: 1.80
+    foodPer: 25.1,
+    skillPer: 1.8
   },
   462: {
     id: 462,
@@ -3659,8 +3659,8 @@ const pokedex = {
     berryType: 2,
     maxcarry: 23,
     helpSpeed: 3100,
-    foodPer: 17.90,
-    skillPer: 6.20
+    foodPer: 17.9,
+    skillPer: 6.2
   },
   468: {
     id: 468,
@@ -3672,8 +3672,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 26,
     helpSpeed: 2600,
-    foodPer: 15.80,
-    skillPer: 5.30
+    foodPer: 15.8,
+    skillPer: 5.3
   },
   470: {
     id: 470,
@@ -3685,8 +3685,8 @@ const pokedex = {
     berryType: 4,
     maxcarry: 18,
     helpSpeed: 3000,
-    foodPer: 20.50,
-    skillPer: 6.90
+    foodPer: 20.5,
+    skillPer: 6.9
   },
   471: {
     id: 471,
@@ -3698,8 +3698,8 @@ const pokedex = {
     berryType: 7,
     maxcarry: 17,
     helpSpeed: 3200,
-    foodPer: 21.90,
-    skillPer: 6.30
+    foodPer: 21.9,
+    skillPer: 6.3
   },
   475: {
     id: 475,
@@ -3711,8 +3711,8 @@ const pokedex = {
     berryType: 18,
     maxcarry: 29,
     helpSpeed: 2400,
-    foodPer: 14.70,
-    skillPer: 5.40
+    foodPer: 14.7,
+    skillPer: 5.4
   },
   488: {
     id: 488,
@@ -3724,8 +3724,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 22,
     helpSpeed: 2300,
-    foodPer: 23.90,
-    skillPer: 4.10,
+    foodPer: 23.9,
+    skillPer: 4.1,
     food: {
       type: [11, 13, 12],
       count: {
@@ -3751,8 +3751,8 @@ const pokedex = {
     berryType: 17,
     maxcarry: 28,
     helpSpeed: 2900,
-    foodPer: 19.20,
-    skillPer: 2.30,
+    foodPer: 19.2,
+    skillPer: 2.3,
     food: {
       type: [7, 17, 5, 6, 8, 9, 15, 16],
       count: {
@@ -3793,8 +3793,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 12,
     helpSpeed: 5700,
-    foodPer: 19.70,
-    skillPer: 4.30,
+    foodPer: 19.7,
+    skillPer: 4.3,
     food: {
       type: [8, 9, 17],
       count: {
@@ -3820,8 +3820,8 @@ const pokedex = {
     berryType: 6,
     maxcarry: 29,
     helpSpeed: 2800,
-    foodPer: 18.80,
-    skillPer: 4.10
+    foodPer: 18.8,
+    skillPer: 4.1
   },
   557: {
     id: 557,
@@ -3833,8 +3833,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 8,
     helpSpeed: 4300,
-    foodPer: 17.50,
-    skillPer: 5.40,
+    foodPer: 17.5,
+    skillPer: 5.4,
     food: {
       type: [19, 4, 10],
       count: {
@@ -3861,7 +3861,7 @@ const pokedex = {
     maxcarry: 22,
     helpSpeed: 3200,
     foodPer: 23.9,
-    skillPer: 6.40
+    skillPer: 6.4
   },
   627: {
     id: 627,
@@ -3873,8 +3873,8 @@ const pokedex = {
     berryType: 16,
     maxcarry: 10,
     helpSpeed: 3800,
-    foodPer: 12.50,
-    skillPer: 3.10,
+    foodPer: 12.5,
+    skillPer: 3.1,
     food: {
       type: [7, 16, 17],
       count: {
@@ -3900,8 +3900,8 @@ const pokedex = {
     berryType: 16,
     maxcarry: 23,
     helpSpeed: 2400,
-    foodPer: 12.10,
-    skillPer: 3.20
+    foodPer: 12.1,
+    skillPer: 3.5
   },
   696: {
     id: 696,
@@ -3913,8 +3913,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 11,
     helpSpeed: 5200,
-    foodPer: 20.30,
-    skillPer: 2.40,
+    foodPer: 20.3,
+    skillPer: 2.4,
     food: {
       type: [7, 5, 4],
       count: {
@@ -3940,8 +3940,8 @@ const pokedex = {
     berryType: 14,
     maxcarry: 28,
     helpSpeed: 2800,
-    foodPer: 17.80,
-    skillPer: 2.90
+    foodPer: 17.8,
+    skillPer: 2.9
   },
   700: {
     id: 700,
@@ -3953,7 +3953,7 @@ const pokedex = {
     berryType: 12,
     maxcarry: 20,
     helpSpeed: 2600,
-    foodPer: 17.80,
+    foodPer: 17.8,
     skillPer: 4
   },
   702: {
@@ -3966,8 +3966,8 @@ const pokedex = {
     berryType: 13,
     maxcarry: 19,
     helpSpeed: 2500,
-    foodPer: 17.70,
-    skillPer: 4.50,
+    foodPer: 17.7,
+    skillPer: 4.5,
     food: {
       type: [5, 13, 16],
       count: {
@@ -3994,7 +3994,7 @@ const pokedex = {
     maxcarry: 11,
     helpSpeed: 5400,
     foodPer: 12,
-    skillPer: 4.90,
+    skillPer: 4.9,
     food: {
       type: [18, 15, 4],
       count: {
@@ -4021,7 +4021,7 @@ const pokedex = {
     maxcarry: 7,
     helpSpeed: 5300,
     foodPer: 12,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   '710-3': {
     id: '710-3',
@@ -4034,7 +4034,7 @@ const pokedex = {
     maxcarry: 15,
     helpSpeed: 5500,
     foodPer: 12,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   '710-4': {
     id: '710-4',
@@ -4047,7 +4047,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 5600,
     foodPer: 12,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   711: {
     id: 711,
@@ -4060,7 +4060,7 @@ const pokedex = {
     maxcarry: 19,
     helpSpeed: 3200,
     foodPer: 13,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   '711-2': {
     id: '711-2',
@@ -4073,7 +4073,7 @@ const pokedex = {
     maxcarry: 15,
     helpSpeed: 3100,
     foodPer: 13,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   '711-3': {
     id: '711-3',
@@ -4086,7 +4086,7 @@ const pokedex = {
     maxcarry: 24,
     helpSpeed: 3300,
     foodPer: 13,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   '711-4': {
     id: '711-4',
@@ -4099,7 +4099,7 @@ const pokedex = {
     maxcarry: 30,
     helpSpeed: 3400,
     foodPer: 13,
-    skillPer: 4.90
+    skillPer: 4.9
   },
   714: {
     id: 714,
@@ -4111,8 +4111,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 7,
     helpSpeed: 5100,
-    foodPer: 19.80,
-    skillPer: 4.80,
+    foodPer: 19.8,
+    skillPer: 4.8,
     food: {
       type: [5, 1, 7],
       count: {
@@ -4138,8 +4138,8 @@ const pokedex = {
     berryType: 3,
     maxcarry: 23,
     helpSpeed: 2700,
-    foodPer: 19.50,
-    skillPer: 4.80
+    foodPer: 19.5,
+    skillPer: 4.8
   },
   736: {
     id: 736,
@@ -4151,8 +4151,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 11,
     helpSpeed: 4600,
-    foodPer: 15.50,
-    skillPer: 2.90,
+    foodPer: 15.5,
+    skillPer: 2.9,
     food: {
       type: [17, 2, 9],
       count: {
@@ -4178,8 +4178,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 20,
     helpSpeed: 3300,
-    foodPer: 15.40,
-    skillPer: 2.80
+    foodPer: 15.4,
+    skillPer: 2.8
   },
   738: {
     id: 738,
@@ -4191,8 +4191,8 @@ const pokedex = {
     berryType: 9,
     maxcarry: 29,
     helpSpeed: 2800,
-    foodPer: 19.40,
-    skillPer: 5.10
+    foodPer: 19.4,
+    skillPer: 5.1
   },
   742: {
     id: 742,
@@ -4204,8 +4204,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 4500,
     berryType: 12,
-    foodPer: 19.90,
-    skillPer: 1.90,
+    foodPer: 19.9,
+    skillPer: 1.9,
     food: {
       type: [9, 10, 16],
       count: {
@@ -4231,8 +4231,8 @@ const pokedex = {
     maxcarry: 24,
     helpSpeed: 2300,
     berryType: 12,
-    foodPer: 19.40,
-    skillPer: 2.50
+    foodPer: 19.4,
+    skillPer: 2.5
   },
   759: {
     id: 759,
@@ -4244,8 +4244,8 @@ const pokedex = {
     maxcarry: 13,
     helpSpeed: 4100,
     berryType: 18,
-    foodPer: 22.50,
-    skillPer: 1.10,
+    foodPer: 22.5,
+    skillPer: 1.1,
     food: {
       type: [16, 7, 3],
       count: {
@@ -4271,8 +4271,8 @@ const pokedex = {
     maxcarry: 25,
     helpSpeed: 2800,
     berryType: 18,
-    foodPer: 22.90,
-    skillPer: 1.30
+    foodPer: 22.9,
+    skillPer: 1.3
   },
   764: {
     id: 764,
@@ -4284,7 +4284,7 @@ const pokedex = {
     maxcarry: 20,
     helpSpeed: 2500,
     berryType: 12,
-    foodPer: 16.70,
+    foodPer: 16.7,
     skillPer: 3.5,
     food: {
       type: [16, 11, 13],
@@ -4311,7 +4311,7 @@ const pokedex = {
     maxcarry: 18,
     helpSpeed: 2700,
     berryType: 2,
-    foodPer: 16.90,
+    foodPer: 16.9,
     skillPer: 5.5,
     food: {
       type: [8, 19, 13],
@@ -4338,8 +4338,8 @@ const pokedex = {
     maxcarry: 19,
     helpSpeed: 2500,
     berryType: 8,
-    foodPer: 15.30,
-    skillPer: 3.30,
+    foodPer: 15.3,
+    skillPer: 3.5,
     food: {
       type: [5, 17, 2],
       count: {
@@ -4365,8 +4365,8 @@ const pokedex = {
     maxcarry: 25,
     helpSpeed: 3500,
     berryType: 3,
-    foodPer: 29.40,
-    skillPer: 4.60,
+    foodPer: 29.4,
+    skillPer: 4.6,
     food: {
       type: [15, 19, 7],
       count: {
@@ -4392,8 +4392,8 @@ const pokedex = {
     maxcarry: 19,
     helpSpeed: 2700,
     berryType: 16,
-    foodPer: 16.50,
-    skillPer: 3.90,
+    foodPer: 16.5,
+    skillPer: 3.9,
     food: {
       type: [10, 4, 3],
       count: {
@@ -4419,8 +4419,8 @@ const pokedex = {
     maxcarry: 6,
     helpSpeed: 5600,
     berryType: 5,
-    foodPer: 20.90,
-    skillPer: 4.80,
+    foodPer: 20.9,
+    skillPer: 4.8,
     food: {
       type: [8, 5, 1],
       count: {
@@ -4446,8 +4446,8 @@ const pokedex = {
     maxcarry: 23,
     helpSpeed: 3100,
     berryType: 5,
-    foodPer: 23.90,
-    skillPer: 6.40
+    foodPer: 23.9,
+    skillPer: 6.4
   },
   8001: {
     id: 8001,
@@ -4459,8 +4459,8 @@ const pokedex = {
     maxcarry: 23,
     helpSpeed: 3100,
     berryType: 5,
-    foodPer: 23.90,
-    skillPer: 6.40
+    foodPer: 23.9,
+    skillPer: 6.4
   },
   906: {
     id: 906,
@@ -4472,8 +4472,8 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 4600,
     berryType: 4,
-    foodPer: 20.80,
-    skillPer: 2.30,
+    foodPer: 20.8,
+    skillPer: 2.3,
     food: {
       type: [4, 8, 11],
       count: {
@@ -4499,8 +4499,8 @@ const pokedex = {
     maxcarry: 19,
     helpSpeed: 3500,
     berryType: 4,
-    foodPer: 20.90,
-    skillPer: 2.30
+    foodPer: 20.9,
+    skillPer: 2.3
   },
   908: {
     id: 908,
@@ -4513,7 +4513,7 @@ const pokedex = {
     helpSpeed: 2600,
     berryType: 17,
     foodPer: 19,
-    skillPer: 2.20
+    skillPer: 2.2
   },
   909: {
     id: 909,
@@ -4525,8 +4525,8 @@ const pokedex = {
     maxcarry: 11,
     helpSpeed: 4200,
     berryType: 10,
-    foodPer: 25.40,
-    skillPer: 5.30,
+    foodPer: 25.4,
+    skillPer: 5.3,
     food: {
       type: [5, 7, 6],
       count: {
@@ -4552,7 +4552,7 @@ const pokedex = {
     maxcarry: 21,
     helpSpeed: 3100,
     berryType: 10,
-    foodPer: 24.70,
+    foodPer: 24.7,
     skillPer: 5
   },
   911: {
@@ -4565,8 +4565,8 @@ const pokedex = {
     maxcarry: 29,
     helpSpeed: 2700,
     berryType: 8,
-    foodPer: 26.80,
-    skillPer: 6.20
+    foodPer: 26.8,
+    skillPer: 6.2
   },
   912: {
     id: 912,
@@ -4578,8 +4578,8 @@ const pokedex = {
     maxcarry: 10,
     helpSpeed: 4800,
     berryType: 1,
-    foodPer: 26.10,
-    skillPer: 2.80,
+    foodPer: 26.1,
+    skillPer: 2.8,
     food: {
       type: [15, 1, 10],
       count: {
@@ -4605,8 +4605,8 @@ const pokedex = {
     maxcarry: 19,
     helpSpeed: 3600,
     berryType: 1,
-    foodPer: 25.90,
-    skillPer: 2.70
+    foodPer: 25.9,
+    skillPer: 2.7
   },
   914: {
     id: 914,
@@ -4618,8 +4618,8 @@ const pokedex = {
     maxcarry: 29,
     helpSpeed: 2600,
     berryType: 18,
-    foodPer: 23.20,
-    skillPer: 2.40
+    foodPer: 23.2,
+    skillPer: 2.4
   },
   921: {
     id: 921,
@@ -4631,8 +4631,8 @@ const pokedex = {
     maxcarry: 9,
     helpSpeed: 4600,
     berryType: 13,
-    foodPer: 11.10,
-    skillPer: 3.60,
+    foodPer: 11.1,
+    skillPer: 3.6,
     food: {
       type: [13, 8, 3],
       count: {
@@ -4658,8 +4658,8 @@ const pokedex = {
     maxcarry: 17,
     helpSpeed: 3300,
     berryType: 13,
-    foodPer: 10.90,
-    skillPer: 3.60
+    foodPer: 10.9,
+    skillPer: 3.6
   },
   923: {
     id: 923,
@@ -4671,8 +4671,8 @@ const pokedex = {
     maxcarry: 28,
     helpSpeed: 2400,
     berryType: 13,
-    foodPer: 14.10,
-    skillPer: 3.90
+    foodPer: 14.1,
+    skillPer: 3.9
   },
   974: {
     id: 974,
@@ -4684,8 +4684,8 @@ const pokedex = {
     maxcarry: 12,
     helpSpeed: 5100,
     berryType: 7,
-    foodPer: 22.30,
-    skillPer: 4.20,
+    foodPer: 22.3,
+    skillPer: 4.2,
     food: {
       type: [4, 7, 18],
       count: {
@@ -4711,8 +4711,8 @@ const pokedex = {
     maxcarry: 30,
     helpSpeed: 2800,
     berryType: 7,
-    foodPer: 20.90,
-    skillPer: 4.20
+    foodPer: 20.9,
+    skillPer: 4.2
   },
   980: {
     id: 980,
@@ -4724,8 +4724,8 @@ const pokedex = {
     maxcarry: 25,
     helpSpeed: 3500,
     berryType: 5,
-    foodPer: 20.80,
-    skillPer: 5.50
+    foodPer: 20.8,
+    skillPer: 5.5
   }
 }
 const initPokedex = () => {
