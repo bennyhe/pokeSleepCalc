@@ -24,7 +24,8 @@ import {
   getLevelIndexByEnergy,
   getSPOById,
   checkListInLastGet,
-  getSPOByScore
+  getSPOByScore,
+  getGameMapPokemons
 } from '../utils/sleep.js'
 import {
   get,
@@ -110,41 +111,7 @@ const sleepStyleAny = ref({
 })
 
 // 存储每个地图每个等级会出现的宝可梦
-const gameMapPokemons = [
-  // {
-  //   levelPokemons: [], //stage level pokemons
-  //   allPokemons: [] //all pokemons
-  // }
-]
-gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(
-    gitem.id,
-    gitem.levelList,
-    34
-  ).allUnlockSleepsList
-  gameMapPokemons.push({
-    levelPokemons: [],
-    allPokemons: []
-  })
-  curMapSleeps.forEach(sleepsItem => {
-    if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
-    }
-    if (
-      !gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
-        sleepsItem.pokeId
-      ) &&
-      !gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)
-    ) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(
-        sleepsItem.pokeId
-      )
-    }
-    if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
-      gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
-    }
-  })
-})
+const gameMapPokemons = getGameMapPokemons(gameMap)
 // console.log(gameMapPokemons)
 
 const setDefaultCutNumber = () => {

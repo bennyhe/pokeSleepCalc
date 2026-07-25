@@ -7,7 +7,7 @@ import { gameMap } from '../config/game.js'
 import {
   getRandomHopeWithMulti,
   getLevelIndexByEnergy,
-  getUnLockSleeps
+  getGameMapPokemons
 } from '../utils/sleep.js'
 import {
   getDecimalNumber,
@@ -109,45 +109,12 @@ const initOrUpdateChart = (chartId, options) => {
 }
 
 // 存储每个地图每个等级会出现的宝可梦
-const gameMapPokemons = [
-  // {
-  //   levelPokemons: [], //stage level pokemons
-  //   allPokemons: [] //all pokemons
-  // }
-]
+const gameMapPokemons = getGameMapPokemons(gameMap, {
+  withIdToLevelIndex: true
+})
 const orginChartShow = ref({})
-gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(
-    gitem.id,
-    gitem.levelList,
-    34
-  ).allUnlockSleepsList
-  gameMapPokemons.push({
-    levelPokemons: [],
-    allPokemons: [],
-    pokemonsIdToMapLevelIndex: {}
-  })
+gameMap.forEach(gitem => {
   orginChartShow.value[gitem.id] = false
-  curMapSleeps.forEach(sleepsItem => {
-    if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
-    }
-    if (
-      !gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
-        sleepsItem.pokeId
-      ) &&
-      !gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)
-    ) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(
-        sleepsItem.pokeId
-      )
-      gameMapPokemons[gkey].pokemonsIdToMapLevelIndex[sleepsItem.pokeId] =
-        sleepsItem.unLockLevel
-    }
-    if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
-      gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
-    }
-  })
 })
 // console.log(gameMapPokemons)
 pageData.value.chartShow = {

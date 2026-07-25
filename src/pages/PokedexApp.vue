@@ -17,7 +17,7 @@ import {
   containsAny,
   extractPrefix
 } from '../utils/index.js'
-import { getUnLockSleeps } from '../utils/sleep.js'
+import { getGameMapPokemons } from '../utils/sleep.js'
 
 import i18n from '../i18n'
 const { t } = i18n.global
@@ -36,58 +36,13 @@ const filterResGroup = ref({
 })
 
 // 存储每个地图每个等级会出现的宝可梦
-const gameMapPokemons = [
-  // {
-  //   levelPokemons: [], //stage level pokemons
-  //   allPokemons: [] //all pokemons
-  // }
-]
-gameMap.forEach((gitem, gkey) => {
-  const curMapSleeps = getUnLockSleeps(
-    gitem.id,
-    gitem.levelList,
-    34
-  ).allUnlockSleepsList
-  // console.log(curMapSleeps)
-  if (gitem.id === 'snow') {
-    gameMapPokemons.push({
-      //特殊宝可梦需提前写入配置
-      levelPokemons: [[491]],
-      allPokemons: [491],
-      pokemonsIdToMapLevelIndex: {
-        491: 0
-      }
-    })
-  } else {
-    gameMapPokemons.push({
-      //特殊宝可梦需提前写入配置
-      levelPokemons: [[151]],
-      allPokemons: [151],
-      pokemonsIdToMapLevelIndex: {
-        151: 0
-      }
-    })
-  }
-  curMapSleeps.forEach(sleepsItem => {
-    if (!gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel]) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel] = []
-    }
-    if (
-      !gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
-        sleepsItem.pokeId
-      ) &&
-      !gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)
-    ) {
-      gameMapPokemons[gkey].levelPokemons[sleepsItem.unLockLevel].push(
-        sleepsItem.pokeId
-      )
-      gameMapPokemons[gkey].pokemonsIdToMapLevelIndex[sleepsItem.pokeId] =
-        sleepsItem.unLockLevel
-    }
-    if (!gameMapPokemons[gkey].allPokemons.includes(sleepsItem.pokeId)) {
-      gameMapPokemons[gkey].allPokemons.push(sleepsItem.pokeId)
-    }
-  })
+const SP_POKEMONS_CONFIG = {
+  default: [{ pokeId: 151, level: 0 }],
+  snow: [{ pokeId: 491, level: 0 }]
+}
+const gameMapPokemons = getGameMapPokemons(gameMap, {
+  withIdToLevelIndex: true,
+  spPokemons: SP_POKEMONS_CONFIG
 })
 // console.log('gameMapPokemons', gameMapPokemons)
 

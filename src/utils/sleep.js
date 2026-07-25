@@ -91,6 +91,88 @@ export function getUnLockSleeps(mapId, levelList, curStageIndex) {
   }
 }
 
+/**
+ * 获取每个地图每个等级会出现的宝可梦
+ * @param {Array} gameMap - 地图配置数组
+ * @param {Object} options - 可选配置
+ * @param {boolean} options.withIdToLevelIndex - 是否生成 pokeId -> unLockLevel 映射
+ * @param {Object} options.spPokemons - 需要预填的特殊宝可梦
+ *   格式: { default: [{pokeId, level}], '<mapId>': [{pokeId, level}] }
+ * @returns {Array} gameMapPokemons
+ */
+export function getGameMapPokemons(gameMap, options = {}) {
+  const {
+    withIdToLevelIndex = false,
+    spPokemons = null
+  } = options
+
+  const result = []
+
+  gameMap.forEach((gitem, gkey) => {
+    const curMapSleeps = getUnLockSleeps(
+      gitem.id,
+      gitem.levelList,
+      34
+    ).allUnlockSleepsList
+
+    const mapData = {
+      levelPokemons: [],
+      allPokemons: []
+    }
+    if (withIdToLevelIndex) {
+      mapData.pokemonsIdToMapLevelIndex = {}
+    }
+
+    // 预填特殊宝可梦
+    if (spPokemons) {
+      const spList = spPokemons[gitem.id] || spPokemons.default
+      if (spList) {
+        spList.forEach(sp => {
+          if (!mapData.levelPokemons[sp.level]) {
+            mapData.levelPokemons[sp.level] = []
+          }
+          if (!mapData.levelPokemons[sp.level].includes(sp.pokeId)) {
+            mapData.levelPokemons[sp.level].push(sp.pokeId)
+          }
+          if (!mapData.allPokemons.includes(sp.pokeId)) {
+            mapData.allPokemons.push(sp.pokeId)
+          }
+          if (withIdToLevelIndex) {
+            mapData.pokemonsIdToMapLevelIndex[sp.pokeId] = sp.level
+          }
+        })
+      }
+    }
+
+    result.push(mapData)
+
+    curMapSleeps.forEach(sleepsItem => {
+      if (!result[gkey].levelPokemons[sleepsItem.unLockLevel]) {
+        result[gkey].levelPokemons[sleepsItem.unLockLevel] = []
+      }
+      if (
+        !result[gkey].levelPokemons[sleepsItem.unLockLevel].includes(
+          sleepsItem.pokeId
+        ) &&
+        !result[gkey].allPokemons.includes(sleepsItem.pokeId)
+      ) {
+        result[gkey].levelPokemons[sleepsItem.unLockLevel].push(
+          sleepsItem.pokeId
+        )
+        if (withIdToLevelIndex) {
+          result[gkey].pokemonsIdToMapLevelIndex[sleepsItem.pokeId] =
+            sleepsItem.unLockLevel
+        }
+      }
+      if (!result[gkey].allPokemons.includes(sleepsItem.pokeId)) {
+        result[gkey].allPokemons.push(sleepsItem.pokeId)
+      }
+    })
+  })
+
+  return result
+}
+
 
 const getShinyPoke = isShinyUp => {
   if (isShinyUp) {
