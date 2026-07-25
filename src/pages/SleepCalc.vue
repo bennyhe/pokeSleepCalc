@@ -111,7 +111,14 @@ const sleepStyleAny = ref({
 })
 
 // 存储每个地图每个等级会出现的宝可梦
-const gameMapPokemons = getGameMapPokemons(gameMap)
+const SP_POKEMONS_CONFIG = {
+  default: [{ pokeId: 151, level: 0 }],
+  snow: [{ pokeId: 491, level: 0 }]
+}
+const gameMapPokemons = getGameMapPokemons(gameMap, {
+  withIdToLevelIndex: true,
+  spPokemons: SP_POKEMONS_CONFIG
+})
 // console.log(gameMapPokemons)
 
 const setDefaultCutNumber = () => {
