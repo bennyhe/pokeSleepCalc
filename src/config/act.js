@@ -63,6 +63,27 @@ export const LAB_CONFIG = {
   upIdsLargeIds: [],
   noLastList: []
 }
+const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
+  const dayMs = (EndTime - startTime + 1000) / 3
+  const upIds = [35, 36, 173]
+  const makeDay = (offset, name, namejp, times, upKey) => {
+    const s = startTime + offset * dayMs
+    return {
+      name,
+      namejp,
+      startTime: s,
+      endTime: s + dayMs - 1000,
+      notArea: [],
+      [upKey]: upIds,
+      times
+    }
+  }
+  return [
+    makeDay(0, '好眠日', '満月の前後の日', 1.5, 'midUp'),
+    makeDay(1, '满月日', '満月の日', multiTimes, 'largeUp'),
+    makeDay(2, '好眠日', '満月の前後の日', 1.5, 'midUp')
+  ]
+}
 export const ACT_LIST = [
   //  {
   //    startTime: 1736078400000,
@@ -105,16 +126,7 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  {
-    name: '3週年紀念嘉年華第1週',
-    namejp: '3周年記念フェスティバル1週目',
-    startTime: 1783863264166,
-    endTime: 1784491199000,
-    notArea: [5],
-    midUp: [387, 390, 393],
-    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-    isActRandom: true
-  },
+  ...fnGetMoonDays(1785182400000, 1785441599000, 2.5),
   {
     name: '3週年紀念嘉年華第2週',
     namejp: '3周年記念フェスティバル2週目',

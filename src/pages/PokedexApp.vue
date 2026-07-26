@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
@@ -252,7 +252,7 @@ const handleClickFilterPokes = (typeKey, val) => {
     FILTER_OBJECT.value[typeKey].push(val)
   }
 }
-const getAfterFilterPoke = () => {
+const afterFilterPoke = computed(() => {
   const newRes = []
   const isUseFilter = true
   for (const key in pokedex) {
@@ -294,7 +294,7 @@ const getAfterFilterPoke = () => {
   }
   console.log(newRes.map(item => item.id))
   return newRes
-}
+})
 
 const isShowDialog = ref(false)
 const dialogId = ref(false)
@@ -441,10 +441,10 @@ onMounted(() => {
     </template>
     <!-- S 全图鉴 -->
     <template v-else>
-      <div class="poke-tb" v-if="getAfterFilterPoke().length > 0">
+      <div class="poke-tb" v-if="afterFilterPoke.length > 0">
         <div
           class="poke-tb__item"
-          v-for="pokemonsItem in getAfterFilterPoke()"
+          v-for="pokemonsItem in afterFilterPoke"
           v-bind:key="pokemonsItem.id"
           @click="handleClickPokemons(pokemonsItem.id)"
         >

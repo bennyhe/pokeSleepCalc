@@ -722,7 +722,7 @@ onMounted(() => {
 //   userData.value.curStageIndex,
 //   sleepStyleAny.value.list,
 //   sleepStyleAny.value.curSPO,
-//   getAfterClacSPO()
+//   afterClacSPO.value
 // )
 
 const getQuickChangeSleepPoint = () => {

@@ -2,6 +2,9 @@
 const markdownText = `
 # 更新日志
 
+## 26-07-26
+1. update 优化性能
+
 ## 26-07-25
 1. update 睡眠计算-当前地图的解锁宝可梦显示幻兽
 2. update 优化性能
