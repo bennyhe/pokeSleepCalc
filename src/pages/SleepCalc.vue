@@ -280,6 +280,66 @@ const getFilterInTypes = (arr, sleepType) => {
   return arr
 }
 
+// ===== 拆分睡眠模板 computed（避免模板中重复调用函数）=====
+const sleepCatchNum = computed(() => getSleepCatchNum())
+const sleepCatchNumMax = computed(() => getSleepCatchNum(99))
+const fullScore = computed(() => getScore(100))
+const fullScoreNum = computed(() => getNum(fullScore.value))
+const fullSleepCatchNumInMap = computed(() =>
+  getNumberInMap(fullScore.value, gameMap[userData.value.curMap].scoreList)
+)
+const firstSleepScoreVal = computed(() => getFirstSleepScore())
+const firstSleepTimeHM = computed(() =>
+  toHMInLang(firstSleepTime(), '', localeLangId.value)
+)
+const remainingTimeHM = computed(() =>
+  toHMInLang(8.5 - firstSleepTime(), '', localeLangId.value)
+)
+const firstSleepMins = computed(() =>
+  toHMInLang(firstSleepTime(), 'mm', localeLangId.value)
+)
+const remainingSleepMins = computed(() =>
+  toHMInLang(8.5 - firstSleepTime(), 'mm', localeLangId.value)
+)
+const firstSleepScoreNum = computed(() =>
+  getNum(getScore(firstSleepScoreVal.value))
+)
+const firstSleepTargetStartScore = computed(() =>
+  getTargetStartScore(firstSleepScoreVal.value)
+)
+const firstSleepTargetStartScoreNum = computed(() =>
+  getNum(firstSleepTargetStartScore.value)
+)
+const secondSleepScore = computed(() =>
+  getScore(100 - firstSleepScoreVal.value)
+)
+const secondSleepScoreNum = computed(() => getNum(secondSleepScore.value))
+const secondSleepCatchNum = computed(() =>
+  getNumberInMap(secondSleepScore.value, gameMap[userData.value.curMap].scoreList)
+)
+const lostVigourFull = computed(() => getLostVigour(8 * 60 + 30))
+const lostVigourFirst = computed(() => getLostVigour(firstSleepMins.value))
+const lostVigourSecond = computed(() => getLostVigour(remainingSleepMins.value))
+const targetStartScore100 = computed(() => getTargetStartScore(100))
+const canSplitSleep = computed(
+  () =>
+    userData.value.cutNum > 3 &&
+    userData.value.CurEnergy * 100 * userData.value.times >
+      targetStartScore100.value
+)
+const sleepSplitOptions = computed(() => {
+  const max = sleepCatchNumMax.value
+  const options = []
+  for (let cItem = 4; cItem <= max; cItem++) {
+    const secondNum = getNumberInMap(
+      getScore(100 - getFirstSleepScore(cItem)),
+      gameMap[userData.value.curMap].scoreList
+    )
+    options.push({ cItem, secondNum })
+  }
+  return options
+})
+
 const NOW_ACT = ref({})
 const findActNow = () => {
   const now = new Date().getTime()
@@ -1009,18 +1069,18 @@ const getQuickChangeSleepPoint = () => {
               一回フル睡眠（<span class="sptime">8時間30分</span>）で、<span
                 class="mobile-br"
                 ><CptProcss :score="100" />Get!、<span class="sptime"
-                  >{{ getSleepCatchNum() }}匹</span
+                  >{{ sleepCatchNum }}匹</span
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
-                ><span class="spscore">{{ getNum(getScore(100)) }}</span
+                ><span class="spscore">{{ fullScoreNum }}</span
                 >の{{ $t("PROP.dpr") }}獲得、</span
-              >約<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+              >約<span class="vigour">{{ lostVigourFull }}</span
               >げんき消費。
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() < 8 && nextScoreDiff > 0">
+          <el-form-item v-if="sleepCatchNum < 8 && nextScoreDiff > 0">
             <p>
-              <span class="sptime">{{ getSleepCatchNum() + 1 }}匹</span
+              <span class="sptime">{{ sleepCatchNum + 1 }}匹</span
               >捕獲まで<span class="sptime"
                 ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
                   nextScoreDiff
@@ -1028,116 +1088,64 @@ const getQuickChangeSleepPoint = () => {
               >エナジーが必要
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum(99) > 3">
+          <el-form-item v-if="sleepCatchNumMax > 3">
             <el-input-number
               v-model="userData.cutNum"
               :min="4"
-              :max="getSleepCatchNum(99)"
+              :max="sleepCatchNumMax"
               :step="1"
             />匹で分割睡眠
             <div
               class="mt3"
               style="width: 100%"
-              v-if="
-                userData.CurEnergy > 0 &&
-                getNumberInMap(
-                  getScore(100),
-                  gameMap[userData.curMap].scoreList
-                ) > 3
-              "
+              v-if="userData.CurEnergy > 0 && fullSleepCatchNumInMap > 3"
             >
               <el-radio-group
                 v-model="userData.cutNum"
                 size="small"
                 fill="#4caf50"
               >
-                <template
-                  v-for="(cItem, cKey) in getSleepCatchNum(99)"
-                  v-bind:key="cKey"
+                <el-radio-button
+                  v-for="opt in sleepSplitOptions"
+                  :key="opt.cItem"
+                  :label="opt.cItem"
                 >
-                  <template v-if="cKey >= 3">
-                    <el-radio-button :label="cItem">
-                      {{
-                        cItem +
-                        getNumberInMap(
-                          getScore(100 - getFirstSleepScore(cItem)),
-                          gameMap[userData.curMap].scoreList
-                        )
-                      }}{{ $t("OPTIONS.one") }}({{ cItem }}+{{
-                        getNumberInMap(
-                          getScore(100 - getFirstSleepScore(cItem)),
-                          gameMap[userData.curMap].scoreList
-                        )
-                      }})
-                    </el-radio-button>
-                  </template>
-                </template>
+                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{ opt.cItem }}+{{ opt.secondNum }})
+                </el-radio-button>
               </el-radio-group>
             </div>
           </el-form-item>
-          <el-form-item
-            label="第1回目寝"
-            v-if="
-              userData.cutNum > 3 &&
-              userData.CurEnergy * 100 * userData.times >
-                getTargetStartScore(100)
-            "
-          >
+          <el-form-item label="第1回目寝" v-if="canSplitSleep">
             <p>
-              必須睡眠時間（<span class="sptime">{{
-                toHMInLang(firstSleepTime(), "", localeLangId)
-              }}</span
+              必須睡眠時間（<span class="sptime">{{ firstSleepTimeHM }}</span
               >）で、<span class="mobile-br"
-                ><CptProcss :score="getFirstSleepScore()" />Get!、<span
+                ><CptProcss :score="firstSleepScoreVal" />Get!、<span
                   class="sptime"
                   >{{ userData.cutNum }}匹</span
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
                 ><span class="spscore"
-                  >{{ getNum(getScore(getFirstSleepScore()))
-                  }}<span class="spscore__extra"
-                    >({{
-                      getNum(getTargetStartScore(getFirstSleepScore()))
-                    }})</span
+                  >{{ firstSleepScoreNum }}<span class="spscore__extra"
+                    >({{ firstSleepTargetStartScoreNum }})</span
                   ></span
                 >の{{ $t("PROP.dpr") }}獲得、</span
               >
-              約<span class="vigour">{{
-                getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
-              }}</span
+              約<span class="vigour">{{ lostVigourFirst }}</span
               >げんき消費。
             </p>
           </el-form-item>
-          <el-form-item
-            label="第2回目寝"
-            v-if="
-              userData.cutNum > 3 &&
-              userData.CurEnergy * 100 * userData.times >
-                getTargetStartScore(100)
-            "
-          >
+          <el-form-item label="第2回目寝" v-if="canSplitSleep">
             <p>
-              残り睡眠時間（<span class="sptime">{{
-                toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
-              }}</span
+              残り睡眠時間（<span class="sptime">{{ remainingTimeHM }}</span
               >）で、<span class="mobile-br"
-                ><CptProcss :score="100 - getFirstSleepScore()" />Get!、<span
+                ><CptProcss :score="100 - firstSleepScoreVal" />Get!、<span
                   class="sptime"
-                  >{{
-                    getNumberInMap(
-                      getScore(100 - getFirstSleepScore()),
-                      gameMap[userData.curMap].scoreList
-                    )
-                  }}匹</span
+                  >{{ secondSleepCatchNum }}匹</span
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
-                ><span class="spscore">{{
-                  getNum(getScore(100 - getFirstSleepScore()))
-                }}</span
+                ><span class="spscore">{{ secondSleepScoreNum }}</span
                 >の{{ $t("PROP.dpr") }}獲得、</span
-              >約<span class="vigour">{{
-                getLostVigour(toHMInLang(8.5 - firstSleepTime(), "mm"))
-              }}</span
+              >約<span class="vigour">{{ lostVigourSecond }}</span
               >げんき消費。
             </p>
           </el-form-item>
@@ -1148,20 +1156,20 @@ const getQuickChangeSleepPoint = () => {
               <span class="mobile-br"
                 >满睡眠<span class="sptime">8小时30分钟</span>，可捕捉<span
                   class="sptime"
-                  >{{ getSleepCatchNum() }}只</span
+                  >{{ sleepCatchNum }}只</span
                 >，</span
               ><span class="mobile-br"
                 ><CptProcss :score="100" />分，获得<span class="spscore">{{
-                  getNum(getScore(100))
+                  fullScoreNum
                 }}</span
                 >{{ $t("PROP.dpr") }}</span
-              >，掉<span class="vigour">{{ getLostVigour(8 * 60 + 30) }}</span
+              >，掉<span class="vigour">{{ lostVigourFull }}</span
               >点活力
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum() < 8 && nextScoreDiff > 0">
+          <el-form-item v-if="sleepCatchNum < 8 && nextScoreDiff > 0">
             <p>
-              距离抓<span class="sptime">{{ getSleepCatchNum() + 1 }}只</span
+              距离抓<span class="sptime">{{ sleepCatchNum + 1 }}只</span
               >还需<span class="sptime"
                 ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
                   nextScoreDiff
@@ -1169,115 +1177,63 @@ const getQuickChangeSleepPoint = () => {
               >能量
             </p>
           </el-form-item>
-          <el-form-item v-if="getSleepCatchNum(99) > 3">
+          <el-form-item v-if="sleepCatchNumMax > 3">
             按<el-input-number
               v-model="userData.cutNum"
               :min="4"
-              :max="getSleepCatchNum(99)"
+              :max="sleepCatchNumMax"
               :step="1"
             />只拆分睡眠
             <div
               class="mt3"
               style="width: 100%"
-              v-if="
-                userData.CurEnergy > 0 &&
-                getNumberInMap(
-                  getScore(100),
-                  gameMap[userData.curMap].scoreList
-                ) > 3
-              "
+              v-if="userData.CurEnergy > 0 && fullSleepCatchNumInMap > 3"
             >
               <el-radio-group
                 v-model="userData.cutNum"
                 size="small"
                 fill="#4caf50"
               >
-                <template
-                  v-for="(cItem, cKey) in getSleepCatchNum(99)"
-                  v-bind:key="cKey"
+                <el-radio-button
+                  v-for="opt in sleepSplitOptions"
+                  :key="opt.cItem"
+                  :label="opt.cItem"
                 >
-                  <template v-if="cKey >= 3">
-                    <el-radio-button :label="cItem">
-                      {{
-                        cItem +
-                        getNumberInMap(
-                          getScore(100 - getFirstSleepScore(cItem)),
-                          gameMap[userData.curMap].scoreList
-                        )
-                      }}{{ $t("OPTIONS.one") }}({{ cItem }}+{{
-                        getNumberInMap(
-                          getScore(100 - getFirstSleepScore(cItem)),
-                          gameMap[userData.curMap].scoreList
-                        )
-                      }})
-                    </el-radio-button>
-                  </template>
-                </template>
+                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{ opt.cItem }}+{{ opt.secondNum }})
+                </el-radio-button>
               </el-radio-group>
             </div>
           </el-form-item>
-          <el-form-item
-            label="第1觉"
-            v-if="
-              userData.cutNum > 3 &&
-              userData.CurEnergy * 100 * userData.times >
-                getTargetStartScore(100)
-            "
-          >
+          <el-form-item label="第1觉" v-if="canSplitSleep">
             <p>
               <span class="mobile-br"
-                >所需睡眠<span class="sptime">{{
-                  toHMInLang(firstSleepTime(), "", localeLangId)
-                }}</span
+                >所需睡眠<span class="sptime">{{ firstSleepTimeHM }}</span
                 >，可捕捉<span class="sptime">{{ userData.cutNum }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss :score="getFirstSleepScore()" />分，获得<span
+                ><CptProcss :score="firstSleepScoreVal" />分，获得<span
                   class="spscore"
-                  >{{ getNum(getScore(getFirstSleepScore()))
-                  }}<span class="spscore__extra"
-                    >({{
-                      getNum(getTargetStartScore(getFirstSleepScore()))
-                    }})</span
+                  >{{ firstSleepScoreNum }}<span class="spscore__extra"
+                    >({{ firstSleepTargetStartScoreNum }})</span
                   ></span
                 >+{{ $t("PROP.dpr") }}</span
-              >，掉<span class="vigour">{{
-                getLostVigour(toHMInLang(firstSleepTime(), "mm", localeLangId))
-              }}</span
+              >，掉<span class="vigour">{{ lostVigourFirst }}</span
               >点活力
             </p>
           </el-form-item>
-          <el-form-item
-            label="第2觉"
-            v-if="
-              userData.cutNum > 3 &&
-              userData.CurEnergy * 100 * userData.times >
-                getTargetStartScore(100)
-            "
-          >
+          <el-form-item label="第2觉" v-if="canSplitSleep">
             <p>
               <span class="mobile-br"
-                >剩余睡眠<span class="sptime">{{
-                  toHMInLang(8.5 - firstSleepTime(), "", localeLangId)
-                }}</span
+                >剩余睡眠<span class="sptime">{{ remainingTimeHM }}</span
                 >，可捕捉<span class="sptime"
-                  >{{
-                    getNumberInMap(
-                      getScore(100 - getFirstSleepScore()),
-                      gameMap[userData.curMap].scoreList
-                    )
-                  }}只</span
+                  >{{ secondSleepCatchNum }}只</span
                 >，</span
               ><span class="mobile-br"
-                ><CptProcss :score="100 - getFirstSleepScore()" />分，获得<span
+                ><CptProcss :score="100 - firstSleepScoreVal" />分，获得<span
                   class="spscore"
-                  >{{ getNum(getScore(100 - getFirstSleepScore())) }}</span
+                  >{{ secondSleepScoreNum }}</span
                 >+{{ $t("PROP.dpr") }}</span
-              >，掉<span class="vigour">{{
-                getLostVigour(
-                  toHMInLang(8.5 - firstSleepTime(), "mm", localeLangId)
-                )
-              }}</span
+              >，掉<span class="vigour">{{ lostVigourSecond }}</span
               >点活力
             </p>
           </el-form-item>
