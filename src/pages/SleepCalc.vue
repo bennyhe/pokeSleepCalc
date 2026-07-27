@@ -416,67 +416,48 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     }
   )
   // 随机个体
-  res.forEach((sleepItem, key) => {
-    sleepItem.iv = getRandomIV(sleepItem.pokeId, {
-      isFirst243: userSleep.value.isFirst243,
-      isFirst244: userSleep.value.isFirst244,
-      isFirst245: userSleep.value.isFirst245,
-      isFirst488: userSleep.value.isFirst488,
-      isFirst380: userSleep.value.isFirst380,
-      isFirst381: userSleep.value.isFirst381,
-      lockSkillCount: userData.value.lockSkillCount
+  // 首遇锁技能宝可梦ID列表
+  const FIRST_LOCK_IDS = [243, 244, 245, 488, 380, 381]
+  // 构建 getRandomIV 的首遇参数
+  const buildIVOptions = lockSkillCount => {
+    const opts = { lockSkillCount }
+    FIRST_LOCK_IDS.forEach(id => {
+      opts[`isFirst${id}`] = userSleep.value[`isFirst${id}`]
     })
-    if (userSleep.value.isFirst243 && sleepItem.pokeId === 243) {
-      userSleep.value.isFirst243 = false
-    }
-    if (userSleep.value.isFirst244 && sleepItem.pokeId === 244) {
-      userSleep.value.isFirst244 = false
-    }
-    if (userSleep.value.isFirst245 && sleepItem.pokeId === 245) {
-      userSleep.value.isFirst245 = false
-    }
-    if (userSleep.value.isFirst488 && sleepItem.pokeId === 488) {
-      userSleep.value.isFirst488 = false
-    }
-    if (userSleep.value.isFirst380 && sleepItem.pokeId === 380) {
-      userSleep.value.isFirst380 = false
-    }
-    if (userSleep.value.isFirst381 && sleepItem.pokeId === 381) {
-      userSleep.value.isFirst381 = false
-    }
+    return opts
+  }
 
+  res.forEach(sleepItem => {
+    sleepItem.iv = getRandomIV(sleepItem.pokeId, buildIVOptions(userData.value.lockSkillCount))
+
+    // 标记首遇宝可梦已遇到
+    FIRST_LOCK_IDS.forEach(id => {
+      if (userSleep.value[`isFirst${id}`] && sleepItem.pokeId === id) {
+        userSleep.value[`isFirst${id}`] = false
+      }
+    })
+
+    // 根据好友度计算地图锁技能等级
+    const friendship = catchPokeState.value.friendshipLevel[sleepItem.pokeId] || 0
     let isCurPokeMapLock = 0
-    if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 99) {
+    if (friendship >= 99) {
       isCurPokeMapLock = 3
-    } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 39) {
+    } else if (friendship >= 39) {
       isCurPokeMapLock = 2
-    } else if (catchPokeState.value.friendshipLevel[sleepItem.pokeId] >= 9) {
+    } else if (friendship >= 9) {
       isCurPokeMapLock = 1
     }
     if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
       catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
     }
-    sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, {
-      isFirst243: userSleep.value.isFirst243,
-      isFirst244: userSleep.value.isFirst244,
-      isFirst245: userSleep.value.isFirst245,
-      isFirst488: userSleep.value.isFirst488,
-      isFirst380: userSleep.value.isFirst380,
-      isFirst381: userSleep.value.isFirst381,
-      lockSkillCount: isCurPokeMapLock
-    })
+    sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, buildIVOptions(isCurPokeMapLock))
 
-    sleepItem.isScaleX = parseInt(Math.floor(Math.random() * 2), 10)
+    sleepItem.isScaleX = Math.floor(Math.random() * 2)
     sleepItem.eatStateType = 3
 
-    // 贪吃判定，闪光必贪吃，露营券必贪吃，其它10%贪吃
-    if (sleepItem.isShiny || sleepItem.isUseTicket) {
+    // 贪吃判定：闪光必贪吃，露营券必贪吃，其它10%贪吃
+    if (sleepItem.isShiny || sleepItem.isUseTicket || Math.floor(Math.random() * 100) <= 10) {
       sleepItem.eatStateType = 1
-    } else {
-      const rdmRes = parseInt(Math.floor(Math.random() * 100), 10) <= 10
-      if (rdmRes) {
-        sleepItem.eatStateType = 1
-      }
     }
   })
   calcPositions(res)
