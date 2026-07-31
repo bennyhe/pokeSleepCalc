@@ -899,8 +899,12 @@ h4 {
 
   &--energy {
     .cpt-food__item {
-      width: 20px;
-      margin: 0 2px;
+      width: 22px;
+      margin: 0 3px;
+
+      img {
+        height: 22px;
+      }
     }
   }
 }
