@@ -20,7 +20,7 @@ import { pokedex } from '../../config/pokedex.js'
         class="icon"
         v-lazy="`./img/pokedex/${pokeItem.id}.png`"
         :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-        v-bind:key="pokeItem.id"
+        :key="pokeItem.id"
       />
       {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-#{{ pokeItem.id }}
     </el-option>

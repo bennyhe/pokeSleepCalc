@@ -40,13 +40,13 @@ const handleChangePokemon = pokeId => {}
     <!-- <p>最后更新：{{ formatTime(masterRes.updateTime) }}</p> -->
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
   </div>
-  <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" v-bind:key="iltKey">
+  <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" :key="iltKey">
     <img
       v-for="pokes in iltItem.ids"
       class="icon"
       v-lazy="`./img/pokedex/${pokes}.png`"
       :alt="$t(`POKEMON_NAME.${pokes}`)"
-      v-bind:key="pokes"
+      :key="pokes"
     />
     {{
       formatTime(
@@ -66,7 +66,7 @@ const handleChangePokemon = pokeId => {}
     <li
       @click="handleClickChangeMap(mapIndex)"
       v-for="(mapItem, mapIndex) in gameMap"
-      v-bind:key="mapItem.id"
+      :key="mapItem.id"
     >
       <div
         class="cpt-select-list__item"
@@ -85,7 +85,7 @@ const handleChangePokemon = pokeId => {}
       </div>
       <template
         v-for="(cItem, cKey) in SLEEP_TYPES"
-        v-bind:key="`${mapItem.id}_${tdKey}_${cItem}`"
+        :key="`${mapItem.id}_${tdKey}_${cItem}`"
       >
         <span style="display: inline-block; width: 30px">
           <template
@@ -93,11 +93,11 @@ const handleChangePokemon = pokeId => {}
               mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
               mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
             )"
-            v-bind:key="`${mapItem.id}_${tdKey}`"
+            :key="`${mapItem.id}_${tdKey}`"
           >
             <template
               v-for="hopeItem in tdItem.res.slice(0, 1)"
-              v-bind:key="hopeItem.pokeId"
+              :key="hopeItem.pokeId"
             >
               <CptAvatar :pokeId="hopeItem.pokeId">
                 <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
@@ -110,11 +110,11 @@ const handleChangePokemon = pokeId => {}
                 mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
                 mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum + 1
               )"
-              v-bind:key="`${mapItem.id}2_${tdKey}`"
+              :key="`${mapItem.id}2_${tdKey}`"
             >
               <template
                 v-for="hopeItem in tdItem.res.slice(0, 1)"
-                v-bind:key="hopeItem.pokeId"
+                :key="hopeItem.pokeId"
               >
                 <CptAvatar :pokeId="hopeItem.pokeId">
                   <p>
@@ -144,7 +144,7 @@ const handleChangePokemon = pokeId => {}
           <td></td>
           <td
             v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="`${tdKey}_${cItem}`"
+            :key="`${tdKey}_${cItem}`"
           >
             <div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
               {{ $t(`SLEEP_TYPES.${cKey}`) }}
@@ -153,7 +153,7 @@ const handleChangePokemon = pokeId => {}
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(mapItem, mapKey) in gameMap" v-bind:key="mapItem.id">
+        <tr v-for="(mapItem, mapKey) in gameMap" :key="mapItem.id">
           <td>
             <div class="cpt-select-list__item cur">
               <div class="cpt-select-list__name">
@@ -170,18 +170,18 @@ const handleChangePokemon = pokeId => {}
           </td>
           <td
             v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="`${tdKey}_${cItem}`"
+            :key="`${tdKey}_${cItem}`"
           >
             <template
               v-for="(tdItem, tdKey) in masterRes.level20.peaceTime.list.slice(
                 mapKey + sleepTypeToIndex[cKey] * pageData.areaNum,
                 mapKey + sleepTypeToIndex[cKey] * pageData.areaNum + 1
               )"
-              v-bind:key="`${gameMap[mapKey].id}_${tdKey}`"
+              :key="`${gameMap[mapKey].id}_${tdKey}`"
             >
               <template
                 v-for="hopeItem in tdItem.res"
-                v-bind:key="hopeItem.pokeId"
+                :key="hopeItem.pokeId"
               >
                 <template v-if="pageData.pokemonId === hopeItem.pokeId">
                   <CptAvatar :pokeId="hopeItem.pokeId" :class="'cur-poke'">
@@ -199,11 +199,11 @@ const handleChangePokemon = pokeId => {}
                   mapKey + sleepTypeToIndex[cKey] * pageData.areaNum,
                   mapKey + sleepTypeToIndex[cKey] * pageData.areaNum + 1
                 )"
-                v-bind:key="`${gameMap[mapKey].id}_${tdKey}`"
+                :key="`${gameMap[mapKey].id}_${tdKey}`"
               >
                 <template
                   v-for="hopeItem in tdItem.res"
-                  v-bind:key="hopeItem.pokeId"
+                  :key="hopeItem.pokeId"
                 >
                   <template v-if="pageData.pokemonId === hopeItem.pokeId">
                     -{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}-
@@ -219,7 +219,7 @@ const handleChangePokemon = pokeId => {}
   <div
     class="page-master__list"
     v-for="(cItem, cKey) in SLEEP_TYPES"
-    v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}_${cItem}`"
+    :key="`${gameMap[pageData.curMap].id}_${tdKey}_${cItem}`"
   >
     <div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
       {{ $t(`SLEEP_TYPES.${cKey}`) }}
@@ -236,7 +236,7 @@ const handleChangePokemon = pokeId => {}
         pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
         pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
       )"
-      v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
+      :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
     >
       <h3>
         <img class="icon" v-lazy="`./img/ui/energy.png`" />
@@ -247,7 +247,7 @@ const handleChangePokemon = pokeId => {}
       </h3>
       <template
         v-for="(hopeItem, hopeKey) in tdItem.res"
-        v-bind:key="hopeItem.pokeId"
+        :key="hopeItem.pokeId"
       >
         <CptAvatar
           :pokeId="hopeItem.pokeId"
@@ -274,7 +274,7 @@ const handleChangePokemon = pokeId => {}
           pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
           pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
         )"
-        v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
+        :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
         <h3>
           <img class="icon" v-lazy="`./img/ui/energy.png`" />
@@ -285,7 +285,7 @@ const handleChangePokemon = pokeId => {}
         </h3>
         <template
           v-for="(hopeItem, hopeKey) in tdItem.res"
-          v-bind:key="hopeItem.pokeId"
+          :key="hopeItem.pokeId"
         >
           <CptAvatar
             :pokeId="hopeItem.pokeId"
@@ -313,7 +313,7 @@ const handleChangePokemon = pokeId => {}
           pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum,
           pageData.curMap + sleepTypeToIndex[cKey] * pageData.areaNum + 1
         )"
-        v-bind:key="`${gameMap[pageData.curMap].id}_${tdKey}`"
+        :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
         <h3>
           <img class="icon" v-lazy="`./img/ui/energy.png`" />
@@ -324,7 +324,7 @@ const handleChangePokemon = pokeId => {}
         </h3>
         <template
           v-for="(hopeItem, hopeKey) in tdItem.res"
-          v-bind:key="hopeItem.pokeId"
+          :key="hopeItem.pokeId"
         >
           <CptAvatar
             :pokeId="hopeItem.pokeId"

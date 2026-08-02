@@ -57,7 +57,7 @@ const pokeBall = [
       <div class="lottery-map">
         <template
           v-for="(sleepItem, sleepKey) in resList"
-          v-bind:key="`map${sleepItem.id}${sleepKey}`"
+          :key="`map${sleepItem.id}${sleepKey}`"
         >
           <div
             class="lottery-map__item"
@@ -116,7 +116,7 @@ const pokeBall = [
                         :class="{
                           get: key < catchPokeFriendship[sleepItem.pokeId],
                         }"
-                        v-bind:key="`row1_${
+                        :key="`row1_${
                           sleepItem.id
                         }${sleepKey}${Math.random()}_fs${key}`"
                       >
@@ -140,7 +140,7 @@ const pokeBall = [
                               ) <
                             catchPokeFriendship[sleepItem.pokeId],
                         }"
-                        v-bind:key="`row1_${
+                        :key="`row1_${
                           sleepItem.id
                         }${sleepKey}${Math.random()}_fs${
                           key +
@@ -159,7 +159,7 @@ const pokeBall = [
                       :class="{
                         get: key < catchPokeFriendship[sleepItem.pokeId],
                       }"
-                      v-bind:key="`${
+                      :key="`${
                         sleepItem.id
                       }${sleepKey}${Math.random()}_fs${key}`"
                     >
@@ -192,7 +192,7 @@ const pokeBall = [
         </template>
         <!-- <template
                   v-for="sleepItem in 14"
-                  v-bind:key="`123${sleepItem}`"
+                  :key="`123${sleepItem}`"
                 >
                   <div class="lottery-map__item" :class="[`lottery-map__item--${sleepItem}`]">
                     <CptPoke :pokeId="resList[0].pokeId" />
@@ -215,7 +215,7 @@ const pokeBall = [
           disabled: hasBall[ballItem.id] === 0,
         }"
         v-for="ballItem in pokeBall"
-        v-bind:key="ballItem.id"
+        :key="ballItem.id"
         @click="handleClickPokeBll(ballItem.id)"
       >
         <div class="lottery-map__pokeball-info">

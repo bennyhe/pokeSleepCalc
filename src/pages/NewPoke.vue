@@ -104,25 +104,25 @@ onMounted(() => {
               <th
                 style="width: 96px"
                 v-for="item in NewPokesByDate"
-                v-bind:key="item.year"
+                :key="item.year"
               >
                 {{ item.year }}年
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="monthItem in 12" v-bind:key="monthItem">
+            <tr v-for="monthItem in 12" :key="monthItem">
               <td>{{ monthItem }}月</td>
               <td
                 v-for="item in NewPokesByDate"
-                v-bind:key="item.year"
+                :key="item.year"
                 class="map-pokemons__item"
                 :class="{ 'td-none': item.list[monthItem - 1].length === 0 }"
               >
                 <CptAvater
                   v-for="pokemonsItem in item.list[monthItem - 1]"
                   :pokeId="pokemonsItem"
-                  v-bind:key="pokemonsItem"
+                  :key="pokemonsItem"
                 />
               </td>
             </tr>
@@ -132,7 +132,7 @@ onMounted(() => {
     </el-popover>
   </h2>
   <ul class="cpt-list">
-    <li v-for="updateItem in newUpdatePoke" v-bind:key="updateItem.time">
+    <li v-for="updateItem in newUpdatePoke" :key="updateItem.time">
       <h3>
         {{ formatTime(updateItem.time, "YY年MM月")
         }}<span class="extra"
@@ -143,7 +143,7 @@ onMounted(() => {
         <div
           class="poke-tb__item"
           v-for="pokemonsItem in updateItem.pokemons"
-          v-bind:key="pokemonsItem"
+          :key="pokemonsItem"
         >
           <CptPoke
             :pokeId="pokemonsItem"

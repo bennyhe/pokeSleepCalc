@@ -288,7 +288,7 @@ console.log('init page onedayenergy...')
           <li
             class="cpt-select-list__item"
             v-if="!(mapItem.id.indexOf('berry_') > -1)"
-            v-bind:key="mapItem.id"
+            :key="mapItem.id"
             :class="{ cur: pageData.curMap === mapIndex }"
             @click="handleClickChangeMap(mapIndex)"
           >
@@ -298,7 +298,7 @@ console.log('init page onedayenergy...')
                 <div
                   class="cpt-food cpt-food--s berry"
                   v-for="(berryItem, berryKey) in mapItem.berry"
-                  v-bind:key="berryKey"
+                  :key="berryKey"
                 >
                   <div class="cpt-food__item">
                     <img
@@ -329,7 +329,7 @@ console.log('init page onedayenergy...')
           <li
             class="cpt-select-list__item"
             v-if="mapItem.id.indexOf('berry_') > -1"
-            v-bind:key="mapItem.id"
+            :key="mapItem.id"
             :class="{ cur: pageData.curMap === mapIndex }"
             @click="handleClickChangeMap(mapIndex)"
           >
@@ -339,7 +339,7 @@ console.log('init page onedayenergy...')
                 <div
                   class="cpt-food cpt-food--s berry"
                   v-for="(berryItem, berryKey) in mapItem.berry"
-                  v-bind:key="berryKey"
+                  :key="berryKey"
                 >
                   <div class="cpt-food__item">
                     <img
@@ -426,7 +426,7 @@ console.log('init page onedayenergy...')
         'all',
         10
       )"
-      v-bind:key="`area${pageData.curMap}_${
+      :key="`area${pageData.curMap}_${
         pokeItem.pokemonId
       }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}_2`"
     >
@@ -475,7 +475,7 @@ console.log('init page onedayenergy...')
           pokeKey <
             (pageData.curPageIndex - 1) * pageData.pageSize + pageData.pageSize
         "
-        v-bind:key="`area${pageData.curMap}_${
+        :key="`area${pageData.curMap}_${
           pokeItem.pokemonId
         }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}`"
       />

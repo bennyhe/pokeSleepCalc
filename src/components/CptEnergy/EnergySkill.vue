@@ -64,7 +64,7 @@ const props = defineProps({
           class="cpt-food__item cur"
           v-for="(foodItem, foodKey) in dataSource.oneDaySkillEffects.skillExtra
             .foods"
-          v-bind:key="foodKey"
+          :key="foodKey"
         >
           <img
             v-lazy="`./img/food/${foodItem.foodType}.png`"
@@ -102,7 +102,7 @@ const props = defineProps({
           class="cpt-food__item cur"
           v-for="(foodItem, foodKey) in dataSource.oneDayFoodEnergy
             .useFoods"
-          v-bind:key="foodKey"
+          :key="foodKey"
         >
           <img
             v-lazy="`./img/food/${foodItem}.png`"

@@ -530,7 +530,7 @@ onBeforeUnmount(() => {
         </el-select>
       </div>
       <ul class="cpt-select-list">
-        <template v-for="(mapItem, mapKey) in gameMap" v-bind:key="mapItem.id">
+        <template v-for="(mapItem, mapKey) in gameMap" :key="mapItem.id">
           <li
             class="cpt-select-list__item cur"
             v-if="
@@ -585,7 +585,7 @@ onBeforeUnmount(() => {
         <el-checkbox
           :label="cKey"
           v-for="(cItem, cKey) in SLEEP_TYPES"
-          v-bind:key="cItem"
+          :key="cItem"
           @change="handleChangeSleepTypes"
           ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
             {{ $t(`SLEEP_TYPES.${cKey}`) }}
@@ -629,7 +629,7 @@ onBeforeUnmount(() => {
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.noLastList"
-        v-bind:key="`noLast_${pokeId}`"
+        :key="`noLast_${pokeId}`"
       />
     </el-form-item>
     <el-form-item label="大UP">
@@ -693,7 +693,7 @@ onBeforeUnmount(() => {
       <el-button @click="handleClickGet('allMap')">计算结果</el-button>
     </el-form-item>
   </el-form>
-  <template v-for="(cItem, cKey) in SLEEP_TYPES" v-bind:key="`${cKey}-echart`">
+  <template v-for="(cItem, cKey) in SLEEP_TYPES" :key="`${cKey}-echart`">
     <div
       class="chart-item"
       :class="{ hide: !pageData.chartShow[`st${cKey}`] }"
@@ -701,7 +701,7 @@ onBeforeUnmount(() => {
       style="height: 450px"
     ></div>
   </template>
-  <template v-for="mapItem in gameMap" v-bind:key="`${mapItem.id}-echart`">
+  <template v-for="mapItem in gameMap" :key="`${mapItem.id}-echart`">
     <div
       class="chart-item"
       :class="{ hide: !pageData.chartShow[mapItem.id] }"
@@ -711,7 +711,7 @@ onBeforeUnmount(() => {
   </template>
   <!-- <template
     v-for="iLandItem in testData"
-    v-bind:key="`${iLandItem.curMap}-${iLandItem.sleepType}`"
+    :key="`${iLandItem.curMap}-${iLandItem.sleepType}`"
   >
     <h2>
       {{ $t(`ILAND.${iLandItem.curMap}`) }}-{{
@@ -720,7 +720,7 @@ onBeforeUnmount(() => {
     </h2>
     <div
       v-for="tdItem in iLandItem.res"
-      v-bind:key="`${iLandItem.curMap}-${iLandItem.sleepType}-${tdItem.allPoint}`"
+      :key="`${iLandItem.curMap}-${iLandItem.sleepType}-${tdItem.allPoint}`"
     >
       <h3>
         <img class="icon" v-lazy="`./img/ui/energy.png`" />
@@ -732,7 +732,7 @@ onBeforeUnmount(() => {
       <div class="page-inner">
         <CptAvatar
           v-for="hopeItem in tdItem.res"
-          v-bind:key="hopeItem.pokeId"
+          :key="hopeItem.pokeId"
           :pokeId="hopeItem.pokeId"
         >
           <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>

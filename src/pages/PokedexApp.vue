@@ -354,7 +354,7 @@ onMounted(() => {
       <div
         class="pokedex-list__item"
         v-for="resItem in filterResGroup[curFilter]"
-        v-bind:key="resItem.id"
+        :key="resItem.id"
       >
         <h3>
           {{ resItem.title }}
@@ -373,7 +373,7 @@ onMounted(() => {
               <div class="cpt-foodmenu-scroll cpt-foodmenu-scroll--singlerow">
                 <CptFoodmenu
                   v-for="menuItem in resItem.menuList"
-                  v-bind:key="menuItem.id"
+                  :key="menuItem.id"
                   :menuItem="menuItem"
                 />
               </div>
@@ -381,7 +381,7 @@ onMounted(() => {
             <div
               class="poke-tb__col"
               v-for="(levelItem, levelKey) in 3"
-              v-bind:key="`${resItem.id}_${levelKey}`"
+              :key="`${resItem.id}_${levelKey}`"
             >
               <h4>
                 Lv.{{ resItem[`level${levelKey}List`].subTitle }}
@@ -414,7 +414,7 @@ onMounted(() => {
                   v-for="(pokemonsItem, pokemonKey) in resItem[
                     `level${levelKey}List`
                   ].subList"
-                  v-bind:key="pokemonsItem.name"
+                  :key="pokemonsItem.name"
                 >
                   <CptPoke
                     :pokeId="pokemonsItem.id"
@@ -428,7 +428,7 @@ onMounted(() => {
             <div
               class="poke-tb__item"
               v-for="(pokemonsItem, pokemonKey) in resItem.list"
-              v-bind:key="pokemonsItem.name"
+              :key="pokemonsItem.name"
             >
               <CptPoke
                 :pokeId="pokemonsItem.id"
@@ -445,7 +445,7 @@ onMounted(() => {
         <div
           class="poke-tb__item"
           v-for="pokemonsItem in afterFilterPoke"
-          v-bind:key="pokemonsItem.id"
+          :key="pokemonsItem.id"
           @click="handleClickPokemons(pokemonsItem.id)"
         >
           <CptPoke
@@ -455,7 +455,7 @@ onMounted(() => {
           <ul class="cpt-select-list">
             <template
               v-for="(mapItem, mapKey) in gameMap"
-              v-bind:key="mapItem.id"
+              :key="mapItem.id"
             >
               <li
                 class="cpt-select-list__item cur"

@@ -1,5 +1,5 @@
 <template>
-  <CptDialog :isShow="isShowDialog" v-bind:key="dialogId">
+  <CptDialog :isShow="isShowDialog" :key="dialogId">
     <div class="dialog-support">
       <div v-html="updateLogDom"></div>
       <div class="support-qrcode"></div>

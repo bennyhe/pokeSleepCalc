@@ -782,7 +782,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               class="icon"
               v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
+              :key="pokeItem.id"
             />
             {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
@@ -797,7 +797,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <CptAvatar
         :pokeId="pokeItem.id"
         v-for="pokeItem in targetInList.list"
-        v-bind:key="pokeItem.id"
+        :key="pokeItem.id"
       />
     </el-form-item>
     <el-form-item
@@ -807,7 +807,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <div
         class="cpt-food cpt-food--noborder"
         v-for="(subFoodItem, subKey) in 3"
-        v-bind:key="subKey"
+        :key="subKey"
       >
         <el-radio-group
           size="small"
@@ -816,7 +816,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <template
             v-for="(allFoodItem, allKey) in pokedex[helpSpeedCalcForm.pokemonId]
               .food.type"
-            v-bind:key="allKey"
+            :key="allKey"
           >
             <el-radio-button
               :label="allKey"
@@ -864,7 +864,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             class="radiogroup--level"
             :label="cItem.label"
             v-for="cItem in levelOptions"
-            v-bind:key="cItem.label"
+            :key="cItem.label"
             >{{ cItem.txt }}</el-radio-button
           >
         </el-radio-group>
@@ -879,7 +879,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         <el-checkbox
           :label="skillItem.label"
           v-for="skillItem in skillOptionsExtra2"
-          v-bind:key="skillItem.label"
+          :key="skillItem.label"
         >
           <span class="cpt-skill cpt-skill--3">{{ $t(skillItem.txt) }}</span>
         </el-checkbox>
@@ -907,7 +907,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-checkbox-button
               :label="skillItem.label"
               v-for="(skillItem, skillKey) in skillOptionsHelpSpeed"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                 >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
               ></el-checkbox-button
@@ -926,7 +926,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-checkbox-button
               :label="skillItem.label"
               v-for="(skillItem, skillKey) in skillOptionsFoodPer"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                 >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
               ></el-checkbox-button
@@ -945,7 +945,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-checkbox-button
               :label="skillItem.label"
               v-for="(skillItem, skillKey) in skillOptionsSkillPer"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                 >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
               ></el-checkbox-button
@@ -964,7 +964,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-checkbox-button
               :label="skillItem.label"
               v-for="(skillItem, skillKey) in skillOptionsMaxcarry"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                 >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
               ></el-checkbox-button
@@ -986,7 +986,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-checkbox-button
               :label="skillItem.label"
               v-for="(skillItem, skillKey) in skillOptionsSkillLevel"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                 >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
               ></el-checkbox-button
@@ -1007,7 +1007,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <el-radio-button
               :label="skillItem"
               v-for="skillItem in [0, 1, 2]"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
           </el-radio-group>
@@ -1021,7 +1021,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               v-for="skillItem in getSkillLevel(
                 pokedex[helpSpeedCalcForm.pokemonId].skillType
               )"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
           </el-radio-group>
@@ -1039,7 +1039,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <el-checkbox-button
             :label="skillItem.label"
             v-for="skillItem in skillOptionsExtra"
-            v-bind:key="skillItem.label"
+            :key="skillItem.label"
             ><span class="cpt-skill cpt-skill--3">{{
               skillItem.txtExtra
             }}</span></el-checkbox-button
@@ -1053,7 +1053,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         <el-option
           :label="getNatureDetail(cItem, $t)"
           v-for="cItem in characterOptions"
-          v-bind:key="cItem.label"
+          :key="cItem.label"
           :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
           :value="cItem.label"
         >
@@ -1102,7 +1102,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         ></i>
         <div
           v-for="(processItem, processKey) in allHelpType"
-          v-bind:key="processItem.title"
+          :key="processItem.title"
           :style="`left: ${
             ((getNewHelpSpeed(
               {
@@ -1160,7 +1160,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
     </el-form-item>
     <el-form-item label="参考" v-if="helpSpeedCalcForm.level < 100">
       <ul>
-        <template v-for="olItem in otherLevelShow" v-bind:key="olItem">
+        <template v-for="olItem in otherLevelShow" :key="olItem">
           <li
             v-if="
               helpSpeedCalcForm.level !== olItem &&
@@ -1213,7 +1213,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <li
             class="cpt-select-list__item"
             v-if="!(mapItem.id.indexOf('berry_') > -1)"
-            v-bind:key="mapItem.id"
+            :key="mapItem.id"
             :class="{ cur: helpSpeedCalcForm.curMap === mapIndex }"
             @click="handleChangeMap(mapIndex)"
           >
@@ -1223,7 +1223,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                 <div
                   class="cpt-food cpt-food--s berry"
                   v-for="(berryItem, berryKey) in mapItem.berry"
-                  v-bind:key="berryKey"
+                  :key="berryKey"
                 >
                   <div class="cpt-food__item">
                     <img
@@ -1256,7 +1256,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         <ul class="cpt-select-list cpt-select-list--berry">
           <template
             v-for="(mapItem, key) in BERRY_TYPES"
-            v-bind:key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
+            :key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
           >
             <li
               class="cpt-select-list__item"
@@ -1326,7 +1326,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         v-model="helpSpeedCalcForm.calcTime"
         @change="handleClickTime()"
       >
-        <template v-for="cItem in calcTimeConfig" v-bind:key="cItem.name">
+        <template v-for="cItem in calcTimeConfig" :key="cItem.name">
           <el-radio-button
             size="small"
             class="radiogroup--primary"
@@ -1342,7 +1342,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         v-model="navData.navIndex"
         fill="#41ae3c"
       >
-        <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
+        <template v-for="cItem in navData.navList" :key="cItem.name">
           <el-radio-button :label="cItem.value">
             <SvgIcon :type="cItem.icon" v-if="cItem.icon" />{{ $t(cItem.i18n)
             }}<span v-if="cItem.value === 1"
@@ -1363,7 +1363,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           class="radiogroup--level"
           :label="cItem.label"
           v-for="cItem in levelOptions"
-          v-bind:key="cItem.label"
+          :key="cItem.label"
           >{{ cItem.txt }}</el-radio-button
         >
       </el-radio-group>
@@ -1399,7 +1399,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               class="icon"
               v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-              v-bind:key="pokeItem.id"
+              :key="pokeItem.id"
             />
             {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
@@ -1463,7 +1463,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           helpSpeedCalcForm.pokemonId,
           true
         )"
-        v-bind:key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
+        :key="`${pokeItem.id}_${pokeKey}_${pokeItem.useFoods.join('')}_${
           pokeItem.nameExtra || ''
         }_${pokeItem.extraDesc || ''}`"
         :isHightLightBerry="helpSpeedCalcForm.isRightBerry"
@@ -1512,7 +1512,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           >
             <template
               v-for="berryKey in gameMapNew[0].berry"
-              v-bind:key="`loveberry1_${$t(`BERRY_TYPES.${berryKey}`)}`"
+              :key="`loveberry1_${$t(`BERRY_TYPES.${berryKey}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -1543,7 +1543,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           >
             <template
               v-for="berryKey in gameMapNew[0].berry"
-              v-bind:key="`loveberry2_${$t(`BERRY_TYPES.${berryKey}`)}`"
+              :key="`loveberry2_${$t(`BERRY_TYPES.${berryKey}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -1729,7 +1729,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             true,
             true
           )"
-          v-bind:key="`${pokeItem.dataId}`"
+          :key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
               pokeItem.berryType
@@ -1852,7 +1852,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             >
               <template
                 v-for="(cookTypeVal, cookTypeKey) in COOK_TYPES"
-                v-bind:key="cookTypeKey"
+                :key="cookTypeKey"
               >
                 <el-radio-button :label="cookTypeKey">{{
                   $t(`COOK_TYPES.${cookTypeKey}`)
@@ -1872,7 +1872,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               <div
                 class="weekly-menu__item"
                 v-for="(menuItem, key) in curWeeklyMenu.details"
-                v-bind:key="`cwm_${key}`"
+                :key="`cwm_${key}`"
               >
                 <CptFoodmenu
                   :menuItem="menuItem"
@@ -1898,7 +1898,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                     >
                       <el-option
                         v-for="menuItem in sortedMenuList"
-                        v-bind:key="menuItem.id"
+                        :key="menuItem.id"
                         :value="menuItem.id"
                         :label="$t(`MENU_TYPES.${menuItem.id}`)"
                       >
@@ -1917,7 +1917,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                             <div
                               class="cpt-food__item cur"
                               v-for="allFoodItem in menuItem.from"
-                              v-bind:key="allFoodItem.id"
+                              :key="allFoodItem.id"
                             >
                               <img
                                 v-lazy="`./img/food/${allFoodItem.id}.png`"
@@ -1959,7 +1959,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <div class="cpt-food all-food">
             <template
               v-for="foodItem in getTeamCurFoods()"
-              v-bind:key="`teamfood_${foodItem.foodId}`"
+              :key="`teamfood_${foodItem.foodId}`"
             >
               <div class="cpt-food__item cur">
                 <img
@@ -1983,7 +1983,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         <CptAvatar
           :pokeId="pokeId"
           v-for="pokeId in subskillOn.helpBonus.list"
-          v-bind:key="pokeId"
+          :key="pokeId"
         />
       </el-row>
       <div
@@ -2011,7 +2011,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             false,
             true
           )"
-          v-bind:key="`${pokeItem.dataId}`"
+          :key="`${pokeItem.dataId}`"
           :isHightLightBerry="
             gameMapNew[helpSpeedCalcForm.curMap].berry.includes(
               pokeItem.berryType

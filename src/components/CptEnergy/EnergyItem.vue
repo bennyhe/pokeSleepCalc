@@ -104,7 +104,7 @@ const handleChangeSkillLevel = () => {
         <div
           class="cpt-food__item cur"
           v-for="(foodItem, foodKey) in props.pokeItem.useFoods"
-          v-bind:key="`${foodKey}_${foodItem}`"
+          :key="`${foodKey}_${foodItem}`"
         >
           <img
             v-lazy="`./img/food/${foodItem}.png`"
@@ -138,7 +138,7 @@ const handleChangeSkillLevel = () => {
     <div class="other-skill" v-if="props.pokeItem.skill">
       <template
         v-for="skillItem in skillOptionsExtra"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -149,7 +149,7 @@ const handleChangeSkillLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsHelpSpeed"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -160,7 +160,7 @@ const handleChangeSkillLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsFoodPer"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -171,7 +171,7 @@ const handleChangeSkillLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsSkillPer"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -182,7 +182,7 @@ const handleChangeSkillLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsMaxcarry"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -193,7 +193,7 @@ const handleChangeSkillLevel = () => {
       </template>
       <template
         v-for="skillItem in skillOptionsSkillLevel"
-        v-bind:key="skillItem.label"
+        :key="skillItem.label"
       >
         <span
           v-if="props.pokeItem.skill.includes(skillItem.label)"
@@ -230,7 +230,7 @@ const handleChangeSkillLevel = () => {
     <!-- S 修改个体弹窗 -->
     <CptDialog
       :isShow="isShowDialog"
-      v-bind:key="dialogId"
+      :key="dialogId"
       :closeCallBack="props.closeDialogCB"
     >
       <div
@@ -247,13 +247,13 @@ const handleChangeSkillLevel = () => {
           <div
             class="cpt-food cpt-food--noborder"
             v-for="(subFoodItem, subKey) in 3"
-            v-bind:key="subKey"
+            :key="subKey"
           >
             <el-radio-group size="small" v-model="editData.useFoods[subKey]">
               <template
                 v-for="(allFoodItem, allKey) in pokedex[editData.pokemonId].food
                   .type"
-                v-bind:key="'2_' + allKey"
+                :key="'2_' + allKey"
               >
                 <el-radio-button
                   :label="allKey"
@@ -303,7 +303,7 @@ const handleChangeSkillLevel = () => {
             <el-checkbox
               :label="skillItem.label"
               v-for="skillItem in skillOptionsExtra2"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
             >
               <span class="cpt-skill cpt-skill--3">{{
                 $t(skillItem.txt)
@@ -331,7 +331,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="skillItem in skillOptionsHelpSpeed"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                   >{{ skillItem.txtExtra.indexOf("7") > -1 ? "S" : "M"
                   }}{{ skillItem.txtExtra }}</span
@@ -352,7 +352,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="(skillItem, skillKey) in skillOptionsFoodPer"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                   >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
@@ -372,7 +372,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="(skillItem, skillKey) in skillOptionsSkillPer"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                   >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
@@ -392,7 +392,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="(skillItem, skillKey) in skillOptionsMaxcarry"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                   >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
@@ -413,7 +413,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="(skillItem, skillKey) in skillOptionsSkillLevel"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill" :class="`cpt-skill--${skillItem.rare}`"
                   >{{ skillOptionsTxt[skillKey] }}{{ skillItem.txtExtra }}</span
                 ></el-checkbox-button
@@ -431,7 +431,7 @@ const handleChangeSkillLevel = () => {
             <el-radio-button
               :label="skillItem"
               v-for="skillItem in [0, 1, 2]"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
           </el-radio-group>
@@ -444,7 +444,7 @@ const handleChangeSkillLevel = () => {
               v-for="skillItem in getSkillLevel(
                 pokedex[editData.pokemonId].skillType
               )"
-              v-bind:key="skillItem.label"
+              :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >
           </el-radio-group>
@@ -461,7 +461,7 @@ const handleChangeSkillLevel = () => {
               <el-checkbox-button
                 :label="skillItem.label"
                 v-for="skillItem in skillOptionsExtra"
-                v-bind:key="skillItem.label"
+                :key="skillItem.label"
                 ><span class="cpt-skill cpt-skill--3">{{
                   skillItem.txtExtra
                 }}</span></el-checkbox-button
@@ -476,7 +476,7 @@ const handleChangeSkillLevel = () => {
             <el-option
               :label="getNatureDetail(cItem, $t)"
               v-for="cItem in characterOptions"
-              v-bind:key="cItem.label"
+              :key="cItem.label"
               :class="{ vigour: cItem.txt.indexOf('帮↓') > -1 }"
               :value="cItem.label"
             >

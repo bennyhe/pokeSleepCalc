@@ -34,8 +34,8 @@ const handleClickShowSupport = () => {
     <p>
       <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志(2023-{{ new Date().getFullYear() }})</a>
     </p>
-    <CptDialogUpdateLog v-bind:key="dialogId" :isShow="isShowDialog" />
-    <CptDialogSupport v-bind:key="dialogId2" :isShow="isShowDialog2" />
+    <CptDialogUpdateLog :key="dialogId" :isShow="isShowDialog" />
+    <CptDialogSupport :key="dialogId2" :isShow="isShowDialog2" />
   </div>
 </template>
 

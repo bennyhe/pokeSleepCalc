@@ -46,7 +46,7 @@ const props = defineProps({
       <div
         class="cpt-food__item cur"
         v-for="(foodItem, foodKey) in dataSource.useFoods"
-        v-bind:key="`${foodKey}_${foodItem}`"
+        :key="`${foodKey}_${foodItem}`"
       >
         <img
           v-lazy="`./img/food/${foodItem}.png`"

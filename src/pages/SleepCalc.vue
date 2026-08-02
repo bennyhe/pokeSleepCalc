@@ -821,7 +821,7 @@ const getQuickChangeSleepPoint = () => {
         <el-radio-button
           :label="cItem.value"
           v-for="cItem in navData.navList"
-          v-bind:key="cItem.name"
+          :key="cItem.name"
         >
           {{ $t(`PAGE_SLEEPCALC.${cItem.name}`) }}</el-radio-button
         >
@@ -850,7 +850,7 @@ const getQuickChangeSleepPoint = () => {
             </template>
             <div
               class="map-pokemons"
-              v-bind:key="`pomap_${gameMap[userData.curMap].id}`"
+              :key="`pomap_${gameMap[userData.curMap].id}`"
             >
               <table>
                 <thead>
@@ -862,7 +862,7 @@ const getQuickChangeSleepPoint = () => {
                 <tbody>
                   <template
                     v-for="(levelVal, levelKey) in gameMap[0].levelList"
-                    v-bind:key="levelVal.id"
+                    :key="levelVal.id"
                   >
                     <tr v-if="levelKey <= 23">
                       <td>
@@ -877,7 +877,7 @@ const getQuickChangeSleepPoint = () => {
                       </td>
                       <td
                         class="map-pokemons__item"
-                        v-bind:key="`pomap_${
+                        :key="`pomap_${
                           gameMapPokemons[userData.curMap].id
                         }`"
                         :class="{
@@ -901,7 +901,7 @@ const getQuickChangeSleepPoint = () => {
                           <CptAvatar
                             v-for="pokeId in gameMapPokemons[userData.curMap]
                               .levelPokemons[levelKey]"
-                            v-bind:key="`map_${levelKey}_${pokeId}`"
+                            :key="`map_${levelKey}_${pokeId}`"
                             :class="{
                               'cpt-avatar--tl':
                                 get(
@@ -932,7 +932,7 @@ const getQuickChangeSleepPoint = () => {
           <li
             class="cpt-select-list__item"
             v-for="(mapItem, mapIndex) in gameMap"
-            v-bind:key="mapItem.id"
+            :key="mapItem.id"
             :class="{ cur: userData.curMap === mapIndex }"
             @click="handleClickChangeMap(mapIndex)"
           >
@@ -945,7 +945,7 @@ const getQuickChangeSleepPoint = () => {
                 <div
                   class="cpt-food cpt-food--s berry"
                   v-for="(berryItem, berryKey) in mapItem.berry"
-                  v-bind:key="berryKey"
+                  :key="berryKey"
                 >
                   <div class="cpt-food__item">
                     <img
@@ -1236,7 +1236,7 @@ const getQuickChangeSleepPoint = () => {
           <el-radio
             :label="cKey"
             v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="cItem"
+            :key="cItem"
             ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
               {{ $t(`SLEEP_TYPES.${cKey}`) }}
               ({{
@@ -1287,7 +1287,7 @@ const getQuickChangeSleepPoint = () => {
           >
             <template
               v-for="(cItem, cKey) in getQuickChangeSleepPoint()"
-              v-bind:key="cKey"
+              :key="cKey"
             >
               <el-radio-button :label="cItem.timeScore">
                 {{ cItem.timeScore }}分-{{ cItem.txt }}{{ $t("OPTIONS.one") }}
@@ -1324,7 +1324,7 @@ const getQuickChangeSleepPoint = () => {
               <el-radio-button
                 :label="cKey"
                 v-for="(cItem, cKey) in [0, 1, 2, 3]"
-                v-bind:key="cItem"
+                :key="cItem"
               >
                 <template v-if="cItem === 0">{{
                   $t("PAGE_SLEEPCALC.noLock")
@@ -1360,7 +1360,7 @@ const getQuickChangeSleepPoint = () => {
                     class="icon"
                     v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
                     :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
-                    v-bind:key="pokeItem.id"
+                    :key="pokeItem.id"
                   />
                   {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
                 </el-option>
@@ -1425,7 +1425,7 @@ const getQuickChangeSleepPoint = () => {
                 >{{ $t("OPTIONS.getWithout")
                 }}<template
                   v-for="chItem in userData.banPokes"
-                  v-bind:key="`ban${chItem}`"
+                  :key="`ban${chItem}`"
                   ><CptAvatar :pokeId="chItem" /><template
                     v-if="userData.banPokes.length <= 3"
                     >{{ $t(`POKEMON_NAME.${chItem}`) }}</template
@@ -1468,7 +1468,7 @@ const getQuickChangeSleepPoint = () => {
               >-小UP:
               <template
                 v-for="pokeId in NOW_ACT.smallUp"
-                v-bind:key="`smallUp_${pokeId}`"
+                :key="`smallUp_${pokeId}`"
               >
                 <CptAvatar
                   :pokeId="pokeId"
@@ -1496,7 +1496,7 @@ const getQuickChangeSleepPoint = () => {
               >-中UP:
               <template
                 v-for="pokeId in NOW_ACT.midUp"
-                v-bind:key="`midUp_${pokeId}`"
+                :key="`midUp_${pokeId}`"
               >
                 <CptAvatar
                   :pokeId="pokeId"
@@ -1516,7 +1516,7 @@ const getQuickChangeSleepPoint = () => {
               >-大UP:
               <template
                 v-for="pokeId in NOW_ACT.largeUp"
-                v-bind:key="`midUp_${pokeId}`"
+                :key="`midUp_${pokeId}`"
               >
                 <CptAvatar
                   :pokeId="pokeId"
@@ -1652,7 +1652,7 @@ const getQuickChangeSleepPoint = () => {
             <div
               class="get-shiny__item"
               v-for="(sleepItem, sleepKey) in userSleep.pokeShinyList"
-              v-bind:key="`${sleepItem.id}_${sleepKey}`"
+              :key="`${sleepItem.id}_${sleepKey}`"
             >
               <p>
                 <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
@@ -1720,7 +1720,7 @@ const getQuickChangeSleepPoint = () => {
             <div
               class="catchpoke-list__item"
               v-for="(sleepItem, sleepKey) in catchPokeState.list"
-              v-bind:key="`cathList_${sleepItem.pokeId}_${sleepKey}`"
+              :key="`cathList_${sleepItem.pokeId}_${sleepKey}`"
             >
               <p>
                 <i class="i i-rank" :class="`i-rank--${sleepKey + 1}`">{{
@@ -1770,7 +1770,7 @@ const getQuickChangeSleepPoint = () => {
           </div>
           <div>
             <CptGameMap
-              v-bind:key="`map${userSleep.count}`"
+              :key="`map${userSleep.count}`"
               v-if="userData.mapModel"
               :resList="randomSleepStyle.resList"
               :curMap="userData.curMap"
@@ -1788,7 +1788,7 @@ const getQuickChangeSleepPoint = () => {
                 <div
                   class="poke-tb__item"
                   v-if="sleepItem.id"
-                  v-bind:key="sleepItem.id"
+                  :key="sleepItem.id"
                   :class="{ shiny: sleepItem.isShiny }"
                 >
                   <p>
@@ -1923,7 +1923,7 @@ const getQuickChangeSleepPoint = () => {
                   <CptAvatar
                     :pokeId="hopeItem.pokeId"
                     v-for="hopeItem in hopeList"
-                    v-bind:key="hopeItem.pokeId"
+                    :key="hopeItem.pokeId"
                   >
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                     <p v-if="pageData.showMoreMathExp">
@@ -1957,7 +1957,7 @@ const getQuickChangeSleepPoint = () => {
                   <div
                     class="poke-tb__item"
                     v-if="hopeItem.pokeId"
-                    v-bind:key="hopeItem.pokeId"
+                    :key="hopeItem.pokeId"
                   >
                     <p>
                       <i class="i i-rank" :class="`i-rank--${hopeKey + 1}`">{{
@@ -1979,7 +1979,7 @@ const getQuickChangeSleepPoint = () => {
                     <CptSleepStyle
                       class="sleeplist__sub-item"
                       v-for="sleepItem in hopeItem.list"
-                      v-bind:key="sleepItem.id"
+                      :key="sleepItem.id"
                       :sleepItem="sleepItem"
                       :showCptPoke="false"
                     />
@@ -2041,7 +2041,7 @@ const getQuickChangeSleepPoint = () => {
         <ul class="spo-calc-list">
           <template
             v-for="(sleepStyleId, key) in sleepStyleAny.list"
-            v-bind:key="`selectCatch${key}`"
+            :key="`selectCatch${key}`"
           >
             <li v-if="key < sleepStyleAny.sleepCatchNum">
               <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{
@@ -2065,7 +2065,7 @@ const getQuickChangeSleepPoint = () => {
                       class="icon"
                       v-lazy="`./img/pokedex/${sItem.pokeId}.png`"
                       :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
-                      v-bind:key="sItem.pokeId"
+                      :key="sItem.pokeId"
                     />
                     {{ $t(`POKEMON_NAME.${sItem.pokeId}`) }}-<span
                       class="i i-sleeptype"
@@ -2163,7 +2163,7 @@ const getQuickChangeSleepPoint = () => {
           <el-radio-button
             :label="cKey"
             v-for="(cItem, cKey) in SLEEP_TYPES"
-            v-bind:key="cItem"
+            :key="cItem"
             >{{ $t(`SLEEP_TYPES.${cKey}`)
             }}<span class="extra"
               >({{
@@ -2176,7 +2176,7 @@ const getQuickChangeSleepPoint = () => {
       </div>
       <div
         class="poke-tb poke-tb--xscorll"
-        v-bind:key="`ss_${gameMap[userData.curMap].id}`"
+        :key="`ss_${gameMap[userData.curMap].id}`"
       >
         <template v-if="getFilterInTypes(userData.curUnlockSleeps).length > 0">
           <template
@@ -2186,7 +2186,7 @@ const getQuickChangeSleepPoint = () => {
               class="poke-tb__item"
               :class="{ cur: userData.curStageIndex > 0 }"
               v-if="sleepItem.id"
-              v-bind:key="sleepItem.id"
+              :key="sleepItem.id"
             >
               <CptSleepStyle
                 :showMapLevel="true"
@@ -2213,7 +2213,7 @@ const getQuickChangeSleepPoint = () => {
           <div
             class="poke-tb__item"
             v-if="sleepItem.id"
-            v-bind:key="sleepItem.id"
+            :key="sleepItem.id"
           >
             <CptSleepStyle
               :showMapLevel="true"
@@ -2244,7 +2244,7 @@ const getQuickChangeSleepPoint = () => {
     <ul class="cpt-list">
       <li
         v-for="(catchItem, catchKey) in gameMap[userData.curMap].scoreList"
-        v-bind:key="catchItem.catchNum"
+        :key="catchItem.catchNum"
       >
         <span class="sptime"
           >{{ catchItem.catchNum }}{{ $t(`OPTIONS.one`) }}</span
@@ -2268,7 +2268,7 @@ const getQuickChangeSleepPoint = () => {
           v-for="pokemonsItem in getBerryPokemon(
             gameMap[userData.curMap].berry
           )"
-          v-bind:key="pokemonsItem.id"
+          :key="pokemonsItem.id"
         >
           <CptPoke
             :pokeId="pokemonsItem.id"

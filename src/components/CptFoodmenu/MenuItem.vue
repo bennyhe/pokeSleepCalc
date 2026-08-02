@@ -35,7 +35,7 @@ const props = defineProps({
       <div
         class="cpt-food__item cur"
         v-for="allFoodItem in props.menuItem.from"
-        v-bind:key="allFoodItem.id"
+        :key="allFoodItem.id"
       >
         <img
           v-lazy="`./img/food/${allFoodItem.id}.png`"

@@ -214,7 +214,7 @@ const getFoodType = () => {
     >
       <template
         v-for="(allFoodItem, allKey) in getFoodType()"
-        v-bind:key="allKey"
+        :key="allKey"
       >
         <div class="cpt-food__item">
           <img
@@ -233,10 +233,10 @@ const getFoodType = () => {
         props.showKey.includes('fullFood')
       "
     >
-      <div v-for="(subFoodItem, subKey) in 3" v-bind:key="subKey">
+      <div v-for="(subFoodItem, subKey) in 3" :key="subKey">
         <template
           v-for="(allFoodItem, allKey) in pokedex[pokeId].food.type"
-          v-bind:key="allKey"
+          :key="allKey"
         >
           <div
             class="cpt-food__item"

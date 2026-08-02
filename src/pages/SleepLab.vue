@@ -255,7 +255,7 @@ const handleChangeInputPM = () => {
         <li
           class="cpt-select-list__item"
           v-for="(mapItem, mapIndex) in gameMap"
-          v-bind:key="mapItem.id"
+          :key="mapItem.id"
           :class="{ cur: pageData.curMap === mapIndex }"
           @click="handleClickChangeMap(mapIndex)"
         >
@@ -277,7 +277,7 @@ const handleChangeInputPM = () => {
         <el-radio
           :label="cKey"
           v-for="(cItem, cKey) in SLEEP_TYPES"
-          v-bind:key="cItem"
+          :key="cItem"
           ><div class="i i-sleeptype" :class="`i i-sleeptype--${cKey}`">
             {{ $t(`SLEEP_TYPES.${cKey}`) }}
           </div>
@@ -370,7 +370,7 @@ const handleChangeInputPM = () => {
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.noLastList"
-        v-bind:key="`noLast_${pokeId}`"
+        :key="`noLast_${pokeId}`"
       />
     </el-form-item>
     <el-form-item label="去除宝可梦">
@@ -458,7 +458,7 @@ const handleChangeInputPM = () => {
       $t(`SLEEP_TYPES.${pageData.mapSleepType}`)
     }}
   </h2>
-  <div v-for="tdItem in testData" v-bind:key="tdItem.allPoint">
+  <div v-for="tdItem in testData" :key="tdItem.allPoint">
     <h3>
       <img class="icon" v-lazy="`./img/ui/energy.png`" />
       {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
@@ -469,7 +469,7 @@ const handleChangeInputPM = () => {
     <div class="page-inner">
       <CptAvatar
         v-for="hopeItem in tdItem.res"
-        v-bind:key="hopeItem.pokeId"
+        :key="hopeItem.pokeId"
         :pokeId="hopeItem.pokeId"
       >
         <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
@@ -481,14 +481,14 @@ const handleChangeInputPM = () => {
     v-model="navData.navIndex"
     fill="#41ae3c"
   >
-    <template v-for="cItem in navData.navList" v-bind:key="cItem.name">
+    <template v-for="cItem in navData.navList" :key="cItem.name">
       <el-radio-button :label="cItem.value"> {{ cItem.name }}</el-radio-button>
     </template>
   </el-radio-group>
   <div class="sleeplist" v-if="navData.navIndex === 0">
     <template
       v-for="gmItem in [gameMap[pageData.curMap]]"
-      v-bind:key="gmItem.id"
+      :key="gmItem.id"
     >
       <h3>
         {{ gmItem.name }}
@@ -496,7 +496,7 @@ const handleChangeInputPM = () => {
       <div
         class="poke-tb"
         v-for="levelItem in gmItem.levelList"
-        v-bind:key="levelItem.energy"
+        :key="levelItem.energy"
       >
         <h4>
           {{ levelItem.name }}
@@ -508,7 +508,7 @@ const handleChangeInputPM = () => {
           <div
             class="poke-tb__item"
             v-if="SLEEP_STYLE[sleepId]"
-            v-bind:key="sleepId"
+            :key="sleepId"
           >
             <CptSleepStyle
               :sleepItem="SLEEP_STYLE[sleepId]"
@@ -536,7 +536,7 @@ const handleChangeInputPM = () => {
     <div
       class="poke-tb"
       v-for="(spoNewItem, spoNewKey) in SPONEW_TO_SPOOLD"
-      v-bind:key="spoNewItem"
+      :key="spoNewItem"
     >
       <h4>
         {{ spoNewKey }}/{{ spoNewItem }}-<span class="extra">{{
@@ -545,7 +545,7 @@ const handleChangeInputPM = () => {
       </h4>
       <template
         v-for="(sleepItem, sleepKey) in SPO_DATA"
-        v-bind:key="`${sleepItem.pokeId}_${sleepItem.id}`"
+        :key="`${sleepItem.pokeId}_${sleepItem.id}`"
       >
         <div class="poke-tb__item" v-if="getSPOById(sleepKey) === spoNewItem">
           <CptSleepStyle
@@ -557,10 +557,10 @@ const handleChangeInputPM = () => {
     </div>
   </div>
   <div class="poke-tb" v-else-if="navData.navIndex === 2">
-    <template v-for="pokeItem in pokedex" v-bind:key="pokeItem.id">
+    <template v-for="pokeItem in pokedex" :key="pokeItem.id">
       <template
         v-for="sleepItem in SLEEP_STYLE"
-        v-bind:key="`${sleepItem.pokeId}_${sleepItem.id}`"
+        :key="`${sleepItem.pokeId}_${sleepItem.id}`"
       >
         <div class="poke-tb__item" v-if="pokeItem.id === sleepItem.pokeId">
           <CptSleepStyle :sleepItem="sleepItem" :showKey="['sleepType']">

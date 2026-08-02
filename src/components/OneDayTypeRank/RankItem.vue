@@ -75,7 +75,7 @@ const getCptPokeShowKey = () => {
   <div>
     <template
       v-for="(typeRankItem, typeRankKey) in dataList"
-      v-bind:key="`type_rank_item_${showType}_${typeRankKey}`"
+      :key="`type_rank_item_${showType}_${typeRankKey}`"
     >
       <div class="typerank__item" v-if="typeRankItem.rankList.length > 0">
         <h4>
@@ -107,7 +107,7 @@ const getCptPokeShowKey = () => {
               0,
               showMax
             )"
-            v-bind:key="`type_rank_item_${showType}_${typeRankKey}_${pokeKey}`"
+            :key="`type_rank_item_${showType}_${typeRankKey}_${pokeKey}`"
           >
             <li v-if="pokeKey < rankOpts[`${showType}Max`]">
               <i class="i i-rank" :class="`i-rank--${pokeKey + 1}`" v-if="rankOpts[`${showType}IsMore`]">{{
@@ -133,7 +133,7 @@ const getCptPokeShowKey = () => {
                 <template
                   v-for="(sItemFoodId, sItemFoodKey) in pokeItem
                     .oneDayFoodEnergy.useFoods"
-                  v-bind:key="`food_rank_item_${typeRankItem.foodId}_${pokeItem.pokemonId}_sfood_${sItemFoodId}`"
+                  :key="`food_rank_item_${typeRankItem.foodId}_${pokeItem.pokemonId}_sfood_${sItemFoodId}`"
                 >
                   <div class="cpt-food__item cur">
                     <img

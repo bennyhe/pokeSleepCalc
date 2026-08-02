@@ -77,7 +77,7 @@ const handleClickReset = () => {
   >
   <CptDialog
     :isShow="isShowDialog"
-    v-bind:key="dialogId"
+    :key="dialogId"
     :closeCallBack="closeDialogCB2"
   >
     <h3 class="m-dialog__title">
@@ -108,7 +108,7 @@ const handleClickReset = () => {
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="(mapItem, key) in POKE_TYPES"
-              v-bind:key="`berry_${$t(`POKE_TYPES.${key}`)}`"
+              :key="`berry_${$t(`POKE_TYPES.${key}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -129,7 +129,7 @@ const handleClickReset = () => {
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="(mapItem, key) in SLEEP_TYPES"
-              v-bind:key="`st_${$t(`SLEEP_TYPES.${key}`)}`"
+              :key="`st_${$t(`SLEEP_TYPES.${key}`)}`"
             >
               <li
                 v-if="+key !== 999"
@@ -153,7 +153,7 @@ const handleClickReset = () => {
           <ul class="cpt-select-list cpt-select-list--berry">
             <template
               v-for="(mapItem, key) in BERRY_TYPES"
-              v-bind:key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
+              :key="`berry_${$t(`BERRY_TYPES.${key}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -186,7 +186,7 @@ const handleClickReset = () => {
           >
             <template
               v-for="(mapItem, key) in FOOD_TYPES"
-              v-bind:key="`f_${$t(`FOOD_TYPES.${key}`)}`"
+              :key="`f_${$t(`FOOD_TYPES.${key}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -216,7 +216,7 @@ const handleClickReset = () => {
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="(mapItem, key) in SKILL_TYPES"
-              v-bind:key="`st_${$t(`SKILL_TYPES.${key}`)}`"
+              :key="`st_${$t(`SKILL_TYPES.${key}`)}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -237,7 +237,7 @@ const handleClickReset = () => {
           <ul class="cpt-select-list cpt-select-list--txt">
             <template
               v-for="skillItem in skillOptionsExtra2"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -272,7 +272,7 @@ const handleClickReset = () => {
             </li>
             <template
               v-for="skillItem in skillOptionsHelpSpeed"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -292,7 +292,7 @@ const handleClickReset = () => {
             </template>
             <template
               v-for="skillItem in skillOptionsFoodPer"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -312,7 +312,7 @@ const handleClickReset = () => {
             </template>
             <template
               v-for="skillItem in skillOptionsSkillPer"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -332,7 +332,7 @@ const handleClickReset = () => {
             </template>
             <template
               v-for="skillItem in skillOptionsMaxcarry"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"
@@ -352,7 +352,7 @@ const handleClickReset = () => {
             </template>
             <template
               v-for="skillItem in skillOptionsSkillLevel"
-              v-bind:key="`sst_${skillItem.label}`"
+              :key="`sst_${skillItem.label}`"
             >
               <li
                 class="cpt-select-list__item"

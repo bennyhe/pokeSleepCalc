@@ -50,7 +50,7 @@ gameMapNew.forEach(gitem => {
 })
 </script>
 <template>
-  <CptDialog :isShow="isShow" v-bind:key="dialogId">
+  <CptDialog :isShow="isShow" :key="dialogId">
     <div class="dialog-pokedex-detail" v-if="curDialogPokeId">
       <h3>
         #{{ curDialogPokeId }} {{ $t(`POKEMON_NAME.${curDialogPokeId}`) }}
@@ -96,7 +96,7 @@ gameMapNew.forEach(gitem => {
         </div>
       </div>
       <div class="poke-tb poke-tb--xscorll">
-        <template v-for="fKey in fnGetCount(curDialogPokeId)" v-bind:key="fKey">
+        <template v-for="fKey in fnGetCount(curDialogPokeId)" :key="fKey">
           <template
             v-if="
               getTargetPokemonsSleeps(
@@ -160,7 +160,7 @@ gameMapNew.forEach(gitem => {
                 <ul class="cpt-select-list">
                   <template
                     v-for="mapItem in gameMapNew"
-                    v-bind:key="mapItem.id"
+                    :key="mapItem.id"
                   >
                     <template
                       v-for="sleepsItem in getUnLockSleeps(
@@ -177,7 +177,7 @@ gameMapNew.forEach(gitem => {
                       >
                         <li
                           style="font-size: 12px"
-                          v-bind:key="sleepsItem.id"
+                          :key="sleepsItem.id"
                           v-if="
                             mapItem.id === 'greenex' &&
                             getTargetPokemonsSleeps(
@@ -225,7 +225,7 @@ gameMapNew.forEach(gitem => {
                         </li>
                         <li
                           class="cpt-select-list__item cur"
-                          v-bind:key="sleepsItem.id"
+                          :key="sleepsItem.id"
                         >
                           <div class="cpt-select-list__name">
                             {{ $t(`ILAND.${mapItem.id}`) }}

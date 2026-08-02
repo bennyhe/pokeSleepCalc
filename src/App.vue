@@ -74,7 +74,7 @@ onMounted(() => {
           <option
             :value="item.id"
             v-for="(item, index) in NAV_LANG"
-            v-bind:key="index"
+            :key="index"
           >
             {{ item.name }}
           </option>
@@ -138,7 +138,7 @@ onMounted(() => {
       <ul>
         <li
           v-for="(navItem, key) in navData.navList"
-          v-bind:key="navItem.name"
+          :key="navItem.name"
           :class="{ cur: +navData.navIndex === key }"
           @click="handleClickNav(key)"
         >

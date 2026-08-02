@@ -74,7 +74,7 @@ for (const cookTypeKey in COOK_TYPES) {
 <template>
   <h2>{{ $t("PROP.recipes") }}</h2>
   <div class="page-inner">
-    <template v-for="cookTypeItem in cookMenuRes" v-bind:key="cookTypeItem.id">
+    <template v-for="cookTypeItem in cookMenuRes" :key="cookTypeItem.id">
       <h3>
         {{ cookTypeItem.name
         }}<span class="extra"
@@ -84,7 +84,7 @@ for (const cookTypeKey in COOK_TYPES) {
       <div class="cpt-foodmenu-scroll">
         <template
           v-for="menuItem in cookTypeItem.list"
-          v-bind:key="menuItem.id"
+          :key="menuItem.id"
         >
           <CptFoodmenu :menuItem="menuItem" />
         </template>
@@ -103,7 +103,7 @@ for (const cookTypeKey in COOK_TYPES) {
       >
     </el-radio-group>
     <div class="mt3">
-      <template v-for="(foodItem, foodKey) in [0, 30, 60]" v-bind:key="foodKey">
+      <template v-for="(foodItem, foodKey) in [0, 30, 60]" :key="foodKey">
         <el-select
           v-model="foodConfig.list[foodKey]"
           clearable
@@ -113,7 +113,7 @@ for (const cookTypeKey in COOK_TYPES) {
         >
           <template
             v-for="(mapItem, key) in FOOD_TYPES"
-            v-bind:key="`f_${$t(`FOOD_TYPES.${key}`)}`"
+            :key="`f_${$t(`FOOD_TYPES.${key}`)}`"
           >
             <el-option
               :label="`Lv.${foodItem}-${$t(`FOOD_TYPES.${key}`)}`"
@@ -145,7 +145,7 @@ for (const cookTypeKey in COOK_TYPES) {
       <div class="cpt-food all-food">
         <template
           v-for="(foodVal, key) in foodConfig.list"
-          v-bind:key="`f_${$t(`FOOD_TYPES.${foodVal}`)}`"
+          :key="`f_${$t(`FOOD_TYPES.${foodVal}`)}`"
         >
           <div class="cpt-food__item cur" v-if="foodConfig.count[key] > 0">
             <img
@@ -174,26 +174,26 @@ for (const cookTypeKey in COOK_TYPES) {
     </p>
   </div>
   <ul class="cpt-list food-list">
-    <li v-for="(pokeItem, pokeKey) in nFoodRecommend.list" v-bind:key="pokeKey">
+    <li v-for="(pokeItem, pokeKey) in nFoodRecommend.list" :key="pokeKey">
       <p class="cpt-tips">
         {{ $t(`POKE_TYPES.${pokedex[pokeItem.evoLine[0]].pokeType}`) }}
       </p>
       <CptPoke
         :pokeId="pokemonsItem"
         v-for="pokemonsItem in pokeItem.evoLine"
-        v-bind:key="pokemonsItem"
+        :key="pokemonsItem"
         :showKey="['helpSpeed', 'foodPer', 'berry', 'skillType', 'maxcarry']"
       />
       <div>
         <div
           class="cpt-food all-food"
           v-for="(foodItem, foodKey) in pokeItem.needFood"
-          v-bind:key="foodKey"
+          :key="foodKey"
         >
           <template
             v-for="(allFoodItem, allKey) in pokedex[pokeItem.evoLine[0]].food
               .type"
-            v-bind:key="allKey"
+            :key="allKey"
           >
             <div
               class="cpt-food__item"
@@ -233,7 +233,7 @@ for (const cookTypeKey in COOK_TYPES) {
         <div class="cpt-foodmenu-scroll">
           <template
             v-for="menuItem in pokeItem.menuList"
-            v-bind:key="menuItem.id"
+            :key="menuItem.id"
           >
             <CptFoodmenu :menuItem="menuItem" />
           </template>

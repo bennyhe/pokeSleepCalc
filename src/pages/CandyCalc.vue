@@ -138,11 +138,11 @@ console.log('init page candycalc...')
           class="radiogroup--primary radiogroup--level"
           :label="cItem.value"
           v-for="cItem in POKEMON_TYPE"
-          v-bind:key="cItem.value"
+          :key="cItem.value"
         >
           <CptAvatar
             v-for="pokeItem in cItem.sampleIds"
-            v-bind:key="pokeItem"
+            :key="pokeItem"
             :pokeId="pokeItem"
           />
           {{ cItem.txt }}</el-radio-button
@@ -245,7 +245,7 @@ console.log('init page candycalc...')
             class="radiogroup--primary radiogroup--level"
             :label="cItem.label"
             v-for="cItem in levelOptions"
-            v-bind:key="cItem.label"
+            :key="cItem.label"
             >{{ cItem.txt }}</el-radio-button
           >
         </el-radio-group>
@@ -268,7 +268,7 @@ console.log('init page candycalc...')
       <template v-else>Lv.{{ POKEMON_MAX_LEVEL }}</template>
       <div style="width: 100%">
         <el-radio-group v-model="candyCalcForm.toLevel" size="small">
-          <template v-for="cItem in levelOptionsTo" v-bind:key="cItem.label">
+          <template v-for="cItem in levelOptionsTo" :key="cItem.label">
             <el-radio-button
               :disabled="candyCalcForm.fromLevel + 1 > cItem.label"
               class="radiogroup--primary radiogroup--level"
