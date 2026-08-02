@@ -1014,7 +1014,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-form-item>
       </div>
       <div class="cpt-form-item-half">
-        <el-form-item label="技能等级">
+        <el-form-item :label="$t('PROP.mainSkillLevel')">
           <el-radio-group size="small" v-model="helpSpeedCalcForm.skilllevel">
             <el-radio-button
               :label="skillItem"

@@ -210,7 +210,7 @@ const handleClickReset = () => {
             </template></ul
         ></el-form-item>
         <el-form-item
-          label="主技能"
+          :label="$t('PROP.mainSkill')"
           v-if="showKey && showKey.includes('mainSkill')"
         >
           <ul class="cpt-select-list cpt-select-list--txt">

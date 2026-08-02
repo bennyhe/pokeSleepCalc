@@ -10,6 +10,7 @@ export default {
     'hungry': 'Hungry',
     'food': '食材',
     'mainSkill': '主技能',
+    'mainSkillLevel': '主技能等级',
     'subSkill': '副技能',
     'nature': '性格',
     'helpSpeed': '帮忙速度',

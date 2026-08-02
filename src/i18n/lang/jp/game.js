@@ -12,6 +12,7 @@ export default {
     'hungry': 'チャンス',
     'food': '食材',
     'mainSkill': 'メインスキル',
+    'mainSkillLevel': 'メインスキルレベル',
     'subSkill': 'サブスキル',
     'nature': 'せいかく',
     'helpSpeed': 'おてつだい',

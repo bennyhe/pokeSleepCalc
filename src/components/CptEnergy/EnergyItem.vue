@@ -448,7 +448,7 @@ const handleChangeSkillLevel = () => {
             >
           </el-radio-group>
         </div>
-        <h4>技能等级</h4>
+        <h4>{{ $t('PROP.mainSkillLevel') }}</h4>
         <div>
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
