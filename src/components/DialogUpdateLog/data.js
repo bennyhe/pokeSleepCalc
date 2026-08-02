@@ -4,6 +4,8 @@ const markdownText = `
 
 ## 26-08-02
 1. update 日语化
+2. update 优化性能
+
 ## 26-07-26
 1. update 优化性能
 

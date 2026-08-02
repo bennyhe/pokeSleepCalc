@@ -13,6 +13,7 @@ import {
   skillOptionsSkillLevel,
   characterOptions,
   skillOptionsTxt,
+  levelOptions,
   maxSkillCount
 } from '../../config/helpSpeed.js'
 import { getSkillLevel } from '../../utils/helpcalc.js'
@@ -297,6 +298,17 @@ const handleChangeSkillLevel = () => {
             :max="POKEMON_MAX_LEVEL"
             @blur="handleBlurLevel"
           />
+          <div style="width: 100%">
+            <el-radio-group v-model="editData.level" size="small">
+              <el-radio-button
+                class="radiogroup--level"
+                :label="cItem.label"
+                v-for="cItem in levelOptions"
+                :key="cItem.label"
+                >{{ cItem.txt }}</el-radio-button
+              >
+            </el-radio-group>
+          </div>
         </div>
         <div style="display: flex">
           <el-checkbox-group v-model="editData.skill" :min="0" :max="maxSkillCount">
