@@ -21,7 +21,8 @@ export default {
     'whistle': 'おてつだいホイッスル',
     'level': '評価',
     'energy': 'エナジー',
-    'dpr': 'ねむけパワー'
+    'dpr': 'ねむけパワー',
+    'evoCount': '進化回数'
   },
   'BALL_TYPES': {
     1: 'ポケサブレ',

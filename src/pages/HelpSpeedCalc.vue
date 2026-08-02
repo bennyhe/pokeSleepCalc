@@ -998,7 +998,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         class="cpt-form-item-half"
         v-if="pokedex[helpSpeedCalcForm.pokemonId].evoLineKey > 0"
       >
-        <el-form-item label="进化次数">
+        <el-form-item :label="$t('PROP.evoCount')">
           <el-radio-group
             size="small"
             v-model="helpSpeedCalcForm.evotimes"

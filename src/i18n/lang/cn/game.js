@@ -20,7 +20,8 @@ export default {
     'whistle': '哨子',
     'level': '级别',
     'energy': '能量',
-    'dpr': '睡意之力'
+    'dpr': '睡意之力',
+    'evoCount': '进化次数'
   },
   'BALL_TYPES': {
     1:'宝可沙布雷',

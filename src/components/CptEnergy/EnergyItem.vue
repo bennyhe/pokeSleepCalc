@@ -421,7 +421,7 @@ const handleChangeSkillLevel = () => {
             </el-checkbox-group>
           </div>
         </div>
-        <h4 v-if="pokedex[editData.pokemonId].evoLineKey > 0">进化次数</h4>
+        <h4 v-if="pokedex[editData.pokemonId].evoLineKey > 0">{{ $t('PROP.evoCount') }}</h4>
         <div v-if="pokedex[editData.pokemonId].evoLineKey > 0">
           <el-radio-group
             size="small"

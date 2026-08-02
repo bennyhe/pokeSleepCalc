@@ -2,6 +2,8 @@
 const markdownText = `
 # 更新日志
 
+## 26-08-02
+1. update 日语化
 ## 26-07-26
 1. update 优化性能
 
