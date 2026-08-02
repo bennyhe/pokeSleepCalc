@@ -30,7 +30,7 @@
 
   .page-pokedex {
     .poke-tb__item .cpt-select-list__item {
-      border-radius: 8px;
+      border-radius: 6px;
     }
 
     .cpt-select-list__name {
@@ -48,6 +48,11 @@
   .cpt-pokemon {
     .berry {
       font-size: 10px;
+    }
+
+    &__name {
+      min-height: 24px;
+      height: auto;
     }
   }
 
