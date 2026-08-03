@@ -23,7 +23,12 @@ export default {
     'noHas': '无',
     'noHasPokemons': '暂无宝可梦',
     'calcRes': '计算结果',
-    'timelimit': '活动限定'
+    'timelimit': '活动限定',
+    'curLevel': '当前等级',
+    'targetLevel': '目标等级',
+    'pokemonBox': '宝可梦盒子',
+    'pokemonTeam': '队伍',
+    'pokemonCompare': '对比'
   },
   'BTN': {
     'filter': 'FILTER',
@@ -94,12 +99,22 @@ export default {
     'formLabelnoUseSpo': '剩余',
     'formLabelPercent': '有效的睡意之力'
   },
+  'PAGE_FOODREC': {
+    'title_getfood': '宝可梦食材数量模拟',
+    'title_pokerec': '食材宝可梦推荐'
+  },
+  'PAGE_CANDY': {
+    'title_candy': '升级经验糖果计算'
+  },
   'PAGE_HELPSPEEDCALC': {
-    'tipsHS': '所有帮速的技能&性格加成累积不能超过35%。'
+    'tipsHS': '所有帮速的技能加成累积不能超过 35%。',
+    'skillUp': 'UP',
+    'changeLevel': '快速等级'
   },
   'TIPS': {
     'energy1': '数值均为程序预估结果，与实际有误差。',
     'energy2': '结果为对应等级一天产出。',
-    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。'
+    'energy3': '非满包满活力，技能型宝可梦更容易触发技能。',
+    'energy4': '宝可梦盒子仅支持本地存储，不支持云存档。'
   }
 }
