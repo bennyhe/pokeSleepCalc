@@ -3956,6 +3956,33 @@ const pokedex = {
     foodPer: 17.8,
     skillPer: 4
   },
+  701: {
+    id: 701,
+    // name: '摔角鷹人',
+    friendship: 16,
+    sleepType: 3,
+    // skillType: 28,
+    // pokeType: 3,
+    berryType: 16,
+    maxcarry: 21
+    // helpSpeed: 2500,
+    // foodPer: 17.7,
+    // skillPer: 4.5,
+    // food: {
+    //   type: [5, 13, 16],
+    //   count: {
+    //     5: {
+    //       num: [1, 2, 4]
+    //     },
+    //     13: {
+    //       num: [0, 1, 2]
+    //     },
+    //     16: {
+    //       num: [0, 0, 2]
+    //     }
+    //   }
+    // }
+  },
   702: {
     id: 702,
     // name: '咚咚鼠',
@@ -4848,6 +4875,9 @@ const updatePoke = [{
 }, {
   time: '2026/07/01',
   pokemons: [387, 388, 389, 390, 391, 392, 393, 394, 395]
+}, {
+  time: '2026/08/01',
+  pokemons: [701]
 }]
 // console.log(pokedex)
 export {

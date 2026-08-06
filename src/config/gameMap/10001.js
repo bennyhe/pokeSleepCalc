@@ -6,7 +6,7 @@ import { map10001ScoreList } from './scoreLine.js'
 export default {
   // name: '萌绿之岛EX',
   id: 'greenex',
-  pic: 'map1',
+  pic: 'map10001',
   berry: ['?', '?', '?'],
   scoreList: map10001ScoreList,
   levelList: [
@@ -335,7 +335,8 @@ export default {
         '780-id-1',
         '387-id-2',
         '390-id-2',
-        '393-id-2'
+        '393-id-2',
+        '701-id-1'
         // '147-id-2' // 龙周限时，迷你龙
       ]
     },
@@ -649,7 +650,8 @@ export default {
         '711-id-2',
         '388-id-3',
         '391-id-3',
-        '394-id-3'
+        '394-id-3',
+        '701-id-2'
       ]
     },
     {
@@ -868,7 +870,8 @@ export default {
         '697-id-3',
         '389-id-3',
         '392-id-3',
-        '395-id-3'
+        '395-id-3',
+        '701-id-3'
       ]
     },
     {
@@ -884,7 +887,8 @@ export default {
         '8001-id-4',
         '780-id-4',
         '392-id-4',
-        '395-id-4'
+        '395-id-4',
+        '701-id-4'
       ]
     },
     {

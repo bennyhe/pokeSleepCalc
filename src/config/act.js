@@ -7,7 +7,8 @@ export const SLEEP_CALC_POKEMONS = {
     27, 28,
     696, 697,
     780,
-    387, 388, 389, 390, 391, 392, 393, 394, 395
+    387, 388, 389, 390, 391, 392, 393, 394, 395,
+    701
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -41,6 +42,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [387, 388, 389, 390, 391, 392, 393, 394, 395],
     starttime: '2026/07/13 04:00'
+  },
+  {
+    ids: [701],
+    starttime: '2026/08/10 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -52,14 +57,14 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: false,
-  showBan: false,
-  banPokes: [], // ban 宝可梦id
-  showBanArea: [] // 展示区域
+  onOffBan: true,
+  showBan: true,
+  banPokes: [701], // ban 宝可梦id
+  showBanArea: [0, 1, 4, 7] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
-  upIdsMidIds: [387, 388, 389, 390, 391, 392, 393, 394, 395],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
   noLastList: []
 }
