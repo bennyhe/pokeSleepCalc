@@ -809,7 +809,7 @@ const getQuickChangeSleepPoint = () => {
 <template>
   <div
     class="page-sleepcalc"
-    :class="{ 'page-sleepcalc--ex': gameMap[userData.curMap].id === 'greenex' }"
+    :class="{ 'page-sleepcalc--ex': gameMap[userData.curMap].id.indexOf('ex') > -1 }"
   >
     <h2>{{ $t("PAGE_TITLE.sleepcalc") }}</h2>
     <div class="page-inner">
@@ -1926,23 +1926,23 @@ const getQuickChangeSleepPoint = () => {
                     :key="hopeItem.pokeId"
                   >
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-                    <p v-if="pageData.showMoreMathExp">
+                    <p class="exhide" v-if="pageData.showMoreMathExp">
                       <img class="icon" v-lazy="'./img/ui/exp.png'" />{{
                         getDecimalNumber(hopeItem.expSum / getTimes, 2)
                       }}
                     </p>
-                    <p v-if="pageData.showMoreMathExp">
+                    <p class="exhide" v-if="pageData.showMoreMathExp">
                       <img class="icon" v-lazy="'./img/ui/shards.png'" />{{
                         getDecimalNumber(hopeItem.shardsSum / getTimes, 2)
                       }}
                     </p>
-                    <p v-if="pageData.showMoreMathExp">
+                    <p class="exhide" v-if="pageData.showMoreMathExp">
                       <img class="icon" v-lazy="'./img/ui/candy.png'" />{{
                         getDecimalNumber(hopeItem.candysSum / getTimes, 2)
                       }}
                     </p>
                   </CptAvatar>
-                  <div>
+                  <div class="exhide">
                     <el-button
                       size="small"
                       @click="handleClickShowMoreMathExp()"

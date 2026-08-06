@@ -60,7 +60,7 @@ export const SLEEP_CALC_CONFIG = {
   onOffBan: true,
   showBan: true,
   banPokes: [701], // ban 宝可梦id
-  showBanArea: [0, 1, 4, 7] // 展示区域
+  showBanArea: [0, 1, 4, 7, 8] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [],
