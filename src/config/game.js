@@ -6,6 +6,7 @@ import map5 from './gameMap/5.js'
 import map6 from './gameMap/6.js'
 import map7 from './gameMap/7.js'
 import map10001 from './gameMap/10001.js'
+import map10002 from './gameMap/10002.js'
 
 export const areaBonusMax = 85
 export const POKEMON_MAX_LEVEL = 70
@@ -19,5 +20,6 @@ export const gameMap = [
   map5,
   map6,
   map7,
-  map10001
+  map10001,
+  map10002
 ]
