@@ -488,8 +488,8 @@ const pokedex = {
     berryType: 12,
     maxcarry: 34,
     helpSpeed: 2800,
-    foodPer: 16.8,
-    skillPer: 3.6
+    foodPer: 16.7,
+    skillPer: 4
   },
   37: {
     id: 37,
@@ -3551,7 +3551,7 @@ const pokedex = {
     // name: '路卡利歐',
     friendship: 20,
     sleepType: 3,
-    skillType: 3,
+    skillType: 36,
     pokeType: 3,
     maxcarry: 19,
     helpSpeed: 2600,
