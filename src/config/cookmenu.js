@@ -470,6 +470,56 @@ export const COOKMENU = {
     'baseEnergy': 24802,
     'menuPercent': 78
   },
+  '1024': {
+    // 萌綠咖哩麵包
+    'id': 1024,
+    'type': 1,
+    'from': [
+      {
+        'id': 11,
+        'num': 20
+      },
+      {
+        'id': 6,
+        'num': 20
+      },
+      {
+        'id': 15,
+        'num': 8
+      },
+      {
+        'id': 10,
+        'num': 15
+      }
+    ],
+    'baseEnergy': 10945,
+    'menuPercent': 48
+  },
+  '1025': {
+    // 彈跳咖哩烏龍麵
+    'id': 1025,
+    'type': 1,
+    'from': [
+      {
+        'id': 11,
+        'num': 39
+      },
+      {
+        'id': 2,
+        'num': 31
+      },
+      {
+        'id': 6,
+        'num': 22
+      },
+      {
+        'id': 7,
+        'num': 20
+      }
+    ],
+    'baseEnergy': 25539,
+    'menuPercent': 78
+  },
   '2000': {
     // 拌拌沙拉
     'id': 2000,

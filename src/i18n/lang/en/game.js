@@ -270,7 +270,9 @@ export default {
     3021: '“Early Bird” Coffee Jelly',
     3022: '“Zing Zap” Spiced Cola',
     3023: '“Mold Breaker” Corn Tiramisu',
-    3024: 'Clodsire Éclair'
+    3024: 'Clodsire Éclair',,
+    1024: '萌綠咖哩麵包',
+    1025: '彈跳咖哩烏龍麵'
   },
   'POKEMON_NAME': {
     1: 'Bulbasaur',
