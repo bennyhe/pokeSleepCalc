@@ -63,8 +63,8 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 1, 4, 7, 8] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [7, 10, 54, 79, 83, 84, 127, 158, 194, 213, 214, 225, 258, 333, 393, 557, 627, 736, 845, 912],
+  upIdsMidIds: [701],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -131,14 +131,15 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  ...fnGetMoonDays(1785182400000, 1785441599000, 2.5),
+  // ...fnGetMoonDays(1785182400000, 1785441599000, 2.5),
   {
-    name: '3週年紀念嘉年華第2週',
-    namejp: '3周年記念フェスティバル2週目',
-    startTime: 1784491200000,
-    endTime: 1785095999000,
-    notArea: [5],
-    midUp: [387, 388, 389, 390, 391, 392, 393, 394, 395],
+    name: '夏日嘉年華2026',
+    namejp: 'サマーフェスティバル2026',
+    startTime: 1786305600000,
+    endTime: 1786910399000,
+    notArea: [],
+    midUp: [701],
+    smallUp: [7,10,54,79,83,84,127,158,194,213,214,225,258,333,393,557,627,736,845,912],
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
     isActRandom: true
   }

@@ -9,8 +9,7 @@ import map10001 from './gameMap/10001.js'
 import map10002 from './gameMap/10002.js'
 
 export const FMB_MAP_INDEXES = [0, 7, 8] // 共享树果偏好（FMB）的岛屿索引，新增岛屿时只需在此追加
-// ex岛屿其它属性帮忙间隔延长百分比，新增ex岛屿时在此追加
-export const EX_HELP_SPEED_PENALTY = { greenex: 15, beachex: 35 }
+export const EX_HELP_SPEED_PENALTY = { greenex: 15, beachex: 35 } // ex岛屿其它属性帮忙间隔延长百分比，新增ex岛屿时在此追加
 export const areaBonusMax = 85
 export const POKEMON_MAX_LEVEL = 70
 export const mapSplitVer = '3.0.4'

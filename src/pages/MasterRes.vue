@@ -26,7 +26,7 @@ const showMax = {
 const pageData = ref({
   curMap: 0,
   pokemonId: null,
-  areaNum: 8 // 加8岛记得改序号
+  areaNum: gameMap.length
 })
 const handleClickChangeMap = id => {
   pageData.value.curMap = id
