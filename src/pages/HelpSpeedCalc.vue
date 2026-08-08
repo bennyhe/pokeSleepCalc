@@ -45,6 +45,8 @@ import {
 } from '../utils/helpcalc.js'
 import {
   gameMap,
+  FMB_MAP_INDEXES,
+  EX_HELP_SPEED_PENALTY,
   areaBonusMax,
   POKEMON_MAX_LEVEL,
   SP_POKEMONS
@@ -226,8 +228,9 @@ if (getLSBOX) {
 }
 const getLSFMBs = localStorage.getItem('PSC_FMBs')
 if (getLSFMBs) {
-  gameMapNew.value[0].berry = JSON.parse(getLSFMBs)
-  gameMapNew.value[7].berry = JSON.parse(getLSFMBs) // 加8岛记得改序号
+  FMB_MAP_INDEXES.forEach(index => {
+    gameMapNew.value[index].berry = JSON.parse(getLSFMBs)
+  })
 }
 const getLSAB = localStorage.getItem('PSC_AB')
 if (getLSAB) {
@@ -557,8 +560,9 @@ const setFMBerrys = (areaIndexId, berryId) => {
   }
 }
 const handleChangeFMBerrys = berryId => {
-  setFMBerrys(0, berryId)
-  setFMBerrys(7, berryId) //greened, 加8岛记得改序号
+  FMB_MAP_INDEXES.forEach(index => {
+    setFMBerrys(index, berryId)
+  })
   localStorage.setItem('PSC_FMBs', JSON.stringify(gameMapNew.value[0].berry))
 
   helpSpeedCalcForm.value.greenex.moreBerryEngery = []
@@ -1245,12 +1249,11 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           </li>
         </template>
       </ul>
-      <!-- 加8岛记得改序号 -->
       <div
         style="width: 100%"
         v-if="
           navData.navIndex !== 0 &&
-          (helpSpeedCalcForm.curMap === 0 || helpSpeedCalcForm.curMap === 7)
+          FMB_MAP_INDEXES.includes(+helpSpeedCalcForm.curMap)
         "
       >
         <ul class="cpt-select-list cpt-select-list--berry">
@@ -1485,11 +1488,11 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       </h3>
     </div>
     <el-alert
-      :title="$t('ILAND.greenex')"
+      :title="$t(`ILAND.${gameMapNew[helpSpeedCalcForm.curMap].id}`)"
       type="warning"
       show-icon
       v-if="
-        gameMapNew[helpSpeedCalcForm.curMap].id === 'greenex' &&
+        [7, 8].includes(+helpSpeedCalcForm.curMap) &&
         [1, 2].includes(navData.navIndex)
       "
     >
@@ -1569,7 +1572,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           </ul>
           树果带来的能量增加量会变成2.4倍
         </div>
-        <p>其他属性：帮手宝可梦的帮忙间隔延长15%</p>
+        <p>其他属性：帮手宝可梦的帮忙间隔延长{{ EX_HELP_SPEED_PENALTY[gameMapNew[helpSpeedCalcForm.curMap].id] }}%</p>
       </div>
     </el-alert>
     <div v-if="navData.navIndex === 1">

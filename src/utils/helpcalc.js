@@ -14,6 +14,7 @@ import {
   characterOptions
 } from '../config/helpSpeed.js'
 import {
+  EX_HELP_SPEED_PENALTY,
   SP_POKEMONS
 } from '../config/game.js'
 import { pokedex } from '../config/pokedex.js'
@@ -286,15 +287,16 @@ export const getNewHelpSpeed = (formData, level, isUseTicket, mapBonusData) => {
     res = res / 1.2
   }
   // ex岛屿
-  if (get('curMapData.id', mapBonusData) === 'greenex') {
+  const exPenalty = EX_HELP_SPEED_PENALTY[get('curMapData.id', mapBonusData)]
+  if (exPenalty) {
     // console.log('11111ex')
     if (get('curMapData.berry', mapBonusData, 1) && get('curMapData.berry', mapBonusData).includes(get('curPokeBerryType', mapBonusData))) { //已选中对应树果
       if (get('curMapData.berry', mapBonusData)[0] === get('curPokeBerryType', mapBonusData)) {
         res = res * 0.9 //帮手宝可梦的帮忙间隔缩短10%
       }
-    } else { // ex其它属性帮忙间隔延长15%
+    } else { // ex其它属性帮忙间隔延长
       // console.log('11111ex other')
-      res = res * 1.15
+      res = res * (1 + exPenalty / 100)
     }
   }
   return Math.floor(res)
