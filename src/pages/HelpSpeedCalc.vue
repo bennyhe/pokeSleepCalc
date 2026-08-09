@@ -46,7 +46,7 @@ import {
 import {
   gameMap,
   FMB_MAP_INDEXES,
-  EX_HELP_SPEED_PENALTY,
+  EX_HELP_SPEED,
   areaBonusMax,
   POKEMON_MAX_LEVEL,
   SP_POKEMONS
@@ -1506,7 +1506,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
               />
             </div>
           </div>
-          帮手宝可梦的帮忙间隔缩短10%
+          帮手宝可梦的帮忙间隔缩短{{ EX_HELP_SPEED[gameMapNew[helpSpeedCalcForm.curMap].id].bonus }}%
         </div>
         <div>
           <ul
@@ -1572,7 +1572,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           </ul>
           树果带来的能量增加量会变成2.4倍
         </div>
-        <p>其他属性：帮手宝可梦的帮忙间隔延长{{ EX_HELP_SPEED_PENALTY[gameMapNew[helpSpeedCalcForm.curMap].id] }}%</p>
+        <p>其他属性：帮手宝可梦的帮忙间隔延长{{ EX_HELP_SPEED[gameMapNew[helpSpeedCalcForm.curMap].id].penalty }}%</p>
       </div>
     </el-alert>
     <div v-if="navData.navIndex === 1">

@@ -1,7 +1,7 @@
 import { BERRY_ENERGY } from '../config/berryEnergy.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
 import { skillEffects } from '../config/skillEffects.js'
-import { EX_HELP_SPEED_PENALTY } from '../config/game.js'
+import { EX_HELP_SPEED } from '../config/game.js'
 
 import { getDecimalNumber, get, sortInObjectOptions } from '../utils/index.js'
 
@@ -12,7 +12,7 @@ const getAfterBonusBerryEnergy = (berryRes, berryType, isRightBerry, mapBonusDat
   let res = berryRes
   if (isRightBerry) {
     // ex岛屿
-    if (EX_HELP_SPEED_PENALTY[get('curMapData.id', mapBonusData)] && get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(berryType)) { //已选中对应树果2.4倍树果能量
+    if (EX_HELP_SPEED[get('curMapData.id', mapBonusData)] && get('moreBerryEngery', mapBonusData, 1) && get('moreBerryEngery', mapBonusData).includes(berryType)) { //已选中对应树果2.4倍树果能量
       res = res * 2.4
     } else {
       res = res * 2
@@ -48,7 +48,7 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
   for (let i = 0; i < useFoods.length; i++) {
     let defaultFoodCount = pokeItem.food.count[useFoods[i]].num[i]
     // ex岛屿
-    if (EX_HELP_SPEED_PENALTY[get('curMapData.id', mapBonusData)]) {
+    if (EX_HELP_SPEED[get('curMapData.id', mapBonusData)]) {
       // console.log('11111ex')
       if (get('moreFood', mapBonusData, 1) && get('moreFood', mapBonusData).includes(pokeItem.berryType)) { //已选中对应树果多1个食材
         defaultFoodCount++
