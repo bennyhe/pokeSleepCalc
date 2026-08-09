@@ -57,10 +57,10 @@ export const SLEEP_CALC_UP = {
   large: 9
 }
 export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [701], // ban 宝可梦id
-  showBanArea: [0, 1, 4, 7, 8] // 展示区域
+  onOffBan: false,
+  showBan: false,
+  banPokes: [], // ban 宝可梦id
+  showBanArea: [] // 展示区域
 }
 export const LAB_CONFIG = {
   upIdsSmallIds: [7, 10, 54, 79, 83, 84, 127, 158, 194, 213, 214, 225, 258, 333, 393, 557, 627, 736, 845, 912],
@@ -135,7 +135,7 @@ export const ACT_LIST = [
   {
     name: '夏日嘉年華2026',
     namejp: 'サマーフェスティバル2026',
-    startTime: 1786305600000,
+    startTime: 1786288525098,
     endTime: 1786910399000,
     notArea: [],
     midUp: [701],
