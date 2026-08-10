@@ -3961,27 +3961,27 @@ const pokedex = {
     // name: '摔角鷹人',
     friendship: 16,
     sleepType: 3,
-    // skillType: 28,
-    // pokeType: 3,
+    skillType: 28,
+    pokeType: 3,
     berryType: 16,
-    maxcarry: 21
-    // helpSpeed: 2500,
-    // foodPer: 17.7,
-    // skillPer: 4.5,
-    // food: {
-    //   type: [5, 13, 16],
-    //   count: {
-    //     5: {
-    //       num: [1, 2, 4]
-    //     },
-    //     13: {
-    //       num: [0, 1, 2]
-    //     },
-    //     16: {
-    //       num: [0, 0, 2]
-    //     }
-    //   }
-    // }
+    maxcarry: 21,
+    helpSpeed: 2400,
+    foodPer: 19.2,
+    skillPer: 5.2,
+    food: {
+      type: [6, 11, 7],
+      count: {
+        6: {
+          num: [1, 2, 4]
+        },
+        11: {
+          num: [0, 3, 4]
+        },
+        7: {
+          num: [0, 0, 5]
+        }
+      }
+    }
   },
   702: {
     id: 702,

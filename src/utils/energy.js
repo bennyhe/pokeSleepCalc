@@ -185,6 +185,10 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
         foodTypes[28][0].foodtype = 4
         foodTypes[28][1].foodtype = 16
         foodTypes[28][2].foodtype = 18
+      } else if ([701].includes(+pokeItem.id)) {
+        foodTypes[28][0].foodtype = 6
+        foodTypes[28][1].foodtype = 11
+        foodTypes[28][2].foodtype = 7
       }
       skillExtra.foods = foodTypes[pokeSkillType].map(foodItem => {
         let foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount, 1)
