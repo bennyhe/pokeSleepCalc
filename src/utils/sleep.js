@@ -740,7 +740,7 @@ export function getLevelIndexByEnergy(curMapLevelList, CurEnergy) {
 
 export function getSPOById(sleepStyleId, mapId) {
   if (sleepStyleId && SPO_DATA[sleepStyleId] && SPO_DATA[sleepStyleId].spo_n) {
-    if (mapId.indexOf('ex') > -1) {
+    if (mapId && mapId.indexOf('ex') > -1) {
       // console.log(mapId === 'greenex')
       return SPONEW_TO_EX[SPO_DATA[sleepStyleId].spo_n] // 转换最新的spo_n对应数值
     }
