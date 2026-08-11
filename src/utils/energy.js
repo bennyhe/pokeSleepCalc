@@ -239,7 +239,7 @@ export const getOneDayHelpCount = (helpSpeed, foodPer, skillPer, calcTime) => {
     foodCount = 1
   }
   oneDayHelpCount.food = foodCount
-  oneDayHelpCount.berry = getDecimalNumber(oneDayHelpCount.sum - skillCount - oneDayHelpCount.food, 2)
+  oneDayHelpCount.berry = getDecimalNumber(oneDayHelpCount.sum - oneDayHelpCount.food, 2) // 食材影响树果，技概不影响
   return oneDayHelpCount
 }
 /**
