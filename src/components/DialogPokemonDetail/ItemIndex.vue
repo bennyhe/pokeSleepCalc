@@ -1,5 +1,5 @@
 <script setup>
-import CptDialog from '../Dialog/index.vue'
+import CptDialog from '../Dialog/DialogIndex.vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import CptSleepStyle from '../CptSleepStyle/SleepItem.vue'
 import { SPO38000 } from '../../config/spo.js'

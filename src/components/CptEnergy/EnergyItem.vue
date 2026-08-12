@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
-import CptDialog from '../Dialog/index.vue'
+import CptDialog from '../Dialog/DialogIndex.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
   skillOptionsExtra,

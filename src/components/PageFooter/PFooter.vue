@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import CptDialogUpdateLog from '../DialogUpdateLog/index.vue'
-import CptDialogSupport from '../DialogSupport/index.vue'
+import CptDialogUpdateLog from '../DialogUpdateLog/DialogUpdateLogIndex.vue'
+import CptDialogSupport from '../DialogSupport/DialogSupportIndex.vue'
 
 const isShowDialog = ref(false)
 const dialogId = ref(false)

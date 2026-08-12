@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
-import CptDialog from '../Dialog/index.vue'
+import CptDialog from '../Dialog/DialogIndex.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
   allHelpType,

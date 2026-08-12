@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import CptDialog from '../Dialog/index.vue'
+import CptDialog from '../Dialog/DialogIndex.vue'
 import updateLogInfo from './data.js'
 
 defineProps(['isShowDialog', 'dialogId'])
