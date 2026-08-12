@@ -316,11 +316,16 @@ const secondSleepScore = computed(() =>
 )
 const secondSleepScoreNum = computed(() => getNum(secondSleepScore.value))
 const secondSleepCatchNum = computed(() =>
-  getNumberInMap(secondSleepScore.value, gameMap[userData.value.curMap].scoreList)
+  getNumberInMap(
+    secondSleepScore.value,
+    gameMap[userData.value.curMap].scoreList
+  )
 )
 const lostVigourFull = computed(() => getLostVigour(8 * 60 + 30))
 const lostVigourFirst = computed(() => getLostVigour(firstSleepMins.value))
-const lostVigourSecond = computed(() => getLostVigour(remainingSleepMins.value))
+const lostVigourSecond = computed(() =>
+  getLostVigour(remainingSleepMins.value)
+)
 const targetStartScore100 = computed(() => getTargetStartScore(100))
 const canSplitSleep = computed(
   () =>
@@ -429,7 +434,10 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   }
 
   res.forEach(sleepItem => {
-    sleepItem.iv = getRandomIV(sleepItem.pokeId, buildIVOptions(userData.value.lockSkillCount))
+    sleepItem.iv = getRandomIV(
+      sleepItem.pokeId,
+      buildIVOptions(userData.value.lockSkillCount)
+    )
 
     // 标记首遇宝可梦已遇到
     FIRST_LOCK_IDS.forEach(id => {
@@ -439,7 +447,8 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     })
 
     // 根据好友度计算地图锁技能等级
-    const friendship = catchPokeState.value.friendshipLevel[sleepItem.pokeId] || 0
+    const friendship =
+      catchPokeState.value.friendshipLevel[sleepItem.pokeId] || 0
     let isCurPokeMapLock = 0
     if (friendship >= 99) {
       isCurPokeMapLock = 3
@@ -451,13 +460,20 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
     if (!catchPokeState.value.friendshipLevel[sleepItem.pokeId]) {
       catchPokeState.value.friendshipLevel[sleepItem.pokeId] = 1
     }
-    sleepItem.ivInMap = getRandomIV(sleepItem.pokeId, buildIVOptions(isCurPokeMapLock))
+    sleepItem.ivInMap = getRandomIV(
+      sleepItem.pokeId,
+      buildIVOptions(isCurPokeMapLock)
+    )
 
     sleepItem.isScaleX = Math.floor(Math.random() * 2)
     sleepItem.eatStateType = 3
 
     // 贪吃判定：闪光必贪吃，露营券必贪吃，其它10%贪吃
-    if (sleepItem.isShiny || sleepItem.isUseTicket || Math.floor(Math.random() * 100) <= 10) {
+    if (
+      sleepItem.isShiny ||
+      sleepItem.isUseTicket ||
+      Math.floor(Math.random() * 100) <= 10
+    ) {
       sleepItem.eatStateType = 1
     }
   })
@@ -810,7 +826,9 @@ const getQuickChangeSleepPoint = () => {
 <template>
   <div
     class="page-sleepcalc"
-    :class="{ 'page-sleepcalc--ex': gameMap[userData.curMap].id.indexOf('ex') > -1 }"
+    :class="{
+      'page-sleepcalc--ex': gameMap[userData.curMap].id.indexOf('ex') > -1,
+    }"
   >
     <h2>{{ $t("PAGE_TITLE.sleepcalc") }}</h2>
     <div class="page-inner">
@@ -878,15 +896,15 @@ const getQuickChangeSleepPoint = () => {
                       </td>
                       <td
                         class="map-pokemons__item"
-                        :key="`pomap_${
-                          gameMapPokemons[userData.curMap].id
-                        }`"
+                        :key="`pomap_${gameMapPokemons[userData.curMap].id}`"
                         :class="{
                           'td-none':
-                            !gameMapPokemons[userData.curMap]
-                              .levelPokemons[levelKey] ||
-                            gameMapPokemons[userData.curMap]
-                              .levelPokemons[levelKey].length === 0,
+                            !gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ] ||
+                            gameMapPokemons[userData.curMap].levelPokemons[
+                              levelKey
+                            ].length === 0,
                         }"
                       >
                         <template
@@ -995,7 +1013,11 @@ const getQuickChangeSleepPoint = () => {
               />
               {{ $t(`LEVEL_TITLE.${stageItem.nameId}`)
               }}{{ stageItem.nameIndex }}
-              <span class="fz12" v-if="stageItem.energy > 0">(<img class="icon" :src="UI_ICONS.energy" />{{ getNum(stageItem.energy) }})</span>
+              <span class="fz12" v-if="stageItem.energy > 0"
+                >(<img class="icon" :src="UI_ICONS.energy" />{{
+                  getNum(stageItem.energy)
+                }})</span
+              >
             </el-option>
           </el-select></el-col
         >
@@ -1063,8 +1085,8 @@ const getQuickChangeSleepPoint = () => {
           </el-form-item>
           <el-form-item v-if="sleepCatchNum < 8 && nextScoreDiff > 0">
             <p>
-              <span class="sptime">{{ sleepCatchNum + 1 }}匹</span
-              >捕獲まで<span class="sptime"
+              <span class="sptime">{{ sleepCatchNum + 1 }}匹</span>捕獲まで<span
+                class="sptime"
                 ><img class="icon" :src="UI_ICONS.energy" />{{
                   nextScoreDiff
                 }}</span
@@ -1093,7 +1115,9 @@ const getQuickChangeSleepPoint = () => {
                   :key="opt.cItem"
                   :label="opt.cItem"
                 >
-                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{ opt.cItem }}+{{ opt.secondNum }})
+                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{
+                    opt.cItem
+                  }}+{{ opt.secondNum }})
                 </el-radio-button>
               </el-radio-group>
             </div>
@@ -1108,7 +1132,8 @@ const getQuickChangeSleepPoint = () => {
                 >のポケモンが捕獲可能。</span
               ><span class="mobile-br"
                 ><span class="spscore"
-                  >{{ firstSleepScoreNum }}<span class="spscore__extra"
+                  >{{ firstSleepScoreNum
+                  }}<span class="spscore__extra"
                     >({{ firstSleepTargetStartScoreNum }})</span
                   ></span
                 >の{{ $t("PROP.dpr") }}獲得、</span
@@ -1182,7 +1207,9 @@ const getQuickChangeSleepPoint = () => {
                   :key="opt.cItem"
                   :label="opt.cItem"
                 >
-                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{ opt.cItem }}+{{ opt.secondNum }})
+                  {{ opt.cItem + opt.secondNum }}{{ $t("OPTIONS.one") }}({{
+                    opt.cItem
+                  }}+{{ opt.secondNum }})
                 </el-radio-button>
               </el-radio-group>
             </div>
@@ -1196,7 +1223,8 @@ const getQuickChangeSleepPoint = () => {
               ><span class="mobile-br"
                 ><CptProcss :score="firstSleepScoreVal" />分，获得<span
                   class="spscore"
-                  >{{ firstSleepScoreNum }}<span class="spscore__extra"
+                  >{{ firstSleepScoreNum
+                  }}<span class="spscore__extra"
                     >({{ firstSleepTargetStartScoreNum }})</span
                   ></span
                 >+{{ $t("PROP.dpr") }}</span
@@ -1208,8 +1236,7 @@ const getQuickChangeSleepPoint = () => {
             <p>
               <span class="mobile-br"
                 >剩余睡眠<span class="sptime">{{ remainingTimeHM }}</span
-                >，可捕捉<span class="sptime"
-                  >{{ secondSleepCatchNum }}只</span
+                >，可捕捉<span class="sptime">{{ secondSleepCatchNum }}只</span
                 >，</span
               ><span class="mobile-br"
                 ><CptProcss :score="100 - firstSleepScoreVal" />分，获得<span
@@ -2200,11 +2227,7 @@ const getQuickChangeSleepPoint = () => {
           </template>
         </template>
         <template v-for="sleepItem in getFilterInTypes(userData.unLockSleeps)">
-          <div
-            class="poke-tb__item"
-            v-if="sleepItem.id"
-            :key="sleepItem.id"
-          >
+          <div class="poke-tb__item" v-if="sleepItem.id" :key="sleepItem.id">
             <CptSleepStyle
               :showMapLevel="true"
               :sleepItem="sleepItem"
