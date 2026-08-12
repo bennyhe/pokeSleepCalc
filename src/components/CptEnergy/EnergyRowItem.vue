@@ -52,7 +52,7 @@ const props = defineProps({
             2
           )}%`"
         >
-          <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+          <img class="icon" src='./img/ui/energy.png' />{{
             getNum(props.pokeItem.oneDayBerryEnergy)
           }}
         </div>
@@ -65,7 +65,7 @@ const props = defineProps({
           )}%`"
         >
           <span class="pcsee"
-            ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+            ><img class="icon" src='./img/ui/energy.png' />{{
               getNum(props.pokeItem.oneDayFoodEnergy.allEnergy)
             }}</span
           >
@@ -84,7 +84,7 @@ const props = defineProps({
           "
         >
           <span class="pcsee"
-            ><img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+            ><img class="icon" src='./img/ui/energy.png' />{{
               getNum(props.pokeItem.oneDaySkillEffects.value)
             }}
           </span>
@@ -139,7 +139,7 @@ const props = defineProps({
       </div>
     </div>
     <div class="cpt-energyrow-item__energy">
-      <img class="icon" v-lazy="`./img/ui/energy.png`" />{{
+      <img class="icon" src='./img/ui/energy.png' />{{
         getNum(pokeItem.oneDayEnergy)
       }}
     </div>

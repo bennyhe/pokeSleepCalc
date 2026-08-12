@@ -1805,7 +1805,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <el-row>
         <el-col>
           总{{ $t("PROP.energy") }}：
-          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+          <img class="icon" src='./img/ui/energy.png' /><span
             class="sptime"
           >
             <template v-if="subskillOn.helpBonus.energy > 0">
@@ -1817,7 +1817,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-col>
         <el-col>
           {{ $t("OPTIONS.pokemonTeam") }}{{ $t("PROP.energy") }}：
-          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+          <img class="icon" src='./img/ui/energy.png' /><span
             class="sptime"
           >
             <template v-if="subskillOn.helpBonus.energy > 0">
@@ -1829,7 +1829,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-col>
         <el-col>
           料理{{ $t("PROP.energy") }}：
-          <img class="icon" v-lazy="`./img/ui/energy.png`" /><span
+          <img class="icon" src='./img/ui/energy.png' /><span
             class="sptime"
             >{{ getNum(menuEnergy) }}</span
           ><template v-if="menuCritical > 0"

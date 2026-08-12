@@ -285,7 +285,7 @@ const handleChangeInputPM = () => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="能量范围">
-      <img class="icon" v-lazy="`./img/ui/energy.png`" />
+      <img class="icon" src='./img/ui/energy.png' />
       <el-select
         v-model="pageData.minScore"
         placeholder="请填写下限分数"
@@ -460,7 +460,7 @@ const handleChangeInputPM = () => {
   </h2>
   <div v-for="tdItem in testData" :key="tdItem.allPoint">
     <h3>
-      <img class="icon" v-lazy="`./img/ui/energy.png`" />
+      <img class="icon" src='./img/ui/energy.png' />
       {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
       <span class="extra"
         >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
