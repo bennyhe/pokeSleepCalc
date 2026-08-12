@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { getNum, get } from '../../utils/index.js'
 import { UI_ICONS } from '../../config/uiIcons.js'
 const props = defineProps({

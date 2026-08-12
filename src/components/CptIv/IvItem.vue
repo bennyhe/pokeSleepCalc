@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'

@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { fnAccumulation, getNum } from '../../utils/index.js'
 import { UI_ICONS } from '../../config/uiIcons.js'
 

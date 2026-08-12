@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import { UI_ICONS } from '../../config/uiIcons.js'

@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import { UI_ICONS } from '../../config/uiIcons.js'
 import { pokedex } from '../../config/pokedex.js'

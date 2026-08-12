@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import { UI_ICONS } from '../../config/uiIcons.js'

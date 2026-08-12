@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { toHMInLang, get, extractPrefix } from '../../utils/index.js'

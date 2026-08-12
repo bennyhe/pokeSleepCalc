@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import CptDialog from '../Dialog/index.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'

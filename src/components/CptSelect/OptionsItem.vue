@@ -1,5 +1,4 @@
 <script setup>
-// import { defineProps } from 'vue'
 import { pokedex } from '../../config/pokedex.js'
 
 // const props = defineProps({

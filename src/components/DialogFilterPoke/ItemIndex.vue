@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import CptDialog from '../Dialog/index.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'

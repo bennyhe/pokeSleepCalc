@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import CptDialog from '../Dialog/index.vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import CptSleepStyle from '../CptSleepStyle/SleepItem.vue'
