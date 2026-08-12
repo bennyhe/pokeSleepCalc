@@ -130,67 +130,17 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
         berryCount
       }]
     } else if ([24, 25, 28].includes(pokeSkillType)) { // 食材精選S
-      const foodTypes = {
-        24: [
-          {
-            foodtype: 2,
-            percent: 21.5 / 100
-          }, {
-            foodtype: 7,
-            percent: 21.5 / 100
-          }, {
-            foodtype: 15,
-            percent: 21.5 / 100
-          }, {
-            foodtype: 17,
-            percent: 21.5 / 100
-          }
-        ],
-        25: [
-          {
-            foodtype: 4,
-            percent: 20.83 / 100,
-            morePercent: 4.17 / 100
-          }, {
-            foodtype: 10,
-            percent: 20.83 / 100,
-            morePercent: 4.17 / 100
-          }, {
-            foodtype: 12,
-            percent: 20.83 / 100,
-            morePercent: 4.17 / 100
-          }, {
-            foodtype: 16,
-            percent: 20.83 / 100,
-            morePercent: 4.17 / 100
-          }
-        ],
-        28: [{
-          foodtype: 4,
-          percent: 1 / 3
-        }
-        , {
-          foodtype: 10,
-          percent: 1 / 3
-        }, {
-          foodtype: 19,
-          percent: 1 / 3
-        }]
+      // skillType 24/25 的食材配置从 skillEffects 读取；28 的食材类型从宝可梦 skillFood 读取
+      let foodList
+      if (pokeSkillType === 28 && pokeItem.skillFood) {
+        foodList = pokeItem.skillFood.map(type => ({
+          foodtype: type,
+          percent: skillEffects[28].foodPercent
+        }))
+      } else {
+        foodList = skillEffects[pokeSkillType].foodTypes
       }
-      if ([742, 743].includes(+pokeItem.id)) {
-        foodTypes[28][0].foodtype = 9
-        foodTypes[28][1].foodtype = 10
-        foodTypes[28][2].foodtype = 16
-      } else if ([27, 28].includes(+pokeItem.id)) {
-        foodTypes[28][0].foodtype = 4
-        foodTypes[28][1].foodtype = 16
-        foodTypes[28][2].foodtype = 18
-      } else if ([701].includes(+pokeItem.id)) {
-        foodTypes[28][0].foodtype = 6
-        foodTypes[28][1].foodtype = 11
-        foodTypes[28][2].foodtype = 7
-      }
-      skillExtra.foods = foodTypes[pokeSkillType].map(foodItem => {
+      skillExtra.foods = foodList.map(foodItem => {
         let foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount, 1)
         if (pokeSkillType === 25) { // 怪力钳小概率2倍暴击
           foodCount = getDecimalNumber(curSkillVal * foodItem.percent * pokeSkillCount + curSkillVal * 2 * foodItem.morePercent * pokeSkillCount, 1)

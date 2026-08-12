@@ -450,7 +450,8 @@ const pokedex = {
           num: [0, 0, 7]
         }
       }
-    }
+    },
+    skillFood: [4, 16, 18]
   },
   28: {
     id: 28,
@@ -3848,7 +3849,8 @@ const pokedex = {
           num: [0, 0, 5]
         }
       }
-    }
+    },
+    skillFood: [4, 10, 19]
   },
   558: {
     id: 558,
@@ -3981,7 +3983,8 @@ const pokedex = {
           num: [0, 0, 5]
         }
       }
-    }
+    },
+    skillFood: [6, 11, 7]
   },
   702: {
     id: 702,
@@ -4246,7 +4249,8 @@ const pokedex = {
           num: [0, 0, 5]
         }
       }
-    }
+    },
+    skillFood: [9, 10, 16]
   },
   743: {
     id: 743,
@@ -4768,6 +4772,9 @@ const initPokedex = () => {
       }
       if (pmKey > 0) {
         pokedex[pm].food = pokedex[evoItem[0]].food
+        if (pokedex[evoItem[0]].skillFood) {
+          pokedex[pm].skillFood = pokedex[evoItem[0]].skillFood
+        }
       }
     })
   })

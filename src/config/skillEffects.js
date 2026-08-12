@@ -286,6 +286,8 @@ export const skillEffects = {
   28: {
     id: 28,
     maxLevel: 7,
+    // skillType 28 的食材类型从宝可梦的 food.type 动态读取，此处仅配置掉落概率
+    foodPercent: 1 / 3,
     effects: [
       {
         level: 1,
@@ -320,6 +322,12 @@ export const skillEffects = {
   24: {
     id: 24,
     maxLevel: 7,
+    foodTypes: [
+      { foodtype: 2, percent: 21.5 / 100 },
+      { foodtype: 7, percent: 21.5 / 100 },
+      { foodtype: 15, percent: 21.5 / 100 },
+      { foodtype: 17, percent: 21.5 / 100 }
+    ],
     effects: [
       {
         level: 1,
@@ -354,6 +362,12 @@ export const skillEffects = {
   25: {
     id: 25,
     maxLevel: 7,
+    foodTypes: [
+      { foodtype: 4, percent: 20.83 / 100, morePercent: 4.17 / 100 },
+      { foodtype: 10, percent: 20.83 / 100, morePercent: 4.17 / 100 },
+      { foodtype: 12, percent: 20.83 / 100, morePercent: 4.17 / 100 },
+      { foodtype: 16, percent: 20.83 / 100, morePercent: 4.17 / 100 }
+    ],
     effects: [
       {
         level: 1,
