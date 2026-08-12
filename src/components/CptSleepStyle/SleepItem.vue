@@ -78,15 +78,15 @@ const props = defineProps({
         </template>
       </p>
       <p class="exhide">
-        <img class="icon" src="./img/ui/exp.png" />
+        <img class="icon" src="@/img/ui/exp.png" />
         <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" src="./img/ui/shards.png" />
+        <img class="icon" src="@/img/ui/shards.png" />
         <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" src="./img/ui/candy.png" />
+        <img class="icon" src="@/img/ui/candy.png" />
         <span class="sptime">{{ sleepItem.candys }}</span>
       </p>
       <div v-if="localeLangId === 'jp' && sleepItem.count">

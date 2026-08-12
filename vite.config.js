@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
@@ -34,7 +35,7 @@ export default defineConfig({
   resolve: {
     alias: [{
       find: '@',
-      replacement: './src'
+      replacement: path.resolve(process.cwd(), 'src')
     }]
   },
   // 生产环境移除console

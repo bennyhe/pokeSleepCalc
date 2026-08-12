@@ -1008,7 +1008,7 @@ const getQuickChangeSleepPoint = () => {
             @blur="handleBlurEnergy"
           >
             <template #prefix>
-              <img class="icon" src="./img/ui/energy.png" />
+              <img class="icon" src="@/img/ui/energy.png" />
             </template> </el-input
         ></el-col>
       </el-form-item>
@@ -1064,7 +1064,7 @@ const getQuickChangeSleepPoint = () => {
             <p>
               <span class="sptime">{{ sleepCatchNum + 1 }}匹</span
               >捕獲まで<span class="sptime"
-                ><img class="icon" src="./img/ui/energy.png" />{{
+                ><img class="icon" src="@/img/ui/energy.png" />{{
                   nextScoreDiff
                 }}</span
               >エナジーが必要
@@ -1153,7 +1153,7 @@ const getQuickChangeSleepPoint = () => {
             <p>
               距离抓<span class="sptime">{{ sleepCatchNum + 1 }}只</span
               >还需<span class="sptime"
-                ><img class="icon" src="./img/ui/energy.png" />{{
+                ><img class="icon" src="@/img/ui/energy.png" />{{
                   nextScoreDiff
                 }}</span
               >能量
@@ -1578,9 +1578,9 @@ const getQuickChangeSleepPoint = () => {
                 (userData.useIncensePokemonId ? 1 : 0) +
                 (userData.isUseTicket ? 1 : 0)
               }}种<template v-if="get('exp', userSleep.accumulation)"
-                >, <img class="icon" src="./img/ui/exp.png" />{{
+                >, <img class="icon" src="@/img/ui/exp.png" />{{
                   userSleep.accumulation.exp
-                }}<img class="icon" src="./img/ui/shards.png" />{{
+                }}<img class="icon" src="@/img/ui/shards.png" />{{
                   userSleep.accumulation.shards
                 }} </template
               >)</span
@@ -1887,7 +1887,7 @@ const getQuickChangeSleepPoint = () => {
                       userSleep.accumulationMulti.shards
                     "
                   >
-                    <img class="icon" src="./img/ui/exp.png" /><span
+                    <img class="icon" src="@/img/ui/exp.png" /><span
                       class="sptime"
                       >{{
                         getDecimalNumber(
@@ -1896,7 +1896,7 @@ const getQuickChangeSleepPoint = () => {
                         )
                       }}</span
                     >
-                    <img class="icon" src="./img/ui/shards.png" /><span
+                    <img class="icon" src="@/img/ui/shards.png" /><span
                       class="sptime"
                       >{{
                         getDecimalNumber(
@@ -1928,17 +1928,17 @@ const getQuickChangeSleepPoint = () => {
                   >
                     <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
                     <p class="exhide" v-if="pageData.showMoreMathExp">
-                      <img class="icon" src="./img/ui/exp.png" />{{
+                      <img class="icon" src="@/img/ui/exp.png" />{{
                         getDecimalNumber(hopeItem.expSum / getTimes, 2)
                       }}
                     </p>
                     <p class="exhide" v-if="pageData.showMoreMathExp">
-                      <img class="icon" src="./img/ui/shards.png" />{{
+                      <img class="icon" src="@/img/ui/shards.png" />{{
                         getDecimalNumber(hopeItem.shardsSum / getTimes, 2)
                       }}
                     </p>
                     <p class="exhide" v-if="pageData.showMoreMathExp">
-                      <img class="icon" src="./img/ui/candy.png" />{{
+                      <img class="icon" src="@/img/ui/candy.png" />{{
                         getDecimalNumber(hopeItem.candysSum / getTimes, 2)
                       }}
                     </p>
