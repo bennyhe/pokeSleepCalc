@@ -4,28 +4,18 @@
   </CptDialog>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
+<script setup>
+import { ref } from 'vue'
 import CptDialog from '../Dialog/index.vue'
 import updateLogInfo from './data.js'
 
-export default defineComponent({
-  name: 'DialogUpdateLog',
-  props: ['isShowDialog', 'dialogId'],
-  components: {
-    CptDialog
-  },
-  setup(props, context) {
-    const updateLogDom = ref('')
-    function initMdUpdateLog() {
-      updateLogDom.value = window.Mdjs.md2html(updateLogInfo)
-    }
-    initMdUpdateLog()
-    return {
-      updateLogDom
-    }
-  }
-})
+defineProps(['isShowDialog', 'dialogId'])
+
+const updateLogDom = ref('')
+function initMdUpdateLog() {
+  updateLogDom.value = window.Mdjs.md2html(updateLogInfo)
+}
+initMdUpdateLog()
 </script>
 
 <style lang="scss">
