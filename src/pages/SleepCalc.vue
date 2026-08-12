@@ -994,7 +994,7 @@ const getQuickChangeSleepPoint = () => {
               />
               {{ $t(`LEVEL_TITLE.${stageItem.nameId}`)
               }}{{ stageItem.nameIndex }}
-              <span class="fz12" v-if="stageItem.energy > 0">(<img class="icon" src="./img/ui/energy.png" />{{ getNum(stageItem.energy) }})</span>
+              <span class="fz12" v-if="stageItem.energy > 0">(<img class="icon" src="@/img/ui/energy.png" />{{ getNum(stageItem.energy) }})</span>
             </el-option>
           </el-select></el-col
         >
