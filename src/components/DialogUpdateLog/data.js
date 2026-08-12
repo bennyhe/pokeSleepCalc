@@ -2,6 +2,9 @@
 const markdownText = `
 # 更新日志
 
+## 26-08-12
+1. update 优化性能
+
 ## 26-08-10
 1. update 宝可梦#701
 
