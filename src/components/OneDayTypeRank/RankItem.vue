@@ -159,7 +159,7 @@ const getCptPokeShowKey = () => {
                   </div>
                 </div>
                 <span class="res">
-                  <img class="icon" src='./img/ui/energy.png' />{{
+                  <img class="icon" src="./img/ui/energy.png" />{{
                     getNum(pokeItem.oneDayBerryEnergy)
                   }}
                 </span>

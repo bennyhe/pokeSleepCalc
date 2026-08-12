@@ -723,7 +723,7 @@ onBeforeUnmount(() => {
       :key="`${iLandItem.curMap}-${iLandItem.sleepType}-${tdItem.allPoint}`"
     >
       <h3>
-        <img class="icon" src='./img/ui/energy.png' />
+        <img class="icon" src="./img/ui/energy.png" />
         {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
         <span class="extra"
           >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span

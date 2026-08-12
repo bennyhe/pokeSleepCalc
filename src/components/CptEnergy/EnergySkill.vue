@@ -115,7 +115,7 @@ const props = defineProps({
       </div>
     </div>
     <p class="res">
-      <img class="icon" src='./img/ui/energy.png' />{{
+      <img class="icon" src="./img/ui/energy.png" />{{
         getNum(dataSource.oneDayEnergy)
       }}
     </p>
