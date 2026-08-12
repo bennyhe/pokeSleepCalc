@@ -21,10 +21,11 @@
     "babel-polyfill": "^6.26.0",
     "eslint": "^8.20.0",
     "eslint-plugin-vue": "^9.3.0",
-    "vite-plugin-eslint": "^1.7.0",
     "postcss": "^8.4.12",
     "sass-loader": "^6.0.6",
+    "terser": "^5.50.0",
     "vite": "^2.9.0",
+    "vite-plugin-eslint": "^1.7.0",
     "vue3-lazyload": "^0.2.5-beta"
   }
 }

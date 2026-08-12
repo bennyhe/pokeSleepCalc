@@ -40,6 +40,7 @@ export default defineConfig({
   },
   // 生产环境移除console
   build: {
+    minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
