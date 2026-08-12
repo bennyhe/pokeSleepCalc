@@ -12,7 +12,6 @@ import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
 import { IN_LAST_TIME_DAYS, IN_LAST_TIME_POKEMONS } from '../config/act.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
-import { pokedex } from '../config/pokedex.js'
 import { UI_ICONS } from '../config/uiIcons.js'
 const getTimes = 4000
 const sleepTypeToIndex = {

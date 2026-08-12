@@ -4,7 +4,6 @@ import { useI18n } from 'vue-i18n'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
-import { POKE_TYPES } from '../../config/valKey.js'
 
 const { locale } = useI18n()
 const localeLangId = computed(() => {

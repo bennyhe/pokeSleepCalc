@@ -1,9 +1,8 @@
 <script setup>
-import { computed, ref } from 'vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import { UI_ICONS } from '../../config/uiIcons.js'
 import { pokedex } from '../../config/pokedex.js'
-import { getNum, getPercent, get } from '../../utils/index.js'
+import { getNum, getPercent } from '../../utils/index.js'
 const props = defineProps({
   pokeKey: {
     type: [String, Number]

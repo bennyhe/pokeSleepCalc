@@ -4,16 +4,13 @@ import { ElMessage } from 'element-plus'
 import CptDialog from '../Dialog/DialogIndex.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
-  allHelpType,
-  characterOptions,
   skillOptionsExtra,
   skillOptionsExtra2,
   skillOptionsHelpSpeed,
   skillOptionsFoodPer,
   skillOptionsSkillPer,
   skillOptionsMaxcarry,
-  skillOptionsSkillLevel,
-  levelOptions
+  skillOptionsSkillLevel
 } from '../../config/helpSpeed.js'
 
 import GAME_VALS from '../../i18n/lang/cn/game.js'
@@ -22,8 +19,7 @@ const {
   FOOD_TYPES,
   POKE_TYPES,
   SKILL_TYPES,
-  SLEEP_TYPES,
-  SUBSKILLS_NAMES
+  SLEEP_TYPES
 } = GAME_VALS
 
 const props = defineProps({
