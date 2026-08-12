@@ -796,6 +796,13 @@ h4 {
   .i-sleeptype {
     margin-bottom: 3px;
   }
+
+  &--afterbonus {
+    min-height: auto;
+    border-top: 2px dashed #d1813a;
+    margin-top: 6px;
+    padding-top: 6px;
+  }
 }
 
 .berry--hl {
@@ -1803,6 +1810,12 @@ h3 {
 }
 
 .page-sleepcalc {
+  .form-switch {
+    display: inline-block;
+    vertical-align: middle;
+    width: 105px;
+  }
+  
   .sleeplist-unlock .poke-tb .extra-desc {
     white-space: normal
   }

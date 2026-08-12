@@ -176,7 +176,7 @@ gameMapNew.forEach(gitem => {
                         "
                       >
                         <li
-                          style="font-size: 12px"
+                          class="fz12"
                           :key="sleepsItem.id"
                           v-if="
                             mapItem.id === 'greenex' &&

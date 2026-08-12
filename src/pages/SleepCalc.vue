@@ -1370,13 +1370,7 @@ const getQuickChangeSleepPoint = () => {
             </el-select>
           </el-form-item>
           <el-form-item :label="$t('PROP.ticket')">
-            <span
-              style="
-                display: inline-block;
-                vertical-align: middle;
-                width: 105px;
-              "
-            >
+            <span class="form-switch">
               <el-switch
                 v-model="userData.isUseTicket"
                 inline-prompt
@@ -1389,13 +1383,7 @@ const getQuickChangeSleepPoint = () => {
             </span>
           </el-form-item>
           <el-form-item :label="$t('PAGE_SLEEPCALC.formLableMapModel')">
-            <span
-              style="
-                display: inline-block;
-                vertical-align: middle;
-                width: 105px;
-              "
-            >
+            <span class="form-switch">
               <el-switch
                 v-model="userData.mapModel"
                 inline-prompt
@@ -1588,7 +1576,7 @@ const getQuickChangeSleepPoint = () => {
             >
           </h3>
           <p
-            style="font-size: 12px"
+            class="fz12"
             v-if="
               get('spoValidity', userSleep.accumulation) &&
               getScore(randomSleepStyle.sleepPoint) > SPO38000
@@ -1872,7 +1860,7 @@ const getQuickChangeSleepPoint = () => {
                     >({{ hopeList.length }}{{ $t(`OPTIONS.one`) }})</span
                   >
                 </h3>
-                <div style="font-size: 12px">
+                <div class="fz12">
                   「{{ $t(`SLEEP_TYPES.${userData.curUnLockSleepType}`) }}」
                   <template v-if="userData.isActRandom">{{
                     $t("PAGE_SLEEPCALC.formLableActRandom")

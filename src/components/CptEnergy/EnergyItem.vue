@@ -206,13 +206,7 @@ const handleChangeSkillLevel = () => {
     </div>
     <div v-if="showAfterBonusInfo">
       <div
-        class="cpt-pokemon cpt-pokemon--l"
-        style="
-          min-height: auto;
-          border-top: 2px dashed #d1813a;
-          margin-top: 6px;
-          padding-top: 6px;
-        "
+        class="cpt-pokemon cpt-pokemon--l cpt-pokemon--afterbonus"
       >
         <p>{{ pokeItemAfterBonus.helpSpeed }}s</p>
         <p class="cpt-pokemon__hshm">
