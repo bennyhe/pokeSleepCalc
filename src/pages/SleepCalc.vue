@@ -8,6 +8,7 @@ import CptProcss from '../components/Process/ItemIndex.vue'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import CptGameMap from '../components/GameMap/PlayArea.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
+import energyIcon from '@/img/ui/energy.png'
 
 import { gameMap, mapSplitVer } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
@@ -994,7 +995,7 @@ const getQuickChangeSleepPoint = () => {
               />
               {{ $t(`LEVEL_TITLE.${stageItem.nameId}`)
               }}{{ stageItem.nameIndex }}
-              <span class="fz12" v-if="stageItem.energy > 0">(<img class="icon" src="@/img/ui/energy.png" />{{ getNum(stageItem.energy) }})</span>
+              <span class="fz12" v-if="stageItem.energy > 0">(<img class="icon" :src="energyIcon" />{{ getNum(stageItem.energy) }})</span>
             </el-option>
           </el-select></el-col
         >
@@ -1008,7 +1009,7 @@ const getQuickChangeSleepPoint = () => {
             @blur="handleBlurEnergy"
           >
             <template #prefix>
-              <img class="icon" src="@/img/ui/energy.png" />
+              <img class="icon" :src="energyIcon" />
             </template> </el-input
         ></el-col>
       </el-form-item>
@@ -1064,7 +1065,7 @@ const getQuickChangeSleepPoint = () => {
             <p>
               <span class="sptime">{{ sleepCatchNum + 1 }}匹</span
               >捕獲まで<span class="sptime"
-                ><img class="icon" src="@/img/ui/energy.png" />{{
+                ><img class="icon" :src="energyIcon" />{{
                   nextScoreDiff
                 }}</span
               >エナジーが必要
@@ -1153,7 +1154,7 @@ const getQuickChangeSleepPoint = () => {
             <p>
               距离抓<span class="sptime">{{ sleepCatchNum + 1 }}只</span
               >还需<span class="sptime"
-                ><img class="icon" src="@/img/ui/energy.png" />{{
+                ><img class="icon" :src="energyIcon" />{{
                   nextScoreDiff
                 }}</span
               >能量
