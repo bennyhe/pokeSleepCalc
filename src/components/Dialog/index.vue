@@ -25,51 +25,43 @@
     </div>
   </teleport>
 </template>
-<script>
-import { defineComponent, ref } from 'vue'
+<script setup>
+import { ref } from 'vue'
 
-export default defineComponent({
-  name: 'CptDialog',
-  props: {
-    isShow: {
-      type: Boolean,
-      default: false
-    },
-    isAlert: {
-      type: Boolean,
-      default: false
-    },
-    isFullScreen: {
-      type: Boolean,
-      default: false
-    },
-    isHandleClickMaskClose: {
-      type: Boolean,
-      default: true
-    },
-    closeCallBack: {
-      type: Function
-    }
+const props = defineProps({
+  isShow: {
+    type: Boolean,
+    default: false
   },
-  setup(props, context) {
-    const showDialog = ref(true)
-    // console.log(showDialog, props.isShow)
-    const handleClickClose = closeType => {
-      if (props.closeCallBack) {
-        props.closeCallBack()
-      }
-      if (closeType === 'mask' && props.isHandleClickMaskClose) {
-        showDialog.value = false
-      } else {
-        showDialog.value = false
-      }
-    }
-    return {
-      handleClickClose,
-      showDialog
-    }
+  isAlert: {
+    type: Boolean,
+    default: false
+  },
+  isFullScreen: {
+    type: Boolean,
+    default: false
+  },
+  isHandleClickMaskClose: {
+    type: Boolean,
+    default: true
+  },
+  closeCallBack: {
+    type: Function
   }
 })
+
+const showDialog = ref(true)
+// console.log(showDialog, props.isShow)
+const handleClickClose = closeType => {
+  if (props.closeCallBack) {
+    props.closeCallBack()
+  }
+  if (closeType === 'mask' && props.isHandleClickMaskClose) {
+    showDialog.value = false
+  } else {
+    showDialog.value = false
+  }
+}
 </script>
 
 <style lang="scss">
