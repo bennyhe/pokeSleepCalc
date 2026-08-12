@@ -17,6 +17,7 @@ import {
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
+import { UI_ICONS } from '../config/uiIcons.js'
 
 import * as echarts from 'echarts/core'
 import {
@@ -723,7 +724,7 @@ onBeforeUnmount(() => {
       :key="`${iLandItem.curMap}-${iLandItem.sleepType}-${tdItem.allPoint}`"
     >
       <h3>
-        <img class="icon" src="@/img/ui/energy.png" />
+        <img class="icon" :src="UI_ICONS.energy" />
         {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
         <span class="extra"
           >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span

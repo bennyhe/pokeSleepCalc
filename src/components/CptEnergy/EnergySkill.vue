@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { getNum, get } from '../../utils/index.js'
+import { UI_ICONS } from '../../config/uiIcons.js'
 const props = defineProps({
   dataSource: {
     type: [Object]
@@ -19,7 +20,7 @@ const props = defineProps({
     <div class="cpt-pokemon__poketype3 xs">
       技<img
         class="icon"
-        src="@/img/ui/shards.png"
+        :src="UI_ICONS.shards"
         v-if="dataSource.oneDaySkillEffects.type === 'shards'"
       /><template
         v-else-if="
@@ -115,7 +116,7 @@ const props = defineProps({
       </div>
     </div>
     <p class="res">
-      <img class="icon" src="@/img/ui/energy.png" />{{
+      <img class="icon" :src="UI_ICONS.energy" />{{
         getNum(dataSource.oneDayEnergy)
       }}
     </p>

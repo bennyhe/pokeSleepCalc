@@ -11,6 +11,7 @@ import {
   ACT_TYPE
 } from '../config/candyCalc.js'
 import { POKEMON_MAX_LEVEL } from '../config/game.js'
+import { UI_ICONS } from '../config/uiIcons.js'
 import { getNum } from '../utils/index.js'
 
 const candyCalcForm = ref({
@@ -282,15 +283,15 @@ console.log('init page candycalc...')
     <el-form-item :label="$t('OPTIONS.calcRes')">
       <ul>
         <li>
-          <img class="icon" src="@/img/ui/exp.png" />
+          <img class="icon" :src="UI_ICONS.exp" />
           <span class="sptime">{{ getNum(getResults.exp) }}</span>
         </li>
         <li>
-          <img class="icon" src="@/img/ui/shards.png" />
+          <img class="icon" :src="UI_ICONS.shards" />
           <span class="sptime">{{ getNum(getResults.shards) }}</span>
         </li>
         <li>
-          <img class="icon" src="@/img/ui/candy.png" />
+          <img class="icon" :src="UI_ICONS.candy" />
           <span class="sptime">{{ getNum(getResults.candys) }}</span>
         </li>
       </ul>

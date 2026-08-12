@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, computed, ref } from 'vue'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
+import { UI_ICONS } from '../../config/uiIcons.js'
 import { pokedex } from '../../config/pokedex.js'
 import { getNum, getPercent, get } from '../../utils/index.js'
 const props = defineProps({
@@ -52,7 +53,7 @@ const props = defineProps({
             2
           )}%`"
         >
-          <img class="icon" src="@/img/ui/energy.png" />{{
+          <img class="icon" :src="UI_ICONS.energy" />{{
             getNum(props.pokeItem.oneDayBerryEnergy)
           }}
         </div>
@@ -65,7 +66,7 @@ const props = defineProps({
           )}%`"
         >
           <span class="pcsee"
-            ><img class="icon" src="@/img/ui/energy.png" />{{
+            ><img class="icon" :src="UI_ICONS.energy" />{{
               getNum(props.pokeItem.oneDayFoodEnergy.allEnergy)
             }}</span
           >
@@ -84,7 +85,7 @@ const props = defineProps({
           "
         >
           <span class="pcsee"
-            ><img class="icon" src="@/img/ui/energy.png" />{{
+            ><img class="icon" :src="UI_ICONS.energy" />{{
               getNum(props.pokeItem.oneDaySkillEffects.value)
             }}
           </span>
@@ -139,7 +140,7 @@ const props = defineProps({
       </div>
     </div>
     <div class="cpt-energyrow-item__energy">
-      <img class="icon" src="@/img/ui/energy.png" />{{
+      <img class="icon" :src="UI_ICONS.energy" />{{
         getNum(pokeItem.oneDayEnergy)
       }}
     </div>

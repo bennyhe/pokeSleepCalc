@@ -16,6 +16,7 @@ import { SPO_DATA, SPONEW_TO_SPOOLD, SPO38000 } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { NAV_SLEEPLAB } from '../config/nav.js'
+import { UI_ICONS } from '../config/uiIcons.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
@@ -285,7 +286,7 @@ const handleChangeInputPM = () => {
       </el-radio-group>
     </el-form-item>
     <el-form-item label="能量范围">
-      <img class="icon" src="@/img/ui/energy.png" />
+      <img class="icon" :src="UI_ICONS.energy" />
       <el-select
         v-model="pageData.minScore"
         placeholder="请填写下限分数"
@@ -460,7 +461,7 @@ const handleChangeInputPM = () => {
   </h2>
   <div v-for="tdItem in testData" :key="tdItem.allPoint">
     <h3>
-      <img class="icon" src="@/img/ui/energy.png" />
+      <img class="icon" :src="UI_ICONS.energy" />
       {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
       <span class="extra"
         >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span

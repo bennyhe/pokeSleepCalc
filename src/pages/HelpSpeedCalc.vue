@@ -15,6 +15,7 @@ import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
+import { UI_ICONS } from '../config/uiIcons.js'
 import {
   get,
   sortInObjectOptions,
@@ -1805,7 +1806,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <el-row>
         <el-col>
           总{{ $t("PROP.energy") }}：
-          <img class="icon" src="@/img/ui/energy.png" /><span
+          <img class="icon" :src="UI_ICONS.energy" /><span
             class="sptime"
           >
             <template v-if="subskillOn.helpBonus.energy > 0">
@@ -1817,7 +1818,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-col>
         <el-col>
           {{ $t("OPTIONS.pokemonTeam") }}{{ $t("PROP.energy") }}：
-          <img class="icon" src="@/img/ui/energy.png" /><span
+          <img class="icon" :src="UI_ICONS.energy" /><span
             class="sptime"
           >
             <template v-if="subskillOn.helpBonus.energy > 0">
@@ -1829,7 +1830,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-col>
         <el-col>
           料理{{ $t("PROP.energy") }}：
-          <img class="icon" src="@/img/ui/energy.png" /><span
+          <img class="icon" :src="UI_ICONS.energy" /><span
             class="sptime"
             >{{ getNum(menuEnergy) }}</span
           ><template v-if="menuCritical > 0"

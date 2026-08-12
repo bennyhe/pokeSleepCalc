@@ -2,6 +2,7 @@
 import { computed, defineProps } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CptPoke from '../CptPoke/ItemIndex.vue'
+import { UI_ICONS } from '../../config/uiIcons.js'
 import { gameMap } from '../../config/game.js'
 import { getStageLevelPicId } from '../../utils/index.js'
 
@@ -78,15 +79,15 @@ const props = defineProps({
         </template>
       </p>
       <p class="exhide">
-        <img class="icon" src="@/img/ui/exp.png" />
+        <img class="icon" :src="UI_ICONS.exp" />
         <span class="sptime">{{ sleepItem.exp }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" src="@/img/ui/shards.png" />
+        <img class="icon" :src="UI_ICONS.shards" />
         <span class="sptime">{{ sleepItem.shards }}</span>
       </p>
       <p class="exhide">
-        <img class="icon" src="@/img/ui/candy.png" />
+        <img class="icon" :src="UI_ICONS.candy" />
         <span class="sptime">{{ sleepItem.candys }}</span>
       </p>
       <div v-if="localeLangId === 'jp' && sleepItem.count">

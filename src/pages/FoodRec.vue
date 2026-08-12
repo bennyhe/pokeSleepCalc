@@ -11,7 +11,7 @@ import { COOKMENU } from '../config/cookmenu.js'
 import { pokedex } from '../config/pokedex.js'
 import { foodRecommend } from '../config/foodRecommend/foodRecommend.js'
 import { FOOD_ENERGY } from '../config/valKey.js'
-import energyIcon from '@/img/ui/energy.png'
+import { UI_ICONS } from '../config/uiIcons.js'
 
 import { getDecimalNumber } from '../utils/index.js'
 
@@ -126,7 +126,7 @@ for (const cookTypeKey in COOK_TYPES) {
                 :alt="$t(`FOOD_TYPES.${+key}`)"
               />
               {{ $t(`FOOD_TYPES.${key}`) }}
-              <span class="fz12">(<img class="icon" :src="energyIcon" />{{
+              <span class="fz12">(<img class="icon" :src="UI_ICONS.energy" />{{
                 FOOD_ENERGY[key]
               }})</span>
             </el-option>

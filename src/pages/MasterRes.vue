@@ -13,6 +13,7 @@ import { gameMap } from '../config/game.js'
 import { IN_LAST_TIME_DAYS, IN_LAST_TIME_POKEMONS } from '../config/act.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { pokedex } from '../config/pokedex.js'
+import { UI_ICONS } from '../config/uiIcons.js'
 const getTimes = 4000
 const sleepTypeToIndex = {
   999: 3,
@@ -239,7 +240,7 @@ const handleChangePokemon = pokeId => {}
       :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
     >
       <h3>
-        <img class="icon" src="@/img/ui/energy.png" />
+        <img class="icon" :src="UI_ICONS.energy" />
         {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
         <span class="extra"
           >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
@@ -277,7 +278,7 @@ const handleChangePokemon = pokeId => {}
         :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
         <h3>
-          <img class="icon" src="@/img/ui/energy.png" />
+          <img class="icon" :src="UI_ICONS.energy" />
           {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
           <span class="extra"
             >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
@@ -316,7 +317,7 @@ const handleChangePokemon = pokeId => {}
         :key="`${gameMap[pageData.curMap].id}_${tdKey}`"
       >
         <h3>
-          <img class="icon" src="@/img/ui/energy.png" />
+          <img class="icon" :src="UI_ICONS.energy" />
           {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
           <span class="extra"
             >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span

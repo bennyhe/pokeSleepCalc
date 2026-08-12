@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { fnAccumulation, getNum } from '../../utils/index.js'
+import { UI_ICONS } from '../../config/uiIcons.js'
 
 const props = defineProps({
   menuItem: {
@@ -45,7 +46,7 @@ const props = defineProps({
       </div>
     </div>
     <p class="cpt-foodmenu__bs" v-if="!props.menuItem.isEdit">
-      <img class="icon" src="@/img/ui/energy.png" />
+      <img class="icon" :src="UI_ICONS.energy" />
       {{ getNum(props.menuItem.baseEnergy) }}
       <template v-if="props.menuItem.menuPercent"
         >(+{{ props.menuItem.menuPercent }}%)</template

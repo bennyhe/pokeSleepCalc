@@ -2,6 +2,7 @@
 import { ref, defineProps } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
+import { UI_ICONS } from '../../config/uiIcons.js'
 
 import { getNum } from '../../utils/index.js'
 
@@ -159,7 +160,7 @@ const getCptPokeShowKey = () => {
                   </div>
                 </div>
                 <span class="res">
-                  <img class="icon" src="@/img/ui/energy.png" />{{
+                  <img class="icon" :src="UI_ICONS.energy" />{{
                     getNum(pokeItem.oneDayBerryEnergy)
                   }}
                 </span>

@@ -63,7 +63,7 @@ export default defineConfig({
             return 'update'
           } else if (id.includes('components/SvgIcon/IconItem.vue')) {
             return 'svg-icon'
-          } else if (id.includes('config')) {
+          } else if (id.includes('config') && !id.includes('config/uiIcons.js')) {
             return 'config'
           } else if (id.includes('pages/SleepCalc.vue')) {
             return 'sleepcalc'
