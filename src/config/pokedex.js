@@ -77,7 +77,8 @@ const evoLine = [
   [696, 697],
   [387, 388, 389],
   [390, 391, 392],
-  [393, 394, 395]
+  [393, 394, 395],
+  [957, 958, 959]
 ]
 const pokedex = {
   1: {
@@ -4717,6 +4718,59 @@ const pokedex = {
     berryType: 13,
     foodPer: 14.1,
     skillPer: 3.9
+  },
+  957: {
+    id: 957,
+    // name: '小鍛匠',
+    friendship: 5,
+    sleepType: 2,
+    // skillType: 8,
+    // pokeType: 3,
+    maxcarry: 12,
+    // helpSpeed: 4600,
+    berryType: 12
+    // foodPer: 11.1,
+    // skillPer: 3.6,
+    // food: {
+    //   type: [13, 8, 3],
+    //   count: {
+    //     13: {
+    //       num: [1, 2, 3]
+    //     },
+    //     8: {
+    //       num: [0, 3, 6]
+    //     },
+    //     3: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
+  958: {
+    id: 958,
+    // name: '巧鍛匠',
+    friendship: 12,
+    sleepType: 2,
+    // skillType: 8,
+    // pokeType: 3,
+    maxcarry: 21,
+    // helpSpeed: 3300,
+    berryType: 12
+    // foodPer: 10.9,
+    // skillPer: 3.6
+  },
+  959: {
+    id: 959,
+    // name: '巨鍛匠',
+    friendship: 20,
+    sleepType: 2,
+    // skillType: 8,
+    // pokeType: 3,
+    maxcarry: 30,
+    // helpSpeed: 2400,
+    berryType: 12
+    // foodPer: 14.1,
+    // skillPer: 3.9
   },
   974: {
     id: 974,
