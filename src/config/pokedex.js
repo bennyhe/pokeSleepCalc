@@ -412,6 +412,19 @@ const pokedex = {
     foodPer: 13.1,
     skillPer: 4.2
   },
+  9007: {
+    id: 9007,
+    // name: '皮卡丘（船長）',
+    friendship: 7,
+    sleepType: 2,
+    // skillType: 3,
+    // pokeType: 3,
+    berryType: 13,
+    maxcarry: 21
+    // helpSpeed: 2500,
+    // foodPer: 13.1,
+    // skillPer: 4.2
+  },
   26: {
     id: 26,
     // name: '雷丘',
@@ -4884,7 +4897,7 @@ const updatePoke = [{
   pokemons: [387, 388, 389, 390, 391, 392, 393, 394, 395]
 }, {
   time: '2026/08/01',
-  pokemons: [701]
+  pokemons: [701, 9007, 957, 958, 959]
 }]
 // console.log(pokedex)
 export {
