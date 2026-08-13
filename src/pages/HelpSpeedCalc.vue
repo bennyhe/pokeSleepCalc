@@ -50,7 +50,7 @@ import {
   EX_HELP_SPEED,
   areaBonusMax,
   POKEMON_MAX_LEVEL,
-  SP_POKEMONS
+  SHINY_LOCK_POKEMONS
 } from '../config/game.js'
 import { orgResetObjectInBox } from '../config/filterDialog.js'
 import { pokedex } from '../config/pokedex.js'
@@ -892,7 +892,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <div style="margin-top: 3px; margin-left: 12px">
         <el-checkbox
           v-model="helpSpeedCalcForm.isShiny"
-          :disabled="SP_POKEMONS.includes(+helpSpeedCalcForm.pokemonId)"
+          :disabled="SHINY_LOCK_POKEMONS.includes(+helpSpeedCalcForm.pokemonId)"
         >
           {{ $t("PROP.shiny") }}
         </el-checkbox>

@@ -19,7 +19,7 @@ import {
 import { getSkillLevel } from '../../utils/helpcalc.js'
 import { toHMInLang } from '../../utils/index.js'
 import { getNatureDetail, getNewSkillLevel } from '../../utils/energy.js'
-import { POKEMON_MAX_LEVEL, SP_POKEMONS } from '../../config/game.js'
+import { POKEMON_MAX_LEVEL, SHINY_LOCK_POKEMONS } from '../../config/game.js'
 import { pokedex } from '../../config/pokedex.js'
 
 import CptEnergySkill from './EnergySkill.vue'
@@ -319,7 +319,7 @@ const handleChangeSkillLevel = () => {
           <div style="margin-top: 3px; margin-left: 12px">
             <el-checkbox
               v-model="editData.isShiny"
-              :disabled="SP_POKEMONS.includes(+editData.pokemonId)"
+              :disabled="SHINY_LOCK_POKEMONS.includes(+editData.pokemonId)"
             >
               {{ $t("PROP.shiny") }}
             </el-checkbox>

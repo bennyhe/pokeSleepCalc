@@ -4,7 +4,7 @@ import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import CptSleepStyle from '../CptSleepStyle/SleepItem.vue'
 import { SPO38000 } from '../../config/spo.js'
 import { pokedex } from '../../config/pokedex.js'
-import { gameMap, SP_POKEMONS } from '../../config/game.js'
+import { gameMap, SHINY_LOCK_POKEMONS } from '../../config/game.js'
 import { getTargetPokemonsSleeps, getUnLockSleeps } from '../../utils/sleep.js'
 import {
   getNum,
@@ -66,7 +66,7 @@ gameMapNew.forEach(gitem => {
           :pokeId="curDialogPokeId"
           size="large"
           isShiny
-          v-if="!SP_POKEMONS.includes(curDialogPokeId)"
+          v-if="!SHINY_LOCK_POKEMONS.includes(curDialogPokeId)"
         />
         <div>
           <div
@@ -82,7 +82,7 @@ gameMapNew.forEach(gitem => {
           <div
             class="cpt-pokemon__pic"
             style="display: inline-block; width: 120px; height: 120px"
-            v-if="!SP_POKEMONS.includes(curDialogPokeId)"
+            v-if="!SHINY_LOCK_POKEMONS.includes(curDialogPokeId)"
           >
             <img
               v-lazy="
