@@ -100,8 +100,12 @@ const initOrUpdateChart = (chartId, options) => {
     return
   }
 
-  // 如果已有实例，先销毁
-  disposeChart(chartId)
+  // 如果已有实例，复用并全量替换配置，避免重复初始化
+  const existInstance = chartInstances.value[chartId]
+  if (existInstance) {
+    existInstance.setOption(options, { notMerge: true })
+    return
+  }
   
   // 创建新实例
   const chartInstance = echarts.init(chartDom)
@@ -210,6 +214,60 @@ const handleClickGet = mapType => {
 const stXAxis = gameMap[0].levelList.map(
   stageItem => t(`LEVEL_TITLE.${stageItem.nameId}`) + stageItem.nameIndex
 )
+const buildLineSeries = (name, data) => ({
+  name,
+  type: 'line',
+  data,
+  // 添加最高值和平均值标记
+  markPoint: {
+    data: [
+      {
+        type: 'max',
+        name: '最大期望'
+      }
+    ],
+    label: {
+      formatter: '{c}',
+      position: 'top'
+    },
+    symbol: 'pin', // 使用图钉形状
+    symbolSize: 40
+  },
+  markLine: {
+    data: [{ type: 'average', name: 'Avg' }]
+  }
+})
+const buildBaseOption = (title, legendData, xAxis, series) => ({
+  title: {
+    text: title
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: legendData
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: xAxis
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series
+})
 const initChart = targetRes => {
   const stObject = {
     st1: [],
@@ -226,25 +284,26 @@ const initChart = targetRes => {
         title: `${pokeName}-${t(`ILAND.${mapItem.id}`)}`,
         legendData: [],
         xAxis: [],
-        series: [
-          // {
-          //   name: 'Email',
-          //   type: 'line',
-          //   stack: 'Total',
-          //   data: [120, 132, 101, 134, 90, 230, 210]
-          // }
-        ]
+        series: []
       }
       const resInMap = targetRes.filter(item => item.curMap === mapItem.id)
       chartMapOptions.legendData = resInMap.map(resInMapItem => {
         const onceData = []
-        const onceDataEveryStyles = resInMapItem.res[resInMapItem.res.length - 1].res.find(
-          pointSubItem => +pointSubItem.pokeId === +pageData.value.pokemonId
-        ).list.map(styleItem=>{
+        // 判空保护：最后一个点位可能不含该宝可梦数据
+        const lastPointRes = resInMapItem.res[resInMapItem.res.length - 1]
+        const lastPointPoke =
+          lastPointRes &&
+          lastPointRes.res.find(
+            pointSubItem => +pointSubItem.pokeId === +pageData.value.pokemonId
+          )
+        const lastPointPokeList = lastPointPoke && lastPointPoke.list
+          ? lastPointPoke.list
+          : []
+        const onceDataEveryStyles = lastPointPokeList.map(styleItem => {
           return {
             sleepName: `${t(`SLEEP_TYPES.${resInMapItem.sleepType}`)}-${SLEEP_STYLE[styleItem.id].star}✩-${t(`SLEEPSTYLE_NAME.${SLEEP_STYLE[styleItem.id].sleepNameId}`)}`,
             styleId: styleItem.id,
-            data: new Array(35).fill(0)
+            data: new Array(resInMapItem.res.length).fill(0)
           }
         })
         chartMapOptions.xAxis = resInMapItem.res.map((pointItem, pointKey) => {
@@ -256,7 +315,7 @@ const initChart = targetRes => {
             num = getDecimalNumber(curPokeRes.count / getTimes, 2)
           }
           onceData.push(num)
-        
+
           if(curPokeRes && curPokeRes.list && curPokeRes.list.length > 0) {
             curPokeRes.list.forEach(styleItem => {
               onceDataEveryStyles.forEach(everyItem => {
@@ -269,199 +328,55 @@ const initChart = targetRes => {
 
           return getNum(pointItem.allPoint)
         })
-        console.log(onceDataEveryStyles)
-        console.log(t(`SLEEP_TYPES.${resInMapItem.sleepType}`), onceData)
         // 按睡眠类型输出图表
 
-        chartMapOptions.series.push({
-          name: t(`SLEEP_TYPES.${resInMapItem.sleepType}`),
-          type: 'line',
-          data: onceData,
-          // 添加最高值和平均值标记
-          markPoint: {
-            data: [
-              { 
-                type: 'max', 
-                name: '最大期望'
-              }
-            ],
-            label: {
-              formatter: '{c}',
-              position: 'top'
-            },
-            symbol: 'pin', // 使用图钉形状
-            symbolSize: 40
-          },
-          markLine: {
-            data: [{ type: 'average', name: 'Avg' }]
-          }
-        })
-        
+        chartMapOptions.series.push(
+          buildLineSeries(t(`SLEEP_TYPES.${resInMapItem.sleepType}`), onceData)
+        )
+
         onceDataEveryStyles.forEach(everyItem => {
-          chartMapOptions.series.push({
-            name: everyItem.sleepName,
-            type: 'line',
-            data: everyItem.data,
-            // 添加最高值和平均值标记
-            markPoint: {
-              data: [
-                { 
-                  type: 'max', 
-                  name: '最大期望'
-                }
-              ],
-              label: {
-                formatter: '{c}',
-                position: 'top'
-              },
-              symbol: 'pin', // 使用图钉形状
-              symbolSize: 40
-            },
-            markLine: {
-              data: [{ type: 'average', name: 'Avg' }]
-            }
-          })
-        
+          chartMapOptions.series.push(
+            buildLineSeries(everyItem.sleepName, everyItem.data)
+          )
         })
-        
-        stObject[`st${resInMapItem.sleepType}`].push({
-          name: t(`ILAND.${mapItem.id}`),
-          type: 'line',
-          data: onceData,
-          // 同样为全局图表添加标记
-          markPoint: {
-            data: [
-              { 
-                type: 'max', 
-                name: '最大期望'
-              }
-            ],
-            label: {
-              formatter: '{c}',
-              position: 'top'
-            },
-            symbol: 'pin', // 使用图钉形状
-            symbolSize: 40
-          },
-          markLine: {
-            data: [{ type: 'average', name: 'Avg' }]
-          }
-        })
+
+        stObject[`st${resInMapItem.sleepType}`].push(
+          buildLineSeries(t(`ILAND.${mapItem.id}`), onceData)
+        )
         return t(`SLEEP_TYPES.${resInMapItem.sleepType}`)
       })
-      console.log(chartMapOptions)
       // 使用新的初始化函数，按地图输出图表
-      initOrUpdateChart(`echart_dom_map_${mapItem.id}`, {
-        title: {
-          text: chartMapOptions.title
-        },
-        tooltip: {
-          trigger: 'axis'
-        },
-        legend: {
-          data: chartMapOptions.legendData
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
-        },
-        xAxis: {
-          type: 'category',
-          boundaryGap: false,
-          data: chartMapOptions.xAxis
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: chartMapOptions.series
-      })
-      console.log(stObject)
-      for (const stKey in stObject) {
-        if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
-          const stObjectItem = stObject[stKey]
-          // 使用新的初始化函数
-          initOrUpdateChart(`echart_dom_${stKey}`, {
-            title: {
-              text: `${pokeName}-${t(`SLEEP_TYPES.${stKey.replace('st', '')}`)}`
-            },
-            tooltip: {
-              trigger: 'axis'
-            },
-            legend: {
-              data: stObjectItem.map(item => item.name)
-            },
-            grid: {
-              left: '3%',
-              right: '4%',
-              bottom: '3%',
-              containLabel: true
-            },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
-            },
-            xAxis: {
-              type: 'category',
-              boundaryGap: false,
-              data: stXAxis
-            },
-            yAxis: {
-              type: 'value'
-            },
-            series: stObjectItem
-          })
-        }
-      }
-
-      for (const stKey in stObject) {
-        if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
-          const stObjectItem = stObject[stKey]
-          const chartSt = echarts.init(
-            document.getElementById(`echart_dom_${stKey}`)
-          )
-          chartSt.setOption({
-            title: {
-              text: `${pokeName}-${t(`SLEEP_TYPES.${stKey.replace('st', '')}`)}`
-            },
-            tooltip: {
-              trigger: 'axis'
-            },
-            legend: {
-              data: stObjectItem.map(item => item.name)
-            },
-            grid: {
-              left: '3%',
-              right: '4%',
-              bottom: '3%',
-              containLabel: true
-            },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
-            },
-            xAxis: {
-              type: 'category',
-              boundaryGap: false,
-              data: stXAxis
-            },
-            yAxis: {
-              type: 'value'
-            },
-            series: stObjectItem
-          })
-        }
-      }
+      initOrUpdateChart(
+        `echart_dom_map_${mapItem.id}`,
+        buildBaseOption(
+          chartMapOptions.title,
+          chartMapOptions.legendData,
+          chartMapOptions.xAxis,
+          chartMapOptions.series
+        )
+      )
     }
   })
+  // 按睡眠类型输出全局图表（stObject 已在各地图循环中累积，循环外只渲染一次）
+  for (const stKey in stObject) {
+    if (Object.prototype.hasOwnProperty.call(stObject, stKey)) {
+      // 隐藏的 st 图表不初始化，避免在 display:none 容器上生成空白 canvas
+      if (!pageData.value.chartShow[stKey]) {
+        continue
+      }
+      const stObjectItem = stObject[stKey]
+      // 使用新的初始化函数
+      initOrUpdateChart(
+        `echart_dom_${stKey}`,
+        buildBaseOption(
+          `${pokeName}-${t(`SLEEP_TYPES.${stKey.replace('st', '')}`)}`,
+          stObjectItem.map(item => item.name),
+          stXAxis,
+          stObjectItem
+        )
+      )
+    }
+  }
 }
 
 // const handleClickChangeMap = id => {
