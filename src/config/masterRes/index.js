@@ -10,7 +10,7 @@ export const masterRes = {
       list: peaceTimeList
     },
     actTime: {
-      name: '夏日嘉年華2026',
+      name: '寶可夢動畫合作週',
       // startTime: 1738385391641,
       // endTime: 1737835199000,
       list: actTimeList

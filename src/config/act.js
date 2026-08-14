@@ -8,7 +8,8 @@ export const SLEEP_CALC_POKEMONS = {
     696, 697,
     780,
     387, 388, 389, 390, 391, 392, 393, 394, 395,
-    701
+    701,
+    9007, 957, 958, 959
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -46,6 +47,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [701],
     starttime: '2026/08/10 04:00'
+  },
+  {
+    ids: [957, 958, 959],
+    starttime: '2026/08/17 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -63,8 +68,8 @@ export const SLEEP_CALC_CONFIG = {
   showBanArea: [0, 1, 2, 3, 4, 5, 6, 7, 8] // 展示区域
 }
 export const LAB_CONFIG = {
-  upIdsSmallIds: [7, 10, 54, 79, 83, 84, 127, 158, 194, 213, 214, 225, 258, 333, 393, 557, 627, 736, 845, 912],
-  upIdsMidIds: [701],
+  upIdsSmallIds: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
+  upIdsMidIds: [9007, 957, 958, 959],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -140,6 +145,28 @@ export const ACT_LIST = [
     notArea: [],
     midUp: [701],
     smallUp: [7,10,54,79,83,84,127,158,194,213,214,225,258,333,393,557,627,736,845,912],
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    isActRandom: true
+  },
+  {
+    name: '寶可夢動畫合作週',
+    namejp: 'アニポケコラボウィーク',
+    startTime: 1786910400000,
+    endTime: 1787515199000,
+    notArea: [],
+    midUp: [957, 958, 959, 9007],
+    smallUp: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
+    timelimitPokemons: {
+      'green': [9007],
+      'beach': [9007],
+      'hole': [9007],
+      'snow': [9007],
+      'lake': [9007],
+      'plant': [9007],
+      'amber': [9007],
+      'greenex': [9007],
+      'beachex': [9007]
+    },
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
     isActRandom: true
   }
