@@ -364,6 +364,30 @@ if (NOW_ACT.value.isActRandom) {
 }
 console.log(NOW_ACT)
 
+// 当前活动在当前岛屿可显示的 UP 宝可梦分组（小/中/大）
+const actUpGroups = computed(() => {
+  if (
+    !NOW_ACT.value ||
+    !NOW_ACT.value.notArea ||
+    NOW_ACT.value.notArea.includes(userData.value.curMap)
+  ) {
+    return []
+  }
+  const allPokes = gameMapPokemons[userData.value.curMap].allPokemons
+  return [
+    { type: 'smallUp', label: '小' },
+    { type: 'midUp', label: '中' },
+    { type: 'largeUp', label: '大' }
+  ]
+    .map(group => ({
+      ...group,
+      upPokes: (NOW_ACT.value[group.type] || []).filter(pokeId =>
+        allPokes.includes(pokeId)
+      )
+    }))
+    .filter(group => group.upPokes.length > 0)
+})
+
 const getActUps = () => {
   const upIdsSmall = {
     upType: 'small',
@@ -1470,98 +1494,18 @@ const getQuickChangeSleepPoint = () => {
               </div>
             </el-alert>
           </p>
-          <template
-            v-if="
-              NOW_ACT &&
-              NOW_ACT.notArea &&
-              !NOW_ACT.notArea.includes(userData.curMap)
-            "
-          >
-            <p
-              class="mb3"
-              v-if="
-                get('smallUp', NOW_ACT, 1) &&
-                get('smallUp', NOW_ACT).filter((item) =>
-                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
-                ).length > 0
-              "
-            >
-              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
-                NOW_ACT.namejp
-              }}</template
-              ><template v-else>{{ NOW_ACT.name }}</template
-              >-小UP:
-              <template
-                v-for="pokeId in NOW_ACT.smallUp"
-                :key="`smallUp_${pokeId}`"
-              >
-                <CptAvatar
-                  :pokeId="pokeId"
-                  v-if="
-                    gameMapPokemons[userData.curMap].allPokemons.includes(
-                      pokeId
-                    )
-                  "
-                />
-              </template>
-            </p>
-            <p
-              class="mb3"
-              v-if="
-                get('midUp', NOW_ACT, 1) &&
-                get('midUp', NOW_ACT).filter((item) =>
-                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
-                ).length > 0
-              "
-            >
-              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
-                NOW_ACT.namejp
-              }}</template
-              ><template v-else>{{ NOW_ACT.name }}</template
-              >-中UP:
-              <template
-                v-for="pokeId in NOW_ACT.midUp"
-                :key="`midUp_${pokeId}`"
-              >
-                <CptAvatar
-                  :pokeId="pokeId"
-                  v-if="
-                    gameMapPokemons[userData.curMap].allPokemons.includes(
-                      pokeId
-                    )
-                  "
-                />
-              </template>
-            </p>
-            <p
-              class="mb3"
-              v-if="
-                get('largeUp', NOW_ACT, 1) &&
-                get('largeUp', NOW_ACT).filter((item) =>
-                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
-                ).length > 0
-              "
-            >
-              <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
-                NOW_ACT.namejp
-              }}</template
-              ><template v-else>{{ NOW_ACT.name }}</template
-              >-大UP:
-              <template
-                v-for="pokeId in NOW_ACT.largeUp"
-                :key="`largeUp_${pokeId}`"
-              >
-                <CptAvatar
-                  :pokeId="pokeId"
-                  v-if="
-                    gameMapPokemons[userData.curMap].allPokemons.includes(
-                      pokeId
-                    )
-                  "
-                />
-              </template>
-            </p>
-          </template>
+          <p v-for="up in actUpGroups" :key="up.type" class="mb3">
+            <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
+              NOW_ACT.namejp
+            }}</template
+            ><template v-else>{{ NOW_ACT.name }}</template
+            >-{{ up.label }}UP:
+            <CptAvatar
+              v-for="pokeId in up.upPokes"
+              :key="`${up.type}_${pokeId}`"
+              :pokeId="pokeId"
+            />
+          </p>
           <el-button
             class="el-button-sp"
             type="success"
