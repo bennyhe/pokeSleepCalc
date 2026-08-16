@@ -187,11 +187,11 @@ const handleClickChangeMap = id => {
   pageData.value.curMap = id
 }
 
-const dateTime1 = ref('')
-const defaultTime1 = [
-  new Date(2000, 1, 1, 4, 0, 0),
-  new Date(2000, 2, 1, 3, 59, 59)
-]
+// const dateTime1 = ref('')
+// const defaultTime1 = [
+//   new Date(2000, 1, 1, 4, 0, 0),
+//   new Date(2000, 2, 1, 3, 59, 59)
+// ]
 
 const handleChangeUps = () => {
   console.log(
@@ -230,7 +230,7 @@ const handleChangeInputPM = () => {
 
 <template>
   <el-form label-width="90px">
-    <el-form-item>
+    <!-- <el-form-item>
       {{ new Date(dateTime1[0]).getTime() }}
       {{ new Date(dateTime1[1]).getTime() }}
       <el-date-picker
@@ -240,7 +240,7 @@ const handleChangeInputPM = () => {
         end-placeholder="End Date"
         :default-time="defaultTime1"
       />
-    </el-form-item>
+    </el-form-item> -->
     <el-form-item>
       <el-input
         v-model="pokemonNames"

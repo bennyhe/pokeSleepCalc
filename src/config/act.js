@@ -151,7 +151,7 @@ export const ACT_LIST = [
   {
     name: '寶可夢動畫合作週',
     namejp: 'アニポケコラボウィーク',
-    startTime: '2026/08/17 22:00:00',
+    startTime: '2026/08/16 22:00:00',
     endTime: '2026/08/24 03:59:59',
     notArea: [],
     midUp: [957, 958, 959, 9007],
