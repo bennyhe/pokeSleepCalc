@@ -61,12 +61,21 @@ export const SLEEP_CALC_UP = {
   mid: 6,
   large: 9
 }
-export const SLEEP_CALC_CONFIG = {
-  onOffBan: true,
-  showBan: true,
-  banPokes: [9007, 957, 958, 959], // ban 宝可梦id
-  showBanArea: [0, 1, 2, 3, 4, 5, 6, 7, 8] // 展示区域
-}
+export const SLEEP_CALC_CONFIG = (() => {
+  const config = {
+    onOffBan: false,
+    showBan: false,
+    banPokes: [], // ban 宝可梦id
+    showBanArea: [], // 展示区域
+    endTime: '2026/08/16 22:00'
+  }
+  // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
+  if (config.endTime && Date.now() >= new Date(config.endTime).getTime()) {
+    config.onOffBan = false
+    config.showBan = false
+  }
+  return config
+})()
 export const LAB_CONFIG = {
   upIdsSmallIds: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
   upIdsMidIds: [9007, 957, 958, 959],
@@ -74,6 +83,8 @@ export const LAB_CONFIG = {
   noLastList: []
 }
 const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
+  startTime = new Date(startTime).getTime()
+  EndTime = new Date(EndTime).getTime()
   const dayMs = (EndTime - startTime + 1000) / 3
   const upIds = [35, 36, 173]
   const makeDay = (offset, name, namejp, times, upKey) => {
@@ -96,8 +107,8 @@ const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
 }
 export const ACT_LIST = [
   //  {
-  //    startTime: 1736078400000,
-  //    endTime: 1736625599000,
+  //    startTime: '2025/01/05 20:00',
+  //    endTime: '2025/01/12 03:59:59',
   //    notArea: [],
   //    smallUp: [],
   //    midUp: [],
@@ -112,8 +123,8 @@ export const ACT_LIST = [
   // {
   //   name: '好眠日',
   //   namejp: '満月の前後の日',
-  //   startTime: 1782676800000,
-  //   endTime: 1782763199000,
+  //   startTime: '2026/06/29 04:00',
+  //   endTime: '2026/06/30 03:59:59',
   //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
@@ -121,8 +132,8 @@ export const ACT_LIST = [
   // {
   //   name: '满月日',
   //   namejp: '満月の日',
-  //   startTime: 1782763200000,
-  //   endTime: 1782849599000,
+  //   startTime: '2026/06/30 04:00',
+  //   endTime: '2026/07/01 03:59:59',
   //   notArea: [],
   //   largeUp: [35, 36, 173],
   //   times: 3
@@ -130,18 +141,18 @@ export const ACT_LIST = [
   // {
   //   name: '好眠日',
   //   namejp: '満月の前後の日',
-  //   startTime: 1782849600000,
-  //   endTime: 1782935999000,
+  //   startTime: '2026/07/01 04:00',
+  //   endTime: '2026/07/02 03:59:59',
   //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  // ...fnGetMoonDays(1785182400000, 1785441599000, 2.5),
+  // ...fnGetMoonDays('2026/07/28 04:00', '2026/07/31 03:59:59', 2.5),
   {
     name: '夏日嘉年華2026',
     namejp: 'サマーフェスティバル2026',
-    startTime: 1786288525098,
-    endTime: 1786910399000,
+    startTime: '2026/08/09 23:15:25',
+    endTime: '2026/08/17 21:59:59',
     notArea: [],
     midUp: [701],
     smallUp: [7,10,54,79,83,84,127,158,194,213,214,225,258,333,393,557,627,736,845,912],
@@ -151,8 +162,8 @@ export const ACT_LIST = [
   {
     name: '寶可夢動畫合作週',
     namejp: 'アニポケコラボウィーク',
-    startTime: 1786910400000,
-    endTime: 1787515199000,
+    startTime: '2026/08/17 22:00:00',
+    endTime: '2026/08/24 03:59:59',
     notArea: [],
     midUp: [957, 958, 959, 9007],
     smallUp: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],

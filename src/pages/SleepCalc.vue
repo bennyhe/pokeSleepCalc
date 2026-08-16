@@ -350,7 +350,7 @@ const NOW_ACT = ref({})
 const findActNow = () => {
   const now = new Date().getTime()
   ACT_LIST.forEach(actItem => {
-    if (now >= actItem.startTime && now <= actItem.endTime) {
+    if (now >= new Date(actItem.startTime).getTime() && now <= new Date(actItem.endTime).getTime()) {
       NOW_ACT.value = actItem
       if (NOW_ACT.value.times) {
         userData.value.times = NOW_ACT.value.times
