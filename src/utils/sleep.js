@@ -2,6 +2,7 @@ import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { SPO_DATA, SPONEW_TO_SPOOLD, SPONEW_TO_EX, SPO38000 } from '../config/spo.js'
 import { SLEEP_CALC_POKEMONS, SLEEP_CALC_UP } from '../config/act.js'
 import { pokedex } from '../config/pokedex.js'
+import { SHINY_LOCK_POKEMONS } from '../config/game.js'
 import {
   sortInObjectOptions,
   getRandomArr,
@@ -174,7 +175,11 @@ export function getGameMapPokemons(gameMap, options = {}) {
 }
 
 
-const getShinyPoke = isShinyUp => {
+const getShinyPoke = (pokeId, isShinyUp) => {
+  // 锁闪：无闪光形态的宝可梦强制不闪
+  if (SHINY_LOCK_POKEMONS.includes(+pokeId)) {
+    return false
+  }
   if (isShinyUp) {
     // console.log('闪率up')
     return parseInt(Math.floor(Math.random() * 40), 10) === 4
@@ -237,14 +242,14 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
 function fnGetZeroPokemon(isActRandom, curUnLockSleepType, catchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType) {
   let pushZero = {
     ...spoZeroPoke,
-    isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
+    isShiny: getShinyPoke(spoZeroPoke.pokeId, extraSleepStyleOptions.shinyUp)
     // extra: 'SPO<2' //debug
   }
   // 类型非无症状的活动随机类型
   if (isActRandom && +curUnLockSleepType !== 999 && catchNumByActRandom > 0) {
     pushZero = {
       ...spoZeroPokeByType,
-      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
+      isShiny: getShinyPoke(spoZeroPokeByType.pokeId, extraSleepStyleOptions.shinyUp)
       // extra: 'SPO<2' //debug
     }
   }
@@ -453,7 +458,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...rdmRes,
-        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
+        isShiny: getShinyPoke(rdmRes.pokeId, extraSleepStyleOptions.shinyUp)
       })
       currentCurSpo -= rdmRes.spo
       if (currentCurSpo < 2) {
@@ -468,7 +473,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   if (currentCurSpo < 2) {
     res.push({
       ...spoZeroPoke,
-      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
+      isShiny: getShinyPoke(spoZeroPoke.pokeId, extraSleepStyleOptions.shinyUp)
     })
   } else {
     // 保底计算
@@ -497,7 +502,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     }
     res.push({
       ...lastList[0],
-      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp)
+      isShiny: getShinyPoke(lastList[0].pokeId, extraSleepStyleOptions.shinyUp)
     })
   }
 
@@ -531,7 +536,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...resList[rdmIndexIn],
-        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
+        isShiny: getShinyPoke(resList[rdmIndexIn].pokeId, extraSleepStyleOptions.shinyUp),
         extra: extraSleepStyleOptions.extraTextIncense
       })
     } else {
@@ -542,7 +547,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       res.push({
         ...incensePokemonSleeps[0],
-        isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
+        isShiny: getShinyPoke(incensePokemonSleeps[0].pokeId, extraSleepStyleOptions.shinyUp),
         extra: extraSleepStyleOptions.extraTextIncense
       })
     }
@@ -582,12 +587,13 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     // 露营券dpr最低为2
     useOptionsCurSpo = useOptionsCurSpo <= 2 ? 2 : useOptionsCurSpo
     const resList = ticketSleeps.filter(sitem => sitem.spo <= useOptionsCurSpo)
+    const ticketRdmRes = resList[parseInt(
+      Math.floor(Math.random() * resList.length),
+      10
+    )]
     res.push({
-      ...resList[parseInt(
-        Math.floor(Math.random() * resList.length),
-        10
-      )],
-      isShiny: getShinyPoke(extraSleepStyleOptions.shinyUp),
+      ...ticketRdmRes,
+      isShiny: getShinyPoke(ticketRdmRes.pokeId, extraSleepStyleOptions.shinyUp),
       isUseTicket: true,
       extra: `+${extraSleepStyleOptions.extraTextTicket}`
     })
