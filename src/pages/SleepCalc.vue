@@ -1477,7 +1477,15 @@ const getQuickChangeSleepPoint = () => {
               !NOW_ACT.notArea.includes(userData.curMap)
             "
           >
-            <p class="mb3" v-if="get('smallUp', NOW_ACT, 1)">
+            <p
+              class="mb3"
+              v-if="
+                get('smallUp', NOW_ACT, 1) &&
+                get('smallUp', NOW_ACT).filter((item) =>
+                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
+                ).length > 0
+              "
+            >
               <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
                 NOW_ACT.namejp
               }}</template
@@ -1525,7 +1533,15 @@ const getQuickChangeSleepPoint = () => {
                 />
               </template>
             </p>
-            <p class="mb3" v-if="get('largeUp', NOW_ACT, 1)">
+            <p
+              class="mb3"
+              v-if="
+                get('largeUp', NOW_ACT, 1) &&
+                get('largeUp', NOW_ACT).filter((item) =>
+                  gameMapPokemons[userData.curMap].allPokemons.includes(item)
+                ).length > 0
+              "
+            >
               <template v-if="NOW_ACT.namejp && localeLangId === 'jp'">{{
                 NOW_ACT.namejp
               }}</template
@@ -1533,7 +1549,7 @@ const getQuickChangeSleepPoint = () => {
               >-大UP:
               <template
                 v-for="pokeId in NOW_ACT.largeUp"
-                :key="`midUp_${pokeId}`"
+                :key="`largeUp_${pokeId}`"
               >
                 <CptAvatar
                   :pokeId="pokeId"
