@@ -49,7 +49,7 @@ export const IN_LAST_TIME_POKEMONS = [
     starttime: '2026/08/10 04:00'
   },
   {
-    ids: [957, 958, 959],
+    ids: [9007,957, 958, 959],
     starttime: '2026/08/17 04:00'
   }
 ]
