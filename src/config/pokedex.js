@@ -5,7 +5,7 @@ const evoLine = [
   [10, 11, 12],
   [19, 20],
   [23, 24],
-  [172, 9001, 9002, 25, 26],
+  [172, 9001, 9002, 25, 26, 9007],
   [173, 35, 36],
   [174, 39, 40],
   [50, 51],
@@ -418,13 +418,13 @@ const pokedex = {
     // name: '皮卡丘（船長）',
     friendship: 7,
     sleepType: 2,
-    // skillType: 3,
-    // pokeType: 3,
+    skillType: 10,
+    pokeType: 1,
     berryType: 13,
-    maxcarry: 21
-    // helpSpeed: 2500,
-    // foodPer: 13.1,
-    // skillPer: 4.2
+    maxcarry: 21,
+    helpSpeed: 2500,
+    foodPer: 17.5,
+    skillPer: 1.8
   },
   26: {
     id: 26,
@@ -4724,37 +4724,37 @@ const pokedex = {
     // name: '小鍛匠',
     friendship: 5,
     sleepType: 2,
-    // skillType: 8,
-    // pokeType: 3,
+    skillType: 2,
+    pokeType: 1,
     maxcarry: 12,
-    // helpSpeed: 4600,
-    berryType: 12
-    // foodPer: 11.1,
-    // skillPer: 3.6,
-    // food: {
-    //   type: [13, 8, 3],
-    //   count: {
-    //     13: {
-    //       num: [1, 2, 3]
-    //     },
-    //     8: {
-    //       num: [0, 3, 6]
-    //     },
-    //     3: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    helpSpeed: 4500,
+    berryType: 12,
+    foodPer: 23.7,
+    skillPer: 3.7,
+    food: {
+      type: [12, 13, 4],
+      count: {
+        12: {
+          num: [1, 2, 4]
+        },
+        13: {
+          num: [0, 2, 3]
+        },
+        4: {
+          num: [0, 0, 3]
+        }
+      }
+    }
   },
   958: {
     id: 958,
     // name: '巧鍛匠',
     friendship: 12,
     sleepType: 2,
-    // skillType: 8,
-    // pokeType: 3,
+    skillType: 2,
+    pokeType: 1,
     maxcarry: 21,
-    // helpSpeed: 3300,
+    helpSpeed: 3300,
     berryType: 12
     // foodPer: 10.9,
     // skillPer: 3.6
@@ -4764,13 +4764,13 @@ const pokedex = {
     // name: '巨鍛匠',
     friendship: 20,
     sleepType: 2,
-    // skillType: 8,
-    // pokeType: 3,
+    skillType: 2,
+    pokeType: 1,
     maxcarry: 30,
-    // helpSpeed: 2400,
-    berryType: 12
-    // foodPer: 14.1,
-    // skillPer: 3.9
+    helpSpeed: 2400,
+    berryType: 12,
+    foodPer: 18.5,
+    skillPer: 2
   },
   974: {
     id: 974,
@@ -4834,7 +4834,7 @@ const initPokedex = () => {
   }
   evoLine.forEach(evoItem => {
     evoItem.forEach((pm, pmKey) => {
-      if ((+pm !== 9001) && (+pm !== 9002) && (+pm !== 9004)) {
+      if ((+pm !== 9001) && (+pm !== 9002) && (+pm !== 9004) && (+pm !== 9007)) {
         pokedex[pm].evoLineKey = 1
       }
       if (pmKey > 0) {
