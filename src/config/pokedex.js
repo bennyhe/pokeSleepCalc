@@ -4755,9 +4755,9 @@ const pokedex = {
     pokeType: 1,
     maxcarry: 21,
     helpSpeed: 3300,
-    berryType: 12
-    // foodPer: 10.9,
-    // skillPer: 3.6
+    berryType: 12,
+    foodPer: 18.6,
+    skillPer: 1.8
   },
   959: {
     id: 959,
