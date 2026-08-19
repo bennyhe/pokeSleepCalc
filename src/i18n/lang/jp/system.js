@@ -62,6 +62,8 @@ export default {
     'nav2': '寝顔抽選',
     'nav3': '睡眠の分析',
     'nav4': 'NextWeek',
+
+    'secondSleep': '第2回目寝',
     
     'titleCutNum': '睡眠リサーチのポケモン数',
     'titleSleepRes': '寝顔抽選結果',

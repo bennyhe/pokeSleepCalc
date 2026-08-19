@@ -63,6 +63,8 @@ export default {
     'nav3': '睡眠分析',
     'nav4': 'NextWeek',
 
+    'secondSleep': '第2觉',
+
     'titleCutNum': '数据区间参考',
     'titleSleepRes': '抽取睡姿结果',
     'titleMathExp': '期待宝可梦睡姿列表',

@@ -345,6 +345,17 @@ const sleepSplitOptions = computed(() => {
   }
   return options
 })
+// 第二觉最多：先按总分(100分)推算最多只数，取该只数所需的最少分数，再倒退第一觉分数
+const secondMaxCatchNum = computed(() => fullSleepCatchNumInMap.value)
+const secondMaxFirstSleepScore = computed(() =>
+  100 - getFirstSleepScore(secondMaxCatchNum.value)
+)
+const secondMaxFirstSleepScoreCatchNum = computed(() =>
+  getNumberInMap(
+    getScore(secondMaxFirstSleepScore.value),
+    gameMap[userData.value.curMap].scoreList
+  )
+)
 
 const NOW_ACT = ref({})
 const findActNow = () => {
@@ -1346,6 +1357,9 @@ const getQuickChangeSleepPoint = () => {
                 {{ cItem.timeScore }}分-{{ cItem.txt }}{{ $t("OPTIONS.one") }}
               </el-radio-button>
             </template>
+            <el-radio-button :label="secondMaxFirstSleepScore">
+              {{ secondMaxFirstSleepScore }}分-{{ secondMaxFirstSleepScoreCatchNum }}{{ $t("OPTIONS.one") }}({{$t("PAGE_SLEEPCALC.secondSleep")}}-{{ secondMaxCatchNum }}{{ $t("OPTIONS.one") }})
+            </el-radio-button>
           </el-radio-group>
         </div>
       </el-form-item>
