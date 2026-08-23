@@ -77,8 +77,8 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
-  upIdsMidIds: [9007, 957, 958, 959],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -148,26 +148,26 @@ export const ACT_LIST = [
   //   times: 1.5
   // }
   ...fnGetMoonDays('2026/08/27 04:00', '2026/08/30 03:59:59', 2),
-  {
-    name: '寶可夢動畫合作週',
-    namejp: 'アニポケコラボウィーク',
-    startTime: '2026/08/16 22:00:00',
-    endTime: '2026/08/24 03:59:59',
-    notArea: [],
-    midUp: [957, 958, 959, 9007],
-    smallUp: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
-    timelimitPokemons: {
-      'beach': [9007],
-      'hole': [9007],
-      'snow': [9007],
-      'lake': [9007],
-      'plant': [9007],
-      'amber': [9007],
-      'greenex': [9007],
-      'beachex': [9007]
-    },
-    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-    isActRandom: true,
-    times: 1.3
-  }
-]
+//   {
+//     name: '寶可夢動畫合作週',
+//     namejp: 'アニポケコラボウィーク',
+//     startTime: '2026/08/16 22:00:00',
+//     endTime: '2026/08/24 03:59:59',
+//     notArea: [],
+//     midUp: [957, 958, 959, 9007],
+//     smallUp: [4, 5, 6, 113, 147, 148, 149, 194, 195, 242, 302, 440, 447, 448, 906, 907, 908, 909, 910, 911, 912, 913, 914],
+//     timelimitPokemons: {
+//       'beach': [9007],
+//       'hole': [9007],
+//       'snow': [9007],
+//       'lake': [9007],
+//       'plant': [9007],
+//       'amber': [9007],
+//       'greenex': [9007],
+//       'beachex': [9007]
+//     },
+//     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+//     isActRandom: true,
+//     times: 1.3
+//   }
+// ]
