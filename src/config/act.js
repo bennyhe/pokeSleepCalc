@@ -147,7 +147,7 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  // ...fnGetMoonDays('2026/07/28 04:00', '2026/07/31 03:59:59', 2.5),
+  ...fnGetMoonDays('2026/08/27 04:00', '2026/08/30 03:59:59', 2),
   {
     name: '寶可夢動畫合作週',
     namejp: 'アニポケコラボウィーク',
@@ -167,6 +167,7 @@ export const ACT_LIST = [
       'beachex': [9007]
     },
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-    isActRandom: true
+    isActRandom: true,
+    times: 1.3
   }
 ]
