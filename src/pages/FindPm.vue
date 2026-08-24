@@ -17,7 +17,6 @@ import {
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
-import { UI_ICONS } from '../config/uiIcons.js'
 
 import * as echarts from 'echarts/core'
 import {
@@ -128,6 +127,22 @@ pageData.value.chartShow = {
 }
 const getTimes = 3500
 const testData = ref([])
+// 计算中状态与实时耗时
+const isCalcLoading = ref(false)
+const calcElapsedText = ref('')
+const calcProgressText = ref('')
+let calcTimer = null
+const formatDuration = ms => {
+  const sec = Math.floor(ms / 1000)
+  if (sec < 60) {
+    return `${(ms / 1000).toFixed(1)}s`
+  }
+  const min = Math.floor(sec / 60)
+  if (min < 60) {
+    return `${min}m ${sec % 60}s`
+  }
+  return `${Math.floor(min / 60)}h ${min % 60}m ${sec % 60}s`
+}
 const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType[0]
   mapId = mapId || pageData.value.curMap
@@ -153,62 +168,88 @@ const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
 
 import i18n from '../i18n'
 const { t } = i18n.global
-// 0-10w 1000
-// 10w-50w 2000
-// 50w以上-400w 5000
-// 400w-500w 100000
-const handleClickGet = mapType => {
-  const startTime = new Date().getTime()
+const handleClickGet = async () => {
+  if (isCalcLoading.value) return
+  const startTime = Date.now()
   const targetRes = []
   let lastGetList = []
   testData.value = []
-  // allMap
-  gameMap.forEach((mapItem, mapKey) => {
+  // 统计总计算点数
+  let total = 0
+  for (const [mapKey] of gameMap.entries()) {
     if (
-      gameMapPokemons[mapKey].allPokemons.includes(+pageData.value.pokemonId)
+      !gameMapPokemons[mapKey].allPokemons.includes(
+        +pageData.value.pokemonId
+      )
     ) {
-      pageData.value.mapSleepType.forEach(sltItem => {
+      continue
+    }
+    total +=
+      pageData.value.mapSleepType.length * gameMap[mapKey].levelList.length
+  }
+  // 无可计算点位（宝可梦不在任何岛或未勾选睡眠类型）
+  if (!total) return
+  isCalcLoading.value = true
+  let done = 0
+  // 刷新耗时与进度百分比
+  const updateCalcStatus = () => {
+    calcElapsedText.value = formatDuration(Date.now() - startTime)
+    const percent = total ? Math.round((done / total) * 100) : 0
+    calcProgressText.value = `${percent}%`
+  }
+  calcTimer = setInterval(updateCalcStatus, 200)
+  try {
+    // 分片计算：定期让出主线程，loading 与实时耗时才能渲染
+    let lastYieldAt = 0
+    for (const [mapKey, mapItem] of gameMap.entries()) {
+      if (
+        !gameMapPokemons[mapKey].allPokemons.includes(
+          +pageData.value.pokemonId
+        )
+      ) {
+        continue
+      }
+      for (const sltItem of pageData.value.mapSleepType) {
         console.log('quick start...', mapItem.id, gameMap[mapKey].levelList)
         let k = 0
         const iland = []
-        gameMap[mapKey].levelList.forEach((item, mapIndex) => {
+        for (const item of gameMap[mapKey].levelList) {
           const curAllScore = item.energy
           const allPoint = curAllScore * 100
-          // if (curAllScore <= +pageData.value.maxScore) {
           const randomRes = getRes(curAllScore, allPoint, mapKey, sltItem)
-          const res = randomRes.res
           lastGetList = lastGetList.concat(randomRes.lastGetList)
           console.log(
             k,
             curAllScore,
             allPoint,
-            `${(new Date().getTime() - startTime) / 1000}s`
+            `${(Date.now() - startTime) / 1000}s`
           )
-          const lastRes = {
+          iland.push({
             basePoint: curAllScore,
             allPoint,
-            res
+            res: randomRes.res
+          })
+          done++
+          if (Date.now() - lastYieldAt >= 50) {
+            await new Promise(resolve => setTimeout(resolve))
+            lastYieldAt = Date.now()
+            updateCalcStatus()
           }
-          iland.push(lastRes)
           k++
-          // }
-        })
-        targetRes.push({
-          curMap: mapItem.id,
-          sleepType: sltItem,
-          res: iland
-        })
-      })
+        }
+        targetRes.push({ curMap: mapItem.id, sleepType: sltItem, res: iland })
+      }
     }
-  })
-  testData.value = targetRes
-
-  // 使用 nextTick 确保 DOM 更新完成后再初始化图表
-  nextTick(() => {
-    initChart(targetRes)
-  })
-
-  console.log(targetRes, lastGetList)
+    testData.value = targetRes
+    nextTick(() => initChart(targetRes))
+    console.log(targetRes, lastGetList)
+  } catch (err) {
+    console.error('计算结果失败', err)
+  } finally {
+    clearInterval(calcTimer)
+    calcTimer = null
+    isCalcLoading.value = false
+  }
 }
 
 const stXAxis = gameMap[0].levelList.map(
@@ -427,14 +468,15 @@ const handleChangePokemon = () => {
   initState()
 }
 initState()
-// 组件卸载时自动清理图表实例
+// 组件卸载时清理图表实例与计算计时器
 onBeforeUnmount(() => {
+  clearInterval(calcTimer)
   cleanupCharts()
 })
 </script>
 
 <template>
-  <el-form label-width="90px">
+  <el-form :disabled="isCalcLoading" label-width="90px">
     <el-form-item :label="$t('PROP.pokemon')">
       <div style="width: 100%">
         <el-select
@@ -606,7 +648,17 @@ onBeforeUnmount(() => {
       />
     </el-form-item>
     <el-form-item>
-      <el-button @click="handleClickGet('allMap')">计算结果</el-button>
+      <el-button
+        @click="handleClickGet"
+        :loading="isCalcLoading"
+        :disabled="isCalcLoading"
+      >
+        {{
+          isCalcLoading
+            ? `计算中 ${calcProgressText} 已耗时${calcElapsedText}`
+            : '计算结果'
+        }}
+      </el-button>
     </el-form-item>
   </el-form>
   <template v-for="(cItem, cKey) in SLEEP_TYPES" :key="`${cKey}-echart`">
@@ -625,35 +677,4 @@ onBeforeUnmount(() => {
       style="height: 450px"
     ></div>
   </template>
-  <!-- <template
-    v-for="iLandItem in testData"
-    :key="`${iLandItem.curMap}-${iLandItem.sleepType}`"
-  >
-    <h2>
-      {{ $t(`ILAND.${iLandItem.curMap}`) }}-{{
-        $t(`SLEEP_TYPES.${iLandItem.sleepType}`)
-      }}
-    </h2>
-    <div
-      v-for="tdItem in iLandItem.res"
-      :key="`${iLandItem.curMap}-${iLandItem.sleepType}-${tdItem.allPoint}`"
-    >
-      <h3>
-        <img class="icon" :src="UI_ICONS.energy" />
-        {{ getNum(tdItem.basePoint) }}-{{ getNum(tdItem.allPoint) }}
-        <span class="extra"
-          >({{ tdItem.res.length }}{{ $t(`OPTIONS.one`) }})</span
-        >
-      </h3>
-      <div class="page-inner">
-        <CptAvatar
-          v-for="hopeItem in tdItem.res"
-          :key="hopeItem.pokeId"
-          :pokeId="hopeItem.pokeId"
-        >
-          <p>{{ getDecimalNumber(hopeItem.count / getTimes, 2) }}</p>
-        </CptAvatar>
-      </div>
-    </div>
-  </template> -->
 </template>
