@@ -20,9 +20,9 @@ export function toHM(time, type) {
   if (type === 'sec') { // time传入为x秒
     const _hours = Math.floor(time / 3600)
     const _minutes = parseInt((time % 3600) / 60)
-    const _remainingSeconds = time % 60
+    const _remainingSeconds = parseFloat((time % 60).toFixed(1))
 
-    let res = _minutes + '分' + _remainingSeconds + '秒'
+    let res = _minutes > 0 ? _minutes + '分' + _remainingSeconds + '秒' : _remainingSeconds + '秒'
     if (_hours > 0) {
       res = _hours + '小时' + res
     }
@@ -100,20 +100,6 @@ export function getStageLevelPicId(stageName) {
   return 1
 }
 
-
-/**
- * 将输入的任意对象转换成 Date，如果装换失败将返回当前时间
- * silly-datetime组件，https://github.com/csbun/silly-datetime/blob/master/src/index.js
- * @param  {any} datetime 需要被格式化的时间
- * @return {Date}         转换好的 Date
- */
-function getDateObject(datetime) {
-  let t = datetime instanceof Date ? datetime : new Date(datetime)
-  if (!t.getDate()) {
-    t = new Date()
-  }
-  return t
-}
 /**
  * 格式化时间
  * silly-datetime组件，https://github.com/csbun/silly-datetime/blob/master/src/index.js
@@ -122,7 +108,10 @@ function getDateObject(datetime) {
  * @return {string}           格式化后的时间字符串
  */
 export function formatTime(datetime, formatStr) {
-  const t = getDateObject(datetime)
+  let t = datetime instanceof Date ? datetime : new Date(datetime)
+  if (!t.getDate()) {
+    t = new Date()
+  }
   let i = 0
   formatStr = formatStr || 'YYYY-MM-DD HH:mm:ss'
   const hours = t.getHours()

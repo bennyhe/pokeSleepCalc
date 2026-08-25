@@ -12,7 +12,8 @@ import {
 import {
   getDecimalNumber,
   getNum,
-  getStageLevelPicId
+  getStageLevelPicId,
+  toHM
 } from '../utils/index.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
@@ -132,17 +133,6 @@ const isCalcLoading = ref(false)
 const calcElapsedText = ref('')
 const calcProgressText = ref('')
 let calcTimer = null
-const formatDuration = ms => {
-  const sec = Math.floor(ms / 1000)
-  if (sec < 60) {
-    return `${(ms / 1000).toFixed(1)}s`
-  }
-  const min = Math.floor(sec / 60)
-  if (min < 60) {
-    return `${min}m ${sec % 60}s`
-  }
-  return `${Math.floor(min / 60)}h ${min % 60}m ${sec % 60}s`
-}
 const getRes = (curAllScore, allPoint, mapId, mapSleepType, getTimesInFun) => {
   mapSleepType = mapSleepType || +pageData.value.mapSleepType[0]
   mapId = mapId || pageData.value.curMap
@@ -193,7 +183,7 @@ const handleClickGet = async () => {
   let done = 0
   // 刷新耗时与进度百分比
   const updateCalcStatus = () => {
-    calcElapsedText.value = formatDuration(Date.now() - startTime)
+    calcElapsedText.value = toHM((Date.now() - startTime) / 1000, 'sec')
     const percent = total ? Math.round((done / total) * 100) : 0
     calcProgressText.value = `${percent}%`
   }

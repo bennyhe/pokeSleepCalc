@@ -615,114 +615,20 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 export function getRandomHopeWithMulti(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, callback) {
   const time = new Date().getTime()
   getTimes = getTimes || 4000
-  const lastGetList = new Set()
-  const acc = {
-    exp: 0,
-    shards: 0,
-    spoValidity: 0
-  }
-
-  // 预计算固定数据，避免在循环中重复计算
-  const shouldCalculateAcc = !extraSleepStyleOptions.isNoMoreData
-  const scoreGtSPO38000 = score > SPO38000
-  const currentSPO = getSPOByScore(score)
-
-  // 使用普通对象代替 Map，减少内存分配开销
-  const mergeResObj = {}
-
+  const state = initCalcState(score, extraSleepStyleOptions)
   for (let i = 0; i < getTimes; i++) {
-    const onceGetRes = getRandomSleepStyle(
-      mapData,
-      curUnLockSleepType,
-      score,
-      curStageIndex,
-      extraSleepStyleOptions
-    )
-
-    if (shouldCalculateAcc) {
-      acc.exp += fnAccumulation(onceGetRes, 'exp')
-      acc.shards += fnAccumulation(onceGetRes, 'shards')
-      if (scoreGtSPO38000) {
-        acc.spoValidity += getPercent(
-          fnAccumulation(onceGetRes, 'spo'),
-          currentSPO,
-          0
-        )
-      }
-    }
-
-    // 将唯一 ID 存入 Set
-    const lastItemId = onceGetRes[onceGetRes.length - 1].id
-    lastGetList.add(lastItemId)
-
-    // 使用对象代替 Map，减少方法调用开销
-    onceGetRes.forEach(item => {
-      if (mergeResObj[item.id]) {
-        mergeResObj[item.id].count += 1
-      } else {
-        mergeResObj[item.id] = { ...item, count: 1 }
-      }
-    })
+    sampleOnce(state, mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions)
   }
-
-  // 处理合并后的结果
-  const res = []
-  const pokeIdMap = {} // 用于快速查找已存在的 pokeId
-
-  for (const itemId in mergeResObj) {
-    const item = mergeResObj[itemId]
-    const pokeId = item.pokeId
-
-    if (!pokeIdMap[pokeId]) {
-      const resItem = {
-        pokeId: pokeId,
-        count: item.count,
-        shardsSum: item.count * item.shards,
-        expSum: item.count * item.exp,
-        candysSum: item.count * item.candys
-      }
-      if (shouldCalculateAcc) {
-        resItem.list = [item]
-      }
-      res.push(resItem)
-      pokeIdMap[pokeId] = resItem
-    } else {
-      const findTargetResItem = pokeIdMap[pokeId]
-      if (shouldCalculateAcc) {
-        findTargetResItem.list.push(item)
-      }
-      findTargetResItem.count += item.count
-      findTargetResItem.shardsSum += item.count * item.shards
-      findTargetResItem.expSum += item.count * item.exp
-      findTargetResItem.candysSum += item.count * item.candys
-    }
-  }
-
-  if (shouldCalculateAcc) {
-    res.forEach(item => {
-      item.list = sortInObjectOptions(item.list, ['count'], 'down')
-    })
-  }
-
-  // 排序结果
-  res.sort((a, b) => b.count - a.count || a.pokeId - b.pokeId)
-
+  const res = buildResFromMerge(state.mergeResObj, state.shouldCalculateAcc)
   console.log((new Date().getTime() - time) / 1000)
-  // console.log(acc)
   if (callback) {
-    callback(res, acc)
+    callback(res, state.acc)
   }
-
   return {
-    lastGetList,
+    lastGetList: state.lastGetList,
     res,
-    acc
+    acc: state.acc
   }
-  // console.log({
-  //   res,
-  //   orgList,
-  //   getTimes
-  // })
 }
 
 export function getLevelIndexByEnergy(curMapLevelList, CurEnergy) {
@@ -823,4 +729,114 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
 
 export function getSPOByScore(score) {
   return Math.floor(score / SPO38000)
+}
+
+// 将合并对象转为结果数组并排序
+const buildResFromMerge = (mergeResObj, shouldCalculateAcc) => {
+  const res = []
+  const pokeIdMap = {} // 用于快速查找已存在的 pokeId
+
+  for (const itemId in mergeResObj) {
+    const item = mergeResObj[itemId]
+    const pokeId = item.pokeId
+
+    if (!pokeIdMap[pokeId]) {
+      const resItem = {
+        pokeId: pokeId,
+        count: item.count,
+        shardsSum: item.count * item.shards,
+        expSum: item.count * item.exp,
+        candysSum: item.count * item.candys
+      }
+      if (shouldCalculateAcc) {
+        resItem.list = [item]
+      }
+      res.push(resItem)
+      pokeIdMap[pokeId] = resItem
+    } else {
+      const findTargetResItem = pokeIdMap[pokeId]
+      if (shouldCalculateAcc) {
+        findTargetResItem.list.push(item)
+      }
+      findTargetResItem.count += item.count
+      findTargetResItem.shardsSum += item.count * item.shards
+      findTargetResItem.expSum += item.count * item.exp
+      findTargetResItem.candysSum += item.count * item.candys
+    }
+  }
+
+  if (shouldCalculateAcc) {
+    res.forEach(item => {
+      item.list = sortInObjectOptions(item.list, ['count'], 'down')
+    })
+  }
+
+  // 排序结果
+  res.sort((a, b) => b.count - a.count || a.pokeId - b.pokeId)
+  return res
+}
+
+// 初始化采样计算状态
+const initCalcState = (score, extraSleepStyleOptions) => ({
+  lastGetList: new Set(),
+  acc: { exp: 0, shards: 0, spoValidity: 0 },
+  shouldCalculateAcc: !extraSleepStyleOptions.isNoMoreData,
+  scoreGtSPO38000: score > SPO38000,
+  currentSPO: getSPOByScore(score),
+  mergeResObj: {}
+})
+
+// 单次采样并累加到计算状态
+const sampleOnce = (state, mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions) => {
+  const onceGetRes = getRandomSleepStyle(
+    mapData,
+    curUnLockSleepType,
+    score,
+    curStageIndex,
+    extraSleepStyleOptions
+  )
+  if (state.shouldCalculateAcc) {
+    state.acc.exp += fnAccumulation(onceGetRes, 'exp')
+    state.acc.shards += fnAccumulation(onceGetRes, 'shards')
+    if (state.scoreGtSPO38000) {
+      state.acc.spoValidity += getPercent(
+        fnAccumulation(onceGetRes, 'spo'),
+        state.currentSPO,
+        0
+      )
+    }
+  }
+  state.lastGetList.add(onceGetRes[onceGetRes.length - 1].id)
+  onceGetRes.forEach(item => {
+    if (state.mergeResObj[item.id]) {
+      state.mergeResObj[item.id].count += 1
+    } else {
+      state.mergeResObj[item.id] = { ...item, count: 1 }
+    }
+  })
+}
+
+// x次期望分析（异步分片版）：计算期间定期让出主线程，loading 才能实时渲染
+export async function getRandomHopeWithMultiAsync(mapData, curUnLockSleepType, score, curStageIndex, getTimes, extraSleepStyleOptions, onProgress) {
+  const time = new Date().getTime()
+  getTimes = getTimes || 4000
+  const state = initCalcState(score, extraSleepStyleOptions)
+  // 每批次让出主线程，loading 才能渲染
+  const batchSize = 500
+  for (let i = 0; i < getTimes; i++) {
+    sampleOnce(state, mapData, curUnLockSleepType, score, curStageIndex, extraSleepStyleOptions)
+    if ((i + 1) % batchSize === 0) {
+      await new Promise(resolve => setTimeout(resolve))
+      if (onProgress) {
+        onProgress(i + 1, getTimes)
+      }
+    }
+  }
+  const res = buildResFromMerge(state.mergeResObj, state.shouldCalculateAcc)
+  console.log((new Date().getTime() - time) / 1000)
+  return {
+    lastGetList: state.lastGetList,
+    res,
+    acc: state.acc
+  }
 }

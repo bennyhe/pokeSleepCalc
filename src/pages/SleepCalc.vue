@@ -21,7 +21,7 @@ import {
   getTargetPokemonsSleeps,
   getUnLockSleeps,
   getRandomSleepStyle,
-  getRandomHopeWithMulti,
+  getRandomHopeWithMultiAsync,
   getLevelIndexByEnergy,
   getSPOById,
   checkListInLastGet,
@@ -576,30 +576,22 @@ const sleepStyle = computed(() => {
 
 const getTimes = 4000
 const hopeList = ref([])
-const getRandomHopeWithMultiCb = (res, acc) => {
-  // setAndGetRandomSleepStyle(
-  //   getScore(randomSleepStyle.value.sleepPoint),
-  //   userData.value.curStageIndex
-  // )
-  console.log(res, acc)
-  userData.value.isMoreCalcLoading = false
-  hopeList.value = res
-  userSleep.value.accumulationMulti = acc
-}
-
-const handleClickSleepMoreTimes = () => {
-  if (!userData.value.isMoreCalcLoading) {
-    console.log('start clac more times...')
-    userData.value.isMoreCalcLoading = true
-    let banPokes = []
-    if (
-      userData.value.onOffBan &&
-      userData.value.showBanArea.includes(userData.value.curMap)
-    ) {
-      banPokes = userData.value.banPokes
-    }
-    const upIds = getActUps()
-    getRandomHopeWithMulti(
+const handleClickSleepMoreTimes = async () => {
+  if (userData.value.isMoreCalcLoading) {
+    return
+  }
+  console.log('start clac more times...')
+  userData.value.isMoreCalcLoading = true
+  let banPokes = []
+  if (
+    userData.value.onOffBan &&
+    userData.value.showBanArea.includes(userData.value.curMap)
+  ) {
+    banPokes = userData.value.banPokes
+  }
+  const upIds = getActUps()
+  try {
+    const { res, acc } = await getRandomHopeWithMultiAsync(
       gameMap[userData.value.curMap],
       userData.value.curUnLockSleepType,
       getScore(randomSleepStyle.value.sleepPoint),
@@ -612,9 +604,15 @@ const handleClickSleepMoreTimes = () => {
         upIdsMid: upIds.upIdsMid,
         upIdsLarge: upIds.upIdsLarge,
         actRandomNum: NOW_ACT.value.actRandomNum || 0.3
-      },
-      getRandomHopeWithMultiCb
+      }
     )
+    console.log(res, acc)
+    hopeList.value = res
+    userSleep.value.accumulationMulti = acc
+  } catch (err) {
+    console.error('计算期望失败', err)
+  } finally {
+    userData.value.isMoreCalcLoading = false
   }
 }
 
