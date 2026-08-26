@@ -2,6 +2,9 @@
 const markdownText = `
 # 更新日志
 
+## 26-08-26
+1. update 优化性能
+
 ## 26-08-25
 1. add 抽取睡姿4000次-loading状态
 
