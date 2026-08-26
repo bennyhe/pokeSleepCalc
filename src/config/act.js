@@ -56,11 +56,11 @@ export const IN_LAST_TIME_POKEMONS = [
 // export const SLEEP_TIMELIMIT_POKEMONS = {
 
 // }
-export const SLEEP_CALC_UP = {
-  small: 4,
-  mid: 6,
-  large: 9
-}
+export const SLEEP_CALC_UP = [
+  { upType: 'small', type: 'smallUp', label: '小', coefficient: 4 },
+  { upType: 'mid', type: 'midUp', label: '中', coefficient: 6 },
+  { upType: 'large', type: 'largeUp', label: '大', coefficient: 9 }
+]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
     onOffBan: false,
@@ -94,7 +94,6 @@ const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
       namejp,
       startTime: s,
       endTime: s + dayMs - 1000,
-      notArea: [],
       [upKey]: upIds,
       times
     }
@@ -106,10 +105,11 @@ const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
   ]
 }
 export const ACT_LIST = [
+  // notArea 为可选字段：仅当活动加成对象全岛存在、但运营需排除部分岛屿时才填写；
+  // 平时可省略，计算页会按岛屿实际拥有的 UP 宝可梦自动推导是否生效
   //  {
   //    startTime: '2025/01/05 20:00',
   //    endTime: '2025/01/12 03:59:59',
-  //    notArea: [],
   //    smallUp: [],
   //    midUp: [],
   //    largeUp: [],
@@ -125,7 +125,6 @@ export const ACT_LIST = [
   //   namejp: '満月の前後の日',
   //   startTime: '2026/06/29 04:00',
   //   endTime: '2026/06/30 03:59:59',
-  //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // },
@@ -134,7 +133,6 @@ export const ACT_LIST = [
   //   namejp: '満月の日',
   //   startTime: '2026/06/30 04:00',
   //   endTime: '2026/07/01 03:59:59',
-  //   notArea: [],
   //   largeUp: [35, 36, 173],
   //   times: 3
   // },
@@ -143,7 +141,6 @@ export const ACT_LIST = [
   //   namejp: '満月の前後の日',
   //   startTime: '2026/07/01 04:00',
   //   endTime: '2026/07/02 03:59:59',
-  //   notArea: [],
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
@@ -153,7 +150,6 @@ export const ACT_LIST = [
     namejp: 'ミラクルスナップミッション ミニ',
     startTime: '2026/08/31 22:00:00',
     endTime: '2026/09/07 03:59:59',
-    notArea: [2, 3, 5, 8],
     midUp: [],
     smallUp: [122, 177, 178, 196, 202, 280, 281, 282, 360, 439, 517, 518],
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]

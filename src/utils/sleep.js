@@ -198,45 +198,36 @@ const spacialPokemons = {
 }
 
 const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
-  if (options === undefined) {
-    return orgSleepList
+  if (options === undefined) return orgSleepList
+
+  // 按 upType 取加权系数，未匹配按 small 兜底；UP 睡姿在卡池中重复 coefficient 次
+  const upKeyIndex = Math.max(
+    SLEEP_CALC_UP.findIndex(k => k.upType === options.upType),
+    0
+  )
+  const upCoefficient = SLEEP_CALC_UP[upKeyIndex].coefficient
+  console.log(options.upType, upCoefficient)
+
+  if (!options.ids || options.ids.length === 0) return orgSleepList
+
+  const idsSet = new Set(options.ids)
+  const upStyles = orgSleepList.filter(item => idsSet.has(item.pokeId))
+  if (upStyles.length === 0) return orgSleepList
+
+  // 预分配：原始列表 + UP 列表重复 (coefficient-1) 次，避免动态扩容
+  const repeatCount = upCoefficient - 1
+  const upLen = upStyles.length
+  const orgLen = orgSleepList.length
+  const newRes = new Array(upLen * repeatCount + orgLen)
+
+  let i = 0
+  for (let r = 0; r < repeatCount; r++) {
+    for (let j = 0; j < upLen; j++) newRes[i++] = upStyles[j]
   }
+  for (let j = 0; j < orgLen; j++) newRes[i++] = orgSleepList[j]
 
-  // 保持原有的 upCoefficient 计算逻辑（支持配置表）
-  let upCoefficient = SLEEP_CALC_UP.small // 默认small
-  if (options.upType === 'mid') {
-    upCoefficient = SLEEP_CALC_UP.mid
-  } else if (options.upType === 'large') {
-    upCoefficient = SLEEP_CALC_UP.large
-  }
-
-  if (options.ids && options.ids.length > 0) {
-    // 使用 Set 优化 includes 性能
-    const idsSet = new Set(options.ids)
-    const needUseSleepStyles = orgSleepList.filter(item => idsSet.has(item.pokeId))
-
-    if (needUseSleepStyles.length > 0) {
-      // 预分配数组长度，避免动态扩容
-      const repeatCount = upCoefficient - 1
-      const totalLength = needUseSleepStyles.length * repeatCount + orgSleepList.length
-      const newRes = new Array(totalLength)
-
-      let index = 0
-      // 高效填充重复的权重睡姿
-      for (let i = 0; i < repeatCount; i++) {
-        for (let j = 0; j < needUseSleepStyles.length; j++) {
-          newRes[index++] = needUseSleepStyles[j]
-        }
-      }
-      // 高效填充原始睡姿列表
-      for (let j = 0; j < orgSleepList.length; j++) {
-        newRes[index++] = orgSleepList[j]
-      }
-
-      return newRes
-    }
-  }
-  return orgSleepList
+  console.log(newRes)
+  return newRes
 }
 
 function fnGetZeroPokemon(isActRandom, curUnLockSleepType, catchNumByActRandom, extraSleepStyleOptions, spoZeroPoke, spoZeroPokeByType) {

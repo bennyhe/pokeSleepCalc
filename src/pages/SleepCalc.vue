@@ -16,7 +16,7 @@ import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { pokedex } from '../config/pokedex.js'
 import { NAV_SLEEPCALC } from '../config/nav.js'
 import { SPO38000 } from '../config/spo.js'
-import { ACT_LIST, SLEEP_CALC_CONFIG } from '../config/act.js'
+import { ACT_LIST, SLEEP_CALC_CONFIG, SLEEP_CALC_UP } from '../config/act.js'
 import {
   getTargetPokemonsSleeps,
   getUnLockSleeps,
@@ -376,28 +376,18 @@ if (NOW_ACT.value.isActRandom) {
 console.log(NOW_ACT)
 
 // 当前活动在当前岛屿可显示的 UP 宝可梦分组（小/中/大）
+// notArea 显式排除优先，否则按岛屿实际拥有的 UP 宝可梦推导兜底
 const actUpGroups = computed(() => {
-  if (
-    !NOW_ACT.value ||
-    !NOW_ACT.value.notArea ||
-    NOW_ACT.value.notArea.includes(userData.value.curMap)
-  ) {
-    return []
-  }
-  const allPokes = gameMapPokemons[userData.value.curMap].allPokemons
-  return [
-    { type: 'smallUp', label: '小' },
-    { type: 'midUp', label: '中' },
-    { type: 'largeUp', label: '大' }
-  ]
-    .map(group => ({
-      ...group,
-      upPokes: (NOW_ACT.value[group.type] || []).filter(pokeId =>
-        allPokes.includes(pokeId)
-      )
-    }))
-    .filter(group => group.upPokes.length > 0)
+  const act = NOW_ACT.value
+  if (!act || act.notArea?.includes(userData.value.curMap)) return []
+  const allPokes = gameMapPokemons[userData.value.curMap]?.allPokemons || []
+  return SLEEP_CALC_UP.map(group => ({
+    ...group,
+    upPokes: (act[group.type] || []).filter(pokeId => allPokes.includes(pokeId))
+  })).filter(group => group.upPokes.length > 0)
 })
+// 当前岛屿是否有任意活动加成（抽取时的总开关，派生自 actUpGroups）
+const isActUpInCurMap = computed(() => actUpGroups.value.length > 0)
 
 const getActUps = () => {
   const upIdsSmall = {
@@ -412,11 +402,7 @@ const getActUps = () => {
     upType: 'large',
     ids: []
   }
-  if (
-    NOW_ACT.value &&
-    NOW_ACT.value.notArea &&
-    !NOW_ACT.value.notArea.includes(userData.value.curMap)
-  ) {
+  if (isActUpInCurMap.value) {
     upIdsSmall.ids = NOW_ACT.value.smallUp
     upIdsMid.ids = NOW_ACT.value.midUp
     upIdsLarge.ids = NOW_ACT.value.largeUp
