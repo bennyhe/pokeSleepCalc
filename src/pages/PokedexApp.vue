@@ -297,12 +297,10 @@ const afterFilterPoke = computed(() => {
 })
 
 const isShowDialog = ref(false)
-const dialogId = ref(false)
 const curDialogPokeId = ref(null)
 const handleClickPokemons = pokeId => {
   curDialogPokeId.value = pokeId
   isShowDialog.value = true
-  dialogId.value = `pokemonsDetail_${Math.random()}`
 }
 
 onMounted(() => {
@@ -515,10 +513,9 @@ onMounted(() => {
     <!-- S 详细弹窗 -->
     <CptDialogPokemonDetail
       :isShow="isShowDialog"
-      :dialogId="dialogId"
       :curDialogPokeId="curDialogPokeId"
-    >
-    </CptDialogPokemonDetail>
+      @close="isShowDialog = false"
+    />
     <!-- S 详细弹窗 -->
   </div>
 </template>

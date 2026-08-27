@@ -65,12 +65,10 @@ const props = defineProps({
 
 const editData = ref({})
 const isShowDialog = ref(false)
-const dialogId = ref(false)
 
 const handleClickEdit = () => {
   editData.value = props.editPokeData
   isShowDialog.value = true
-  dialogId.value = `energyitem_${Math.random()}`
 }
 const handleBlurLevel = () => {
   if (!editData.value.level) {
@@ -225,8 +223,8 @@ const handleChangeSkillLevel = () => {
     <!-- S 修改个体弹窗 -->
     <CptDialog
       :isShow="isShowDialog"
-      :key="dialogId"
       :closeCallBack="props.closeDialogCB"
+      @close="isShowDialog = false"
     >
       <div
         class="dialog-editiv page-helpcalc el-form"

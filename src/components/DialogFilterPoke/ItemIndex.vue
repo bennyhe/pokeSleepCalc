@@ -50,10 +50,8 @@ const FILTER_OBJECT = computed(() => {
   return props.filterObj
 })
 const isShowDialog = ref(false)
-const dialogId = ref(false)
 const handleClickFilter = () => {
   isShowDialog.value = true
-  dialogId.value = `filterdialog_${Math.random()}`
 }
 const closeDialogCB2 = () => {
   ElMessage({
@@ -73,8 +71,8 @@ const handleClickReset = () => {
   >
   <CptDialog
     :isShow="isShowDialog"
-    :key="dialogId"
     :closeCallBack="closeDialogCB2"
+    @close="isShowDialog = false"
   >
     <h3 class="m-dialog__title">
       <SvgIcon type="filter" />{{ $t("DIALOG_TITLE.filter") }}

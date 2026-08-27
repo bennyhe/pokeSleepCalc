@@ -16,14 +16,13 @@ const props = defineProps({
   curDialogPokeId: {
     type: [String, Number]
   },
-  dialogId: {
-    type: [String, Number]
-  },
   isShow: {
     type: Boolean,
     default: false
   }
 })
+
+defineEmits(['close'])
 
 const fnGetCount = curDialogPokeId => {
   if (curDialogPokeId === 132) {
@@ -49,7 +48,7 @@ gameMapNew.forEach(gitem => {
 })
 </script>
 <template>
-  <CptDialog :isShow="isShow" :key="dialogId">
+  <CptDialog :isShow="isShow" @close="$emit('close')">
     <div class="dialog-pokedex-detail" v-if="curDialogPokeId">
       <h3>
         #{{ curDialogPokeId }} {{ $t(`POKEMON_NAME.${curDialogPokeId}`) }}

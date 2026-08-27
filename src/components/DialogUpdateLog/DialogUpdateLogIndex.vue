@@ -1,5 +1,5 @@
 <template>
-  <CptDialog :isShow="isShowDialog" :key="dialogId">
+  <CptDialog :isShow="isShowDialog" @close="$emit('close')">
     <div class="dialog-update" v-html="updateLogDom"></div>
   </CptDialog>
 </template>
@@ -9,7 +9,8 @@ import { ref } from 'vue'
 import CptDialog from '../Dialog/DialogIndex.vue'
 import updateLogInfo from './data.js'
 
-defineProps(['isShowDialog', 'dialogId'])
+defineProps(['isShowDialog'])
+defineEmits(['close'])
 
 const updateLogDom = ref('')
 function initMdUpdateLog() {

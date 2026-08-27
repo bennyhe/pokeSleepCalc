@@ -2,7 +2,7 @@
   <teleport to="body">
     <div
       class="m-dialog m-dialog--show"
-      v-if="isShow && showDialog"
+      v-if="isShow"
       :class="{
         'm-dialog--fullscreen': isFullScreen,
         'm-dialog--alert': isAlert,
@@ -26,8 +26,6 @@
   </teleport>
 </template>
 <script setup>
-import { ref } from 'vue'
-
 const props = defineProps({
   isShow: {
     type: Boolean,
@@ -41,26 +39,17 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  isHandleClickMaskClose: {
-    type: Boolean,
-    default: true
-  },
   closeCallBack: {
     type: Function
   }
 })
 
-const showDialog = ref(true)
-// console.log(showDialog, props.isShow)
-const handleClickClose = closeType => {
+const emit = defineEmits(['close'])
+const handleClickClose = () => {
   if (props.closeCallBack) {
     props.closeCallBack()
   }
-  if (closeType === 'mask' && props.isHandleClickMaskClose) {
-    showDialog.value = false
-  } else {
-    showDialog.value = false
-  }
+  emit('close')
 }
 </script>
 

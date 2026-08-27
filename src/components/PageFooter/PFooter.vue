@@ -4,16 +4,12 @@ import CptDialogUpdateLog from '../DialogUpdateLog/DialogUpdateLogIndex.vue'
 import CptDialogSupport from '../DialogSupport/DialogSupportIndex.vue'
 
 const isShowDialog = ref(false)
-const dialogId = ref(false)
 const handleClickShowUpdateLog = () => {
-  dialogId.value = `updateLogDialog${Math.random()}`
   isShowDialog.value = true
 }
 
 const isShowDialog2 = ref(false)
-const dialogId2 = ref(false)
 const handleClickShowSupport = () => {
-  dialogId2.value = `SupportDialog${Math.random()}`
   isShowDialog2.value = true
 }
 </script>
@@ -34,8 +30,8 @@ const handleClickShowSupport = () => {
     <p>
       <a href="javascript:;" @click="handleClickShowUpdateLog()">更新日志(2023-{{ new Date().getFullYear() }})</a>
     </p>
-    <CptDialogUpdateLog :key="dialogId" :isShow="isShowDialog" />
-    <CptDialogSupport :key="dialogId2" :isShow="isShowDialog2" />
+    <CptDialogUpdateLog :isShow="isShowDialog" @close="isShowDialog = false" />
+    <CptDialogSupport :isShow="isShowDialog2" @close="isShowDialog2 = false" />
   </div>
 </template>
 
