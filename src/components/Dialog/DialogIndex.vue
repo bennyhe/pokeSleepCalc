@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <i class="m-dialog__mask" @click="handleClickClose('mask')"></i>
+      <i class="m-dialog__mask" @click="handleClickClose()"></i>
     </div>
   </teleport>
 </template>
