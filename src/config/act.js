@@ -82,10 +82,10 @@ export const LAB_CONFIG = {
   upIdsLargeIds: [],
   noLastList: []
 }
-const fnGetMoonDays = (startTime, EndTime, multiTimes) => {
+const fnGetMoonDays = (startTime, multiTimes) => {
   startTime = new Date(startTime).getTime()
-  EndTime = new Date(EndTime).getTime()
-  const dayMs = (EndTime - startTime + 1000) / 3
+  // 活动固定三天，每天为标准 24 小时
+  const dayMs = 24 * 60 * 60 * 1000
   const upIds = [35, 36, 173]
   const makeDay = (offset, name, namejp, times, upKey) => {
     const s = startTime + offset * dayMs
@@ -144,7 +144,7 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  ...fnGetMoonDays('2026/08/27 04:00', '2026/08/30 03:59:59', 2),
+  ...fnGetMoonDays('2026/08/27 04:00', 2),
   {
     name: '奇跡快照任務（迷你）',
     namejp: 'ミラクルスナップミッション ミニ',

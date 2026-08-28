@@ -206,7 +206,7 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
     0
   )
   const upCoefficient = SLEEP_CALC_UP[upKeyIndex].coefficient
-  console.log(options.upType, upCoefficient)
+  // console.log(options.upType, upCoefficient)
 
   if (!options.ids || options.ids.length === 0) return orgSleepList
 
@@ -226,7 +226,7 @@ const inRandomSleepStyleGetSleepStyles = (orgSleepList, options) => {
   }
   for (let j = 0; j < orgLen; j++) newRes[i++] = orgSleepList[j]
 
-  console.log(newRes)
+  // console.log(newRes)
   return newRes
 }
 
