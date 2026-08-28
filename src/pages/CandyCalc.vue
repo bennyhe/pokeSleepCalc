@@ -49,12 +49,9 @@ const getCandyExp = (targetLevel, nature) => {
   return singleCandyExp * candyCalcForm.value.useExps
 }
 
-const getLevelExp = level => {
-  return (
-    Math.round(LEVEL_EXP[level] * candyCalcForm.value.pType) -
-    Math.round(LEVEL_EXP[level - 1] * candyCalcForm.value.pType)
-  )
-}
+const getLevelExp = level =>
+  Math.round(LEVEL_EXP[level] * candyCalcForm.value.pType) -
+  Math.round(LEVEL_EXP[level - 1] * candyCalcForm.value.pType)
 
 /**
  * 计算总经验、糖果数、梦碎消耗
@@ -109,10 +106,9 @@ const handleChangeActUp = () => {
 }
 
 const MUNCHLAX_CONFIG = computed(() => {
-  let natureMulti = NATURE_EXP.normal // 特殊规则 该功能down不会生效
-  if (candyCalcForm.value.nature === 'up') {
-    natureMulti = NATURE_EXP.up
-  }
+  // 特殊规则：该功能 down 不会生效，down 与 normal 同倍率
+  const natureMulti =
+    candyCalcForm.value.nature === 'up' ? NATURE_EXP.up : NATURE_EXP.normal
   return {
     normal: 150 * natureMulti,
     useRelaxing: 600 * natureMulti
@@ -154,19 +150,19 @@ console.log('init page candycalc...')
       <el-radio-group v-model="candyCalcForm.nature">
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'down'"
+          label="down"
         >
           <span class="nature-down">▽▽</span>
         </el-radio-button>
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'normal'"
+          label="normal"
         >
           -
         </el-radio-button>
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'up'"
+          label="up"
         >
           <span class="nature-up">△△</span>
         </el-radio-button>
@@ -180,19 +176,19 @@ console.log('init page candycalc...')
       >
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'none'"
+          label="none"
         >
           <span style="display: inline-block; width: 1.5em">-</span>
         </el-radio-button>
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'candyup'"
+          label="candyup"
         >
           糖果增强
         </el-radio-button>
         <el-radio-button
           class="radiogroup--primary radiogroup--level"
-          :label="'minicandyup'"
+          label="minicandyup"
         >
           迷你糖果增强
         </el-radio-button>
