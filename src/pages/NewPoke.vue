@@ -100,9 +100,9 @@ onMounted(() => {
         <table style="width: 100%">
           <thead>
             <tr>
-              <th></th>
+              <th style="width: 36px"></th>
               <th
-                style="width: 96px"
+                style="min-width: 50px"
                 v-for="item in NewPokesByDate"
                 :key="item.year"
               >
