@@ -186,7 +186,7 @@ const getShinyPoke = (pokeId, isShinyUp) => {
   }
   return parseInt(Math.floor(Math.random() * 140), 10) === 44
 }
-const spacialPokemons = {
+const specialPokemons = {
   ...SLEEP_CALC_POKEMONS,
   isGet: { // 露营券判断是否重复使用
     243: false,
@@ -266,8 +266,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   const isActRandom = !!extraSleepStyleOptions.isActRandom
   const isUseTicket = !!extraSleepStyleOptions.isUseTicket
 
-  spacialPokemons.list.forEach(spitem => {
-    spacialPokemons.isGet[spitem] = false //重置
+  specialPokemons.list.forEach(spitem => {
+    specialPokemons.isGet[spitem] = false //重置
   })
 
   const cathPokeCount = getNumberInMap(
@@ -299,20 +299,20 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
   const hasNoLastPokes = Array.isArray(extraSleepStyleOptions.noLastPokes) && extraSleepStyleOptions.noLastPokes.length > 0
 
   // 特殊宝可梦使用熏香，也只能出1只
-  if (spacialPokemons.list.includes(+useIncensePokemonId)) {
+  if (specialPokemons.list.includes(+useIncensePokemonId)) {
     // 如果存在ban的宝可梦列表则合并
     if (extraSleepStyleOptions.banPokes && extraSleepStyleOptions.banPokes.length > 0) {
-      extraSleepStyleOptions.banPokes = extraSleepStyleOptions.banPokes.concat([...spacialPokemons.list])
+      extraSleepStyleOptions.banPokes = extraSleepStyleOptions.banPokes.concat([...specialPokemons.list])
     } else {
-      extraSleepStyleOptions.banPokes = [...spacialPokemons.list]
+      extraSleepStyleOptions.banPokes = [...specialPokemons.list]
     }
-    // console.log('使用该熏香', useIncensePokemonId, spacialPokemons.list, extraSleepStyleOptions.banPokes)
+    // console.log('使用该熏香', useIncensePokemonId, specialPokemons.list, extraSleepStyleOptions.banPokes)
   }
   // 如果存在额外不进保底的宝可梦列表则合并
   if (hasNoLastPokes) {
-    extraSleepStyleOptions.noLastPokes = extraSleepStyleOptions.noLastPokes.concat([...spacialPokemons.noLastList])
+    extraSleepStyleOptions.noLastPokes = extraSleepStyleOptions.noLastPokes.concat([...specialPokemons.noLastList])
   } else {
-    extraSleepStyleOptions.noLastPokes = [...spacialPokemons.noLastList]
+    extraSleepStyleOptions.noLastPokes = [...specialPokemons.noLastList]
   }
   // console.log(extraSleepStyleOptions.noLastPokes)
   // 如果存在去除宝可梦
@@ -430,21 +430,21 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
       }
       // console.log(rdmRes)
       // 抽到特殊宝可梦后，接下来不会再出现该宝可梦
-      if (spacialPokemons.list.includes(rdmRes.pokeId)) {
+      if (specialPokemons.list.includes(rdmRes.pokeId)) {
         // console.log('抽到特殊宝可梦', rdmRes.pokeId)
         orgSleepList = orgSleepList.filter(
           item =>
-            !spacialPokemons.list.includes(item.pokeId)
+            !specialPokemons.list.includes(item.pokeId)
         )
         // 类型非无症状的活动随机类型
         if (isActRandom && +curUnLockSleepType !== 999) {
           orgSleepListByActType = orgSleepListByActType.filter(
             item =>
-              !spacialPokemons.list.includes(item.pokeId)
+              !specialPokemons.list.includes(item.pokeId)
           )
         }
-        spacialPokemons.list.forEach(spitem => {
-          spacialPokemons.isGet[spitem] = true
+        specialPokemons.list.forEach(spitem => {
+          specialPokemons.isGet[spitem] = true
         })
       }
       res.push({
@@ -478,7 +478,7 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
     } else {
       // console.log('curSpo', extraSleepStyleOptions, currentCurSpo, orgSleepList, lastList)
       lastList = sortInObjectOptions(lastList, ['spo'], 'down')
-      if (spacialPokemons.probabilityLastList.includes(lastList[0].pokeId) && (Math.random() < 0.8)) {
+      if (specialPokemons.probabilityLastList.includes(lastList[0].pokeId) && (Math.random() < 0.8)) {
         lastList = sortInObjectOptions(lastList.filter(item => item.pokeId !== lastList[0].pokeId), ['spo'], 'down')
       }
       const lastMostSpo = lastList[0].spo
@@ -562,8 +562,8 @@ export function getRandomSleepStyle(mapData, curUnLockSleepType, score, curStage
 
     // 特殊宝可梦筛选，抽过的露营券不会再出
     const isGetPokes = []
-    spacialPokemons.list.forEach(spitem => {
-      if (spacialPokemons.isGet[spitem]) {
+    specialPokemons.list.forEach(spitem => {
+      if (specialPokemons.isGet[spitem]) {
         isGetPokes.push(+spitem)
       }
     })
@@ -681,7 +681,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
       isSleepOnStomach = true
     }
     // 抽到特殊宝可梦后，接下来不会再出现该宝可梦
-    if (sleepStyleId && spacialPokemons.list.includes(SLEEP_STYLE[sleepStyleId].pokeId)) {
+    if (sleepStyleId && specialPokemons.list.includes(SLEEP_STYLE[sleepStyleId].pokeId)) {
       // console.log('抽到特殊宝可梦', SLEEP_STYLE[sleepStyleId].pokeId)
       orgSleepList = orgSleepList.filter(
         item =>
@@ -699,7 +699,7 @@ export function checkListInLastGet(mapData, curUnLockSleepType, curStageIndex, d
       if (curSpo >= 2) {
         let lastList = orgSleepList.filter(
           item =>
-            // !spacialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
+            // !specialPokemons.noLastList.includes(item.pokeId) && // 去除特殊宝可梦保底
             item.spo <= curSpo && (isSleepOnStomach ? item.sleepNameId !== 4 : true)
         )
         lastList = sortInObjectOptions(lastList, ['spo'], 'down')
