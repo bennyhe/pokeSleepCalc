@@ -6,7 +6,7 @@ import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptDialogPokemonDetail from '../components/DialogPokemonDetail/ItemIndex.vue'
 
 import { pokedex } from '../config/pokedex.js'
-import { gameMap } from '../config/game.js'
+import { gameMap, MAP_POKEMON_PRESET } from '../config/game.js'
 import { orgResetObjectInPokedex } from '../config/filterDialog.js'
 import {
   get,
@@ -36,12 +36,9 @@ const filterResGroup = ref({
 })
 
 // 存储每个地图每个等级会出现的宝可梦
-const SP_POKEMONS_CONFIG = {
-  default: [{ pokeId: 151, level: 0 }, { pokeId: 491, level: 0 }]
-}
 const gameMapPokemons = getGameMapPokemons(gameMap, {
   withIdToLevelIndex: true,
-  spPokemons: SP_POKEMONS_CONFIG
+  spPokemons: MAP_POKEMON_PRESET
 })
 // console.log('gameMapPokemons', gameMapPokemons)
 

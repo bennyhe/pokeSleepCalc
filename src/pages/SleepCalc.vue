@@ -10,7 +10,7 @@ import CptGameMap from '../components/GameMap/PlayArea.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import { UI_ICONS } from '../config/uiIcons.js'
 
-import { gameMap, mapSplitVer } from '../config/game.js'
+import { gameMap, mapSplitVer, MAP_POKEMON_PRESET } from '../config/game.js'
 import { SLEEP_TYPES } from '../config/valKey.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
 import { pokedex } from '../config/pokedex.js'
@@ -112,12 +112,9 @@ const sleepStyleAny = ref({
 })
 
 // 存储每个地图每个等级会出现的宝可梦
-const SP_POKEMONS_CONFIG = {
-  default: [{ pokeId: 151, level: 0 }, { pokeId: 491, level: 0 }]
-}
 const gameMapPokemons = getGameMapPokemons(gameMap, {
   withIdToLevelIndex: true,
-  spPokemons: SP_POKEMONS_CONFIG
+  spPokemons: MAP_POKEMON_PRESET
 })
 // console.log(gameMapPokemons)
 

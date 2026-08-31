@@ -31,3 +31,8 @@ export const gameMap = [
 
 export const SHINY_LOCK_POKEMONS = [491, 151, 9007] // 锁闪：无闪光形态的宝可梦，仅用于闪光 UI 控制
 export const SP_POKEMONS = [491, 151] // 特殊食材槽位宝可梦（达克莱伊491、梦幻151等），仅用于食材组合计算
+
+// 各岛屿需预填进出现表的特殊宝可梦，格式: { default: [{pokeId, level}], '<mapId>': [{pokeId, level}] }
+export const MAP_POKEMON_PRESET = {
+  default: [{ pokeId: 151, level: 0 }, { pokeId: 491, level: 0 }]
+}
