@@ -758,7 +758,8 @@ export default {
         '197-id-4',
         '470-id-4',
         '471-id-4',
-        '701-id-4'
+        '701-id-4',
+        '150-id-1'
       ]
     },
     {
@@ -837,7 +838,8 @@ export default {
       'nameId': 4,
       'energy': 1029700,
       'sleepStyles': [
-        '26-id-3'
+        '26-id-3',
+        '150-id-2'
         // '923-id-4' // 2025圣诞佳节限定
       ]
     },
@@ -902,6 +904,7 @@ export default {
       'nameId': 4,
       'energy': 3245795,
       'sleepStyles': [
+        '150-id-3'
       ]
     }
   ]

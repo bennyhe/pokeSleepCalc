@@ -1,5 +1,5 @@
 export const SLEEP_CALC_POKEMONS = {
-  list: [243, 244, 245, 488, 380, 381], // 特殊宝可梦列表，只能一个
+  list: [243, 244, 245, 488, 380, 381, 150], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 488, 380, 381,
     213,
     742, 743,
@@ -9,7 +9,8 @@ export const SLEEP_CALC_POKEMONS = {
     780,
     387, 388, 389, 390, 391, 392, 393, 394, 395,
     701,
-    9007, 957, 958, 959
+    9007, 957, 958, 959,
+    150
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -63,11 +64,11 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: false,
-    showBan: false,
-    banPokes: [], // ban 宝可梦id
-    showBanArea: [], // 展示区域
-    endTime: '2026/08/16 22:00'
+    onOffBan: true,
+    showBan: true,
+    banPokes: [150], // ban 宝可梦id
+    showBanArea: [0, 7, 8], // 展示区域
+    endTime: '2026/09/13 22:00'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
   if (config.endTime && Date.now() >= new Date(config.endTime).getTime()) {
@@ -77,8 +78,8 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [122, 177, 178, 196, 202, 280, 281, 282, 360, 439, 517, 518],
-  upIdsMidIds: [],
+  upIdsSmallIds: [177, 178, 196, 202, 280, 281, 282, 360, 517, 518],
+  upIdsMidIds: [150],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -146,13 +147,14 @@ export const ACT_LIST = [
   // }
   // ...fnGetMoonDays('2026/08/27 04:00', 2),
   {
-    name: '奇跡快照任務（迷你）',
-    namejp: 'ミラクルスナップミッション ミニ',
-    startTime: '2026/08/30 22:00:00',
-    endTime: '2026/09/07 03:59:59',
-    midUp: [],
-    smallUp: [122, 177, 178, 196, 202, 280, 281, 282, 360, 439, 517, 518],
+    name: '秘境研究！追尋超夢吧',
+    namejp: '秘境リサーチ！ミュウツーをおいかけて',
+    startTime: '2026/09/13 22:00:00',
+    endTime: '2026/09/28 03:59:59',
+    midUp: [150],
+    smallUp: [177, 178, 196, 202, 280, 281, 282, 360, 517, 518],
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    notArea: [1, 2, 3, 4, 5, 6, 8],
     isActRandom: true
   }
 ]

@@ -193,7 +193,8 @@ const specialPokemons = {
     244: false,
     245: false,
     488: false,
-    380: false
+    380: false,
+    150: false
   }
 }
 

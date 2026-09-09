@@ -84,6 +84,7 @@ const userSleep = ref({
   isFirst488: true,
   isFirst380: true,
   isFirst381: true,
+  isFirst150: true,
   accumulation: {
     exp: 0,
     shards: 0,
@@ -440,7 +441,7 @@ const setAndGetRandomSleepStyle = (score, curStageIndex) => {
   )
   // 随机个体
   // 首遇锁技能宝可梦ID列表
-  const FIRST_LOCK_IDS = [243, 244, 245, 488, 380, 381]
+  const FIRST_LOCK_IDS = [243, 244, 245, 488, 380, 381, 150]
   // 构建 getRandomIV 的首遇参数
   const buildIVOptions = lockSkillCount => {
     const opts = { lockSkillCount }
@@ -1053,8 +1054,8 @@ const getQuickChangeSleepPoint = () => {
       <el-form-item :label="$t('PAGE_SLEEPCALC.formLableDays')">
         <el-radio-group v-model="userData.times" @change="handleClickTimes()">
           <el-radio :label="1">{{ $t("OPTIONS.otherDay") }}</el-radio>
-          <el-radio :label="1.1">1.1倍</el-radio>
-          <el-radio :label="1.3">1.3倍</el-radio>
+          <el-radio :label="1.1"><CptAvatar :pokeId="150" />/<CptAvatar :pokeId="151" />1.1倍</el-radio>
+          <el-radio :label="1.3"><CptAvatar :pokeId="150" />1.3倍</el-radio>
           <el-radio :label="1.5"
             ><SvgIcon type="moonNight" size="mid" />{{
               $t("OPTIONS.sleepDay")

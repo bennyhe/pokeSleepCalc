@@ -27,7 +27,7 @@ defineEmits(['close'])
 const fnGetCount = curDialogPokeId => {
   if (curDialogPokeId === 132) {
     return 13
-  } else if (curDialogPokeId === 380 || curDialogPokeId === 381) {
+  } else if ([380, 381, 150].includes(curDialogPokeId)) {
     return 5
   }
   return 4
@@ -122,8 +122,9 @@ gameMapNew.forEach(gitem => {
                     ).spoId
                   }}
                 </p>
+                <p v-if="[380, 381, 150].includes(curDialogPokeId) && fKey > 3">{{ $t('OPTIONS.timelimit') }}</p>
                 <p
-                  v-if="
+                  v-else-if="
                     getTargetPokemonsSleeps(
                       `${extractPrefix(curDialogPokeId)}-id-${fKey}`
                     ).spo
@@ -141,7 +142,7 @@ gameMapNew.forEach(gitem => {
                   v-if="
                     getTargetPokemonsSleeps(
                       `${extractPrefix(curDialogPokeId)}-id-${fKey}`
-                    ).spo
+                    ).spo && (!([380, 381, 150].includes(curDialogPokeId) && fKey > 3))
                   "
                 >
                   {{

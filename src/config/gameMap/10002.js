@@ -268,7 +268,8 @@ export default {
         '253-id-3',
         '259-id-3',
         '213-id-2',
-        '780-id-2'
+        '780-id-2',
+        '150-id-1'
       ]
     },
     {
@@ -363,7 +364,8 @@ export default {
       'energy': 3851643,
       'sleepStyles': [
         '113-id-4',
-        '83-id-3'
+        '83-id-3',
+        '150-id-2'
       ]
     },
     {
@@ -448,7 +450,9 @@ export default {
       'nameIndex': 14,
       'nameId': 4,
       'energy': 7802011,
-      'sleepStyles': []
+      'sleepStyles': [
+        '150-id-3'
+      ]
     },
     {
       'name': '大师15',
@@ -490,7 +494,8 @@ export default {
       'nameIndex': 20,
       'nameId': 4,
       'energy': 14780152,
-      'sleepStyles': []
+      'sleepStyles': [
+      ]
     }
   ]
 }

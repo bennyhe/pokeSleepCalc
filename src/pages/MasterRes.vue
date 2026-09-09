@@ -104,7 +104,7 @@ const handleChangePokemon = pokeId => {}
               </CptAvatar>
             </template>
           </template>
-          <template v-if="masterRes.level20.actTime.list.length > 0">
+          <!-- <template v-if="masterRes.level20.actTime.list.length > 0">
             <template
               v-for="(tdItem, tdKey) in masterRes.level20.actTime.list.slice(
                 mapIndex + sleepTypeToIndex[cKey] * pageData.areaNum,
@@ -123,7 +123,7 @@ const handleChangePokemon = pokeId => {}
                 </CptAvatar>
               </template>
             </template>
-          </template>
+          </template> -->
         </span>
       </template>
     </li>
