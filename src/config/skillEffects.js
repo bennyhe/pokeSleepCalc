@@ -474,5 +474,41 @@ export const skillEffects = {
         subEnergy: 2042
       }
     ]
+  },
+  22: {
+    id: 22,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 5,
+        teamValue: 1
+      },
+      {
+        level: 2,
+        value: 9,
+        teamValue: 1
+      },
+      {
+        level: 3,
+        value: 13,
+        teamValue: 1
+      },
+      {
+        level: 4,
+        value: 17,
+        teamValue: 1
+      },
+      {
+        level: 5,
+        value: 21,
+        teamValue: 1
+      },
+      {
+        level: 6,
+        value: 25,
+        teamValue: 1
+      }
+    ]
   }
 }
