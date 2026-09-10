@@ -77,6 +77,10 @@ const props = defineProps({
       </div>
       </template>
       <template v-if="dataSource.oneDaySkillEffects.type !== 'foods'">{{ getNum(dataSource.oneDaySkillEffects.value || 0) }}</template>
+      <p v-if="dataSource.oneDaySkillEffects.subEnergy"><img
+        class="icon"
+        :src="UI_ICONS.energy"
+      />{{ getNum(dataSource.oneDaySkillEffects.subEnergy) }}</p>
     </div>
     <div class="cpt-pokemon__poketype3 xs"  v-if="dataSource.oneDaySkillEffects.type === 'foods'">
       {{ getNum(dataSource.oneDaySkillEffects.value || 0) }}

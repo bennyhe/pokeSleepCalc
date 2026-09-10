@@ -435,35 +435,43 @@ export const skillEffects = {
     effects: [
       {
         level: 1,
-        value: 240
+        value: 240,
+        subEnergy: 200
       },
       {
         level: 2,
-        value: 340
+        value: 340,
+        subEnergy: 285
       },
       {
         level: 3,
-        value: 480
+        value: 480,
+        subEnergy: 393
       },
       {
         level: 4,
-        value: 670
+        value: 670,
+        subEnergy: 542
       },
       {
         level: 5,
-        value: 920
+        value: 920,
+        subEnergy: 748
       },
       {
         level: 6,
-        value: 1260
+        value: 1260,
+        subEnergy: 1033
       },
       {
         level: 7,
-        value: 1800
+        value: 1800,
+        subEnergy: 1501
       },
       {
         level: 7,
-        value: 2500
+        value: 2500,
+        subEnergy: 2042
       }
     ]
   }

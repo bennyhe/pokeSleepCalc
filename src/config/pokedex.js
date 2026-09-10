@@ -1525,6 +1525,12 @@ const pokedex = {
           num: [2, 3, 4]
         }
       }
+    },
+    subSkill: {
+      skillType: {
+        id: 21,
+        skillPer: 2.84
+      }
     }
   },
   152: {

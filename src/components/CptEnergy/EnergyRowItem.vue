@@ -89,6 +89,21 @@ const props = defineProps({
             }}
           </span>
         </div>
+        <div
+          class="cpt-energyprocess__skill"
+          :style="`width: ${getPercent(
+            props.pokeItem.oneDaySkillEffects.subEnergy,
+            pokeItem.oneDayEnergy,
+            2
+          )}%`"
+          v-if="props.pokeItem.oneDaySkillEffects.subEnergy"
+        >
+          <span class="pcsee"
+            ><img class="icon" :src="UI_ICONS.energy" />{{
+              getNum(props.pokeItem.oneDaySkillEffects.subEnergy)
+            }}
+          </span>
+        </div>
       </div>
       <div class="cpt-energyprocess__extra">
         <div

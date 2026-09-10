@@ -160,10 +160,20 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
     if ([1, 2, 5, 23, 17, 21, 28].includes(pokeSkillType) && areaBonus) {
       energy = energy * (1 + areaBonus / 100)
     }
+    // skillType 36 在产出梦碎（主产出走 value）的同时还会额外填充能量，额外能量走 subEnergy
+    let subEnergy = 0
+    if (pokeSkillType === 36) {
+      const curSubEnergy = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].subEnergy || 0
+      subEnergy = pokeSkillCount * curSubEnergy
+      if (areaBonus) {
+        subEnergy = subEnergy * (1 + areaBonus / 100)
+      }
+    }
     // console.log(pokeItem, areaBonus)
     return {
       type: resType,
       value: Math.floor(energy),
+      subEnergy: Math.floor(subEnergy),
       skillExtra
     }
   }
@@ -219,6 +229,10 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
   let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
   if (['energy', 'berrys', 'foods'].includes(oneDaySkillEffects.type)) {
     oneDayEnergy += oneDaySkillEffects.value
+  }
+  // 梦碎类技能（如 skillType 36）的额外能量产出也计入总能量
+  if (oneDaySkillEffects.subEnergy) {
+    oneDayEnergy += oneDaySkillEffects.subEnergy
   }
   return {
     useFoods,
