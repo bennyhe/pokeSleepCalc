@@ -306,6 +306,8 @@ const handleChangePokemon = () => {
 const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
   let resRankArr = []
   dataList.forEach(upItem => {
+    // 没有 helpSpeed 的（如超梦等 boss）不可作为帮手，跳过，避免渲染坏行
+    if (!get('helpSpeed', pokedex[upItem.pokemonId])) return
     let addIn = true
     // 是否使用了筛选
     if (isUseFilter) {
