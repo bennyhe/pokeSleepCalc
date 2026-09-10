@@ -1064,26 +1064,22 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           </el-radio-group>
         </el-form-item>
       </div>
-      <div
-        class="cpt-form-item-half"
-        v-if="(pokedex[helpSpeedCalcForm.pokemonId].subSkills || []).length > 0"
-      >
-        <el-form-item :label="$t('PROP.subSkill')">
-          <el-radio-group
-            size="small"
-            v-model="helpSpeedCalcForm.selectedSubId"
-            @change="handleChangeSubSkill()"
-          >
-            <el-radio-button
-              :label="subItem.id"
-              v-for="subItem in pokedex[helpSpeedCalcForm.pokemonId].subSkills"
-              :key="subItem.id"
-              >{{ $t(`SKILL_TYPES.${subItem.id}`) }}</el-radio-button
-            >
-          </el-radio-group>
-        </el-form-item>
-      </div>
     </div>
+    <el-form-item :label="$t(`SKILL_TYPES.${pokedex[helpSpeedCalcForm.pokemonId].skillType}`)" v-if="(pokedex[helpSpeedCalcForm.pokemonId].subSkills || []).length > 0">
+      <el-select
+        size="small"
+        v-model="helpSpeedCalcForm.selectedSubId"
+        @change="handleChangeSubSkill()"
+        filterable
+      >
+        <el-option
+          v-for="subItem in pokedex[helpSpeedCalcForm.pokemonId].subSkills"
+          :key="subItem.id"
+          :label="$t(`SKILL_TYPES.${subItem.id}`)"
+          :value="subItem.id"
+        />
+      </el-select>
+    </el-form-item>
     <el-form-item :label="$t(skillOptionsExtra[0].txt)">
       <div style="width: 100%">
         <el-checkbox-group

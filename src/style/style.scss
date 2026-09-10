@@ -735,9 +735,9 @@ h4 {
   }
 
   &__skill {
-    min-height: 24px;
-    max-height: 24px; // 两行（12px × 2）
-    line-height: 12px;
+    min-height: 28px;
+    max-height: 28px; // 两行（14px × 2）
+    line-height: 14px;
     color: darken($ptSkill, 20%);
     white-space: normal;
     margin: 0 -5px;

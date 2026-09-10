@@ -460,20 +460,21 @@ const handleChangeEditSubSkill = () => {
           </el-radio-group>
         </div>
         <template v-if="(pokedex[editData.pokemonId].subSkills || []).length > 0">
-          <h4>{{ $t('PROP.subSkill') }}</h4>
+          <h4>{{ $t(`SKILL_TYPES.${pokedex[editData.pokemonId].skillType}`) }}</h4>
           <div>
-            <el-radio-group
+            <el-select
               size="small"
               v-model="editData.selectedSubId"
               @change="handleChangeEditSubSkill()"
+              filterable
             >
-              <el-radio-button
-                :label="subItem.id"
+              <el-option
                 v-for="subItem in pokedex[editData.pokemonId].subSkills"
                 :key="subItem.id"
-                >{{ $t(`SKILL_TYPES.${subItem.id}`) }}</el-radio-button
-              >
-            </el-radio-group>
+                :label="$t(`SKILL_TYPES.${subItem.id}`)"
+                :value="subItem.id"
+              />
+            </el-select>
           </div>
         </template>
         <h4>{{ $t('PROP.mainSkillLevel') }}</h4>
