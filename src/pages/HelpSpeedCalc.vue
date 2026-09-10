@@ -304,20 +304,22 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.evotimes = 0
   helpSpeedCalcForm.value.skilllevel = 1
   // 带子技能的宝可梦（如梦幻）默认选中第一个子技能
-  helpSpeedCalcForm.value.selectedSubId =
-    (pokedex[helpSpeedCalcForm.value.pokemonId].subSkills || [])[0]?.id ?? null
+  helpSpeedCalcForm.value.selectedSubId = currentSubSkills.value[0]?.id ?? null
   setTargetListByHelp()
 }
+// 当前宝可梦的子技能列表（梦幻等带 subSkills），供模板与计算复用
+const currentSubSkills = computed(
+  () => pokedex[helpSpeedCalcForm.value.pokemonId].subSkills || []
+)
 // 生效技能 id：带子技能的宝可梦（如梦幻）取选中的子技能，否则取主技能
 const curSkillTypeForLevel = computed(() => {
-  const poke = pokedex[helpSpeedCalcForm.value.pokemonId] || {}
-  const subs = Array.isArray(poke.subSkills) ? poke.subSkills : []
+  const subs = currentSubSkills.value
   if (subs.length) {
     const chosen =
       subs.find(s => s.id === helpSpeedCalcForm.value.selectedSubId) || subs[0]
     return chosen.id
   }
-  return poke.skillType
+  return pokedex[helpSpeedCalcForm.value.pokemonId].skillType
 })
 // 切换子技能：等级列表随生效技能变化，把超出新技能上限的技能等级夹回去
 const handleChangeSubSkill = () => {
@@ -1065,7 +1067,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         </el-form-item>
       </div>
     </div>
-    <el-form-item :label="$t(`SKILL_TYPES.${pokedex[helpSpeedCalcForm.pokemonId].skillType}`)" v-if="(pokedex[helpSpeedCalcForm.pokemonId].subSkills || []).length > 0">
+    <el-form-item :label="$t(`SKILL_TYPES.${pokedex[helpSpeedCalcForm.pokemonId].skillType}`)" v-if="currentSubSkills.length > 0">
       <el-select
         size="small"
         v-model="helpSpeedCalcForm.selectedSubId"
@@ -1073,7 +1075,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         filterable
       >
         <el-option
-          v-for="subItem in pokedex[helpSpeedCalcForm.pokemonId].subSkills"
+          v-for="subItem in currentSubSkills"
           :key="subItem.id"
           :label="$t(`SKILL_TYPES.${subItem.id}`)"
           :value="subItem.id"

@@ -78,16 +78,19 @@ const handleBlurLevel = () => {
 const handleChangeSkillLevel = () => {
   editData.value.skilllevel = getNewSkillLevel(editData.value)
 }
+// 当前编辑宝可梦的子技能列表（梦幻等带 subSkills），供模板与计算复用
+const currentEditSubSkills = computed(
+  () => pokedex[editData.value.pokemonId].subSkills || []
+)
 // 生效技能 id：带子技能的（如梦幻）取盒子选中的子技能，否则取主技能
 const editSkillTypeForLevel = computed(() => {
-  const poke = pokedex[editData.value.pokemonId] || {}
-  const subs = Array.isArray(poke.subSkills) ? poke.subSkills : []
+  const subs = currentEditSubSkills.value
   if (subs.length) {
     const chosen =
       subs.find(s => s.id === editData.value.selectedSubId) || subs[0]
     return chosen.id
   }
-  return poke.skillType
+  return pokedex[editData.value.pokemonId].skillType
 })
 // 切换子技能：把超出新技能上限的技能等级夹回去
 const handleChangeEditSubSkill = () => {
@@ -459,7 +462,7 @@ const handleChangeEditSubSkill = () => {
             >
           </el-radio-group>
         </div>
-        <template v-if="(pokedex[editData.pokemonId].subSkills || []).length > 0">
+        <template v-if="currentEditSubSkills.length > 0">
           <h4>{{ $t(`SKILL_TYPES.${pokedex[editData.pokemonId].skillType}`) }}</h4>
           <div>
             <el-select
@@ -469,7 +472,7 @@ const handleChangeEditSubSkill = () => {
               filterable
             >
               <el-option
-                v-for="subItem in pokedex[editData.pokemonId].subSkills"
+                v-for="subItem in currentEditSubSkills"
                 :key="subItem.id"
                 :label="$t(`SKILL_TYPES.${subItem.id}`)"
                 :value="subItem.id"

@@ -2308,7 +2308,7 @@ h3 {
     display: inline;
     max-height: none;
     overflow: visible;
-    -webkit-line-clamp: unset;
+    -webkit-line-clamp: none;
     margin: 0;
   }
 
@@ -2362,7 +2362,7 @@ h3 {
       display: inline-block;
       max-height: none;
       overflow: visible;
-      -webkit-line-clamp: unset;
+      -webkit-line-clamp: none;
       margin: 0;
     }
   }
