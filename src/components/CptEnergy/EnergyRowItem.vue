@@ -1,8 +1,11 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CptAvatar from '../CptAvatar/ItemIndex.vue'
 import { UI_ICONS } from '../../config/uiIcons.js'
 import { pokedex } from '../../config/pokedex.js'
-import { getNum, getPercent } from '../../utils/index.js'
+import { getNum, getPercent, getPokeSkillDisplay } from '../../utils/index.js'
+const { t } = useI18n()
 const props = defineProps({
   pokeKey: {
     type: [String, Number]
@@ -18,6 +21,12 @@ const props = defineProps({
     default: false
   }
 })
+// 技能呈现：按盒子选定的子技能还原为「主技能名(子技能名)」
+const skillDisplay = computed(() =>
+  getPokeSkillDisplay(pokedex[props.pokeItem.pokemonId], t, {
+    selectedSubId: props.pokeItem.selectedSubId
+  })
+)
 </script>
 <template>
   <div class="cpt-energyrow-item">
@@ -149,7 +158,7 @@ const props = defineProps({
           class="cpt-pokemon__skill"
           v-if="pokedex[pokeItem.pokemonId].skillType"
         >
-          {{ $t(`SKILL_TYPES.${pokedex[pokeItem.pokemonId].skillType}`) }}
+          {{ skillDisplay.name }}
         </span>
       </div>
     </div>

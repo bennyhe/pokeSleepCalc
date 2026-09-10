@@ -25,7 +25,8 @@ import {
   getStageLevelPicId,
   containsAny,
   getDecimalNumber,
-  extractPrefix
+  extractPrefix,
+  resolvePokeSkill
 } from '../utils/index.js'
 import {
   getNewFoodPer,
@@ -94,7 +95,7 @@ const helpSpeedCalcForm = ref({
   curMap: 0,
   pokemonId: 26,
   baseHelpSpeed: 2200, // Number
-  level: 50, // Number
+  level: 60, // Number
   isUseTicket: false, // Boolean: true/false
   isRightBerry: false, // Boolean: true/false
   skill: ['none'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5', 'cs', 'cm', 'cl']
@@ -109,6 +110,7 @@ const helpSpeedCalcForm = ref({
   rankSort: 'energy',
   evotimes: 0,
   skilllevel: 1,
+  selectedSubId: null,
   greenex: {
     moreBerryEngery: [],
     moreFood: []
@@ -301,7 +303,30 @@ const handleChangePokemon = () => {
   helpSpeedCalcForm.value.useFoods = [0, 0, 0]
   helpSpeedCalcForm.value.evotimes = 0
   helpSpeedCalcForm.value.skilllevel = 1
+  // 带子技能的宝可梦（如梦幻）默认选中第一个子技能
+  helpSpeedCalcForm.value.selectedSubId =
+    (pokedex[helpSpeedCalcForm.value.pokemonId].subSkills || [])[0]?.id ?? null
   setTargetListByHelp()
+}
+// 生效技能 id：带子技能的宝可梦（如梦幻）取选中的子技能，否则取主技能
+const curSkillTypeForLevel = computed(() => {
+  const poke = pokedex[helpSpeedCalcForm.value.pokemonId] || {}
+  const subs = Array.isArray(poke.subSkills) ? poke.subSkills : []
+  if (subs.length) {
+    const chosen =
+      subs.find(s => s.id === helpSpeedCalcForm.value.selectedSubId) || subs[0]
+    return chosen.id
+  }
+  return poke.skillType
+})
+// 切换子技能：等级列表随生效技能变化，把超出新技能上限的技能等级夹回去
+const handleChangeSubSkill = () => {
+  const levels = getSkillLevel(curSkillTypeForLevel.value)
+  const max = Math.max(...levels)
+  if (+helpSpeedCalcForm.value.skilllevel > max) {
+    helpSpeedCalcForm.value.skilllevel = max
+  }
+  fnUpdateRank()
 }
 const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
   let resRankArr = []
@@ -351,11 +376,14 @@ const getBoxCurEnergy = (dataList, isUseFilter, isUseRankSort) => {
       }
     }
     if (addIn) {
-      const pokeItem = {
-        ...pokedex[upItem.pokemonId],
-        ...upItem,
-        baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed
-      }
+      const pokeItem = resolvePokeSkill(
+        {
+          ...pokedex[upItem.pokemonId],
+          ...upItem,
+          baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed
+        },
+        upItem.selectedSubId
+      )
       pokeItem.helpSpeed = getNewHelpSpeed(
         { ...upItem, baseHelpSpeed: pokedex[upItem.pokemonId].helpSpeed },
         upItem.level,
@@ -418,7 +446,8 @@ const hanldeClickAddBox = () => {
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,
-    useFoods: [...helpSpeedCalcForm.value.useFoods]
+    useFoods: [...helpSpeedCalcForm.value.useFoods],
+    selectedSubId: helpSpeedCalcForm.value.selectedSubId
   }
   userPokemons.value.list.push(curRes)
   saveBoxData.value = JSON.stringify(userPokemons.value.list)
@@ -510,7 +539,8 @@ const handleClickAddCurPokemonTeam = pokemonItem => {
     level: pokemonItem.level,
     skill: [...pokemonItem.skill],
     character: pokemonItem.character,
-    useFoods: [...pokemonItem.pokeUseFoods]
+    useFoods: [...pokemonItem.pokeUseFoods],
+    selectedSubId: pokemonItem.selectedSubId
   }
   userTeam.value.list.push(curRes)
   ElMessage({
@@ -529,7 +559,8 @@ const hanldeClickAddTeam = () => {
     level: helpSpeedCalcForm.value.level,
     skill: [...helpSpeedCalcForm.value.skill],
     character: helpSpeedCalcForm.value.character,
-    useFoods: [...helpSpeedCalcForm.value.useFoods]
+    useFoods: [...helpSpeedCalcForm.value.useFoods],
+    selectedSubId: helpSpeedCalcForm.value.selectedSubId
   }
   userTeam.value.list.push(curRes)
   ElMessage({
@@ -780,6 +811,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       >
         <template v-for="pokeItem in pokedex" :key="pokeItem.id">
           <el-option
+            v-if="pokeItem.helpSpeed"
             :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-${
               pokeItem.helpSpeed
             }s`"
@@ -1025,11 +1057,28 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <el-radio-group size="small" v-model="helpSpeedCalcForm.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in getSkillLevel(
-                pokedex[helpSpeedCalcForm.pokemonId].skillType
-              )"
+              v-for="skillItem in getSkillLevel(curSkillTypeForLevel)"
               :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
+            >
+          </el-radio-group>
+        </el-form-item>
+      </div>
+      <div
+        class="cpt-form-item-half"
+        v-if="(pokedex[helpSpeedCalcForm.pokemonId].subSkills || []).length > 0"
+      >
+        <el-form-item :label="$t('PROP.subSkill')">
+          <el-radio-group
+            size="small"
+            v-model="helpSpeedCalcForm.selectedSubId"
+            @change="handleChangeSubSkill()"
+          >
+            <el-radio-button
+              :label="subItem.id"
+              v-for="subItem in pokedex[helpSpeedCalcForm.pokemonId].subSkills"
+              :key="subItem.id"
+              >{{ $t(`SKILL_TYPES.${subItem.id}`) }}</el-radio-button
             >
           </el-radio-group>
         </el-form-item>
@@ -1455,6 +1504,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           'pokeType',
           'foodPer',
           'skillPer',
+          'skillType',
           'maxcarry',
           'evotimes',
           'skilllevel',

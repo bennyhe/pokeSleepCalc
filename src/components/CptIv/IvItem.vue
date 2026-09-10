@@ -4,8 +4,9 @@ import { useI18n } from 'vue-i18n'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
 import { NATURE } from '../../config/pokeNature.js'
+import { getPokeSkillDisplay } from '../../utils/index.js'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localeLangId = computed(() => {
   return locale.value
 })
@@ -21,6 +22,10 @@ const props = defineProps({
     default: false
   }
 })
+// 主技能呈现：有 subSkills 时展开为「主技能名(子技能名)」，默认取第一个子技能
+const mainSkillDisplay = computed(() =>
+  getPokeSkillDisplay(pokedex[props.pokeId], t, {})
+)
 </script>
 <template>
   <div class="cpt-iv" :class="`lang-${localeLangId}`" v-if="pokeId">
@@ -61,7 +66,7 @@ const props = defineProps({
     <div class="skill">
       <div class="main-skill">
         <div class="main-skill__inner">
-          {{ $t(`SKILL_TYPES.${pokedex[pokeId].skillType}`) }}
+          {{ mainSkillDisplay.name }}
         </div>
       </div>
       <div

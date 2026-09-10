@@ -736,10 +736,18 @@ h4 {
 
   &__skill {
     min-height: 24px;
+    max-height: 24px; // 两行（12px × 2）
     line-height: 12px;
     color: darken($ptSkill, 20%);
     white-space: normal;
     margin: 0 -5px;
+    word-break: break-all;
+    // 多行省略号：仅 text-overflow 对换行文本无效，需 line-clamp 配合 -webkit-box
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__foodper {
@@ -2295,6 +2303,15 @@ h3 {
     margin: 0 3px;
   }
 
+  // 能量行为单行内联布局，复位卡片基类的两行 clamp，避免 span 变成块级破坏行
+  .cpt-pokemon__skill {
+    display: inline;
+    max-height: none;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    margin: 0;
+  }
+
   .cpt-skill {
     font-size: 12px;
   }
@@ -2342,6 +2359,10 @@ h3 {
     }
 
     .cpt-pokemon__skill {
+      display: inline-block;
+      max-height: none;
+      overflow: visible;
+      -webkit-line-clamp: unset;
       margin: 0;
     }
   }

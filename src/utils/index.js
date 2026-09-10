@@ -365,3 +365,50 @@ export function extractPrefix(str) {
   const match = str.match(/^[^-]+/)
   return match ? match[0] : str // 如果没有连字符，返回原字符串
 }
+
+/**
+ * 计算宝可梦技能的呈现（主技能名，带子技能时展开为「主技能名(子技能名)」）
+ * 每只宝可梦只用一个子技能：默认取第一个，可用 selectedSubId 指定（如 helpSpeed 页手动选择）。
+ * 技% 取该子技能 subSPer，未填则回退原始 skillPer（即不顶掉）；外部传入 skillPer 时以其为准。
+ * @param {Object} poke 图鉴条目
+ * @param {Function} t i18n 翻译函数
+ * @param {Object} options { selectedSubId, skillPer }
+ * @returns {{ name: string, per: (number|undefined), subId: (number|undefined) }}
+ */
+export function getPokeSkillDisplay(poke, t, options = {}) {
+  const { selectedSubId, skillPer } = options
+  if (!poke || !poke.skillType) return { name: '', per: undefined, subId: undefined }
+  const mainName = t(`SKILL_TYPES.${poke.skillType}`)
+  const subs = Array.isArray(poke.subSkills) ? poke.subSkills : []
+  if (!subs.length) {
+    return { name: mainName, per: skillPer ?? poke.skillPer, subId: undefined }
+  }
+  const chosen = subs.find(s => s.id === selectedSubId) || subs[0]
+  return {
+    name: `${mainName}(${t(`SKILL_TYPES.${chosen.id}`)})`,
+    per: skillPer ?? (chosen.subSPer ?? poke.skillPer),
+    subId: chosen.id
+  }
+}
+
+/**
+ * 将带 subSkills 的宝可梦解析为「选定的单个子技能」，用于计算：
+ * - skillType → 选定子技能 id（默认第一个）
+ * - skillPer  → 子技能 subSPer，未填则回退原始 skillPer（不顶掉）
+ * - 保留 subSkills / selectedSubId，便于展示层还原「主技能(子技能)」
+ * 无 subSkills 时返回浅拷贝，不影响原逻辑。
+ * @param {Object} poke 图鉴条目（或已拼好的 pokeItem）
+ * @param {Number|String} selectedSubId 选定的子技能 id
+ * @returns {Object} 解析后的新对象
+ */
+export function resolvePokeSkill(poke, selectedSubId) {
+  const subs = poke && Array.isArray(poke.subSkills) ? poke.subSkills : []
+  if (!subs.length) return { ...poke }
+  const chosen = subs.find(s => s.id === selectedSubId) || subs[0]
+  return {
+    ...poke,
+    skillType: chosen.id,
+    skillPer: chosen.subSPer ?? poke.skillPer,
+    selectedSubId: chosen.id
+  }
+}

@@ -78,6 +78,24 @@ const handleBlurLevel = () => {
 const handleChangeSkillLevel = () => {
   editData.value.skilllevel = getNewSkillLevel(editData.value)
 }
+// 生效技能 id：带子技能的（如梦幻）取盒子选中的子技能，否则取主技能
+const editSkillTypeForLevel = computed(() => {
+  const poke = pokedex[editData.value.pokemonId] || {}
+  const subs = Array.isArray(poke.subSkills) ? poke.subSkills : []
+  if (subs.length) {
+    const chosen =
+      subs.find(s => s.id === editData.value.selectedSubId) || subs[0]
+    return chosen.id
+  }
+  return poke.skillType
+})
+// 切换子技能：把超出新技能上限的技能等级夹回去
+const handleChangeEditSubSkill = () => {
+  const max = Math.max(...getSkillLevel(editSkillTypeForLevel.value))
+  if (+editData.value.skilllevel > max) {
+    editData.value.skilllevel = max
+  }
+}
 </script>
 
 <template>
@@ -97,6 +115,7 @@ const handleChangeSkillLevel = () => {
       :showKey="props.showKey"
       :isHightLightBerry="props.isHightLightBerry"
       :isShiny="props.pokeItem.isShiny"
+      :selectedSubId="props.pokeItem.selectedSubId"
     />
     <div v-if="props.pokeItem.useFoods && props.pokeItem.useFoods.length > 0">
       <div class="cpt-food all-food">
@@ -440,14 +459,29 @@ const handleChangeSkillLevel = () => {
             >
           </el-radio-group>
         </div>
+        <template v-if="(pokedex[editData.pokemonId].subSkills || []).length > 0">
+          <h4>{{ $t('PROP.subSkill') }}</h4>
+          <div>
+            <el-radio-group
+              size="small"
+              v-model="editData.selectedSubId"
+              @change="handleChangeEditSubSkill()"
+            >
+              <el-radio-button
+                :label="subItem.id"
+                v-for="subItem in pokedex[editData.pokemonId].subSkills"
+                :key="subItem.id"
+                >{{ $t(`SKILL_TYPES.${subItem.id}`) }}</el-radio-button
+              >
+            </el-radio-group>
+          </div>
+        </template>
         <h4>{{ $t('PROP.mainSkillLevel') }}</h4>
         <div>
           <el-radio-group size="small" v-model="editData.skilllevel">
             <el-radio-button
               :label="skillItem"
-              v-for="skillItem in getSkillLevel(
-                pokedex[editData.pokemonId].skillType
-              )"
+              v-for="skillItem in getSkillLevel(editSkillTypeForLevel)"
               :key="skillItem.label"
               >{{ skillItem }}</el-radio-button
             >

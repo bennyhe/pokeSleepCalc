@@ -8,7 +8,8 @@ import {
 } from './energy.js'
 import {
   sortInObjectOptions,
-  get
+  get,
+  resolvePokeSkill
 } from './index.js'
 import {
   characterOptions
@@ -330,7 +331,10 @@ const getPlayerExtraDesc = pokemons => {
  */
 export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankSort) => {
   let resRankArr = []
-  const pokeItem = { ...pokedex[pokeId] }
+  const pokeItem = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   pokeItem.isShiny = helpSpeedCalcFormData.isShiny
   pokeItem.evotimes = helpSpeedCalcFormData.evotimes
   pokeItem.skilllevel = helpSpeedCalcFormData.skilllevel
@@ -369,7 +373,9 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankS
 
   // 如果选了对比的宝可梦
   if (helpSpeedCalcFormData.contrastPoke) {
-    const tempPokeItem = { ...pokedex[helpSpeedCalcFormData.contrastPoke] }
+    const tempPokeItem = {
+      ...resolvePokeSkill({ ...pokedex[helpSpeedCalcFormData.contrastPoke] })
+    }
     tempPokeItem.helpSpeed = getNewHelpSpeed(
       {
         baseHelpSpeed: tempPokeItem.helpSpeed,
@@ -383,7 +389,10 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankS
     )
   }
 
-  const tempPokeItem = { ...pokedex[pokeId] }
+  const tempPokeItem = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   tempPokeItem.helpSpeed = getNewHelpSpeed(
     {
       baseHelpSpeed: tempPokeItem.helpSpeed,
@@ -396,27 +405,42 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankS
     addArrInOptions(helpSpeedCalcFormData, '白板', tempPokeItem)
   )
 
-  const tempPokeItem2 = { ...pokedex[pokeId] }
+  const tempPokeItem2 = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   const tempSCOptions2 = {
     skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'hup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
-  const tempPokeItem3 = { ...pokedex[pokeId] }
+  const tempPokeItem3 = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   const tempSCOptions3 = {
     skill: ['hs', 'hm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'hupfdown' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
-  const tempPokeItem4 = { ...pokedex[pokeId] }
+  const tempPokeItem4 = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   const tempSCOptions4 = {
     skill: ['fs', 'fm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'fup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
-  const tempPokeItem5 = { ...pokedex[pokeId] }
+  const tempPokeItem5 = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   const tempSCOptions5 = {
     skill: ['ss', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown
   }
-  const tempPokeItem6 = { ...pokedex[pokeId] }
+  const tempPokeItem6 = resolvePokeSkill(
+    { ...pokedex[pokeId] },
+    helpSpeedCalcFormData.selectedSubId
+  )
   const tempSCOptions6 = {
     skill: ['hm', 'sm'], // Array: ['none', 'hs', 'hm', 'fs', 'fm', 'hg1', 'hg2', 'hg3', 'hg4', 'hg5']
     character: 'sup' // String: none, hdown, hup, fdown, fup, hdownfup, hupfdown

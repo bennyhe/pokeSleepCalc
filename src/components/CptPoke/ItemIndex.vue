@@ -2,10 +2,10 @@
 import { computed } from 'vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import { pokedex } from '../../config/pokedex.js'
-import { toHMInLang, get, extractPrefix } from '../../utils/index.js'
+import { toHMInLang, get, extractPrefix, getPokeSkillDisplay } from '../../utils/index.js'
 
 import { useI18n } from 'vue-i18n'
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localeLangId = computed(() => {
   return locale.value
 })
@@ -41,6 +41,10 @@ const props = defineProps({
   isShiny: {
     type: Boolean,
     default: false
+  },
+  // 选定的子技能 id（如 helpSpeed 页手动选择）；未选时技能呈现默认取第一个子技能
+  selectedSubId: {
+    type: [Number, String]
   }
 })
 const getFoodType = () => {
@@ -52,6 +56,15 @@ const getFoodType = () => {
   }
   return []
 }
+
+// 技能呈现：有 subSkills 时展开为「主技能名(子技能名)」，默认取第一个子技能；
+// 技% 取该子项 subSPer，未填则回退到原始 skillPer；外部传入 skillPer 时以其为准。
+const skillDisplay = computed(() =>
+  getPokeSkillDisplay(pokedex[props.pokeId], t, {
+    selectedSubId: props.selectedSubId,
+    skillPer: props.skillPer
+  })
+)
 </script>
 
 
@@ -182,17 +195,17 @@ const getFoodType = () => {
         props.showKey.includes('skillType')
       "
     >
-      {{ $t(`SKILL_TYPES.${pokedex[pokeId].skillType}`) }}
+      {{ skillDisplay.name }}
     </p>
     <p
       v-if="
-        pokedex[pokeId].skillPer &&
+        skillDisplay.per &&
         props.showKey &&
         props.showKey.includes('skillPer')
       "
       class="cpt-pokemon__skillper"
     >
-      技{{ props.skillPer || pokedex[pokeId].skillPer }}%
+      技{{ skillDisplay.per }}%
     </p>
     <p
       v-if="

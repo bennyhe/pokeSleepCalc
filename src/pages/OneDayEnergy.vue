@@ -6,7 +6,7 @@ import CptEnergyRowItem from '../components/CptEnergy/EnergyRowItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 
-import { sortInObjectOptions, containsAny, get } from '../utils/index.js'
+import { sortInObjectOptions, containsAny, get, resolvePokeSkill } from '../utils/index.js'
 import {
   fnGetFoodIndexLimits,
   fnGenerateFoodCombinations
@@ -57,6 +57,89 @@ for (const key in BERRY_TYPES) {
 }
 
 // console.log('created')
+// 单只宝可梦：带子技能的（如梦幻）按每个子技能展开为多个计算变体，逐条产出能量条目
+const pushPokeEnergyEntries = pokeItem => {
+  const subs = Array.isArray(pokeItem.subSkills) ? pokeItem.subSkills : []
+  const variants = subs.length
+    ? subs.map(sub => resolvePokeSkill(pokeItem, sub.id))
+    : [pokeItem]
+  variants.forEach((v, variantKey) => {
+    v.oneDayHelpCount = getOneDayHelpCount(v.helpSpeed, v.foodPer, v.skillPer)
+    if (v.food) {
+      // 如果有食材排列
+      // 带子技能的梦幻：仅「揮指(13)」遍历全部食材组合，其余子技能只套「蔥蔥蔥」一条，避免条目爆炸
+      let tempFoodType
+      if (subs.length === 0 || v.skillType === 13) {
+        const limits = fnGetFoodIndexLimits(v.id, 60)
+        tempFoodType = fnGenerateFoodCombinations(
+          limits,
+          SP_POKEMONS.includes(+v.id)
+        )
+        if (v.id === 151) {
+          // 梦幻60有个尾巴
+          tempFoodType.push([0, 0, 7])
+        }
+      } else {
+        // 蔥蔥蔥：food.type 中「粗枝大蔥(id 1)」所在的 uniform 组合
+        const onionIdx = Math.max(0, v.food.type.indexOf(1))
+        tempFoodType = [[onionIdx, onionIdx, onionIdx]]
+      }
+
+      tempFoodType.forEach((arrFTItem, arrFTKey) => {
+        const useFood = [
+          v.food.type[arrFTItem[0]],
+          v.food.type[arrFTItem[1]],
+          v.food.type[arrFTItem[2]]
+        ]
+        // if(SP_POKEMONS.includes(+v.id)) {
+        //   useFood = [
+        //     v.food.type[arrFTItem[0]]
+        //   ]
+        // }
+        const isHasBerrys = [0, 1]
+        isHasBerrys.forEach((oddItem, oddKey) => {
+          const is2n = (oddKey + 1) % 2 === 0
+          pageData.value.resRankArr.push({
+            ...v,
+            pokemonId: v.id,
+            isFirstPokeFood: variantKey === 0 && oddKey === 0,
+            isFirstPoke: variantKey === 0 && oddKey === 0 && arrFTKey === 0,
+            isFirstSkillEntry: oddKey === 0 && arrFTKey === 0,
+            nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
+            ...getOneDayEnergy(
+              v,
+              pageData.value.lv,
+              useFood,
+              is2n ? true : false,
+              false,
+              +pageData.value.areaBonus
+            )
+          })
+        })
+      })
+    } else {
+      [0, 1].forEach((arrFTItem, arrFTKey) => {
+        const is2n = (arrFTKey + 1) % 2 === 0
+        pageData.value.resRankArr.push({
+          ...v,
+          isFirstPoke: variantKey === 0 && arrFTKey === 0,
+          isFirstSkillEntry: arrFTKey === 0,
+          pokemonId: v.id,
+          nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
+          ...getOneDayEnergy(
+            v,
+            pageData.value.lv,
+            [],
+            is2n ? true : false,
+            false,
+            +pageData.value.areaBonus
+          )
+        })
+      })
+    }
+  })
+}
+
 onMounted(() => {
   // console.log('onMounted')
   for (const key in pokedex) {
@@ -67,81 +150,7 @@ onMounted(() => {
         pokeItem.helpSpeed = Math.floor(
           pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
         )
-        pokeItem.oneDayHelpCount = getOneDayHelpCount(
-          pokeItem.helpSpeed,
-          pokeItem.foodPer,
-          pokeItem.skillPer
-        )
-
-        if (pokeItem.food) {
-          // 如果有食材排列
-
-          const limits = fnGetFoodIndexLimits(pokeItem.id, 60)
-          const tempFoodType = fnGenerateFoodCombinations(
-            limits,
-            SP_POKEMONS.includes(+pokeItem.id)
-          )
-          if (pokeItem.id === 151) {
-            // 梦幻60有个尾巴
-            tempFoodType.push([0, 0, 7])
-          }
-
-          tempFoodType.forEach((arrFTItem, arrFTKey) => {
-            const useFood = [
-              pokeItem.food.type[arrFTItem[0]],
-              pokeItem.food.type[arrFTItem[1]],
-              pokeItem.food.type[arrFTItem[2]]
-            ]
-            // if(SP_POKEMONS.includes(+pokeItem.id)) {
-            //   useFood = [
-            //     pokeItem.food.type[arrFTItem[0]]
-            //   ]
-            // }
-            const isHasBerrys = [0, 1]
-            // if (arrFTItem.join('') === '000' && pokeItem.id === 151) {
-            //   console.log('梦幻0000')
-            //   pokeItem.skillType = 21
-            // } else if (pokeItem.id === 151) {
-            //   pokeItem.skillType = 33
-            // }
-            isHasBerrys.forEach((oddItem, oddKey) => {
-              const is2n = (oddKey + 1) % 2 === 0
-              pageData.value.resRankArr.push({
-                ...pokeItem,
-                pokemonId: pokeItem.id,
-                isFirstPokeFood: oddKey === 0,
-                isFirstPoke: oddKey === 0 && arrFTKey === 0,
-                nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
-                ...getOneDayEnergy(
-                  pokeItem,
-                  pageData.value.lv,
-                  useFood,
-                  is2n ? true : false,
-                  false,
-                  +pageData.value.areaBonus
-                )
-              })
-            })
-          })
-        } else {
-          [0, 1].forEach((arrFTItem, arrFTKey) => {
-            const is2n = (arrFTKey + 1) % 2 === 0
-            pageData.value.resRankArr.push({
-              ...pokeItem,
-              isFirstPoke: arrFTKey === 0,
-              pokemonId: pokeItem.id,
-              nameExtra: is2n ? t('SHORT_SKILL.berrys') : '',
-              ...getOneDayEnergy(
-                pokeItem,
-                pageData.value.lv,
-                [],
-                is2n ? true : false,
-                false,
-                +pageData.value.areaBonus
-              )
-            })
-          })
-        }
+        pushPokeEnergyEntries(pokeItem)
       }
     }
   }
@@ -164,6 +173,12 @@ onMounted(() => {
     pageData.value.orgResRankArr.filter(pItem => pItem.isFirstPoke),
     res => {
       berryResRank.value = res.tempBerryResRank
+    }
+  )
+  // 技能排行按「各子技能」分别入组（梦幻会同时出现在其每个子技能组）
+  getRankPokemonsByTypes(
+    pageData.value.orgResRankArr.filter(pItem => pItem.isFirstSkillEntry),
+    res => {
       skillResRank.value = res.tempSkillResRank
     }
   )

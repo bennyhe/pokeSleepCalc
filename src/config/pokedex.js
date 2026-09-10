@@ -1526,12 +1526,20 @@ const pokedex = {
         }
       }
     },
-    subSkill: {
-      skillType: {
-        id: 21,
-        skillPer: 2.84
-      }
-    }
+    subSkills: [
+      { id: 13 },
+      { id: 5, subSPer: 6.4 },
+      { id: 7, subSPer: 6.4 },
+      { id: 4, subSPer: 4.39 },
+      { id: 2 },                      // 能量填充M，无 subSPer → 不顶掉 skillPer(4)
+      { id: 6 },
+      { id: 9 }, // 幫手支援S
+      { id: 10 }, // 食材獲取S
+      { id: 11 }, // 料理強化S
+      { id: 14 }, // 料理成功S
+      { id: 8, subSPer: 3.37 }, // 活力全體療癒S
+      { id: 21, subSPer: 2.84 }       // 樹果遽增 → 该项用 2.84
+    ]
   },
   152: {
     id: 152,
