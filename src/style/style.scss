@@ -2272,8 +2272,14 @@ h3 {
   
 }
 .cpt-energyrow {
-  padding: 0 3px;
+  padding: 3px;
+  margin-top: 5px;
   font-size: 13px;
+  // 面板化：半透底从灰底上浮现整体感，边框/阴影复用 .poke-tb__item 的卡片语言
+  background-color: rgba($color: #fff, $alpha: .3);
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px #d1d1d1;
 
   &-item {
     position: relative;

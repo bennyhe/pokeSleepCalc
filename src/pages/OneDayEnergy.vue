@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { Place } from '@element-plus/icons-vue'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
 import CptEnergyRowItem from '../components/CptEnergy/EnergyRowItem.vue'
@@ -9,7 +9,8 @@ import CptTypeRankItem from '../components/OneDayTypeRank/RankItem.vue'
 import { sortInObjectOptions, containsAny, get, resolvePokeSkill } from '../utils/index.js'
 import {
   fnGetFoodIndexLimits,
-  fnGenerateFoodCombinations
+  fnGenerateFoodCombinations,
+  getSkillLevel
 } from '../utils/helpcalc.js'
 import {
   getOneDayEnergy,
@@ -32,6 +33,10 @@ import GAME_VALS from '../i18n/lang/cn/game.js'
 const { BERRY_TYPES } = GAME_VALS
 
 const newGameMap = [...gameMap]
+// 紧凑能量行：榜单池取去重后前 30，每页 10 条独立分页（仅此页面）
+const ENERGY_ROW_MAX = 30
+const ENERGY_ROW_PAGE_SIZE = 10
+const energyRowPageIndex = ref(1)
 const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
@@ -40,6 +45,7 @@ const pageData = ref({
   curPageIndex: 1,
   pageSize: 102,
   areaBonus: areaBonusMax,
+  skillMaxLevel: false,
   collapseActName: ''
 })
 const foodResRank = ref({})
@@ -64,6 +70,12 @@ const pushPokeEnergyEntries = pokeItem => {
     ? subs.map(sub => resolvePokeSkill(pokeItem, sub.id))
     : [pokeItem]
   variants.forEach((v, variantKey) => {
+    // 技能等级：满级开关开启时取生效技能上限，否则 Lv.1（配置显式指定则沿用）
+    v.skilllevel =
+      v.skilllevel ||
+      (pageData.value.skillMaxLevel && v.skillType
+        ? Math.max(...getSkillLevel(v.skillType))
+        : 1)
     v.oneDayHelpCount = getOneDayHelpCount(v.helpSpeed, v.foodPer, v.skillPer)
     if (v.food) {
       // 如果有食材排列
@@ -140,12 +152,12 @@ const pushPokeEnergyEntries = pokeItem => {
   })
 }
 
-onMounted(() => {
-  // console.log('onMounted')
+// 依据当前等级/区域/技能等级口径重建产出与三大排行（技能等级切换时需重跑）
+const buildRankData = () => {
+  pageData.value.resRankArr = []
   for (const key in pokedex) {
     if (Object.hasOwnProperty.call(pokedex, key)) {
       const pokeItem = { ...pokedex[key] }
-      pokeItem.skilllevel = pokeItem.skilllevel || 1
       if (pokeItem.helpSpeed && pokeItem.foodPer) {
         pokeItem.helpSpeed = Math.floor(
           pokeItem.helpSpeed * (1 - (pageData.value.lv - 1) * 0.002)
@@ -183,7 +195,15 @@ onMounted(() => {
     }
   )
   // console.log(foodResRank.value, berryResRank.value, skillResRank.value)
+}
+onMounted(() => {
+  buildRankData()
 })
+// 切换技能等级 Lv.1 ↔ 满级：重建数据后沿用当前岛屿/筛选口径
+const handleChangeSkillLevelMode = () => {
+  buildRankData()
+  getChangeOptionsAfterData()
+}
 
 const FILTER_OBJECT = ref(JSON.parse(JSON.stringify(orgResetObject)))
 const handleClickFilterReset = () => {
@@ -191,6 +211,7 @@ const handleClickFilterReset = () => {
   getChangeOptionsAfterData()
 }
 const getChangeOptionsAfterData = () => {
+  energyRowPageIndex.value = 1
   // if (pageData.value.curMap === 0) {
   //   pageData.value.resRankArr = JSON.parse(
   //     JSON.stringify(pageData.value.orgResRankArr)
@@ -271,7 +292,7 @@ const handleClickFilterPokes = (typeKey, val) => {
 const filterOnceTop = (dataList, typeKey, topCount) => {
   const hasList = []
   const res = []
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < dataList.length && res.length < topCount; i++) {
     const pokeItem = dataList[i]
     if (get('pokemonId', pokeItem) && !hasList.includes(pokeItem.pokemonId)) {
       res.push({ ...pokeItem })
@@ -280,11 +301,19 @@ const filterOnceTop = (dataList, typeKey, topCount) => {
   }
   return res.slice(0, topCount)
 }
+// 紧凑能量行：取去重后的前 ENERGY_ROW_MAX 条作为榜单池，再按页切分
+const energyRowPool = computed(() =>
+  filterOnceTop(pageData.value.resRankArr, 'all', ENERGY_ROW_MAX)
+)
+const energyRowPageList = computed(() => {
+  const start = (energyRowPageIndex.value - 1) * ENERGY_ROW_PAGE_SIZE
+  return energyRowPool.value.slice(start, start + ENERGY_ROW_PAGE_SIZE)
+})
 
 // const handleClickSlider = () => {
 //   getChangeOptionsAfterData()
 // }
-console.log('init page onedayenergy...')
+// console.log('init page onedayenergy...')
 </script>
 
 <template>
@@ -395,6 +424,16 @@ console.log('init page onedayenergy...')
         />
       </div>
     </el-form-item>
+    <!-- 技能等级开关：Lv.1 ↔ 满级（文本用语言无关 token，避免新增 i18n） -->
+    <el-form-item :label="$t('PROP.mainSkillLevel')">
+      <el-switch
+        v-model="pageData.skillMaxLevel"
+        @change="handleChangeSkillLevelMode()"
+        style="--el-switch-on-color: #ffaf00"
+        active-text="MAX"
+        inactive-text="Lv.1"
+      />
+    </el-form-item>
   </el-form>
   <div class="page-inner">
     <div class="cpt-tips">
@@ -434,28 +473,32 @@ console.log('init page onedayenergy...')
       :handleClickFilterReset="handleClickFilterReset"
     />
   </div>
-  <div class="cpt-energyrow" v-if="pageData.resRankArr.length > 0">
+  <div class="cpt-energyrow" v-if="energyRowPageList.length > 0">
     <template
-      v-for="(pokeItem, pokeKey) in filterOnceTop(
-        pageData.resRankArr,
-        'all',
-        10
-      )"
+      v-for="(pokeItem, pokeKey) in energyRowPageList"
       :key="`area${pageData.curMap}_${
         pokeItem.pokemonId
       }_${pokeKey}_${pokeItem.useFoods.join('')}_${pokeItem.nameExtra || ''}_2`"
     >
       <CptEnergyRowItem
         :pokeItem="pokeItem"
-        :pokeKey="pokeKey"
-        :maxEnergy="
-          filterOnceTop(pageData.resRankArr, 'all', 10)[0].oneDayEnergy
-        "
+        :pokeKey="(energyRowPageIndex - 1) * ENERGY_ROW_PAGE_SIZE + pokeKey"
+        :maxEnergy="energyRowPool[0].oneDayEnergy"
         :isHightLightBerry="
           newGameMap[pageData.curMap].berry.includes(pokeItem.berryType)
         "
       />
     </template>
+    <div class="cpt-pagination" v-if="energyRowPool.length > ENERGY_ROW_PAGE_SIZE">
+      <el-pagination
+        small
+        background
+        layout="prev, pager, next"
+        :total="energyRowPool.length"
+        :page-size="ENERGY_ROW_PAGE_SIZE"
+        v-model:current-page="energyRowPageIndex"
+      />
+    </div>
   </div>
   <div
     class="cpt-pagination"

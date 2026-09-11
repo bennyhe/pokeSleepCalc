@@ -14,6 +14,16 @@ html.dark {
     box-shadow: 1px 1px 1px #585757;
   }
 
+  .cpt-energyrow {
+    border-color: #323232;
+    background-color: rgba($color: #1f1f1f, $alpha: .3);
+    box-shadow: 1px 1px 1px #585757;
+
+    .cpt-energyprocess__inner {
+      border-color: #4a4a4a;
+    }
+  }
+
   .cpt-iv .main-skill {
     box-shadow: none;
   }
