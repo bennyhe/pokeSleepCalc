@@ -37,6 +37,8 @@ const newGameMap = [...gameMap]
 const ENERGY_ROW_MAX = 30
 const ENERGY_ROW_PAGE_SIZE = 10
 const energyRowPageIndex = ref(1)
+// 搜「十项全能」时，能量行榜单只保留这些子技能（能量填充M/S + 树果递增），各取最高总能量一条
+const MEW_RANK_SUBSKILLS = [2, 5, 21]
 const pageData = ref({
   curMap: 0,
   orgResRankArr: [],
@@ -246,11 +248,15 @@ const getChangeOptionsAfterData = () => {
           addIn && containsAny(FILTER_OBJECT.value.foods, pokeItem.useFoods)
       }
       if (FILTER_OBJECT.value.mainSkills.length > 0) {
+        // 生效技能 或 基础技能 任一命中即可：
+        // 梦幻基础技能=33(十项全能)，选「十项全能」应出它全部变体；
+        // 其子技能变体生效技能=对应 id，选「树果递增(21)」应只出该变体；
+        // 普通宝可梦两者相同，行为不变。
+        const selectedSkills = FILTER_OBJECT.value.mainSkills
         addIn =
           addIn &&
-          FILTER_OBJECT.value.mainSkills.includes(
-            pokedex[pokeItem.pokemonId].skillType
-          )
+          (selectedSkills.includes(pokeItem.skillType) ||
+            selectedSkills.includes(pokedex[pokeItem.pokemonId].skillType))
       }
     }
     if (addIn) {
@@ -301,10 +307,27 @@ const filterOnceTop = (dataList, typeKey, topCount) => {
   }
   return res.slice(0, topCount)
 }
-// 紧凑能量行：取去重后的前 ENERGY_ROW_MAX 条作为榜单池，再按页切分
-const energyRowPool = computed(() =>
-  filterOnceTop(pageData.value.resRankArr, 'all', ENERGY_ROW_MAX)
-)
+// 紧凑能量行：默认取去重后前 ENERGY_ROW_MAX 条作为榜单池，再按页切分；
+// 搜「十项全能(33)」时走下方 energyRowPool 的白名单分支
+const energyRowPool = computed(() => {
+  const list = pageData.value.resRankArr
+  if (FILTER_OBJECT.value.mainSkills.includes(33)) {
+    const best = new Map()
+    list.forEach(item => {
+      if (
+        MEW_RANK_SUBSKILLS.includes(item.selectedSubId) &&
+        !best.has(item.selectedSubId)
+      ) {
+        best.set(item.selectedSubId, item)
+      }
+    })
+    // 白名单变体被其它筛选项排除干净时，回退到常规去重前 30 榜，避免空榜
+    return best.size
+      ? Array.from(best.values())
+      : filterOnceTop(list, 'all', ENERGY_ROW_MAX)
+  }
+  return filterOnceTop(list, 'all', ENERGY_ROW_MAX)
+})
 const energyRowPageList = computed(() => {
   const start = (energyRowPageIndex.value - 1) * ENERGY_ROW_PAGE_SIZE
   return energyRowPool.value.slice(start, start + ENERGY_ROW_PAGE_SIZE)
