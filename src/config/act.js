@@ -145,7 +145,7 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  // ...fnGetMoonDays('2026/08/27 04:00', 2),
+  ...fnGetMoonDays('2026/09/26 04:00', 2),
   {
     name: '秘境研究！追尋超夢吧',
     namejp: '秘境リサーチ！ミュウツーをおいかけて',
