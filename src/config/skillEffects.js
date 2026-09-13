@@ -1,5 +1,5 @@
 export const skillEffects = {
-  1: {
+  1: { // 能量填充S(X)
     id: 1,
     maxLevel: 7,
     effects: [
@@ -33,7 +33,7 @@ export const skillEffects = {
       }
     ]
   },
-  2: {
+  2: { // 能量填充M
     id: 2,
     maxLevel: 7,
     effects: [
@@ -67,7 +67,7 @@ export const skillEffects = {
       }
     ]
   },
-  5: {
+  5: { // 能量填充S(X~Y)
     id: 5,
     maxLevel: 7,
     effects: [
@@ -101,7 +101,7 @@ export const skillEffects = {
       }
     ]
   },
-  3: {
+  3: { // 夢之碎片獲取S(X)
     id: 3,
     maxLevel: 7,
     effects: [
@@ -139,7 +139,7 @@ export const skillEffects = {
       }
     ]
   },
-  6: {
+  6: { // 夢之碎片獲取S(X~Y)
     id: 6,
     maxLevel: 7,
     effects: [
@@ -177,7 +177,7 @@ export const skillEffects = {
       }
     ]
   },
-  17: {
+  17: { // 畫皮（樹果遽增）
     id: 17,
     maxLevel: 6,
     effects: [
@@ -213,7 +213,7 @@ export const skillEffects = {
       }
     ]
   },
-  21: {
+  21: { // 樹果遽增
     id: 21,
     maxLevel: 6,
     effects: [
@@ -249,7 +249,7 @@ export const skillEffects = {
       }
     ]
   },
-  23: {
+  23: { // 夢魘（能量填充M）
     id: 23,
     maxLevel: 7,
     effects: [
@@ -283,7 +283,7 @@ export const skillEffects = {
       }
     ]
   },
-  28: {
+  28: { // 食材精選S
     id: 28,
     maxLevel: 7,
     // skillType 28 的食材类型从宝可梦的 food.type 动态读取，此处仅配置掉落概率
@@ -319,7 +319,7 @@ export const skillEffects = {
       }
     ]
   },
-  24: {
+  24: { // 超幸運（食材精選S）
     id: 24,
     maxLevel: 7,
     foodTypes: [
@@ -359,7 +359,7 @@ export const skillEffects = {
       }
     ]
   },
-  25: {
+  25: { // 怪力鉗（食材精選S）
     id: 25,
     maxLevel: 7,
     foodTypes: [
@@ -399,7 +399,7 @@ export const skillEffects = {
       }
     ]
   },
-  35: {
+  35: { // 流星群（樹果遽增）
     id: 35,
     maxLevel: 6,
     effects: [
@@ -429,8 +429,8 @@ export const skillEffects = {
       }
     ]
   },
-  36: {
-    id: 3,
+  36: { // 波導彈（夢之碎片獲取S）
+    id: 36,
     maxLevel: 7,
     effects: [
       {
@@ -475,7 +475,7 @@ export const skillEffects = {
       }
     ]
   },
-  22: {
+  22: { // 新月祈禱（活力全體療癒S，附带樹果遽增）
     id: 22,
     maxLevel: 6,
     effects: [

@@ -50,7 +50,7 @@ export const IN_LAST_TIME_POKEMONS = [
     starttime: '2026/08/10 04:00'
   },
   {
-    ids: [9007,957, 958, 959],
+    ids: [9007, 957, 958, 959],
     starttime: '2026/08/17 04:00'
   }
 ]
@@ -64,10 +64,10 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: true,
-    showBan: true,
-    banPokes: [150], // ban 宝可梦id
-    showBanArea: [0, 7, 8], // 展示区域
+    onOffBan: false,
+    showBan: false,
+    banPokes: [], // ban 宝可梦id
+    showBanArea: [], // 展示区域
     endTime: '2026/09/13 22:00'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
