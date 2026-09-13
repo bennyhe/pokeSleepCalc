@@ -510,5 +510,35 @@ export const skillEffects = {
         teamValue: 1
       }
     ]
+  },
+  15: { // 幫手加速（属性）
+    id: 15,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 2
+      },
+      {
+        level: 2,
+        value: 3
+      },
+      {
+        level: 3,
+        value: 3
+      },
+      {
+        level: 4,
+        value: 4
+      },
+      {
+        level: 5,
+        value: 4
+      },
+      {
+        level: 6,
+        value: 5
+      }
+    ]
   }
 }

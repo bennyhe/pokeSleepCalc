@@ -97,8 +97,16 @@ const getOneDayFoodEnergy = (pokeItem, useFoods, areaBonus, mapBonusData) => {
  * @param {Number} areaBonus 岛屿加成
  * @returns 
  */
-const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, mapBonusData) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 22, 24, 25, 28, 35, 36] // , 11, 14
+const getOneDaySkillEffects = (
+  pokeItem,
+  pokeLevel,
+  isRightBerry,
+  areaBonus,
+  mapBonusData,
+  useFoods,
+  isDoubleBerry
+) => {
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 22, 24, 25, 28, 35, 36, 15] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -109,6 +117,9 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
   } else if ([17, 21, 22, 35].includes(pokeSkillType)) {
     resType = 'berrys'
   } else if ([24, 25, 28].includes(pokeSkillType)) {
+    resType = 'foods'
+  } else if (pokeSkillType === 15) {
+    // 幫手加速：技能主要产出是「额外帮忙次数换到的食材」，故与食材精选类同样列出食材明细
     resType = 'foods'
   }
   if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType]) && skillEffects[pokeSkillType].effects[pokeSkillLevel - 1]) {
@@ -152,9 +163,46 @@ const getOneDaySkillEffects = (pokeItem, pokeLevel, isRightBerry, areaBonus, map
         }
       })
       // console.log(skillExtra.foods)
+    } else if (pokeSkillType === 15) {
+      // 幫手加速（属性）：技能发动额外获得「帮忙次数」。
+      // 额外次数按食材率(foodPer)分流为食材帮忙、其余为树果帮忙，
+      // 再复用基础食材/树果产出函数：自动套用「按等级的使用食材」、ex岛、区域加成、双树果口径
+      const foodPer = +get('foodPer', pokeItem) || 0
+      const extraHelps = getDecimalNumber(curSkillVal * pokeSkillCount, 2) // 每次发动额外获得 curSkillVal 次帮忙
+      const extraFood = getDecimalNumber(extraHelps * (foodPer / 100), 2) // 食材率部分
+      const extraBerry = getDecimalNumber(extraHelps - extraFood, 2) // 剩下即树果率部分
+      const extraPoke = {
+        ...pokeItem,
+        oneDayHelpCount: {
+          ...pokeItem.oneDayHelpCount,
+          food: extraFood,
+          berry: extraBerry
+        }
+      }
+      const foodPart = getOneDayFoodEnergy(
+        extraPoke,
+        useFoods || [],
+        areaBonus,
+        mapBonusData
+      )
+      const berryPart = getOneDayBerryEnergy(
+        extraPoke,
+        pokeLevel,
+        isDoubleBerry,
+        isRightBerry,
+        areaBonus,
+        mapBonusData
+      )
+      skillOnceEnergy = foodPart.allEnergy + berryPart.berryEnergy
+      // 列出技能额外获得的食材明细（foodPart 已按同种食材合并，useFoods 与 count 下标对齐）
+      skillExtra.foods = foodPart.useFoods.map((foodType, i) => ({
+        foodType,
+        foodCount: foodPart.count[i]
+      }))
     }
     let energy = pokeSkillCount * skillOnceEnergy
-    if ([17, 21, 22, 28].includes(pokeSkillType)) {
+    // 15/17/21/22/28 已在分支内乘过触发数，这里直接取技能总能量（不再 ×pokeSkillCount）
+    if ([17, 21, 22, 28, 15].includes(pokeSkillType)) {
       energy = skillOnceEnergy
     }
     if ([1, 2, 5, 23, 17, 21, 22, 28].includes(pokeSkillType) && areaBonus) {
@@ -225,7 +273,7 @@ export const getOneDayEnergy = (pokeItem, pokeLevel, useFoods, isDoubleBerry, is
     mapBonusData
   )
   const oneDayFoodEnergy = getOneDayFoodEnergy(pokeItem, useFoods, areaBonus, mapBonusData)
-  const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, level, isRightBerry, areaBonus, mapBonusData)
+  const oneDaySkillEffects = getOneDaySkillEffects(pokeItem, level, isRightBerry, areaBonus, mapBonusData, useFoods, isDoubleBerry)
   let oneDayEnergy = oneDayBerryEnergy.berryEnergy + oneDayFoodEnergy.allEnergy
   if (['energy', 'berrys', 'foods'].includes(oneDaySkillEffects.type)) {
     oneDayEnergy += oneDaySkillEffects.value
