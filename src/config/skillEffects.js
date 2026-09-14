@@ -540,5 +540,35 @@ export const skillEffects = {
         value: 5
       }
     ]
+  },
+  37: { // 精神擊破（樹果領域）
+    id: 37,
+    maxLevel: 6,
+    effects: [
+      {
+        level: 1,
+        value: 1408
+      },
+      {
+        level: 2,
+        value: 2002
+      },
+      {
+        level: 3,
+        value: 2762
+      },
+      {
+        level: 4,
+        value: 3813
+      },
+      {
+        level: 5,
+        value: 5264
+      },
+      {
+        level: 6,
+        value: 7274
+      }
+    ]
   }
 }

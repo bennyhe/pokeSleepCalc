@@ -106,7 +106,7 @@ const getOneDaySkillEffects = (
   useFoods,
   isDoubleBerry
 ) => {
-  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 22, 24, 25, 28, 35, 36, 15] // , 11, 14
+  const canCalcSkillTypes = [1, 2, 5, 3, 6, 23, 17, 21, 22, 24, 25, 28, 35, 36, 15, 37] // , 11, 14
   const pokeSkillCount = get('oneDayHelpCount.skill', pokeItem)
   const pokeSkillType = +get('skillType', pokeItem)
   const pokeSkillLevel = +get('skilllevel', pokeItem) || 1
@@ -125,7 +125,7 @@ const getOneDaySkillEffects = (
   if (pokeSkillCount && canCalcSkillTypes.includes(pokeSkillType) && get('id', skillEffects[pokeSkillType]) && skillEffects[pokeSkillType].effects[pokeSkillLevel - 1]) {
     let skillOnceEnergy = 0
     const curSkillVal = skillEffects[pokeSkillType].effects[pokeSkillLevel - 1].value // 获得当前技能的发动值
-    if ([1, 2, 5, 3, 6, 23, 36].includes(pokeSkillType)) { // 能量填充 & 获得梦碎主技能
+    if ([1, 2, 5, 3, 6, 23, 36, 37].includes(pokeSkillType)) { // 能量填充 & 获得梦碎 & 精神擊破（附带充能M）
       if (Array.isArray(curSkillVal)) { // 区间则取平均值
         skillOnceEnergy = curSkillVal.reduce((sum, current) => sum + current, 0) / curSkillVal.length
       } else {
@@ -205,7 +205,7 @@ const getOneDaySkillEffects = (
     if ([17, 21, 22, 28, 15].includes(pokeSkillType)) {
       energy = skillOnceEnergy
     }
-    if ([1, 2, 5, 23, 17, 21, 22, 28].includes(pokeSkillType) && areaBonus) {
+    if ([1, 2, 5, 23, 17, 21, 22, 28, 37].includes(pokeSkillType) && areaBonus) {
       energy = energy * (1 + areaBonus / 100)
     }
     // skillType 36 在产出梦碎（主产出走 value）的同时还会额外填充能量，额外能量走 subEnergy
