@@ -705,24 +705,29 @@ const getTeamCurEnergy = () => {
 
 const getTeamCurFoods = () => {
   const foodRes = []
+  const addFoodCount = (foodId, count) => {
+    const findFromResArr = foodRes.filter(item => item.foodId === foodId)
+    if (findFromResArr.length === 0) {
+      foodRes.push({
+        foodId: foodId,
+        count: count
+      })
+    } else {
+      findFromResArr[0].count += count
+    }
+  }
   if (subskillOn.value.helpBonus.energyList.length > 0) {
     subskillOn.value.helpBonus.energyList.forEach(pokeItem => {
       if (get('oneDayFoodEnergy.useFoods', pokeItem, 1)) {
         pokeItem.oneDayFoodEnergy.useFoods.forEach((foodId, foodKey) => {
-          const findFromResArr = foodRes.filter(
-            item => item.foodId === foodId
-          )
-          if (findFromResArr.length === 0) {
-            foodRes.push({
-              foodId: foodId,
-              count: pokeItem.oneDayFoodEnergy.count[foodKey]
-            })
-          } else {
-            findFromResArr[0].count += pokeItem.oneDayFoodEnergy.count[foodKey]
-          }
+          addFoodCount(foodId, pokeItem.oneDayFoodEnergy.count[foodKey])
         })
       }
-      // console.log(pokeItem)
+      // 技能产出的食材也计入（食材精选 24/25/28、幫手加速 15 等附带食材）
+      const skillFoods = get('oneDaySkillEffects.skillExtra.foods', pokeItem) || []
+      skillFoods.forEach(skillFood => {
+        addFoodCount(skillFood.foodType, skillFood.foodCount)
+      })
     })
   }
   // console.log(foodRes)
