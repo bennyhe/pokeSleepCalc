@@ -90,7 +90,8 @@ export const SPONEW_TO_SPOOLD = {
   88: 7590, // debug 7583~7590
   89: 7955, // debug 7955
   90: 8338, // debug 8334~8338
-  91: 8739 // debug ?~?
+  91: 8584 // debug ?~? 8584
+  // 92: ?  // 待定 ?~?
 }
 export const SPONEW_TO_EX = {
   1: 54,
@@ -180,7 +181,7 @@ export const SPONEW_TO_EX = {
   87: 16676,
   88: 17472,
   90: 19055,
-  91: 19900
+  91: 19200
 }
 export const SPO_DATA = {
   '1-id-1': {
@@ -3909,9 +3910,13 @@ export const SPO_DATA = {
     'id': 937,
     'spo_n': 91
   },
-  '150-id-5': {
+  '150-id-4': {
     'id': 938,
     'spo_n': 91
+  },
+  '150-id-5': {
+    'id': 939,
+    'spo_n': 92
   },
   '150-id-2': {
     'id': 936,
