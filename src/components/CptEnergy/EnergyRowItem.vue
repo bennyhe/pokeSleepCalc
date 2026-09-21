@@ -39,6 +39,20 @@ const skillDisplay = computed(() =>
       {{ $t(`POKE_TYPES.${pokedex[pokeItem.pokemonId].pokeType}`) }}
     </span>
     <div class="cpt-energyrow-row">
+      <div
+          class="cpt-food cpt-food--s berry"
+          :class="{ 'berry--hl': isHightLightBerry }"
+          v-if="pokedex[pokeItem.pokemonId].berryType"
+        >
+        <div class="cpt-food__item">
+          <img
+            v-lazy="
+              `${IMG_PATH}berry/${pokedex[pokeItem.pokemonId].berryType}.png`
+            "
+            :alt="$t(`BERRY_TYPES.${pokedex[pokeItem.pokemonId].berryType}`)"
+          />
+        </div>
+      </div>
       <p
         class="cpt-skill"
         :class="{
@@ -115,20 +129,6 @@ const skillDisplay = computed(() =>
         </div>
       </div>
       <div class="cpt-energyprocess__extra">
-        <div
-          class="cpt-food cpt-food--s berry"
-          :class="{ 'berry--hl': isHightLightBerry }"
-          v-if="pokedex[pokeItem.pokemonId].berryType"
-        >
-          <div class="cpt-food__item">
-            <img
-              v-lazy="
-                `${IMG_PATH}berry/${pokedex[pokeItem.pokemonId].berryType}.png`
-              "
-              :alt="$t(`BERRY_TYPES.${pokedex[pokeItem.pokemonId].berryType}`)"
-            />
-          </div>
-        </div>
         <div
           class="cpt-food cpt-food--s"
           v-if="props.pokeItem.useFoods && props.pokeItem.useFoods.length > 0"
