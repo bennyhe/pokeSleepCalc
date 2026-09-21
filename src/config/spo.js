@@ -90,7 +90,7 @@ export const SPONEW_TO_SPOOLD = {
   88: 7590, // debug 7583~7590
   89: 7955, // debug 7955
   90: 8338, // debug 8334~8338
-  91: 8584 // debug ?~? 8584
+  91: 8590 // debug 8588~8590
   // 92: ?  // 待定 ?~?
 }
 export const SPONEW_TO_EX = {
