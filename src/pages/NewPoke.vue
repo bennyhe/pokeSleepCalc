@@ -77,7 +77,7 @@ const filterPokeByDate = () => {
   // console.log(NewPokesByDate.value)
 }
 onMounted(() => {
-  newUpdatePoke.value = [...updatePoke.reverse()]
+  newUpdatePoke.value = [...updatePoke].reverse()
   filterPokeByDate()
   // console.log(NewPokesByDate.value, newUpdatePoke.value)
 })

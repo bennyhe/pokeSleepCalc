@@ -5,6 +5,7 @@ const markdownText = `
 ## 26-09-21
 1. add 路由切换时动态设置页面 title
 2. add 用 vue-router 多语言路由（/zh/页面名、/ja/页面名）
+3. fix 最新宝可梦-多次进入页面排序会变成正序
 
 ## 26-09-17
 1. update 宝可梦#150
