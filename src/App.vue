@@ -1,7 +1,6 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { computed } from 'vue'
 import { Sunny, Moon } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 
@@ -11,7 +10,7 @@ const toggleDark = useToggle(isDark)
 
 import PageFooter from './components/PageFooter/PFooter.vue'
 import SvgIcon from './components/SvgIcon/IconItem.vue'
-
+import { pageRoutes } from './router/index.js'
 import { NAV_LANG } from './config/nav.js'
 
 const route = useRoute()
@@ -37,9 +36,13 @@ const handleClickChangeLang = () => {
   router.push(`/${routePrefix}/${pagePath}`)
 }
 
-const navList = ['sleepcalc', 'foodrec', 'candycalc', 'helpspeedcalc', 'pokedex', 'onedayenergy', 'newpoke']
+// 导航列表（从路由配置中读取）
+const navList = pageRoutes.filter(r => r.inNav)
 
 const currentLang = ref(langToRoute[sellang.value] || 'zh')
+
+// 当前页面路径
+const currentPath = computed(() => route.path.split('/').filter(p => p)[1] || '')
 
 // 监听路由变化更新语言（immediate 确保初始加载时同步）
 watch(() => route.path, () => {
@@ -62,57 +65,17 @@ const isDarkSwitch = ref(isDark.value)
 // 是否根路径（用于隐藏语言切换）
 const isRootPath = computed(() => route.path === '/')
 
-// 导航相关方法
-const getActivePageIndex = pageKey => {
-  const currentPath = route.path.split('/').filter(p => p)[1]
-  return currentPath === pageKey
-}
-
-const navigateTo = pageKey => {
-  const path = `/${currentLang.value}/${pageKey}`
-  router.push(path)
+// 导航跳转
+const navigateTo = page => {
+  router.push(`/${currentLang.value}/${page.path}`)
   window.scrollTo(0, 0)
 }
 
-const getNavIcon = pageKey => {
-  const iconMap = {
-    sleepcalc: 'sleep',
-    foodrec: 'food',
-    candycalc: 'candy2',
-    helpspeedcalc: 'lab',
-    pokedex: 'pokeball',
-    onedayenergy: 'board',
-    newpoke: 'calendar'
-  }
-  return iconMap[pageKey]
-}
-
-const getNavName = pageKey => {
-  const nameMap = {
-    sleepcalc: 'SLEEP CALC',
-    foodrec: 'FOOD',
-    candycalc: 'CANDY CALC',
-    helpspeedcalc: 'HELP SPEED CALC',
-    pokedex: 'POKEDEX',
-    onedayenergy: 'ONE DAY ENERGY',
-    newpoke: 'NEW'
-  }
-  return nameMap[pageKey]
-}
-
-// 页面容器 class 映射
-const pageClassMap = {
-  candycalc: 'page-candycalc',
-  helpspeedcalc: 'page-helpcalc',
-  pokedex: 'page-pokedex',
-  masterres: 'page-master',
-  findpm: 'page-findpm'
-}
-
-const getPageClass = () => {
-  const currentPath = route.path.split('/').filter(p => p)[1]
-  return pageClassMap[currentPath] || ''
-}
+// 页面容器 class（从路由配置中读取）
+const getPageClass = computed(() => {
+  const page = pageRoutes.find(r => r.path === currentPath.value)
+  return page?.pageClass || ''
+})
 </script>
 <template>
   <div class="main" :class="`lang-${sellang}`">
@@ -146,8 +109,8 @@ const getPageClass = () => {
     
     <!-- 使用 router-view 显示页面 -->
     <router-view v-slot="{ Component }">
-      <div class="page-item cur" :class="getPageClass()">
-        <component :is="Component" />
+      <div class="page-item cur" :class="getPageClass">
+        <component :is="Component" :key="currentLang" />
       </div>
     </router-view>
     
@@ -155,13 +118,13 @@ const getPageClass = () => {
     <nav class="nav">
       <ul>
         <li
-          v-for="pageKey in navList"
-          :key="pageKey"
-          :class="{ cur: getActivePageIndex(pageKey) }"
-          @click="() => navigateTo(pageKey)"
+          v-for="page in navList"
+          :key="page.path"
+          :class="{ cur: currentPath === page.path }"
+          @click="navigateTo(page)"
         >
-          <SvgIcon :type="getNavIcon(pageKey)" v-if="getNavIcon(pageKey)" />
-          <span class="nav__text">{{ getNavName(pageKey) }}</span>
+          <SvgIcon :type="page.icon" v-if="page.icon" />
+          <span class="nav__text">{{ page.navName }}</span>
         </li>
       </ul>
     </nav>

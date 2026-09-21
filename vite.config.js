@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from 'fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
@@ -11,6 +12,29 @@ export default defineConfig({
   base: BASE,
   plugins: [
     vue(),
+    {
+      name: 'spa-history-fallback',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (
+            req.method === 'GET' &&
+            req.headers.accept &&
+            req.headers.accept.includes('text/html') &&
+            !req.url.match(/\.\w+($|\?)/) &&
+            !req.url.endsWith('index.html')
+          ) {
+            const htmlPath = path.resolve(process.cwd(), 'index.html')
+            const html = fs.readFileSync(htmlPath, 'utf-8')
+            server.transformIndexHtml(req.url, html).then(processed => {
+              res.setHeader('Content-Type', 'text/html')
+              res.end(processed)
+            }).catch(() => next())
+            return
+          }
+          next()
+        })
+      }
+    },
     eslintPlugin({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
     })
