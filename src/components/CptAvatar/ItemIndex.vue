@@ -19,7 +19,7 @@ const props = defineProps({
     <img
       class="cpt-avatar__pic"
       v-lazy="
-        `./img/pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`
+        `${IMG_PATH}pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`
       "
       :alt="$t(`POKEMON_NAME.${pokeId}`)"
     />

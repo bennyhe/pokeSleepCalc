@@ -34,7 +34,7 @@ const props = defineProps({
           <div class="cpt-food__item cur">
             <img
               v-lazy="
-                `./img/berry/${dataSource.oneDaySkillEffects.skillExtra.berrys[0].berryType}.png`
+                `${IMG_PATH}berry/${dataSource.oneDaySkillEffects.skillExtra.berrys[0].berryType}.png`
               "
               :alt="
                 $t(
@@ -67,7 +67,7 @@ const props = defineProps({
           :key="foodKey"
         >
           <img
-            v-lazy="`./img/food/${foodItem.foodType}.png`"
+            v-lazy="`${IMG_PATH}food/${foodItem.foodType}.png`"
             :alt="$t(`FOOD_TYPES.${foodItem.foodType}`)"
           />
           <p class="cpt-food__count">
@@ -109,7 +109,7 @@ const props = defineProps({
           :key="foodKey"
         >
           <img
-            v-lazy="`./img/food/${foodItem}.png`"
+            v-lazy="`${IMG_PATH}food/${foodItem}.png`"
             :alt="$t(`FOOD_TYPES.${foodItem}`)"
           />
           <p class="cpt-food__count">

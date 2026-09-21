@@ -38,7 +38,7 @@ const props = defineProps({
         :key="allFoodItem.id"
       >
         <img
-          v-lazy="`./img/food/${allFoodItem.id}.png`"
+          v-lazy="`${IMG_PATH}food/${allFoodItem.id}.png`"
           :alt="$t(`FOOD_TYPES.${allFoodItem.id}`)"
         />
         <p>X{{ allFoodItem.num }}</p>
@@ -53,7 +53,7 @@ const props = defineProps({
     </p>
     <img
       class="cpt-foodmenu__bg"
-      v-lazy="`./img/food/${props.menuItem.id}.png`"
+      v-lazy="`${IMG_PATH}food/${props.menuItem.id}.png`"
       :alt="$t(`MENU_TYPES.${props.menuItem.id}`)"
       v-if="props.menuItem.id"
     />

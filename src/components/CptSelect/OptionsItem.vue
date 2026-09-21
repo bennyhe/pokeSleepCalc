@@ -17,7 +17,7 @@ import { pokedex } from '../../config/pokedex.js'
     >
       <img
         class="icon"
-        v-lazy="`./img/pokedex/${pokeItem.id}.png`"
+        v-lazy="`${IMG_PATH}pokedex/${pokeItem.id}.png`"
         :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
         :key="pokeItem.id"
       />

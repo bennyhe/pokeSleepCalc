@@ -160,7 +160,7 @@ const handleClickReset = () => {
                     <div class="cpt-food cpt-food--s berry">
                       <div class="cpt-food__item">
                         <img
-                          v-lazy="`./img/berry/${+key}.png`"
+                          v-lazy="`${IMG_PATH}berry/${+key}.png`"
                           :alt="$t(`BERRY_TYPES.${+key}`)"
                         />
                       </div>
@@ -193,7 +193,7 @@ const handleClickReset = () => {
                     <div class="cpt-food cpt-food--s berry">
                       <div class="cpt-food__item">
                         <img
-                          v-lazy="`./img/food/${+key}.png`"
+                          v-lazy="`${IMG_PATH}food/${+key}.png`"
                           :alt="$t(`FOOD_TYPES.${+key}`)"
                         />
                       </div>

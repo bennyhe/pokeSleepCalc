@@ -4,8 +4,11 @@ import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 import autoprefixer from 'autoprefixer'
 
+const BASE = 'pokesleepcalc/'
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: BASE,
   plugins: [
     vue(),
     eslintPlugin({
@@ -31,7 +34,6 @@ export default defineConfig({
     cros: true,
     open: true
   },
-  base: 'pokesleepcalc/',
   resolve: {
     alias: [{
       find: '@',

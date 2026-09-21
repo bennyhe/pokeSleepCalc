@@ -465,7 +465,7 @@ onMounted(() => {
                     <img
                       class="icon"
                       v-lazy="
-                        `./img/ui/${getStageLevelPicId(
+                        `${IMG_PATH}ui/${getStageLevelPicId(
                           gameMap[mapKey].levelList[
                             gameMapPokemons[mapKey].pokemonsIdToMapLevelIndex[
                               +extractPrefix(pokemonsItem.id)
@@ -495,7 +495,7 @@ onMounted(() => {
                 <img
                   v-if="mapItem.pic"
                   class="cpt-select-list__bg"
-                  v-lazy="`./img/ui/${mapItem.pic}.png`"
+                  v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
                   :alt="mapItem.name"
                 />
               </li>

@@ -77,7 +77,7 @@ const skillDisplay = computed(() =>
     <!-- #{{ pokeId }} -->
     <div class="cpt-pokemon__pic">
       <img
-        v-lazy="`./img/pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`"
+        v-lazy="`${IMG_PATH}pokedex/${isShiny ? 'shiny/' : ''}${extractPrefix(pokeId)}.png`"
         :alt="$t(`POKEMON_NAME.${pokeId}`)"
       />
     </div>
@@ -156,7 +156,7 @@ const skillDisplay = computed(() =>
     >
       <div class="cpt-food__item">
         <img
-          v-lazy="`./img/berry/${pokedex[pokeId].berryType}.png`"
+          v-lazy="`${IMG_PATH}berry/${pokedex[pokeId].berryType}.png`"
           :alt="$t(`BERRY_TYPES.${pokedex[pokeId].berryType}`)"
         />
       </div>
@@ -231,7 +231,7 @@ const skillDisplay = computed(() =>
       >
         <div class="cpt-food__item">
           <img
-            v-lazy="`./img/food/${allFoodItem}.png`"
+            v-lazy="`${IMG_PATH}food/${allFoodItem}.png`"
             :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
           />
         </div>
@@ -256,7 +256,7 @@ const skillDisplay = computed(() =>
             v-if="pokedex[pokeId].food.count[allFoodItem].num[subKey] > 0"
           >
             <img
-              v-lazy="`./img/food/${allFoodItem}.png`"
+              v-lazy="`${IMG_PATH}food/${allFoodItem}.png`"
               :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
             />
             <div

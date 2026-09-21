@@ -106,7 +106,7 @@ const props = defineProps({
         <img
           class="icon"
           v-lazy="
-            `./img/ui/${getStageLevelPicId(
+            `${IMG_PATH}ui/${getStageLevelPicId(
               gameMap[curMap].levelList[mapLevel || sleepItem.unLockLevel].name
             )}.png`
           "

@@ -266,7 +266,7 @@ const handleChangeInputPM = () => {
           <img
             v-if="mapItem.pic"
             class="cpt-select-list__bg"
-            v-lazy="`./img/ui/${mapItem.pic}.png`"
+            v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
             :alt="mapItem.name"
           />
         </li>
@@ -303,7 +303,7 @@ const handleChangeInputPM = () => {
         >
           <img
             class="icon"
-            v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+            v-lazy="`${IMG_PATH}ui/${getStageLevelPicId(stageItem.name)}.png`"
           />
           {{ stageItem.name }}
           -
@@ -327,7 +327,7 @@ const handleChangeInputPM = () => {
         >
           <img
             class="icon"
-            v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+            v-lazy="`${IMG_PATH}ui/${getStageLevelPicId(stageItem.name)}.png`"
           />
           {{ stageItem.name }}
           -

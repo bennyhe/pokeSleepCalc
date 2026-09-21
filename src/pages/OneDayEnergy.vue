@@ -370,7 +370,7 @@ const energyRowPageList = computed(() => {
                   <div class="cpt-food__item">
                     <img
                       v-if="berryItem !== '?'"
-                      v-lazy="`./img/berry/${berryItem}.png`"
+                      v-lazy="`${IMG_PATH}berry/${berryItem}.png`"
                       :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
@@ -381,7 +381,7 @@ const energyRowPageList = computed(() => {
             <img
               v-if="mapItem.pic"
               class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
               :alt="mapItem.name"
             />
           </li>
@@ -411,7 +411,7 @@ const energyRowPageList = computed(() => {
                   <div class="cpt-food__item">
                     <img
                       v-if="berryItem !== '?'"
-                      v-lazy="`./img/berry/${berryItem}.png`"
+                      v-lazy="`${IMG_PATH}berry/${berryItem}.png`"
                       :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>

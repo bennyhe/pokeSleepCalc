@@ -122,7 +122,7 @@ for (const cookTypeKey in COOK_TYPES) {
             >
               <img
                 class="icon"
-                v-lazy="`./img/food/${+key}.png`"
+                v-lazy="`${IMG_PATH}food/${+key}.png`"
                 :alt="$t(`FOOD_TYPES.${+key}`)"
               />
               {{ $t(`FOOD_TYPES.${key}`) }}
@@ -149,7 +149,7 @@ for (const cookTypeKey in COOK_TYPES) {
         >
           <div class="cpt-food__item cur" v-if="foodConfig.count[key] > 0">
             <img
-              v-lazy="`./img/food/${+foodVal}.png`"
+              v-lazy="`${IMG_PATH}food/${+foodVal}.png`"
               :alt="$t(`FOOD_TYPES.${+foodVal}`)"
             />
             <p class="cpt-food__count">
@@ -205,7 +205,7 @@ for (const cookTypeKey in COOK_TYPES) {
               :class="{ cur: foodItem.includes(allFoodItem) }"
             >
               <img
-                v-lazy="`./img/food/${allFoodItem}.png`"
+                v-lazy="`${IMG_PATH}food/${allFoodItem}.png`"
                 :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
               />
               <p

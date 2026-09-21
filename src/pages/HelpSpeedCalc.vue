@@ -826,7 +826,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           >
             <img
               class="icon"
-              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
+              v-lazy="`${IMG_PATH}pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               :key="pokeItem.id"
             />
@@ -874,7 +874,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             >
               <div class="cpt-food__item">
                 <img
-                  v-lazy="`./img/food/${allFoodItem}.png`"
+                  v-lazy="`${IMG_PATH}food/${allFoodItem}.png`"
                   :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
                 />
                 <div
@@ -1287,7 +1287,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                   <div class="cpt-food__item">
                     <img
                       v-if="berryItem !== '?'"
-                      v-lazy="`./img/berry/${berryItem}.png`"
+                      v-lazy="`${IMG_PATH}berry/${berryItem}.png`"
                       :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
@@ -1298,7 +1298,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             <img
               v-if="mapItem.pic"
               class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
               :alt="mapItem.name"
             />
           </li>
@@ -1325,7 +1325,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                 <div class="cpt-food cpt-food--s berry">
                   <div class="cpt-food__item">
                     <img
-                      v-lazy="`./img/berry/${+key}.png`"
+                      v-lazy="`${IMG_PATH}berry/${+key}.png`"
                       :alt="$t(`BERRY_TYPES.${+key}`)"
                     />
                   </div>
@@ -1455,7 +1455,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           >
             <img
               class="icon"
-              v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
+              v-lazy="`${IMG_PATH}pokedex/${extractPrefix(pokeItem.id)}.png`"
               :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
               :key="pokeItem.id"
             />
@@ -1557,7 +1557,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <div class="cpt-food cpt-food--s berry">
             <div class="cpt-food__item">
               <img
-                v-lazy="`./img/berry/${+gameMapNew[0].berry[0]}.png`"
+                v-lazy="`${IMG_PATH}berry/${+gameMapNew[0].berry[0]}.png`"
                 :alt="$t(`BERRY_TYPES.${+gameMapNew[0].berry[0]}`)"
               />
             </div>
@@ -1584,7 +1584,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                   <div class="cpt-food cpt-food--s berry">
                     <div class="cpt-food__item">
                       <img
-                        v-lazy="`./img/berry/${+berryKey}.png`"
+                        v-lazy="`${IMG_PATH}berry/${+berryKey}.png`"
                         :alt="$t(`BERRY_TYPES.${+berryKey}`)"
                       />
                     </div>
@@ -1617,7 +1617,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                   <div class="cpt-food cpt-food--s berry">
                     <div class="cpt-food__item">
                       <img
-                        v-lazy="`./img/berry/${+berryKey}.png`"
+                        v-lazy="`${IMG_PATH}berry/${+berryKey}.png`"
                         :alt="$t(`BERRY_TYPES.${+berryKey}`)"
                       />
                     </div>
@@ -1838,7 +1838,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           <img
             class="icon"
             v-lazy="
-              `./img/ui/${getStageLevelPicId(
+              `${IMG_PATH}ui/${getStageLevelPicId(
                 gameMapNew[0].levelList[getTeamCurEnergyLevel()].name
               )}.png`
             "
@@ -1963,7 +1963,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                       >
                         <img
                           class="icon"
-                          v-lazy="`./img/food/${menuItem.id}.png`"
+                          v-lazy="`${IMG_PATH}food/${menuItem.id}.png`"
                           :alt="$t(`MENU_TYPES.${menuItem.id}`)"
                           v-if="menuItem.id"
                         />
@@ -1979,7 +1979,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                               :key="allFoodItem.id"
                             >
                               <img
-                                v-lazy="`./img/food/${allFoodItem.id}.png`"
+                                v-lazy="`${IMG_PATH}food/${allFoodItem.id}.png`"
                                 :alt="$t(`FOOD_TYPES.${allFoodItem.id}`)"
                               />
                               <p>X{{ allFoodItem.num }}</p>
@@ -2022,7 +2022,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             >
               <div class="cpt-food__item cur">
                 <img
-                  v-lazy="`./img/food/${foodItem.foodId}.png`"
+                  v-lazy="`${IMG_PATH}food/${foodItem.foodId}.png`"
                   :alt="$t(`FOOD_TYPES.${foodItem.foodId}`)"
                 />
                 <p class="cpt-food__count">

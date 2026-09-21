@@ -9,6 +9,8 @@ import { getNum } from '../../utils/index.js'
 import i18n from '../../i18n'
 const { t } = i18n.global
 
+const IMG_PATH = import.meta.env.BASE_URL + 'img/'
+
 const props = defineProps({
   dataList: {
     type: [Array, Object]
@@ -42,12 +44,12 @@ const handleClickShowRank = type => {
 const getWithData = rItem => {
   if (props.showType === 'berry') {
     return {
-      imgUrl: `./img/berry/${rItem.berryId}.png`,
+      imgUrl: `${IMG_PATH}berry/${rItem.berryId}.png`,
       name: t(`BERRY_TYPES.${rItem.berryId}`)
     }
   } else if (props.showType === 'food') {
     return {
-      imgUrl: `./img/food/${rItem.foodId}.png`,
+      imgUrl: `${IMG_PATH}food/${rItem.foodId}.png`,
       name: t(`FOOD_TYPES.${rItem.foodId}`)
     }
   }
@@ -138,7 +140,7 @@ const getCptPokeShowKey = () => {
                 >
                   <div class="cpt-food__item cur">
                     <img
-                      v-lazy="`./img/food/${sItemFoodId}.png`"
+                      v-lazy="`${IMG_PATH}food/${sItemFoodId}.png`"
                       :alt="$t(`FOOD_TYPES.${sItemFoodId}`)"
                     />
                     <p class="cpt-food__count">
@@ -151,7 +153,7 @@ const getCptPokeShowKey = () => {
                 <div class="cpt-food all-food">
                   <div class="cpt-food__item cur">
                     <img
-                      v-lazy="`./img/berry/${typeRankItem.berryId}.png`"
+                      v-lazy="`${IMG_PATH}berry/${typeRankItem.berryId}.png`"
                       :alt="$t(`BERRY_TYPES.${typeRankItem.berryId}`)"
                     />
                     <p class="cpt-food__count">

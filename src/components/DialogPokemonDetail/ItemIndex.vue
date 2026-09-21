@@ -70,7 +70,7 @@ gameMapNew.forEach(gitem => {
             style="display: inline-block; width: 120px; height: 120px"
           >
             <img
-              v-lazy="`./img/portrait/${extractPrefix(curDialogPokeId)}.png`"
+              v-lazy="`${IMG_PATH}portrait/${extractPrefix(curDialogPokeId)}.png`"
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
             />
@@ -82,7 +82,7 @@ gameMapNew.forEach(gitem => {
           >
             <img
               v-lazy="
-                `./img/portrait/shiny/${extractPrefix(curDialogPokeId)}.png`
+                `${IMG_PATH}portrait/shiny/${extractPrefix(curDialogPokeId)}.png`
               "
               :alt="$t(`POKEMON_NAME.${curDialogPokeId}`)"
               style="width: 100%"
@@ -229,7 +229,7 @@ gameMapNew.forEach(gitem => {
                               <img
                                 class="icon"
                                 v-lazy="
-                                  `./img/ui/${getStageLevelPicId(
+                                  `${IMG_PATH}ui/${getStageLevelPicId(
                                     mapItem.levelList[sleepsItem.unLockLevel]
                                       .name
                                   )}.png`
@@ -250,7 +250,7 @@ gameMapNew.forEach(gitem => {
                           <img
                             v-if="mapItem.pic"
                             class="cpt-select-list__bg"
-                            v-lazy="`./img/ui/${mapItem.pic}.png`"
+                            v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
                             :alt="mapItem.name"
                           />
                         </li>

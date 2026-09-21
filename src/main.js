@@ -6,9 +6,12 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 import 'md-js' // 全局副作用：挂载 window.Mdjs，供 DialogUpdateLog/DialogSupport 使用
 import i18n from './i18n'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).use(i18n).use(VueLazyload, {
+const app = createApp(App)
+app.config.globalProperties.IMG_PATH = import.meta.env.BASE_URL + 'img/'
+app.use(i18n).use(VueLazyload, {
   preLoad: 1.3,
-  error: 'img/null.png',
+  error: import.meta.env.BASE_URL + 'img/null.png',
   attempt: 1
-}).use(ElementPlus).mount('#app')
+}).use(ElementPlus).use(router).mount('#app')

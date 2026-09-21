@@ -145,34 +145,34 @@ export function formatTime(datetime, formatStr) {
  * @param {*} url 
  * @returns 
  */
-export function getUrlQuery(paramName, url) {
-  let seachUrl = window.location.search.replace('?', '')
-  if (url != null) {
-    const index = url.indexOf('?')
-    url = url.substr(index + 1)
-    seachUrl = url
-  }
-  const ss = seachUrl.split('&')
-  let paramNameStr = ''
-  let paramNameIndex = -1
-  const result = paramName ? '' : {}
-  for (let i = 0; i < ss.length; i++) {
-    paramNameIndex = ss[i].indexOf('=')
-    paramNameStr = ss[i].substring(0, paramNameIndex)
-    if (!paramName) {
-      const returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
-      result[paramNameStr] = returnValue
-    } else if (paramNameStr === paramName) {
-      let returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
-      if (typeof returnValue === 'undefined') {
-        returnValue = ''
-      }
-      returnValue = returnValue.replace(/\?.*/, '')
-      return returnValue.replace(/(#(.*))$/, '')
-    }
-  }
-  return result
-}
+// export function getUrlQuery(paramName, url) {
+//   let seachUrl = window.location.search.replace('?', '')
+//   if (url != null) {
+//     const index = url.indexOf('?')
+//     url = url.substr(index + 1)
+//     seachUrl = url
+//   }
+//   const ss = seachUrl.split('&')
+//   let paramNameStr = ''
+//   let paramNameIndex = -1
+//   const result = paramName ? '' : {}
+//   for (let i = 0; i < ss.length; i++) {
+//     paramNameIndex = ss[i].indexOf('=')
+//     paramNameStr = ss[i].substring(0, paramNameIndex)
+//     if (!paramName) {
+//       const returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
+//       result[paramNameStr] = returnValue
+//     } else if (paramNameStr === paramName) {
+//       let returnValue = ss[i].substring(paramNameIndex + 1, ss[i].length)
+//       if (typeof returnValue === 'undefined') {
+//         returnValue = ''
+//       }
+//       returnValue = returnValue.replace(/\?.*/, '')
+//       return returnValue.replace(/(#(.*))$/, '')
+//     }
+//   }
+//   return result
+// }
 
 export function sortInObjectOptions(arr, options, updown) {
   // 如果没有选项或数组为空，直接返回

@@ -128,7 +128,7 @@ const handleChangeEditSubSkill = () => {
           :key="`${foodKey}_${foodItem}`"
         >
           <img
-            v-lazy="`./img/food/${foodItem}.png`"
+            v-lazy="`${IMG_PATH}food/${foodItem}.png`"
             :alt="$t(`FOOD_TYPES.${foodItem}`)"
           />
           <p class="cpt-food__count">
@@ -281,7 +281,7 @@ const handleChangeEditSubSkill = () => {
                 >
                   <div class="cpt-food__item">
                     <img
-                      v-lazy="`./img/food/${allFoodItem}.png`"
+                      v-lazy="`${IMG_PATH}food/${allFoodItem}.png`"
                       :alt="$t(`FOOD_TYPES.${allFoodItem}`)"
                     />
                     <div

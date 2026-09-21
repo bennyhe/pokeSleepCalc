@@ -904,7 +904,7 @@ const getQuickChangeSleepPoint = () => {
                         <img
                           class="icon"
                           v-lazy="
-                            `./img/ui/${getStageLevelPicId(levelVal.name)}.png`
+                            `${IMG_PATH}ui/${getStageLevelPicId(levelVal.name)}.png`
                           "
                         />
                         {{ $t(`LEVEL_TITLE.${levelVal.nameId}`)
@@ -985,7 +985,7 @@ const getQuickChangeSleepPoint = () => {
                   <div class="cpt-food__item">
                     <img
                       v-if="berryItem !== '?'"
-                      v-lazy="`./img/berry/${berryItem}.png`"
+                      v-lazy="`${IMG_PATH}berry/${berryItem}.png`"
                       :alt="$t(`BERRY_TYPES.${berryItem}`)"
                     />
                     <template v-else>?</template>
@@ -996,7 +996,7 @@ const getQuickChangeSleepPoint = () => {
             <img
               v-if="mapItem.pic"
               class="cpt-select-list__bg"
-              v-lazy="`./img/ui/${mapItem.pic}.png`"
+              v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
               :alt="mapItem.name"
             />
           </li>
@@ -1025,7 +1025,7 @@ const getQuickChangeSleepPoint = () => {
             >
               <img
                 class="icon"
-                v-lazy="`./img/ui/${getStageLevelPicId(stageItem.name)}.png`"
+                v-lazy="`${IMG_PATH}ui/${getStageLevelPicId(stageItem.name)}.png`"
               />
               {{ $t(`LEVEL_TITLE.${stageItem.nameId}`)
               }}{{ stageItem.nameIndex }}
@@ -1406,7 +1406,7 @@ const getQuickChangeSleepPoint = () => {
                 >
                   <img
                     class="icon"
-                    v-lazy="`./img/pokedex/${extractPrefix(pokeItem.id)}.png`"
+                    v-lazy="`${IMG_PATH}pokedex/${extractPrefix(pokeItem.id)}.png`"
                     :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
                     :key="pokeItem.id"
                   />
@@ -1511,7 +1511,7 @@ const getQuickChangeSleepPoint = () => {
               ><img
                 class="icon"
                 v-lazy="
-                  `./img/ui/${getStageLevelPicId(
+                  `${IMG_PATH}ui/${getStageLevelPicId(
                     gameMap[userData.curMap].levelList[userData.curStageIndex]
                       .name
                   )}.png`
@@ -1703,7 +1703,7 @@ const getQuickChangeSleepPoint = () => {
                 <div class="cpt-pokemon__pic">
                   <img
                     v-lazy="
-                      `./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
+                      `${IMG_PATH}portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
                         sleepItem.pokeId
                       }.png`
                     "
@@ -1788,7 +1788,7 @@ const getQuickChangeSleepPoint = () => {
                       <el-button size="small" v-if="sleepItem.iv"
                         ><img
                           class="icon"
-                          v-lazy="`./img/ui/${getStageLevelPicId('普通')}.png`"
+                          v-lazy="`${IMG_PATH}ui/${getStageLevelPicId('普通')}.png`"
                         />{{ $t("PROP.individual") }}</el-button
                       >
                     </template>
@@ -1820,7 +1820,7 @@ const getQuickChangeSleepPoint = () => {
                   <img
                     class="icon"
                     v-lazy="
-                      `./img/ui/${getStageLevelPicId(
+                      `${IMG_PATH}ui/${getStageLevelPicId(
                         gameMap[userData.curMap].levelList[
                           userData.curStageIndex
                         ].name
@@ -1987,7 +1987,7 @@ const getQuickChangeSleepPoint = () => {
           >{{ $t("BTN.getSpoBefore") }}「<img
             class="icon"
             v-lazy="
-              `./img/ui/${getStageLevelPicId(
+              `${IMG_PATH}ui/${getStageLevelPicId(
                 gameMap[userData.curMap].levelList[userData.curStageIndex].name
               )}.png`
             "
@@ -2035,7 +2035,7 @@ const getQuickChangeSleepPoint = () => {
                   >
                     <img
                       class="icon"
-                      v-lazy="`./img/pokedex/${sItem.pokeId}.png`"
+                      v-lazy="`${IMG_PATH}pokedex/${sItem.pokeId}.png`"
                       :alt="$t(`POKEMON_NAME.${sItem.pokeId}`)"
                       :key="sItem.pokeId"
                     />

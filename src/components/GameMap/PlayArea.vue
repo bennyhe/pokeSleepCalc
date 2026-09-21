@@ -74,7 +74,7 @@ const pokeBall = [
                 }"
               >
                 <template v-if="sleepItem.eatStateType === 1"
-                  ><img :src="`./img/ui/hungry.png`" :alt="$t('PROP.hungry')" />
+                  ><img :src="`${IMG_PATH}ui/hungry.png`" :alt="$t('PROP.hungry')" />
                   <p>{{ $t("PROP.hungry") }}</p></template
                 >
               </div>
@@ -170,7 +170,7 @@ const pokeBall = [
             <div class="cpt-pokemon">
               <div class="cpt-pokemon__pic">
                 <img
-                  :src="`./img/portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
+                  :src="`${IMG_PATH}portrait/${sleepItem.isShiny ? 'shiny/' : ''}${
                     sleepItem.pokeId
                   }.png`"
                   :alt="$t(`POKEMON_NAME.${sleepItem.pokeId}`)"
@@ -201,7 +201,7 @@ const pokeBall = [
         <img
           v-if="gameMap[curMap].pic"
           class="lottery-map__bg"
-          :src="`./img/ui/${gameMap[curMap].pic}.png`"
+          :src="`${IMG_PATH}ui/${gameMap[curMap].pic}.png`"
           :alt="gameMap[curMap].name"
         />
       </div>
@@ -219,7 +219,7 @@ const pokeBall = [
       >
         <div class="lottery-map__pokeball-info">
           <img
-            :src="`./img/ui/sandslash${ballItem.id}.png`"
+            :src="`${IMG_PATH}ui/sandslash${ballItem.id}.png`"
             :alt="ballItem.name"
           />
           <p class="lottery-map__pokeball-name">{{ $t(`BALL_TYPES.${ballItem.id}`) }}</p>

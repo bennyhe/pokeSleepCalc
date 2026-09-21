@@ -44,7 +44,7 @@ const handleChangePokemon = pokeId => {}
     <img
       v-for="pokes in iltItem.ids"
       class="icon"
-      v-lazy="`./img/pokedex/${pokes}.png`"
+      v-lazy="`${IMG_PATH}pokedex/${pokes}.png`"
       :alt="$t(`POKEMON_NAME.${pokes}`)"
       :key="pokes"
     />
@@ -79,7 +79,7 @@ const handleChangePokemon = pokeId => {}
         <img
           v-if="mapItem.pic"
           class="cpt-select-list__bg"
-          v-lazy="`./img/ui/${mapItem.pic}.png`"
+          v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
           :alt="mapItem.name"
         />
       </div>
@@ -163,7 +163,7 @@ const handleChangePokemon = pokeId => {}
               <img
                 v-if="mapItem.pic"
                 class="cpt-select-list__bg"
-                v-lazy="`./img/ui/${mapItem.pic}.png`"
+                v-lazy="`${IMG_PATH}ui/${mapItem.pic}.png`"
                 :alt="mapItem.name"
               />
             </div>
@@ -227,7 +227,7 @@ const handleChangePokemon = pokeId => {}
     <h4>
       <img
         class="icon"
-        v-lazy="`./img/ui/${getStageLevelPicId('大师20')}.png`"
+        v-lazy="`${IMG_PATH}ui/${getStageLevelPicId('大师20')}.png`"
       />
       大师20-{{ masterRes.level20.peaceTime.name }}
     </h4>
@@ -265,7 +265,7 @@ const handleChangePokemon = pokeId => {}
       <h4>
         <img
           class="icon"
-          v-lazy="`./img/ui/${getStageLevelPicId('大师20')}.png`"
+          v-lazy="`${IMG_PATH}ui/${getStageLevelPicId('大师20')}.png`"
         />
         大师20-{{ masterRes.level20.actTime.name }}
       </h4>
@@ -304,7 +304,7 @@ const handleChangePokemon = pokeId => {}
       <h4>
         <img
           class="icon"
-          v-lazy="`./img/ui/${getStageLevelPicId('大师20')}.png`"
+          v-lazy="`${IMG_PATH}ui/${getStageLevelPicId('大师20')}.png`"
         />
         大师20-{{ masterRes.level20.extraTime.name }}
       </h4>

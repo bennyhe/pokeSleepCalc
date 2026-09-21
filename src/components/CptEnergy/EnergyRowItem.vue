@@ -123,7 +123,7 @@ const skillDisplay = computed(() =>
           <div class="cpt-food__item">
             <img
               v-lazy="
-                `./img/berry/${pokedex[pokeItem.pokemonId].berryType}.png`
+                `${IMG_PATH}berry/${pokedex[pokeItem.pokemonId].berryType}.png`
               "
               :alt="$t(`BERRY_TYPES.${pokedex[pokeItem.pokemonId].berryType}`)"
             />
@@ -139,7 +139,7 @@ const skillDisplay = computed(() =>
             :key="`${foodKey}_${foodItem}`"
           >
             <img
-              v-lazy="`./img/food/${foodItem}.png`"
+              v-lazy="`${IMG_PATH}food/${foodItem}.png`"
               :alt="$t(`FOOD_TYPES.${foodItem}`)"
             />
           </div>
