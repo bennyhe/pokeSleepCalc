@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { LANG_PREFIXES, pageRouteMeta } from '@/config/routeData'
 import SleepCalc from '../pages/SleepCalc.vue'
 import FoodRec from '../pages/FoodRec.vue'
 import CandyCalc from '../pages/CandyCalc.vue'
@@ -10,19 +11,26 @@ import SleepLab from '../pages/SleepLab.vue'
 import MasterRes from '../pages/MasterRes.vue'
 import FindPm from '../pages/FindPm.vue'
 
-// 页面路由表（集中管理 path、title、icon、navName、pageClass、inNav）
-export const pageRoutes = [
-  { path: 'sleepcalc', component: SleepCalc, title: 'Sleep Calc', icon: 'sleep', navName: 'SLEEP CALC', inNav: true },
-  { path: 'foodrec', component: FoodRec, title: 'Food', icon: 'food', navName: 'FOOD', inNav: true },
-  { path: 'candycalc', component: CandyCalc, title: 'Candy Calc', icon: 'candy2', navName: 'CANDY CALC', inNav: true, pageClass: 'page-candycalc' },
-  { path: 'helpspeedcalc', component: HelpSpeedCalc, title: 'Help Speed Calc', icon: 'lab', navName: 'HELP SPEED CALC', inNav: true, pageClass: 'page-helpcalc' },
-  { path: 'pokedex', component: PagePokedex, title: 'Pokedex', icon: 'pokeball', navName: 'POKEDEX', inNav: true, pageClass: 'page-pokedex' },
-  { path: 'onedayenergy', component: OneDayEnergy, title: 'One Day Energy', icon: 'board', navName: 'ONE DAY ENERGY', inNav: true },
-  { path: 'new', component: NewPoke, title: 'New Pokemon', icon: 'calendar', navName: 'NEW', inNav: true },
-  { path: 'sleeplab', component: SleepLab, title: 'Sleep Lab', inNav: false },
-  { path: 'master20', component: MasterRes, title: 'Master Resource', inNav: false, pageClass: 'page-master' },
-  { path: 'findpm', component: FindPm, title: 'Find Pokemon', inNav: false, pageClass: 'page-findpm' }
-]
+// path -> 页面组件；新增页面时在此补一行，并在 src/config/routeData.js 补一条元数据
+const pageComponents = {
+  sleepcalc: SleepCalc,
+  foodrec: FoodRec,
+  candycalc: CandyCalc,
+  helpspeedcalc: HelpSpeedCalc,
+  pokedex: PagePokedex,
+  onedayenergy: OneDayEnergy,
+  new: NewPoke,
+  sleeplab: SleepLab,
+  master20: MasterRes,
+  findpm: FindPm
+}
+
+// 页面路由表（元数据 + 组件）：若某条 path 忘记补组件映射，加载时立即报错，避免出现 component 为 undefined 的空路由
+export const pageRoutes = pageRouteMeta.map(meta => {
+  const component = pageComponents[meta.path]
+  if (!component) throw new Error(`[router] pageComponents 缺少 "${meta.path}" 的组件映射，请检查 src/router/index.js`)
+  return { ...meta, component }
+})
 
 const defaultPage = pageRoutes[0].path
 
@@ -36,20 +44,16 @@ const savedLangRedirect = () => {
 const routes = [
   // 根据已保存的语言偏好动态重定向
   { path: '/', redirect: savedLangRedirect },
-  // 中文路由
-  ...pageRoutes.map(r => ({
-    path: `/zh/${r.path}`,
-    component: r.component,
-    meta: { lang: 'zh', title: r.title }
-  })),
-  { path: '/zh', redirect: `/zh/${defaultPage}` },
-  // 日语路由
-  ...pageRoutes.map(r => ({
-    path: `/ja/${r.path}`,
-    component: r.component,
-    meta: { lang: 'ja', title: r.title }
-  })),
-  { path: '/ja', redirect: `/ja/${defaultPage}` },
+  // 各语言路由：{prefix}/{page}
+  ...LANG_PREFIXES.flatMap(prefix =>
+    pageRoutes.map(r => ({
+      path: `/${prefix}/${r.path}`,
+      component: r.component,
+      meta: { lang: prefix, title: r.title }
+    }))
+  ),
+  // 各语言根路径重定向到默认页
+  ...LANG_PREFIXES.map(prefix => ({ path: `/${prefix}`, redirect: `/${prefix}/${defaultPage}` })),
   // 其他路径重定向
   { path: '/:pathMatch(.*)*', redirect: savedLangRedirect }
 ]
