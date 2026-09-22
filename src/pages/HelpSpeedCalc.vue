@@ -10,6 +10,7 @@ import {
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import CptEnergyItem from '../components/CptEnergy/EnergyItem.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 import SvgIcon from '../components/SvgIcon/IconItem.vue'
 import CptDialogFilterPoke from '../components/DialogFilterPoke/ItemIndex.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
@@ -811,7 +812,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
   <h2>{{ $t("PAGE_TITLE.helpspeedcalc") }}</h2>
   <el-form label-width="90px">
     <el-form-item :label="$t('PROP.pokemon')">
-      <el-select
+      <CptSelect
         v-model="helpSpeedCalcForm.pokemonId"
         filterable
         @change="handleChangePokemon()"
@@ -833,7 +834,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
         </template>
-      </el-select>
+      </CptSelect>
     </el-form-item>
     <el-form-item>
       <i class="i i-rank" :class="`i-rank--${targetInList.sortIndex}`">{{
@@ -1073,7 +1074,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       </div>
     </div>
     <el-form-item :label="$t(`SKILL_TYPES.${pokedex[helpSpeedCalcForm.pokemonId].skillType}`)" v-if="currentSubSkills.length > 0">
-      <el-select
+      <CptSelect
         size="small"
         v-model="helpSpeedCalcForm.selectedSubId"
         @change="handleChangeSubSkill()"
@@ -1085,7 +1086,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
           :label="$t(`SKILL_TYPES.${subItem.id}`)"
           :value="subItem.id"
         />
-      </el-select>
+      </CptSelect>
     </el-form-item>
     <el-form-item :label="$t(skillOptionsExtra[0].txt)">
       <div style="width: 100%">
@@ -1108,7 +1109,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
       <div class="cpt-tips">* {{ $t("PAGE_HELPSPEEDCALC.tipsHS") }}</div>
     </el-form-item>
     <el-form-item :label="$t('PROP.nature')">
-      <el-select filterable v-model="helpSpeedCalcForm.character">
+      <CptSelect filterable v-model="helpSpeedCalcForm.character">
         <el-option
           :label="getNatureDetail(cItem, $t)"
           v-for="cItem in characterOptions"
@@ -1118,7 +1119,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         >
           {{ getNatureDetail(cItem, $t) }}</el-option
         >
-      </el-select>
+      </CptSelect>
     </el-form-item>
     <el-form-item>
       <el-button type="success" plain @click="hanldeClickAddBox()"
@@ -1439,7 +1440,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
         >
         / {{ helpSpeedCalcForm.resLength }} 位
       </div>
-      <el-select
+      <CptSelect
         v-model="helpSpeedCalcForm.contrastPoke"
         :placeholder="$t('PLACEHOLDER.contrast')"
         filterable
@@ -1462,7 +1463,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
             {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-{{ pokeItem.helpSpeed }}s
           </el-option>
         </template>
-      </el-select>
+      </CptSelect>
     </el-form-item>
     <el-form-item class="el-btn-s">
       <el-button
@@ -1948,7 +1949,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                     :icon="!menuItem.isEdit ? Edit : Check"
                   />
                   <template v-if="menuItem.isEdit">
-                    <el-select
+                    <CptSelect
                       v-model="menuItem.id"
                       filterable
                       size="small"
@@ -1987,7 +1988,7 @@ if (localStorage.getItem(LS_NAME_WEEKLY)) {
                           </div>
                         </div>
                       </el-option>
-                    </el-select>
+                    </CptSelect>
                     <el-input
                       v-model="menuItem.baseEnergy"
                       type="tel"

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptFoodmenu from '../components/CptFoodmenu/MenuItem.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 import {
   formatTime,
   findMenuWithFood,
@@ -105,7 +106,7 @@ for (const cookTypeKey in COOK_TYPES) {
     </el-radio-group>
     <div class="mt3">
       <template v-for="(foodItem, foodKey) in [0, 30, 60]" :key="foodKey">
-        <el-select
+        <CptSelect
           v-model="foodConfig.list[foodKey]"
           clearable
           filterable
@@ -131,7 +132,7 @@ for (const cookTypeKey in COOK_TYPES) {
               }})</span>
             </el-option>
           </template>
-        </el-select>
+        </CptSelect>
       </template>
     </div>
     <div

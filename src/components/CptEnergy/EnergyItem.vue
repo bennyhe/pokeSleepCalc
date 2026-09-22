@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import CptPoke from '../CptPoke/ItemIndex.vue'
 import CptDialog from '../Dialog/DialogIndex.vue'
+import CptSelect from '../CptSelect/CptSelect.vue'
 import SvgIcon from '../SvgIcon/IconItem.vue'
 import {
   skillOptionsExtra,
@@ -465,7 +466,7 @@ const handleChangeEditSubSkill = () => {
         <template v-if="currentEditSubSkills.length > 0">
           <h4>{{ $t(`SKILL_TYPES.${pokedex[editData.pokemonId].skillType}`) }}</h4>
           <div>
-            <el-select
+            <CptSelect
               size="small"
               v-model="editData.selectedSubId"
               @change="handleChangeEditSubSkill()"
@@ -477,7 +478,7 @@ const handleChangeEditSubSkill = () => {
                 :label="$t(`SKILL_TYPES.${subItem.id}`)"
                 :value="subItem.id"
               />
-            </el-select>
+            </CptSelect>
           </div>
         </template>
         <h4>{{ $t('PROP.mainSkillLevel') }}</h4>
@@ -514,7 +515,7 @@ const handleChangeEditSubSkill = () => {
         </div>
         <h4>{{ $t("PROP.nature") }}</h4>
         <div>
-          <el-select filterable v-model="editData.character">
+          <CptSelect filterable v-model="editData.character">
             <el-option
               :label="getNatureDetail(cItem, $t)"
               v-for="cItem in characterOptions"
@@ -524,7 +525,7 @@ const handleChangeEditSubSkill = () => {
             >
               {{ getNatureDetail(cItem, $t) }}</el-option
             >
-          </el-select>
+          </CptSelect>
         </div>
       </div>
     </CptDialog>

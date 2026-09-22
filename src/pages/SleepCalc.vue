@@ -2,6 +2,7 @@
 import { onMounted, computed, ref } from 'vue'
 import { InfoFilled } from '@element-plus/icons-vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 import CptPoke from '../components/CptPoke/ItemIndex.vue'
 import CptIv from '../components/CptIv/IvItem.vue'
 import CptProcss from '../components/Process/ItemIndex.vue'
@@ -1384,7 +1385,7 @@ const getQuickChangeSleepPoint = () => {
             </el-radio-group>
           </el-form-item>
           <el-form-item :label="$t('PROP.incense')">
-            <el-select
+            <CptSelect
               v-model="userData.useIncensePokemonId"
               :placeholder="$t('PLACEHOLDER.incense')"
               filterable
@@ -1395,7 +1396,7 @@ const getQuickChangeSleepPoint = () => {
               </el-option>
               <template v-for="pokeItem in pokedex" :key="pokeItem.id">
                 <el-option
-                  :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}`"
+                  :label="`${$t(`POKEMON_NAME.${pokeItem.id}`)}-#${pokeItem.id}`"
                   :value="pokeItem.id"
                   :disabled="
                     !gameMapPokemons[userData.curMap].allPokemons.includes(
@@ -1410,10 +1411,10 @@ const getQuickChangeSleepPoint = () => {
                     :alt="$t(`POKEMON_NAME.${pokeItem.id}`)"
                     :key="pokeItem.id"
                   />
-                  {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}
+                  {{ $t(`POKEMON_NAME.${pokeItem.id}`) }}-#{{ pokeItem.id }}
                 </el-option>
               </template>
-            </el-select>
+            </CptSelect>
           </el-form-item>
           <el-form-item :label="$t('PROP.ticket')">
             <span class="form-switch">
@@ -2019,7 +2020,7 @@ const getQuickChangeSleepPoint = () => {
               <i class="i i-rank mr3" :class="`i-rank--${key + 1}`">{{
                 key + 1
               }}</i>
-              <el-select
+              <CptSelect
                 :placeholder="$t('PLACEHOLDER.sleepstyle')"
                 filterable
                 v-model="sleepStyleAny.list[key]"
@@ -2049,7 +2050,7 @@ const getQuickChangeSleepPoint = () => {
                     }}-SPO:{{ sItem.spo }}
                   </el-option>
                 </template>
-              </el-select>
+              </CptSelect>
               <template v-if="sleepStyleId">
                 <CptAvatar :pokeId="SLEEP_STYLE[sleepStyleId].pokeId" />
                 <span

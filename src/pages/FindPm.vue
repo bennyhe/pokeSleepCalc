@@ -1,7 +1,7 @@
 <script setup>
 import { ref, nextTick, onBeforeUnmount } from 'vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
-import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import {
@@ -469,13 +469,11 @@ onBeforeUnmount(() => {
   <el-form :disabled="isCalcLoading" label-width="90px">
     <el-form-item :label="$t('PROP.pokemon')">
       <div style="width: 100%">
-        <el-select
+        <CptSelect
           v-model="pageData.pokemonId"
           filterable
           @change="handleChangePokemon()"
-        >
-          <CptSelectOptions />
-        </el-select>
+        />
       </div>
       <ul class="cpt-select-list">
         <template v-for="(mapItem, mapKey) in gameMap" :key="mapItem.id">
@@ -562,7 +560,7 @@ onBeforeUnmount(() => {
       </div>
     </el-form-item>
     <el-form-item label="不进保底">
-      <el-select
+      <CptSelect
         v-model="pageData.noLastList"
         placeholder="不进保底"
         @change="handleChangeUps"
@@ -571,9 +569,7 @@ onBeforeUnmount(() => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.noLastList"
@@ -581,7 +577,7 @@ onBeforeUnmount(() => {
       />
     </el-form-item>
     <el-form-item label="大UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsLarge.ids"
         placeholder="大UP"
         @change="handleChangeUps"
@@ -590,9 +586,7 @@ onBeforeUnmount(() => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsLarge.ids"
@@ -600,7 +594,7 @@ onBeforeUnmount(() => {
       />
     </el-form-item>
     <el-form-item label="中UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsMid.ids"
         placeholder="中UP"
         @change="handleChangeUps"
@@ -609,9 +603,7 @@ onBeforeUnmount(() => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsMid.ids"
@@ -619,7 +611,7 @@ onBeforeUnmount(() => {
       />
     </el-form-item>
     <el-form-item label="小UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsSmall.ids"
         placeholder="小UP"
         @change="handleChangeUps"
@@ -628,9 +620,7 @@ onBeforeUnmount(() => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsSmall.ids"

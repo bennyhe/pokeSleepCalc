@@ -412,3 +412,18 @@ export function resolvePokeSkill(poke, selectedSubId) {
     selectedSubId: chosen.id
   }
 }
+
+import { Converter } from 'opencc-js/t2cn'
+
+// 繁转简（台湾正体 -> 简体）转换器，用于搜索时的简繁匹配
+const tw2cn = Converter({ from: 'tw', to: 'cn' })
+
+/**
+ * 将中文文本转为简体，供「简体输入匹配繁体数据」使用。
+ * 非中文（英文 / 日文假名等）会原样返回，因此可安全用于多语言场景。
+ * @param {string} str 原始文本
+ * @returns {string} 简体文本
+ */
+export function toSimpleChinese(str = '') {
+  return tw2cn(String(str))
+}

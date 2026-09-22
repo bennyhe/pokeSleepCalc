@@ -7,7 +7,7 @@ import {
   getStageLevelPicId
 } from '../utils/index.js'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
-import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 import { masterRes } from '../config/masterRes/index.js'
 import { gameMap } from '../config/game.js'
 import { IN_LAST_TIME_DAYS, IN_LAST_TIME_POKEMONS } from '../config/act.js'
@@ -130,13 +130,11 @@ const handleChangePokemon = pokeId => {}
   </ul>
   <!-- E 当前岛屿 -->
   {{ $t("PROP.pokemon") }}
-  <el-select
+  <CptSelect
     v-model="pageData.pokemonId"
     filterable
     @change="handleChangePokemon()"
-  >
-    <CptSelectOptions />
-  </el-select>
+  />
   <div v-if="pageData.pokemonId">
     <table>
       <thead>

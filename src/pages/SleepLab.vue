@@ -20,7 +20,7 @@ import { UI_ICONS } from '../config/uiIcons.js'
 import { LAB_CONFIG, SLEEP_CALC_POKEMONS } from '../config/act.js'
 import CptSleepStyle from '../components/CptSleepStyle/SleepItem.vue'
 import CptAvatar from '../components/CptAvatar/ItemIndex.vue'
-import CptSelectOptions from '../components/CptSelect/OptionsItem.vue'
+import CptSelect from '../components/CptSelect/CptSelect.vue'
 
 const navData = ref(NAV_SLEEPLAB)
 const pageData = ref({
@@ -356,7 +356,7 @@ const handleChangeInputPM = () => {
       </div>
     </el-form-item>
     <el-form-item label="不进保底">
-      <el-select
+      <CptSelect
         v-model="pageData.noLastList"
         placeholder="不进保底"
         @change="handleChangeUps"
@@ -365,9 +365,7 @@ const handleChangeInputPM = () => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.noLastList"
@@ -375,7 +373,7 @@ const handleChangeInputPM = () => {
       />
     </el-form-item>
     <el-form-item label="去除宝可梦">
-      <el-select
+      <CptSelect
         v-model="pageData.banPokes"
         placeholder="请选择要去除的宝可梦"
         filterable
@@ -383,12 +381,10 @@ const handleChangeInputPM = () => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
     </el-form-item>
     <el-form-item label="大UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsLarge.ids"
         placeholder="大UP"
         @change="handleChangeUps"
@@ -397,9 +393,7 @@ const handleChangeInputPM = () => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsLarge.ids"
@@ -407,7 +401,7 @@ const handleChangeInputPM = () => {
       />
     </el-form-item>
     <el-form-item label="中UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsMid.ids"
         placeholder="中UP"
         @change="handleChangeUps"
@@ -416,9 +410,7 @@ const handleChangeInputPM = () => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsMid.ids"
@@ -426,7 +418,7 @@ const handleChangeInputPM = () => {
       />
     </el-form-item>
     <el-form-item label="小UP">
-      <el-select
+      <CptSelect
         v-model="pageData.upIdsSmall.ids"
         placeholder="小UP"
         @change="handleChangeUps"
@@ -435,9 +427,7 @@ const handleChangeInputPM = () => {
         multiple
         collapse-tags
         collapse-tags-tooltip
-      >
-        <CptSelectOptions />
-      </el-select>
+      />
       <CptAvatar
         :pokeId="pokeId"
         v-for="pokeId in pageData.upIdsSmall.ids"
