@@ -358,14 +358,37 @@ const secondMaxFirstSleepScoreCatchNum = computed(() =>
 const NOW_ACT = ref({})
 const findActNow = () => {
   const now = new Date().getTime()
-  ACT_LIST.forEach(actItem => {
-    if (now >= new Date(actItem.startTime).getTime() && now <= new Date(actItem.endTime).getTime()) {
-      NOW_ACT.value = actItem
-      if (NOW_ACT.value.times) {
-        userData.value.times = NOW_ACT.value.times
-      }
+  // 获取当前时间命中的所有活动合集
+  const matches = ACT_LIST.filter(
+    actItem =>
+      now >= new Date(actItem.startTime).getTime() &&
+      now <= new Date(actItem.endTime).getTime()
+  )
+  if (matches.length === 0) return
+  // 多活动命中时合并：以第一个生效为准，只合并 smallUp/midUp/largeUp；
+  // times/isActRandom/notArea/actRandomNum 取第一个拥有该字段的活动；
+  // name/namejp 用各活动名称以 & 相隔
+  if (matches.length > 1) {
+    const unionIds = key =>
+      [...new Set(matches.flatMap(act => act[key] || []))]
+    NOW_ACT.value = {
+      ...matches[0],
+      smallUp: unionIds('smallUp'),
+      midUp: unionIds('midUp'),
+      largeUp: unionIds('largeUp'),
+      times: matches.find(act => act.times)?.times,
+      isActRandom: matches.find(act => act.isActRandom)?.isActRandom,
+      notArea: matches.find(act => act.notArea)?.notArea,
+      actRandomNum: matches.find(act => act.actRandomNum)?.actRandomNum,
+      name: matches.map(act => act.name).filter(Boolean).join(' & '),
+      namejp: matches.map(act => act.namejp).filter(Boolean).join(' & ')
     }
-  })
+  } else {
+    NOW_ACT.value = matches[0]
+  }
+  if (NOW_ACT.value.times) {
+    userData.value.times = NOW_ACT.value.times
+  }
 }
 findActNow()
 if (NOW_ACT.value.isActRandom) {

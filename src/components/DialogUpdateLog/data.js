@@ -2,6 +2,9 @@
 const markdownText = `
 # 更新日志
 
+## 26-09-27
+1. update 睡眠计算-多活动时间重叠时合并生效（smallUp/midUp/largeUp取并集，times与isActRandom/notArea/actRandomNum按首个拥有该字段的活动生效，活动名以&拼接）
+
 ## 26-09-22
 1. add 可搜索下拉-支持简体输入匹配繁体存储的选项（宝可梦/熏香/睡姿/食材/性格/子技能/食谱）
 2. update 睡眠计算-熏香下拉显示为「宝可梦名-#编号」
