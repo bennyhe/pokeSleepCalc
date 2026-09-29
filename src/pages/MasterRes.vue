@@ -41,12 +41,10 @@ const handleChangePokemon = pokeId => {}
     <p>可能因为游戏更新会导致有修改，本人对此不负任何责任。</p>
   </div>
   <p v-for="(iltItem, iltKey) in IN_LAST_TIME_POKEMONS" :key="iltKey">
-    <img
+    <CptAvatar
       v-for="pokes in iltItem.ids"
-      class="icon"
-      v-lazy="`${IMG_PATH}pokedex/${pokes}.png`"
-      :alt="$t(`POKEMON_NAME.${pokes}`)"
       :key="pokes"
+      :pokeId="pokes"
     />
     {{
       formatTime(
