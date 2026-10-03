@@ -10,7 +10,8 @@ export const SLEEP_CALC_POKEMONS = {
     387, 388, 389, 390, 391, 392, 393, 394, 395,
     701,
     9007, 957, 958, 959,
-    150
+    150,
+    590, 591
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -52,6 +53,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [9007, 957, 958, 959],
     starttime: '2026/08/17 04:00'
+  },
+  {
+    ids: [590, 591],
+    starttime: '2026/10/05 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -64,11 +69,11 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: false,
-    showBan: false,
-    banPokes: [], // ban 宝可梦id
-    showBanArea: [], // 展示区域
-    endTime: '2026/09/13 22:00'
+    onOffBan: true,
+    showBan: true,
+    banPokes: [590, 591], // ban 宝可梦id
+    showBanArea: [0, 4, 6, 7, 8], // 展示区域
+    endTime: '2026/10/04 22:00'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
   if (config.endTime && Date.now() >= new Date(config.endTime).getTime()) {
@@ -78,8 +83,8 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
+  upIdsSmallIds: [1, 4, 7, 83, 92, 127, 132, 147, 194, 225, 303, 304, 440, 442, 453, 742, 845, 906, 909, 974],
+  upIdsMidIds: [590, 591],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -145,16 +150,16 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  ...fnGetMoonDays('2026/09/26 04:00', 2)
-  // {
-  //   name: '秘境研究！追尋超夢吧',
-  //   namejp: '秘境リサーチ！ミュウツーをおいかけて',
-  //   startTime: '2026/09/13 22:00:00',
-  //   endTime: '2026/09/28 03:59:59',
-  //   midUp: [150],
-  //   smallUp: [177, 178, 196, 202, 280, 281, 282, 360, 517, 518],
-  //   actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-  //   notArea: [1, 2, 3, 4, 5, 6, 8],
-  //   isActRandom: true
-  // }
+  // ...fnGetMoonDays('2026/09/26 04:00', 2)
+  {
+    name: '分量加大！料理週vol.3',
+    namejp: 'デカ盛り！料理ウィーク vol.3',
+    startTime: '2026/10/04 22:00:00',
+    endTime: '2026/10/12 03:59:59',
+    midUp: [590, 591],
+    smallUp: [1, 4, 7, 83, 92, 127, 132, 147, 194, 225, 303, 304, 440, 442, 453, 742, 845, 906, 909, 974],
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    notArea: [],
+    isActRandom: true
+  }
 ]

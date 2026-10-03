@@ -933,7 +933,15 @@ export const SLEEP_STYLE = {
   '150-id-2': { pokeId: 150, id: '150-id-2', star: 2, exp: 5496, shards: 14164, candys: 13, sleepNameId: 389 },
   '150-id-3': { pokeId: 150, id: '150-id-3', star: 3, exp: 15774, shards: 32506, candys: 16, sleepNameId: 390 },
   '150-id-4': { pokeId: 150, id: '150-id-4', star: 5, exp: 15774, shards: 32506, candys: 25, sleepNameId: 391 },
-  '150-id-5': { pokeId: 150, id: '150-id-5', star: 5, exp: 16266, shards: 33519, candys: 35, sleepNameId: 392 }
+  '150-id-5': { pokeId: 150, id: '150-id-5', star: 5, exp: 16266, shards: 33519, candys: 35, sleepNameId: 392 },
+  '590-id-1': { pokeId: 590, id: '590-id-1', star: 1, exp: 116, shards: 109, candys: 4, sleepNameId: 393 },
+  '590-id-2': { pokeId: 590, id: '590-id-2', star: 2, exp: 552, shards: 507, candys: 6, sleepNameId: 394 },
+  '590-id-3': { pokeId: 590, id: '590-id-3', star: 3, exp: 2641, shards: 2414, candys: 9, sleepNameId: 395 },
+  '590-id-4': { pokeId: 590, id: '590-id-4', star: 4, exp: 3818, shards: 3487, candys: 10, sleepNameId: 4 },
+  '591-id-1': { pokeId: 591, id: '591-id-1', star: 1, exp: 637, shards: 585, candys: 6, sleepNameId: 393 },
+  '591-id-2': { pokeId: 591, id: '591-id-2', star: 2, exp: 2021, shards: 1847, candys: 8, sleepNameId: 396 },
+  '591-id-3': { pokeId: 591, id: '591-id-3', star: 3, exp: 6432, shards: 5872, candys: 11, sleepNameId: 397 },
+  '591-id-4': { pokeId: 591, id: '591-id-4', star: 4, exp: 10301, shards: 9403, candys: 12, sleepNameId: 4 }
 }
 
 // Object.keys(SLEEP_STYLE).forEach(key => {

@@ -270,7 +270,7 @@ export default {
     3021: '“Early Bird” Coffee Jelly',
     3022: '“Zing Zap” Spiced Cola',
     3023: '“Mold Breaker” Corn Tiramisu',
-    3024: 'Clodsire Éclair',,
+    3024: 'Clodsire Éclair',
     1024: '萌綠咖哩麵包',
     1025: '彈跳咖哩烏龍麵'
   },
@@ -515,7 +515,9 @@ export default {
     392: '烈焰猴',
     393: '波加曼',
     394: '波皇子',
-    395: '帝王拿波'
+    395: '帝王拿波',
+    590: 'Foongus',
+    591: 'Amoonguss'
   },
   'SLEEPSTYLE_NAME': {
     1: '光合作用睡',

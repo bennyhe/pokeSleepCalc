@@ -78,7 +78,8 @@ const evoLine = [
   [387, 388, 389],
   [390, 391, 392],
   [393, 394, 395],
-  [957, 958, 959]
+  [957, 958, 959],
+  [590, 591]
 ]
 const pokedex = {
   1: {
@@ -3920,6 +3921,46 @@ const pokedex = {
     foodPer: 23.9,
     skillPer: 6.4
   },
+  590: {
+    id: 590,
+    // name: '哎呀球菇',
+    friendship: 5,
+    sleepType: 1,
+    // skillType: 28,
+    // pokeType: 3,
+    berryType: 5,
+    maxcarry: 12
+    // helpSpeed: 4300,
+    // foodPer: 17.5,
+    // skillPer: 5.4,
+    // food: {
+    //   type: [19, 4, 10],
+    //   count: {
+    //     19: {
+    //       num: [1, 2, 4]
+    //     },
+    //     4: {
+    //       num: [0, 3, 5]
+    //     },
+    //     10: {
+    //       num: [0, 0, 5]
+    //     }
+    //   }
+    // }
+  },
+  591: {
+    id: 591,
+    // name: '敗露球菇',
+    friendship: 12,
+    sleepType: 1,
+    // skillType: 28,
+    // pokeType: 3,
+    berryType: 5,
+    maxcarry: 19
+    // helpSpeed: 3200,
+    // foodPer: 23.9,
+    // skillPer: 6.4
+  },
   627: {
     id: 627,
     // name: '毛頭小鷹',
@@ -4996,6 +5037,9 @@ const updatePoke = [{
 }, {
   time: '2026/09/01',
   pokemons: [150]
+}, {
+  time: '2026/10/01',
+  pokemons: [590, 591]
 }]
 // console.log(pokedex)
 export {

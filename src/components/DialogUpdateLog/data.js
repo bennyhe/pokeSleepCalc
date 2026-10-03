@@ -2,6 +2,9 @@
 const markdownText = `
 # 更新日志
 
+## 26-10-04
+1. add 新宝可梦#590，#591
+
 ## 26-09-27
 1. update 睡眠计算-多活动时间重叠时合并生效（smallUp/midUp/largeUp取并集，times与isActRandom/notArea/actRandomNum按首个拥有该字段的活动生效，活动名以&拼接）
 
