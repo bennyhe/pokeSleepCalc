@@ -3926,40 +3926,40 @@ const pokedex = {
     // name: '哎呀球菇',
     friendship: 5,
     sleepType: 1,
-    // skillType: 28,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 5,
-    maxcarry: 12
-    // helpSpeed: 4300,
-    // foodPer: 17.5,
-    // skillPer: 5.4,
-    // food: {
-    //   type: [19, 4, 10],
-    //   count: {
-    //     19: {
-    //       num: [1, 2, 4]
-    //     },
-    //     4: {
-    //       num: [0, 3, 5]
-    //     },
-    //     10: {
-    //       num: [0, 0, 5]
-    //     }
-    //   }
-    // }
+    maxcarry: 12,
+    helpSpeed: 5700,
+    foodPer: 17.4,
+    skillPer: 3.5,
+    food: {
+      type: [2, 3, 12],
+      count: {
+        2: {
+          num: [2, 5, 7]
+        },
+        3: {
+          num: [0, 7, 10]
+        },
+        12: {
+          num: [0, 0, 11]
+        }
+      }
+    }
   },
   591: {
     id: 591,
     // name: '敗露球菇',
     friendship: 12,
     sleepType: 1,
-    // skillType: 28,
-    // pokeType: 3,
+    skillType: 1,
+    pokeType: 2,
     berryType: 5,
-    maxcarry: 19
-    // helpSpeed: 3200,
-    // foodPer: 23.9,
-    // skillPer: 6.4
+    maxcarry: 19,
+    helpSpeed: 3500,
+    foodPer: 20.4,
+    skillPer: 4.7
   },
   627: {
     id: 627,

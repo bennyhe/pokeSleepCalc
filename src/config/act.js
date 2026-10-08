@@ -69,10 +69,10 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: true,
-    showBan: true,
-    banPokes: [590, 591], // ban 宝可梦id
-    showBanArea: [0, 4, 6, 7, 8], // 展示区域
+    onOffBan: false,
+    showBan: false,
+    banPokes: [], // ban 宝可梦id
+    showBanArea: [], // 展示区域
     endTime: '2026/10/04 22:00'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
