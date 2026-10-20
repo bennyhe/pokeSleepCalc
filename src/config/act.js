@@ -1,9 +1,6 @@
 export const SLEEP_CALC_POKEMONS = {
   list: [243, 244, 245, 488, 380, 381, 150], // 特殊宝可梦列表，只能一个
   noLastList: [243, 244, 245, 35, 36, 173, 488, 380, 381,
-    213,
-    742, 743,
-    714, 715,
     27, 28,
     696, 697,
     780,
@@ -18,18 +15,6 @@ export const SLEEP_CALC_POKEMONS = {
 
 export const IN_LAST_TIME_DAYS = 100
 export const IN_LAST_TIME_POKEMONS = [
-  {
-    ids: [213],
-    starttime: '2026/01/19 04:00'
-  },
-  {
-    ids: [742, 743],
-    starttime: '2026/02/09 04:00'
-  },
-  {
-    ids: [714, 715],
-    starttime: '2026/03/23 04:00'
-  },
   {
     ids: [27, 28],
     starttime: '2026/04/27 04:00'
