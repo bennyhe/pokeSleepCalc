@@ -83,8 +83,8 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [1, 4, 7, 83, 92, 127, 132, 147, 194, 225, 303, 304, 440, 442, 453, 742, 845, 906, 909, 974],
-  upIdsMidIds: [590, 591],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
   upIdsLargeIds: [],
   noLastList: []
 }
