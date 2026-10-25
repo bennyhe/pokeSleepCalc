@@ -8,7 +8,8 @@ export const SLEEP_CALC_POKEMONS = {
     701,
     9007, 957, 958, 959,
     150,
-    590, 591
+    590, 591,
+    200, 429
   ], // 不进保底
   probabilityLastList: [] //概率进保底
 }
@@ -42,6 +43,10 @@ export const IN_LAST_TIME_POKEMONS = [
   {
     ids: [590, 591],
     starttime: '2026/10/05 04:00'
+  },
+  {
+    ids: [200, 429],
+    starttime: '2026/10/26 04:00'
   }
 ]
 // export const SLEEP_TIMELIMIT_POKEMONS = {
@@ -54,11 +59,11 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: false,
-    showBan: false,
-    banPokes: [], // ban 宝可梦id
-    showBanArea: [], // 展示区域
-    endTime: '2026/10/04 22:00'
+    onOffBan: true,
+    showBan: true,
+    banPokes: [200, 429, 9001, 9005], // ban 宝可梦id
+    showBanArea: [0, 1, 2, 3, 4, 5, 6, 7, 8], // 展示区域
+    endTime: '2026/10/25 21:59'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
   if (config.endTime && Date.now() >= new Date(config.endTime).getTime()) {
@@ -68,9 +73,9 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [],
-  upIdsMidIds: [],
-  upIdsLargeIds: [],
+  upIdsSmallIds: [92, 93, 94, 353, 354, 425, 426, 778, 911, 710, 711],
+  upIdsMidIds: [9001],
+  upIdsLargeIds: [200, 429, 9005],
   noLastList: []
 }
 const fnGetMoonDays = (startTime, multiTimes) => {
@@ -135,16 +140,17 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  // ...fnGetMoonDays('2026/09/26 04:00', 2)
   {
     name: '分量加大！料理週vol.3',
     namejp: 'デカ盛り！料理ウィーク vol.3',
     startTime: '2026/10/04 22:00:00',
     endTime: '2026/10/12 03:59:59',
-    midUp: [590, 591],
-    smallUp: [1, 4, 7, 83, 92, 127, 132, 147, 194, 225, 303, 304, 440, 442, 453, 742, 845, 906, 909, 974],
+    largeUp: [200, 429, 9005],
+    midUp: [9001],
+    smallUp: [92, 93, 94, 353, 354, 425, 426, 778, 911, 710, 711],
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
     notArea: [],
     isActRandom: true
-  }
+  },
+  ...fnGetMoonDays('2026/10/25 04:00', 4)
 ]

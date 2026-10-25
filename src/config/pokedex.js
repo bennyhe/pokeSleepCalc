@@ -79,7 +79,8 @@ const evoLine = [
   [390, 391, 392],
   [393, 394, 395],
   [957, 958, 959],
-  [590, 591]
+  [590, 591],
+  [200, 429]
 ]
 const pokedex = {
   1: {
@@ -1111,7 +1112,7 @@ const pokedex = {
     berryType: 8,
     maxcarry: 28,
     helpSpeed: 2200,
-    foodPer: 16.1,
+    foodPer: 16.6,
     skillPer: 2.4
   },
   95: {
@@ -2039,6 +2040,33 @@ const pokedex = {
     helpSpeed: 3400,
     foodPer: 16.6,
     skillPer: 8.7
+  },
+  200: {
+    id: 200,
+    // name: '夢妖',
+    friendship: 16,
+    sleepType: 1,
+    // skillType: 24,
+    // pokeType: 3,
+    maxcarry: 17,
+    // helpSpeed: 3600,
+    berryType: 8
+    // foodPer: 14.1,
+    // skillPer: 6.2,
+    // food: {
+    //   type: [17, 15, 6],
+    //   count: {
+    //     17: {
+    //       num: [1, 2, 4]
+    //     },
+    //     15: {
+    //       num: [0, 3, 6]
+    //     },
+    //     6: {
+    //       num: [0, 0, 4]
+    //     }
+    //   }
+    // }
   },
   202: {
     id: 202,
@@ -3454,6 +3482,19 @@ const pokedex = {
     berryType: 8,
     foodPer: 12.8,
     skillPer: 6.3
+  },
+  429: {
+    id: 429,
+    // name: '夢妖魔',
+    friendship: 20,
+    sleepType: 1,
+    // skillType: 24,
+    // pokeType: 3,
+    maxcarry: 22,
+    // helpSpeed: 3600,
+    berryType: 8
+    // foodPer: 14.1,
+    // skillPer: 6.2,
   },
   430: {
     id: 430,
@@ -5039,7 +5080,7 @@ const updatePoke = [{
   pokemons: [150]
 }, {
   time: '2026/10/01',
-  pokemons: [590, 591]
+  pokemons: [590, 591, 200, 429]
 }]
 // console.log(pokedex)
 export {

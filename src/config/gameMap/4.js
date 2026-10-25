@@ -184,7 +184,8 @@ export default {
         '459-id-3',
         '922-id-1',
         '7006-id-4',
-        '394-id-1'
+        '394-id-1',
+        '200-id-1'
       ]
     },
     {
@@ -260,7 +261,8 @@ export default {
         '198-id-4',
         '974-id-3',
         '393-id-3',
-        '394-id-2'
+        '394-id-2',
+        '200-id-2'
       ]
     },
     {
@@ -362,7 +364,8 @@ export default {
         '430-id-1',
         '975-id-1',
         '394-id-3',
-        '395-id-1'
+        '395-id-1',
+        '200-id-3'
       ]
     },
     {
@@ -372,7 +375,8 @@ export default {
       'energy': 719107,
       'sleepStyles': [
         '225-id-3',
-        '442-id-2'
+        '442-id-2',
+        '429-id-1'
         // '777-id-2'
       ]
     },
@@ -432,7 +436,8 @@ export default {
         '7007-id-4',
         '242-id-4',
         '430-id-4',
-        '395-id-4'
+        '395-id-4',
+        '429-id-2'
       ]
     },
     {
@@ -493,7 +498,9 @@ export default {
       'nameIndex': 13,
       'nameId': 4,
       'energy': 2199412,
-      'sleepStyles': []
+      'sleepStyles': [,
+        '429-id-3'
+      ]
     },
     {
       'name': '大师14',
