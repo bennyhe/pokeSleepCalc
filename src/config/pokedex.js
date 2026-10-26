@@ -2046,27 +2046,27 @@ const pokedex = {
     // name: '夢妖',
     friendship: 16,
     sleepType: 1,
-    // skillType: 24,
-    // pokeType: 3,
-    maxcarry: 17,
-    // helpSpeed: 3600,
-    berryType: 8
-    // foodPer: 14.1,
-    // skillPer: 6.2,
-    // food: {
-    //   type: [17, 15, 6],
-    //   count: {
-    //     17: {
-    //       num: [1, 2, 4]
-    //     },
-    //     15: {
-    //       num: [0, 3, 6]
-    //     },
-    //     6: {
-    //       num: [0, 0, 4]
-    //     }
-    //   }
-    // }
+    skillType: 11,
+    pokeType: 3,
+    maxcarry: 13,
+    helpSpeed: 2800,
+    berryType: 8,
+    foodPer: 15,
+    skillPer: 4.7,
+    food: {
+      type: [4, 17, 12],
+      count: {
+        4: {
+          num: [1, 2, 4]
+        },
+        17: {
+          num: [0, 2, 3]
+        },
+        12: {
+          num: [0, 0, 4]
+        }
+      }
+    }
   },
   202: {
     id: 202,
@@ -3488,13 +3488,13 @@ const pokedex = {
     // name: '夢妖魔',
     friendship: 20,
     sleepType: 1,
-    // skillType: 24,
-    // pokeType: 3,
+    skillType: 38,
+    pokeType: 3,
     maxcarry: 22,
-    // helpSpeed: 3600,
-    berryType: 8
-    // foodPer: 14.1,
-    // skillPer: 6.2,
+    helpSpeed: 2400,
+    berryType: 8,
+    foodPer: 14.2,
+    skillPer: 3.6
   },
   430: {
     id: 430,
