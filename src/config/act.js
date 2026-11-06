@@ -59,10 +59,10 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: true,
-    showBan: true,
-    banPokes: [200, 429, 9001, 9005], // ban 宝可梦id
-    showBanArea: [0, 1, 2, 3, 4, 5, 6, 7, 8], // 展示区域
+    onOffBan: false,
+    showBan: false,
+    banPokes: [], // ban 宝可梦id
+    showBanArea: [], // 展示区域
     endTime: '2026/10/25 21:59'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
@@ -73,9 +73,9 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [92, 93, 94, 353, 354, 425, 426, 778, 911, 710, 711],
-  upIdsMidIds: [9001],
-  upIdsLargeIds: [200, 429, 9005],
+  upIdsSmallIds: [],
+  upIdsMidIds: [],
+  upIdsLargeIds: [],
   noLastList: []
 }
 const fnGetMoonDays = (startTime, multiTimes) => {
@@ -140,17 +140,17 @@ export const ACT_LIST = [
   //   midUp: [35, 36, 173],
   //   times: 1.5
   // }
-  {
-    name: '萬聖節2026：糖果倍增研究',
-    namejp: 'ハロウィン2026：ダブルアメリサーチ',
-    startTime: '2026/10/25 22:00:00',
-    endTime: '2026/11/02 03:59:59',
-    largeUp: [200, 429, 9005],
-    midUp: [9001],
-    smallUp: [92, 93, 94, 353, 354, 425, 426, 778, 911, 710, 711],
-    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
-    notArea: [],
-    isActRandom: true
-  },
-  ...fnGetMoonDays('2026/10/25 04:00', 4)
+  // {
+  //   name: '萬聖節2026：糖果倍增研究',
+  //   namejp: 'ハロウィン2026：ダブルアメリサーチ',
+  //   startTime: '2026/10/25 22:00:00',
+  //   endTime: '2026/11/02 03:59:59',
+  //   largeUp: [200, 429, 9005],
+  //   midUp: [9001],
+  //   smallUp: [92, 93, 94, 353, 354, 425, 426, 778, 911, 710, 711],
+  //   actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+  //   notArea: [],
+  //   isActRandom: true
+  // },
+  // ...fnGetMoonDays('2026/10/25 04:00', 4)
 ]
