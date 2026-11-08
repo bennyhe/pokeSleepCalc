@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { pokedex } from '../config/pokedex.js'
 import { gameMap } from '../config/game.js'
 import {
@@ -10,7 +10,8 @@ import {
 import {
   getDecimalNumber,
   getNum,
-  getStageLevelPicId
+  getStageLevelPicId,
+  toSimpleChinese
 } from '../utils/index.js'
 import { SPO_DATA, SPONEW_TO_SPOOLD, SPO38000 } from '../config/spo.js'
 import { SLEEP_STYLE } from '../config/sleepStyle.js'
@@ -204,27 +205,59 @@ const handleChangeUps = () => {
 import i18n from '../i18n'
 const { t } = i18n.global
 const pokemonNames = ref('')
+// 名称归一化：去空白、全角括号转半角、繁转简，让简体输入也能匹配繁体存储的词条
+const normalizePokeName = (name = '') =>
+  toSimpleChinese(
+    String(name)
+      .replace(/\s+/g, '')
+      .replace(/（/g, '(')
+      .replace(/）/g, ')')
+  )
+// 去掉结尾的形态后缀取基础名：南瓜精(中顆種) => 南瓜精
+const getPokeBaseName = (name = '') =>
+  normalizePokeName(name).replace(/\([^()]*\)$/, '')
+// 图鉴名称归一化结果只算一次，供输入名反查 ID（computed 保证切换语言后重新取值）
+const pokeNameList = computed(() =>
+  Object.values(pokedex).map(pItem => {
+    const nameRaw = t(`POKEMON_NAME.${pItem.id}`)
+    return {
+      id: pItem.id,
+      name: normalizePokeName(nameRaw),
+      baseName: getPokeBaseName(nameRaw)
+    }
+  })
+)
 const handleChangeInputPM = () => {
   const res = []
-  if (pokemonNames.value.indexOf('、 ') > -1) {
-    const PMArr = pokemonNames.value.split('、 ')
-    for (const pId in pokedex) {
-      if (Object.prototype.hasOwnProperty.call(pokedex, pId)) {
-        const pItem = pokedex[pId]
-        PMArr.forEach(PMItem => {
-          if (t(`POKEMON_NAME.${pItem.id}`) === PMItem) {
-            res.push(pItem.id)
-          }
-        })
-      }
+  const miss = []
+  // 分隔符放宽为顿号 / 中英文逗号 / 分号 / 换行，避免必须写成「、 + 空格」才解析
+  const PMArr = pokemonNames.value
+    .split(/[、，,;；\n]+/)
+    .map(item => item.trim())
+    .filter(Boolean)
+  const nameList = pokeNameList.value
+  PMArr.forEach(PMItem => {
+    const inputName = normalizePokeName(PMItem)
+    const inputBase = getPokeBaseName(PMItem)
+    // 先按全名精确匹配（可指定形态，如「南瓜精(大顆種)」）；输入没带后缀时退回基础名匹配，命中原编号（710 而非 710-3）
+    const hit =
+      nameList.find(item => item.name === inputName) ||
+      (inputName === inputBase
+        ? nameList.find(item => item.baseName === inputBase)
+        : null)
+    if (hit) {
+      res.push(hit.id)
+    } else {
+      miss.push(PMItem)
     }
-    console.log(
-      PMArr.length === res.length,
-      PMArr.length,
-      res.length,
-      res.join(',')
-    )
-  }
+  })
+  console.log(
+    PMArr.length === res.length,
+    PMArr.length,
+    res.length,
+    res.join(','),
+    miss
+  )
 }
 </script>
 
