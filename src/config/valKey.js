@@ -34,7 +34,8 @@ export const SLEEP_TYPES = {
 //   16: '萌綠玉米',
 //   17: '醒腦咖啡豆',
 //   18: '沉甸甸南瓜',
-//   19: '嫩亮酪梨'
+//   19: '嫩亮酪梨',
+//   20: '一口堅果'
 // }
 export const FOOD_ENERGY = {
   1: 185,
@@ -55,7 +56,8 @@ export const FOOD_ENERGY = {
   16: 140,
   17: 153,
   18: 250,
-  19: 162
+  19: 162,
+  20: 112
 }
 // export const BERRY_TYPES = {
 //   1: '橙橙果',

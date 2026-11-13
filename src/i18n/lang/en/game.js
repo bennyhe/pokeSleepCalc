@@ -197,7 +197,10 @@ export default {
     14: 'Slowpoke Tail',
     15: 'Greengrass Soybeans',
     16: 'Greengrass Corn',
-    17: 'Rousing Coffee'
+    17: 'Rousing Coffee',
+    18: '沉甸甸南瓜',
+    19: '嫩亮酪梨',
+    20: '一口堅果'
   },
   'MENU_TYPES': {
     1000: 'Mixed Curry',
@@ -272,7 +275,10 @@ export default {
     3023: '“Mold Breaker” Corn Tiramisu',
     3024: 'Clodsire Éclair',
     1024: '萌綠咖哩麵包',
-    1025: '彈跳咖哩烏龍麵'
+    1025: '彈跳咖哩烏龍麵',
+    1026: '種子炸彈烤餅咖哩',
+    2027: '打草結沙拉捲',
+    3028: '美味尾巴蛋糕捲'
   },
   'POKEMON_NAME': {
     1: 'Bulbasaur',

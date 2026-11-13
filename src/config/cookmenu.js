@@ -520,6 +520,27 @@ export const COOKMENU = {
     'baseEnergy': 25539,
     'menuPercent': 78
   },
+  '1026': {
+    // 種子炸彈烤餅咖哩
+    'id': 1026,
+    'type': 1,
+    'from': [
+      {
+        'id': 20,
+        'num': 15
+      },
+      {
+        'id': 18,
+        'num': 12
+      },
+      {
+        'id': 16,
+        'num': 12
+      }
+    ],
+    'baseEnergy': 7950,
+    'menuPercent': 25
+  },
   '2000': {
     // 拌拌沙拉
     'id': 2000,
@@ -1066,6 +1087,31 @@ export const COOKMENU = {
     'baseEnergy': 25356,
     'menuPercent': 61
   },
+  '2027': {
+    // 打草結沙拉捲
+    'id': 2027,
+    'type': 2,
+    'from': [
+      {
+        'id': 20,
+        'num': 30
+      },
+      {
+        'id': 19,
+        'num': 22
+      },
+      {
+        'id': 11,
+        'num': 36
+      },
+      {
+        'id': 12,
+        'num': 33
+      }
+    ],
+    'baseEnergy': 26350,
+    'menuPercent': 82
+  },
   '3000': {
     // 拌拌果汁
     'id': 3000,
@@ -1584,5 +1630,30 @@ export const COOKMENU = {
     }],
     'baseEnergy': 25484,
     'menuPercent': 78
+  },
+  '3028': {
+    // 美味尾巴蛋糕捲
+    'id': 3028,
+    'type': 3,
+    'from': [
+      {
+        'id': 20,
+        'num': 26
+      },
+      {
+        'id': 14,
+        'num': 10
+      },
+      {
+        'id': 15,
+        'num': 22
+      },
+      {
+        'id': 3,
+        'num': 33
+      }
+    ],
+    'baseEnergy': 19846,
+    'menuPercent': 61
   }
 }
