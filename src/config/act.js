@@ -59,11 +59,11 @@ export const SLEEP_CALC_UP = [
 ]
 export const SLEEP_CALC_CONFIG = (() => {
   const config = {
-    onOffBan: false,
-    showBan: false,
-    banPokes: [], // ban 宝可梦id
-    showBanArea: [], // 展示区域
-    endTime: '2026/10/25 21:59'
+    onOffBan: true,
+    showBan: true,
+    banPokes: [546, 547], // ban 宝可梦id
+    showBanArea: [0, 1, 6, 7, 8], // 展示区域
+    endTime: '2026/11/15 21:59'
   }
   // 过了 endTime 自动停用 ban：不再计算 ban 且不展示 ban 开关，活动过期后无需改配置
   if (config.endTime && Date.now() >= new Date(config.endTime).getTime()) {
@@ -73,8 +73,8 @@ export const SLEEP_CALC_CONFIG = (() => {
   return config
 })()
 export const LAB_CONFIG = {
-  upIdsSmallIds: [27, 28, 50, 51, 69, 70, 71, 74, 75, 76, 113, 115, 122, 132, 198, 225, 242, 246, 247, 248, 303, 328, 329, 330, 403, 404, 405, 430, 439, 440, 459, 460, 557, 558, 701, 710, 711, 742, 743, 759, 760, 764, 780, 912, 913, 914],
-  upIdsMidIds: [],
+  upIdsSmallIds: [],
+  upIdsMidIds: [546, 547],
   upIdsLargeIds: [],
   noLastList: []
 }
@@ -144,8 +144,8 @@ export const ACT_LIST = [
     name: '備料週vol.1',
     namejp: 'したごしらえウィーク vol.1',
     startTime: '2026/11/08 22:00:00',
-    endTime: '2026/11/16 03:59:59',
-    smallUp: [27,28,50,51,69,70,71,74,75,76,113,115,122,132,198,225,242,246,247,248,303,328,329,330,403,404,405,430,439,440,459,460,557,558,701,710,711,742,743,759,760,764,780,912,913,914],
+    endTime: '2026/11/15 21:59:59',
+    smallUp: [27, 28, 50, 51, 69, 70, 71, 74, 75, 76, 113, 115, 122, 132, 198, 225, 242, 246, 247, 248, 303, 328, 329, 330, 403, 404, 405, 430, 439, 440, 459, 460, 557, 558, 701, 710, 711, 742, 743, 759, 760, 764, 780, 912, 913, 914],
     actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
     notArea: [],
     isActRandom: true,
@@ -153,6 +153,16 @@ export const ACT_LIST = [
       'green': [328, 403, 439, 459, 557, 759],
       'greenex': [50, 69, 74, 328, 403, 439, 557, 759]
     }
-  }
-  // ...fnGetMoonDays('2026/10/25 04:00', 4)
+  },
+  {
+    name: '來什麼都吃光光！大餐週vol.1',
+    namejp: 'なんでもペロリ！ごちそうウィーク vol.1',
+    startTime: '2026/11/15 22:00:00',
+    endTime: '2026/11/23 03:59:59',
+    midUp: [546, 547],
+    actRandomNum: 0.3,  // 默认0.3 [0.3, 0.4]
+    notArea: [],
+    isActRandom: true
+  },
+  ...fnGetMoonDays('2026/11/23 04:00', 3)
 ]

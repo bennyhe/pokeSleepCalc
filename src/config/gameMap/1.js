@@ -197,6 +197,7 @@ export default {
       'nameId': 2,
       'energy': 31492,
       'sleepStyles': [
+        '546-id-1',
         '25-id-2',
         '52-id-4',
         '1-id-4',
@@ -321,6 +322,7 @@ export default {
       'nameId': 3,
       'energy': 79197,
       'sleepStyles': [
+        '546-id-2',
         '11-id-4',
         '79-id-4',
         '70-id-2',
@@ -382,6 +384,7 @@ export default {
       'nameId': 3,
       'energy': 93540,
       'sleepStyles': [
+        '546-id-4',
         '52-id-3',
         '75-id-2',
         '70-id-4',
@@ -697,6 +700,7 @@ export default {
       'nameId': 4,
       'energy': 428296,
       'sleepStyles': [
+        '547-id-1',
         '26-id-2',
         '700-id-4',
         '36-id-4',
@@ -811,6 +815,7 @@ export default {
       'nameId': 4,
       'energy': 742056,
       'sleepStyles': [
+        '547-id-2',
         '289-id-4',
         '908-id-4',
         '461-id-4',
@@ -835,6 +840,7 @@ export default {
       'nameId': 4,
       'energy': 885619,
       'sleepStyles': [
+        '547-id-4',
         '700-id-3',
         '243-id-2',
         '244-id-2',
