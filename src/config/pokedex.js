@@ -3927,34 +3927,40 @@ const pokedex = {
     // name: '木棉球',
     friendship: 5,
     sleepType: 2,
-    // skillType: 1,
-    // pokeType: 2,
+    skillType: 7,
+    pokeType: 2,
     berryType: 12,
-    maxcarry: 10
-    // helpSpeed: 5700,
-    // foodPer: 17.4,
-    // skillPer: 3.5
-    // food: {
-    //   type: [2, 3, 12],
-    //   count: {
-    //     2: { num: [2, 5, 7] },
-    //     3: { num: [0, 7, 10] },
-    //     12: { num: [0, 0, 11] }
-    //   }
-    // }
+    maxcarry: 10,
+    helpSpeed: 4600,
+    foodPer: 20,
+    skillPer: 3.5,
+    food: {
+      type: [20, 19, 12],
+      count: {
+        20: {
+          num: [2, 3, 5]
+        },
+        19: {
+          num: [0, 3, 5]
+        },
+        12: {
+          num: [0, 0, 7]
+        }
+      }
+    }
   },
   547: {
     id: 547,
     // name: '風妖精',
     friendship: 20,
     sleepType: 2,
-    // skillType: 1,
-    // pokeType: 2,
+    skillType: 7,
+    pokeType: 2,
     berryType: 12,
-    maxcarry: 22
-    // helpSpeed: 3500,
-    // foodPer: 20.4,
-    // skillPer: 4.7
+    maxcarry: 22,
+    helpSpeed: 2400,
+    foodPer: 19.9,
+    skillPer: 3.8
   },
   557: {
     id: 557,
