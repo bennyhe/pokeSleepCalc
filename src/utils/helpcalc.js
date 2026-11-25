@@ -626,7 +626,7 @@ export const getTargetPokemonEnergy = (helpSpeedCalcFormData, pokeId, isUseRankS
 // 返回某技能可选的等级数组（控制技能等级下拉选项与上限）
 export const getSkillLevel = pokeSkillType => {
   const arrLevel = [1, 2, 3, 4, 5, 6, 7]
-  if ([3, 6, 33].includes(pokeSkillType)) {
+  if ([3, 6, 33, 36].includes(pokeSkillType)) {
     // 夢碎獲取S / 十项全能 / 揮指 → 含第8级
     arrLevel.push(8)
   } else if ([4, 7, 8, 14, 15, 17, 18, 21, 22, 34, 35, 37].includes(pokeSkillType)) {
